@@ -608,11 +608,14 @@ export default function Home() {
             <div>
               <p className="text-sm font-semibold tracking-[0.2em] uppercase text-gold mb-4">Free guide</p>
               <h2
-                className="font-display text-3xl sm:text-4xl font-light leading-tight tracking-tight mb-4"
+                className="font-display text-3xl sm:text-4xl font-light leading-tight tracking-tight mb-2"
                 style={{ fontVariationSettings: "'opsz' 96" }}
               >
                 Moving to Richmond?<br />Start here.
               </h2>
+              <p className="font-display text-lg text-gold font-medium mb-4" style={{ fontVariationSettings: "'opsz' 60" }}>
+                Over 70+ pages of value
+              </p>
               <div className="w-12 h-px bg-gold/40 mb-6" />
               <ul className="space-y-3 mb-8">
                 {[
@@ -632,10 +635,79 @@ export default function Home() {
                 ))}
               </ul>
 
-              <a href="#" className="cta-primary px-8 py-4 rounded-sm text-base font-semibold tracking-wide inline-block">
-                Send Me the Guide
-              </a>
-              <p className="text-xs text-ivory/30 mt-3">No spam. Just the guide and occasional Richmond market updates.</p>
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label htmlFor="guide-first" className="text-xs text-ivory/60 font-medium mb-1 block">First Name *</label>
+                    <input
+                      id="guide-first"
+                      type="text"
+                      placeholder="First Name"
+                      className="w-full px-4 py-3 bg-ivory/10 border border-ivory/15 rounded-sm text-sm text-ivory placeholder-ivory/35 focus:outline-none focus:border-gold/50 focus:bg-ivory/15"
+                      style={{ transition: 'border-color 0.2s ease, background 0.2s ease' }}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="guide-last" className="text-xs text-ivory/60 font-medium mb-1 block">Last Name *</label>
+                    <input
+                      id="guide-last"
+                      type="text"
+                      placeholder="Last Name"
+                      className="w-full px-4 py-3 bg-ivory/10 border border-ivory/15 rounded-sm text-sm text-ivory placeholder-ivory/35 focus:outline-none focus:border-gold/50 focus:bg-ivory/15"
+                      style={{ transition: 'border-color 0.2s ease, background 0.2s ease' }}
+                      required
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="guide-phone" className="text-xs text-ivory/60 font-medium mb-1 block">Phone *</label>
+                  <input
+                    id="guide-phone"
+                    type="tel"
+                    placeholder="Phone"
+                    className="w-full px-4 py-3 bg-ivory/10 border border-ivory/15 rounded-sm text-sm text-ivory placeholder-ivory/35 focus:outline-none focus:border-gold/50 focus:bg-ivory/15"
+                    style={{ transition: 'border-color 0.2s ease, background 0.2s ease' }}
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="guide-email" className="text-xs text-ivory/60 font-medium mb-1 block">Email *</label>
+                  <input
+                    id="guide-email"
+                    type="email"
+                    placeholder="Email"
+                    className="w-full px-4 py-3 bg-ivory/10 border border-ivory/15 rounded-sm text-sm text-ivory placeholder-ivory/35 focus:outline-none focus:border-gold/50 focus:bg-ivory/15"
+                    style={{ transition: 'border-color 0.2s ease, background 0.2s ease' }}
+                    required
+                  />
+                </div>
+
+                <p className="text-xs text-gold/70 italic">
+                  We will never share your info or spam you. Unfortunately because some people are just looking to steal our hard work, if we can&apos;t verify you&apos;re a real person your request will be denied.
+                </p>
+
+                <button type="submit" className="cta-primary w-full px-8 py-4 rounded-sm text-base font-semibold tracking-wide">
+                  Submit
+                </button>
+
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    required
+                    className="mt-1 w-4 h-4 rounded border-ivory/30 bg-ivory/10 text-gold accent-gold flex-shrink-0"
+                  />
+                  <span className="text-xs text-ivory/50 leading-relaxed">
+                    By checking this box, I consent to receive transactional and marketing messages related to my account, including appointment reminders, order confirmations, special offers, discounts, and new product updates. Message frequency may vary. Message &amp; Data rates may apply. Reply HELP for help or STOP to opt-out.
+                  </span>
+                </label>
+
+                <div className="flex justify-center gap-2 pt-2">
+                  <a href="#" className="text-xs text-ivory/30 hover:text-gold" style={{ transition: 'color 0.2s ease' }}>Privacy Policy</a>
+                  <span className="text-xs text-ivory/20">|</span>
+                  <a href="#" className="text-xs text-ivory/30 hover:text-gold" style={{ transition: 'color 0.2s ease' }}>Terms of Service</a>
+                </div>
+              </form>
             </div>
           </div>
         </div>
