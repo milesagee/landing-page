@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <ScrollExpandMedia
       mediaType="video"
-      mediaSrc="/images/kitchen-push-in.mov"
+      mediaSrc="/images/kitchen-push-in.mp4"
       bgImageSrc="/images/kitchen-hero.png"
       titleLine1="Find your neighborhood"
       titleLine2="Not just a house."
@@ -234,7 +234,7 @@ export default function Home() {
             }}
           >
             <video
-              src="/images/intro-video.mov"
+              src="/images/intro-video.mp4"
               controls
               playsInline
               preload="metadata"
