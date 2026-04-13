@@ -43,7 +43,7 @@ export default function Nav() {
           </a>
           <a
             href="#quiz"
-            className="cta-secondary px-5 py-2.5 rounded-sm text-sm font-semibold tracking-wide hidden md:inline-block"
+            className="cta-secondary px-5 py-2.5 rounded-sm text-sm font-semibold tracking-wide"
             style={{ borderColor: 'rgba(255,255,255,0.25)', color: '#FFFFFF' }}
           >
             Take the Quiz
