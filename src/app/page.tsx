@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
 import Nav from '@/components/nav';
@@ -56,8 +57,100 @@ function TestimonialCard({ img }: { img: string; name: string; body: string }) {
   );
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "MAMS | Miles Agee",
+  url: "https://mamsnow.com",
+  telephone: "+1-804-809-8340",
+  email: "miles@mamssolutions.com",
+  image: "https://mamsnow.com/images/miles-hero.jpg",
+  logo: "https://mamsnow.com/images/mams-logo.png",
+  description:
+    "Richmond's neighborhood-level real estate expert. Buyer and seller representation across 40+ neighborhoods in Greater Richmond. Free Relocation Guide and Neighborhood Quiz.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Richmond",
+    addressRegion: "VA",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 37.5407,
+    longitude: -77.436,
+  },
+  areaServed: [
+    { "@type": "City", name: "Richmond, Virginia" },
+    { "@type": "AdministrativeArea", name: "Henrico County, Virginia" },
+    { "@type": "AdministrativeArea", name: "Chesterfield County, Virginia" },
+    { "@type": "AdministrativeArea", name: "Hanover County, Virginia" },
+    { "@type": "AdministrativeArea", name: "Goochland County, Virginia" },
+    { "@type": "AdministrativeArea", name: "Powhatan County, Virginia" },
+    { "@type": "AdministrativeArea", name: "New Kent County, Virginia" },
+  ],
+  sameAs: [
+    "https://www.instagram.com/milesaminutesolutions/",
+    "https://www.tiktok.com/@milesaminutemedia",
+    "https://www.youtube.com/@RVALifewithMiles",
+    "https://www.zillow.com/profile/milesRVA",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Real Estate Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Buyer Representation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Seller Representation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Relocation Services" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Free Richmond Relocation Guide" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Neighborhood Matching Quiz" } },
+    ],
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: "26",
+    bestRating: "5",
+  },
+  knowsAbout: [
+    "The Fan District", "Museum District", "Church Hill", "Scott's Addition",
+    "Jackson Ward", "Manchester", "Byrd Park", "Carytown", "Shockoe Bottom",
+    "Fulton", "Rocketts Landing", "Laburnum Park", "Northside", "Forest Hill",
+    "Ginter Park", "Lakeside", "Short Pump", "Glen Allen", "Wyndham",
+    "Twin Hickory", "West Broad Village", "River Road", "Midlothian", "Moseley",
+    "Brandermill", "Woodlake", "Salisbury", "Hallsley", "Magnolia Green",
+    "Mechanicsville", "Atlee", "Ashland", "Goochland", "Powhatan",
+  ],
+};
+
 export default function Home() {
   const iconDrawerRef = useLucideDrawerAnimation();
+  const [guideForm, setGuideForm] = useState({ firstName: '', lastName: '', phone: '', email: '' });
+  const [guideSubmitting, setGuideSubmitting] = useState(false);
+  const [guideSubmitted, setGuideSubmitted] = useState(false);
+  const [guideError, setGuideError] = useState('');
+
+  const handleGuideSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setGuideSubmitting(true);
+    setGuideError('');
+    try {
+      const res = await fetch('/api/guide', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(guideForm),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setGuideSubmitted(true);
+      } else {
+        setGuideError(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setGuideError('Connection error. Please try again.');
+    } finally {
+      setGuideSubmitting(false);
+    }
+  };
   return (
     <ScrollExpandMedia
       mediaType="video"
@@ -68,6 +161,10 @@ export default function Home() {
       scrollToExpand="Scroll to explore"
       textBlend
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* NAV */}
       <Nav />
 
@@ -635,79 +732,111 @@ export default function Home() {
                 ))}
               </ul>
 
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-2 gap-3">
+              {guideSubmitted ? (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="font-display text-2xl font-light text-ivory mb-3" style={{ fontVariationSettings: "'opsz' 60" }}>
+                    Thank you, {guideForm.firstName}!
+                  </h3>
+                  <p className="text-sm text-ivory/70 leading-relaxed max-w-sm mx-auto">
+                    We received your request. We verify every submission to protect the quality of our guide. Once verified, we&apos;ll send the Richmond Relocation Guide directly to your email.
+                  </p>
+                </div>
+              ) : (
+                <form className="space-y-4" onSubmit={handleGuideSubmit}>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label htmlFor="guide-first" className="text-xs text-ivory/60 font-medium mb-1 block">First Name *</label>
+                      <input
+                        id="guide-first"
+                        type="text"
+                        placeholder="First Name"
+                        value={guideForm.firstName}
+                        onChange={(e) => setGuideForm(f => ({ ...f, firstName: e.target.value }))}
+                        className="w-full px-4 py-3 bg-ivory/10 border border-ivory/15 rounded-sm text-sm text-ivory placeholder-ivory/35 focus:outline-none focus:border-gold/50 focus:bg-ivory/15"
+                        style={{ transition: 'border-color 0.2s ease, background 0.2s ease' }}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="guide-last" className="text-xs text-ivory/60 font-medium mb-1 block">Last Name *</label>
+                      <input
+                        id="guide-last"
+                        type="text"
+                        placeholder="Last Name"
+                        value={guideForm.lastName}
+                        onChange={(e) => setGuideForm(f => ({ ...f, lastName: e.target.value }))}
+                        className="w-full px-4 py-3 bg-ivory/10 border border-ivory/15 rounded-sm text-sm text-ivory placeholder-ivory/35 focus:outline-none focus:border-gold/50 focus:bg-ivory/15"
+                        style={{ transition: 'border-color 0.2s ease, background 0.2s ease' }}
+                        required
+                      />
+                    </div>
+                  </div>
                   <div>
-                    <label htmlFor="guide-first" className="text-xs text-ivory/60 font-medium mb-1 block">First Name *</label>
+                    <label htmlFor="guide-phone" className="text-xs text-ivory/60 font-medium mb-1 block">Phone *</label>
                     <input
-                      id="guide-first"
-                      type="text"
-                      placeholder="First Name"
+                      id="guide-phone"
+                      type="tel"
+                      placeholder="Phone"
+                      value={guideForm.phone}
+                      onChange={(e) => setGuideForm(f => ({ ...f, phone: e.target.value }))}
                       className="w-full px-4 py-3 bg-ivory/10 border border-ivory/15 rounded-sm text-sm text-ivory placeholder-ivory/35 focus:outline-none focus:border-gold/50 focus:bg-ivory/15"
                       style={{ transition: 'border-color 0.2s ease, background 0.2s ease' }}
                       required
                     />
                   </div>
                   <div>
-                    <label htmlFor="guide-last" className="text-xs text-ivory/60 font-medium mb-1 block">Last Name *</label>
+                    <label htmlFor="guide-email" className="text-xs text-ivory/60 font-medium mb-1 block">Email *</label>
                     <input
-                      id="guide-last"
-                      type="text"
-                      placeholder="Last Name"
+                      id="guide-email"
+                      type="email"
+                      placeholder="Email"
+                      value={guideForm.email}
+                      onChange={(e) => setGuideForm(f => ({ ...f, email: e.target.value }))}
                       className="w-full px-4 py-3 bg-ivory/10 border border-ivory/15 rounded-sm text-sm text-ivory placeholder-ivory/35 focus:outline-none focus:border-gold/50 focus:bg-ivory/15"
                       style={{ transition: 'border-color 0.2s ease, background 0.2s ease' }}
                       required
                     />
                   </div>
-                </div>
-                <div>
-                  <label htmlFor="guide-phone" className="text-xs text-ivory/60 font-medium mb-1 block">Phone *</label>
-                  <input
-                    id="guide-phone"
-                    type="tel"
-                    placeholder="Phone"
-                    className="w-full px-4 py-3 bg-ivory/10 border border-ivory/15 rounded-sm text-sm text-ivory placeholder-ivory/35 focus:outline-none focus:border-gold/50 focus:bg-ivory/15"
-                    style={{ transition: 'border-color 0.2s ease, background 0.2s ease' }}
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="guide-email" className="text-xs text-ivory/60 font-medium mb-1 block">Email *</label>
-                  <input
-                    id="guide-email"
-                    type="email"
-                    placeholder="Email"
-                    className="w-full px-4 py-3 bg-ivory/10 border border-ivory/15 rounded-sm text-sm text-ivory placeholder-ivory/35 focus:outline-none focus:border-gold/50 focus:bg-ivory/15"
-                    style={{ transition: 'border-color 0.2s ease, background 0.2s ease' }}
-                    required
-                  />
-                </div>
 
-                <p className="text-xs text-gold/70 italic">
-                  We will never share your info or spam you. Unfortunately because some people are just looking to steal our hard work, if we can&apos;t verify you&apos;re a real person your request will be denied.
-                </p>
+                  <p className="text-xs text-gold/70 italic">
+                    We will never share your info or spam you. Unfortunately because some people are just looking to steal our hard work, if we can&apos;t verify you&apos;re a real person your request will be denied.
+                  </p>
 
-                <button type="submit" className="cta-primary w-full px-8 py-4 rounded-sm text-base font-semibold tracking-wide">
-                  Submit
-                </button>
+                  {guideError && (
+                    <p className="text-xs text-red-400 font-medium">{guideError}</p>
+                  )}
 
-                <label className="flex items-start gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    required
-                    className="mt-1 w-4 h-4 rounded border-ivory/30 bg-ivory/10 text-gold accent-gold flex-shrink-0"
-                  />
-                  <span className="text-xs text-ivory/50 leading-relaxed">
-                    By checking this box, I consent to receive transactional and marketing messages related to my account, including appointment reminders, order confirmations, special offers, discounts, and new product updates. Message frequency may vary. Message &amp; Data rates may apply. Reply HELP for help or STOP to opt-out.
-                  </span>
-                </label>
+                  <button
+                    type="submit"
+                    disabled={guideSubmitting}
+                    className="cta-primary w-full px-8 py-4 rounded-sm text-base font-semibold tracking-wide disabled:opacity-50"
+                  >
+                    {guideSubmitting ? 'Submitting...' : 'Submit'}
+                  </button>
 
-                <div className="flex justify-center gap-2 pt-2">
-                  <a href="#" className="text-xs text-ivory/30 hover:text-gold" style={{ transition: 'color 0.2s ease' }}>Privacy Policy</a>
-                  <span className="text-xs text-ivory/20">|</span>
-                  <a href="#" className="text-xs text-ivory/30 hover:text-gold" style={{ transition: 'color 0.2s ease' }}>Terms of Service</a>
-                </div>
-              </form>
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      required
+                      className="mt-1 w-4 h-4 rounded border-ivory/30 bg-ivory/10 text-gold accent-gold flex-shrink-0"
+                    />
+                    <span className="text-xs text-ivory/50 leading-relaxed">
+                      By checking this box, I consent to receive transactional and marketing messages related to my account, including appointment reminders, order confirmations, special offers, discounts, and new product updates. Message frequency may vary. Message &amp; Data rates may apply. Reply HELP for help or STOP to opt-out.
+                    </span>
+                  </label>
+
+                  <div className="flex justify-center gap-2 pt-2">
+                    <a href="#" className="text-xs text-ivory/30 hover:text-gold" style={{ transition: 'color 0.2s ease' }}>Privacy Policy</a>
+                    <span className="text-xs text-ivory/20">|</span>
+                    <a href="#" className="text-xs text-ivory/30 hover:text-gold" style={{ transition: 'color 0.2s ease' }}>Terms of Service</a>
+                  </div>
+                </form>
+              )}
             </div>
           </div>
         </div>

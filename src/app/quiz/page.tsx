@@ -259,7 +259,7 @@ export default function QuizPage() {
   });
   const [results, setResults] = useState<ScoredNeighborhood[]>([]);
   const [showLeadForm, setShowLeadForm] = useState(false);
-  const [formData, setFormData] = useState({ firstName: "", email: "", phone: "" });
+  const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", phone: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -337,6 +337,7 @@ export default function QuizPage() {
 
       const payload = {
         firstName: formData.firstName,
+        lastName: formData.lastName,
         email: formData.email,
         phone: formData.phone,
         source: "landing-page",
@@ -604,19 +605,31 @@ export default function QuizPage() {
               ) : (
                 <form onSubmit={handleFormSubmit} className="max-w-md mx-auto">
                   <h3 className="font-display text-2xl font-light mb-6 text-center">
-                    Where should we send it?
+                    Where should we send your results?
                   </h3>
                   <div className="space-y-4">
-                    <input
-                      type="text"
-                      placeholder="First name"
-                      required
-                      value={formData.firstName}
-                      onChange={(e) =>
-                        setFormData((d) => ({ ...d, firstName: e.target.value }))
-                      }
-                      className="w-full px-4 py-3 bg-teal/30 border border-teal-light/30 rounded-sm text-ivory placeholder:text-teal-light/60 focus:outline-none focus:border-gold"
-                    />
+                    <div className="grid grid-cols-2 gap-3">
+                      <input
+                        type="text"
+                        placeholder="First name"
+                        required
+                        value={formData.firstName}
+                        onChange={(e) =>
+                          setFormData((d) => ({ ...d, firstName: e.target.value }))
+                        }
+                        className="w-full px-4 py-3 bg-teal/30 border border-teal-light/30 rounded-sm text-ivory placeholder:text-teal-light/60 focus:outline-none focus:border-gold"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Last name"
+                        required
+                        value={formData.lastName}
+                        onChange={(e) =>
+                          setFormData((d) => ({ ...d, lastName: e.target.value }))
+                        }
+                        className="w-full px-4 py-3 bg-teal/30 border border-teal-light/30 rounded-sm text-ivory placeholder:text-teal-light/60 focus:outline-none focus:border-gold"
+                      />
+                    </div>
                     <input
                       type="email"
                       placeholder="Email"
@@ -637,6 +650,16 @@ export default function QuizPage() {
                       }
                       className="w-full px-4 py-3 bg-teal/30 border border-teal-light/30 rounded-sm text-ivory placeholder:text-teal-light/60 focus:outline-none focus:border-gold"
                     />
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        required
+                        className="mt-1 w-4 h-4 rounded border-teal-light/30 bg-teal/30 accent-gold flex-shrink-0"
+                      />
+                      <span className="text-xs text-teal-light/70 leading-relaxed">
+                        By checking this box, I consent to receive transactional and marketing messages including appointment reminders, special offers, and updates. Message frequency may vary. Message &amp; Data rates may apply. Reply HELP for help or STOP to opt-out.
+                      </span>
+                    </label>
                     <button
                       type="submit"
                       disabled={submitting}
