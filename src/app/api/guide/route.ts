@@ -9,6 +9,38 @@ const ghlHeaders = {
   Version: "2021-07-28",
 };
 
+// Disposable/temporary email domains to block
+const DISPOSABLE_DOMAINS = new Set([
+  'guerrillamail.com','guerrillamail.net','guerrillamail.org','grr.la','guerrillamailblock.com',
+  'tempmail.com','temp-mail.org','temp-mail.io','tempail.com','tempr.email',
+  'throwaway.email','throwaway.com','throwamail.com',
+  'mailinator.com','maildrop.cc','dispostable.com','yopmail.com','yopmail.fr',
+  'sharklasers.com','guerrillamail.info','spam4.me','trashmail.com','trashmail.net',
+  'fakeinbox.com','mailnesia.com','mailcatch.com','discard.email','discardmail.com',
+  'getairmail.com','mailexpire.com','mohmal.com','burnermail.io','10minutemail.com',
+  'minutemail.com','emailondeck.com','getnada.com','mailsac.com','harakirimail.com',
+  'crazymailing.com','tmail.ws','tmpmail.net','tmpmail.org','bupmail.com',
+  'mailtemp.info','inboxkitten.com','33mail.com','anonaddy.com','simplelogin.co',
+]);
+
+function isDisposableEmail(email: string): boolean {
+  const domain = email.split('@')[1]?.toLowerCase();
+  return !domain || DISPOSABLE_DOMAINS.has(domain);
+}
+
+function isValidUSPhone(phone: string): boolean {
+  // Strip non-digits
+  const digits = phone.replace(/\D/g, '');
+  // Must be 10 digits (or 11 starting with 1)
+  if (digits.length === 10) return true;
+  if (digits.length === 11 && digits[0] === '1') return true;
+  return false;
+}
+
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+}
+
 interface GuidePayload {
   firstName: string;
   lastName: string;
@@ -23,6 +55,30 @@ export async function POST(request: Request) {
     if (!body.firstName || !body.lastName || !body.email || !body.phone) {
       return Response.json(
         { success: false, error: "All fields are required" },
+        { status: 400 }
+      );
+    }
+
+    // Validate email format
+    if (!isValidEmail(body.email)) {
+      return Response.json(
+        { success: false, error: "Please enter a valid email address" },
+        { status: 400 }
+      );
+    }
+
+    // Block disposable emails
+    if (isDisposableEmail(body.email)) {
+      return Response.json(
+        { success: false, error: "Please use a permanent email address, not a temporary one" },
+        { status: 400 }
+      );
+    }
+
+    // Validate phone format
+    if (!isValidUSPhone(body.phone)) {
+      return Response.json(
+        { success: false, error: "Please enter a valid US phone number" },
         { status: 400 }
       );
     }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { neighborhoods, type Neighborhood } from "./neighborhoods";
+import { zones, type Zone } from "./neighborhoods";
 
 // ─── TYPES ──────────────────────────────────────────────────
 type LifeStage =
@@ -18,6 +18,19 @@ type BudgetRange =
   | "550-750k"
   | "750k-plus"
   | "flexible";
+
+type SettingPref =
+  | "urban-core"
+  | "established-suburb"
+  | "new-suburb"
+  | "rural-land";
+
+type HomeStyle =
+  | "historic-character"
+  | "turnkey-established"
+  | "new-construction"
+  | "land-acreage"
+  | "flexible-housing";
 
 type CommuteRange =
   | "under-10"
@@ -36,6 +49,13 @@ type LifestyleTag =
 
 type SchoolsTaxes = "very-important" | "somewhat" | "not-a-factor";
 
+type WeeknightTag =
+  | "dining-variety"
+  | "errand-convenience"
+  | "outdoor-access"
+  | "family-infrastructure"
+  | "solitude";
+
 type VibeScenario =
   | "farmers-market-brewery-dinner"
   | "soccer-costco-backyard"
@@ -44,27 +64,38 @@ type VibeScenario =
   | "new-restaurant-live-music";
 
 interface QuizAnswers {
-  budget: BudgetRange | null;
   lifeStage: LifeStage | null;
+  budget: BudgetRange | null;
+  setting: SettingPref | null;
+  homeStyle: HomeStyle | null;
   walkability: number; // 1-5
   commute: CommuteRange | null;
-  lifestyle: LifestyleTag[];
   schoolsTaxes: SchoolsTaxes | null;
+  lifestyle: LifestyleTag[];
+  weeknight: WeeknightTag[];
   vibe: VibeScenario | null;
 }
 
-interface ScoredNeighborhood {
-  neighborhood: Neighborhood;
+interface ScoredZone {
+  zone: Zone;
   score: number;
+  displayScore: number;
 }
 
 // ─── SCORING ENGINE ─────────────────────────────────────────
-function scoreNeighborhoods(answers: QuizAnswers): ScoredNeighborhood[] {
-  return neighborhoods
-    .map((n) => {
+const MAX_POSSIBLE_SCORE = 150;
+
+function scoreZones(answers: QuizAnswers): ScoredZone[] {
+  return zones
+    .map((z) => {
       let score = 0;
 
-      // Q1: Budget (pass/fail gate)
+      // Q1: Life Stage (+20)
+      if (answers.lifeStage && z.personas.includes(answers.lifeStage)) {
+        score += 20;
+      }
+
+      // Q2: Budget (pass/fail gate)
       if (answers.budget && answers.budget !== "flexible") {
         const ranges: Record<BudgetRange, [number, number]> = {
           "under-400k": [0, 400],
@@ -74,24 +105,49 @@ function scoreNeighborhoods(answers: QuizAnswers): ScoredNeighborhood[] {
           flexible: [0, 2000],
         };
         const [userLow, userHigh] = ranges[answers.budget];
-        const overlaps = n.priceLow <= userHigh && n.priceHigh >= userLow;
+        const overlaps = z.priceLow <= userHigh && z.priceHigh >= userLow;
         if (!overlaps) score -= 50;
       }
 
-      // Q2: Life Stage (+20)
-      if (answers.lifeStage && n.personas.includes(answers.lifeStage)) {
-        score += 20;
+      // Q3: Setting (+15 match / -10 mismatch)
+      if (answers.setting) {
+        if (z.settingType === answers.setting) {
+          score += 15;
+        } else {
+          // Partial credit for adjacent settings
+          const adjacencyMap: Record<string, string[]> = {
+            "urban-core": ["established-suburb"],
+            "established-suburb": ["urban-core", "new-suburb"],
+            "new-suburb": ["established-suburb", "rural-land"],
+            "rural-land": ["new-suburb"],
+          };
+          if (adjacencyMap[answers.setting]?.includes(z.settingType)) {
+            score += 3;
+          } else {
+            score -= 10;
+          }
+        }
       }
 
-      // Q3: Walkability (+15 scaled)
-      // walkability 1 = wants space (low walk score good), 5 = wants walkability (high walk score good)
+      // Q4: Home Style (+15 match / -8 mismatch)
+      if (answers.homeStyle && answers.homeStyle !== "flexible-housing") {
+        if (z.housingStock.includes(answers.homeStyle)) {
+          score += 15;
+        } else {
+          score -= 8;
+        }
+      } else if (answers.homeStyle === "flexible-housing") {
+        score += 3;
+      }
+
+      // Q5: Walkability (+15 scaled)
       const userWalkPref = answers.walkability; // 1-5
-      const normalizedWalkScore = n.walkScore / 100; // 0-1
+      const normalizedWalkScore = z.walkScore / 100; // 0-1
       const userTarget = (userWalkPref - 1) / 4; // 0-1
       const walkDiff = 1 - Math.abs(normalizedWalkScore - userTarget);
       score += Math.round(walkDiff * 15);
 
-      // Q4: Commute (+15 if in range, -10 if exceeds)
+      // Q6: Commute (+15 if in range, -10 if exceeds)
       if (answers.commute && answers.commute !== "remote-no-commute") {
         const commuteMaxes: Record<string, number> = {
           "under-10": 10,
@@ -100,47 +156,73 @@ function scoreNeighborhoods(answers: QuizAnswers): ScoredNeighborhood[] {
           "30-plus": 999,
         };
         const maxCommute = commuteMaxes[answers.commute];
-        if (n.commuteMinutes <= maxCommute) {
+        if (z.commuteMinutes <= maxCommute) {
           score += 15;
-        } else if (n.commuteMinutes > maxCommute + 10) {
+        } else if (z.commuteMinutes > maxCommute + 10) {
           score -= 10;
         }
       } else if (answers.commute === "remote-no-commute") {
-        // No penalty or bonus based on commute
-        score += 8; // slight bonus for flexibility
+        score += 8;
       }
 
-      // Q5: Lifestyle (+10 per match, max 20)
+      // Q7: Schools/Taxes (+15)
+      if (answers.schoolsTaxes === "very-important") {
+        if (z.taxRate < 0.90) score += 15;
+        else score -= 5;
+      } else if (answers.schoolsTaxes === "not-a-factor") {
+        if (z.region === "city") score += 10;
+      } else if (answers.schoolsTaxes === "somewhat") {
+        if (z.taxRate < 1.00) score += 5;
+      }
+
+      // Q8: Lifestyle (+10 per match, max 20)
       if (answers.lifestyle.length > 0) {
         let lifestyleMatch = 0;
         for (const tag of answers.lifestyle) {
-          if (n.lifestyleTags.includes(tag)) lifestyleMatch += 10;
+          if (z.lifestyleTags.includes(tag)) lifestyleMatch += 10;
         }
         score += Math.min(lifestyleMatch, 20);
       }
 
-      // Q6: Schools/Taxes (+15)
-      if (answers.schoolsTaxes === "very-important") {
-        if (n.taxRate < 0.90) score += 15;
-        else score -= 5;
-      } else if (answers.schoolsTaxes === "not-a-factor") {
-        if (n.region === "city") score += 10;
-      } else if (answers.schoolsTaxes === "somewhat") {
-        if (n.taxRate < 1.00) score += 5;
+      // Q9: Weeknight (+10 per match, max 20 / -5 per mismatch)
+      if (answers.weeknight.length > 0) {
+        for (const tag of answers.weeknight) {
+          if (z.weeknightTags.includes(tag)) {
+            score += 10;
+          } else {
+            score -= 5;
+          }
+        }
       }
 
-      // Q7: Vibe (+15)
-      if (answers.vibe && n.vibeTags.includes(answers.vibe)) {
+      // Q10: Vibe (+15)
+      if (answers.vibe && z.vibeTags.includes(answers.vibe)) {
         score += 15;
       }
 
-      return { neighborhood: n, score };
+      const displayScore = Math.max(0, Math.min(100, Math.round((score / MAX_POSSIBLE_SCORE) * 100)));
+
+      return { zone: z, score, displayScore };
     })
     .sort((a, b) => b.score - a.score);
 }
 
 // ─── QUIZ QUESTIONS CONFIG ──────────────────────────────────
 const QUESTIONS = [
+  {
+    id: "lifeStage",
+    label: "Life Stage",
+    question: "Who's making this move?",
+    type: "single" as const,
+    options: [
+      { value: "single-pro", label: "Just me" },
+      { value: "couple-no-kids", label: "Me and my partner" },
+      { value: "family-young", label: "Family with young kids" },
+      { value: "family-teens", label: "Family with teenagers" },
+      { value: "empty-nester", label: "Empty nester / downsizing" },
+      { value: "remote-relocator", label: "Relocating for work" },
+    ],
+  },
   {
     id: "budget",
     label: "Budget",
@@ -155,17 +237,28 @@ const QUESTIONS = [
     ],
   },
   {
-    id: "lifeStage",
-    label: "Life Stage",
-    question: "Who's making this move?",
+    id: "setting",
+    label: "Setting",
+    question: "Close your eyes. Where do you picture your front door?",
     type: "single" as const,
     options: [
-      { value: "single-pro", label: "Just me" },
-      { value: "couple-no-kids", label: "Me and my partner" },
-      { value: "family-young", label: "Family with young kids" },
-      { value: "family-teens", label: "Family with teenagers" },
-      { value: "empty-nester", label: "Empty nester / downsizing" },
-      { value: "remote-relocator", label: "Relocating for work" },
+      { value: "urban-core", label: "A sidewalk-lined street where I can hear my neighbors' music" },
+      { value: "established-suburb", label: "A tree-lined neighborhood with a yard and a short drive to everything" },
+      { value: "new-suburb", label: "A brand-new street where the landscaping is still growing in" },
+      { value: "rural-land", label: "A quiet road with real distance between me and the next house" },
+    ],
+  },
+  {
+    id: "homeStyle",
+    label: "Home Style",
+    question: "What kind of home gets you excited?",
+    type: "single" as const,
+    options: [
+      { value: "historic-character", label: "A historic home with hardwood floors, tall ceilings, and a story to tell" },
+      { value: "turnkey-established", label: "A move-in-ready home -- maybe 5 to 15 years old, nothing needs fixing" },
+      { value: "new-construction", label: "Brand new construction where I pick the finishes" },
+      { value: "land-acreage", label: "Land and space -- acreage, room for the dog to run" },
+      { value: "flexible-housing", label: "I'm open -- show me what fits my budget" },
     ],
   },
   {
@@ -190,11 +283,23 @@ const QUESTIONS = [
     ],
   },
   {
+    id: "schoolsTaxes",
+    label: "Schools & Taxes",
+    question: "How important are school districts and lower property taxes?",
+    type: "single" as const,
+    options: [
+      { value: "very-important", label: "Very important" },
+      { value: "somewhat", label: "Somewhat important" },
+      { value: "not-a-factor", label: "Not a factor" },
+    ],
+  },
+  {
     id: "lifestyle",
     label: "Lifestyle",
     question: "Pick the two that matter most to your daily life.",
     type: "multi" as const,
     maxSelect: 2,
+    answerKey: "lifestyle" as const,
     options: [
       { value: "restaurants-nightlife", label: "Restaurants, bars, and nightlife" },
       { value: "parks-trails", label: "Parks, trails, and outdoor access" },
@@ -205,14 +310,18 @@ const QUESTIONS = [
     ],
   },
   {
-    id: "schoolsTaxes",
-    label: "Schools & Taxes",
-    question: "How important are school districts and lower property taxes?",
-    type: "single" as const,
+    id: "weeknight",
+    label: "Tuesday Night",
+    question: "It's a random Tuesday evening. What do you want within a 10-minute drive?",
+    type: "multi" as const,
+    maxSelect: 2,
+    answerKey: "weeknight" as const,
     options: [
-      { value: "very-important", label: "Very important" },
-      { value: "somewhat", label: "Somewhat important" },
-      { value: "not-a-factor", label: "Not a factor" },
+      { value: "dining-variety", label: "A great restaurant I didn't have to plan around" },
+      { value: "errand-convenience", label: "Target, the grocery store, and a gas station -- just make errands easy" },
+      { value: "outdoor-access", label: "A park, a trail, or water I can get to before sunset" },
+      { value: "family-infrastructure", label: "My kid's practice, the school, and a pediatrician" },
+      { value: "solitude", label: "Nothing -- I moved here to get away from all that" },
     ],
   },
   {
@@ -247,17 +356,20 @@ const QUESTIONS = [
 
 // ─── MAIN COMPONENT ─────────────────────────────────────────
 export default function QuizPage() {
-  const [step, setStep] = useState(0); // 0-6 = questions, 7 = results
+  const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<QuizAnswers>({
-    budget: null,
     lifeStage: null,
+    budget: null,
+    setting: null,
+    homeStyle: null,
     walkability: 3,
     commute: null,
-    lifestyle: [],
     schoolsTaxes: null,
+    lifestyle: [],
+    weeknight: [],
     vibe: null,
   });
-  const [results, setResults] = useState<ScoredNeighborhood[]>([]);
+  const [results, setResults] = useState<ScoredZone[]>([]);
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", phone: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -269,18 +381,24 @@ export default function QuizPage() {
     const q = QUESTIONS[step];
     if (!q) return false;
     switch (q.id) {
-      case "budget":
-        return answers.budget !== null;
       case "lifeStage":
         return answers.lifeStage !== null;
+      case "budget":
+        return answers.budget !== null;
+      case "setting":
+        return answers.setting !== null;
+      case "homeStyle":
+        return answers.homeStyle !== null;
       case "walkability":
-        return true; // slider always has a value
+        return true;
       case "commute":
         return answers.commute !== null;
-      case "lifestyle":
-        return answers.lifestyle.length >= 1;
       case "schoolsTaxes":
         return answers.schoolsTaxes !== null;
+      case "lifestyle":
+        return answers.lifestyle.length >= 1;
+      case "weeknight":
+        return answers.weeknight.length >= 1;
       case "vibe":
         return answers.vibe !== null;
       default:
@@ -292,10 +410,9 @@ export default function QuizPage() {
     if (step < totalSteps - 1) {
       setStep(step + 1);
     } else {
-      // Score and show results
-      const scored = scoreNeighborhoods(answers);
+      const scored = scoreZones(answers);
       setResults(scored.slice(0, 3));
-      setStep(totalSteps); // results step
+      setStep(totalSteps);
     }
   }, [step, totalSteps, answers]);
 
@@ -311,16 +428,16 @@ export default function QuizPage() {
   );
 
   const handleMultiSelect = useCallback(
-    (value: LifestyleTag, maxSelect: number) => {
+    (answerKey: "lifestyle" | "weeknight", value: string, maxSelect: number) => {
       setAnswers((prev) => {
-        const current = prev.lifestyle;
+        const current = prev[answerKey] as string[];
         if (current.includes(value)) {
-          return { ...prev, lifestyle: current.filter((v) => v !== value) };
+          return { ...prev, [answerKey]: current.filter((v) => v !== value) };
         }
         if (current.length >= maxSelect) {
-          return { ...prev, lifestyle: [...current.slice(1), value] };
+          return { ...prev, [answerKey]: [...current.slice(1), value] };
         }
-        return { ...prev, lifestyle: [...current, value] };
+        return { ...prev, [answerKey]: [...current, value] };
       });
     },
     []
@@ -342,26 +459,31 @@ export default function QuizPage() {
         phone: formData.phone,
         source: "landing-page",
         answers: {
-          budget: answers.budget,
           lifeStage: answers.lifeStage,
+          budget: answers.budget,
+          setting: answers.setting,
+          homeStyle: answers.homeStyle,
           walkability: answers.walkability,
           commute: answers.commute,
-          lifestyle: answers.lifestyle,
           schoolsTaxes: answers.schoolsTaxes,
+          lifestyle: answers.lifestyle,
+          weeknight: answers.weeknight,
           vibe: answers.vibe,
         },
         results: {
           top3: results.map((r) => ({
-            name: r.neighborhood.name,
-            score: r.score,
+            name: r.zone.name,
+            score: r.displayScore,
           })),
         },
         tags: [
           "quiz-lead",
           "source-landing-page",
-          ...results.map((r) => r.neighborhood.tagSlug),
+          ...results.map((r) => r.zone.tagSlug),
           answers.budget ? `budget-${answers.budget}` : null,
           answers.lifeStage ? `stage-${answers.lifeStage}` : null,
+          answers.setting ? `setting-${answers.setting}` : null,
+          answers.homeStyle ? `home-${answers.homeStyle}` : null,
         ].filter(Boolean),
       };
 
@@ -372,7 +494,6 @@ export default function QuizPage() {
           body: JSON.stringify(payload),
         });
       } catch {
-        // Fail silently - don't block the user experience
         console.error("Quiz API submission failed");
       }
 
@@ -386,7 +507,6 @@ export default function QuizPage() {
   if (step === totalSteps) {
     return (
       <div className="min-h-screen bg-paper">
-        {/* Header */}
         <header className="bg-deep-teal text-ivory py-4 px-6">
           <div className="max-w-3xl mx-auto flex justify-between items-center">
             <span className="font-display text-lg tracking-wide">MAMS</span>
@@ -401,23 +521,22 @@ export default function QuizPage() {
             Your Results
           </p>
           <h1 className="font-display text-3xl md:text-4xl font-light text-deep-teal mb-2">
-            Your Top 3 Richmond Neighborhoods
+            Your Top 3 Parts of Town
           </h1>
           <p className="text-teal mb-10">
-            Based on your answers, here are the neighborhoods that fit your lifestyle, budget, and priorities.
+            Based on your answers, here are the areas of Greater Richmond that fit your lifestyle, budget, and priorities. Each one has neighborhoods worth exploring.
           </p>
 
-          {/* Top 3 Cards */}
+          {/* Top 3 Zone Cards */}
           <div className="space-y-6 mb-12">
             {results.map((r, i) => {
-              const n = r.neighborhood;
+              const z = r.zone;
               const lifeStage = answers.lifeStage || "default";
-              const blurb =
-                n.whyFitsYou[lifeStage] || n.whyFitsYou.default;
+              const blurb = z.whyFitsYou[lifeStage] || z.whyFitsYou.default;
 
               return (
                 <div
-                  key={n.id}
+                  key={z.id}
                   className="bg-ivory border border-deep-teal/8 rounded-sm p-6 md:p-8"
                 >
                   <div className="flex items-start justify-between mb-3">
@@ -426,13 +545,13 @@ export default function QuizPage() {
                         #{i + 1} Match
                       </span>
                       <h2 className="font-display text-xl md:text-2xl font-normal text-deep-teal mt-1">
-                        {n.name}
+                        {z.name}
                       </h2>
-                      <p className="text-teal-light text-sm">{n.oneLiner}</p>
+                      <p className="text-teal-light text-sm">{z.oneLiner}</p>
                     </div>
                     <div className="text-right shrink-0 ml-4">
                       <span className="text-2xl font-display font-medium text-gold">
-                        {r.score}
+                        {r.displayScore}
                       </span>
                       <span className="text-xs text-teal-light block">
                         /100
@@ -440,14 +559,31 @@ export default function QuizPage() {
                     </div>
                   </div>
 
+                  {/* Notable Communities */}
+                  <div className="mb-4 py-3 border-b border-deep-teal/6">
+                    <p className="text-[10px] uppercase tracking-widest text-teal-light font-semibold mb-1.5">
+                      Neighborhoods to explore
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {z.notableCommunities.map((community) => (
+                        <span
+                          key={community}
+                          className="inline-block px-3 py-1 bg-gold/10 text-deep-teal text-xs font-medium rounded-sm"
+                        >
+                          {community}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Data Grid */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4 py-4 border-y border-deep-teal/6">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4 py-4 border-b border-deep-teal/6">
                     <div>
                       <p className="text-[10px] uppercase tracking-widest text-teal-light font-semibold">
                         Median Price
                       </p>
                       <p className="font-semibold text-deep-teal text-sm">
-                        {n.medianPrice}
+                        {z.medianPrice}
                       </p>
                     </div>
                     <div>
@@ -455,7 +591,7 @@ export default function QuizPage() {
                         Walk Score
                       </p>
                       <p className="font-semibold text-deep-teal text-sm">
-                        {n.walkScore}/100
+                        {z.walkScore}/100
                       </p>
                     </div>
                     <div>
@@ -463,7 +599,7 @@ export default function QuizPage() {
                         Commute
                       </p>
                       <p className="font-semibold text-deep-teal text-sm">
-                        {n.commuteMinutes} min
+                        {z.commuteMinutes} min
                       </p>
                     </div>
                     <div>
@@ -471,7 +607,7 @@ export default function QuizPage() {
                         Tax Rate
                       </p>
                       <p className="font-semibold text-deep-teal text-sm">
-                        ${n.taxRate.toFixed(2)}/100
+                        ${z.taxRate.toFixed(2)}/100
                       </p>
                     </div>
                   </div>
@@ -498,10 +634,10 @@ export default function QuizPage() {
                   </th>
                   {results.map((r) => (
                     <th
-                      key={r.neighborhood.id}
+                      key={r.zone.id}
                       className="text-left py-2 px-2 font-display font-normal text-deep-teal"
                     >
-                      {r.neighborhood.name}
+                      {r.zone.name}
                     </th>
                   ))}
                 </tr>
@@ -512,8 +648,8 @@ export default function QuizPage() {
                     Price
                   </td>
                   {results.map((r) => (
-                    <td key={r.neighborhood.id} className="py-2 px-2">
-                      {r.neighborhood.medianPrice}
+                    <td key={r.zone.id} className="py-2 px-2">
+                      {r.zone.medianPrice}
                     </td>
                   ))}
                 </tr>
@@ -522,8 +658,8 @@ export default function QuizPage() {
                     Walk Score
                   </td>
                   {results.map((r) => (
-                    <td key={r.neighborhood.id} className="py-2 px-2">
-                      {r.neighborhood.walkScore}
+                    <td key={r.zone.id} className="py-2 px-2">
+                      {r.zone.walkScore}
                     </td>
                   ))}
                 </tr>
@@ -532,8 +668,8 @@ export default function QuizPage() {
                     Commute
                   </td>
                   {results.map((r) => (
-                    <td key={r.neighborhood.id} className="py-2 px-2">
-                      {r.neighborhood.commuteMinutes} min
+                    <td key={r.zone.id} className="py-2 px-2">
+                      {r.zone.commuteMinutes} min
                     </td>
                   ))}
                 </tr>
@@ -542,8 +678,8 @@ export default function QuizPage() {
                     Tax Rate
                   </td>
                   {results.map((r) => (
-                    <td key={r.neighborhood.id} className="py-2 px-2">
-                      ${r.neighborhood.taxRate.toFixed(2)}/100
+                    <td key={r.zone.id} className="py-2 px-2">
+                      ${r.zone.taxRate.toFixed(2)}/100
                     </td>
                   ))}
                 </tr>
@@ -552,8 +688,18 @@ export default function QuizPage() {
                     Schools
                   </td>
                   {results.map((r) => (
-                    <td key={r.neighborhood.id} className="py-2 px-2">
-                      {r.neighborhood.schoolDistrict}
+                    <td key={r.zone.id} className="py-2 px-2">
+                      {r.zone.schoolDistrict}
+                    </td>
+                  ))}
+                </tr>
+                <tr className="border-b border-deep-teal/6">
+                  <td className="py-2 pr-4 text-[10px] uppercase tracking-widest text-teal-light font-semibold">
+                    Neighborhoods
+                  </td>
+                  {results.map((r) => (
+                    <td key={r.zone.id} className="py-2 px-2 text-xs">
+                      {r.zone.notableCommunities.join(", ")}
                     </td>
                   ))}
                 </tr>
@@ -563,10 +709,10 @@ export default function QuizPage() {
                   </td>
                   {results.map((r) => (
                     <td
-                      key={r.neighborhood.id}
+                      key={r.zone.id}
                       className="py-2 px-2 text-xs text-deep-teal/60"
                     >
-                      {r.neighborhood.tradeoff}
+                      {r.zone.tradeoff}
                     </td>
                   ))}
                 </tr>
@@ -695,12 +841,15 @@ export default function QuizPage() {
               onClick={() => {
                 setStep(0);
                 setAnswers({
-                  budget: null,
                   lifeStage: null,
+                  budget: null,
+                  setting: null,
+                  homeStyle: null,
                   walkability: 3,
                   commute: null,
-                  lifestyle: [],
                   schoolsTaxes: null,
+                  lifestyle: [],
+                  weeknight: [],
                   vibe: null,
                 });
                 setResults([]);
@@ -722,7 +871,6 @@ export default function QuizPage() {
 
   return (
     <div className="min-h-screen bg-paper flex flex-col">
-      {/* Header */}
       <header className="bg-deep-teal text-ivory py-4 px-6">
         <div className="max-w-2xl mx-auto flex justify-between items-center">
           <span className="font-display text-lg tracking-wide">MAMS</span>
@@ -789,15 +937,16 @@ export default function QuizPage() {
                 Select up to {currentQuestion.maxSelect}
               </p>
               {currentQuestion.options!.map((opt) => {
-                const isSelected = answers.lifestyle.includes(
-                  opt.value as LifestyleTag
-                );
+                const answerKey = currentQuestion.answerKey || "lifestyle";
+                const currentSelections = answers[answerKey] as string[];
+                const isSelected = currentSelections.includes(opt.value);
                 return (
                   <button
                     key={opt.value}
                     onClick={() =>
                       handleMultiSelect(
-                        opt.value as LifestyleTag,
+                        answerKey as "lifestyle" | "weeknight",
+                        opt.value,
                         currentQuestion.maxSelect!
                       )
                     }

@@ -439,20 +439,20 @@ export default function Home() {
       {/* NEIGHBORHOOD QUIZ TEASER */}
       <section id="quiz" className="bg-ivory py-16 md:py-20 px-6 border-y border-deep-teal/6">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-gold mb-4">2-minute quiz</p>
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-gold mb-4">3-minute quiz</p>
           <h2
             className="font-display text-2xl sm:text-3xl font-light text-deep-teal leading-tight tracking-tight mb-4"
             style={{ fontVariationSettings: "'opsz' 96" }}
           >
-            Which Richmond neighborhood matches your lifestyle?
+            Which part of Richmond is your fit?
           </h2>
           <p className="text-base text-deep-teal/60 leading-relaxed mb-8 max-w-xl mx-auto" style={{ lineHeight: '1.7' }}>
-            Answer 7 quick questions about how you live and we&apos;ll match you with the Richmond neighborhoods that actually fit. Personalized results with real market data.
+            Answer 10 questions about how you live and we&apos;ll match you with the parts of Greater Richmond that actually fit. City, suburbs, or further out. Personalized results with real market data.
           </p>
           <a href="/quiz" className="cta-primary px-8 py-4 rounded-sm text-base font-semibold tracking-wide inline-block">
             Take the Quiz
           </a>
-          <p className="text-xs text-deep-teal/35 mt-4">Takes about 2 minutes. No account needed.</p>
+          <p className="text-xs text-deep-teal/35 mt-4">Takes about 3 minutes. No account needed.</p>
         </div>
       </section>
 
