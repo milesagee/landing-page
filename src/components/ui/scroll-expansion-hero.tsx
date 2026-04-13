@@ -4,9 +4,8 @@ import {
   useEffect,
   useRef,
   useState,
+  useCallback,
   ReactNode,
-  TouchEvent,
-  WheelEvent,
 } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -39,12 +38,18 @@ const ScrollExpandMedia = ({
   const [scrollProgress, setScrollProgress] = useState<number>(0);
   const [showContent, setShowContent] = useState<boolean>(false);
   const [mediaFullyExpanded, setMediaFullyExpanded] = useState<boolean>(false);
-  const [touchStartY, setTouchStartY] = useState<number>(0);
   const [isMobileState, setIsMobileState] = useState<boolean>(false);
 
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  // Use refs for touch tracking (state is async, refs are instant)
+  const touchStartYRef = useRef<number>(0);
+  const scrollProgressRef = useRef<number>(0);
+  const mediaFullyExpandedRef = useRef<boolean>(false);
 
-  // Derive title lines: use explicit props or fall back to splitting title
+  // Keep refs in sync with state
+  scrollProgressRef.current = scrollProgress;
+  mediaFullyExpandedRef.current = mediaFullyExpanded;
+
   const line1 = titleLine1 || (title ? title.split(',')[0] : '');
   const line2 = titleLine2 || (title ? title.split(',').slice(1).join(',').trim() : '');
 
@@ -52,24 +57,29 @@ const ScrollExpandMedia = ({
     setScrollProgress(0);
     setShowContent(false);
     setMediaFullyExpanded(false);
+    scrollProgressRef.current = 0;
+    mediaFullyExpandedRef.current = false;
   }, [mediaType]);
 
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
+    const handleWheel = (e: globalThis.WheelEvent) => {
+      if (mediaFullyExpandedRef.current && e.deltaY < 0 && window.scrollY <= 5) {
         setMediaFullyExpanded(false);
+        mediaFullyExpandedRef.current = false;
         e.preventDefault();
-      } else if (!mediaFullyExpanded) {
+      } else if (!mediaFullyExpandedRef.current) {
         e.preventDefault();
         const scrollDelta = e.deltaY * 0.0009;
         const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
+          Math.max(scrollProgressRef.current + scrollDelta, 0),
           1
         );
         setScrollProgress(newProgress);
+        scrollProgressRef.current = newProgress;
 
         if (newProgress >= 1) {
           setMediaFullyExpanded(true);
+          mediaFullyExpandedRef.current = true;
           setShowContent(true);
         } else if (newProgress < 0.75) {
           setShowContent(false);
@@ -77,83 +87,67 @@ const ScrollExpandMedia = ({
       }
     };
 
-    const handleTouchStart = (e: TouchEvent) => {
-      setTouchStartY(e.touches[0].clientY);
+    const handleTouchStart = (e: globalThis.TouchEvent) => {
+      touchStartYRef.current = e.touches[0].clientY;
     };
 
-    const handleTouchMove = (e: TouchEvent) => {
-      if (!touchStartY) return;
+    const handleTouchMove = (e: globalThis.TouchEvent) => {
+      if (!touchStartYRef.current) return;
 
       const touchY = e.touches[0].clientY;
-      const deltaY = touchStartY - touchY;
+      const deltaY = touchStartYRef.current - touchY;
 
-      if (mediaFullyExpanded && deltaY < -20 && window.scrollY <= 5) {
+      if (mediaFullyExpandedRef.current && deltaY < -20 && window.scrollY <= 5) {
         setMediaFullyExpanded(false);
+        mediaFullyExpandedRef.current = false;
         e.preventDefault();
-      } else if (!mediaFullyExpanded) {
+      } else if (!mediaFullyExpandedRef.current) {
         e.preventDefault();
-        const scrollFactor = deltaY < 0 ? 0.008 : 0.005;
+        const scrollFactor = deltaY < 0 ? 0.006 : 0.004;
         const scrollDelta = deltaY * scrollFactor;
         const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
+          Math.max(scrollProgressRef.current + scrollDelta, 0),
           1
         );
         setScrollProgress(newProgress);
+        scrollProgressRef.current = newProgress;
 
         if (newProgress >= 1) {
           setMediaFullyExpanded(true);
+          mediaFullyExpandedRef.current = true;
           setShowContent(true);
         } else if (newProgress < 0.75) {
           setShowContent(false);
         }
 
-        setTouchStartY(touchY);
+        touchStartYRef.current = touchY;
       }
     };
 
-    const handleTouchEnd = (): void => {
-      setTouchStartY(0);
+    const handleTouchEnd = () => {
+      touchStartYRef.current = 0;
     };
 
-    const handleScroll = (): void => {
-      if (!mediaFullyExpanded) {
+    const handleScroll = () => {
+      if (!mediaFullyExpandedRef.current) {
         window.scrollTo(0, 0);
       }
     };
 
-    window.addEventListener('wheel', handleWheel as unknown as EventListener, {
-      passive: false,
-    });
-    window.addEventListener('scroll', handleScroll as EventListener);
-    window.addEventListener(
-      'touchstart',
-      handleTouchStart as unknown as EventListener,
-      { passive: false }
-    );
-    window.addEventListener(
-      'touchmove',
-      handleTouchMove as unknown as EventListener,
-      { passive: false }
-    );
-    window.addEventListener('touchend', handleTouchEnd as EventListener);
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd);
 
     return () => {
-      window.removeEventListener(
-        'wheel',
-        handleWheel as unknown as EventListener
-      );
-      window.removeEventListener('scroll', handleScroll as EventListener);
-      window.removeEventListener(
-        'touchstart',
-        handleTouchStart as unknown as EventListener
-      );
-      window.removeEventListener(
-        'touchmove',
-        handleTouchMove as unknown as EventListener
-      );
-      window.removeEventListener('touchend', handleTouchEnd as EventListener);
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [scrollProgress, mediaFullyExpanded, touchStartY]);
+  }, []);
 
   useEffect(() => {
     const checkIfMobile = (): void => {
@@ -166,9 +160,14 @@ const ScrollExpandMedia = ({
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  const mediaWidth = 300 + scrollProgress * (isMobileState ? 650 : 1250);
-  const mediaHeight = 400 + scrollProgress * (isMobileState ? 200 : 400);
-  const textTranslateX = scrollProgress * (isMobileState ? 180 : 150);
+  // Mobile: start smaller, expand more dramatically
+  const mediaWidth = isMobileState
+    ? 180 + scrollProgress * 800
+    : 300 + scrollProgress * 1250;
+  const mediaHeight = isMobileState
+    ? 240 + scrollProgress * 400
+    : 400 + scrollProgress * 400;
+  const textTranslateX = scrollProgress * (isMobileState ? 120 : 150);
 
   return (
     <div
@@ -204,7 +203,7 @@ const ScrollExpandMedia = ({
 
               {/* Title line 1 - ABOVE the video */}
               <motion.h2
-                className='font-display text-5xl md:text-6xl lg:text-7xl font-normal text-ivory transition-none tracking-tight relative z-20 mb-8'
+                className='font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-ivory text-center transition-none tracking-tight relative z-20 mb-6 md:mb-8 px-4'
                 style={{
                   transform: `translateX(-${textTranslateX}vw)`,
                   fontVariationSettings: "'opsz' 144",
@@ -221,7 +220,7 @@ const ScrollExpandMedia = ({
                   width: `${mediaWidth}px`,
                   height: `${mediaHeight}px`,
                   maxWidth: '95vw',
-                  maxHeight: '55vh',
+                  maxHeight: isMobileState ? '50vh' : '55vh',
                   boxShadow: '0px 4px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212,175,55,0.15)',
                 }}
               >
@@ -278,7 +277,7 @@ const ScrollExpandMedia = ({
 
               {/* Title line 2 - BELOW the video */}
               <motion.h2
-                className='font-display text-5xl md:text-6xl lg:text-7xl font-normal text-center text-gold transition-none tracking-tight relative z-20 mt-8'
+                className='font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-center text-gold transition-none tracking-tight relative z-20 mt-6 md:mt-8 px-4'
                 style={{
                   transform: `translateX(${textTranslateX}vw)`,
                   fontVariationSettings: "'opsz' 144",
@@ -291,7 +290,7 @@ const ScrollExpandMedia = ({
               {/* Scroll hint */}
               {scrollToExpand && (
                 <p
-                  className='text-ivory/50 font-body font-medium text-center text-sm mt-6 relative z-20 transition-none'
+                  className='text-ivory/50 font-body font-medium text-center text-sm mt-4 md:mt-6 relative z-20 transition-none'
                   style={{ transform: `translateX(${textTranslateX}vw)` }}
                 >
                   {scrollToExpand}
