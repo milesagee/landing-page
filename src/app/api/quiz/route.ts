@@ -1,3 +1,6 @@
+import { isRateLimited } from "@/lib/rate-limit";
+import { buildGuideMapHtml } from "@/app/quiz/guide-map";
+
 const GHL_TOKEN = process.env.GHL_MAMS_TOKEN;
 const GHL_LOCATION_ID = process.env.GHL_MAMS_LOCATION_ID;
 const GHL_WORKFLOW_ID = process.env.GHL_QUIZ_WORKFLOW_ID;
@@ -28,7 +31,7 @@ interface QuizPayload {
     vibe: string | null;
   };
   results: {
-    top3: { name: string; score: number }[];
+    top6: { id: string; name: string; score: number; region: "city" | "suburb" | "outer" }[];
   };
   tags: string[];
 }
@@ -65,7 +68,45 @@ function isValidEmail(email: string): boolean {
 
 export async function POST(request: Request) {
   try {
+    // Rate limiting
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+    if (isRateLimited(ip)) {
+      return Response.json(
+        { success: false, error: "Too many requests. Please try again later." },
+        { status: 429 }
+      );
+    }
+
+    // Content-Type check
+    const contentType = request.headers.get("content-type");
+    if (!contentType?.includes("application/json")) {
+      return Response.json(
+        { success: false, error: "Content-Type must be application/json" },
+        { status: 415 }
+      );
+    }
+
     const body: QuizPayload = await request.json();
+
+    // Length limits
+    if (body.firstName?.length > 100 || body.lastName?.length > 100) {
+      return Response.json(
+        { success: false, error: "Name fields must be under 100 characters" },
+        { status: 400 }
+      );
+    }
+    if (body.email?.length > 254) {
+      return Response.json(
+        { success: false, error: "Email must be under 254 characters" },
+        { status: 400 }
+      );
+    }
+    if (body.phone?.length > 20) {
+      return Response.json(
+        { success: false, error: "Phone number is too long" },
+        { status: 400 }
+      );
+    }
 
     if (!body.firstName || !body.lastName || !body.email || !body.phone) {
       return Response.json(
@@ -103,7 +144,15 @@ export async function POST(request: Request) {
       );
     }
 
-    // Step 1: Create contact in GHL
+    const top6 = body.results?.top6 || [];
+
+    // Build the personalized three-block guide map HTML that the email template
+    // renders via {{contact.quiz_guide_map_html}}. See src/app/quiz/guide-map.ts.
+    const guideMapHtml = buildGuideMapHtml(body.answers, top6);
+    const top1Name = top6[0]?.name || "";
+    const top6Names = top6.map((t) => t.name).join(", ");
+
+    // Step 1: Create contact in GHL with custom fields
     const createRes = await fetch(`${GHL_BASE}/contacts/`, {
       method: "POST",
       headers: ghlHeaders,
@@ -115,6 +164,11 @@ export async function POST(request: Request) {
         locationId: GHL_LOCATION_ID,
         source: "Neighborhood Quiz",
         tags: body.tags,
+        customFields: [
+          { id: "TKoAJstSMuBgBOOuAsrX", value: guideMapHtml }, // Quiz Guide Map HTML (LARGE_TEXT)
+          { id: "6yPKMYQ5XbKDYXVDWfHC", value: top1Name },     // Quiz Top 1 Zone (TEXT)
+          { id: "CTFoCvknFBngLvbbLDwJ", value: top6Names },    // Quiz Top 6 Zones (TEXT)
+        ],
       }),
     });
 
@@ -122,19 +176,18 @@ export async function POST(request: Request) {
     const contactId = createData?.contact?.id;
 
     if (!contactId) {
-      console.error("Failed to create GHL contact:", createData);
+      console.error("Failed to create GHL contact — status:", createRes.status);
       return Response.json(
         { success: false, error: "Failed to create contact" },
         { status: 502 }
       );
     }
 
-    // Step 2: Add quiz results note
-    const top3 = body.results?.top3 || [];
+    // Step 2: Add quiz results note (for humans viewing the contact in GHL)
     const noteBody = [
-      "NEIGHBORHOOD QUIZ RESULTS (v2 - Zone Based)",
+      "NEIGHBORHOOD QUIZ RESULTS (v3 - Top 6 + Personalized Guide Map)",
       "",
-      ...top3.map(
+      ...top6.map(
         (m, i) => `#${i + 1} Match: ${m.name} (Score: ${m.score}/100)`
       ),
       "",
@@ -171,7 +224,7 @@ export async function POST(request: Request) {
       );
     }
 
-    return Response.json({ success: true, contactId });
+    return Response.json({ success: true });
   } catch (err) {
     console.error("Quiz API error:", err);
     return Response.json(

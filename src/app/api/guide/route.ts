@@ -1,3 +1,5 @@
+import { isRateLimited } from "@/lib/rate-limit";
+
 const GHL_TOKEN = process.env.GHL_MAMS_TOKEN;
 const GHL_LOCATION_ID = process.env.GHL_MAMS_LOCATION_ID;
 const GHL_WORKFLOW_ID = process.env.GHL_GUIDE_WORKFLOW_ID;
@@ -50,7 +52,45 @@ interface GuidePayload {
 
 export async function POST(request: Request) {
   try {
+    // Rate limiting
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+    if (isRateLimited(ip)) {
+      return Response.json(
+        { success: false, error: "Too many requests. Please try again later." },
+        { status: 429 }
+      );
+    }
+
+    // Content-Type check
+    const contentType = request.headers.get("content-type");
+    if (!contentType?.includes("application/json")) {
+      return Response.json(
+        { success: false, error: "Content-Type must be application/json" },
+        { status: 415 }
+      );
+    }
+
     const body: GuidePayload = await request.json();
+
+    // Length limits
+    if (body.firstName?.length > 100 || body.lastName?.length > 100) {
+      return Response.json(
+        { success: false, error: "Name fields must be under 100 characters" },
+        { status: 400 }
+      );
+    }
+    if (body.email?.length > 254) {
+      return Response.json(
+        { success: false, error: "Email must be under 254 characters" },
+        { status: 400 }
+      );
+    }
+    if (body.phone?.length > 20) {
+      return Response.json(
+        { success: false, error: "Phone number is too long" },
+        { status: 400 }
+      );
+    }
 
     if (!body.firstName || !body.lastName || !body.email || !body.phone) {
       return Response.json(
@@ -110,7 +150,7 @@ export async function POST(request: Request) {
     const contactId = createData?.contact?.id;
 
     if (!contactId) {
-      console.error("Failed to create GHL contact:", createData);
+      console.error("Failed to create GHL contact — status:", createRes.status);
       return Response.json(
         { success: false, error: "Failed to create contact" },
         { status: 502 }
@@ -150,7 +190,7 @@ export async function POST(request: Request) {
       );
     }
 
-    return Response.json({ success: true, contactId });
+    return Response.json({ success: true });
   } catch (err) {
     console.error("Guide API error:", err);
     return Response.json(

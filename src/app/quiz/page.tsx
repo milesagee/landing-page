@@ -374,6 +374,7 @@ export default function QuizPage() {
   const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", phone: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const totalSteps = QUESTIONS.length;
 
@@ -411,7 +412,7 @@ export default function QuizPage() {
       setStep(step + 1);
     } else {
       const scored = scoreZones(answers);
-      setResults(scored.slice(0, 3));
+      setResults(scored.slice(0, 6));
       setStep(totalSteps);
     }
   }, [step, totalSteps, answers]);
@@ -451,6 +452,7 @@ export default function QuizPage() {
     async (e: React.FormEvent) => {
       e.preventDefault();
       setSubmitting(true);
+      setSubmitError(null);
 
       const payload = {
         firstName: formData.firstName,
@@ -471,15 +473,17 @@ export default function QuizPage() {
           vibe: answers.vibe,
         },
         results: {
-          top3: results.map((r) => ({
+          top6: results.map((r) => ({
+            id: r.zone.id,
             name: r.zone.name,
             score: r.displayScore,
+            region: r.zone.region,
           })),
         },
         tags: [
           "quiz-lead",
           "source-landing-page",
-          ...results.map((r) => r.zone.tagSlug),
+          ...results.slice(0, 3).map((r) => r.zone.tagSlug),
           answers.budget ? `budget-${answers.budget}` : null,
           answers.lifeStage ? `stage-${answers.lifeStage}` : null,
           answers.setting ? `setting-${answers.setting}` : null,
@@ -488,16 +492,22 @@ export default function QuizPage() {
       };
 
       try {
-        await fetch("/api/quiz", {
+        const res = await fetch("/api/quiz", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          setSubmitError(data.error || "Something went wrong sending your info. Please try again or text Miles directly at 804-729-6267.");
+          setSubmitting(false);
+          return;
+        }
+        setFormSubmitted(true);
       } catch {
-        console.error("Quiz API submission failed");
+        setSubmitError("Connection failed. Please check your internet and try again.");
       }
 
-      setFormSubmitted(true);
       setSubmitting(false);
     },
     [formData, answers, results]
@@ -521,10 +531,10 @@ export default function QuizPage() {
             Your Results
           </p>
           <h1 className="font-display text-3xl md:text-4xl font-light text-deep-teal mb-2">
-            Your Top 3 Parts of Town
+            Your Top 6 Parts of Town
           </h1>
           <p className="text-teal mb-10">
-            Based on your answers, here are the areas of Greater Richmond that fit your lifestyle, budget, and priorities. Each one has neighborhoods worth exploring.
+            Based on your answers, here are the six areas of Greater Richmond that best fit your lifestyle, budget, and priorities. Your best match is #1. Each one has neighborhoods worth exploring.
           </p>
 
           {/* Top 3 Zone Cards */}
@@ -621,18 +631,21 @@ export default function QuizPage() {
             })}
           </div>
 
-          {/* Comparison Table */}
+          {/* Comparison Table: leaders only */}
           <div className="bg-ivory border border-deep-teal/8 rounded-sm p-6 md:p-8 mb-12 overflow-x-auto">
-            <h3 className="font-display text-lg text-deep-teal mb-4">
-              Side-by-Side Comparison
+            <h3 className="font-display text-lg text-deep-teal mb-1">
+              Your Top 3 Side-by-Side
             </h3>
+            <p className="text-teal-light text-xs mb-4">
+              Quick comparison of your three strongest matches.
+            </p>
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-deep-teal/10">
                   <th className="text-left py-2 pr-4 text-[10px] uppercase tracking-widest text-teal-light font-semibold">
                     &nbsp;
                   </th>
-                  {results.map((r) => (
+                  {results.slice(0, 3).map((r) => (
                     <th
                       key={r.zone.id}
                       className="text-left py-2 px-2 font-display font-normal text-deep-teal"
@@ -647,7 +660,7 @@ export default function QuizPage() {
                   <td className="py-2 pr-4 text-[10px] uppercase tracking-widest text-teal-light font-semibold">
                     Price
                   </td>
-                  {results.map((r) => (
+                  {results.slice(0, 3).map((r) => (
                     <td key={r.zone.id} className="py-2 px-2">
                       {r.zone.medianPrice}
                     </td>
@@ -657,7 +670,7 @@ export default function QuizPage() {
                   <td className="py-2 pr-4 text-[10px] uppercase tracking-widest text-teal-light font-semibold">
                     Walk Score
                   </td>
-                  {results.map((r) => (
+                  {results.slice(0, 3).map((r) => (
                     <td key={r.zone.id} className="py-2 px-2">
                       {r.zone.walkScore}
                     </td>
@@ -667,7 +680,7 @@ export default function QuizPage() {
                   <td className="py-2 pr-4 text-[10px] uppercase tracking-widest text-teal-light font-semibold">
                     Commute
                   </td>
-                  {results.map((r) => (
+                  {results.slice(0, 3).map((r) => (
                     <td key={r.zone.id} className="py-2 px-2">
                       {r.zone.commuteMinutes} min
                     </td>
@@ -677,7 +690,7 @@ export default function QuizPage() {
                   <td className="py-2 pr-4 text-[10px] uppercase tracking-widest text-teal-light font-semibold">
                     Tax Rate
                   </td>
-                  {results.map((r) => (
+                  {results.slice(0, 3).map((r) => (
                     <td key={r.zone.id} className="py-2 px-2">
                       ${r.zone.taxRate.toFixed(2)}/100
                     </td>
@@ -687,7 +700,7 @@ export default function QuizPage() {
                   <td className="py-2 pr-4 text-[10px] uppercase tracking-widest text-teal-light font-semibold">
                     Schools
                   </td>
-                  {results.map((r) => (
+                  {results.slice(0, 3).map((r) => (
                     <td key={r.zone.id} className="py-2 px-2">
                       {r.zone.schoolDistrict}
                     </td>
@@ -697,7 +710,7 @@ export default function QuizPage() {
                   <td className="py-2 pr-4 text-[10px] uppercase tracking-widest text-teal-light font-semibold">
                     Neighborhoods
                   </td>
-                  {results.map((r) => (
+                  {results.slice(0, 3).map((r) => (
                     <td key={r.zone.id} className="py-2 px-2 text-xs">
                       {r.zone.notableCommunities.join(", ")}
                     </td>
@@ -707,7 +720,7 @@ export default function QuizPage() {
                   <td className="py-2 pr-4 text-[10px] uppercase tracking-widest text-teal-light font-semibold">
                     Honest Tradeoff
                   </td>
-                  {results.map((r) => (
+                  {results.slice(0, 3).map((r) => (
                     <td
                       key={r.zone.id}
                       className="py-2 px-2 text-xs text-deep-teal/60"
@@ -726,17 +739,16 @@ export default function QuizPage() {
               {!showLeadForm ? (
                 <div className="text-center">
                   <h3 className="font-display text-2xl font-light mb-3">
-                    Want the full breakdown?
+                    Want the full top 6 breakdown?
                   </h3>
                   <p className="text-teal-light mb-6 max-w-md mx-auto">
-                    Get your personalized neighborhood report with block-level
-                    detail, plus the complete Richmond Relocation Guide.
+                    These three are just the start. Get your full top 6 match report plus the complete Richmond Relocation Guide with the chapters to focus on based on your answers.
                   </p>
                   <button
                     onClick={() => setShowLeadForm(true)}
                     className="bg-gold text-deep-teal px-8 py-3 rounded-sm font-semibold text-sm uppercase tracking-wide hover:bg-gold-dark transition-colors"
                   >
-                    Send My Report
+                    Send My Full Report
                   </button>
                   <p className="text-teal-light text-xs mt-4">
                     Or skip straight to a conversation:{" "}
@@ -751,7 +763,7 @@ export default function QuizPage() {
               ) : (
                 <form onSubmit={handleFormSubmit} className="max-w-md mx-auto">
                   <h3 className="font-display text-2xl font-light mb-6 text-center">
-                    Where should we send your results?
+                    Where should we send your full report?
                   </h3>
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-3">
@@ -811,8 +823,13 @@ export default function QuizPage() {
                       disabled={submitting}
                       className="w-full bg-gold text-deep-teal py-3 rounded-sm font-semibold text-sm uppercase tracking-wide hover:bg-gold-dark transition-colors disabled:opacity-50"
                     >
-                      {submitting ? "Sending..." : "Send My Report"}
+                      {submitting ? "Sending..." : "Send My Full Report"}
                     </button>
+                    {submitError && (
+                      <p className="text-sm text-red-300 text-center mt-2" role="alert">
+                        {submitError}
+                      </p>
+                    )}
                   </div>
                 </form>
               )}
@@ -820,11 +837,13 @@ export default function QuizPage() {
           ) : (
             <div className="bg-deep-teal text-ivory rounded-sm p-8 md:p-10 text-center">
               <h3 className="font-display text-2xl font-light mb-3">
-                Check your inbox, {formData.firstName}.
+                You're in, {formData.firstName}.
               </h3>
+              <p className="text-teal-light mb-3">
+                Monique from our team is about to text you. She's our concierge and she makes sure every lead gets taken care of.
+              </p>
               <p className="text-teal-light mb-6">
-                Your personalized neighborhood report and the complete Richmond
-                Relocation Guide are on the way.
+                Reply to her quick question and your full top 6 report plus the Richmond Relocation Guide land in your inbox right after.
               </p>
               <a
                 href="https://mamsrealestate.com/consult"
