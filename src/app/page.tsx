@@ -229,6 +229,14 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 mb-10 fade-up fade-up-4">
                 <a
                   href="#guide"
+                  onClick={(e) => {
+                    const el = document.getElementById('guide');
+                    if (el) {
+                      e.preventDefault();
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      history.replaceState(null, '', '#guide');
+                    }
+                  }}
                   className="cta-primary px-8 py-4 rounded-sm text-base font-semibold tracking-wide text-center"
                 >
                   Get the Richmond Relocation Guide
@@ -918,7 +926,18 @@ export default function Home() {
             Whether you&apos;re buying, selling, or just starting to think about it, a 20-minute conversation with Miles will give you clarity on your next step. No pressure, no pitch.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <a href="#guide" className="cta-primary px-10 py-4 rounded-sm text-lg font-semibold tracking-wide inline-block">
+            <a
+              href="#guide"
+              onClick={(e) => {
+                const el = document.getElementById('guide');
+                if (el) {
+                  e.preventDefault();
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  history.replaceState(null, '', '#guide');
+                }
+              }}
+              className="cta-primary px-10 py-4 rounded-sm text-lg font-semibold tracking-wide inline-block"
+            >
               Get the Relocation Guide
             </a>
             <a
