@@ -170,7 +170,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative bg-deep-teal text-ivory overflow-hidden grain min-h-screen flex items-center">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <div
             className="absolute rounded-full"
             style={{
@@ -458,7 +458,7 @@ export default function Home() {
 
       {/* HOW IT WORKS */}
       <section id="how-it-works" className="bg-deep-teal text-ivory py-20 md:py-28 px-6 relative grain">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <div
             className="absolute rounded-full"
             style={{
@@ -649,7 +649,7 @@ export default function Home() {
 
       {/* LEAD MAGNET */}
       <section id="guide" className="bg-deep-teal text-ivory py-20 md:py-28 px-6 relative grain">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <div
             className="absolute rounded-full"
             style={{
@@ -875,7 +875,7 @@ export default function Home() {
 
       {/* FINAL CTA */}
       <section id="contact" className="bg-deep-teal text-ivory py-20 md:py-28 px-6 relative grain">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <div
             className="absolute rounded-full"
             style={{

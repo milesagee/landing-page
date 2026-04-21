@@ -22,7 +22,7 @@ export default function Nav() {
             Miles a Minute Solutions
           </span>
         </a>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-3 md:gap-8">
           <a
             href="#how-it-works"
             className="nav-link text-sm font-medium tracking-wide hidden md:block"
@@ -42,15 +42,15 @@ export default function Nav() {
             Results
           </a>
           <a
-            href="#quiz"
-            className="cta-secondary px-5 py-2.5 rounded-sm text-sm font-semibold tracking-wide"
+            href="/quiz"
+            className="cta-secondary px-3 sm:px-5 py-2 sm:py-2.5 rounded-sm text-sm font-semibold tracking-wide whitespace-nowrap"
             style={{ borderColor: 'rgba(255,255,255,0.25)', color: '#FFFFFF' }}
           >
             Take the Quiz
           </a>
           <a
             href="#guide"
-            className="cta-primary px-5 py-2.5 rounded-sm text-sm font-semibold tracking-wide"
+            className="cta-primary px-5 py-2.5 rounded-sm text-sm font-semibold tracking-wide hidden sm:inline-block"
           >
             Get the Free Guide
           </a>
