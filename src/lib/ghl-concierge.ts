@@ -26,6 +26,11 @@ export const CONCIERGE_FIELD_KEYS = {
   shareUrl: "contact.concierge_share_url",
   shareViewedAt: "contact.concierge_share_viewed_at",
   notifiedAt: "contact.concierge_notified_at",
+  lifestylePriorities: "contact.concierge_lifestyle_priorities",
+  dailyAnchors: "contact.concierge_daily_anchors",
+  anchorAddress: "contact.concierge_anchor_address",
+  shortlistV2Json: "contact.concierge_shortlist_v2_json",
+  lastTouchAt: "contact.concierge_last_touch_at",
 } as const;
 
 export interface ConciergeContact {
@@ -40,6 +45,11 @@ export interface ConciergeContact {
   shareUrl?: string;
   shareViewedAt?: string;
   notifiedAt?: string;
+  lifestylePriorities?: string;
+  dailyAnchors?: string;
+  anchorAddress?: string;
+  shortlistV2Json?: string;
+  lastTouchAt?: string;
 }
 
 interface RawCustomField {
@@ -91,6 +101,11 @@ export async function getConciergeContact(contactId: string): Promise<ConciergeC
     shareUrl: extractFieldById(c, fieldIds.shareUrl),
     shareViewedAt: extractFieldById(c, fieldIds.shareViewedAt),
     notifiedAt: extractFieldById(c, fieldIds.notifiedAt),
+    lifestylePriorities: extractFieldById(c, fieldIds.lifestylePriorities),
+    dailyAnchors: extractFieldById(c, fieldIds.dailyAnchors),
+    anchorAddress: extractFieldById(c, fieldIds.anchorAddress),
+    shortlistV2Json: extractFieldById(c, fieldIds.shortlistV2Json),
+    lastTouchAt: extractFieldById(c, fieldIds.lastTouchAt),
   };
 }
 
