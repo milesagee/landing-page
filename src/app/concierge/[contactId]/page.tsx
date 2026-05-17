@@ -88,15 +88,17 @@ export default async function ConciergeSharePage({
           <h2 className="font-display text-2xl text-deep-teal mb-3">What happens next</h2>
           <ol className="space-y-3 text-sm sm:text-base text-deep-teal/80 leading-relaxed list-decimal pl-5">
             <li>
-              Look through the shortlist. Note any you want to tour or rule out.
+              Look through the shortlist. Note any you want to tour and any you want to rule out.
             </li>
             <li>
-              Chosen on our team will reach out within a business day to schedule tours and answer
-              questions on management companies, fees, and the things the listing sites don&rsquo;t tell you.
+              Reply to {firstName === "there" ? "the email" : `the email Miles just sent ${firstName}`} with the ones that caught your eye, and Chosen
+              will line up tours and answer the management-company questions the listing sites
+              won&rsquo;t.
             </li>
             <li>
-              When you&rsquo;re ready to write an application, MAMS handles the leasing legwork end-to-end:
-              transparent fee, full representation, no surprises.
+              If you want us all the way through the lease, that&rsquo;s the move-in concierge: tours,
+              application, lease read, keys. If you want to take it from here, the intel above is
+              yours either way.
             </li>
           </ol>
         </div>
@@ -105,15 +107,14 @@ export default async function ConciergeSharePage({
       <footer className="border-t border-deep-teal/10 bg-paper">
         <div className="max-w-3xl mx-auto px-6 py-8 text-xs text-deep-teal/60 leading-relaxed">
           <p className="mb-2">
-            This shortlist was prepared privately for {firstName}. Please don&rsquo;t share this link
-            publicly: it&rsquo;s tied to your account.
+            Built for {firstName}. The link is tied to your account, so please keep it to yourself.
           </p>
           <p>
-            Questions?{" "}
+            Reach Miles directly:{" "}
             <a href="mailto:miles@mamsnow.com" className="underline hover:text-gold-dark">
               miles@mamsnow.com
             </a>{" "}
-            &middot; MAMS &middot; Miles Agee, Realtor, Samson Properties / OneSouth Realty team.
+            &middot; Miles Agee, Realtor, Samson Properties / OneSouth Realty team.
           </p>
         </div>
       </footer>
