@@ -18,6 +18,9 @@ export interface V2Property {
   from_price?: number;
   beds?: string;
   insiderUrl?: string;
+  contactPhone?: string | null;
+  contactEmail?: string | null;
+  website?: string | null;
   vibes_paragraph?: string;
   highlights?: V2Highlight[];
   addendum?: {
@@ -55,22 +58,56 @@ export function formatPrice(n: number | null | undefined): string {
   return "$" + Math.round(n).toLocaleString();
 }
 
+function mapsUrl(address: string): string {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+}
+
+function telHref(raw: string): string {
+  return `tel:${raw.replace(/[^\d+]/g, "")}`;
+}
+
+function ensureHttp(url: string): string {
+  if (/^https?:\/\//i.test(url)) return url;
+  return `https://${url}`;
+}
+
 export function PropertyCardV2({ property }: { property: V2Property }) {
   const hasHighlights = property.highlights && property.highlights.length > 0;
   const hasVibes = !!property.vibes_paragraph;
   const hasAddendum = property.addendum && (property.addendum.characterSummary || property.addendum.sentimentSummary);
   const hasCrossRefs = property.cross_references && (property.cross_references.relocation_guide_section || property.cross_references.mamsnow_seo_page);
   const traps = property.addendum?.leaseTrapRedFlags || [];
+  const hasContactRow = !!(property.contactPhone || property.contactEmail || property.website);
 
   return (
     <article className="bg-white rounded-lg border border-deep-teal/10 p-6 sm:p-8 mb-6 shadow-sm">
       <header className="flex items-start justify-between gap-4 mb-2">
         <div>
           <h3 className="font-display text-xl sm:text-2xl text-deep-teal leading-tight">
-            {property.name}
+            {property.insiderUrl ? (
+              <a
+                href={property.insiderUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold-dark underline decoration-gold-dark/30 hover:decoration-gold-dark underline-offset-4"
+              >
+                {property.name}
+              </a>
+            ) : (
+              property.name
+            )}
           </h3>
           {property.address ? (
-            <p className="text-xs text-deep-teal/60 mt-1">{property.address}</p>
+            <p className="text-xs mt-1">
+              <a
+                href={mapsUrl(property.address)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-deep-teal/60 hover:text-gold-dark underline decoration-deep-teal/15 hover:decoration-gold-dark"
+              >
+                {property.address}
+              </a>
+            </p>
           ) : null}
           <p className="text-xs text-deep-teal mt-2">
             {property.neighborhood}
@@ -166,6 +203,48 @@ export function PropertyCardV2({ property }: { property: V2Property }) {
           <ul className="text-sm text-deep-teal/85 space-y-1.5 list-disc pl-5">
             {traps.slice(0, 4).map((t, i) => <li key={i}>{t}</li>)}
           </ul>
+        </section>
+      ) : null}
+
+      {hasContactRow ? (
+        <section className="mt-5 border-t border-deep-teal/10 pt-4">
+          <p className="text-[11px] uppercase tracking-[0.12em] text-deep-teal/55 font-semibold mb-2">
+            Reach the property direct
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {property.contactPhone ? (
+              <a
+                href={telHref(property.contactPhone)}
+                className="inline-flex items-center gap-1.5 bg-paper hover:bg-gold/10 border border-deep-teal/15 hover:border-gold-dark text-deep-teal text-sm px-3 py-2 rounded-md transition"
+              >
+                <span aria-hidden>📞</span>
+                <span>{property.contactPhone}</span>
+              </a>
+            ) : null}
+            {property.website ? (
+              <a
+                href={ensureHttp(property.website)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-paper hover:bg-gold/10 border border-deep-teal/15 hover:border-gold-dark text-deep-teal text-sm px-3 py-2 rounded-md transition"
+              >
+                <span aria-hidden>🌐</span>
+                <span>Visit website</span>
+              </a>
+            ) : null}
+            {property.contactEmail ? (
+              <a
+                href={`mailto:${property.contactEmail}`}
+                className="inline-flex items-center gap-1.5 bg-paper hover:bg-gold/10 border border-deep-teal/15 hover:border-gold-dark text-deep-teal text-sm px-3 py-2 rounded-md transition"
+              >
+                <span aria-hidden>✉</span>
+                <span>{property.contactEmail}</span>
+              </a>
+            ) : null}
+          </div>
+          <p className="text-[11px] text-deep-teal/55 mt-2 italic">
+            We give you the info. When you&rsquo;re ready, the concierge handles tours, applications, and lease negotiation end-to-end.
+          </p>
         </section>
       ) : null}
 
