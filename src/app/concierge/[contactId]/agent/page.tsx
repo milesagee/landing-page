@@ -11,6 +11,13 @@ import {
   formatUsd,
   CONCIERGE_DEFAULT_VALUE_USD,
 } from "@/lib/ghl-concierge-agent";
+import {
+  buildFirstCallHooks,
+  callByDeadline,
+  buildTcDashboardUrl,
+  isTcActiveStage,
+  TC_ACTIVATION_STAGE_POSITIONS,
+} from "@/lib/concierge-tc";
 import { PropertyCardV2, parseV2 } from "@/components/concierge/PropertyCardV2";
 import { StageSelector } from "./StageSelector";
 
@@ -70,6 +77,21 @@ export default async function ConciergeAgentDashboard({
   const fullName = `${contact.firstName || ""} ${contact.lastName || ""}`.trim() || "this lead";
   const v2 = parseV2(contact.shortlistV2Json);
   const clientShareUrl = `https://mamsnow.com/concierge/${contactId}?t=${t}`;
+  const tcDashboardUrl = buildTcDashboardUrl(contactId, t);
+  const firstCallHooks = buildFirstCallHooks({
+    criteria: contact.criteria,
+    lifestylePriorities: contact.lifestylePriorities,
+    dailyAnchors: contact.dailyAnchors,
+    anchorAddress: contact.anchorAddress,
+  });
+  const callBy = callByDeadline(opp, 10);
+  const tcActivationStage = CONCIERGE_STAGES.find(
+    (s) => s.position === TC_ACTIVATION_STAGE_POSITIONS.application
+  );
+  const wendyAlreadyOwning = isTcActiveStage(opp?.pipelineStageId);
+  const stagesBetweenWendy = currentStage && tcActivationStage
+    ? Math.max(0, tcActivationStage.position - currentStage.position)
+    : null;
 
   return (
     <main className="min-h-screen bg-paper text-deep-teal">
@@ -171,6 +193,67 @@ export default async function ConciergeAgentDashboard({
         </div>
       </section>
 
+      {/* First-call prep — only shows pre-Application, where Chosen owns the call */}
+      {!wendyAlreadyOwning ? (
+        <section className="max-w-4xl mx-auto px-6 pt-8">
+          <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold mb-2">
+            First-call prep
+          </p>
+          <div className="bg-white rounded-lg border border-deep-teal/10 p-6 sm:p-8">
+            {callBy ? (
+              <div className={[
+                "flex items-baseline justify-between flex-wrap gap-3 mb-5 p-4 rounded-md",
+                callBy.minutesRemaining <= 0
+                  ? "bg-gold/15 border border-gold-dark/40"
+                  : callBy.minutesRemaining <= 5
+                  ? "bg-gold/10 border border-gold-dark/30"
+                  : "bg-paper border border-deep-teal/10",
+              ].join(" ")}>
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.15em] text-deep-teal/60 font-semibold">
+                    10-minute response target
+                  </div>
+                  <div className="font-display text-2xl text-deep-teal mt-1">
+                    {callBy.minutesRemaining > 0
+                      ? `Call by ${new Date(callBy.iso).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}`
+                      : `Past target — call now (${Math.abs(callBy.minutesRemaining)} min over)`}
+                  </div>
+                </div>
+                <div className={[
+                  "text-xs px-3 py-1 rounded-full font-medium",
+                  callBy.minutesRemaining <= 0
+                    ? "bg-gold-dark text-ivory"
+                    : callBy.minutesRemaining <= 5
+                    ? "bg-gold text-deep-teal"
+                    : "bg-deep-teal text-ivory",
+                ].join(" ")}>
+                  {callBy.minutesRemaining > 0 ? `${callBy.minutesRemaining}m to go` : "overdue"}
+                </div>
+              </div>
+            ) : null}
+
+            <p className="text-xs text-deep-teal/65 mb-4">
+              These came directly from the lead. Use them to start the conversation, not to lead it. The goal is genuine understanding — even your voicemail can leave value when you reflect their own words back.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {firstCallHooks.map((h) => (
+                <div key={h.label} className="border-l-2 border-gold-dark/40 pl-4">
+                  <div className="text-[10px] uppercase tracking-[0.12em] text-deep-teal/55 font-semibold mb-1">
+                    {h.label}
+                  </div>
+                  <div className="text-sm text-deep-teal/90 leading-relaxed">{h.text}</div>
+                </div>
+              ))}
+              {firstCallHooks.length === 0 ? (
+                <p className="text-sm text-deep-teal/60 italic col-span-full">
+                  Lead intake fields are empty. Pull whatever Chosen captured in the contact notes before dialing.
+                </p>
+              ) : null}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="max-w-4xl mx-auto px-6 pt-8">
         <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold mb-2">
           Pipeline stage
@@ -205,6 +288,57 @@ export default async function ConciergeAgentDashboard({
               No concierge opportunity found on this contact yet. Create one in Open Dispo to enable stage tracking.
             </p>
           )}
+        </div>
+      </section>
+
+      {/* What's next — relay handoff to Wendy */}
+      <section className="max-w-4xl mx-auto px-6 pt-8">
+        <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold mb-2">
+          What&rsquo;s next · the relay
+        </p>
+        <div className="bg-white rounded-lg border border-deep-teal/10 p-6 sm:p-8">
+          {wendyAlreadyOwning ? (
+            <>
+              <div className="flex items-baseline justify-between flex-wrap gap-3 mb-3">
+                <div>
+                  <div className="text-xs text-deep-teal/60">Wendy is active on this file</div>
+                  <div className="font-display text-xl text-deep-teal mt-0.5">
+                    She&rsquo;s already in {currentStage?.name}
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-deep-teal/75 leading-relaxed mb-4">
+                Compliance checklist, lifecycle timeline, and your handoff context are live on her view. Keep logging notes — she sees them in real time.
+              </p>
+            </>
+          ) : (
+            <>
+              <div className="flex items-baseline justify-between flex-wrap gap-3 mb-3">
+                <div>
+                  <div className="text-xs text-deep-teal/60">Wendy gets pulled in at</div>
+                  <div className="font-display text-xl text-deep-teal mt-0.5">
+                    {tcActivationStage?.name || "Application"}
+                    {stagesBetweenWendy != null && stagesBetweenWendy > 0 ? (
+                      <span className="text-sm text-deep-teal/55 font-normal ml-2">
+                        ({stagesBetweenWendy} stage{stagesBetweenWendy === 1 ? "" : "s"} away)
+                      </span>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-deep-teal/75 leading-relaxed mb-4">
+                When you move this to <span className="font-semibold text-deep-teal">{tcActivationStage?.name || "Application"}</span>, Wendy&rsquo;s TC dashboard activates with the compliance checklist (pre-showing brokerage agreement, supervising broker disclosure, landlord-side compensation disclosure) and your handoff context pre-loaded.
+              </p>
+            </>
+          )}
+          <a
+            href={tcDashboardUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-paper hover:bg-gold/10 border border-deep-teal/15 hover:border-gold-dark text-deep-teal px-4 py-2 rounded-md text-sm font-medium transition"
+          >
+            Open Wendy&rsquo;s view →
+          </a>
         </div>
       </section>
 
