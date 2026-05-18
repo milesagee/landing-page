@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beta-blockers · drill scaffold for Anika</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1;
+    color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 720px; margin: 0 auto; padding: 0; background: #fff; }
+  @media (min-width: 600px) {
+    body { padding: 24px 0; background: #FAF7F1; }
+    .page { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,63,63,0.08); }
+  }
+
+  /* Header */
+  .header { background: #003F3F; padding: 22px 24px 26px; color: #FAF7F1; }
+  .eyebrow { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #D4AF37; font-weight: 700; }
+  .header h1 { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 30px; margin: 6px 0 0; line-height: 1.15; color: #FAF7F1; }
+  .greeting { font-size: 14px; color: #FAF7F1; opacity: 0.92; margin-top: 12px; line-height: 1.6; }
+  @media (min-width: 600px) { .header { padding: 26px 32px 30px; } .header h1 { font-size: 34px; } .greeting { font-size: 15px; } }
+
+  /* Section */
+  .section { padding: 24px 24px 8px; }
+  @media (min-width: 600px) { .section { padding: 28px 32px 8px; } }
+  .section-label {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 4px;
+  }
+  .section-hint { font-size: 13px; color: #003F3F; opacity: 0.7; margin-bottom: 14px; }
+
+  /* System map */
+  .system-row { border-bottom: 1px solid #D4E4E4; padding: 12px 0; }
+  .system-row:last-child { border-bottom: none; }
+  .system-label { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 14px; color: #003F3F; margin-bottom: 6px; }
+  textarea.fill {
+    width: 100%; min-height: 44px; resize: vertical;
+    border: 1px solid #D4E4E4; border-radius: 6px;
+    padding: 10px 12px; font-family: 'Inter', Arial, sans-serif;
+    font-size: 14px; color: #003F3F; background: #FAF7F1;
+    line-height: 1.5;
+  }
+  textarea.fill:focus { outline: none; border-color: #D4AF37; background: #fff; }
+
+  /* Trap card */
+  .trap-card { background: #F1E4BC; border-left: 3px solid #D4AF37; padding: 14px 16px; margin-bottom: 12px; border-radius: 0 8px 8px 0; }
+  .trap-shape { font-size: 14px; color: #003F3F; line-height: 1.6; }
+  .trap-shape b { font-weight: 700; }
+  .trap-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .trap-btn {
+    flex: 0 0 auto; padding: 8px 12px; font-size: 12.5px; font-weight: 600;
+    border: 1px solid #003F3F; background: transparent; color: #003F3F;
+    border-radius: 5px; cursor: pointer; min-height: 36px;
+    font-family: 'Inter', Arial, sans-serif;
+    transition: background 0.12s, color 0.12s;
+  }
+  .trap-btn:hover { background: rgba(0,63,63,0.06); }
+  .trap-btn[data-state="caught"][aria-pressed="true"] { background: #003F3F; color: #FAF7F1; }
+  .trap-btn[data-state="tripped"][aria-pressed="true"] { background: #B14D2E; color: #FAF7F1; border-color: #B14D2E; }
+  .trap-btn[data-state="push"][aria-pressed="true"] { background: #D4AF37; color: #003F3F; border-color: #D4AF37; }
+  .trap-push {
+    margin-top: 12px; padding: 12px 14px; background: rgba(255,255,255,0.6);
+    border-left: 2px solid #003F3F; border-radius: 0 6px 6px 0;
+    font-size: 13.5px; line-height: 1.55; color: #003F3F;
+    display: none;
+  }
+  .trap-push.open { display: block; }
+  .trap-push em { font-style: italic; color: #003F3F; opacity: 0.7; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 4px; }
+
+  /* Connections */
+  .conn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  @media (min-width: 600px) { .conn-grid { grid-template-columns: repeat(3, 1fr); } }
+  .conn-card { background: #D4E4E4; padding: 12px 14px; border-radius: 6px; }
+  .conn-week { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #003F3F; opacity: 0.6; font-weight: 700; }
+  .conn-name { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 15px; color: #003F3F; margin-top: 4px; }
+
+  /* Drill prompts */
+  .prompt-card { padding: 14px 0; border-bottom: 1px solid #D4E4E4; }
+  .prompt-card:last-child { border-bottom: none; }
+  .prompt-text { font-size: 14.5px; color: #003F3F; line-height: 1.6; margin-bottom: 10px; }
+  .prompt-text .pnum { color: #B1922E; font-weight: 700; margin-right: 4px; }
+  .prompt-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
+  .prompt-followup {
+    padding: 8px 14px; font-size: 12.5px; font-weight: 600;
+    border: 1px solid #003F3F; background: transparent; color: #003F3F;
+    border-radius: 5px; cursor: pointer; min-height: 36px;
+    font-family: 'Inter', Arial, sans-serif;
+    text-decoration: none; display: inline-block; line-height: 1.4;
+  }
+  .prompt-followup:hover { background: rgba(0,63,63,0.06); }
+
+  /* The thing nurses get wrong */
+  .takeaway { padding: 16px 18px; background: #F1E4BC; border-left: 3px solid #D4AF37; font-size: 14px; line-height: 1.65; color: #003F3F; border-radius: 0 6px 6px 0; }
+
+  /* Self-score */
+  .score-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 8px; }
+  .score-btn {
+    flex: 1 1 auto; min-width: 38px; padding: 10px 0; font-size: 14px; font-weight: 700;
+    border: 1px solid #D4E4E4; background: #fff; color: #003F3F;
+    border-radius: 5px; cursor: pointer;
+    font-family: 'Inter', Arial, sans-serif;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+  }
+  .score-btn:hover { border-color: #003F3F; }
+  .score-btn[aria-pressed="true"] { background: #003F3F; color: #FAF7F1; border-color: #003F3F; }
+  .score-meta { font-size: 12px; color: #003F3F; opacity: 0.6; }
+
+  /* Session counters */
+  .counters {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    background: #003F3F; color: #FAF7F1; padding: 14px 18px;
+    border-radius: 8px; margin: 8px 0 14px;
+    font-size: 13px;
+  }
+  .counter { display: flex; flex-direction: column; gap: 2px; }
+  .counter-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #D4AF37; font-weight: 700; }
+  .counter-value { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 22px; line-height: 1; }
+
+  /* Send summary button */
+  .send-summary {
+    display: block; width: 100%; padding: 16px 18px;
+    background: #003F3F; color: #FAF7F1;
+    border: none; border-radius: 8px; cursor: pointer;
+    font-family: 'Inter', Arial, sans-serif; font-size: 15px; font-weight: 700;
+    text-decoration: none; text-align: center;
+    margin: 8px 0 6px; min-height: 52px;
+  }
+  .send-summary:hover { background: #002828; }
+  .send-meta { font-size: 11.5px; color: #003F3F; opacity: 0.6; line-height: 1.5; }
+
+  /* Reset button */
+  .reset-btn {
+    background: transparent; border: none; color: #003F3F; opacity: 0.5;
+    cursor: pointer; font-size: 11px; padding: 6px 0;
+    font-family: 'Inter', Arial, sans-serif; text-decoration: underline;
+  }
+  .reset-btn:hover { opacity: 0.9; }
+
+  /* Footer */
+  .footer { padding: 24px 24px 28px; background: #FAF7F1; border-top: 1px solid #D4E4E4; }
+  @media (min-width: 600px) { .footer { padding: 28px 32px 32px; } }
+  .footer-line { font-size: 14px; color: #003F3F; line-height: 1.6; margin-bottom: 14px; }
+  .footer-cta {
+    display: inline-block; padding: 12px 20px; background: #003F3F; color: #FAF7F1;
+    text-decoration: none; border-radius: 6px;
+    font-family: 'Inter', Arial, sans-serif; font-size: 14px; font-weight: 600;
+    min-height: 44px; line-height: 20px;
+  }
+  .footer-meta { font-size: 11.5px; color: #003F3F; opacity: 0.6; line-height: 1.55; margin-top: 14px; }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="eyebrow">Drill scaffold &middot; built for Anika</div>
+  <h1>Beta-blockers</h1>
+  <div class="greeting">
+    Anika! Built this for week 2 of your cardiac block, eleven days in. Not a study guide, a scaffold. Run your algorithm against beta-blockers across every system they touch, not just cardio. Type, tap, push yourself. Your work saves on this device until you reset it.
+  </div>
+</div>
+
+<!-- SYSTEM MAP -->
+<div class="section">
+  <div class="section-label">System map</div>
+  <div class="section-hint">For each system, type the effect. One line each. Saved as you go.</div>
+
+  <div class="system-row">
+    <div class="system-label">Cardiovascular</div>
+    <textarea class="fill" rows="1" data-store="sys-cv" placeholder="HR, contractility, conduction, BP..."></textarea>
+  </div>
+  <div class="system-row">
+    <div class="system-label">Respiratory</div>
+    <textarea class="fill" rows="1" data-store="sys-resp" placeholder=""></textarea>
+  </div>
+  <div class="system-row">
+    <div class="system-label">Endocrine (glucose)</div>
+    <textarea class="fill" rows="1" data-store="sys-glu" placeholder=""></textarea>
+  </div>
+  <div class="system-row">
+    <div class="system-label">Endocrine (thyroid)</div>
+    <textarea class="fill" rows="1" data-store="sys-thy" placeholder=""></textarea>
+  </div>
+  <div class="system-row">
+    <div class="system-label">Renal</div>
+    <textarea class="fill" rows="1" data-store="sys-renal" placeholder=""></textarea>
+  </div>
+  <div class="system-row">
+    <div class="system-label">CNS</div>
+    <textarea class="fill" rows="1" data-store="sys-cns" placeholder=""></textarea>
+  </div>
+  <div class="system-row">
+    <div class="system-label">Hepatic (metabolism)</div>
+    <textarea class="fill" rows="1" data-store="sys-hep" placeholder=""></textarea>
+  </div>
+</div>
+
+<!-- TRAP ZONE -->
+<div class="section">
+  <div class="section-label">Trap zone</div>
+  <div class="section-hint">These are the trap shapes, not the answers. Spot the trap, mark it, push deeper if you want a harder version.</div>
+
+  <div class="trap-card" data-trap="1">
+    <div class="trap-shape"><b>1. Hold parameters.</b> They give you HR and BP that look borderline. They add a second cardiac med (digoxin, calcium channel blocker, ACE inhibitor) in the stem. The trap is which parameter governs and which med pair you should not stack without thinking about conduction.</div>
+    <div class="trap-actions">
+      <button class="trap-btn" data-trap-id="1" data-state="caught" aria-pressed="false">Caught it</button>
+      <button class="trap-btn" data-trap-id="1" data-state="tripped" aria-pressed="false">Got tripped</button>
+      <button class="trap-btn" data-trap-id="1" data-state="push" aria-pressed="false">Push me deeper</button>
+    </div>
+    <div class="trap-push" data-trap-push="1">
+      <em>One level deeper</em>
+      Stack a calcium channel blocker on top. Same patient. What changes about your hold threshold, and what mechanism makes that decision non-optional rather than judgment?
+    </div>
+  </div>
+
+  <div class="trap-card" data-trap="2">
+    <div class="trap-shape"><b>2. Hypoglycemia masking.</b> Diabetic patient on a beta-blocker. The stem lists symptoms. One of the four classic hypoglycemia signs is missing. The trap is which sign survives the beta-blocker and which one does not.</div>
+    <div class="trap-actions">
+      <button class="trap-btn" data-trap-id="2" data-state="caught" aria-pressed="false">Caught it</button>
+      <button class="trap-btn" data-trap-id="2" data-state="tripped" aria-pressed="false">Got tripped</button>
+      <button class="trap-btn" data-trap-id="2" data-state="push" aria-pressed="false">Push me deeper</button>
+    </div>
+    <div class="trap-push" data-trap-push="2">
+      <em>One level deeper</em>
+      Now name the sign that survives, and connect the mechanism to why it survives while the others go quiet. Then ask: what is the one symptom you teach this patient to trust above all others?
+    </div>
+  </div>
+
+  <div class="trap-card" data-trap="3">
+    <div class="trap-shape"><b>3. Selective vs non-selective.</b> Asthma patient. They prescribe a beta-blocker. The trap is not whether to use one. The trap is which one, at what dose, and what happens to that selectivity if the dose climbs.</div>
+    <div class="trap-actions">
+      <button class="trap-btn" data-trap-id="3" data-state="caught" aria-pressed="false">Caught it</button>
+      <button class="trap-btn" data-trap-id="3" data-state="tripped" aria-pressed="false">Got tripped</button>
+      <button class="trap-btn" data-trap-id="3" data-state="push" aria-pressed="false">Push me deeper</button>
+    </div>
+    <div class="trap-push" data-trap-push="3">
+      <em>One level deeper</em>
+      At what dose does cardio-selectivity stop being selective? Which receptor crosses over first, and what symptom is the early warning on assessment?
+    </div>
+  </div>
+
+  <div class="trap-card" data-trap="4">
+    <div class="trap-shape"><b>4. Abrupt discontinuation.</b> Patient missed three days of metoprolol on a trip. They come in with chest pain. The trap is naming the mechanism that turns missed doses into a coronary event, not just labeling it "rebound."</div>
+    <div class="trap-actions">
+      <button class="trap-btn" data-trap-id="4" data-state="caught" aria-pressed="false">Caught it</button>
+      <button class="trap-btn" data-trap-id="4" data-state="tripped" aria-pressed="false">Got tripped</button>
+      <button class="trap-btn" data-trap-id="4" data-state="push" aria-pressed="false">Push me deeper</button>
+    </div>
+    <div class="trap-push" data-trap-push="4">
+      <em>One level deeper</em>
+      Walk the upregulation pathway. What got upregulated during the chronic block, and why does sudden release of that upregulation hit the heart instead of, say, the lungs or the gut?
+    </div>
+  </div>
+
+  <div class="trap-card" data-trap="5">
+    <div class="trap-shape"><b>5. The HF paradox.</b> Heart failure patient gets a beta-blocker added. Intuition says negative inotrope is bad in HF. The trap is the timing distinction between chronic disease-modifying use and acute decompensation, and what that means for whether you give the dose now.</div>
+    <div class="trap-actions">
+      <button class="trap-btn" data-trap-id="5" data-state="caught" aria-pressed="false">Caught it</button>
+      <button class="trap-btn" data-trap-id="5" data-state="tripped" aria-pressed="false">Got tripped</button>
+      <button class="trap-btn" data-trap-id="5" data-state="push" aria-pressed="false">Push me deeper</button>
+    </div>
+    <div class="trap-push" data-trap-push="5">
+      <em>One level deeper</em>
+      Volume overloaded HF patient just got admitted, already on chronic carvedilol. Surgeon-mode says hold it. Cardiologist-mode says do not. Whose framework wins on day one of this admission, and what is the variable that flips your answer?
+    </div>
+  </div>
+</div>
+
+<!-- CONNECTIONS -->
+<div class="section">
+  <div class="section-label">Connections</div>
+  <div class="section-hint">Things you have already drilled or are about to. Recall the link in your head, do not write it.</div>
+
+  <div class="conn-grid">
+    <div class="conn-card"><div class="conn-week">Week 1</div><div class="conn-name">HR &amp; conduction</div></div>
+    <div class="conn-card"><div class="conn-week">Week 1-2</div><div class="conn-name">BP regulation</div></div>
+    <div class="conn-card"><div class="conn-week">Week 3 next</div><div class="conn-name">Insulin / glucose</div></div>
+    <div class="conn-card"><div class="conn-week">Week 5 next</div><div class="conn-name">Pre-op holds</div></div>
+    <div class="conn-card"><div class="conn-week">Week 6 next</div><div class="conn-name">Class pharm</div></div>
+  </div>
+</div>
+
+<!-- DRILL PROMPTS -->
+<div class="section">
+  <div class="section-label">Drill prompts</div>
+  <div class="section-hint">Run your four-step algorithm in the box. No answer key here. Want a harder version? Tap the button.</div>
+
+  <div class="prompt-card">
+    <div class="prompt-text"><span class="pnum">1.</span>Patient on metoprolol, HR 52, BP 110/70. Scheduled for outpatient PT in two hours. What do you do.</div>
+    <textarea class="fill" rows="3" data-store="dp-1" placeholder="Your four-step algorithm here..."></textarea>
+    <div class="prompt-actions">
+      <a class="prompt-followup" data-followup="1" href="#">Push me on this one</a>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-text"><span class="pnum">2.</span>Patient on propranolol for migraine prophylaxis. New asthma diagnosis last week. What changes about the regimen and why.</div>
+    <textarea class="fill" rows="3" data-store="dp-2" placeholder="Your four-step algorithm here..."></textarea>
+    <div class="prompt-actions">
+      <a class="prompt-followup" data-followup="2" href="#">Push me on this one</a>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-text"><span class="pnum">3.</span>Type 1 diabetic started on atenolol seven days ago. Reports "I just don't feel right" before lunch. What are you assessing for and what do you ask first.</div>
+    <textarea class="fill" rows="3" data-store="dp-3" placeholder="Your four-step algorithm here..."></textarea>
+    <div class="prompt-actions">
+      <a class="prompt-followup" data-followup="3" href="#">Push me on this one</a>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-text"><span class="pnum">4.</span>Pre-op patient on long-term metoprolol. The surgeon's blanket order says hold all home meds. What do you do.</div>
+    <textarea class="fill" rows="3" data-store="dp-4" placeholder="Your four-step algorithm here..."></textarea>
+    <div class="prompt-actions">
+      <a class="prompt-followup" data-followup="4" href="#">Push me on this one</a>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-text"><span class="pnum">5.</span>HF patient on lisinopril and furosemide. Cardiology adds carvedilol. EF 25%. What is the rationale and what three things do you watch for in the first two weeks.</div>
+    <textarea class="fill" rows="3" data-store="dp-5" placeholder="Your four-step algorithm here..."></textarea>
+    <div class="prompt-actions">
+      <a class="prompt-followup" data-followup="5" href="#">Push me on this one</a>
+    </div>
+  </div>
+</div>
+
+<!-- THE THING NURSES GET WRONG -->
+<div class="section">
+  <div class="section-label">The thing nurses get wrong</div>
+  <div class="takeaway">
+    People assume "negative inotrope = bad in HF" and hold beta-blockers on admission for any decompensation. The chronic, disease-modifying use of beta-blockers in HF is one of the cleanest mortality wins in cardiology, and stopping them inappropriately undoes months of titration. The trap is conflating chronic management with acute presentation. Read the chart, read the volume status, talk to the team. Do not act on instinct.
+  </div>
+</div>
+
+<!-- SELF-SCORE + SESSION -->
+<div class="section">
+  <div class="section-label">Session</div>
+
+  <div class="counters">
+    <div class="counter"><div class="counter-label">Caught</div><div class="counter-value" id="cnt-caught">0</div></div>
+    <div class="counter"><div class="counter-label">Tripped</div><div class="counter-value" id="cnt-tripped">0</div></div>
+    <div class="counter"><div class="counter-label">Score</div><div class="counter-value" id="cnt-score">-</div></div>
+  </div>
+
+  <div style="font-size:13px; color:#003F3F; opacity:0.75; margin-bottom:6px;">Self-score against your past self, not anyone else. One through ten.</div>
+  <div class="score-row" id="score-row">
+    <button class="score-btn" data-score="1" aria-pressed="false">1</button>
+    <button class="score-btn" data-score="2" aria-pressed="false">2</button>
+    <button class="score-btn" data-score="3" aria-pressed="false">3</button>
+    <button class="score-btn" data-score="4" aria-pressed="false">4</button>
+    <button class="score-btn" data-score="5" aria-pressed="false">5</button>
+    <button class="score-btn" data-score="6" aria-pressed="false">6</button>
+    <button class="score-btn" data-score="7" aria-pressed="false">7</button>
+    <button class="score-btn" data-score="8" aria-pressed="false">8</button>
+    <button class="score-btn" data-score="9" aria-pressed="false">9</button>
+    <button class="score-btn" data-score="10" aria-pressed="false">10</button>
+  </div>
+
+  <a id="send-summary" class="send-summary" href="#">Send Miles your session summary</a>
+  <div class="send-meta">Opens your mail app with the counters and your score pre-filled. Your typed answers stay on this device, not in the email.</div>
+
+  <div style="margin-top:18px;">
+    <button class="reset-btn" id="reset-btn">Reset this scaffold (clear all)</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-line">Want one on your own topic? Tap below. Pharm, procedures, electrolytes, vocab, anything you want a scaffold on.</div>
+  <a class="footer-cta" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=miles%40milesagee.com&amp;su=Build%20me%20a%20dashboard%20on%20%5Btopic%5D&amp;body=Topic%20I%20want%20a%20dashboard%20on%3A%0A%0A%0AWhere%20I%20am%20right%20now%20(week%20%2F%20block%20%2F%20what's%20clicking%20%2F%20what's%20not)%3A%0A%0A%0AWhat%20I%20want%20the%20dashboard%20to%20surface%20(delete%20any%20you%20don't%20want)%3A%0A-%20System%20map%20I%20can%20fill%20in%0A-%20Wordplay%20traps%20the%20test%20writers%20use%0A-%20Connections%20to%20things%20I've%20already%20drilled%0A-%20Drill%20prompts%20I%20can%20run%20my%20algorithm%20on%0A-%20The%20thing%20nurses%20get%20wrong%20in%20practice%0A%0ADeadline%20(if%20any)%3A%0A%0A%0AAnything%20else%20worth%20knowing%3A%0A">Request a scaffold on a topic</a>
+  <div class="footer-meta">Built for you. The button above opens an email pre-filled with the intake template, so you just type the topic and a bit of context. Lands in my inbox same day.</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  var NS = 'anika-bb-';
+  var EMAIL = 'miles@milesagee.com';
+  var TOPIC = 'beta-blockers';
+
+  function lsGet(k) { try { return localStorage.getItem(NS + k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(NS + k, v); } catch (e) {} }
+  function lsRemove(k) { try { localStorage.removeItem(NS + k); } catch (e) {} }
+  function lsKeys() {
+    var keys = [];
+    try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k && k.indexOf(NS) === 0) keys.push(k); } } catch (e) {}
+    return keys;
+  }
+
+  // Hydrate textareas
+  document.querySelectorAll('textarea[data-store]').forEach(function (el) {
+    var key = el.dataset.store;
+    var v = lsGet(key);
+    if (v != null) el.value = v;
+    el.addEventListener('input', function () { lsSet(key, el.value); });
+  });
+
+  // Trap buttons (caught / tripped / push)
+  function updateCounters() {
+    var caught = 0, tripped = 0;
+    for (var i = 1; i <= 5; i++) {
+      var s = lsGet('trap-' + i);
+      if (s === 'caught') caught++;
+      else if (s === 'tripped') tripped++;
+    }
+    document.getElementById('cnt-caught').textContent = caught;
+    document.getElementById('cnt-tripped').textContent = tripped;
+    var sc = lsGet('score');
+    document.getElementById('cnt-score').textContent = sc ? sc + '/10' : '-';
+  }
+
+  document.querySelectorAll('.trap-btn').forEach(function (btn) {
+    var trapId = btn.dataset.trapId;
+    var state = btn.dataset.state;
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (state === 'push') {
+        // Toggle push panel
+        var panel = document.querySelector('[data-trap-push="' + trapId + '"]');
+        var open = panel.classList.toggle('open');
+        btn.setAttribute('aria-pressed', open ? 'true' : 'false');
+        lsSet('trap-push-' + trapId, open ? '1' : '0');
+        return;
+      }
+      // caught / tripped mutually exclusive per trap
+      var current = lsGet('trap-' + trapId);
+      var next = (current === state) ? null : state;
+      lsSet('trap-' + trapId, next || '');
+      // Re-render this trap's buttons
+      document.querySelectorAll('.trap-btn[data-trap-id="' + trapId + '"]').forEach(function (b) {
+        var bs = b.dataset.state;
+        if (bs === 'push') return;
+        b.setAttribute('aria-pressed', (next === bs) ? 'true' : 'false');
+      });
+      updateCounters();
+    });
+  });
+
+  // Hydrate trap button states + push panels
+  for (var i = 1; i <= 5; i++) {
+    var s = lsGet('trap-' + i);
+    if (s) {
+      document.querySelectorAll('.trap-btn[data-trap-id="' + i + '"][data-state="' + s + '"]').forEach(function (b) {
+        b.setAttribute('aria-pressed', 'true');
+      });
+    }
+    var pushOpen = lsGet('trap-push-' + i);
+    if (pushOpen === '1') {
+      var panel = document.querySelector('[data-trap-push="' + i + '"]');
+      if (panel) panel.classList.add('open');
+      var pushBtn = document.querySelector('.trap-btn[data-trap-id="' + i + '"][data-state="push"]');
+      if (pushBtn) pushBtn.setAttribute('aria-pressed', 'true');
+    }
+  }
+
+  // Score buttons
+  document.querySelectorAll('.score-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var v = btn.dataset.score;
+      var current = lsGet('score');
+      var next = (current === v) ? null : v;
+      lsSet('score', next || '');
+      document.querySelectorAll('.score-btn').forEach(function (b) {
+        b.setAttribute('aria-pressed', (b.dataset.score === next) ? 'true' : 'false');
+      });
+      updateCounters();
+    });
+  });
+  // Hydrate score
+  var savedScore = lsGet('score');
+  if (savedScore) {
+    var sb = document.querySelector('.score-btn[data-score="' + savedScore + '"]');
+    if (sb) sb.setAttribute('aria-pressed', 'true');
+  }
+
+  // Drill-prompt follow-up mailto
+  document.querySelectorAll('.prompt-followup').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var n = a.dataset.followup;
+      var promptText = a.closest('.prompt-card').querySelector('.prompt-text').textContent.trim();
+      var body = 'Topic: ' + TOPIC + '\n\nPush me on drill prompt ' + n + ':\n' + promptText + '\n\nWhere I got stuck (optional):\n';
+      window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Push me on ' + TOPIC + ' prompt ' + n) + '&body=' + encodeURIComponent(body);
+    });
+  });
+
+  // Send session summary
+  document.getElementById('send-summary').addEventListener('click', function (e) {
+    e.preventDefault();
+    var caught = 0, tripped = 0, perTrap = [];
+    for (var i = 1; i <= 5; i++) {
+      var s = lsGet('trap-' + i) || 'skip';
+      if (s === 'caught') caught++;
+      if (s === 'tripped') tripped++;
+      perTrap.push('Trap ' + i + ': ' + s);
+    }
+    var score = lsGet('score') || 'unrated';
+    var today = new Date().toISOString().slice(0, 10);
+    var body =
+      'Anika session: ' + TOPIC + ', ' + today + '\n' +
+      'Self-score: ' + score + (score !== 'unrated' ? '/10' : '') + '\n\n' +
+      'Traps caught: ' + caught + '/5\n' +
+      'Traps tripped: ' + tripped + '/5\n\n' +
+      perTrap.join('\n') + '\n\n' +
+      'My system map answers and drill-prompt work stayed on my device. Not sent.\n\n' +
+      'Notes I want you to know:\n';
+    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(TOPIC + ' scaffold done') + '&body=' + encodeURIComponent(body);
+  });
+
+  // Reset
+  document.getElementById('reset-btn').addEventListener('click', function () {
+    if (!confirm('Clear all your work on this scaffold? This cannot be undone.')) return;
+    lsKeys().forEach(lsRemove);
+    location.reload();
+  });
+
+  // Initial counter render
+  updateCounters();
+})();
+</script>
+
+</body>
+</html>
