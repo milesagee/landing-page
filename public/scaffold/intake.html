@@ -2,52 +2,169 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>I'm here. Let's figure it out together.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monique · I'm here</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&display=swap');
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body { background: #FAF7F1; color: #003F3F; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; min-height: 100vh; }
-  .page { max-width: 660px; margin: 0 auto; background: #fff; min-height: 100vh; }
-  @media (min-width: 600px) { body { padding: 32px 0; } .page { min-height: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,63,63,0.08); } }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 15px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column;
+    min-height: 100vh; min-height: 100dvh;
+  }
+  .page {
+    width: 100%; max-width: 680px; margin: 0 auto;
+    background: #fff; flex: 1;
+    display: flex; flex-direction: column;
+    min-height: 100vh; min-height: 100dvh;
+  }
+  @media (min-width: 600px) {
+    body { padding: 24px 0; background: #FAF7F1; }
+    .page { min-height: 0; max-height: calc(100vh - 48px); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,63,63,0.08); }
+  }
 
-  .header { background: #003F3F; padding: 30px 28px 32px; color: #FAF7F1; }
-  .eyebrow { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #D4AF37; font-weight: 700; }
-  .header h1 { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 30px; margin: 8px 0 0; line-height: 1.15; color: #FAF7F1; }
-  .sub { font-size: 14.5px; color: #FAF7F1; opacity: 0.92; margin-top: 14px; line-height: 1.65; }
-  @media (min-width: 600px) { .header { padding: 36px 36px 38px; } .header h1 { font-size: 36px; } .sub { font-size: 15px; } }
+  /* Header */
+  .header { background: #003F3F; padding: 16px 20px; color: #FAF7F1; display: flex; align-items: center; gap: 12px; flex-shrink: 0; border-bottom: 1px solid rgba(212,175,55,0.18); }
+  .avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: #D4AF37; color: #003F3F;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .header-text { flex: 1; min-width: 0; }
+  .header-name { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 18px; line-height: 1.2; color: #FAF7F1; }
+  .header-sub { font-size: 11px; color: #D4AF37; opacity: 0.85; letter-spacing: 0.04em; margin-top: 2px; }
+  .reset-link {
+    font-size: 11px; color: #FAF7F1; opacity: 0.55; text-decoration: underline;
+    cursor: pointer; background: transparent; border: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .reset-link:hover { opacity: 0.9; }
 
-  .body { padding: 26px 28px 8px; }
-  @media (min-width: 600px) { .body { padding: 32px 36px 8px; } }
+  /* Chat area */
+  .chat {
+    flex: 1; overflow-y: auto;
+    padding: 18px 16px 8px;
+    display: flex; flex-direction: column; gap: 10px;
+    -webkit-overflow-scrolling: touch;
+  }
+  @media (min-width: 600px) { .chat { padding: 22px 22px 8px; } }
 
-  .q { margin-bottom: 26px; }
-  .q-num { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #B1922E; font-weight: 700; margin-bottom: 6px; }
-  .q-label { display: block; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 20px; color: #003F3F; line-height: 1.3; margin-bottom: 8px; }
-  .q-hint { font-size: 13.5px; color: #003F3F; opacity: 0.7; line-height: 1.6; margin-bottom: 12px; }
+  .bubble {
+    max-width: 84%; padding: 12px 16px;
+    border-radius: 18px; font-size: 15px; line-height: 1.55;
+    word-wrap: break-word; white-space: pre-wrap;
+    animation: pop 0.22s ease-out;
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .monique {
+    align-self: flex-start;
+    background: #F1E4BC; color: #003F3F;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.06);
+  }
+  .monique.small {
+    font-size: 13.5px; padding: 8px 14px;
+    background: #FAF7F1; color: #003F3F; opacity: 0.85;
+  }
+  .user {
+    align-self: flex-end;
+    background: #003F3F; color: #FAF7F1;
+    border-bottom-right-radius: 4px;
+  }
 
-  textarea {
-    width: 100%; padding: 14px 16px;
-    border: 1px solid #D4E4E4; border-radius: 8px;
-    font-family: 'Inter', Arial, sans-serif; font-size: 15.5px; color: #003F3F;
-    background: #FAF7F1; line-height: 1.6; resize: vertical;
+  /* Typing indicator */
+  .typing {
+    align-self: flex-start;
+    background: #F1E4BC;
+    border-radius: 18px; border-bottom-left-radius: 4px;
+    padding: 14px 18px; display: inline-flex; gap: 4px;
+    animation: pop 0.18s ease-out;
+  }
+  .typing-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #003F3F; opacity: 0.5;
+    animation: dot 1.2s infinite ease-in-out;
+  }
+  .typing-dot:nth-child(2) { animation-delay: 0.18s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.36s; }
+  @keyframes dot {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.3; }
+    30% { transform: translateY(-5px); opacity: 0.9; }
+  }
+
+  /* Input area */
+  .input-area {
+    flex-shrink: 0; padding: 12px 14px;
+    background: #FAF7F1; border-top: 1px solid #D4E4E4;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+  @media (min-width: 600px) { .input-area { padding: 14px 16px; padding-bottom: 16px; } }
+  .input-row { display: flex; gap: 8px; align-items: flex-end; }
+  .input-textarea {
+    flex: 1; padding: 12px 14px;
+    border: 1px solid #D4E4E4; border-radius: 22px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 15.5px; color: #003F3F; background: #fff;
+    line-height: 1.5; resize: none;
+    min-height: 44px; max-height: 140px;
     -webkit-appearance: none;
   }
-  textarea:focus { outline: none; border-color: #D4AF37; background: #fff; }
-  textarea::placeholder { color: #003F3F; opacity: 0.32; }
-  textarea.short { min-height: 56px; }
-  textarea.medium { min-height: 96px; }
-  textarea.tall { min-height: 130px; }
+  .input-textarea:focus { outline: none; border-color: #D4AF37; }
+  .input-textarea::placeholder { color: #003F3F; opacity: 0.4; }
+  .send-btn {
+    flex-shrink: 0; width: 44px; height: 44px;
+    background: #003F3F; color: #FAF7F1;
+    border: none; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700;
+    transition: background 0.12s, transform 0.06s;
+  }
+  .send-btn:hover:not(:disabled) { background: #002828; }
+  .send-btn:active:not(:disabled) { transform: scale(0.94); }
+  .send-btn:disabled { background: #B0B8B8; cursor: not-allowed; }
+  .send-btn svg { width: 18px; height: 18px; }
 
-  .saved-flag { display: inline-block; font-size: 11px; color: #B1922E; opacity: 0; transition: opacity 0.3s; font-weight: 600; margin-left: 8px; vertical-align: middle; }
-  .saved-flag.show { opacity: 1; }
+  /* Skip button (for optional turns) */
+  .skip-btn {
+    margin-top: 10px;
+    background: transparent; border: 1px solid #D4E4E4;
+    color: #003F3F; opacity: 0.7;
+    padding: 8px 14px; border-radius: 18px; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 13px;
+  }
+  .skip-btn:hover { opacity: 1; border-color: #003F3F; }
 
-  .submit-area { padding: 22px 28px 30px; background: #FAF7F1; border-top: 1px solid #D4E4E4; margin-top: 18px; }
-  @media (min-width: 600px) { .submit-area { padding: 26px 36px 34px; } }
-  .submit-btn { display: block; width: 100%; padding: 17px 20px; background: #003F3F; color: #FAF7F1; border: none; border-radius: 10px; cursor: pointer; font-family: 'Inter', Arial, sans-serif; font-size: 16px; font-weight: 700; text-align: center; min-height: 54px; transition: background 0.12s; }
-  .submit-btn:hover:not(:disabled) { background: #002828; }
-  .submit-btn:disabled { background: #B0B8B8; cursor: not-allowed; }
-  .submit-meta { font-size: 12.5px; color: #003F3F; opacity: 0.62; line-height: 1.6; margin-top: 12px; text-align: center; }
+  /* Final submit area */
+  .final-area {
+    flex-shrink: 0; padding: 16px 18px;
+    background: #FAF7F1; border-top: 1px solid #D4E4E4;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    display: none;
+  }
+  .final-area.show { display: block; }
+  .final-btn {
+    display: block; width: 100%; padding: 16px 20px;
+    background: #003F3F; color: #FAF7F1;
+    border: none; border-radius: 10px; cursor: pointer;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 15.5px; font-weight: 700;
+    min-height: 52px;
+    transition: background 0.12s;
+  }
+  .final-btn:hover { background: #002828; }
+  .final-meta {
+    font-size: 12px; color: #003F3F; opacity: 0.6;
+    text-align: center; margin-top: 10px; line-height: 1.55;
+  }
 </style>
 </head>
 <body>
@@ -55,113 +172,313 @@
 <div class="page">
 
 <div class="header">
-  <div class="eyebrow">A tool Miles built for you</div>
-  <h1>I'm here. Let's figure it out together.</h1>
-  <div class="sub">
-    A few quick questions so I can come back with something that actually lands. None require an essay. Whatever comes to mind first is usually the right answer. The last two are optional.
+  <div class="avatar">M</div>
+  <div class="header-text">
+    <div class="header-name">Monique</div>
+    <div class="header-sub">A tool Miles built for you</div>
   </div>
+  <button class="reset-link" id="reset-btn" title="Start over">restart</button>
 </div>
 
-<div class="body">
+<div class="chat" id="chat" aria-live="polite"></div>
 
-  <div class="q">
-    <div class="q-num">01</div>
-    <label class="q-label" for="q1">What's going on?<span class="saved-flag" data-flag="q1">saved</span></label>
-    <div class="q-hint">Set the scene. The day, the week, what you're in the middle of, what just happened, what's coming up. Any frame you're working from.</div>
-    <textarea id="q1" class="tall" data-store="q1" placeholder=""></textarea>
+<div class="input-area" id="input-area">
+  <div class="input-row">
+    <textarea class="input-textarea" id="input" rows="1" placeholder="Type a reply..." disabled></textarea>
+    <button class="send-btn" id="send-btn" disabled aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2" fill="currentColor" stroke="none"></polygon></svg>
+    </button>
   </div>
-
-  <div class="q">
-    <div class="q-num">02</div>
-    <label class="q-label" for="q2">What's heaviest, sharpest, or stuck?<span class="saved-flag" data-flag="q2">saved</span></label>
-    <div class="q-hint">The thing your brain keeps circling back to. The decision you can't make. The skill that won't click. The conversation you don't want to have. The move that feels too big.</div>
-    <textarea id="q2" class="medium" data-store="q2" placeholder=""></textarea>
-  </div>
-
-  <div class="q">
-    <div class="q-num">03</div>
-    <label class="q-label" for="q3">If I came back with something that helped, what would it do for you?<span class="saved-flag" data-flag="q3">saved</span></label>
-    <div class="q-hint">A structure to fill in. A decision framework. A clear next step. Sharper thinking on a topic. Permission to let something go. Something off your plate. Whatever would make the next move feel lighter.</div>
-    <textarea id="q3" class="medium" data-store="q3" placeholder=""></textarea>
-  </div>
-
-  <div class="q">
-    <div class="q-num">04</div>
-    <label class="q-label" for="q4">When do you need to feel a step lighter? <span style="font-style:normal; font-weight:500; font-size:13px; color:#003F3F; opacity:0.5;">(optional)</span><span class="saved-flag" data-flag="q4">saved</span></label>
-    <div class="q-hint">Today, by Friday, before a thing, no rush. Knowing helps me prioritize.</div>
-    <textarea id="q4" class="short" data-store="q4" placeholder=""></textarea>
-  </div>
-
-  <div class="q">
-    <div class="q-num">05</div>
-    <label class="q-label" for="q5">Anything else I should know about you or this moment? <span style="font-style:normal; font-weight:500; font-size:13px; color:#003F3F; opacity:0.5;">(optional)</span><span class="saved-flag" data-flag="q5">saved</span></label>
-    <div class="q-hint">Context, history, what you've already tried, what you don't want, what doesn't work for you. Skip if nothing comes to mind.</div>
-    <textarea id="q5" class="short" data-store="q5" placeholder=""></textarea>
-  </div>
-
+  <button class="skip-btn" id="skip-btn" style="display:none;">skip this one</button>
 </div>
 
-<div class="submit-area">
-  <button class="submit-btn" id="submit-btn" disabled>Send</button>
-  <div class="submit-meta">Opens your mail app, addressed to me. Hit send and I take it from there. Same day, in your inbox, in whatever shape it should take.</div>
+<div class="final-area" id="final-area">
+  <button class="final-btn" id="final-btn">Send to Miles</button>
+  <div class="final-meta">Opens your mail app, addressed to me. Tap send, and I take it from there. Same day, in your inbox, in whatever shape it should take.</div>
 </div>
 
 </div>
 
 <script>
 (function () {
-  var NS = 'mams-monique-intake-';
+  var NS = 'mams-monique-chat-';
   var EMAIL = 'miles@milesagee.com';
+
+  // The conversation script — Monique's turns + acknowledgments
+  // Each turn: { say: [array of monique messages], ack: optional pre-question acknowledgment, key: storage key, label: for summary, optional: bool }
+  var TURNS = [
+    {
+      key: 'going_on',
+      label: "What's going on",
+      say: ["I'm here. What's going on?"],
+      ack: null,
+      optional: false,
+    },
+    {
+      key: 'heavy',
+      label: "What's heaviest",
+      say: ["Where's the heaviest part right now? The thing your brain keeps circling back to."],
+      ack: "Got it.",
+      optional: false,
+    },
+    {
+      key: 'shape',
+      label: "What would help look like",
+      say: ["If I came back with something that helped, what would it actually do for you? A structure to fill in, a decision to make, a step you can take, something off your plate, the right question to sit with — name the shape, even loosely."],
+      ack: "Hearing you.",
+      optional: false,
+    },
+    {
+      key: 'when',
+      label: "When",
+      say: ["When do you need to feel a step lighter on this? Today, by Friday, before a thing, no rush."],
+      ack: "Okay.",
+      optional: true,
+    },
+    {
+      key: 'else',
+      label: "Worth knowing",
+      say: ["Anything else I should know about you or this moment? What you've already tried, what doesn't work for you, who else is in this with you. Or you good."],
+      ack: "Noted.",
+      optional: true,
+    },
+  ];
+
+  var CLOSING = [
+    "Heard you.",
+    "Sending this to Miles. Same day, in your inbox, in whatever shape it should land. You'll see it."
+  ];
+
+  // State
+  var state = {
+    turnIndex: 0,
+    answers: {},
+    finalized: false,
+  };
 
   function lsGet(k) { try { return localStorage.getItem(NS + k); } catch (e) { return null; } }
   function lsSet(k, v) { try { localStorage.setItem(NS + k, v); } catch (e) {} }
-
-  function showSaved(key) {
-    var f = document.querySelector('[data-flag="' + key + '"]');
-    if (!f) return;
-    f.classList.add('show');
-    clearTimeout(f._t);
-    f._t = setTimeout(function () { f.classList.remove('show'); }, 1200);
+  function lsClear() {
+    try {
+      for (var i = localStorage.length - 1; i >= 0; i--) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf(NS) === 0) localStorage.removeItem(k);
+      }
+    } catch (e) {}
   }
 
-  var btn = document.getElementById('submit-btn');
-  var fields = ['q1', 'q2', 'q3', 'q4', 'q5'];
+  function saveState() {
+    lsSet('state', JSON.stringify(state));
+  }
+  function loadState() {
+    var s = lsGet('state');
+    if (!s) return false;
+    try {
+      var parsed = JSON.parse(s);
+      state = parsed;
+      return true;
+    } catch (e) { return false; }
+  }
 
-  fields.forEach(function (k) {
-    var el = document.getElementById(k);
-    var v = lsGet(k);
-    if (v != null) el.value = v;
-    el.addEventListener('input', function () {
-      lsSet(k, el.value);
-      showSaved(k);
-      validate();
+  // DOM refs
+  var chat = document.getElementById('chat');
+  var inputArea = document.getElementById('input-area');
+  var input = document.getElementById('input');
+  var sendBtn = document.getElementById('send-btn');
+  var skipBtn = document.getElementById('skip-btn');
+  var finalArea = document.getElementById('final-area');
+  var finalBtn = document.getElementById('final-btn');
+  var resetBtn = document.getElementById('reset-btn');
+
+  function scrollToBottom() {
+    requestAnimationFrame(function () {
+      chat.scrollTop = chat.scrollHeight;
     });
+  }
+
+  function addBubble(text, who, small) {
+    var div = document.createElement('div');
+    div.className = 'bubble ' + (who === 'monique' ? 'monique' : 'user') + (small ? ' small' : '');
+    div.textContent = text;
+    chat.appendChild(div);
+    scrollToBottom();
+    return div;
+  }
+
+  function addTyping() {
+    var div = document.createElement('div');
+    div.className = 'typing';
+    div.id = 'typing-' + Date.now();
+    div.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+    chat.appendChild(div);
+    scrollToBottom();
+    return div;
+  }
+  function removeTyping(node) { if (node && node.parentNode) node.parentNode.removeChild(node); }
+
+  function delay(ms) { return new Promise(function (resolve) { setTimeout(resolve, ms); }); }
+
+  function setInputDisabled(disabled) {
+    input.disabled = disabled;
+    sendBtn.disabled = disabled || !(input.value || '').trim();
+  }
+
+  // Run a monique turn: show typing, then her messages with small delays between
+  async function moniqueTurn(turn) {
+    setInputDisabled(true);
+    if (turn.ack && state.turnIndex > 0) {
+      var typingA = addTyping();
+      await delay(550);
+      removeTyping(typingA);
+      addBubble(turn.ack, 'monique', true);
+      await delay(500);
+    }
+    for (var i = 0; i < turn.say.length; i++) {
+      var typing = addTyping();
+      var charsToType = turn.say[i].length;
+      // typing time scales with message length, capped
+      var typingMs = Math.min(1400, 350 + charsToType * 14);
+      await delay(typingMs);
+      removeTyping(typing);
+      addBubble(turn.say[i], 'monique');
+      if (i < turn.say.length - 1) await delay(450);
+    }
+    // Enable input
+    if (turn.optional) skipBtn.style.display = 'inline-block';
+    else skipBtn.style.display = 'none';
+    input.placeholder = "Type a reply...";
+    setInputDisabled(false);
+    input.focus();
+  }
+
+  async function closingTurn() {
+    setInputDisabled(true);
+    inputArea.style.display = 'none';
+    var typingA = addTyping();
+    await delay(700);
+    removeTyping(typingA);
+    addBubble(CLOSING[0], 'monique', true);
+    await delay(700);
+    var typingB = addTyping();
+    await delay(900);
+    removeTyping(typingB);
+    addBubble(CLOSING[1], 'monique');
+    await delay(450);
+    finalArea.classList.add('show');
+    state.finalized = true;
+    saveState();
+    scrollToBottom();
+  }
+
+  function recordAnswer(text) {
+    var turn = TURNS[state.turnIndex];
+    if (text && text.trim()) {
+      state.answers[turn.key] = text.trim();
+      addBubble(text.trim(), 'user');
+    } else {
+      // Skipped
+      state.answers[turn.key] = null;
+      addBubble("(skipped)", 'user', true);
+    }
+    state.turnIndex++;
+    saveState();
+    advance();
+  }
+
+  function advance() {
+    if (state.finalized) return;
+    if (state.turnIndex >= TURNS.length) {
+      closingTurn();
+    } else {
+      moniqueTurn(TURNS[state.turnIndex]);
+    }
+  }
+
+  // Hydrate from saved state
+  function hydrate() {
+    if (!loadState()) return false;
+    // Replay the conversation visually without animation
+    for (var i = 0; i < Math.min(state.turnIndex, TURNS.length); i++) {
+      var t = TURNS[i];
+      if (t.ack && i > 0) addBubble(t.ack, 'monique', true);
+      t.say.forEach(function (s) { addBubble(s, 'monique'); });
+      var ans = state.answers[t.key];
+      if (ans) addBubble(ans, 'user');
+      else if (ans === null) addBubble("(skipped)", 'user', true);
+    }
+    if (state.finalized) {
+      addBubble(CLOSING[0], 'monique', true);
+      addBubble(CLOSING[1], 'monique');
+      finalArea.classList.add('show');
+      inputArea.style.display = 'none';
+    } else if (state.turnIndex < TURNS.length) {
+      // Resume mid-conversation — show the current Monique question
+      var t = TURNS[state.turnIndex];
+      if (t.ack && state.turnIndex > 0) addBubble(t.ack, 'monique', true);
+      t.say.forEach(function (s) { addBubble(s, 'monique'); });
+      if (t.optional) skipBtn.style.display = 'inline-block';
+      setInputDisabled(false);
+    }
+    scrollToBottom();
+    return true;
+  }
+
+  // Event wiring
+  input.addEventListener('input', function () {
+    sendBtn.disabled = !(input.value || '').trim() || input.disabled;
+    // Auto-resize textarea
+    input.style.height = 'auto';
+    input.style.height = Math.min(140, input.scrollHeight) + 'px';
+  });
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (!sendBtn.disabled) handleSend();
+    }
+  });
+  function handleSend() {
+    var text = (input.value || '').trim();
+    if (!text) return;
+    input.value = '';
+    input.style.height = 'auto';
+    skipBtn.style.display = 'none';
+    setInputDisabled(true);
+    recordAnswer(text);
+  }
+  sendBtn.addEventListener('click', function (e) { e.preventDefault(); handleSend(); });
+  skipBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    input.value = '';
+    skipBtn.style.display = 'none';
+    setInputDisabled(true);
+    recordAnswer('');
   });
 
-  function val(k) { return (document.getElementById(k).value || '').trim(); }
-
-  function validate() {
-    // Require the first two questions before allowing send.
-    btn.disabled = !(val('q1').length >= 2 && val('q2').length >= 2);
-  }
-  validate();
-
-  btn.addEventListener('click', function (e) {
+  finalBtn.addEventListener('click', function (e) {
     e.preventDefault();
-    if (btn.disabled) return;
-    var q1 = val('q1'), q2 = val('q2'), q3 = val('q3'), q4 = val('q4'), q5 = val('q5');
-    var firstLine = q1.split(/\r?\n/)[0].trim();
-    var subject = firstLine.length > 80 ? firstLine.slice(0, 77) + '...' : (firstLine || 'Sent from the direct line');
-
-    var body = '';
-    body += "What's going on:\n" + q1 + '\n\n';
-    body += "What's heaviest / sharpest / stuck:\n" + q2 + '\n\n';
-    if (q3) body += "What would help look like:\n" + q3 + '\n\n';
-    if (q4) body += "When:\n" + q4 + '\n\n';
-    if (q5) body += "Worth knowing:\n" + q5 + '\n\n';
-
+    var parts = [];
+    TURNS.forEach(function (t) {
+      var v = state.answers[t.key];
+      if (v) parts.push(t.label + ':\n' + v);
+    });
+    var body = parts.join('\n\n');
+    var firstAnswer = state.answers[TURNS[0].key] || '';
+    var firstLine = firstAnswer.split(/\r?\n/)[0].trim();
+    var subject = firstLine.length > 80 ? firstLine.slice(0, 77) + '...' : (firstLine || 'Sent from Monique');
     window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
+
+  resetBtn.addEventListener('click', function () {
+    if (!confirm('Start the conversation over? This clears what you have written.')) return;
+    lsClear();
+    location.reload();
+  });
+
+  // Boot
+  if (!hydrate()) {
+    // Fresh conversation
+    advance();
+  }
 })();
 </script>
 
