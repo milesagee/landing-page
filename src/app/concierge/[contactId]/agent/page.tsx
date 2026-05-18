@@ -193,6 +193,58 @@ export default async function ConciergeAgentDashboard({
         </div>
       </section>
 
+      {/* Lead-facing first touch — Gmail-compose deep links so Chosen ships the cover */}
+      {!wendyAlreadyOwning && (contact.prospectCoverBody || contact.prospectCoverSubject) ? (
+        <section className="max-w-4xl mx-auto px-6 pt-8">
+          <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold mb-2">
+            Lead-facing first touch
+          </p>
+          <div className="bg-white rounded-lg border border-deep-teal/10 p-6 sm:p-8">
+            <p className="text-xs text-deep-teal/65 mb-4 leading-relaxed">
+              A short cover drafted in Miles&rsquo;s voice with one verifiable specific line from this lead&rsquo;s intake. Send as-is or edit before send — you own the first email out.
+            </p>
+            {contact.prospectCoverSubject ? (
+              <div className="mb-3">
+                <div className="text-[10px] uppercase tracking-[0.12em] text-deep-teal/55 font-semibold mb-1">Subject</div>
+                <div className="text-sm text-deep-teal font-medium">{contact.prospectCoverSubject}</div>
+              </div>
+            ) : null}
+            {contact.prospectCoverBody ? (
+              <div className="mb-4">
+                <div className="text-[10px] uppercase tracking-[0.12em] text-deep-teal/55 font-semibold mb-1">Body</div>
+                <pre className="text-sm text-deep-teal/90 whitespace-pre-wrap font-sans bg-paper/60 rounded-md p-4 leading-relaxed">{contact.prospectCoverBody}</pre>
+              </div>
+            ) : null}
+            <div className="flex flex-wrap gap-2">
+              {contact.email ? (
+                <>
+                  <a
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(contact.prospectCoverSubject || "")}&body=${encodeURIComponent(contact.prospectCoverBody || "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-deep-teal text-ivory hover:bg-deep-teal/90 px-4 py-2 rounded-md text-sm font-medium transition"
+                  >
+                    Send as-is in Gmail →
+                  </a>
+                  <a
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(contact.prospectCoverSubject || "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-paper hover:bg-gold/10 border border-deep-teal/15 hover:border-gold-dark text-deep-teal px-4 py-2 rounded-md text-sm font-medium transition"
+                  >
+                    Edit before send →
+                  </a>
+                </>
+              ) : (
+                <p className="text-xs text-deep-teal/55 italic">
+                  No email on the contact — paste subject + body into your preferred channel manually.
+                </p>
+              )}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {/* First-call prep — only shows pre-Application, where Chosen owns the call */}
       {!wendyAlreadyOwning ? (
         <section className="max-w-4xl mx-auto px-6 pt-8">

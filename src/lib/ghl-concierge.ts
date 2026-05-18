@@ -31,6 +31,8 @@ export const CONCIERGE_FIELD_KEYS = {
   anchorAddress: "contact.concierge_anchor_address",
   shortlistV2Json: "contact.concierge_shortlist_v2_json",
   lastTouchAt: "contact.concierge_last_touch_at",
+  prospectCoverSubject: "contact.concierge_prospect_cover_subject",
+  prospectCoverBody: "contact.concierge_prospect_cover_body",
 } as const;
 
 export interface ConciergeContact {
@@ -50,6 +52,8 @@ export interface ConciergeContact {
   anchorAddress?: string;
   shortlistV2Json?: string;
   lastTouchAt?: string;
+  prospectCoverSubject?: string;
+  prospectCoverBody?: string;
 }
 
 interface RawCustomField {
@@ -106,6 +110,8 @@ export async function getConciergeContact(contactId: string): Promise<ConciergeC
     anchorAddress: extractFieldById(c, fieldIds.anchorAddress),
     shortlistV2Json: extractFieldById(c, fieldIds.shortlistV2Json),
     lastTouchAt: extractFieldById(c, fieldIds.lastTouchAt),
+    prospectCoverSubject: extractFieldById(c, fieldIds.prospectCoverSubject),
+    prospectCoverBody: extractFieldById(c, fieldIds.prospectCoverBody),
   };
 }
 
