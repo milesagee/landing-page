@@ -33,6 +33,7 @@ export const CONCIERGE_FIELD_KEYS = {
   lastTouchAt: "contact.concierge_last_touch_at",
   prospectCoverSubject: "contact.concierge_prospect_cover_subject",
   prospectCoverBody: "contact.concierge_prospect_cover_body",
+  stageTriggerQueue: "contact.concierge_stage_trigger_queue",
 } as const;
 
 export interface ConciergeContact {
@@ -54,6 +55,7 @@ export interface ConciergeContact {
   lastTouchAt?: string;
   prospectCoverSubject?: string;
   prospectCoverBody?: string;
+  stageTriggerQueue?: string;
 }
 
 interface RawCustomField {
@@ -112,6 +114,7 @@ export async function getConciergeContact(contactId: string): Promise<ConciergeC
     lastTouchAt: extractFieldById(c, fieldIds.lastTouchAt),
     prospectCoverSubject: extractFieldById(c, fieldIds.prospectCoverSubject),
     prospectCoverBody: extractFieldById(c, fieldIds.prospectCoverBody),
+    stageTriggerQueue: extractFieldById(c, fieldIds.stageTriggerQueue),
   };
 }
 
