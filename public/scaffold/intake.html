@@ -3,75 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>I'm here. What do you need?</title>
+<title>I'm here. Let's figure it out together.</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&display=swap');
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-  body {
-    background: #FAF7F1; color: #003F3F;
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-size: 15px; line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-  }
-  .page { max-width: 620px; margin: 0 auto; background: #fff; min-height: 100vh; }
-  @media (min-width: 600px) {
-    body { padding: 32px 0; }
-    .page { min-height: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,63,63,0.08); }
-  }
+  body { background: #FAF7F1; color: #003F3F; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  .page { max-width: 660px; margin: 0 auto; background: #fff; min-height: 100vh; }
+  @media (min-width: 600px) { body { padding: 32px 0; } .page { min-height: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,63,63,0.08); } }
 
-  .header { background: #003F3F; padding: 32px 28px 36px; color: #FAF7F1; }
+  .header { background: #003F3F; padding: 30px 28px 32px; color: #FAF7F1; }
   .eyebrow { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #D4AF37; font-weight: 700; }
-  .header h1 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic; font-weight: 700;
-    font-size: 34px; margin: 8px 0 0; line-height: 1.15; color: #FAF7F1;
-  }
-  .sub {
-    font-size: 15px; color: #FAF7F1; opacity: 0.92;
-    margin-top: 14px; line-height: 1.65;
-  }
-  @media (min-width: 600px) { .header { padding: 36px 36px 40px; } .header h1 { font-size: 40px; } }
+  .header h1 { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 30px; margin: 8px 0 0; line-height: 1.15; color: #FAF7F1; }
+  .sub { font-size: 14.5px; color: #FAF7F1; opacity: 0.92; margin-top: 14px; line-height: 1.65; }
+  @media (min-width: 600px) { .header { padding: 36px 36px 38px; } .header h1 { font-size: 36px; } .sub { font-size: 15px; } }
 
-  .body { padding: 28px 28px 8px; }
+  .body { padding: 26px 28px 8px; }
   @media (min-width: 600px) { .body { padding: 32px 36px 8px; } }
 
+  .q { margin-bottom: 26px; }
+  .q-num { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #B1922E; font-weight: 700; margin-bottom: 6px; }
+  .q-label { display: block; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 20px; color: #003F3F; line-height: 1.3; margin-bottom: 8px; }
+  .q-hint { font-size: 13.5px; color: #003F3F; opacity: 0.7; line-height: 1.6; margin-bottom: 12px; }
+
   textarea {
-    width: 100%; padding: 16px 18px;
+    width: 100%; padding: 14px 16px;
     border: 1px solid #D4E4E4; border-radius: 8px;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 16px; color: #003F3F; background: #FAF7F1;
-    line-height: 1.6; min-height: 200px; resize: vertical;
+    font-family: 'Inter', Arial, sans-serif; font-size: 15.5px; color: #003F3F;
+    background: #FAF7F1; line-height: 1.6; resize: vertical;
     -webkit-appearance: none;
   }
   textarea:focus { outline: none; border-color: #D4AF37; background: #fff; }
-  textarea::placeholder { color: #003F3F; opacity: 0.35; }
+  textarea::placeholder { color: #003F3F; opacity: 0.32; }
+  textarea.short { min-height: 56px; }
+  textarea.medium { min-height: 96px; }
+  textarea.tall { min-height: 130px; }
 
-  .saved-flag {
-    font-size: 11px; color: #B1922E;
-    opacity: 0; transition: opacity 0.3s; font-weight: 600;
-    margin-top: 8px; display: block; min-height: 14px;
-  }
+  .saved-flag { display: inline-block; font-size: 11px; color: #B1922E; opacity: 0; transition: opacity 0.3s; font-weight: 600; margin-left: 8px; vertical-align: middle; }
   .saved-flag.show { opacity: 1; }
 
-  .submit-area { padding: 16px 28px 28px; }
-  @media (min-width: 600px) { .submit-area { padding: 20px 36px 32px; } }
-  .submit-btn {
-    display: block; width: 100%; padding: 18px 20px;
-    background: #003F3F; color: #FAF7F1;
-    border: none; border-radius: 10px; cursor: pointer;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 16px; font-weight: 700;
-    text-align: center; min-height: 56px;
-    transition: background 0.12s;
-  }
+  .submit-area { padding: 22px 28px 30px; background: #FAF7F1; border-top: 1px solid #D4E4E4; margin-top: 18px; }
+  @media (min-width: 600px) { .submit-area { padding: 26px 36px 34px; } }
+  .submit-btn { display: block; width: 100%; padding: 17px 20px; background: #003F3F; color: #FAF7F1; border: none; border-radius: 10px; cursor: pointer; font-family: 'Inter', Arial, sans-serif; font-size: 16px; font-weight: 700; text-align: center; min-height: 54px; transition: background 0.12s; }
   .submit-btn:hover:not(:disabled) { background: #002828; }
   .submit-btn:disabled { background: #B0B8B8; cursor: not-allowed; }
-  .submit-meta {
-    font-size: 12.5px; color: #003F3F; opacity: 0.62;
-    line-height: 1.6; margin-top: 14px; text-align: center;
-  }
+  .submit-meta { font-size: 12.5px; color: #003F3F; opacity: 0.62; line-height: 1.6; margin-top: 12px; text-align: center; }
 </style>
 </head>
 <body>
@@ -80,20 +56,54 @@
 
 <div class="header">
   <div class="eyebrow">A direct line</div>
-  <h1>I'm here. What do you need?</h1>
+  <h1>I'm here. Let's figure it out together.</h1>
   <div class="sub">
-    Say anything. Whatever's actually on your mind, in your day, in your way. I figure out what would help and send it back. Same day, in your inbox, in whatever shape it should take.
+    A few quick questions so I can come back with something that actually lands. None require an essay. Whatever comes to mind first is usually the right answer. The last two are optional.
   </div>
 </div>
 
 <div class="body">
-  <textarea id="msg" data-store="msg" placeholder=""></textarea>
-  <span class="saved-flag" id="flag">saved</span>
+
+  <div class="q">
+    <div class="q-num">01</div>
+    <label class="q-label" for="q1">What's going on?<span class="saved-flag" data-flag="q1">saved</span></label>
+    <div class="q-hint">Set the scene. The day, the week, what you're in the middle of, what just happened, what's coming up. Any frame you're working from.</div>
+    <textarea id="q1" class="tall" data-store="q1" placeholder=""></textarea>
+  </div>
+
+  <div class="q">
+    <div class="q-num">02</div>
+    <label class="q-label" for="q2">What's heaviest, sharpest, or stuck?<span class="saved-flag" data-flag="q2">saved</span></label>
+    <div class="q-hint">The thing your brain keeps circling back to. The decision you can't make. The skill that won't click. The conversation you don't want to have. The move that feels too big.</div>
+    <textarea id="q2" class="medium" data-store="q2" placeholder=""></textarea>
+  </div>
+
+  <div class="q">
+    <div class="q-num">03</div>
+    <label class="q-label" for="q3">If I came back with something that helped, what would it do for you?<span class="saved-flag" data-flag="q3">saved</span></label>
+    <div class="q-hint">A structure to fill in. A decision framework. A clear next step. Sharper thinking on a topic. Permission to let something go. Something off your plate. Whatever would make the next move feel lighter.</div>
+    <textarea id="q3" class="medium" data-store="q3" placeholder=""></textarea>
+  </div>
+
+  <div class="q">
+    <div class="q-num">04</div>
+    <label class="q-label" for="q4">When do you need to feel a step lighter? <span style="font-style:normal; font-weight:500; font-size:13px; color:#003F3F; opacity:0.5;">(optional)</span><span class="saved-flag" data-flag="q4">saved</span></label>
+    <div class="q-hint">Today, by Friday, before a thing, no rush. Knowing helps me prioritize.</div>
+    <textarea id="q4" class="short" data-store="q4" placeholder=""></textarea>
+  </div>
+
+  <div class="q">
+    <div class="q-num">05</div>
+    <label class="q-label" for="q5">Anything else I should know about you or this moment? <span style="font-style:normal; font-weight:500; font-size:13px; color:#003F3F; opacity:0.5;">(optional)</span><span class="saved-flag" data-flag="q5">saved</span></label>
+    <div class="q-hint">Context, history, what you've already tried, what you don't want, what doesn't work for you. Skip if nothing comes to mind.</div>
+    <textarea id="q5" class="short" data-store="q5" placeholder=""></textarea>
+  </div>
+
 </div>
 
 <div class="submit-area">
   <button class="submit-btn" id="submit-btn" disabled>Send</button>
-  <div class="submit-meta">Opens your mail app, addressed to me. Hit send and I take it from there.</div>
+  <div class="submit-meta">Opens your mail app, addressed to me. Hit send and I take it from there. Same day, in your inbox, in whatever shape it should take.</div>
 </div>
 
 </div>
@@ -106,39 +116,51 @@
   function lsGet(k) { try { return localStorage.getItem(NS + k); } catch (e) { return null; } }
   function lsSet(k, v) { try { localStorage.setItem(NS + k, v); } catch (e) {} }
 
-  var flag = document.getElementById('flag');
-  function showSaved() {
-    flag.classList.add('show');
-    clearTimeout(flag._t);
-    flag._t = setTimeout(function () { flag.classList.remove('show'); }, 1200);
+  function showSaved(key) {
+    var f = document.querySelector('[data-flag="' + key + '"]');
+    if (!f) return;
+    f.classList.add('show');
+    clearTimeout(f._t);
+    f._t = setTimeout(function () { f.classList.remove('show'); }, 1200);
   }
 
-  var msg = document.getElementById('msg');
   var btn = document.getElementById('submit-btn');
+  var fields = ['q1', 'q2', 'q3', 'q4', 'q5'];
 
-  var v = lsGet('msg');
-  if (v != null) msg.value = v;
+  fields.forEach(function (k) {
+    var el = document.getElementById(k);
+    var v = lsGet(k);
+    if (v != null) el.value = v;
+    el.addEventListener('input', function () {
+      lsSet(k, el.value);
+      showSaved(k);
+      validate();
+    });
+  });
+
+  function val(k) { return (document.getElementById(k).value || '').trim(); }
 
   function validate() {
-    var text = (msg.value || '').trim();
-    btn.disabled = (text.length < 2);
+    // Require the first two questions before allowing send.
+    btn.disabled = !(val('q1').length >= 2 && val('q2').length >= 2);
   }
-
-  msg.addEventListener('input', function () {
-    lsSet('msg', msg.value);
-    showSaved();
-    validate();
-  });
   validate();
 
   btn.addEventListener('click', function (e) {
     e.preventDefault();
-    var text = (msg.value || '').trim();
-    if (!text) return;
-    var firstLine = text.split(/\r?\n/)[0].trim();
-    var subject = firstLine.length > 80 ? firstLine.slice(0, 77) + '...' : firstLine;
-    if (!subject) subject = 'Sent from the direct line';
-    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
+    if (btn.disabled) return;
+    var q1 = val('q1'), q2 = val('q2'), q3 = val('q3'), q4 = val('q4'), q5 = val('q5');
+    var firstLine = q1.split(/\r?\n/)[0].trim();
+    var subject = firstLine.length > 80 ? firstLine.slice(0, 77) + '...' : (firstLine || 'Sent from the direct line');
+
+    var body = '';
+    body += "What's going on:\n" + q1 + '\n\n';
+    body += "What's heaviest / sharpest / stuck:\n" + q2 + '\n\n';
+    if (q3) body += "What would help look like:\n" + q3 + '\n\n';
+    if (q4) body += "When:\n" + q4 + '\n\n';
+    if (q5) body += "Worth knowing:\n" + q5 + '\n\n';
+
+    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
 })();
 </script>
