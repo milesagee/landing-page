@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tell me what you're drilling · Miles</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #FAF7F1; color: #003F3F; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .page { max-width: 640px; margin: 0 auto; background: #fff; }
+  @media (min-width: 600px) { body { padding: 24px 0; } .page { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,63,63,0.08); } }
+
+  .header { background: #003F3F; padding: 24px 24px 28px; color: #FAF7F1; }
+  .eyebrow { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #D4AF37; font-weight: 700; }
+  .header h1 { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 30px; margin: 6px 0 0; line-height: 1.15; color: #FAF7F1; }
+  .intro { font-size: 14.5px; color: #FAF7F1; opacity: 0.92; margin-top: 12px; line-height: 1.6; }
+  @media (min-width: 600px) { .header { padding: 28px 32px 32px; } .header h1 { font-size: 34px; } .intro { font-size: 15px; } }
+
+  .body { padding: 26px 24px 8px; }
+  @media (min-width: 600px) { .body { padding: 30px 32px 8px; } }
+
+  .field { margin-bottom: 22px; }
+  .field-label { display: block; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 17px; color: #003F3F; margin-bottom: 4px; }
+  .field-hint { font-size: 13px; color: #003F3F; opacity: 0.7; margin-bottom: 10px; line-height: 1.5; }
+
+  input[type="text"], textarea {
+    width: 100%; padding: 12px 14px;
+    border: 1px solid #D4E4E4; border-radius: 6px;
+    font-family: 'Inter', Arial, sans-serif; font-size: 15px; color: #003F3F;
+    background: #FAF7F1; line-height: 1.5;
+    -webkit-appearance: none;
+  }
+  input[type="text"]:focus, textarea:focus { outline: none; border-color: #D4AF37; background: #fff; }
+  textarea { resize: vertical; min-height: 80px; }
+
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .opt {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 11px 14px; background: #FAF7F1; border: 1px solid #D4E4E4;
+    border-radius: 6px; cursor: pointer; transition: background 0.12s, border-color 0.12s;
+    font-size: 14.5px; line-height: 1.45;
+  }
+  .opt:hover { border-color: #003F3F; }
+  .opt input[type="checkbox"] { margin: 3px 0 0; width: 18px; height: 18px; accent-color: #003F3F; flex-shrink: 0; }
+  .opt-text { color: #003F3F; }
+  .opt input[type="checkbox"]:checked + .opt-text { font-weight: 600; }
+
+  .examples { font-size: 12.5px; color: #003F3F; opacity: 0.6; line-height: 1.6; margin-top: 6px; }
+
+  .submit-area { padding: 18px 24px 22px; background: #FAF7F1; border-top: 1px solid #D4E4E4; margin-top: 14px; }
+  @media (min-width: 600px) { .submit-area { padding: 22px 32px 26px; } }
+  .submit-btn {
+    display: block; width: 100%; padding: 16px 18px;
+    background: #003F3F; color: #FAF7F1;
+    border: none; border-radius: 8px; cursor: pointer;
+    font-family: 'Inter', Arial, sans-serif; font-size: 15px; font-weight: 700;
+    text-align: center; min-height: 52px;
+  }
+  .submit-btn:hover { background: #002828; }
+  .submit-btn:disabled { background: #B0B8B8; cursor: not-allowed; }
+  .submit-meta { font-size: 11.5px; color: #003F3F; opacity: 0.6; line-height: 1.55; margin-top: 12px; text-align: center; }
+
+  .saved-flag { font-size: 11px; color: #B1922E; opacity: 0; transition: opacity 0.3s; font-weight: 600; }
+  .saved-flag.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<div class="header">
+  <div class="eyebrow">A tool Miles built for you</div>
+  <h1>Tell me what you're drilling</h1>
+  <div class="intro">
+    Type the topic you're on, hit send, and a scaffold built around exactly that lands in your inbox. Not a study guide. A workbench you fill in. You stay in the driver's seat. Ask for one whenever you want, as many times as you want.
+  </div>
+</div>
+
+<div class="body">
+
+  <div class="field">
+    <label class="field-label" for="f-topic">What are you drilling right now? <span class="saved-flag" id="flag-topic">saved</span></label>
+    <div class="field-hint">One line. The topic, the system, the chapter, the concept, the question that's bugging you. Whatever's actually on your screen right now.</div>
+    <input type="text" id="f-topic" data-store="topic" placeholder="e.g. cardiac glycosides, ABG interpretation, electrolyte imbalances, ABC priority traps, IV push rates...">
+    <div class="examples">Examples to spark: insulin sliding scale &middot; potassium levels &middot; tracheostomy care &middot; SBAR handoff structure &middot; preeclampsia red flags</div>
+  </div>
+
+  <div class="field">
+    <label class="field-label" for="f-where">Where are you right now? <span class="saved-flag" id="flag-where">saved</span></label>
+    <div class="field-hint">Optional. Week, block, what's clicking, what's not. Anything that helps the scaffold land where you actually are. Skip if you don't feel like it.</div>
+    <textarea id="f-where" data-store="where" rows="3" placeholder=""></textarea>
+  </div>
+
+  <div class="field">
+    <label class="field-label">What would help most? <span class="saved-flag" id="flag-options">saved</span></label>
+    <div class="field-hint">Pick all that apply. Leave them all checked if you want the full scaffold.</div>
+    <div class="options">
+      <label class="opt"><input type="checkbox" data-store="opt-systems" checked> <span class="opt-text">System map I can fill in</span></label>
+      <label class="opt"><input type="checkbox" data-store="opt-traps" checked> <span class="opt-text">Wordplay traps the test writers use</span></label>
+      <label class="opt"><input type="checkbox" data-store="opt-connections" checked> <span class="opt-text">Connections to things I've already drilled</span></label>
+      <label class="opt"><input type="checkbox" data-store="opt-prompts" checked> <span class="opt-text">Drill prompts to run my algorithm on</span></label>
+      <label class="opt"><input type="checkbox" data-store="opt-pitfall" checked> <span class="opt-text">The thing nurses get wrong in practice</span></label>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="field-label" for="f-deadline">Deadline? <span class="saved-flag" id="flag-deadline">saved</span></label>
+    <div class="field-hint">Optional. If there's a test, a clinical, a date you want it before, say so.</div>
+    <input type="text" id="f-deadline" data-store="deadline" placeholder="e.g. before Thursday's clinical, by Sunday night, no rush">
+  </div>
+
+  <div class="field">
+    <label class="field-label" for="f-notes">Anything else worth knowing? <span class="saved-flag" id="flag-notes">saved</span></label>
+    <div class="field-hint">Optional. A specific angle, a question that came up, something you want pushed harder than usual.</div>
+    <textarea id="f-notes" data-store="notes" rows="3" placeholder=""></textarea>
+  </div>
+
+</div>
+
+<div class="submit-area">
+  <button class="submit-btn" id="submit-btn" disabled>Send to Miles</button>
+  <div class="submit-meta">Opens your mail app with everything pre-filled. Hit send. Scaffold lands in your inbox same day.</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  var NS = 'mams-scaffold-intake-';
+  var EMAIL = 'miles@milesagee.com';
+
+  function lsGet(k) { try { return localStorage.getItem(NS + k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(NS + k, v); } catch (e) {} }
+
+  function flag(id) {
+    var el = document.getElementById('flag-' + id);
+    if (!el) return;
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 1200);
+  }
+
+  // Hydrate text inputs + textareas
+  document.querySelectorAll('input[type="text"][data-store], textarea[data-store]').forEach(function (el) {
+    var key = el.dataset.store;
+    var v = lsGet(key);
+    if (v != null) el.value = v;
+    el.addEventListener('input', function () {
+      lsSet(key, el.value);
+      flag(key === 'topic' ? 'topic' : key === 'where' ? 'where' : key === 'deadline' ? 'deadline' : 'notes');
+      validate();
+    });
+  });
+
+  // Hydrate checkboxes
+  document.querySelectorAll('input[type="checkbox"][data-store]').forEach(function (el) {
+    var key = el.dataset.store;
+    var v = lsGet(key);
+    if (v != null) el.checked = (v === '1');
+    el.addEventListener('change', function () {
+      lsSet(key, el.checked ? '1' : '0');
+      flag('options');
+    });
+  });
+
+  function validate() {
+    var topic = (document.getElementById('f-topic').value || '').trim();
+    document.getElementById('submit-btn').disabled = (topic.length < 2);
+  }
+  validate();
+
+  document.getElementById('submit-btn').addEventListener('click', function (e) {
+    e.preventDefault();
+    var topic = (document.getElementById('f-topic').value || '').trim();
+    if (!topic) return;
+    var where = (document.getElementById('f-where').value || '').trim();
+    var deadline = (document.getElementById('f-deadline').value || '').trim();
+    var notes = (document.getElementById('f-notes').value || '').trim();
+
+    var opts = [];
+    if (document.querySelector('[data-store="opt-systems"]').checked) opts.push('System map I can fill in');
+    if (document.querySelector('[data-store="opt-traps"]').checked) opts.push('Wordplay traps');
+    if (document.querySelector('[data-store="opt-connections"]').checked) opts.push('Connections to things I have drilled');
+    if (document.querySelector('[data-store="opt-prompts"]').checked) opts.push('Drill prompts');
+    if (document.querySelector('[data-store="opt-pitfall"]').checked) opts.push('The thing nurses get wrong in practice');
+
+    var body =
+      'Topic: ' + topic + '\n\n' +
+      'Where I am right now:\n' + (where || '(skipped)') + '\n\n' +
+      'What I want in the scaffold:\n- ' + opts.join('\n- ') + '\n\n' +
+      'Deadline: ' + (deadline || '(none)') + '\n\n' +
+      'Anything else:\n' + (notes || '(nothing)') + '\n';
+
+    var subject = 'Build me a scaffold on ' + topic;
+    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+})();
+</script>
+
+</body>
+</html>
