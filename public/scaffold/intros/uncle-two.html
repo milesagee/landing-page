@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="https://mamsnow.com/scaffold/intros/uncle-4runner-callouts.png">
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -123,7 +123,7 @@
     max-width: 540px;
   }
 
-  /* Heritage block — annotated 4Runner photo */
+  /* Heritage block */
   .screenshot-wrap {
     margin: 32px -28px 0;
     border-radius: 0;
@@ -140,6 +140,119 @@
     margin: 16px 0 0;
     letter-spacing: 0.01em;
   }
+  .heritage-mods {
+    margin: 28px 0 0;
+    padding: 20px 22px;
+    background: rgba(0,63,63,0.025);
+    border-left: 2px solid rgba(0,63,63,0.18);
+    border-radius: 2px;
+  }
+  .heritage-mods p {
+    font-size: 15px;
+    color: rgba(0,63,63,0.78);
+    margin: 0 0 10px;
+    line-height: 1.6;
+  }
+  .heritage-mods p:last-child { margin-bottom: 0; }
+  .heritage-mods strong { color: #003F3F; font-weight: 600; }
+
+  /* Spec-sheet code panel (Darius pattern: shape the deliverable) */
+  .code-panel {
+    margin: 24px 0 0;
+    background: #002E2E;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 63, 63, 0.18);
+  }
+  .code-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 11px 16px;
+    background: #001E1E;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .code-header .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #FF5F57;
+    flex-shrink: 0;
+  }
+  .code-header .dot.y { background: #FEBC2E; }
+  .code-header .dot.g { background: #28C840; }
+  .code-path {
+    margin-left: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em;
+  }
+  .code-panel pre {
+    margin: 0;
+    padding: 18px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #E8E1D0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code-panel .h1 { color: #D4AF37; font-weight: 600; }
+  .code-panel .com { color: rgba(232,225,208,0.45); font-style: italic; }
+  .code-panel .li { color: #7DD3CF; }
+  .code-panel .key { color: #D4AF37; }
+  .code-panel .str { color: #A8D8B9; }
+  .code-caption {
+    font-size: 13px;
+    color: rgba(0,63,63,0.55);
+    margin: 14px 0 0;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* Value-list (Darius pattern: 4 lanes of what I can hand you) */
+  .value-list { list-style: none; padding: 0; margin: 0; }
+  .value-item {
+    padding: 22px 0;
+    border-top: 1px solid rgba(0,63,63,0.06);
+  }
+  .value-item:first-child { border-top: none; padding-top: 8px; }
+  .value-item h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 19px; color: #003F3F;
+    margin: 0 0 8px;
+    letter-spacing: -0.005em;
+  }
+  .value-item h4 em { font-style: italic; }
+  .value-item p {
+    font-size: 16px; color: rgba(0,63,63,0.78);
+    margin: 0; line-height: 1.55;
+  }
+
+  /* Ask-list (Darius pattern: where we start, 3 numbered asks) */
+  .ask-list {
+    list-style: none; padding: 0; margin: 0;
+    counter-reset: ask;
+  }
+  .ask-item {
+    padding: 18px 0;
+    border-top: 1px solid rgba(0,63,63,0.06);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    align-items: baseline;
+  }
+  .ask-item:first-child { border-top: none; padding-top: 4px; }
+  .ask-item::before {
+    counter-increment: ask;
+    content: counter(ask, decimal-leading-zero);
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 14px;
+    color: #D4AF37;
+    letter-spacing: 0.04em;
+  }
+  .ask-item p {
+    font-size: 17px; color: rgba(0,63,63,0.85);
+    margin: 0; line-height: 1.55;
+  }
+  .ask-item p strong { color: #003F3F; font-weight: 600; }
 
   /* Showcase exhibits */
   .exhibits { list-style: none; padding: 0; margin: 0; }
@@ -299,6 +412,8 @@
     .section h2 { font-size: 36px; }
     .section-lede { font-size: 18px; }
     .screenshot-wrap { margin: 36px 0 0; border-radius: 12px; }
+    .heritage-mods { padding: 24px 28px; margin-top: 32px; }
+    .heritage-mods p { font-size: 16px; }
     .exhibit { grid-template-columns: 48px 1fr; gap: 24px; padding: 40px 0; }
     .exhibit-number { font-size: 16px; padding-top: 6px; }
     .exhibit h3 { font-size: 25px; }
@@ -306,6 +421,10 @@
     .next-up { padding: 32px 28px; margin-top: 40px; }
     .next-up h4 { font-size: 18px; }
     .next-up p { font-size: 15px; }
+    .code-panel pre { font-size: 13.5px; padding: 22px 24px; }
+    .value-item h4 { font-size: 21px; }
+    .value-item p { font-size: 17px; }
+    .ask-item { grid-template-columns: 48px 1fr; gap: 18px; }
   }
 </style>
 </head>
@@ -342,6 +461,12 @@
       <img src="uncle-4runner-callouts.png" alt="The 1997 4Runner, with the upgrades that have gone into it annotated">
     </div>
     <p class="screenshot-caption">Annotated from receipts. Real money, real parts, real gratitude.</p>
+
+    <div class="heritage-mods">
+      <p>What's on the side profile already: <strong>2.5&quot; Dobinsons IMS lift</strong>, <strong>SCS Ray10 17x8.5 bronze wheels</strong>, <strong>Falken Wildpeak A/T4W P285/70R17</strong>, <strong>OEM 99-02 front bumper fender flares</strong>.</p>
+      <p>What's harder to see in this shot: every badge is deleted, the ones on the front and back are painted out black. New <strong>Kenwood entertainment console</strong> with all speakers replaced. A <strong>rooftop tent</strong> rides up top now too.</p>
+      <p>None of it changes the chain it came from. All of it tries to be worthy of it.</p>
+    </div>
   </section>
 
   <section class="section">
@@ -436,6 +561,87 @@
   </section>
 
   <section class="section">
+    <div class="eyebrow">What I can hand you</div>
+    <h2>Four lanes. <em>All real.</em></h2>
+
+    <ul class="value-list">
+      <li class="value-item">
+        <h4>Deep research on <em>any thesis you're sitting with</em>.</h4>
+        <p>You bring the question. I queue Claude Code briefing Perplexity Computer briefing back, multi-pass verified, sourced. Comes back as a real brief, not a chatbot answer. Same stack that produced the Lennar buyer thesis and the Carytown short-term rental plan this week.</p>
+      </li>
+      <li class="value-item">
+        <h4>Stress-testing on <em>market commentary before you publish</em>.</h4>
+        <p>Send me the next thing you're working on for YouTube. I run it against cross-source signal, surface what would tighten the angle without flattening your voice. You ship sharper. I learn what reads as Uncle Two voice. Both of us win.</p>
+      </li>
+      <li class="value-item">
+        <h4>Cross-source synthesis when <em>something is actually moving</em>.</h4>
+        <p>A Fed move you want a real read on. A sector shift you're tracking. A Richmond economic signal that connects to something national. Pull the threads, surface what holds up, name what's noise.</p>
+      </li>
+      <li class="value-item">
+        <h4>Research depth on <em>anything that would cost you a weekend</em>.</h4>
+        <p>Travel planning with real intel instead of TripAdvisor consensus. Vendor sourcing with verified reviews and cross-validation. Personal decisions where the right next step lives inside three different sources you don't have time to find. The plumbing is mine. The reclaimed time is yours.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">The kitchen, not just the dish</div>
+    <h2>This is <em>what a brief actually looks like</em>.</h2>
+    <p>Just so you can see the shape before you ask for one. This is the real output from a research pass I ran for myself two weeks ago. Same shape any brief I hand you would take.</p>
+
+    <div class="code-panel">
+      <div class="code-header">
+        <span class="dot"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="code-path">research/tire-pick-3rd-gen-4runner.md</span>
+      </div>
+<pre><span class="h1"># Tire Pick: 3rd Gen 4Runner, 2.5" Lift</span>
+
+<span class="com"># Bottom Line</span>
+Skip both the Toyo and the Continental. The right
+tire for your build is the <span class="key">Falken Wildpeak A/T4W</span>
+in <span class="key">P285/70R17</span>, ~<span class="str">$311-$333</span> per tire.
+
+<span class="com"># Why not the two you named</span>
+- <span class="li">Toyo Open Country A/T III</span>: solid but second pick.
+  Slightly more noise + stiffer ride per direct
+  comparisons. <span class="str">$312/ea</span> P-metric.
+- <span class="li">Continental TerrainContact A/T</span>: don't.
+  4Runner-specific long-term review reported
+  "unexpectedly uncomfortable" on the heavier
+  platform. Optimized for crossovers, not this.
+
+<span class="com"># Fitment caveat: read before buying</span>
+Running 17x8.5 with -10mm offset on a 2.5" lift
+with 285s: expect front mud-flap trim + minor
+pinch-weld work at full lock.
+
+<span class="com"># Sources cited inline</span>
+- Tire Rack direct comparisons
+- Trail4Runner long-term review
+- Toyota-4Runner.org fitment threads
+- 4Runners.com offset discussion</pre>
+    </div>
+    <p class="code-caption">Real brief. Real sources. The shape you'd get back on whatever you bring.</p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Where we start</div>
+    <h2>Three things <em>and we're moving</em>.</h2>
+
+    <ol class="ask-list">
+      <li class="ask-item">
+        <p><strong>Tell me the question that's been sitting with you longest.</strong> The one you keep meaning to dig into and haven't had a weekend for. That's the first brief I queue.</p>
+      </li>
+      <li class="ask-item">
+        <p><strong>Send me the next piece of content you're publishing.</strong> Let me stress-test it before it goes up. You see what holds and what doesn't.</p>
+      </li>
+      <li class="ask-item">
+        <p><strong>Pick one deep-research target that would normally cost you a weekend.</strong> Travel, vendor sourcing, market thesis, vehicle decision. Anything. I queue the stack and you get hours of work back as a brief.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section">
     <div class="eyebrow">Lock in a time</div>
     <h2>Or just <em>pick a slot</em>.</h2>
     <p class="single-ask">No agenda required. If something on this page sparked one, bring it. If not, we just catch up. It's been too long.</p>
@@ -446,8 +652,8 @@
   </section>
 
   <div class="cta-wrap">
-    <a class="cta" href="https://mamsnow.com/scaffold/intake.html">Open the direct line</a>
-    <div class="cta-note">No prompt. No category. Just start.</div>
+    <a class="cta" href="mailto:miles@milesagee.com?subject=Uncle%20Two%20%E2%86%92%20Monique%3A%20">Open the direct line</a>
+    <div class="cta-note">Hits my inbox. I cue Monique. You get the brief back.</div>
   </div>
 
   <div class="footer">
