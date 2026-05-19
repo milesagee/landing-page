@@ -45,6 +45,12 @@ export const dynamic = "force-dynamic";
 const GHL_API = "https://services.leadconnectorhq.com";
 const GHL_VERSION = "2021-07-28";
 
+// True when the route runs on Vercel (serverless, no Mac access). On Vercel
+// the sibling Node scripts (Stage 1 runner, iMessage ping) don't exist on
+// disk and child_process must be skipped. Local-dev returns false so the
+// full orchestration fires.
+const IS_VERCEL = !!process.env.VERCEL;
+
 // Resolved at request time (defeats turbopack static path analysis on the
 // child_process spawn targets). The buyer-intake submit is local-dev-only
 // orchestration — in production on Vercel these paths will not exist, and
@@ -130,6 +136,7 @@ async function writePcBrief(args: {
   payload: BuyerIntakePayload;
   contactContext: string;
 }): Promise<{ ok: true; path: string } | { ok: false; error: string }> {
+  if (IS_VERCEL) return { ok: false, error: "skipped: Vercel runtime cannot write to local mailbox" };
   try {
     const { skillDir, outboxDir } = getPaths();
     const tmplPath = path.join(skillDir, "pc-brief-template.yaml");
@@ -166,51 +173,56 @@ async function writePcBrief(args: {
 
 function spawnStage1(payload: BuyerIntakePayload, firstName: string): Promise<Stage1Response | null> {
   return new Promise((resolve) => {
-    const { projectRoot, scriptsDir } = getPaths();
-    // Build the script path via runtime string concat (defeats turbopack
-    // static-analysis of spawn() targets, which is treated as a module import
-    // resolution under Next 16's bundler).
-    const scriptName = ["buyer-intake-stage1", "js"].join(".");
-    const script = `${scriptsDir}/${scriptName}`;
-    const child = getCp().spawn("node", [script, firstName], {
-      cwd: projectRoot,
-      stdio: ["pipe", "pipe", "pipe"],
-    });
-
-    let stdout = "";
-    let stderr = "";
-    child.stdout.on("data", (d: Buffer) => (stdout += d.toString()));
-    child.stderr.on("data", (d: Buffer) => (stderr += d.toString()));
-
-    const timeout = setTimeout(() => {
-      child.kill("SIGTERM");
-    }, 25000); // 25s hard cap on Stage 1
-
-    child.on("close", () => {
-      clearTimeout(timeout);
-      try {
-        const parsed = JSON.parse(stdout) as Stage1Response;
-        resolve(parsed);
-      } catch {
-        if (stderr) {
-          console.error("[stage1] stderr:", stderr.slice(0, 500));
-        }
-        resolve(null);
-      }
-    });
-
-    child.on("error", (e) => {
-      clearTimeout(timeout);
-      console.error("[stage1] spawn error:", e.message);
+    if (IS_VERCEL) {
       resolve(null);
-    });
+      return;
+    }
+    try {
+      const { projectRoot, scriptsDir } = getPaths();
+      const scriptName = ["buyer-intake-stage1", "js"].join(".");
+      const script = `${scriptsDir}/${scriptName}`;
+      const child = getCp().spawn("node", [script, firstName], {
+        cwd: projectRoot,
+        stdio: ["pipe", "pipe", "pipe"],
+      });
 
-    child.stdin.write(JSON.stringify(payload));
-    child.stdin.end();
+      let stdout = "";
+      let stderr = "";
+      child.stdout?.on("data", (d: Buffer) => (stdout += d.toString()));
+      child.stderr?.on("data", (d: Buffer) => (stderr += d.toString()));
+
+      const timeout = setTimeout(() => {
+        child.kill("SIGTERM");
+      }, 25000);
+
+      child.on("close", () => {
+        clearTimeout(timeout);
+        try {
+          const parsed = JSON.parse(stdout) as Stage1Response;
+          resolve(parsed);
+        } catch {
+          if (stderr) console.error("[stage1] stderr:", stderr.slice(0, 500));
+          resolve(null);
+        }
+      });
+
+      child.on("error", (e) => {
+        clearTimeout(timeout);
+        console.error("[stage1] spawn error:", e.message);
+        resolve(null);
+      });
+
+      child.stdin?.write(JSON.stringify(payload));
+      child.stdin?.end();
+    } catch (e) {
+      console.error("[stage1] sync throw:", (e as Error).message);
+      resolve(null);
+    }
   });
 }
 
 function fireAndForgetImessagePing(requestId: string, firstName: string): void {
+  if (IS_VERCEL) return;
   try {
     const { projectRoot, scriptsDir } = getPaths();
     const scriptName = ["pc-ping-imessage", "js"].join(".");
@@ -296,7 +308,23 @@ function buildMoniqueSms(firstName: string, eta: string, establishedChannel: str
   return `Hi ${firstName}, this is Monique with MAMS -- I'm Miles's concierge coordinator. He passed me your intake. Your full curated dashboard lands ${eta}. If anything else comes to mind in the meantime, just reply here.`;
 }
 
-export async function POST(req: Request, { params }: { params: Params }) {
+export async function POST(req: Request, ctx: { params: Params }) {
+  try {
+    return await handleSubmit(req, ctx);
+  } catch (e) {
+    console.error("[buyer-intake/submit] unhandled:", e);
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "server_error",
+        message: "Something snagged on our side. Text Miles directly and he'll catch it.",
+      },
+      { status: 500 },
+    );
+  }
+}
+
+async function handleSubmit(req: Request, { params }: { params: Params }) {
   const { contactId } = await params;
   const url = new URL(req.url);
   const t = url.searchParams.get("t");

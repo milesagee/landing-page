@@ -108,9 +108,29 @@ export function BuyerIntakeWizard({
           body: JSON.stringify(payload),
         },
       );
-      const json = await res.json();
+      // Defensive: read as text first so an empty body or non-JSON response
+      // doesn't throw a WebKit "string did not match the expected pattern"
+      // error from Response.json() and surface as a confusing snag.
+      const text = await res.text();
+      let json: { ok?: boolean; error?: string; message?: string; stage1?: Stage1Response | null; eta?: string } = {};
+      if (text) {
+        try {
+          json = JSON.parse(text);
+        } catch {
+          json = { ok: false, error: "bad_response", message: "Server returned an unexpected response." };
+        }
+      }
       if (!res.ok || !json.ok) {
-        throw new Error(json.error || "Submission failed");
+        // Treat the submit as queued anyway when GHL/SMS writes likely succeeded
+        // server-side. The intake panel still renders -- Miles sees it on his end
+        // even if Stage 1 was skipped.
+        if (res.status === 200 && !text) {
+          setStage1(null);
+          setEta("tonight");
+          setState("done");
+          return;
+        }
+        throw new Error(json.message || json.error || `Submission failed (HTTP ${res.status}).`);
       }
       setStage1(json.stage1 || null);
       setEta(json.eta || "tonight");
