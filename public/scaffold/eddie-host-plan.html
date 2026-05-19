@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Your June Launch Plan | Lakeview + W. Leigh</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    --warn: #B85C2C;
+  }
+
+  html, body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--deep-teal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { max-width: 920px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  /* HERO */
+  .hero { padding: 48px 0 36px; border-bottom: 1px solid var(--line); }
+  .hero__brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .hero__brand img { height: 72px; width: auto; mix-blend-mode: multiply; margin-left: -10px; }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+  .hero__greeting { font-family: var(--serif); font-size: 13px; color: var(--teal); font-style: italic; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(38px, 6vw, 54px); line-height: 1.02; letter-spacing: -0.025em; color: var(--deep-teal); margin-bottom: 18px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 16px; color: var(--deep-teal); opacity: 0.78; max-width: 60ch; line-height: 1.6; }
+
+  /* SECTION ANATOMY */
+  section.block { padding: 44px 0; border-bottom: 1px solid var(--line); position: relative; z-index: 1; }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.section__title { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34px); line-height: 1.1; letter-spacing: -0.02em; color: var(--deep-teal); margin-bottom: 8px; }
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+  .section__lede { font-size: 15px; color: var(--deep-teal); opacity: 0.78; max-width: 64ch; line-height: 1.6; margin-bottom: 28px; }
+
+  /* OPPORTUNITY FRAME */
+  .opportunity { background: var(--deep-teal); color: var(--ivory); padding: 30px 36px; border-radius: 6px; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+  .opportunity::after { content: ''; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .opportunity::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border: 1px solid var(--teal-light); border-radius: 50%; opacity: 0.22; }
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+  .opportunity p { font-family: var(--serif); font-size: 22px; line-height: 1.36; font-weight: 300; letter-spacing: -0.005em; position: relative; z-index: 1; }
+  .opportunity p em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .opportunity__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 22px; position: relative; z-index: 1; }
+  .opportunity__list div { background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.22); border-radius: 4px; padding: 12px 14px; font-size: 12px; color: var(--ivory); line-height: 1.45; }
+  .opportunity__list div strong { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 4px; font-weight: 700; }
+
+  /* BLOCKER CARD */
+  .blocker { background: var(--ivory); border: 1px solid var(--line); border-left: 4px solid var(--warn); border-radius: 6px; padding: 24px 28px; box-shadow: var(--shadow-sm); }
+  .blocker__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warn); margin-bottom: 8px; }
+  .blocker__head { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--deep-teal); margin-bottom: 10px; letter-spacing: -0.012em; line-height: 1.2; }
+  .blocker__body { font-size: 14.5px; color: var(--deep-teal); opacity: 0.86; line-height: 1.6; margin-bottom: 14px; }
+  .blocker__source { font-size: 11px; color: var(--teal); font-family: var(--serif); font-style: italic; }
+  .blocker__source a { color: var(--gold-dark); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+  /* PROPERTY TRACKS */
+  .tracks-control { display: flex; background: var(--ivory); border: 1px solid var(--line); border-radius: 999px; padding: 4px; margin-bottom: 26px; width: fit-content; box-shadow: var(--shadow-sm); }
+  .tracks-control button { background: transparent; border: 0; padding: 11px 22px; font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--deep-teal); cursor: pointer; border-radius: 999px; transition: background 0.2s, color 0.2s; letter-spacing: 0.02em; }
+  .tracks-control button.active { background: var(--deep-teal); color: var(--gold); }
+  .tracks-control button:not(.active):hover { background: rgba(0, 63, 63, 0.06); }
+
+  .property-panel { display: none; }
+  .property-panel.active { display: block; }
+
+  .property-header { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 6px; padding: 22px 26px; margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+  .property-header__address { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--deep-teal); letter-spacing: -0.012em; margin-bottom: 4px; }
+  .property-header__meta { font-size: 12px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; margin-bottom: 14px; }
+  .property-header__thesis { font-size: 14.5px; color: var(--deep-teal); opacity: 0.86; line-height: 1.65; }
+  .property-header__thesis em { color: var(--gold-dark); font-style: italic; font-weight: 500; }
+
+  .property-subhead { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--deep-teal); margin: 28px 0 12px; letter-spacing: -0.01em; }
+  .property-subhead em { color: var(--gold-dark); font-style: italic; }
+
+  /* CHANNEL CARDS */
+  .channel-list { display: flex; flex-direction: column; gap: 10px; }
+  .channel { background: var(--ivory); border: 1px solid var(--line); border-radius: 5px; padding: 14px 18px; cursor: pointer; transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s, border-color 0.18s; }
+  .channel:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); border-color: var(--line-strong); }
+  .channel.open { box-shadow: var(--shadow-md); border-color: var(--gold); }
+  .channel__head { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .channel__rank { font-family: var(--serif); font-size: 13px; font-weight: 600; color: var(--gold-dark); flex-shrink: 0; width: 24px; }
+  .channel__name { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--deep-teal); flex: 1; letter-spacing: -0.005em; }
+  .channel__why { font-size: 12px; color: var(--teal); opacity: 0.86; text-align: right; max-width: 50%; line-height: 1.4; }
+  .channel__detail { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 13.5px; color: var(--deep-teal); line-height: 1.6; opacity: 0.9; }
+  .channel.open .channel__detail { display: block; }
+  .channel__detail strong { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold-dark); font-weight: 700; display: block; margin: 10px 0 4px; }
+  .channel__detail strong:first-child { margin-top: 0; }
+
+  /* PUNCH LIST */
+  .punch { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .punch__row { display: grid; grid-template-columns: 32px 1fr 1fr; gap: 14px; padding: 14px 18px; border-bottom: 1px solid var(--line); align-items: start; }
+  .punch__row:last-child { border-bottom: none; }
+  .punch__row.priority-1 { background: linear-gradient(90deg, rgba(184,92,44,0.06) 0%, transparent 60%); }
+  .punch__rank { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--gold-dark); }
+  .punch__rank.priority-1 { color: var(--warn); }
+  .punch__current { font-size: 13px; color: var(--deep-teal); opacity: 0.68; line-height: 1.5; }
+  .punch__current::before { content: 'TODAY '; font-size: 9px; font-weight: 700; letter-spacing: 0.14em; color: var(--teal); display: block; margin-bottom: 4px; }
+  .punch__recommend { font-size: 13px; color: var(--deep-teal); line-height: 1.5; font-family: var(--serif); }
+  .punch__recommend::before { content: 'WE DO '; font-size: 9px; font-weight: 700; letter-spacing: 0.14em; color: var(--gold-dark); display: block; margin-bottom: 4px; font-family: var(--sans); }
+
+  /* COPY BLOCK */
+  .copy-rewrite { background: var(--paper-soft); border-left: 4px solid var(--gold); border-radius: 4px; padding: 18px 22px; font-family: var(--serif); font-size: 15px; line-height: 1.65; color: var(--deep-teal); font-style: italic; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 24px; border-left: 2px solid var(--line); display: flex; flex-direction: column; gap: 14px; }
+  .timeline__row { position: relative; padding: 10px 14px; background: var(--ivory); border: 1px solid var(--line); border-radius: 5px; }
+  .timeline__row::before { content: ''; position: absolute; left: -31px; top: 14px; width: 11px; height: 11px; background: var(--gold); border: 2px solid var(--paper); border-radius: 50%; }
+  .timeline__row.owner-eddie::before { background: var(--teal-light); }
+  .timeline__when { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 3px; }
+  .timeline__what { font-size: 13.5px; color: var(--deep-teal); line-height: 1.5; }
+  .timeline__who { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--gold-dark); margin-top: 4px; }
+  .timeline__who.eddie { color: var(--teal); }
+  .timeline__legend { display: flex; gap: 18px; margin-bottom: 14px; font-size: 11px; color: var(--deep-teal); opacity: 0.84; }
+  .timeline__legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .timeline__legend span::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
+  .timeline__legend span.eddie::before { background: var(--teal-light); }
+
+  /* LOOPHOLE GALLERY */
+  .loopholes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .loophole { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 6px; padding: 18px 20px 16px; cursor: pointer; transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 8px; }
+  .loophole:nth-child(2n) { border-top-color: var(--gold); }
+  .loophole:nth-child(3n) { border-top-color: var(--deep-teal); }
+  .loophole:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .loophole.open { box-shadow: var(--shadow-md); border-color: var(--gold); }
+  .loophole__rank { font-family: var(--serif); font-size: 11px; font-weight: 600; color: var(--teal); letter-spacing: 0.04em; }
+  .loophole__title { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--deep-teal); line-height: 1.25; letter-spacing: -0.01em; }
+  .loophole__hook { font-size: 12.5px; color: var(--deep-teal); opacity: 0.78; line-height: 1.5; font-style: italic; font-family: var(--serif); }
+  .loophole__expand { display: none; margin-top: 10px; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 12.5px; color: var(--deep-teal); line-height: 1.55; opacity: 0.92; }
+  .loophole.open .loophole__expand { display: block; }
+  .loophole__expand strong { display: block; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold-dark); font-weight: 700; margin: 8px 0 3px; }
+  .loophole__expand strong:first-child { margin-top: 0; }
+  .loophole__toggle { font-size: 10.5px; color: var(--teal); margin-top: 6px; font-weight: 600; letter-spacing: 0.04em; }
+  .loopholes-footer { margin-top: 18px; font-family: var(--serif); font-size: 13px; color: var(--deep-teal); font-style: italic; opacity: 0.78; text-align: center; }
+
+  /* CONTACT TABLE */
+  .contacts { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .contacts__row { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 14px; padding: 12px 18px; border-bottom: 1px solid var(--line); align-items: center; }
+  .contacts__row:last-child { border-bottom: none; }
+  .contacts__row.head { background: var(--deep-teal); color: var(--gold); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 700; padding: 10px 18px; }
+  .contacts__name { font-family: var(--serif); font-size: 14px; font-weight: 500; color: var(--deep-teal); }
+  .contacts__path { font-size: 12.5px; color: var(--deep-teal); opacity: 0.86; }
+  .contacts__path a { color: var(--gold-dark); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .contacts__action { font-size: 12px; color: var(--deep-teal); opacity: 0.86; font-family: var(--serif); font-style: italic; line-height: 1.45; }
+
+  /* SPLIT MODEL */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .split__col { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 6px; padding: 20px 22px; box-shadow: var(--shadow-sm); }
+  .split__col:nth-child(2) { border-top-color: var(--gold); }
+  .split__col h3 { font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--deep-teal); letter-spacing: -0.01em; margin-bottom: 10px; }
+  .split__col h3 em { color: var(--gold-dark); font-style: italic; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; font-family: var(--sans); font-weight: 700; display: block; margin-top: 2px; }
+  .split__col ul { list-style: none; padding: 0; margin: 0; border-top: 1px dashed var(--line); padding-top: 10px; }
+  .split__col li { font-size: 13px; line-height: 1.55; padding: 5px 0 5px 16px; position: relative; color: var(--deep-teal); }
+  .split__col li::before { content: ''; position: absolute; left: 0; top: 13px; width: 8px; height: 1px; background: var(--gold); }
+
+  /* HONEST TRUTHS */
+  .truths { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 24px 28px; box-shadow: var(--shadow-sm); }
+  .truths p { font-size: 14.5px; color: var(--deep-teal); line-height: 1.7; margin-bottom: 12px; }
+  .truths p:last-child { margin-bottom: 0; }
+  .truths p strong { color: var(--gold-dark); font-weight: 600; }
+
+  /* FYI */
+  .fyi { background: var(--paper-soft); border: 1px solid var(--line); border-radius: 6px; padding: 18px 22px; }
+  .fyi__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  .fyi p { font-size: 13px; color: var(--deep-teal); opacity: 0.86; line-height: 1.65; font-family: var(--serif); font-style: italic; }
+  .fyi p a { color: var(--gold-dark); text-decoration: underline; }
+
+  /* ASK MONIQUE */
+  .ask { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 28px 32px; box-shadow: var(--shadow-md); }
+  .ask__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .ask__head { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ivory); margin-bottom: 8px; letter-spacing: -0.012em; }
+  .ask__sub { font-size: 13.5px; color: var(--ivory); opacity: 0.78; margin-bottom: 16px; line-height: 1.55; }
+  .ask__textarea { width: 100%; min-height: 110px; background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.32); border-radius: 5px; padding: 12px 14px; color: var(--ivory); font-family: var(--sans); font-size: 14px; line-height: 1.55; resize: vertical; outline: none; transition: border-color 0.18s; }
+  .ask__textarea:focus { border-color: var(--gold); }
+  .ask__textarea::placeholder { color: rgba(255,255,255,0.45); font-style: italic; }
+  .ask__submit { margin-top: 14px; background: var(--gold); color: var(--deep-teal); border: 0; padding: 12px 26px; font-family: var(--sans); font-weight: 700; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 999px; cursor: pointer; transition: background 0.18s, transform 0.18s; }
+  .ask__submit:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .ask__submit:active { transform: translateY(0); }
+  .ask__status { font-size: 12px; color: var(--gold); margin-top: 10px; min-height: 16px; font-family: var(--serif); font-style: italic; }
+
+  /* FOOTER */
+  .foot { padding: 36px 0 56px; text-align: center; font-size: 11.5px; color: var(--deep-teal); opacity: 0.6; line-height: 1.6; }
+  .foot__logo { height: 32px; width: auto; margin: 0 auto 12px; opacity: 0.62; mix-blend-mode: multiply; }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 18px; }
+    .punch__row { grid-template-columns: 28px 1fr; }
+    .punch__current { grid-column: 2; }
+    .punch__recommend { grid-column: 2; }
+    .contacts__row { grid-template-columns: 1fr; gap: 4px; padding: 14px 18px; }
+    .split { grid-template-columns: 1fr; }
+    .opportunity { padding: 24px 22px; }
+    .opportunity p { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand">
+      <img src="/scaffold/mams-logo.png" alt="MAMS LLC"/>
+    </div>
+    <div class="hero__eyebrow">Launch plan</div>
+    <div class="hero__greeting">Eddie,</div>
+    <h1 class="hero__title">Your two properties, <em>ready for June</em>.</h1>
+    <p class="hero__sub">You picked the smart path: 30+ night stays on both. That single choice keeps Lakeview and W. Leigh out of Richmond's short-term-rental rules entirely. This is the plan I built on top of that choice. Both properties. Channel by channel. Every detail your gut would have asked about if we sat across a table.</p>
+  </header>
+
+  <!-- STRATEGIC POSTURE -->
+  <section class="block">
+    <div class="eyebrow">What your 30+ night choice unlocks</div>
+    <h2 class="section__title">You already solved the hardest part. <em>This is just distribution now.</em></h2>
+    <p class="section__lede">Richmond defines a short-term rental as a stay of fewer than 30 consecutive days. Set the minimum at 30 and you sit outside that frame on purpose. Most operators do not realize the lever they just pulled. You do. So I built this plan as an operator's plan, not a primer.</p>
+
+    <div class="opportunity">
+      <div class="eyebrow">What this means concretely</div>
+      <p>The <em>185-day primary-residence rule</em>, the $600 biennial permit, the city's active May enforcement push, and W. Leigh's expired short-term permit are all <em>off the table</em>. They do not apply to a 30+ night operation. The game now is positioning, distribution, and yield.</p>
+      <div class="opportunity__list">
+        <div><strong>No primary-residence proof</strong>Neither property has to be your declared home.</div>
+        <div><strong>No $600 permit</strong>Not required at 30+ night minimums.</div>
+        <div><strong>W. Leigh expiration</strong>Irrelevant under this plan.</div>
+        <div><strong>May enforcement push</strong>Targets nightly operators only.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCKER -->
+  <section class="block">
+    <div class="eyebrow">First thing first</div>
+    <h2 class="section__title">One small fix before anything else ships.</h2>
+    <p class="section__lede">I read every public sentence on both of your live listings before I built the rest of this plan. There is one detail on Lakeview that needs to go away before we put the property in front of a higher-trust buyer pool.</p>
+
+    <div class="blocker">
+      <div class="blocker__tag">Lakeview · launch-critical</div>
+      <h3 class="blocker__head">The back sliding door lock disclosure</h3>
+      <p class="blocker__body">Your current Lakeview listing tells every reader the back slider lock does not function and that the door is secured with a rod. For nightly guests, that reads as charm. For a relocating professional, a clinical contract, or an insurance-placed family, it reads as amateur. Fix the lock, snap a quick photo of the new hardware, and we strip the disclosure from every channel at launch.</p>
+      <p class="blocker__source">Source: live Airbnb listing for 1414 Lakeview Ave, public-facing as of last review. Once it's handled, send a quick text and we'll handle the rest.</p>
+    </div>
+  </section>
+
+  <!-- PROPERTY TRACKS -->
+  <section class="block">
+    <div class="eyebrow">Per property</div>
+    <h2 class="section__title">Two properties, two playbooks. <em>Toggle between them.</em></h2>
+    <p class="section__lede">Lakeview and W. Leigh are different assets with different buyers. The channel mix, listing edits, and timeline are tuned for each. Click between tabs to see each plan in full.</p>
+
+    <div class="tracks-control" role="tablist">
+      <button class="active" data-property="lakeview" role="tab">1414 Lakeview Ave</button>
+      <button data-property="leigh" role="tab">1117 W. Leigh St</button>
+    </div>
+
+    <!-- LAKEVIEW PANEL -->
+    <div class="property-panel active" data-panel="lakeview">
+      <div class="property-header">
+        <div class="property-header__address">1414 Lakeview Ave, Richmond 23220</div>
+        <div class="property-header__meta">3 BR · 1.5 BA · 1,280 sq ft · fenced yard · alley parking</div>
+        <p class="property-header__thesis">Positioned as a quiet, furnished 3-bedroom house near VCU, Byrd Park, the Fan, Downtown, and the medical corridor. Not a weekend crash pad. <em>Primary avatar:</em> relocating professional or clinical/faculty household needing 60 to 180 days of furnished housing with parking, laundry, pets, yard, and a real kitchen. <em>Secondary avatar:</em> insurance-displacement family that needs a normal house fast.</p>
+      </div>
+
+      <div class="property-subhead">Channel mix, <em>ranked by priority</em></div>
+      <div class="channel-list">
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">1</div>
+            <div class="channel__name">Furnished Finder</div>
+            <div class="channel__why">Built for monthly furnished housing. Zero booking commission. Strongest single source for travel nurses.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>What it is</strong>The dominant monthly-rental platform for traveling clinicians (VCU Health, HCA Henrico Doctors, Chippenham, Bon Secours, Children's Hospital of Richmond) and corporate relocations.
+            <strong>How we'll position the listing</strong>Whole-property, 30-night minimum, written for relocation/clinical/corporate/insurance use cases. Best 25 to 35 photos. Pet policy, parking, Wi-Fi speed, workspace, laundry, utilities, yard all explicit.
+            <strong>Our response cadence</strong>Reply inside 15 minutes during waking hours. That alone outperforms most operators on the platform.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">2</div>
+            <div class="channel__name">Airbnb monthly</div>
+            <div class="channel__why">Keep your Superhost status and the 694-review history. Flip the minimum to 30 nights and rewrite for monthly stays.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>The lift</strong>Change minimum stay setting, add a 10 to 15 percent monthly discount, rewrite title and description for monthly tenants, switch to long-stay cancellation, update calendar through September.
+            <strong>Why this still matters</strong>Airbnb auto-collects Richmond's 8 percent transient tax for stays under 90 days. Tax compliance stays trivial on platform bookings. Plus your existing review authority transfers.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">3</div>
+            <div class="channel__name">ALE Solutions</div>
+            <div class="channel__why">Insurance-displacement registry. Zero landlord fee. 60 to 180 day placements.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>The lane</strong>When a family's home is unlivable after fire, flood, or storm damage, ALE places them in furnished housing on the carrier's dime. Most operators ignore this channel. We register both your properties.
+            <strong>What we hand over</strong>Direct listing URL, photos, bedrooms, pet policy, parking, utilities, fastest move-in date. MAMS becomes the single response contact.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">4</div>
+            <div class="channel__name">CRS Temporary Housing + Sedgwick</div>
+            <div class="channel__why">Two more carrier-direct insurance lanes. Low frequency, high yield when they hit.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>The pattern</strong>Same shape as ALE. Different carrier networks. Adding all three multiplies your odds of a long, predictable placement landing without us having to chase it.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">5</div>
+            <div class="channel__name">Zillow Rentals (furnished)</div>
+            <div class="channel__why">Local relocations and grad/professional renters search here first.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>Setup</strong>Furnished, monthly, utilities included to a cap, 30-day minimum, pets considered, private parking explicit.
+            <strong>Why the cap matters</strong>Setting a utility cap protects you from a tenant running the AC at 65 in August. We'll set the cap after you share recent average bills.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">6</div>
+            <div class="channel__name">CHBO (Corporate Housing by Owner)</div>
+            <div class="channel__why">Corporate language, longer stays. List after Furnished Finder and Airbnb are dialed.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>Audience</strong>Business travel, relocation, temporary assignments, insurance, traveling medical, universities, military, project groups.
+            <strong>Why second wave</strong>Lower volume, higher-trust tenants. One 90+ day placement justifies the channel.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">7</div>
+            <div class="channel__name">Sabbatical Homes</div>
+            <div class="channel__why">Visiting VCU faculty, medical fellows, researchers. Small audience but clean.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>When to lean in</strong>If our first 30 days of leads show academic interest. Otherwise it sits parked.
+          </div>
+        </div>
+      </div>
+
+      <div class="property-subhead">Listing edits, <em>ranked by impact</em></div>
+      <div class="punch">
+        <div class="punch__row priority-1">
+          <div class="punch__rank priority-1">1</div>
+          <div class="punch__current">The back sliding door lock is publicly disclosed as broken on your live listing.</div>
+          <div class="punch__recommend">Fix the lock. Strip the disclosure from every channel at launch.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">2</div>
+          <div class="punch__current">Headline is "Entire Home · Fenced Yard · 3 BR."</div>
+          <div class="punch__recommend">"Furnished 3BR near VCU with yard, parking, W/D." Names who it's for and why it works in seven words.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">3</div>
+          <div class="punch__current">First photo leads with a bathroom.</div>
+          <div class="punch__recommend">Lead with the living room or dining/workspace shot. Monthly tenants buy the daily-life shot first.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">4</div>
+          <div class="punch__current">Wi-Fi listed without a speed.</div>
+          <div class="punch__recommend">Run a speed test, post the exact Mbps. W. Leigh publicly shows 367. Match the proof on Lakeview.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">5</div>
+          <div class="punch__current">Amenity gallery skews vacation.</div>
+          <div class="punch__recommend">Add proof shots: workstation, closet storage, laundry, kitchen drawers, cookware, coffee setup, parking, yard in daylight, thermostat. The normal-life details monthly tenants scan for.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">6</div>
+          <div class="punch__current">House rules are nightly-stay generic.</div>
+          <div class="punch__recommend">Rewrite for 30+ nights: quiet hours, pet terms, maintenance access protocol, utility cap, trash day, no events, no smoking, checkout/renewal rules.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">7</div>
+          <div class="punch__current">Copy reads vacation-rental.</div>
+          <div class="punch__recommend">Replace with "furnished monthly housing," "30-night minimum," "utilities included," "near VCU/Downtown/Fan/Byrd Park." Same property. Different buyer.</div>
+        </div>
+      </div>
+
+      <div class="property-subhead">The listing copy <em>we'd run with</em></div>
+      <div class="copy-rewrite">
+        Settle into a furnished 3-bedroom house near VCU, Byrd Park, the Fan, Downtown, and the medical corridor. Built for 30+ night stays: full kitchen, in-unit laundry, dedicated workspace, private rear parking, fenced yard, pet-friendly terms, and self check-in. Good fit for relocation, clinical assignments, insurance displacement, visiting faculty, or project work in Richmond. MAMS handles guest support locally, so the stay feels buttoned-up without feeling corporate.
+      </div>
+
+      <div class="property-subhead">Week-by-week to <em>June 1 go-live</em></div>
+      <div class="timeline__legend">
+        <span>MAMS owns</span>
+        <span class="eddie">Your touch</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline__row owner-eddie">
+          <div class="timeline__when">May 19 to May 20</div>
+          <div class="timeline__what">Confirm current insurance carrier, utilities, Wi-Fi provider, average monthly utility cost, lockbox/smartlock access, any HOA or covenants.</div>
+          <div class="timeline__who eddie">Your touch</div>
+        </div>
+        <div class="timeline__row owner-eddie">
+          <div class="timeline__when">May 20 to May 22</div>
+          <div class="timeline__what">Repair the back sliding door lock. Send a quick photo of the new hardware.</div>
+          <div class="timeline__who eddie">Your touch</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">May 19 to May 23</div>
+          <div class="timeline__what">Master listing folder: photos, title, description, amenities, house rules, monthly discount, utility cap, pet terms, screening questions, onboarding template. Flip Airbnb to 30-night minimum.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">May 21 to May 24</div>
+          <div class="timeline__what">Build the Furnished Finder listing and submit.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">May 21 to May 26</div>
+          <div class="timeline__what">Register Lakeview with ALE Solutions, CRS, and Sedgwick.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">May 23 to May 27</div>
+          <div class="timeline__what">Post Zillow furnished rental. Draft the CHBO listing.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">May 27 to May 31</div>
+          <div class="timeline__what">Lead-response protocol: auto-reply, screening form, FaceTime showing option, application path, lease package, payment instructions, owner approval trigger.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">June 1</div>
+          <div class="timeline__what">Go live across Airbnb monthly, Furnished Finder, Zillow, and the insurance registries.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">June 1 to June 7</div>
+          <div class="timeline__what">Daily pricing and lead review. Pricing strategy is tiered by stay length and worth walking through together on a call before we lock numbers.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- W. LEIGH PANEL -->
+    <div class="property-panel" data-panel="leigh">
+      <div class="property-header">
+        <div class="property-header__address">1117 W. Leigh St, Richmond 23220</div>
+        <div class="property-header__meta">3 BR · 2 BA · 1,654 sq ft · two-unit layout · balcony + patio · 367 Mbps Wi-Fi</div>
+        <p class="property-header__thesis">Positioned as a flexible two-unit furnished building near VCU, VCU Health, Downtown, Carver, Jackson Ward, and the Broad Street corridor. The two kitchens, two full bathrooms, and lockable connecting door are the differentiator. <em>Primary avatar:</em> small project team, family relocation, insurance-displacement household, clinical/faculty group, or two related professionals who value separation. <em>Secondary avatar:</em> 90+ day corporate or hospital placement wanting a full building instead of a sterile apartment.</p>
+      </div>
+
+      <div class="property-subhead">Channel mix, <em>ranked by priority</em></div>
+      <div class="channel-list">
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">1</div>
+            <div class="channel__name">Airbnb monthly</div>
+            <div class="channel__why">49 reviews, 4.92 rating. Highest trust signal already in place. Just flip the minimum to 30 and rewrite for whole-building MTR.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>Why this is #1 here, not Furnished Finder</strong>The existing review depth is a real moat. Travel and corporate tenants screen by review count before they message. Yours is already there.
+            <strong>The edits</strong>Change minimum stay to 30 nights. Reposition copy as "whole furnished duplex building." Add parking disclosure up front. Address noise calmly.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">2</div>
+            <div class="channel__name">Furnished Finder</div>
+            <div class="channel__why">Whole-building or split-unit listing. Decision gates on the certificate of occupancy check.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>The fork</strong>If the property has a legal two-family CO, we list upstairs and downstairs as separate units and capture two parallel income lines. If not, we list as whole-building.
+            <strong>Who I want to ask</strong>Send anything you have on the existing certificate of occupancy or any past permits. If you don't have docs handy, MAMS can pull from the Richmond Permit Portal.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">3</div>
+            <div class="channel__name">ALE + CRS + Sedgwick</div>
+            <div class="channel__why">Insurance displacement strongest fit here. Families value separation and space after a loss.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>Why this property especially</strong>Two kitchens and two bathrooms in one building is exactly what a displaced family of four-plus needs and rarely finds. We register it as insurance-ready furnished housing with the same-day response promise.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">4</div>
+            <div class="channel__name">CHBO</div>
+            <div class="channel__why">Executive/corporate/project-team tenant target. The whole-building option becomes a real differentiator.</div>
+          </div>
+          <div class="channel__detail">
+            <strong>The pitch</strong>When a company sends a project team to Richmond for a stretch, this gives them a single keyset and a single bill. Beats four hotel rooms or four scattered apartments.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">5</div>
+            <div class="channel__name">Zillow Rentals (furnished)</div>
+            <div class="channel__why">Local professionals and grad/professional renters. List with parking disclosed.</div>
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__rank">6</div>
+            <div class="channel__name">Sabbatical Homes</div>
+            <div class="channel__why">VCU visiting faculty + medical fellows. Optional Phase 2 if the CO supports the split-unit story.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-subhead">Listing edits, <em>ranked by impact</em></div>
+      <div class="punch">
+        <div class="punch__row">
+          <div class="punch__rank">1</div>
+          <div class="punch__current">Title says "ENTIRE Duplex Building w/ Balcony; Center of RVA."</div>
+          <div class="punch__recommend">"Furnished duplex near VCU Health, 2 kitchens, 2 baths." The MTR buyer wants function before geography.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">2</div>
+          <div class="punch__current">Hero photo is the mural.</div>
+          <div class="punch__recommend">Lead with the brightest living-or-kitchen shot. Show the mural as a personality differentiator after the layout is understood.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">3</div>
+          <div class="punch__current">Parking situation is buried.</div>
+          <div class="punch__recommend">Free street parking, no private driveway. Up front. We screen for fit. Better than handling complaints later.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">4</div>
+          <div class="punch__current">City noise is undiscussed.</div>
+          <div class="punch__recommend">"Urban corner near VCU and Broad Street. Expect normal city sound." Screens out bad fits before booking.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">5</div>
+          <div class="punch__current">The lockable connecting door reads as a novelty.</div>
+          <div class="punch__recommend">Reframe as "lockable internal connection." For a corporate or insurance audience, that wording carries weight.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">6</div>
+          <div class="punch__current">House rules built for nightly stays.</div>
+          <div class="punch__recommend">No smoking, balcony/patio terms, pet policy, quiet hours, no events, trash day, maintenance access, utility cap.</div>
+        </div>
+        <div class="punch__row">
+          <div class="punch__rank">7</div>
+          <div class="punch__current">No split-unit option visible.</div>
+          <div class="punch__recommend">After the CO is verified, list upstairs and downstairs as separate monthly units. This is the hidden upside lever on this property.</div>
+        </div>
+      </div>
+
+      <div class="property-subhead">The listing copy <em>we'd run with</em></div>
+      <div class="copy-rewrite">
+        Furnished whole duplex near VCU, VCU Health, Downtown, Jackson Ward, Carver, and the Broad Street corridor. Built for 30+ night stays with two kitchens, two full bathrooms, fast 367 Mbps Wi-Fi, workspace, washer/dryer, balcony, patio, smart-lock entry, and flexible separation between upstairs and downstairs. Good fit for relocation, insurance displacement, project teams, visiting faculty, and medical or corporate stays. This is an urban corner with free street parking, so the right guest is someone who wants central Richmond more than a suburban driveway.
+      </div>
+
+      <div class="property-subhead">Week-by-week to <em>June 22 go-live</em></div>
+      <div class="timeline__legend">
+        <span>MAMS owns</span>
+        <span class="eddie">Your touch</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline__row owner-eddie">
+          <div class="timeline__when">May 19 to May 21</div>
+          <div class="timeline__what">Send anything you have on the two-family certificate of occupancy or past permits. If unknown, MAMS pulls from the Richmond Permit Portal.</div>
+          <div class="timeline__who eddie">Your touch</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">May 20 to May 24</div>
+          <div class="timeline__what">Build both pricing paths in parallel: whole-building only and split-unit fallback.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">May 20 to May 25</div>
+          <div class="timeline__what">Rewrite Airbnb copy for 30-night minimum, whole-building MTR language, parking disclosure, city-fit framing.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">May 22 to May 28</div>
+          <div class="timeline__what">Register W. Leigh with ALE, CRS, and Sedgwick as insurance-ready whole-building furnished housing.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">May 27 to June 3</div>
+          <div class="timeline__what">Furnished Finder build. If the CO supports two units, we use the main property plus same-address unit listing.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">June 3 to June 10</div>
+          <div class="timeline__what">CHBO draft and Zillow furnished listing.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">June 10 to June 17</div>
+          <div class="timeline__what">Direct outreach to Capital One relocation, Richmond Fed HR, Dominion HR (warm path via you), HCA / HealthTrust, VCU off-campus housing, and insurance placement vendors.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">June 17 to June 21</div>
+          <div class="timeline__what">Final cleaning, linen audit, Wi-Fi speed screenshot, smart-lock codes, utility cap, QR house guide, tenant onboarding SOP.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+        <div class="timeline__row">
+          <div class="timeline__when">June 22</div>
+          <div class="timeline__what">Go live. Daily lead review for 14 days.</div>
+          <div class="timeline__who">MAMS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOOPHOLES -->
+  <section class="block">
+    <div class="eyebrow">Operator-level plays we'd layer in</div>
+    <h2 class="section__title">Inside the rules, <em>at the edges most operators don't read</em>.</h2>
+    <p class="section__lede">Your 30+ night choice was lever one. Below are the next twelve. Some compound on each other. Some we'd queue for Phase 2 once both properties are stable. Tap a card to expand.</p>
+
+    <div class="loopholes">
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 1</div>
+        <div class="loophole__title">Push 90+ night stays first when we can</div>
+        <div class="loophole__hook">Cleaner tax treatment, better occupancy stability, fewer turnovers.</div>
+        <div class="loophole__expand">
+          <strong>The basis</strong>Richmond's transient occupancy tax treats stays of fewer than 90 continuous days as transient. Stays of 90+ days fall outside that bracket entirely.
+          <strong>What it unlocks</strong>Easier monthly admin, more predictable income, and fewer touch-points per dollar earned.
+          <strong>Trade-off</strong>A small rate discount may be needed to attract the longer commitment. Math works.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 2</div>
+        <div class="loophole__title">Insurance-displacement registration (ALE, CRS, Sedgwick)</div>
+        <div class="loophole__hook">Most operators ignore this lane. Carrier-paid placements run 60 to 180 days.</div>
+        <div class="loophole__expand">
+          <strong>The basis</strong>ALE Solutions lets landlords register available furnished housing at no landlord fee.
+          <strong>Why it works</strong>Insurance-displaced families are not partying. They are recovering. They're some of the most respectful long-stay tenants you'll get, on a carrier-paid contract.
+          <strong>Where we go first</strong>Pursue immediately on both properties.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 3</div>
+        <div class="loophole__title">Corporate furnished housing language (not Airbnb language)</div>
+        <div class="loophole__hook">Reframes the offer for a higher-trust buyer pool. Same properties. Different audience.</div>
+        <div class="loophole__expand">
+          <strong>The basis</strong>CHBO explicitly targets fully furnished mid-term housing for business travel, relocation, temporary assignments, insurance, traveling medical, universities, military, and project groups.
+          <strong>What we change</strong>Listing copy, voicemail scripts, screening questions, lease language. The properties don't change.
+          <strong>Why it matters</strong>Less party-guest risk. Higher willingness to pay for furnished + utility-included clarity.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 4</div>
+        <div class="loophole__title">Your Dominion warm-intro path</div>
+        <div class="loophole__hook">One internal ask from you. MAMS handles every follow-up. Vendor-list speed beats cold every time.</div>
+        <div class="loophole__expand">
+          <strong>The basis</strong>Dominion Energy is a major Richmond corporate HQ with an active relocation function.
+          <strong>What I'd ask you to do</strong>Send a single tasteful ask to HR or Talent Acquisition: who manages temporary housing for incoming engineers and which vendors are on the list. That's it. MAMS handles every contact after that.
+          <strong>Why it works</strong>Vendor-list applications routed through an employee always move faster than cold submissions.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 5</div>
+        <div class="loophole__title">W. Leigh split-unit upside</div>
+        <div class="loophole__hook">Two parallel income lines from one building, once the CO is confirmed.</div>
+        <div class="loophole__expand">
+          <strong>The basis</strong>Public records describe W. Leigh as a single-family home converted to two units (2BR upstairs, 1BR downstairs).
+          <strong>Why we're gating it</strong>The split-unit play needs a legal two-family certificate of occupancy. We'll verify before activating.
+          <strong>Decision gate</strong>If whole-building leads are thin by July 10, the split test becomes the better revenue path.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 6</div>
+        <div class="loophole__title">Healthcare staffing-agency channel</div>
+        <div class="loophole__hook">AMN, Aya, HealthTrust, Medical Solutions, Cross Country. The real travel-nurse pipeline.</div>
+        <div class="loophole__expand">
+          <strong>The reframe</strong>Most owners chase named hospital housing coordinators that often don't exist publicly. The actual demand flows through the major staffing agencies. We chase them, not the hospitals directly.
+          <strong>Where we work</strong>Furnished Finder + agency-facing copy. Both properties.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 7</div>
+        <div class="loophole__title">Licensed-broker property management structure</div>
+        <div class="loophole__hook">A real written property management agreement. Done right from day one.</div>
+        <div class="loophole__expand">
+          <strong>The basis</strong>Virginia Code § 54.1-2135 requires a licensee engaged to manage real estate to use a written agreement with definite term, fee terms, services, and agreed conditions.
+          <strong>Why it matters</strong>It puts both of us in a structurally clean position. You get a real partner with broker-level accountability. I get the framework to operate professionally instead of casually co-hosting.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 8</div>
+        <div class="loophole__title">CVR MLS rental lane for 12+ month conversions</div>
+        <div class="loophole__hook">When an MTR tenant decides to stay a full year, we have a brokered-lease path ready.</div>
+        <div class="loophole__expand">
+          <strong>The basis</strong>CVR MLS has a voluntary residential rentals category. Some of our MTR tenants (especially corporate and insurance) convert to longer leases. When they do, we can broker the lease through proper channels.
+          <strong>Why it matters</strong>Continuity. The tenant who already loves the property doesn't have to leave when their carrier contract ends.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 9</div>
+        <div class="loophole__title">BPOL business-license classification</div>
+        <div class="loophole__hook">Richmond BPOL has multiple categories. We pick the most-honest, lowest-rate fit.</div>
+        <div class="loophole__expand">
+          <strong>The basis</strong>Richmond BPOL has tiered rates by business category (personal service, professional service, rental of real property, etc.). Each has different gross-receipts treatment.
+          <strong>What we do</strong>Pick the lowest-rate classification that's honestly defensible for your operation. Document the reasoning. File for both properties.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 10</div>
+        <div class="loophole__title">Capital One + Richmond Fed direct paths</div>
+        <div class="loophole__hook">Real relocation rosters. Real submissions. Real follow-up cadence.</div>
+        <div class="loophole__expand">
+          <strong>The contacts we have</strong>Public Capital One relocation email surfaced through channel research. Federal Reserve Richmond switchboard is 804-697-8000.
+          <strong>What we send</strong>A clean one-page housing sheet describing both properties, MAMS as the point of contact, and the price/availability framework. Then we follow up. MAMS handles every step.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 11</div>
+        <div class="loophole__title">ADU long-term upside</div>
+        <div class="loophole__hook">Richmond's Code Refresh is reshaping ADU policy. Worth watching for both lots.</div>
+        <div class="loophole__expand">
+          <strong>The basis</strong>Richmond's Code Refresh process includes ADU policy direction. Lot sizes on Lakeview and W. Leigh would need verification.
+          <strong>Why not now</strong>This is not a launch lever. It's a 2027 conversation worth bookmarking.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+
+      <div class="loophole" data-loophole>
+        <div class="loophole__rank">PLAY 12</div>
+        <div class="loophole__title">Cross-property pricing discipline</div>
+        <div class="loophole__hook">Both properties priced together, reviewed weekly while vacant, twice monthly while occupied.</div>
+        <div class="loophole__expand">
+          <strong>Why this matters</strong>Most owners set a price and forget. The disciplined operator reviews against live comps every week and protects yield without sitting on dead calendar nights. We'll bring the actual numbers to the conversation when you're ready.
+        </div>
+        <div class="loophole__toggle">Tap to expand →</div>
+      </div>
+    </div>
+    <div class="loopholes-footer">Twelve plays. We rank-order them by upside and queue accordingly. None of these get pursued without your sign-off first.</div>
+  </section>
+
+  <!-- CONTACT SHEET -->
+  <section class="block">
+    <div class="eyebrow">The phone-number layer</div>
+    <h2 class="section__title">Real names, real numbers, <em>ready to run</em>.</h2>
+    <p class="section__lede">This is the contact stack we built for outreach. Healthcare systems, corporate relocation desks, insurance placement registries. MAMS works this list. You don't have to.</p>
+
+    <div class="contacts">
+      <div class="contacts__row head">
+        <div>Target</div>
+        <div>Path</div>
+        <div>Action</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">ALE Solutions</div>
+        <div class="contacts__path"><a href="https://www.alesolutions.com/register-housing/" target="_blank" rel="noopener">alesolutions.com/register-housing</a></div>
+        <div class="contacts__action">Register both properties with photos, pet policy, parking.</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">CRS Temporary Housing</div>
+        <div class="contacts__path">800-968-0848</div>
+        <div class="contacts__action">Ask for Supply Chain or landlord onboarding.</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">Sedgwick Temporary Housing</div>
+        <div class="contacts__path">Directory submission</div>
+        <div class="contacts__action">Submit both properties to the housing directory.</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">Capital One relocation</div>
+        <div class="contacts__path">RelocationUSDomestic@capitalone.com</div>
+        <div class="contacts__action">One-page housing sheet + vendor-list process inquiry.</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">Dominion Energy (your warm path)</div>
+        <div class="contacts__path">HR / Talent Acquisition</div>
+        <div class="contacts__action">Your one ask. MAMS handles every follow-up after that.</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">CarMax</div>
+        <div class="contacts__path">804-747-0422</div>
+        <div class="contacts__action">HR / relocation vendor process inquiry.</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">Altria</div>
+        <div class="contacts__path">804-484-8222</div>
+        <div class="contacts__action">Talent / relocation vendor inquiry.</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">Federal Reserve Richmond</div>
+        <div class="contacts__path">804-697-8000</div>
+        <div class="contacts__action">HR / relocation vendor process.</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">VCU Health</div>
+        <div class="contacts__path">804-828-9000 + Furnished Finder</div>
+        <div class="contacts__action">Traveler-housing channel via agency path.</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">HCA / HealthTrust Workforce</div>
+        <div class="contacts__path">HealthTrust agency platform</div>
+        <div class="contacts__action">Focus on staffing-agency path, not hospital switchboard.</div>
+      </div>
+      <div class="contacts__row">
+        <div class="contacts__name">Bon Secours St. Mary's</div>
+        <div class="contacts__path">Careers portal + Furnished Finder</div>
+        <div class="contacts__action">Use agency and Furnished Finder path.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATING MODEL -->
+  <section class="block">
+    <div class="eyebrow">How we'd run it</div>
+    <h2 class="section__title">What you own. <em>What MAMS owns.</em></h2>
+    <p class="section__lede">You said "mostly hands-off, I touch one or two pieces, MAMS handles the rest." This is the actual split. The structure protects you from the operational drag without you losing visibility on anything that matters.</p>
+
+    <div class="split">
+      <div class="split__col">
+        <h3>You own <em>The strategic calls</em></h3>
+        <ul>
+          <li>Final tenant approval on every booking before contract.</li>
+          <li>Insurance carrier change-of-use sign-off.</li>
+          <li>Approval on any maintenance project above a pre-agreed dollar threshold.</li>
+          <li>Monthly owner statement review.</li>
+          <li>Your one warm intro into Dominion HR.</li>
+        </ul>
+      </div>
+      <div class="split__col">
+        <h3>MAMS owns <em>The machine</em></h3>
+        <ul>
+          <li>Pricing strategy, calendar sync, listing management across every channel.</li>
+          <li>Lead intake, screening coordination, application + lease packet handling.</li>
+          <li>Insurance registry onboarding, corporate vendor outreach, agency outreach.</li>
+          <li>Tenant onboarding, house guide, smart-lock codes, Wi-Fi handoff.</li>
+          <li>Cleaning + linen vendor scheduling, supply restocking, maintenance triage.</li>
+          <li>Owner statement preparation, monthly reporting, renewal conversations.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HONEST TRUTHS -->
+  <section class="block">
+    <div class="eyebrow">Operator's honest take</div>
+    <h2 class="section__title">A few things <em>worth saying out loud</em>.</h2>
+    <p class="section__lede">These are the kinds of notes I'd give you over coffee, not in a pitch deck.</p>
+
+    <div class="truths">
+      <p><strong>Lakeview is the cleaner first win.</strong> Private parking. Fenced yard. Simpler layout. Lower operational weirdness. Once the lock is fixed, that property launches almost on rails.</p>
+      <p><strong>W. Leigh has more upside, but only with discipline.</strong> The mural is a personality asset. The first five photos still need to prove function. Parking and noise need to be disclosed like a grown-up. The lockable connecting door becomes a feature, not a novelty. The CO check is the unlock.</p>
+      <p><strong>Don't overbuild around solo travel nurses.</strong> They exist as a market. The better economic engine for you is corporate relocation, insurance displacement, project teams, faculty and fellow households, and shared professional stays. Furnished Finder still gets us in front of the travel-nurse pipeline. We just don't pretend they're the whole story.</p>
+      <p><strong>Pricing is tiered, not flat.</strong> 30 to 89 night stays at one band, 90+ at a slight discount for tax efficiency, 6-month-plus at a deeper discount for stability plays. I'll bring real numbers to our next call when you're ready. They're built off live comps, not guesses.</p>
+    </div>
+  </section>
+
+  <!-- FYI -->
+  <section class="block">
+    <div class="fyi">
+      <div class="fyi__tag">By the way</div>
+      <p>The current 30+ night plan is not a Richmond STR plan. Richmond's STR rules, primary-residence proof, 185-day requirement, and $600 biennial permit apply to rentals under 30 consecutive days, not to this strategy. Airbnb auto-collects Richmond's 8 percent transient tax for on-platform stays under 90 days. The BPOL business license is procedural and inexpensive at this scale, and MAMS handles the filing. W. Leigh's expired STR permit does not need renewal under this plan. If you ever want to go back under 30 nights on either property, that's a separate conversation worth having.</p>
+    </div>
+  </section>
+
+  <!-- ASK MONIQUE -->
+  <section class="block">
+    <div class="ask">
+      <div class="ask__tag">Tell me anything I missed</div>
+      <h3 class="ask__head">Anything I should know before we lock this?</h3>
+      <p class="ask__sub">Constraints I missed. Tenants you'd want to filter for. A neighbor situation. A repair I should know about. Anything. The more I know, the sharper this gets.</p>
+      <textarea class="ask__textarea" id="askText" placeholder="Type freely. I read every word."></textarea>
+      <button class="ask__submit" id="askSubmit">Send to Miles</button>
+      <div class="ask__status" id="askStatus"></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <img src="/scaffold/mams-logo.png" alt="MAMS LLC" class="foot__logo"/>
+    <div>Built for you, Eddie. Not a template.</div>
+    <div>MAMS LLC · Richmond, Virginia</div>
+  </footer>
+
+</div>
+
+<script>
+  // Property tabs
+  document.querySelectorAll('.tracks-control button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var target = btn.dataset.property;
+      document.querySelectorAll('.tracks-control button').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.property-panel').forEach(function(p) {
+        p.classList.toggle('active', p.dataset.panel === target);
+      });
+      window.scrollTo({ top: btn.closest('section').offsetTop - 20, behavior: 'smooth' });
+    });
+  });
+
+  // Channel cards expand
+  document.querySelectorAll('[data-channel]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      card.classList.toggle('open');
+    });
+  });
+
+  // Loophole cards expand
+  document.querySelectorAll('[data-loophole]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      card.classList.toggle('open');
+    });
+  });
+
+  // Ask submit (preview-only: shows confirmation, real submit wires later)
+  document.getElementById('askSubmit').addEventListener('click', function() {
+    var txt = document.getElementById('askText').value.trim();
+    var status = document.getElementById('askStatus');
+    if (!txt) {
+      status.textContent = 'Type something first.';
+      return;
+    }
+    status.textContent = 'Got it. Miles will see this shortly.';
+    document.getElementById('askText').value = '';
+  });
+</script>
+
+</body>
+</html>
