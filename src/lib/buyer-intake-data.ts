@@ -77,7 +77,7 @@ export type BuyerIntakeContact = {
 export const CONTACTS: Record<string, BuyerIntakeContact> = {
   "bVWiepmFuABEHLmbxTwF": {
     contactId: "bVWiepmFuABEHLmbxTwF",
-    shareToken: "uXs2yBlT--zO",
+    shareToken: "Tr5lcc_049iW",
     firstName: "Ethan",
     establishedChannel: "personal-cell-imessage",
     prefill: {
