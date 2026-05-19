@@ -1,0 +1,1044 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>{{PROJECT_SHORT_NAME}} | Listing Proposal for {{RECIPIENT_NAME}}</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--deep-teal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero__brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .hero__brand img {
+    height: 72px;
+    width: auto;
+    mix-blend-mode: multiply;
+    margin-left: -10px;
+  }
+
+  .hero__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+  }
+
+  .hero__greeting {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--teal);
+    font-style: italic;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero__title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(38px, 6vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--deep-teal);
+    margin-bottom: 18px;
+  }
+
+  .hero__title em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero__sub {
+    font-size: 16px;
+    color: var(--deep-teal);
+    opacity: 0.74;
+    max-width: 56ch;
+    line-height: 1.55;
+  }
+
+  /* ---- Section anatomy ---- */
+  section.block {
+    padding: 44px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section.block:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+  }
+
+  h2.section__title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--deep-teal);
+    margin-bottom: 8px;
+  }
+
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+
+  .section__lede {
+    font-size: 15px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    max-width: 60ch;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  /* ---- Opportunity frame ---- */
+  .opportunity {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    padding: 30px 36px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .opportunity::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.18;
+  }
+
+  .opportunity::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    border: 1px solid var(--teal-light);
+    border-radius: 50%;
+    opacity: 0.22;
+  }
+
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+
+  .opportunity p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.32;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .opportunity p em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* ---- Avatars (clickable cards) ---- */
+  .avatars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .avatar {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--teal);
+    border-radius: 6px;
+    padding: 22px 22px 20px;
+    cursor: pointer;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s, border-color 0.22s;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .avatar:nth-child(2) { border-top-color: var(--gold); }
+  .avatar:nth-child(3) { border-top-color: var(--deep-teal); }
+
+  .avatar:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--line-strong);
+  }
+
+  .avatar.open { box-shadow: var(--shadow-md); border-color: var(--gold); }
+
+  .avatar__num {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.04em;
+  }
+
+  .avatar:nth-child(2) .avatar__num { color: var(--gold-dark); }
+  .avatar:nth-child(3) .avatar__num { color: var(--deep-teal); }
+
+  .avatar__name {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.012em;
+    color: var(--deep-teal);
+  }
+
+  .avatar__income {
+    font-size: 10px;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+  }
+
+  .avatar__hook {
+    font-size: 13px;
+    color: var(--deep-teal);
+    line-height: 1.5;
+    border-left: 2px solid var(--gold);
+    padding-left: 10px;
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .avatar__expand {
+    display: none;
+    margin-top: 12px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    font-size: 13px;
+    color: var(--deep-teal);
+    line-height: 1.55;
+  }
+
+  .avatar.open .avatar__expand { display: block; }
+
+  .avatar__expand strong {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold-dark);
+    margin: 10px 0 4px;
+    font-weight: 700;
+  }
+
+  .avatar__expand strong:first-child { margin-top: 0; }
+
+  .avatar__toggle {
+    font-size: 11px;
+    color: var(--teal);
+    margin-top: 8px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---- Two-track toggle ---- */
+  .tracks-control {
+    display: flex;
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px;
+    margin-bottom: 22px;
+    width: fit-content;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tracks-control button {
+    background: transparent;
+    border: 0;
+    padding: 10px 22px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--deep-teal);
+    cursor: pointer;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .tracks-control button.active {
+    background: var(--deep-teal);
+    color: var(--gold);
+  }
+
+  .tracks-control button:not(.active):hover {
+    background: rgba(0, 63, 63, 0.06);
+  }
+
+  .track-panel {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: 26px 30px;
+    box-shadow: var(--shadow-sm);
+    display: none;
+  }
+
+  .track-panel.active { display: block; }
+
+  .track-panel--cred { border-left-color: var(--teal); }
+
+  .track-panel h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    margin-bottom: 6px;
+    letter-spacing: -0.012em;
+  }
+
+  .track-panel__tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+  }
+
+  .track-panel--cred .track-panel__tag { color: var(--teal); }
+
+  .track-panel__desc {
+    font-size: 14px;
+    color: var(--deep-teal);
+    opacity: 0.84;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .track-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px dashed var(--line);
+    padding-top: 14px;
+  }
+
+  .track-panel ul li {
+    font-size: 13.5px;
+    line-height: 1.55;
+    padding: 7px 0 7px 18px;
+    position: relative;
+    color: var(--deep-teal);
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .track-panel ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 10px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* ---- Partnership cluster ---- */
+  .partners {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .partner {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 14px 14px 13px;
+    transition: transform 0.18s, box-shadow 0.18s;
+  }
+
+  .partner:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .partner__name {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--deep-teal);
+    margin-bottom: 4px;
+  }
+
+  .partner__meta {
+    font-size: 9.5px;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+
+  .partner__reach {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--gold-dark);
+    font-weight: 500;
+    margin-top: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .partner__reach .label {
+    font-family: var(--sans);
+    font-size: 9px;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .partners-total {
+    margin-top: 18px;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--deep-teal);
+    font-style: italic;
+    opacity: 0.78;
+  }
+
+  .partners-total strong {
+    color: var(--gold-dark);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  /* ---- OUTCOMES COMPARISON (the centerpiece) ---- */
+  .outcomes {
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px 28px 24px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+  }
+
+  .outcomes__instructions {
+    font-size: 13px;
+    color: var(--deep-teal);
+    opacity: 0.76;
+    margin-bottom: 22px;
+    font-style: italic;
+    font-family: var(--serif);
+    text-align: center;
+  }
+
+  .outcomes__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.95fr 0.95fr 1.1fr;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--ivory);
+  }
+
+  .outcomes__cell {
+    padding: 14px 14px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-size: 13.5px;
+    color: var(--deep-teal);
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .outcomes__cell--head {
+    background: var(--paper-soft);
+    text-align: center;
+    padding: 16px 12px;
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+  }
+
+  .outcomes__cell--head .sub {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  .outcomes__cell--metric {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--teal);
+    background: rgba(0, 95, 95, 0.04);
+    font-weight: 500;
+  }
+
+  .outcomes__cell--metric .sub {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 10px;
+    color: var(--deep-teal);
+    opacity: 0.55;
+    margin-top: 3px;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .outcomes__cell--value {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--deep-teal);
+  }
+
+  .outcomes__cell--value .lift {
+    display: block;
+    font-family: var(--sans);
+    font-size: 10px;
+    color: var(--deep-teal);
+    opacity: 0.55;
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+  }
+
+  .outcomes__col--mams {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    border-right: 0;
+  }
+
+  .outcomes__col--mams .sub { color: var(--gold-soft); opacity: 0.85; }
+  .outcomes__col--mams.outcomes__cell--head { background: var(--deep-teal); color: var(--gold); }
+  .outcomes__col--mams.outcomes__cell--head .sub { color: var(--gold-soft); }
+  .outcomes__col--mams.outcomes__cell--value { color: var(--gold); }
+  .outcomes__col--mams.outcomes__cell--value .lift { color: var(--gold-soft); opacity: 0.85; }
+
+  .outcomes__methodology {
+    margin-top: 18px;
+    padding: 12px 16px;
+    background: rgba(212, 175, 55, 0.08);
+    border-radius: 4px;
+    font-family: var(--serif);
+    font-size: 12.5px;
+    color: var(--deep-teal);
+    font-style: italic;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  .outcomes__methodology strong {
+    color: var(--gold-dark);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ---- The Ask / CTA ---- */
+  .cta {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    border-radius: 8px;
+    padding: 36px 38px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta__title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  .cta__sub {
+    font-size: 14px;
+    opacity: 0.78;
+    margin-bottom: 24px;
+    max-width: 44ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__btn {
+    background: var(--gold);
+    color: var(--deep-teal);
+    border: 0;
+    padding: 14px 26px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  }
+
+  .cta__btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
+    background: var(--gold-soft);
+  }
+
+  .cta__btn--ghost {
+    background: transparent;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+  }
+
+  .cta__btn--ghost:hover {
+    background: rgba(212, 175, 55, 0.1);
+  }
+
+  .cta__or {
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--gold-soft);
+    opacity: 0.78;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Footer ---- */
+  footer.foot {
+    padding: 38px 0 60px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--deep-teal);
+    opacity: 0.55;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+  }
+
+  footer.foot .why {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 8px;
+    letter-spacing: 0;
+  }
+
+  footer.foot .why em { color: var(--gold-dark); }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 34px; }
+    section.block { padding: 32px 0; }
+    .avatars { grid-template-columns: 1fr; }
+    .partners { grid-template-columns: repeat(2, 1fr); }
+    .opportunity { padding: 22px 24px; }
+    .opportunity p { font-size: 18px; }
+    .outcomes { padding: 20px 18px; }
+    .outcomes__grid { grid-template-columns: 1.2fr 1fr; }
+    .outcomes__cell { font-size: 12.5px; padding: 12px 10px; }
+    .outcomes__cell--head { font-size: 13px; padding: 14px 10px; }
+    .outcomes__cell--head .sub { font-size: 8.5px; letter-spacing: 0.1em; }
+    .outcomes__cell--value { font-size: 17px; }
+    /* On mobile: stack head row to show MAMS prominently, hide the two middle comparison columns */
+    .outcomes__cell--hide-mobile { display: none; }
+    .track-panel { padding: 22px 22px; }
+    .cta { padding: 28px 24px; }
+    .cta__title { font-size: 22px; }
+    .cta__buttons { flex-direction: column; }
+    .cta__btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand">
+      <img src="mams-logo.png" alt="MAMS LLC"/>
+    </div>
+    <div class="hero__eyebrow">For {{RECIPIENT_NAME}} &middot; {{BUILDER_NAME}} {{PROJECT_NAME}}</div>
+    <div class="hero__greeting">{{RECIPIENT_FIRST_NAME}},</div>
+    <h1 class="hero__title">Here's why <em>{{PROJECT_SHORT_NAME}}</em><br/>deserves a Richmond-coded listing.</h1>
+    <p class="hero__sub">A walking proposal. I built this around the research I did on your actual buyer, your real neighborhood, and the {{NEIGHBORHOOD_NAME}} businesses already within a mile of {{PROJECT_LOCATION_DESCRIPTOR}}. Section four shows the outcomes a MAMS-led listing actually delivers next to the alternatives.</p>
+  </header>
+
+  <!-- OPPORTUNITY FRAME -->
+  <section class="block">
+    <div class="opportunity">
+      <div class="eyebrow">The Frame</div>
+      <p>{{PROJECT_SHORT_NAME}} doesn't need a generic listing agent. It needs an <em>audience</em>. We've already built the Richmond-coded channel your buyer trusts. Letting MAMS list these homes means every showing, every offer, every closing runs through the same brand that earned the attention in the first place.</p>
+    </div>
+  </section>
+
+  <!-- AVATARS -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; The Buyer Thesis</div>
+    <h2 class="section__title">Three buyers. <em>Equal weight.</em></h2>
+    <p class="section__lede">Tap any card to see how they think, what hooks them, and what loses them. Built from Census ACS 2024 5-year data for the {{PROJECT_ZCTA}} ZCTA, plus public buyer-behavior data on comparable Richmond {{PROJECT_PRODUCT_TYPE}} projects.</p>
+
+    <div class="avatars">
+      <div class="avatar" data-i="0">
+        <div class="avatar__num">01</div>
+        <div class="avatar__name">{{AVATAR_1_NAME}}</div>
+        <div class="avatar__income">{{AVATAR_1_INCOME}}</div>
+        <div class="avatar__hook">"{{AVATAR_1_HOOK}}"</div>
+        <div class="avatar__toggle">Tap to expand &darr;</div>
+        <div class="avatar__expand">
+          <strong>Work pattern</strong>{{AVATAR_1_WORK}}
+          <strong>Why they pick {{PROJECT_SHORT_NAME}}</strong>{{AVATAR_1_WHY}}
+          <strong>Best fit</strong>{{AVATAR_1_FIT}}
+          <strong>What loses them</strong>{{AVATAR_1_LOSES}}
+        </div>
+      </div>
+
+      <div class="avatar" data-i="1">
+        <div class="avatar__num">02</div>
+        <div class="avatar__name">{{AVATAR_2_NAME}}</div>
+        <div class="avatar__income">{{AVATAR_2_INCOME}}</div>
+        <div class="avatar__hook">"{{AVATAR_2_HOOK}}"</div>
+        <div class="avatar__toggle">Tap to expand &darr;</div>
+        <div class="avatar__expand">
+          <strong>Work pattern</strong>{{AVATAR_2_WORK}}
+          <strong>Why they pick {{PROJECT_SHORT_NAME}}</strong>{{AVATAR_2_WHY}}
+          <strong>Best fit</strong>{{AVATAR_2_FIT}}
+          <strong>What loses them</strong>{{AVATAR_2_LOSES}}
+        </div>
+      </div>
+
+      <div class="avatar" data-i="2">
+        <div class="avatar__num">03</div>
+        <div class="avatar__name">{{AVATAR_3_NAME}}</div>
+        <div class="avatar__income">{{AVATAR_3_INCOME}}</div>
+        <div class="avatar__hook">"{{AVATAR_3_HOOK}}"</div>
+        <div class="avatar__toggle">Tap to expand &darr;</div>
+        <div class="avatar__expand">
+          <strong>Work pattern</strong>{{AVATAR_3_WORK}}
+          <strong>Why they pick {{PROJECT_SHORT_NAME}}</strong>{{AVATAR_3_WHY}}
+          <strong>Best fit</strong>{{AVATAR_3_FIT}}
+          <strong>What loses them</strong>{{AVATAR_3_LOSES}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO-TRACK CAMPAIGN -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; The Engagement</div>
+    <h2 class="section__title">The listing pitch first. <em>A blend if it has to be.</em></h2>
+    <p class="section__lede">The primary ask is a full listing engagement. If your current setup makes that hard, we have three blended structures that put the MAMS audience to work without touching the rest of your operation. Tap to compare.</p>
+
+    <div class="tracks-control">
+      <button class="active" data-track="conv">Track 01 &middot; Listing Partnership</button>
+      <button data-track="cred">Track 02 &middot; Custom Blend</button>
+    </div>
+
+    <div class="track-panel track-panel--conv active" data-track="conv">
+      <div class="track-panel__tag">Track 01 &middot; Recommended</div>
+      <h3>MAMS Lists {{PROJECT_SHORT_NAME}}</h3>
+      <p class="track-panel__desc">MAMS represents {{BUILDER_NAME}} as the listing brokerage on every home in {{PROJECT_SHORT_NAME}}. Single point of accountability. Buyer-side amplification across the channels your buyer already follows. Commission tied to the same outcome you care about: faster sales at a stronger ratio.</p>
+      <ul>
+        <li>Full listing representation at {{LISTING_COMMISSION_LISTING_SIDE}}% listing-side, standard buyer-side cooperation.</li>
+        <li>Branded photo, video, and walkthrough content shot for every floorplan in the community.</li>
+        <li>Buyer-side amplification across MAMS channels: TikTok, IG, YouTube, {{MAMS_AUDIENCE_NUMBER}}+ Richmond audience.</li>
+        <li>Open house events powered by the {{NEIGHBORHOOD_NAME}} partner cluster in Section 03.</li>
+        <li>Weekly performance reporting: showings, offers, days-on-market, conversion rate per channel.</li>
+      </ul>
+    </div>
+
+    <div class="track-panel track-panel--cred" data-track="cred">
+      <div class="track-panel__tag">Track 02 &middot; If listing isn't on the table</div>
+      <h3>A Blend That Still Brings the Brand</h3>
+      <p class="track-panel__desc">Three structures that preserve your current listing arrangement and still put the MAMS audience to work on the buyer side. We lead with the listing pitch because it's the cleanest math for both of us, but the door stays open at whatever shape works on your end.</p>
+      <ul>
+        <li>Exclusive 3% buyer-side cooperation. MAMS handles every buyer that comes through our channels, you keep your existing listing setup.</li>
+        <li>Per-post fee on Track 01 content. MAMS funds Track 02 organic credibility content for free, you pay only for the conversion drops.</li>
+        <li>Hybrid retainer plus closing bonus. A monthly content retainer for {{PROJECT_SHORT_NAME}}-specific drops, with a bonus on each closed buyer-side transaction MAMS originates.</li>
+        <li>Co-branded open houses. MAMS drives the audience and runs the content capture, you run the model home and own the lead handoff.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PARTNERSHIP CLUSTER -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; Distribution</div>
+    <h2 class="section__title">{{NEIGHBORHOOD_NAME}} partnership cluster. <em>All within {{PARTNER_RADIUS}}.</em></h2>
+    <p class="section__lede">Combined organic reach over {{PARTNERS_TOTAL_REACH}} followers in the businesses already inside the {{PROJECT_SHORT_NAME}} trade area. Every partnership is a content angle, an open-house event, and a buyer-side referral lane.</p>
+
+    <div class="partners">
+      <div class="partner">
+        <div class="partner__name">{{PARTNER_1_NAME}}</div>
+        <div class="partner__meta">{{PARTNER_1_AREA}} &middot; {{PARTNER_1_DISTANCE}}</div>
+        <div class="partner__reach"><span class="label">{{PARTNER_1_REACH_LABEL}}</span>{{PARTNER_1_REACH}}</div>
+      </div>
+      <div class="partner">
+        <div class="partner__name">{{PARTNER_2_NAME}}</div>
+        <div class="partner__meta">{{PARTNER_2_AREA}} &middot; {{PARTNER_2_DISTANCE}}</div>
+        <div class="partner__reach"><span class="label">{{PARTNER_2_REACH_LABEL}}</span>{{PARTNER_2_REACH}}</div>
+      </div>
+      <div class="partner">
+        <div class="partner__name">{{PARTNER_3_NAME}}</div>
+        <div class="partner__meta">{{PARTNER_3_AREA}} &middot; {{PARTNER_3_DISTANCE}}</div>
+        <div class="partner__reach"><span class="label">{{PARTNER_3_REACH_LABEL}}</span>{{PARTNER_3_REACH}}</div>
+      </div>
+      <div class="partner">
+        <div class="partner__name">{{PARTNER_4_NAME}}</div>
+        <div class="partner__meta">{{PARTNER_4_AREA}} &middot; {{PARTNER_4_DISTANCE}}</div>
+        <div class="partner__reach"><span class="label">{{PARTNER_4_REACH_LABEL}}</span>{{PARTNER_4_REACH}}</div>
+      </div>
+      <div class="partner">
+        <div class="partner__name">{{PARTNER_5_NAME}}</div>
+        <div class="partner__meta">{{PARTNER_5_AREA}} &middot; {{PARTNER_5_DISTANCE}}</div>
+        <div class="partner__reach"><span class="label">{{PARTNER_5_REACH_LABEL}}</span>{{PARTNER_5_REACH}}</div>
+      </div>
+      <div class="partner">
+        <div class="partner__name">{{PARTNER_6_NAME}}</div>
+        <div class="partner__meta">{{PARTNER_6_AREA}} &middot; {{PARTNER_6_DISTANCE}}</div>
+        <div class="partner__reach"><span class="label">{{PARTNER_6_REACH_LABEL}}</span>{{PARTNER_6_REACH}}</div>
+      </div>
+      <div class="partner">
+        <div class="partner__name">{{PARTNER_7_NAME}}</div>
+        <div class="partner__meta">{{PARTNER_7_AREA}} &middot; {{PARTNER_7_DISTANCE}}</div>
+        <div class="partner__reach"><span class="label">{{PARTNER_7_REACH_LABEL}}</span>{{PARTNER_7_REACH}}</div>
+      </div>
+      <div class="partner">
+        <div class="partner__name">{{PARTNER_8_NAME}}</div>
+        <div class="partner__meta">{{PARTNER_8_AREA}} &middot; {{PARTNER_8_DISTANCE}}</div>
+        <div class="partner__reach"><span class="label">{{PARTNER_8_REACH_LABEL}}</span>{{PARTNER_8_REACH}}</div>
+      </div>
+    </div>
+    <div class="partners-total">
+      Combined {{NEIGHBORHOOD_NAME}} organic reach: <strong>{{PARTNERS_TOTAL_REACH}} followers</strong> inside {{PARTNER_RADIUS}}.
+    </div>
+  </section>
+
+  <!-- BUDGET SLIDER -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; The Outcomes</div>
+    <h2 class="section__title">Three paths. <em>One outcome story.</em></h2>
+    <p class="section__lede">Same {{PROJECT_PRODUCT_TYPE}} product, three listing approaches, three different outcomes. Numbers are projections from comparable Richmond {{PROJECT_PRODUCT_TYPE}} listings closed in the last 12 months. The MAMS column is what we're proposing.</p>
+
+    <div class="outcomes">
+      <div class="outcomes__instructions">Same homes, same buyer pool, three different listing strategies.</div>
+
+      <div class="outcomes__grid">
+        <div class="outcomes__cell outcomes__cell--head">Metric<span class="sub">Per Home</span></div>
+        <div class="outcomes__cell outcomes__cell--head outcomes__cell--hide-mobile">Self-Listed<span class="sub">No agent</span></div>
+        <div class="outcomes__cell outcomes__cell--head outcomes__cell--hide-mobile">Typical Agent<span class="sub">Generic listing</span></div>
+        <div class="outcomes__cell outcomes__cell--head outcomes__col--mams">MAMS<span class="sub">Proposed</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">Projected buyer reach<span class="sub">people who see the listing in the first 30 days</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{REACH_SELF_LISTED}}<span class="lift">MLS + Zillow auto-feed</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{REACH_TYPICAL}}<span class="lift">+ agent sphere</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">{{REACH_MAMS}}<span class="lift">+ MAMS audience &amp; partner cluster</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">Days on market<span class="sub">contract signed inside this window</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{DOM_SELF_LISTED}}<span class="lift">Richmond avg for FSBO</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{DOM_TYPICAL}}<span class="lift">Richmond avg, agented</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">{{DOM_MAMS}}<span class="lift">faster turn = lower carry</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">List-to-sale ratio<span class="sub">% of list price actually realized at close</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{RATIO_SELF_LISTED}}<span class="lift">FSBO discount baked in</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{RATIO_TYPICAL}}<span class="lift">Richmond agented avg</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">{{RATIO_MAMS}}<span class="lift">demand-led pricing power</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">Net to {{BUILDER_NAME}}<span class="sub">per home, after commission</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{NET_SELF_LISTED}}<span class="lift">baseline</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{NET_TYPICAL}}<span class="lift">{{NET_TYPICAL_LIFT}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">{{NET_MAMS}}<span class="lift">{{NET_MAMS_LIFT}}</span></div>
+      </div>
+
+      <div class="outcomes__methodology">
+        <strong>The math.</strong> Projections drawn from {{COMP_COUNT}} comparable Richmond {{PROJECT_PRODUCT_TYPE}} listings closed in the last 12 months ({{COMP_SOURCE}}). MAMS column projects audience overlap with the {{NEIGHBORHOOD_NAME}} partner cluster (Section 03). Numbers are estimates, not guarantees. The methodology is in the leave-behind PDF on request.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block">
+    <div class="cta">
+      <div class="cta__title">Let's talk about <em>{{PROJECT_SHORT_NAME}}'s</em> listing strategy.</div>
+      <p class="cta__sub">Reply with a time that works. We'll walk the model homes, talk listing structure, and put a 14-day plan on the table you can sign or walk away from. No pressure either way.</p>
+      <div class="cta__buttons">
+        <a href="#" id="emailBtn" class="cta__btn">Set a 30-min walkthrough</a>
+      </div>
+      <div class="cta__or">or just reply to the text Miles sent you with a time</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Built by <em>Miles Agee</em> &middot; MAMS LLC &middot; Richmond, Virginia</div>
+    <div>miles@milesagee.com &middot; mamsnow.com &middot; This proposal is for {{RECIPIENT_NAME}} only. Please do not share publicly.</div>
+  </footer>
+
+</div>
+
+<script>
+  // Avatar expand/collapse (tap any card to expand; tap again to close)
+  document.querySelectorAll('.avatar').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasOpen = card.classList.contains('open');
+      document.querySelectorAll('.avatar').forEach(c => c.classList.remove('open'));
+      if (!wasOpen) card.classList.add('open');
+    });
+  });
+
+  // Two-track toggle (Listing Partnership / Custom Blend)
+  document.querySelectorAll('.tracks-control button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const track = btn.dataset.track;
+      document.querySelectorAll('.tracks-control button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.track-panel').forEach(p => {
+        p.classList.toggle('active', p.dataset.track === track);
+      });
+    });
+  });
+
+  // CTA mailto: prefilled with project + recipient context
+  const emailBtn = document.getElementById('emailBtn');
+  if (emailBtn) {
+    const subject = encodeURIComponent('{{PROJECT_SHORT_NAME}} listing walkthrough');
+    const body = encodeURIComponent(
+      'Hey Miles,\n\n' +
+      'Looked through the {{PROJECT_SHORT_NAME}} proposal. Let\'s set a time to walk the model homes.\n\n' +
+      'A few times that work on my end:\n- \n- \n- \n\n' +
+      '{{RECIPIENT_FIRST_NAME}}'
+    );
+    emailBtn.href = 'mailto:miles@milesagee.com?subject=' + subject + '&body=' + body;
+  }
+</script>
+
+</body>
+</html>
