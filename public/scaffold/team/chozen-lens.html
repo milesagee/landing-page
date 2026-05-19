@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<meta name="md-recipient-token" content="0-lqIk3XCvHN">
 <title>Monique · For Chozen · The lens</title>
 <meta name="description" content="Your two questions, the lens, and the direct line. Built for Chozen.">
 
@@ -319,6 +320,184 @@
     .section p { font-size: 18px; }
     .lens-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
   }
+
+  /* Direct-line form (matches MAMS chrome) */
+  .md-form { margin: 32px 0 0; display: flex; flex-direction: column; gap: 22px; }
+  .md-field { display: flex; flex-direction: column; gap: 8px; }
+  .md-field > label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700;
+  }
+  .md-optional {
+    color: rgba(0,63,63,0.5); font-weight: 500; letter-spacing: 0.04em;
+    text-transform: none; margin-left: 6px;
+  }
+  .md-field textarea {
+    background: #FFFFFF;
+    border: 1px solid rgba(0,63,63,0.14);
+    border-radius: 4px;
+    padding: 14px 16px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6; color: #003F3F;
+    resize: vertical; min-height: 80px;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    -webkit-appearance: none; appearance: none; width: 100%;
+  }
+  .md-field textarea:focus {
+    outline: none; border-color: #D4AF37;
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.12);
+  }
+  #md-situation { min-height: 140px; }
+  .md-char-meter {
+    font-size: 12px; color: rgba(0,63,63,0.5);
+    letter-spacing: 0.04em; align-self: flex-end;
+  }
+  .md-char-meter.ok { color: #2F8569; }
+  .md-radios { display: flex; flex-direction: column; gap: 10px; }
+  .md-radio {
+    display: flex; align-items: flex-start; gap: 12px;
+    cursor: pointer; padding: 10px 14px;
+    background: rgba(0,63,63,0.02);
+    border: 1px solid rgba(0,63,63,0.06);
+    border-radius: 4px;
+    transition: border-color 0.18s ease, background 0.18s ease;
+    position: relative;
+  }
+  .md-radio:hover { border-color: rgba(0,63,63,0.16); background: rgba(0,63,63,0.04); }
+  .md-radio input[type="radio"] {
+    position: absolute; opacity: 0; width: 0; height: 0;
+  }
+  .md-radio-dot {
+    width: 16px; height: 16px; flex-shrink: 0; margin-top: 4px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,63,63,0.35);
+    background: #FFFFFF; position: relative;
+    transition: border-color 0.18s ease;
+  }
+  .md-radio input[type="radio"]:checked + .md-radio-dot { border-color: #D4AF37; }
+  .md-radio input[type="radio"]:checked + .md-radio-dot::after {
+    content: ''; position: absolute; inset: 3px;
+    border-radius: 50%; background: #D4AF37;
+  }
+  .md-radio input[type="radio"]:focus-visible + .md-radio-dot {
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.18);
+  }
+  .md-radio-text { font-size: 15px; color: #003F3F; line-height: 1.5; }
+  .md-radio-text strong { font-weight: 600; }
+  #md-submit { margin-top: 4px; align-self: flex-start; cursor: pointer; border: none; }
+  #md-submit:disabled {
+    opacity: 0.45; cursor: not-allowed;
+    transform: none; box-shadow: 0 1px 4px rgba(0,63,63,0.06);
+  }
+  #md-submit:disabled:hover { background: #003F3F; transform: none; }
+  #md-submit.loading { cursor: progress; opacity: 0.7; }
+  .md-error {
+    margin-top: 8px;
+    color: #B0463C;
+    font-size: 14px;
+    min-height: 1.4em;
+  }
+
+  /* Response card */
+  .md-response {
+    margin: 40px 0 0;
+    background: #FFFFFF;
+    border: 1px solid rgba(0,63,63,0.08);
+    border-left: 2px solid #D4AF37;
+    border-radius: 4px;
+    padding: 24px 24px 20px;
+  }
+  .md-long-pill {
+    display: inline-block;
+    margin: 0 0 18px;
+    padding: 8px 14px;
+    background: rgba(212,175,55,0.12);
+    color: #6B5418;
+    font-size: 12px; letter-spacing: 0.04em;
+    border-radius: 999px;
+  }
+  .md-response-eyebrow {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .md-response-headline {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 22px; line-height: 1.22; color: #003F3F;
+    margin: 0 0 14px; letter-spacing: -0.008em;
+  }
+  .md-response-body {
+    font-size: 16px; color: rgba(0,63,63,0.85);
+    line-height: 1.65;
+  }
+  .md-response-body p { margin: 0 0 12px; }
+  .md-response-body p:last-child { margin-bottom: 0; }
+  .md-response-body ul, .md-response-body ol { margin: 0 0 12px; padding-left: 20px; }
+  .md-response-body li { margin-bottom: 6px; }
+  .md-response-body strong { color: #003F3F; font-weight: 600; }
+  .md-response-body code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    background: rgba(0,63,63,0.04);
+    padding: 2px 6px; border-radius: 3px;
+  }
+  .md-response-next {
+    margin-top: 18px; padding-top: 14px;
+    border-top: 1px solid rgba(0,63,63,0.08);
+    font-style: italic; color: rgba(0,63,63,0.7); font-size: 15px;
+  }
+  .md-response-actions {
+    margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .md-copy-btn, .md-new-btn {
+    background: transparent;
+    border: 1px solid rgba(0,63,63,0.18);
+    color: #003F3F;
+    padding: 9px 18px; border-radius: 999px;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+    cursor: pointer; letter-spacing: 0.01em;
+    transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+  }
+  .md-copy-btn:hover, .md-new-btn:hover {
+    border-color: #003F3F; background: #003F3F; color: #FAF7F1;
+  }
+  .md-copy-btn.copied { background: #D4AF37; border-color: #D4AF37; color: #FFFFFF; }
+
+  /* Wispr Flow tip */
+  .md-voice-tip {
+    margin: 24px 0 0;
+    padding: 16px 18px;
+    background: rgba(0,63,63,0.03);
+    border: 1px solid rgba(0,63,63,0.08);
+    border-radius: 4px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .md-voice-tip-icon {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(212,175,55,0.18);
+    color: #B1922E;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-weight: 700;
+    font-size: 14px;
+    margin-top: 1px;
+  }
+  .md-voice-tip-body {
+    font-size: 14px; color: rgba(0,63,63,0.78);
+    line-height: 1.55;
+  }
+  .md-voice-tip-body strong {
+    color: #003F3F; font-weight: 600;
+  }
+  .md-voice-tip-body a {
+    color: #003F3F; font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(212,175,55,0.6);
+    text-underline-offset: 2px;
+  }
+  .md-voice-tip-body a:hover { color: #D4AF37; }
 </style>
 </head>
 <body>
@@ -486,11 +665,70 @@
   <section class="section">
     <div class="eyebrow">The direct line</div>
     <h2>Drop in <em>with anything</em>.</h2>
-    <p>This button opens an email to me with a subject Monique watches for. Whatever you drop in, draft request or research ask or "how would Miles say this," lands in front of me and I'll cue Monique to come back. From my phone, from a coffee shop, doesn't matter where I am.</p>
+    <p>This goes straight to Monique. Give her the situation, pick the shape of help, and a structured answer renders right here on the page. From your phone, from a coffee shop, doesn't matter where you are. No need to wait on me to cue it.</p>
+    <p style="font-size: 14px; color: rgba(0,63,63,0.6); margin-top: 14px;">For real asks where you want a sharper draft, a research answer, or a sparring partner. The hundred-character minimum is the filter.</p>
 
-    <div class="cta-wrap" style="padding: 32px 0 0;">
-      <a class="cta" href="mailto:miles@milesagee.com?subject=Chozen%20%E2%86%92%20Monique%3A%20%5Bone%20line%20on%20what%20you%20need%5D&body=Drop%20it%20here.%20Lead%20context%20if%20there%20is%20any%2C%20what%20you%20want%20to%20land%2C%20and%20how%20you%27d%20want%20it%20to%20feel.%0A%0A">Open the direct line &nbsp;<span style="font-weight:400; opacity:0.8;">&rarr;</span></a>
-      <div class="cta-note">One click. Opens your email with the subject line ready.</div>
+    <div class="md-voice-tip">
+      <div class="md-voice-tip-icon">W</div>
+      <div class="md-voice-tip-body">
+        <strong>Talk, don't type.</strong> This is how I write to Monique: <a href="https://wisprflow.ai" target="_blank" rel="noopener">Wispr Flow</a>. Free, lives in your menu bar, hit a hotkey and speak. Captures how your brain is actually thinking, not what fits in a text box. The fuller the picture, the sharper the answer.
+      </div>
+    </div>
+
+    <form id="md-form" class="md-form" novalidate>
+      <div class="md-field">
+        <label for="md-situation">What's the situation?</label>
+        <textarea id="md-situation" name="situation" rows="6" placeholder="Lead context if there is any. What you want to land. How you'd want it to feel. The fuller the picture, the sharper the answer." maxlength="5000" required></textarea>
+        <div class="md-char-meter">
+          <span id="md-char-count">0</span> / 100 minimum
+        </div>
+      </div>
+
+      <div class="md-field">
+        <label>What shape of help?</label>
+        <div class="md-radios">
+          <label class="md-radio">
+            <input type="radio" name="shape" value="draft" required>
+            <span class="md-radio-dot"></span>
+            <span class="md-radio-text"><strong>Draft</strong> something for me to send</span>
+          </label>
+          <label class="md-radio">
+            <input type="radio" name="shape" value="research">
+            <span class="md-radio-dot"></span>
+            <span class="md-radio-text"><strong>Research</strong> depth I don't have time for</span>
+          </label>
+          <label class="md-radio">
+            <input type="radio" name="shape" value="sparring">
+            <span class="md-radio-dot"></span>
+            <span class="md-radio-text"><strong>Spar</strong> on a decision I'm sitting on</span>
+          </label>
+          <label class="md-radio">
+            <input type="radio" name="shape" value="other">
+            <span class="md-radio-dot"></span>
+            <span class="md-radio-text"><strong>Something else</strong></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="md-field">
+        <label for="md-tried">What you've already tried <span class="md-optional">(optional)</span></label>
+        <textarea id="md-tried" name="tried" rows="3" placeholder="What angles you've considered. What didn't land. Even a half-thought is signal." maxlength="3000"></textarea>
+      </div>
+
+      <button type="submit" id="md-submit" class="cta" disabled>Send to Monique</button>
+      <div id="md-error" class="md-error" role="alert"></div>
+    </form>
+
+    <div id="md-response" class="md-response" hidden>
+      <div id="md-long-pill" class="md-long-pill" hidden>The full response is rendered below. Save the page or copy what you need.</div>
+      <div class="md-response-eyebrow">Monique &middot; Response</div>
+      <h3 id="md-response-headline" class="md-response-headline"></h3>
+      <div id="md-response-body" class="md-response-body"></div>
+      <div id="md-response-next" class="md-response-next" hidden></div>
+      <div class="md-response-actions">
+        <button type="button" id="md-copy" class="md-copy-btn">Copy response</button>
+        <button type="button" id="md-new" class="md-new-btn">Send another</button>
+      </div>
     </div>
   </section>
 
@@ -499,6 +737,202 @@
   </div>
 
 </div>
+
+<script>
+(function() {
+  var form = document.getElementById('md-form');
+  if (!form) return;
+  var tokenMeta = document.querySelector('meta[name="md-recipient-token"]');
+  var token = tokenMeta ? tokenMeta.getAttribute('content') : '';
+
+  var situation = document.getElementById('md-situation');
+  var tried = document.getElementById('md-tried');
+  var charCount = document.getElementById('md-char-count');
+  var submitBtn = document.getElementById('md-submit');
+  var errorEl = document.getElementById('md-error');
+  var responseEl = document.getElementById('md-response');
+  var longPill = document.getElementById('md-long-pill');
+  var headlineEl = document.getElementById('md-response-headline');
+  var bodyEl = document.getElementById('md-response-body');
+  var nextEl = document.getElementById('md-response-next');
+  var copyBtn = document.getElementById('md-copy');
+  var newBtn = document.getElementById('md-new');
+
+  var MIN_CHARS = 100;
+  var LONG_THRESHOLD = 1500;
+
+  function updateMeter() {
+    var n = situation.value.trim().length;
+    charCount.textContent = String(n);
+    var meter = charCount.parentNode;
+    if (n >= MIN_CHARS) meter.classList.add('ok'); else meter.classList.remove('ok');
+    refreshSubmitState();
+  }
+
+  function shapeChosen() {
+    return !!form.querySelector('input[name="shape"]:checked');
+  }
+
+  function refreshSubmitState() {
+    var ok = situation.value.trim().length >= MIN_CHARS && shapeChosen() && !submitBtn.classList.contains('loading');
+    submitBtn.disabled = !ok;
+  }
+
+  situation.addEventListener('input', updateMeter);
+  form.querySelectorAll('input[name="shape"]').forEach(function(r) {
+    r.addEventListener('change', refreshSubmitState);
+  });
+
+  // Minimal markdown -> HTML for response body. Handles paragraphs, lists,
+  // bold, italics, inline code. Escapes everything else.
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+  function inline(s) {
+    return s
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+      .replace(/`([^`]+)`/g, '<code>$1</code>');
+  }
+  function renderMarkdown(md) {
+    var blocks = String(md).replace(/\r\n/g, '\n').split(/\n\n+/);
+    var html = '';
+    for (var i = 0; i < blocks.length; i++) {
+      var block = blocks[i].trim();
+      if (!block) continue;
+      var lines = block.split('\n');
+      var firstLine = lines[0];
+      if (/^[-*]\s+/.test(firstLine)) {
+        html += '<ul>';
+        for (var j = 0; j < lines.length; j++) {
+          var li = lines[j].replace(/^[-*]\s+/, '');
+          html += '<li>' + inline(escapeHtml(li)) + '</li>';
+        }
+        html += '</ul>';
+      } else if (/^\d+\.\s+/.test(firstLine)) {
+        html += '<ol>';
+        for (var k = 0; k < lines.length; k++) {
+          var oli = lines[k].replace(/^\d+\.\s+/, '');
+          html += '<li>' + inline(escapeHtml(oli)) + '</li>';
+        }
+        html += '</ol>';
+      } else {
+        html += '<p>' + inline(escapeHtml(block).replace(/\n/g, '<br>')) + '</p>';
+      }
+    }
+    return html;
+  }
+
+  function setError(msg) {
+    errorEl.textContent = msg || '';
+  }
+
+  function setLoading(isLoading) {
+    if (isLoading) {
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = 'Monique is on it...';
+    } else {
+      submitBtn.classList.remove('loading');
+      submitBtn.textContent = 'Send to Monique';
+    }
+    refreshSubmitState();
+  }
+
+  function showResponse(payload) {
+    headlineEl.textContent = payload.headline || '';
+    bodyEl.innerHTML = renderMarkdown(payload.body || '');
+    if (payload.nextStep) {
+      nextEl.textContent = payload.nextStep;
+      nextEl.hidden = false;
+    } else {
+      nextEl.hidden = true;
+    }
+    longPill.hidden = !(payload.body && payload.body.length > LONG_THRESHOLD);
+    responseEl.hidden = false;
+    setTimeout(function() {
+      responseEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  }
+
+  function resetForResend() {
+    responseEl.hidden = true;
+    situation.value = '';
+    tried.value = '';
+    form.querySelectorAll('input[name="shape"]').forEach(function(r) { r.checked = false; });
+    updateMeter();
+    setError('');
+    situation.focus();
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!token) {
+      setError('This page is missing its access token. Tell Miles.');
+      return;
+    }
+    var shape = form.querySelector('input[name="shape"]:checked');
+    if (!shape) {
+      setError('Pick the shape of help you need.');
+      return;
+    }
+    var sit = situation.value.trim();
+    if (sit.length < MIN_CHARS) {
+      setError('Give me at least a hundred characters of context.');
+      return;
+    }
+    setError('');
+    setLoading(true);
+    try {
+      var res = await fetch('/api/team/direct/submit?t=' + encodeURIComponent(token), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          situation: sit,
+          shape: shape.value,
+          tried: tried.value.trim() || undefined,
+          submittedAt: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+        }),
+      });
+      var text = await res.text();
+      var json = {};
+      try { json = JSON.parse(text); } catch (_) { json = { ok: false, message: 'Unreadable response.' }; }
+      if (!res.ok || !json.ok) {
+        setError(json.message || 'Hit a wall on the response. Try again in a minute.');
+        return;
+      }
+      showResponse(json.response || {});
+    } catch (err) {
+      setError('Network glitch. Check connection and try again.');
+    } finally {
+      setLoading(false);
+    }
+  });
+
+  copyBtn.addEventListener('click', function() {
+    var text = (headlineEl.textContent ? headlineEl.textContent + '\n\n' : '') + bodyEl.innerText;
+    if (nextEl && !nextEl.hidden) text += '\n\n' + nextEl.textContent;
+    navigator.clipboard.writeText(text).then(function() {
+      copyBtn.classList.add('copied');
+      var prev = copyBtn.textContent;
+      copyBtn.textContent = 'Copied';
+      setTimeout(function() {
+        copyBtn.classList.remove('copied');
+        copyBtn.textContent = prev;
+      }, 1600);
+    });
+  });
+
+  newBtn.addEventListener('click', resetForResend);
+
+  // Initialize
+  updateMeter();
+})();
+</script>
 
 </body>
 </html>
