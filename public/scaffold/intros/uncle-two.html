@@ -254,6 +254,67 @@
   }
   .ask-item p strong { color: #003F3F; font-weight: 600; }
 
+  /* Per-exhibit live dashboard preview */
+  .exhibit-dashboard {
+    display: block;
+    margin: 18px 0 14px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 22px rgba(0,63,63,0.14);
+    border: 1px solid rgba(0,63,63,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .exhibit-dashboard:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(0,63,63,0.18);
+  }
+  .exhibit-dashboard img {
+    width: 100%; height: auto; display: block;
+  }
+  .dashboard-caption {
+    font-size: 12px; letter-spacing: 0.02em;
+    color: rgba(0,63,63,0.55);
+    font-style: italic;
+    margin: 8px 0 14px;
+  }
+  .dashboard-caption strong { color: rgba(0,63,63,0.75); font-weight: 600; font-style: normal; }
+
+  /* Mom UH block in the value-lanes section */
+  .mom-uh-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: rgba(212,175,55,0.06);
+    border: 1px solid rgba(212,175,55,0.22);
+    border-radius: 10px;
+  }
+  .mom-uh-block .eyebrow {
+    margin-bottom: 12px;
+  }
+  .mom-uh-block h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 20px; color: #003F3F;
+    margin: 0 0 12px;
+    letter-spacing: -0.005em;
+  }
+  .mom-uh-block h4 em { font-style: italic; }
+  .mom-uh-block .mom-uh-img {
+    margin: 14px 0 14px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,63,63,0.12);
+    border: 1px solid rgba(0,63,63,0.06);
+    display: block;
+  }
+  .mom-uh-block .mom-uh-img img {
+    width: 100%; height: auto; display: block;
+  }
+  .mom-uh-block p {
+    font-size: 14.5px;
+    color: rgba(0,63,63,0.78);
+    margin: 0;
+    line-height: 1.55;
+  }
+
   /* Showcase exhibits */
   .exhibits { list-style: none; padding: 0; margin: 0; }
   .exhibit {
@@ -484,8 +545,12 @@
           <div class="exhibit-eyebrow">When someone is relocating to Richmond</div>
           <h3>The Move-In <em>Concierge</em>.</h3>
           <p>Most agents send twelve listings matching a filter. This sends twelve that match a life. Every property carries the daily rhythm reflected back, the coffee block they want to walk to, lease-trap red flags surfaced, and a first-touch note written for them specifically.</p>
+          <a class="exhibit-dashboard" href="https://mamsnow.com/concierge/9ZGENlckA3evlHAWMqCD?t=c1c1a3bd64ea468e9a601645ba14c225" target="_blank" rel="noopener">
+            <img src="dashboards/concierge-testf.png" alt="The live Move-In Concierge page for one prospect">
+          </a>
+          <p class="dashboard-caption"><strong>Live page</strong> for a Brooklyn relocation prospect. Not a template. Her shortlist, her vibes, her daily anchors.</p>
           <a class="exhibit-link" href="https://mamsnow.com/concierge/9ZGENlckA3evlHAWMqCD?t=c1c1a3bd64ea468e9a601645ba14c225" target="_blank" rel="noopener">
-            See exactly what one prospect got <span class="arrow">&rarr;</span>
+            Open it the way she opens it <span class="arrow">&rarr;</span>
           </a>
         </div>
       </li>
@@ -496,6 +561,10 @@
           <div class="exhibit-eyebrow">Where AI usually stops, this starts</div>
           <h3>Deep research, <em>actually run</em>.</h3>
           <p>Most AI tools answer the question you typed. This one writes the brief, hands it to a second AI that has direct access to my Mac, comes back hours later with a synthesized PDF, then loops a third pass for verification before anything reaches a client. The Lennar buyer thesis came out of this stack. So did a short-term-rental Carytown plan I built for a former client this week.</p>
+          <a class="exhibit-dashboard" href="https://mamsnow.com/scaffold/lennar-creekside.html" target="_blank" rel="noopener">
+            <img src="dashboards/lennar-creekside.png" alt="The Lennar Creekside campaign brief">
+          </a>
+          <p class="dashboard-caption"><strong>Output</strong> from a 6-hour Perplexity Computer pass on Lennar's actual Richmond buyer. Buyer thesis, partner cluster, ad-budget slider, all sourced. Real artifact, not chat.</p>
           <span class="exhibit-status">Running on every MAMS deep-dive this week.</span>
         </div>
       </li>
@@ -506,6 +575,10 @@
           <div class="exhibit-eyebrow">When a seller needs to feel in control</div>
           <h3>Listing activity, <em>on her terms</em>.</h3>
           <p>Sellers used to call me asking what was happening with their home. Now they open a page that shows every showing request, every piece of feedback, and a calendar where they pre-commit to the windows that work for their life. No more middle-of-the-day surprises.</p>
+          <a class="exhibit-dashboard" href="https://mamsnow.com/listing/lGUzoI0uErPvbaDEk2S3?t=1IEE1pDMUvh6" target="_blank" rel="noopener">
+            <img src="dashboards/madeline-listing.png" alt="The seller's listing-activity dashboard">
+          </a>
+          <p class="dashboard-caption"><strong>Live page</strong> for a Yorktown seller. Showing pulse, market interpretation, and an availability picker she controls.</p>
           <span class="exhibit-status">Currently live for a seller in Mechanicsville.</span>
         </div>
       </li>
@@ -516,6 +589,10 @@
           <div class="exhibit-eyebrow">When an offer comes in</div>
           <h3>The offer, <em>translated</em>.</h3>
           <p>Most sellers see a 30-page contract and a number and try to decide on the spot. This pulls every term into plain English, runs the net-to-seller math live as you move the mortgage payoff slider, and lands with my honest recommendation. The call becomes confirmation, not parsing.</p>
+          <a class="exhibit-dashboard" href="https://mamsnow.com/offer/IiCKMQNv2xHGLCqOBrYA?t=oVJeZvqlARvv" target="_blank" rel="noopener">
+            <img src="dashboards/natalie-offer.png" alt="Multi-offer breakdown dashboard">
+          </a>
+          <p class="dashboard-caption"><strong>Live page</strong> for a Battery Park seller with two real offers on the table. Side-by-side terms, net-to-seller math, recommendation card.</p>
           <span class="exhibit-status">Currently live for a seller in Battery Park.</span>
         </div>
       </li>
@@ -526,6 +603,10 @@
           <div class="exhibit-eyebrow">When a builder picks a listing partner</div>
           <h3>The builder pitch, <em>made personal</em>.</h3>
           <p>Most agents send a one-page resume. This walks a developer through who their actual buyers are, what each home should net, the local partner cluster I'd plug into the project, and exactly why MAMS earns the listing. They open it and feel pitched to, not solicited.</p>
+          <a class="exhibit-dashboard" href="https://mamsnow.com/scaffold/lennar-creekside.html" target="_blank" rel="noopener">
+            <img src="dashboards/lennar-creekside.png" alt="The Lennar Creekside builder-pitch dashboard">
+          </a>
+          <p class="dashboard-caption"><strong>Live page</strong> for Stefanie Nayder at Lennar. Buyer thesis, walking-distance partner cluster, per-post ad budget slider.</p>
           <span class="exhibit-status">Currently live for a vendor manager at Lennar.</span>
         </div>
       </li>
@@ -536,6 +617,10 @@
           <div class="exhibit-eyebrow">When a buyer just got prequalified</div>
           <h3>The buyer match, <em>before the search</em>.</h3>
           <p>The highest-energy moment in the whole process is the day someone gets their prequal letter. Every other agent meets it with an MLS saved search. We meet it with a 12-hour deep research pass that comes back with off-market signals, mispriced listings, and neighborhoods that match a life, not a filter.</p>
+          <a class="exhibit-dashboard" href="https://mamsnow.com/buyer-intake/bVWiepmFuABEHLmbxTwF?t=Tr5lcc_049iW" target="_blank" rel="noopener">
+            <img src="dashboards/ethan-buyer.png" alt="The buyer intake wizard">
+          </a>
+          <p class="dashboard-caption"><strong>Stage 1 intake</strong> for a Richmond buyer the morning after his prequal landed. Stage 2 deep-research portal renders overnight.</p>
           <span class="exhibit-status">First buyer's deep-research pass running now.</span>
         </div>
       </li>
@@ -582,6 +667,15 @@
         <p>Travel planning with real intel instead of TripAdvisor consensus. Vendor sourcing with verified reviews and cross-validation. Personal decisions where the right next step lives inside three different sources you don't have time to find. The plumbing is mine. The reclaimed time is yours.</p>
       </li>
     </ul>
+
+    <div class="mom-uh-block">
+      <div class="eyebrow">What this actually feels like for someone in my life</div>
+      <h4>The page I built for <em>Mom</em>.</h4>
+      <a class="mom-uh-img" href="https://mamsnow.com/scaffold/intros/family-onboarding.html" target="_blank" rel="noopener">
+        <img src="dashboards/family-onboarding.png" alt="The family onboarding page Miles built for Mom and Dad">
+      </a>
+      <p>Same brain, different shape. Mom got her own dedicated context file, her own way to talk to me, and a tour of how it works built around what she'd actually use. No category, no menu, no template. This is what the hospitality looks like when it's pointed at someone who has been pouring into me my whole life. You get the same thing. Different shape, same care.</p>
+    </div>
   </section>
 
   <section class="section">
