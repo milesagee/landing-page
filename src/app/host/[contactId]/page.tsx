@@ -44,7 +44,7 @@ export default async function HostSharePage({
           <div>
             <div className="font-display text-ivory text-lg leading-none">MAMS</div>
             <div className="text-[10px] uppercase tracking-[0.15em] text-gold-dark mt-0.5">
-              Your Hosting Briefing
+              Your Auto-Pilot Briefing
             </div>
           </div>
         </div>
@@ -55,13 +55,13 @@ export default async function HostSharePage({
           Hand-prepared for {data.firstName}
         </p>
         <h1 className="font-display text-3xl sm:text-4xl text-deep-teal leading-tight">
-          Hey {data.firstName}. Let&rsquo;s turn both your spots into income.
+          Hey {data.firstName}. Let&rsquo;s put both your spots on autopilot.
         </h1>
         <p className="mt-3 text-base text-deep-teal/75 leading-relaxed max-w-2xl">
-          {data.closingTimeframeLabel} we closed {data.closingAddress}. Now we put your two properties to work.
+          {data.closingTimeframeLabel} we closed {data.closingAddress}. Now we get both your properties running fully hands-off, generating income on their own, with MAMS coordinating every moving piece behind the scenes.
         </p>
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
-          Before I drop a game plan, I want it shaped around what <em>you</em> actually want, not what most agents assume. Two cards below, one per property. Should take you under five minutes.
+          Before I build your autopilot game plan, I want it shaped around how <em>you</em> want this run, not a generic template. Two property cards below, one per spot. Takes you under five minutes.
         </p>
       </section>
 

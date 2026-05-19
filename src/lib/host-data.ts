@@ -47,9 +47,9 @@ export type PropertyIntakePayload = {
   restrictions: string[];
   capitalBucket: "Under $5k" | "$5–15k" | "$15–30k" | "$30k+" | "";
   handsOn:
-    | "I want to self-manage"
-    | "I want it 100% outsourced"
-    | "Hybrid (I'll handle some, MAMS coordinates the rest)"
+    | "Fully hands-off (MAMS coordinates everything end-to-end)"
+    | "Mostly hands-off (I'll touch one or two pieces, MAMS handles the rest)"
+    | "Self-managed (I drive day-to-day, MAMS is the playbook + backstop)"
     | "";
   targetMonth: string;
 };

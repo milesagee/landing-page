@@ -39,9 +39,9 @@ const CAPITAL_BUCKETS: PropertyIntakePayload["capitalBucket"][] = [
 ];
 
 const HANDS_ON: PropertyIntakePayload["handsOn"][] = [
-  "I want to self-manage",
-  "I want it 100% outsourced",
-  "Hybrid (I'll handle some, MAMS coordinates the rest)",
+  "Fully hands-off (MAMS coordinates everything end-to-end)",
+  "Mostly hands-off (I'll touch one or two pieces, MAMS handles the rest)",
+  "Self-managed (I drive day-to-day, MAMS is the playbook + backstop)",
 ];
 
 export function PropertyIntakeCard({
@@ -135,7 +135,7 @@ export function PropertyIntakeCard({
           />
         </Field>
 
-        <Field label="Your hands-on preference" required>
+        <Field label="How hands-off do you want this?" hint="Most owners pick fully hands-off" required>
           <RadioGroup
             name={`handsOn-${index}`}
             options={[...HANDS_ON]}

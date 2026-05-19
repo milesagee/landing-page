@@ -80,15 +80,18 @@ export function HostIntake({
       <section className="bg-deep-teal text-ivory rounded-lg overflow-hidden">
         <div className="bg-ivory/[0.06] px-6 sm:px-8 py-4 border-b border-ivory/10">
           <p className="text-xs uppercase tracking-[0.18em] text-gold font-semibold">
-            Got it
+            Autopilot, engaged
           </p>
         </div>
         <div className="p-6 sm:p-8 space-y-3">
           <p className="font-display text-2xl sm:text-3xl text-ivory leading-tight">
-            Got it, {data.firstName}. I&rsquo;m on this.
+            Got it, {data.firstName}. The engine&rsquo;s already running.
           </p>
           <p className="text-sm sm:text-base text-ivory/85 leading-relaxed">
-            You&rsquo;ll get the game plan in your inbox inside 48 hours, built specifically off these answers, not a template.
+            Behind the scenes my research crew is pulling Carytown short-term-rental comps, occupancy rates, the City of Richmond permit landscape, and a vetted vendor cluster for both your spots specifically.
+          </p>
+          <p className="text-sm sm:text-base text-ivory/85 leading-relaxed">
+            Inside 48 hours you&rsquo;ll get your autopilot game plan in your inbox, built from your actual answers, not a template. After that, I run it. You stay hands-off.
           </p>
           <p className="text-sm sm:text-base text-ivory/85 leading-relaxed">
             If anything else comes to mind before then, just text me.
@@ -159,6 +162,35 @@ export function HostIntake({
         </div>
       </section>
 
+      <section className="bg-white rounded-lg border border-deep-teal/10 overflow-hidden">
+        <div className="bg-deep-teal/[0.04] px-6 sm:px-8 py-4 border-b border-deep-teal/10">
+          <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold">
+            What we&rsquo;re running for you the moment you submit
+          </p>
+        </div>
+        <div className="p-6 sm:p-8 space-y-5 text-sm sm:text-base text-deep-teal/80 leading-relaxed">
+          <p className="text-deep-teal/85">
+            Your answers don&rsquo;t sit in a queue. They kick off a research and planning engine the same moment you hit send. Here&rsquo;s the inside view:
+          </p>
+          <EngineRow
+            label="Deep market research"
+            body="A long-running research crew pulls Carytown short-term-rental comps, occupancy benchmarks, ADR seasonality, and the City of Richmond STR permit landscape, tuned to both your specific addresses."
+          />
+          <EngineRow
+            label="Preliminary scout pass"
+            body="Lighter, lower-cost sub-agents run preliminary sweeps on furnishing comps, photography partners, dynamic pricing platforms (Wheelhouse / PriceLabs / AirDNA), and cleaning crews already vetted in Richmond."
+          />
+          <EngineRow
+            label="Tailored autopilot game plan"
+            body="Inside 48 hours, Miles personally lands your custom plan in your inbox: vendor cluster, capital allocation, go-live timeline, and the exact pieces MAMS handles vs anything you wanted to touch."
+          />
+          <EngineRow
+            label="Then we just run it"
+            body="You stay hands-off. MAMS coordinates vendors, manages the launch, and reports back on a cadence you choose. Income shows up. You stay focused on whatever else you&rsquo;re building."
+          />
+        </div>
+      </section>
+
       <section className="bg-deep-teal text-ivory rounded-lg overflow-hidden">
         <div className="p-6 sm:p-8 space-y-4">
           <button
@@ -167,7 +199,7 @@ export function HostIntake({
             disabled={state === "pending" || !canSubmit}
             className="w-full sm:w-auto bg-gold hover:bg-gold-dark text-deep-teal font-semibold text-base px-6 py-3.5 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {state === "pending" ? "Sending..." : `Send Miles my brief`}
+            {state === "pending" ? "Sending..." : `Engage autopilot, Miles`}
           </button>
           {!canSubmit && state !== "pending" && (
             <p className="text-[11px] text-ivory/60 leading-relaxed">
@@ -181,6 +213,18 @@ export function HostIntake({
           )}
         </div>
       </section>
+    </div>
+  );
+}
+
+function EngineRow({ label, body }: { label: string; body: string }) {
+  return (
+    <div className="flex gap-3 items-start">
+      <div className="mt-2 w-1.5 h-1.5 rounded-full bg-gold-dark flex-shrink-0" />
+      <div>
+        <p className="font-display text-lg text-deep-teal leading-tight">{label}</p>
+        <p className="text-sm sm:text-base text-deep-teal/75 leading-relaxed mt-1">{body}</p>
+      </div>
     </div>
   );
 }
