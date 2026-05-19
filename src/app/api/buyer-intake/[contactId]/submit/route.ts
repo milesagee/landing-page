@@ -20,9 +20,18 @@
  */
 
 import { NextResponse } from "next/server";
-import { spawn } from "node:child_process";
 import * as path from "node:path";
 import * as fs from "node:fs/promises";
+
+// Resolve child_process at runtime to defeat turbopack's static analysis of
+// spawn() arguments — Next 16's bundler tries to bundle the script path as
+// a module otherwise, which breaks the Vercel build even though the spawn
+// only matters in local dev where the sibling scripts exist on disk.
+type CP = typeof import("node:child_process");
+function getCp(): CP {
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval
+  return (Function("return require")() as NodeRequire)("child_process");
+}
 import {
   getBuyerIntakeByToken,
   validateIntake,
@@ -36,12 +45,19 @@ export const dynamic = "force-dynamic";
 const GHL_API = "https://services.leadconnectorhq.com";
 const GHL_VERSION = "2021-07-28";
 
-// Path back to project root from this file:
-// mams-site/src/app/api/buyer-intake/[contactId]/submit/route.ts → ../../../../../..
-const PROJECT_ROOT = path.resolve(process.cwd(), "..");
-const SCRIPTS_DIR = path.join(PROJECT_ROOT, "scripts", "insiderrva");
-const SKILL_DIR = path.join(PROJECT_ROOT, ".claude", "skills", "buyer-intake-portal");
-const OUTBOX_DIR = path.join(PROJECT_ROOT, "shared", "outbox-to-pc");
+// Resolved at request time (defeats turbopack static path analysis on the
+// child_process spawn targets). The buyer-intake submit is local-dev-only
+// orchestration — in production on Vercel these paths will not exist, and
+// the GHL writes + Monique SMS still proceed.
+function getPaths() {
+  const projectRoot = path.resolve(process.cwd(), "..");
+  return {
+    projectRoot,
+    scriptsDir: path.join(projectRoot, "scripts", "insiderrva"),
+    skillDir: path.join(projectRoot, ".claude", "skills", "buyer-intake-portal"),
+    outboxDir: path.join(projectRoot, "shared", "outbox-to-pc"),
+  };
+}
 
 type Params = Promise<{ contactId: string }>;
 
@@ -115,7 +131,8 @@ async function writePcBrief(args: {
   contactContext: string;
 }): Promise<{ ok: true; path: string } | { ok: false; error: string }> {
   try {
-    const tmplPath = path.join(SKILL_DIR, "pc-brief-template.yaml");
+    const { skillDir, outboxDir } = getPaths();
+    const tmplPath = path.join(skillDir, "pc-brief-template.yaml");
     const tmpl = await fs.readFile(tmplPath, "utf-8");
 
     const filled = fillTemplate(tmpl, {
@@ -138,8 +155,8 @@ async function writePcBrief(args: {
       contact_id: args.contactId,
     });
 
-    await fs.mkdir(OUTBOX_DIR, { recursive: true });
-    const outPath = path.join(OUTBOX_DIR, `${args.requestId}.yaml`);
+    await fs.mkdir(outboxDir, { recursive: true });
+    const outPath = path.join(outboxDir, `${args.requestId}.yaml`);
     await fs.writeFile(outPath, filled, "utf-8");
     return { ok: true, path: outPath };
   } catch (e) {
@@ -149,9 +166,14 @@ async function writePcBrief(args: {
 
 function spawnStage1(payload: BuyerIntakePayload, firstName: string): Promise<Stage1Response | null> {
   return new Promise((resolve) => {
-    const script = path.join(SCRIPTS_DIR, "buyer-intake-stage1.js");
-    const child = spawn("node", [script, firstName], {
-      cwd: PROJECT_ROOT,
+    const { projectRoot, scriptsDir } = getPaths();
+    // Build the script path via runtime string concat (defeats turbopack
+    // static-analysis of spawn() targets, which is treated as a module import
+    // resolution under Next 16's bundler).
+    const scriptName = ["buyer-intake-stage1", "js"].join(".");
+    const script = `${scriptsDir}/${scriptName}`;
+    const child = getCp().spawn("node", [script, firstName], {
+      cwd: projectRoot,
       stdio: ["pipe", "pipe", "pipe"],
     });
 
@@ -190,9 +212,11 @@ function spawnStage1(payload: BuyerIntakePayload, firstName: string): Promise<St
 
 function fireAndForgetImessagePing(requestId: string, firstName: string): void {
   try {
-    const script = path.join(SCRIPTS_DIR, "pc-ping-imessage.js");
-    const child = spawn("node", [script, requestId, firstName], {
-      cwd: PROJECT_ROOT,
+    const { projectRoot, scriptsDir } = getPaths();
+    const scriptName = ["pc-ping-imessage", "js"].join(".");
+    const script = `${scriptsDir}/${scriptName}`;
+    const child = getCp().spawn("node", [script, requestId, firstName], {
+      cwd: projectRoot,
       detached: true,
       stdio: "ignore",
     });
