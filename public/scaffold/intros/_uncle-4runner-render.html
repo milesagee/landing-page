@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Render: 4Runner with callouts</title>
+<title>Render: 4Runner with callouts (v4 — grid-verified positions)</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,8 +44,7 @@
 
   .arrow-svg { position: absolute; overflow: visible; pointer-events: none; }
   .arrow-svg path,
-  .arrow-svg polyline,
-  .arrow-svg circle {
+  .arrow-svg polyline {
     fill: none;
     stroke: #FFD56B;
     stroke-width: 5;
@@ -63,6 +62,17 @@
 
   <div class="overlay">
 
+    <!--
+      Verified subject coordinates (from grid overlay on RENDER output, then audited with circles):
+        Front wheel center:        (185, 1080)
+        Rear wheel center:         (725, 1080)
+        Front fender flare top:    (180, 920)
+        Rear quarter glass:        (650, 600)
+        Driver's door window:      (320, 600)
+        Rear wheel-arch lift gap:  (730, 940)
+        Painted lower body trim:   (500, 830)
+    -->
+
     <!-- HERO: top-left, in the sky -->
     <div class="callout hero" style="top: 50px; left: 60px; transform: rotate(-2deg);">
       Three years.
@@ -71,86 +81,99 @@
       Still grateful.
     </div>
 
-    <!-- TINT: arrow lands on rear-quarter window (3rd-row glass, heavily tinted) at world ~(860, 700) -->
-    <div class="callout med" style="top: 460px; left: 720px; transform: rotate(-1deg);">
-      Limo tint
-    </div>
-    <div class="callout small" style="top: 508px; left: 720px; color: #FFE89C;">
-      all the way around.
-    </div>
-    <!-- arrow-box origin at left:760 top:560; head at world (860, 700) → local (100, 140) -->
-    <svg class="arrow-svg" style="top: 560px; left: 760px;" width="220" height="220" viewBox="0 0 220 220">
-      <path d="M 40 30 Q 70 80 100 140" />
-      <polyline class="filled" points="100,140 80,135 90,120" />
-    </svg>
-
-    <!-- AUDIO: arrow head lands IN driver's window at world (400, 720) -->
-    <div class="callout med" style="top: 460px; left: 320px; transform: rotate(-1deg);">
+    <!-- KENWOOD: label in sky upper-left, arrow DOWN to driver's window (310, 470) -->
+    <div class="callout med" style="top: 220px; left: 180px; transform: rotate(-1deg);">
       Kenwood console.
     </div>
-    <div class="callout small" style="top: 508px; left: 320px; color: #FFE89C;">
+    <div class="callout small" style="top: 268px; left: 180px; color: #FFE89C;">
       All speakers replaced.
     </div>
-    <!-- box at top:560 left:320; head local (80, 160) = world (400, 720) -->
-    <svg class="arrow-svg" style="top: 560px; left: 320px;" width="180" height="200" viewBox="0 0 180 200">
-      <path d="M 60 10 Q 70 80 80 160" />
-      <polyline class="filled" points="80,160 65,150 75,178" />
+    <!-- arrow-box at left:200 top:310; head local (120, 290) = world (320, 600). Tail (90, 20) = world (290, 330). -->
+    <svg class="arrow-svg" style="top: 310px; left: 200px;" width="200" height="320" viewBox="0 0 200 320">
+      <path d="M 90 20 Q 105 150 120 290" />
+      <polyline class="filled" points="120,290 105,280 110,308" />
     </svg>
 
-    <!-- BUMPER FLARES: arrow head ON front fender flare at world (230, 940) -->
-    <div class="callout med" style="top: 700px; left: 20px;">
+    <!-- LIMO TINT: label upper-right near building, arrow DOWN-LEFT to rear quarter glass (620, 460) -->
+    <div class="callout med" style="top: 290px; left: 770px; transform: rotate(-1deg);">
+      Limo tint
+    </div>
+    <div class="callout small" style="top: 338px; left: 770px; color: #FFE89C;">
+      all the way around.
+    </div>
+    <!-- arrow-box at left:660 top:400; head local (-10, 200) = world (650, 600). Tail (130, 20) = world (790, 420). -->
+    <svg class="arrow-svg" style="top: 400px; left: 660px;" width="200" height="220" viewBox="0 0 200 220">
+      <path d="M 130 20 Q 60 110 -10 200" />
+      <polyline class="filled" points="-10,200 15,190 15,212" />
+    </svg>
+
+    <!-- OEM BUMPER FLARES: label lower-left parking lot, arrow UP to front fender flare (160, 870) -->
+    <div class="callout med" style="top: 1100px; left: 20px;">
       OEM 99-02
     </div>
-    <div class="callout med" style="top: 742px; left: 20px;">
+    <div class="callout med" style="top: 1142px; left: 20px;">
       fender flares.
     </div>
-    <!-- box at top:790 left:20; head local (210, 150) = world (230, 940) -->
-    <svg class="arrow-svg" style="top: 790px; left: 20px;" width="260" height="200" viewBox="0 0 260 200">
-      <path d="M 70 30 Q 140 90 210 150" />
-      <polyline class="filled" points="210,150 190,148 200,128" />
+    <!-- arrow-box at left:40 top:870; head local (140, 50) = world (180, 920). Tail (30, 220) = world (70, 1090). -->
+    <svg class="arrow-svg" style="top: 870px; left: 40px;" width="200" height="240" viewBox="0 0 200 240">
+      <path d="M 30 220 Q 85 135 140 50" />
+      <polyline class="filled" points="140,50 122,62 145,70" />
     </svg>
 
-    <!-- LIFT: arrow head in rear wheel-arch lift gap. Label sits in pavement area below truck to avoid overlapping body. -->
-    <div class="callout med" style="top: 1240px; left: 460px; transform: rotate(-2deg);">
-      2.5&quot; Dobinsons IMS.
+    <!-- 2.5" DOBINSONS LIFT: label right of rear bumper, arrow LEFT to rear wheel-arch lift gap (720, 880) -->
+    <div class="callout med" style="top: 830px; left: 840px; transform: rotate(-1deg);">
+      2.5&quot; Dobinsons.
     </div>
-    <div class="callout small" style="top: 1288px; left: 460px; color: #FFE89C;">
+    <div class="callout small" style="top: 878px; left: 840px; color: #FFE89C;">
       Teal, from SRQ.
     </div>
-    <!-- box at top:950 left:480; head local (350, 0) = world (830, 950) — rear wheel arch top -->
-    <svg class="arrow-svg" style="top: 950px; left: 480px;" width="400" height="320" viewBox="0 0 400 320">
-      <path d="M 80 290 Q 220 150 350 10" />
-      <polyline class="filled" points="350,10 340,35 365,32" />
+    <!-- arrow-box at left:730 top:850; head local (0, 90) = world (730, 940). Tail (110, 20) = world (840, 870). -->
+    <svg class="arrow-svg" style="top: 850px; left: 730px;" width="180" height="120" viewBox="0 0 180 120">
+      <path d="M 110 20 Q 55 55 0 90" />
+      <polyline class="filled" points="0,90 22,80 22,102" />
     </svg>
 
-    <!-- FRONT WHEEL: arrow head IN front wheel center at world (280, 1150) -->
-    <div class="callout med" style="top: 1340px; left: 60px;">
+    <!-- NEW PAINT: label below truck center, arrow UP to lower body trim (500, 770) -->
+    <div class="callout med" style="top: 1230px; left: 360px; transform: rotate(-1deg);">
+      Painted out.
+    </div>
+    <div class="callout small" style="top: 1278px; left: 360px; color: #FFE89C;">
+      Used to be silver.
+    </div>
+    <!-- arrow-box at left:400 top:830; head local (100, 0) = world (500, 830). Tail (70, 390) = world (470, 1220). -->
+    <svg class="arrow-svg" style="top: 830px; left: 400px;" width="200" height="420" viewBox="0 0 200 420">
+      <path d="M 70 390 Q 90 200 100 10" />
+      <polyline class="filled" points="100,10 85,35 110,35" />
+    </svg>
+
+    <!-- FRONT WHEEL: label bottom-left, arrow UP to front wheel center (180, 1010) -->
+    <div class="callout med" style="top: 1380px; left: 60px;">
       SCS Ray10s.
     </div>
-    <div class="callout small" style="top: 1388px; left: 60px; color: #FFE89C;">
+    <div class="callout small" style="top: 1428px; left: 60px; color: #FFE89C;">
       Bronze, 17x8.5.
     </div>
-    <!-- box at top:1150 left:60; head local (220, 0) = world (280, 1150) -->
-    <svg class="arrow-svg" style="top: 1150px; left: 60px;" width="320" height="240" viewBox="0 0 320 240">
-      <path d="M 180 220 Q 200 110 220 10" />
-      <polyline class="filled" points="220,10 210,35 235,30" />
+    <!-- arrow-box at left:60 top:1010; head local (125, 70) = world (185, 1080). Tail (50, 360) = world (110, 1370). -->
+    <svg class="arrow-svg" style="top: 1010px; left: 60px;" width="200" height="380" viewBox="0 0 200 380">
+      <path d="M 50 360 Q 90 215 125 70" />
+      <polyline class="filled" points="125,70 110,92 135,95" />
     </svg>
 
-    <!-- REAR WHEEL: arrow head IN rear wheel center at world (885, 1150) -->
-    <div class="callout med" style="top: 1340px; left: 720px;">
+    <!-- REAR WHEEL: label bottom-right, arrow UP to rear wheel center (720, 1010) -->
+    <div class="callout med" style="top: 1380px; left: 760px;">
       Falken Wildpeak A/T.
     </div>
-    <div class="callout small" style="top: 1388px; left: 720px; color: #FFE89C;">
+    <div class="callout small" style="top: 1428px; left: 760px; color: #FFE89C;">
       P285/70R17.
     </div>
-    <!-- box at top:1150 left:720; head local (165, 0) = world (885, 1150) -->
-    <svg class="arrow-svg" style="top: 1150px; left: 720px;" width="320" height="240" viewBox="0 0 320 240">
-      <path d="M 140 220 Q 152 110 165 10" />
-      <polyline class="filled" points="165,10 155,35 180,30" />
+    <!-- arrow-box at left:660 top:1010; head local (65, 70) = world (725, 1080). Tail (140, 360) = world (800, 1370). -->
+    <svg class="arrow-svg" style="top: 1010px; left: 660px;" width="200" height="380" viewBox="0 0 200 380">
+      <path d="M 140 360 Q 100 215 65 70" />
+      <polyline class="filled" points="65,70 55,95 80,95" />
     </svg>
 
     <!-- BOTTOM SIGNATURE LINE -->
-    <div class="callout small" style="top: 1530px; left: 60px; color: #FFE89C; font-style: italic;">
+    <div class="callout small" style="top: 1540px; left: 60px; color: #FFE89C; font-style: italic;">
       Every choice on it tries to honor where it came from.
     </div>
 
