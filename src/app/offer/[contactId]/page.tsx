@@ -11,7 +11,7 @@ type Params = Promise<{ contactId: string }>;
 type Search = Promise<{ t?: string }>;
 
 export const metadata: Metadata = {
-  title: "Your offer | MAMS",
+  title: "Your offers | MAMS",
   robots: { index: false, follow: false },
 };
 
@@ -29,10 +29,21 @@ export default async function OfferSharePage({
   const data = getOfferByToken(contactId, t);
   if (!data) notFound();
 
-  const receivedAt = new Date(data.offer.receivedAt + "T12:00:00").toLocaleDateString(
-    "en-US",
-    { weekday: "long", month: "long", day: "numeric" },
-  );
+  const liveOffers = data.offers.filter((o) => o.status !== "ghost");
+  const offerCount = liveOffers.length;
+  const offerCountLabel =
+    offerCount === 1 ? "an offer" : `${offerCount} offers`;
+  const latestReceived = liveOffers
+    .map((o) => o.receivedAt)
+    .sort()
+    .slice(-1)[0];
+  const latestReceivedLabel = new Date(
+    latestReceived + "T12:00:00",
+  ).toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  });
 
   return (
     <main className="min-h-screen bg-paper text-deep-teal">
@@ -60,10 +71,10 @@ export default async function OfferSharePage({
           Hand-prepared for {data.sellerFirstName}
         </p>
         <h1 className="font-display text-3xl sm:text-4xl text-deep-teal leading-tight">
-          {data.sellerFirstName}, you have an offer.
+          {data.sellerFirstName}, you have {offerCountLabel}.
         </h1>
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
-          It came in {receivedAt} on {data.property.address}. Here is the whole picture: who they are, what they&rsquo;re asking, what it puts in your pocket, and what the next 30 days look like if we move forward.
+          Latest landed {latestReceivedLabel} on {data.property.address}. Here is the whole picture side by side: who they are, what they are asking, what each one puts in your pocket, and the move I am recommending before our Tuesday review window.
         </p>
       </section>
 
