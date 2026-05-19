@@ -65,6 +65,11 @@ export type BuyerIntakeContact = {
   // "mams-line-established"  => Monique already known, skip intro framing
   // "cold"                   => first contact ever, full Monique intro
   establishedChannel: "personal-cell-imessage" | "mams-line-established" | "cold";
+  // True when this contact has already received the Monique intro on a prior
+  // submit and we're rendering a resubmit. The submit route skips the
+  // Monique-line SMS when this is set so the contact doesn't get a duplicate
+  // first-touch intro.
+  suppressMoniqueIntro?: boolean;
   // Optional pre-filled values from past conversations or initial outreach.
   // The wizard reads these as starting state and the buyer can override.
   prefill?: Partial<BuyerIntakePayload>;
@@ -80,6 +85,10 @@ export const CONTACTS: Record<string, BuyerIntakeContact> = {
     shareToken: "Tr5lcc_049iW",
     firstName: "Ethan",
     establishedChannel: "personal-cell-imessage",
+    // Ethan already got two Monique-line SMS on the 2026-05-18 cast (one real
+    // + one duplicate during my fix-verify). Suppressing the Monique intro on
+    // this resubmit so he doesn't see a third in 24 hours.
+    suppressMoniqueIntro: true,
     prefill: {
       // Source: 2026-05-18 iMessage. Ethan: "For $300k once I get official
       // qualification will hopefully be $350k." Two-bed floor inherited from

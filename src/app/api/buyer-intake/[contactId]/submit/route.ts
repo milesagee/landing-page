@@ -400,8 +400,12 @@ async function handleSubmit(req: Request, { params }: { params: Params }) {
     results.imessagePing = "skipped (test flag)";
   }
 
-  // 6. Monique-line SMS
-  if (!(testFlags.skipMoniqueSms && !isProd)) {
+  // 6. Monique-line SMS -- skip on resubmits where the contact already heard
+  // from Monique (suppressMoniqueIntro flag in CONTACTS). Avoids duplicate
+  // first-touch intros that erode trust when a buyer hits the link twice.
+  if (contact.suppressMoniqueIntro) {
+    results.moniqueSms = "skipped: prior Monique intro on record";
+  } else if (!(testFlags.skipMoniqueSms && !isProd)) {
     try {
       const sms = buildMoniqueSms(contact.firstName, eta, contact.establishedChannel);
       await ghlPost(`/conversations/messages`, {
