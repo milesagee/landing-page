@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Monique · For Darius</title>
+<meta name="description" content="A direct line. Patterns you can fork into Copilot. Built around what you actually need.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamsnow.com/scaffold/intros/darius.html">
+<meta property="og:title" content="Meet Monique. For Darius.">
+<meta property="og:description" content="A direct line. Patterns you can fork into Copilot. Built around what you actually need.">
+<meta property="og:image" content="https://mamsnow.com/images/monique-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="MAMS">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meet Monique. For Darius.">
+<meta name="twitter:description" content="A direct line. Patterns you can fork into Copilot. Built around what you actually need.">
+<meta name="twitter:image" content="https://mamsnow.com/images/monique-og.png">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #003F3F; text-decoration: none; }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .header {
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(0,63,63,0.06);
+  }
+  .logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.08);
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+  .role-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; margin-top: 6px; font-weight: 700;
+  }
+
+  .container { max-width: 640px; margin: 0 auto; padding: 0 28px; }
+
+  .hero { padding: 88px 0 64px; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 42px; line-height: 1.08; color: #003F3F;
+    margin: 0 0 28px;
+    letter-spacing: -0.015em;
+  }
+  .hero h1 em { font-style: italic; }
+  .hero p {
+    font-size: 19px; color: rgba(0,63,63,0.78);
+    margin: 0 0 14px; line-height: 1.55;
+    font-weight: 400;
+  }
+  .hero p:last-child { margin-bottom: 0; }
+  .hero p strong { color: #003F3F; font-weight: 600; }
+
+  .personal-note {
+    margin: 36px 0 0;
+    padding: 20px 22px;
+    background: rgba(212, 175, 55, 0.06);
+    border-left: 2px solid #D4AF37;
+    border-radius: 2px;
+  }
+  .personal-note p {
+    font-size: 16px; color: rgba(0,63,63,0.82);
+    margin: 0 0 10px; line-height: 1.6;
+    font-style: italic;
+  }
+  .personal-note p:last-child { margin-bottom: 0; }
+
+  .section { padding: 72px 0 24px; border-top: 1px solid rgba(0,63,63,0.06); }
+  .section-header { margin-bottom: 48px; }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 18px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 30px; line-height: 1.18; color: #003F3F;
+    margin: 0 0 16px;
+    letter-spacing: -0.012em;
+  }
+  .section h2 em { font-style: italic; }
+  .section-lede {
+    font-size: 17px; color: rgba(0,63,63,0.78);
+    margin: 0; line-height: 1.6;
+    max-width: 540px;
+  }
+  .section > p {
+    font-size: 17px; color: rgba(0,63,63,0.82);
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+  .section > p:last-child { margin-bottom: 0; }
+
+  .exhibits { list-style: none; padding: 0; margin: 0; }
+  .exhibit {
+    padding: 32px 0;
+    border-top: 1px solid rgba(0,63,63,0.06);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .exhibit:first-child { border-top: none; padding-top: 8px; }
+  .exhibit-number {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 14px;
+    color: #D4AF37;
+    letter-spacing: 0.04em;
+    padding-top: 4px;
+    font-feature-settings: "lnum";
+  }
+  .exhibit-body { min-width: 0; }
+  .exhibit-eyebrow {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(0,63,63,0.55); font-weight: 600; margin-bottom: 10px;
+  }
+  .exhibit h3 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 22px; line-height: 1.22; color: #003F3F;
+    margin: 0 0 12px;
+    letter-spacing: -0.008em;
+  }
+  .exhibit h3 em { font-style: italic; }
+  .exhibit p {
+    font-size: 16px; color: rgba(0,63,63,0.78);
+    margin: 0 0 14px; line-height: 1.55;
+  }
+  .exhibit-pattern {
+    font-size: 13px; font-family: 'JetBrains Mono', monospace;
+    color: rgba(0,63,63,0.65);
+    background: rgba(0,63,63,0.03);
+    border: 1px solid rgba(0,63,63,0.06);
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .code-panel {
+    margin: 24px 0 0;
+    background: #002E2E;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 63, 63, 0.18);
+  }
+  .code-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 11px 16px;
+    background: #001E1E;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .code-header .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #FF5F57;
+    flex-shrink: 0;
+  }
+  .code-header .dot.y { background: #FEBC2E; }
+  .code-header .dot.g { background: #28C840; }
+  .code-path {
+    margin-left: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em;
+  }
+  .code-panel pre {
+    margin: 0;
+    padding: 18px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #E8E1D0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code-panel .h1 { color: #D4AF37; font-weight: 600; }
+  .code-panel .com { color: rgba(232,225,208,0.45); font-style: italic; }
+  .code-panel .li { color: #7DD3CF; }
+  .code-panel .key { color: #D4AF37; }
+  .code-panel .str { color: #A8D8B9; }
+  .code-caption {
+    font-size: 13px;
+    color: rgba(0,63,63,0.55);
+    margin: 14px 0 0;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .value-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .value-item {
+    padding: 22px 0;
+    border-top: 1px solid rgba(0,63,63,0.06);
+  }
+  .value-item:first-child { border-top: none; padding-top: 8px; }
+  .value-item h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 19px; color: #003F3F;
+    margin: 0 0 8px;
+    letter-spacing: -0.005em;
+  }
+  .value-item h4 em { font-style: italic; }
+  .value-item p {
+    font-size: 16px; color: rgba(0,63,63,0.78);
+    margin: 0; line-height: 1.55;
+  }
+
+  .ask-list {
+    list-style: none; padding: 0; margin: 0;
+    counter-reset: ask;
+  }
+  .ask-item {
+    padding: 18px 0;
+    border-top: 1px solid rgba(0,63,63,0.06);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    align-items: baseline;
+  }
+  .ask-item:first-child { border-top: none; padding-top: 4px; }
+  .ask-item::before {
+    counter-increment: ask;
+    content: counter(ask, decimal-leading-zero);
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 14px;
+    color: #D4AF37;
+    letter-spacing: 0.04em;
+  }
+  .ask-item p {
+    font-size: 17px; color: rgba(0,63,63,0.85);
+    margin: 0; line-height: 1.55;
+  }
+  .ask-item p strong { color: #003F3F; font-weight: 600; }
+
+  .cta-wrap { padding: 72px 0 96px; text-align: center; }
+  .cta {
+    display: inline-block; background: #003F3F; color: #FAF7F1;
+    padding: 17px 36px; border-radius: 999px;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease;
+    box-shadow: 0 2px 12px rgba(0,63,63,0.12);
+  }
+  .cta:hover {
+    background: #0a5050;
+    transform: translateY(-1px);
+  }
+  .cta:active { transform: translateY(0); }
+  .cta-note {
+    font-size: 13px; color: rgba(0,63,63,0.5);
+    margin-top: 20px;
+    letter-spacing: 0.01em;
+  }
+
+  .footer {
+    padding: 48px 28px 64px;
+    text-align: center;
+    border-top: 1px solid rgba(0,63,63,0.06);
+  }
+  .signature {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: 19px; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+
+  @media (min-width: 700px) {
+    .hero { padding: 120px 0 80px; }
+    .hero h1 { font-size: 56px; }
+    .hero p { font-size: 21px; }
+    .personal-note p { font-size: 17px; }
+    .section { padding: 96px 0 32px; }
+    .section h2 { font-size: 36px; }
+    .section-lede { font-size: 18px; }
+    .section > p { font-size: 18px; }
+    .exhibit { grid-template-columns: 48px 1fr; gap: 24px; padding: 40px 0; }
+    .exhibit-number { font-size: 16px; padding-top: 6px; }
+    .exhibit h3 { font-size: 25px; }
+    .exhibit p { font-size: 17px; }
+    .code-panel pre { font-size: 13.5px; padding: 22px 24px; }
+    .value-item h4 { font-size: 21px; }
+    .value-item p { font-size: 17px; }
+    .ask-item { grid-template-columns: 48px 1fr; gap: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">M</div>
+  <div>
+    <div class="brand">Monique</div>
+    <div class="role-label">For Darius · The direct line</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <h1>Darius.<br>You're <em>already in this</em> with me.</h1>
+    <p>You can't use Monique the way I do. But you can build everything you've been wanting to build in Copilot, and I can hand you exactly how.</p>
+    <p>Same brain that runs the rest of my stack. Now pointed at your two jobs.</p>
+
+    <div class="personal-note">
+      <p>You've been in the AI class lane while I've been deep in Claude Code. Different ecosystems, same chase. Made you a page because you're the only person in my circle who can clock what this actually is.</p>
+      <p>The mission you said you fuck with. This is where it lives.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">What's actually possible</div>
+      <h2>Five surfaces. <em>Same playbook.</em></h2>
+      <p class="section-lede">Each of these is a real surface running for a real human right now. I'm not showing them to impress you. I'm showing you the agent shape underneath, so you can see what's portable.</p>
+    </div>
+
+    <ol class="exhibits">
+
+      <li class="exhibit">
+        <div class="exhibit-number">01</div>
+        <div class="exhibit-body">
+          <div class="exhibit-eyebrow">When someone is relocating to Richmond</div>
+          <h3>The Move-In <em>Concierge</em>.</h3>
+          <p>Lead submits a form. An agent reads the intake, builds a 5-property shortlist with per-property vibes paragraphs, drafts a first-touch note in my voice, writes a GHL note, tags the contact, fires an email to my Lead Manager. End to end. Untouched.</p>
+          <p class="exhibit-pattern">trigger: form submit · model: prompt-with-intake-context · tools: GHL write, gmail send · exit: cover drafted + note logged</p>
+        </div>
+      </li>
+
+      <li class="exhibit">
+        <div class="exhibit-number">02</div>
+        <div class="exhibit-body">
+          <div class="exhibit-eyebrow">When a seller needs to feel in control</div>
+          <h3>Listing activity, <em>on her terms</em>.</h3>
+          <p>Two viewers, one truth. Seller sees the activity feed with a calendar where she pre-commits to showing windows. Dispo manager sees the same data in a read-only summary. Submit fires an iMessage to the listing agent.</p>
+          <p class="exhibit-pattern">trigger: scheduled poll + form submit · model: dual-token render · tools: chat.db read, iMessage send · exit: availability locked</p>
+        </div>
+      </li>
+
+      <li class="exhibit">
+        <div class="exhibit-number">03</div>
+        <div class="exhibit-body">
+          <div class="exhibit-eyebrow">When an offer comes in</div>
+          <h3>The offer, <em>translated</em>.</h3>
+          <p>Agent pulls every line of a 30-page contract into plain English. Net-to-seller math runs live as the seller moves a mortgage payoff slider. Recommendation card and counter-draft email get pre-generated. Call becomes confirmation, not parsing.</p>
+          <p class="exhibit-pattern">trigger: manual cast · model: contract-parser + math engine · tools: pdf read, structured extraction · exit: signed approval + counter draft</p>
+        </div>
+      </li>
+
+      <li class="exhibit">
+        <div class="exhibit-number">04</div>
+        <div class="exhibit-body">
+          <div class="exhibit-eyebrow">When a builder picks a listing partner</div>
+          <h3>The builder pitch, <em>made personal</em>.</h3>
+          <p>One-shot vendor pitch. Buyer-avatar research, per-post budget slider, local partner cluster mapped to the project, why-us card. Builder opens it, feels pitched to, not solicited.</p>
+          <p class="exhibit-pattern">trigger: manual cast · model: deep-research synthesis · tools: perplexity computer, web fetch · exit: pitch page deployed</p>
+        </div>
+      </li>
+
+      <li class="exhibit">
+        <div class="exhibit-number">05</div>
+        <div class="exhibit-body">
+          <div class="exhibit-eyebrow">When a buyer just got prequalified</div>
+          <h3>The buyer match, <em>before the search</em>.</h3>
+          <p>Stage 1 is a lean intake plus an instant first-pass insight panel. Stage 2 is a 12-hour deep research pass that returns off-market signals and mispriced listings tied to a life, not a filter.</p>
+          <p class="exhibit-pattern">trigger: intake submit · model: two-stage (claude + perplexity computer) · tools: mailbox handoff, mls feed · exit: portal hydrated</p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">The kitchen, not just the dish</div>
+    <h2>Every one of these is <em>a spec sheet</em>.</h2>
+    <p>The agent designs above don't live in Claude Code in any way that matters. They live in a structure you can fork. Tell me which problem at one of your jobs is eating you, and you get back something that looks like this, sized to Copilot Studio.</p>
+
+    <div class="code-panel">
+      <div class="code-header">
+        <span class="dot"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="code-path">copilot-spec/lead-first-touch.md</span>
+      </div>
+<pre><span class="h1"># Agent: First-Touch Lead Handler</span>
+
+<span class="com"># Trigger</span>
+- Webhook from intake form
+- OR scheduled poll of CRM "new leads" view
+
+<span class="com"># System prompt (sized for Copilot Studio)</span>
+You are a first-touch agent for [business name].
+A lead just came in. Read the intake fields below.
+Return three things:
+  1. A 2-sentence note for the team's CRM record
+  2. A draft first-touch message in [voice spec]
+  3. The single highest-leverage follow-up question
+
+Hard rules:
+- No filler openers, no "I hope this finds you well"
+- Speak to the lead's actual situation, not the category
+
+<span class="com"># Tools / Connectors</span>
+- <span class="li">CRM connector</span>     write note, set tag
+- <span class="li">Outlook / Gmail</span>   send draft to assigned rep
+- <span class="li">Teams / Slack</span>     ping the human owner
+
+<span class="com"># Exit conditions</span>
+- Note written + tag set + draft sent to owner
+- If intake is missing critical field, surface to human</pre>
+    </div>
+    <p class="code-caption">A real spec sheet, in the shape Copilot Studio actually takes. Yours for whichever problem you bring first.</p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">What I can hand you</div>
+    <h2>Four lanes. <em>All portable.</em></h2>
+
+    <ul class="value-list">
+      <li class="value-item">
+        <h4>Agent <em>spec sheets</em> for Copilot.</h4>
+        <p>You bring a problem. I hand you the system prompt, the tool list, the trigger spec, the exit conditions. You fork it into Copilot Studio. The transfer is the value, not the access.</p>
+      </li>
+      <li class="value-item">
+        <h4>Pattern <em>translations</em> from my stack to yours.</h4>
+        <p>Anything you see in Claude Code that has a Copilot equivalent gets translated on request. Slash command becomes Copilot prompt template. MCP tool becomes Copilot connector. Sub-agent becomes Copilot agent chain.</p>
+      </li>
+      <li class="value-item">
+        <h4>Sparring partner on <em>anything from the class</em>.</h4>
+        <p>You bring what you're learning. I stress-test it against the real ops I'm running. Concept meets revenue work and you see what holds up.</p>
+      </li>
+      <li class="value-item">
+        <h4>Real-time drafts in <em>your voice</em>.</h4>
+        <p>Either job. Email, deck blurbs, one-pagers, internal updates. Not my voice. Yours, calibrated to how you actually write.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Where we start</div>
+    <h2>Three things <em>and we're moving</em>.</h2>
+
+    <ol class="ask-list">
+      <li class="ask-item">
+        <p><strong>Tell me the two jobs.</strong> Titles, stacks, and what kills your time at each one. Specifics over context.</p>
+      </li>
+      <li class="ask-item">
+        <p><strong>Tell me what you've already built in Copilot.</strong> Or tried to build and bounced off of. Either is signal.</p>
+      </li>
+      <li class="ask-item">
+        <p><strong>Pick one problem you'd build an agent for if you had a week.</strong> That's the first spec sheet I hand back.</p>
+      </li>
+    </ol>
+  </section>
+
+  <div class="cta-wrap">
+    <a class="cta" href="mailto:miles@milesagee.com?subject=Darius%20%E2%86%92%20Monique%3A%20">Open the direct line</a>
+    <div class="cta-note">Hits my inbox. I cue Monique. You get the spec sheet back.</div>
+  </div>
+
+  <div class="footer">
+    <div class="signature">- Miles</div>
+  </div>
+
+</div>
+
+</body>
+</html>
