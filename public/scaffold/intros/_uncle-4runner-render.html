@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Render: 4Runner with callouts</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #1e1e1e; width: 1200px; height: 1600px; overflow: hidden; }
+
+  .stage {
+    position: relative;
+    width: 1200px;
+    height: 1600px;
+  }
+  .stage img {
+    width: 1200px;
+    height: 1600px;
+    display: block;
+    object-fit: cover;
+  }
+  .overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .callout {
+    position: absolute;
+    font-family: 'Caveat', cursive;
+    color: #FFD56B;
+    text-shadow:
+      0 0 6px rgba(0,0,0,0.95),
+      0 0 14px rgba(0,0,0,0.75),
+      1px 1px 0 #000;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+  }
+  .callout.small { font-size: 30px; }
+  .callout.med   { font-size: 40px; }
+  .callout.big   { font-size: 56px; }
+  .callout.hero  { font-size: 70px; }
+
+  .arrow-svg { position: absolute; overflow: visible; pointer-events: none; }
+  .arrow-svg path,
+  .arrow-svg polyline,
+  .arrow-svg circle {
+    fill: none;
+    stroke: #FFD56B;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 4px rgba(0,0,0,0.85));
+  }
+  .arrow-svg .filled { fill: #FFD56B; }
+
+  .underline {
+    position: absolute;
+    height: 5px;
+    background: #FFD56B;
+    border-radius: 3px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.85);
+    transform: rotate(-1.5deg);
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <img src="_uncle-4runner-source.jpg" alt="The 4Runner">
+
+  <div class="overlay">
+
+    <!-- HERO: top-left, in the sky -->
+    <div class="callout hero" style="top: 50px; left: 60px; transform: rotate(-2deg);">
+      Three years.
+    </div>
+    <div class="callout big" style="top: 132px; left: 80px; transform: rotate(-1deg); color: #FFE89C;">
+      Still grateful.
+    </div>
+
+    <!-- SCS Ray10 wheels — arrow to front wheel -->
+    <div class="callout med" style="top: 950px; left: 380px; transform: rotate(-2deg);">
+      SCS Ray10s.
+    </div>
+    <div class="callout small" style="top: 1000px; left: 380px; color: #FFE89C;">
+      Bronze, 17x8.5.
+    </div>
+    <svg class="arrow-svg" style="top: 980px; left: 240px;" width="200" height="160" viewBox="0 0 200 160">
+      <path d="M 150 30 Q 100 60 50 130" />
+      <polyline class="filled" points="50,130 70,118 62,140" />
+    </svg>
+
+    <!-- Falken Wildpeak A/T — arrow to rear wheel -->
+    <div class="callout med" style="top: 1230px; left: 620px; transform: rotate(1deg);">
+      Falken Wildpeak A/T.
+    </div>
+    <div class="callout small" style="top: 1280px; left: 620px; color: #FFE89C;">
+      P285/70R17.
+    </div>
+    <svg class="arrow-svg" style="top: 1170px; left: 700px;" width="220" height="100" viewBox="0 0 220 100">
+      <path d="M 60 80 Q 110 40 180 20" />
+      <polyline class="filled" points="180,20 158,22 168,40" />
+    </svg>
+
+    <!-- 2.5" Dobinsons IMS lift — arrow under the truck body -->
+    <div class="callout med" style="top: 700px; left: 720px; transform: rotate(-1deg);">
+      2.5&quot; Dobinsons IMS.
+    </div>
+    <div class="callout small" style="top: 750px; left: 720px; color: #FFE89C;">
+      Teal, from SRQ.
+    </div>
+    <svg class="arrow-svg" style="top: 760px; left: 720px;" width="180" height="220" viewBox="0 0 180 220">
+      <path d="M 90 30 Q 60 100 50 190" />
+      <polyline class="filled" points="50,190 64,170 72,188" />
+    </svg>
+
+    <!-- OEM front bumper / fender flares — arrow to front of truck -->
+    <div class="callout med" style="top: 470px; left: 60px; transform: rotate(-1deg);">
+      OEM 99-02
+    </div>
+    <div class="callout med" style="top: 512px; left: 60px; transform: rotate(-1deg);">
+      bumper flares.
+    </div>
+    <div class="callout small" style="top: 570px; left: 60px; color: #FFE89C;">
+      Done the right way.
+    </div>
+    <svg class="arrow-svg" style="top: 590px; left: 80px;" width="160" height="220" viewBox="0 0 160 220">
+      <path d="M 60 30 Q 100 100 130 200" />
+      <polyline class="filled" points="130,200 110,188 122,210" />
+    </svg>
+
+    <!-- Bottom signature line -->
+    <div class="callout small" style="top: 1500px; left: 60px; color: #FFE89C; font-style: italic;">
+      Every choice on it tries to honor where it came from.
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
