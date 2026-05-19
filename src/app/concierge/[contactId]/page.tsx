@@ -114,7 +114,7 @@ export default async function ConciergeSharePage({
             <a href="mailto:miles@mamsnow.com" className="underline hover:text-gold-dark">
               miles@mamsnow.com
             </a>{" "}
-            &middot; Miles Agee, Realtor, Samson Properties / OneSouth Realty team.
+            &middot; Miles Agee, Realtor, OneSouth Realty Team powered by Samson Properties.
           </p>
         </div>
       </footer>
