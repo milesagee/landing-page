@@ -1,16 +1,27 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import { PlanReview } from "@/components/anika/PlanReview";
+import { isValidAnikaToken } from "@/lib/anika-data";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
+
+type Search = Promise<{ t?: string }>;
 
 export const metadata: Metadata = {
   title: "For Anika",
   robots: { index: false, follow: false },
 };
 
-export default function AnikaPlanPage() {
+export default async function AnikaPlanPage({
+  searchParams,
+}: {
+  searchParams: Search;
+}) {
+  const { t } = await searchParams;
+  if (!isValidAnikaToken(t)) notFound();
+
   return (
     <main className="min-h-screen bg-paper text-deep-teal">
       <header className="bg-deep-teal text-ivory">
@@ -55,7 +66,7 @@ export default function AnikaPlanPage() {
       </section>
 
       <section className="max-w-3xl mx-auto px-6 pb-20">
-        <PlanReview />
+        <PlanReview shareToken={t!} />
       </section>
 
       <footer className="border-t border-deep-teal/10 bg-paper">

@@ -83,7 +83,7 @@ function RadioChip({
   );
 }
 
-export function PlanReview() {
+export function PlanReview({ shareToken }: { shareToken: string }) {
   const [verdicts, setVerdicts] = useState<Record<LayerKey, LayerVerdict>>({
     voice: null,
     scoreboard: null,
@@ -112,6 +112,7 @@ export function PlanReview() {
     setErrorMsg("");
 
     const payload = {
+      shareToken,
       submittedAt: new Date().toISOString(),
       verdicts,
       notes,

@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isValidAnikaToken } from "@/lib/anika-data";
 
 export const dynamic = "force-dynamic";
 
 type Payload = {
+  shareToken?: string;
   submittedAt?: string;
   verdicts?: Record<string, string | null>;
   notes?: Record<string, string>;
@@ -23,16 +25,20 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "invalid JSON" }, { status: 400 });
   }
 
-  // Echo the payload back so the client can render the thank-you summary,
-  // and log to Vercel server logs so Miles can recover it from the dashboard
+  if (!isValidAnikaToken(body.shareToken)) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
+
+  // Echo back so the client can render the thank-you summary, and log to
+  // Vercel server logs so Miles can recover the payload from the dashboard
   // if the clipboard step gets skipped.
   console.log(
     "[anika-plan-review]",
     JSON.stringify({
       receivedAt: new Date().toISOString(),
-      payload: body,
+      payload: { ...body, shareToken: "redacted" },
     }),
   );
 
-  return NextResponse.json({ ok: true, received: body });
+  return NextResponse.json({ ok: true, received: { ...body, shareToken: undefined } });
 }
