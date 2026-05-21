@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Render: Chozen Playbook -- shot 2 (contact detail)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #1e1e1e; width: 1440px; height: 900px; overflow: hidden; }
+
+  .stage { position: relative; width: 1440px; height: 900px; }
+  .stage img { width: 1440px; height: 900px; display: block; }
+  .overlay { position: absolute; inset: 0; pointer-events: none; }
+
+  .callout {
+    position: absolute;
+    font-family: 'Caveat', cursive;
+    color: #FFD56B;
+    text-shadow:
+      0 0 6px rgba(0,0,0,0.95),
+      0 0 14px rgba(0,0,0,0.75),
+      1px 1px 0 #000;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+  }
+  .callout.small { font-size: 22px; }
+  .callout.med   { font-size: 30px; }
+  .callout.big   { font-size: 40px; }
+  .callout.hero  { font-size: 52px; }
+
+  .arrow-svg {
+    position: absolute; top: 0; left: 0;
+    width: 1440px; height: 900px;
+    pointer-events: none;
+    overflow: visible;
+  }
+  .arrow-svg path, .arrow-svg polyline {
+    fill: none;
+    stroke: #FFD56B;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 4px rgba(0,0,0,0.85));
+  }
+  .arrow-svg .filled { fill: #FFD56B; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <img src="_chozen-playbook-source-2.png" alt="Open Dispo contact detail panel for Eman Massi">
+
+  <div class="overlay">
+
+    <!-- HERO -->
+    <div class="callout hero" style="top: 590px; left: 510px; transform: rotate(-1deg);">
+      Tap a contact.
+    </div>
+    <div class="callout big" style="top: 656px; left: 510px; color: #FFE89C;">
+      This opens.
+    </div>
+
+    <!-- SOURCE FIELD POINTER -->
+    <div class="callout med" style="top: 580px; left: 50px; transform: rotate(-1deg);">
+      Source =
+    </div>
+    <div class="callout small" style="top: 618px; left: 50px; color: #FFE89C;">
+      instagram-dm.
+    </div>
+    <div class="callout small" style="top: 652px; left: 50px; color: #FFE89C;">
+      That's their MAMS IG reply.
+    </div>
+
+    <!-- NOTES SIDEBAR POINTER -->
+    <div class="callout med" style="top: 750px; left: 1050px; transform: rotate(-1deg);">
+      Notes panel.
+    </div>
+    <div class="callout small" style="top: 788px; left: 1050px; color: #FFE89C;">
+      Full IG transcript lives here.
+    </div>
+    <div class="callout small" style="top: 820px; left: 1050px; color: #FFE89C;">
+      Open it before you DM back.
+    </div>
+
+    <!-- BOTTOM SIGNATURE -->
+    <div class="callout small" style="top: 858px; left: 520px; color: #FFE89C; font-style: italic; font-size: 20px;">
+      Read the transcript -> reply on IG -> capture phone or email.
+    </div>
+
+    <!-- ARROWS -->
+    <svg class="arrow-svg" viewBox="0 0 1440 900">
+      <!-- source field arrow: callout tail (170, 622) -> head at "instagram-dm" text (245, 333) -->
+      <path d="M 170 580 Q 200 460 245 345" />
+      <polyline class="filled" points="245,345 252,367 232,361" />
+
+      <!-- notes panel arrow: tail (1080, 750) -> head at right sidebar icons (1396, 470) -->
+      <path d="M 1080 745 Q 1230 612 1390 478" />
+      <polyline class="filled" points="1390,478 1370,490 1368,468" />
+    </svg>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -212,6 +212,101 @@
   }
   .opp-cue:hover { background: #0a5050; transform: translateY(-1px); }
 
+  /* Playbook — how to work this list */
+  .playbook {
+    margin: 48px 0 0;
+    padding: 28px 28px 24px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0,63,63,0.10);
+    border-left: 3px solid #003F3F;
+    border-radius: 12px;
+  }
+  .playbook .playbook-eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 10px;
+  }
+  .playbook .playbook-title {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 24px; line-height: 1.2; color: #003F3F;
+    margin: 0 0 8px;
+    letter-spacing: -0.012em;
+  }
+  .playbook .playbook-title em { font-style: italic; }
+  .playbook .playbook-intro {
+    font-size: 14.5px; line-height: 1.6;
+    color: rgba(0,63,63,0.78);
+    margin: 0 0 18px;
+  }
+  .playbook-steps { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
+  .playbook-step {
+    display: flex; gap: 16px;
+    padding: 16px 16px 14px;
+    background: rgba(0,63,63,0.025);
+    border-radius: 10px;
+  }
+  .playbook-step-num {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: #003F3F; color: #D4AF37;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 14px;
+  }
+  .playbook-step-body { flex: 1; min-width: 0; }
+  .playbook-step-title {
+    font-weight: 600; color: #003F3F;
+    font-size: 15px; line-height: 1.4;
+    margin: 0 0 4px;
+  }
+  .playbook-step-detail {
+    font-size: 13.5px; line-height: 1.55;
+    color: rgba(0,63,63,0.72);
+  }
+  .playbook-step-detail code {
+    font-family: 'JetBrains Mono', Menlo, monospace;
+    font-size: 12px;
+    background: rgba(0,63,63,0.08);
+    color: #003F3F;
+    padding: 2px 7px; border-radius: 4px;
+    letter-spacing: 0;
+  }
+  .playbook-step-detail a {
+    color: #003F3F; font-weight: 600;
+    border-bottom: 1px solid rgba(0,63,63,0.30);
+  }
+  .playbook-step-detail a:hover { border-bottom-color: #D4AF37; }
+  .playbook-rule {
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: rgba(212,175,55,0.10);
+    border: 1px solid rgba(212,175,55,0.30);
+    border-radius: 8px;
+    font-size: 13.5px;
+    color: rgba(0,63,63,0.85);
+    line-height: 1.55;
+  }
+  .playbook-rule strong {
+    color: #003F3F; font-weight: 700;
+  }
+  .playbook-shot {
+    margin-top: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0,63,63,0.10);
+    background: #1e1e1e;
+  }
+  .playbook-shot img {
+    width: 100%; height: auto; display: block;
+  }
+  .playbook-shot-caption {
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: rgba(0,63,63,0.55);
+    font-style: italic;
+    letter-spacing: 0.01em;
+  }
+
   /* Stuck footer */
   .stuck-footer {
     margin: 56px 0 0;
@@ -307,6 +402,69 @@
       <div class="pipeline-label">Pipeline on the table</div>
       <div class="pipeline-value" id="pipeline-value">$0</div>
       <div class="pipeline-note" id="pipeline-note">Across 0 high-priority cards.</div>
+    </div>
+  </section>
+
+  <section class="playbook">
+    <div class="playbook-eyebrow">How to work this list</div>
+    <h2 class="playbook-title">The 10 are <em>in Open Dispo</em> now.</h2>
+    <p class="playbook-intro">Imported 2026-05-19. All 10 carry the tag <code style="font-family:'JetBrains Mono',Menlo,monospace; font-size:12.5px; background:rgba(0,63,63,0.08); padding:2px 7px; border-radius:4px;">dm-pulse-2026-05-19</code> plus a tier tag (<code style="font-family:'JetBrains Mono',Menlo,monospace; font-size:12.5px; background:rgba(0,63,63,0.08); padding:2px 7px; border-radius:4px;">tier:high</code> or <code style="font-family:'JetBrains Mono',Menlo,monospace; font-size:12.5px; background:rgba(0,63,63,0.08); padding:2px 7px; border-radius:4px;">tier:nurture</code>). Each one has a Notes entry with the full Instagram transcript so you have context before you DM back. No automation fires on these &mdash; they're yours to work manually.</p>
+
+    <div class="playbook-steps">
+
+      <div class="playbook-step">
+        <div class="playbook-step-num">1</div>
+        <div class="playbook-step-body">
+          <div class="playbook-step-title">Find them in Open Dispo.</div>
+          <div class="playbook-step-detail">
+            Sidebar &rarr; <strong>Contacts</strong>. Paste <code>dm-pulse-2026-05-19</code> into the search bar at top-right. You'll see <strong>10 Contacts</strong>. Eman + Jake at the bottom carry <code>tier:high</code> &mdash; everyone else is <code>tier:nurture</code>.
+            <div class="playbook-shot">
+              <img src="chozen-playbook-callouts-1.png" alt="Open Dispo contacts list filtered by dm-pulse-2026-05-19, showing all 10 contacts with tier tags">
+            </div>
+            <div class="playbook-shot-caption">Open Dispo &rarr; Contacts. Search for the batch tag. All 10 in one view.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="playbook-step">
+        <div class="playbook-step-num">2</div>
+        <div class="playbook-step-body">
+          <div class="playbook-step-title">Open one. Read the transcript first.</div>
+          <div class="playbook-step-detail">
+            Tap any name to open the contact panel. <strong>Contact source</strong> reads <code>instagram-dm</code> &mdash; that's their MAMS Instagram reply, captured. The full transcript is in the <strong>Notes</strong> panel (icon strip on the far right). Read it before you DM them back so the reply doesn't feel cold.
+            <div class="playbook-shot">
+              <img src="chozen-playbook-callouts-2.png" alt="Open Dispo contact detail panel for Eman Massi showing instagram-dm source and the Notes sidebar pointer">
+            </div>
+            <div class="playbook-shot-caption">The contact detail panel. Source proves it. Notes hold the IG conversation.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="playbook-step">
+        <div class="playbook-step-num">3</div>
+        <div class="playbook-step-body">
+          <div class="playbook-step-title">Action by tier.</div>
+          <div class="playbook-step-detail">
+            <strong>tier:high (Eman, Jake)</strong> &mdash; DM them on Instagram today. The goal of the first message is phone or email capture so Miles can fire the full buyer-intake or seller-equity portal. If you land a number, drop it in Open Dispo and ping him.<br><br>
+            <strong>tier:nurture (the other 8)</strong> &mdash; casual touch on IG. Genuine, no pitch. You're staying top-of-mind so when their moment shows up, MAMS is the first thought. Set yourself a 30-day reminder. If any of them re-engages, escalate to tier:high.
+          </div>
+        </div>
+      </div>
+
+      <div class="playbook-step">
+        <div class="playbook-step-num">4</div>
+        <div class="playbook-step-body">
+          <div class="playbook-step-title">Need a drafted reply or a vibes paragraph?</div>
+          <div class="playbook-step-detail">
+            Hit the <a href="chozen-lens.html">Chozen Lens</a> direct line. Drop the situation, get back a draft in the MAMS voice. Same surface you've been using &mdash; nothing new to learn.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="playbook-rule">
+      <strong>The thesis.</strong> You ship. Monique drafts. Lens-level, not script-level. The 10 are now part of the warm list you run &mdash; we'll keep refreshing the dashboard as new DMs come in, but the relationship lives with you.
     </div>
   </section>
 

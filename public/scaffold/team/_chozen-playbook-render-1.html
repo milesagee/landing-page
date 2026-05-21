@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Render: Chozen Playbook -- shot 1 (filtered list)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #1e1e1e; width: 1440px; height: 900px; overflow: hidden; }
+
+  .stage { position: relative; width: 1440px; height: 900px; }
+  .stage img { width: 1440px; height: 900px; display: block; }
+  .overlay { position: absolute; inset: 0; pointer-events: none; }
+
+  .callout {
+    position: absolute;
+    font-family: 'Caveat', cursive;
+    color: #FFD56B;
+    text-shadow:
+      0 0 6px rgba(0,0,0,0.95),
+      0 0 14px rgba(0,0,0,0.75),
+      1px 1px 0 #000;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+  }
+  .callout.small { font-size: 22px; }
+  .callout.med   { font-size: 30px; }
+  .callout.big   { font-size: 40px; }
+  .callout.hero  { font-size: 52px; }
+
+  .arrow-svg {
+    position: absolute; top: 0; left: 0;
+    width: 1440px; height: 900px;
+    pointer-events: none;
+    overflow: visible;
+  }
+  .arrow-svg path, .arrow-svg polyline {
+    fill: none;
+    stroke: #FFD56B;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 4px rgba(0,0,0,0.85));
+  }
+  .arrow-svg .filled { fill: #FFD56B; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <img src="_chozen-playbook-source-1.png" alt="Open Dispo contacts list filtered by dm-pulse-2026-05-19">
+
+  <div class="overlay">
+
+    <!-- HERO -->
+    <div class="callout hero" style="top: 530px; left: 530px; transform: rotate(-1deg);">
+      All 10. Right here.
+    </div>
+
+    <!-- 10 CONTACTS COUNT POINTER -->
+    <div class="callout med" style="top: 640px; left: 100px; transform: rotate(-1deg);">
+      "10 Contacts" =
+    </div>
+    <div class="callout small" style="top: 678px; left: 100px; color: #FFE89C;">
+      the whole batch.
+    </div>
+
+    <!-- TAG FILTER POINTER -->
+    <div class="callout med" style="top: 640px; left: 1080px; transform: rotate(-1deg);">
+      Filter you typed.
+    </div>
+    <div class="callout small" style="top: 678px; left: 1080px; color: #FFE89C;">
+      Save as smart list.
+    </div>
+
+    <!-- HIGH TIER POINTER -->
+    <div class="callout med" style="top: 730px; left: 510px;">
+      Jake + Eman.
+    </div>
+    <div class="callout small" style="top: 768px; left: 510px; color: #FFE89C;">
+      tier:high -- move on these first.
+    </div>
+
+    <!-- NURTURE TIER POINTER -->
+    <div class="callout med" style="top: 470px; left: 1130px; transform: rotate(-1deg);">
+      The other 8.
+    </div>
+    <div class="callout small" style="top: 508px; left: 1130px; color: #FFE89C;">
+      Nurture. Casual touch.
+    </div>
+
+    <!-- BOTTOM SIGNATURE -->
+    <div class="callout small" style="top: 850px; left: 530px; color: #FFE89C; font-style: italic; font-size: 20px;">
+      Tap a name to open the contact.
+    </div>
+
+    <!-- ALL ARROWS -->
+    <svg class="arrow-svg" viewBox="0 0 1440 900">
+      <!-- "10 Contacts" arrow: callout tail near (215,652) -> head at "10 Contacts" pill (300, 132) -->
+      <path d="M 215 645 Q 240 400 305 150" />
+      <polyline class="filled" points="305,150 308,174 287,166" />
+
+      <!-- filter arrow: tail (1095, 645) -> head at search input chip (1015, 158) -->
+      <path d="M 1095 645 Q 1058 410 1020 178" />
+      <polyline class="filled" points="1020,178 1037,193 1018,200" />
+
+      <!-- high tier arrow: tail (640, 735) -> head at Eman/Jake rows (640, 410) -->
+      <path d="M 640 735 Q 638 590 640 420" />
+      <polyline class="filled" points="640,420 651,440 629,440" />
+
+      <!-- nurture arrow: tail (1145, 495) -> head sweep across nurture rows mid (810, 280) -->
+      <path d="M 1145 495 Q 980 380 825 295" />
+      <polyline class="filled" points="825,295 850,295 845,316" />
+    </svg>
+
+  </div>
+</div>
+
+</body>
+</html>
