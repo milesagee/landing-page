@@ -112,7 +112,6 @@ export function PlanReview({ shareToken }: { shareToken: string }) {
     setErrorMsg("");
 
     const payload = {
-      shareToken,
       submittedAt: new Date().toISOString(),
       verdicts,
       notes,
@@ -122,11 +121,14 @@ export function PlanReview({ shareToken }: { shareToken: string }) {
     };
 
     try {
-      const res = await fetch("/api/anika/plan-review", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        `/api/anika/plan-review?t=${encodeURIComponent(shareToken)}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        },
+      );
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
         throw new Error(body.error || `Submit failed (${res.status})`);
