@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Investment 01 · 2517 Grove Ave · For Mom and Dad</title>
+<meta name="description" content="An interactive walk-through of the Fan District multifamily we were looking at on the call. Built for you to interact with.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamsnow.com/scaffold/intros/dashboards/01-2517-grove-ave.html">
+<meta property="og:title" content="Investment 01 · 2517 Grove Ave · For Mom and Dad">
+<meta property="og:description" content="The Fan multifamily, broken down the way it would help.">
+<meta property="og:site_name" content="MAMS">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #003F3F; text-decoration: none; }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Header */
+  .header {
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(0,63,63,0.06);
+  }
+  .logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.08);
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+  .role-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; margin-top: 6px; font-weight: 700;
+  }
+
+  /* Container */
+  .container { max-width: 720px; margin: 0 auto; padding: 0 28px; }
+
+  /* Hero */
+  .hero { padding: 72px 0 48px; }
+  .investment-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 38px; line-height: 1.1; color: #003F3F;
+    margin: 0 0 18px;
+    letter-spacing: -0.015em;
+  }
+  .hero h1 em { font-style: italic; }
+  .hero-sub {
+    font-size: 17px; color: rgba(0,63,63,0.62);
+    margin: 0 0 28px;
+    letter-spacing: 0.005em;
+  }
+  .hero p {
+    font-size: 18px; color: rgba(0,63,63,0.78);
+    margin: 0 0 14px; line-height: 1.55;
+    font-weight: 400;
+  }
+  .hero p:last-of-type { margin-bottom: 0; }
+  .hero p strong { color: #003F3F; font-weight: 600; }
+
+  /* Personal note (recipient-specific block) */
+  .personal-note {
+    margin: 32px 0 0;
+    padding: 20px 22px;
+    background: rgba(212, 175, 55, 0.06);
+    border-left: 2px solid #D4AF37;
+    border-radius: 2px;
+  }
+  .personal-note p {
+    font-size: 16px; color: rgba(0,63,63,0.82);
+    margin: 0 0 10px; line-height: 1.6;
+    font-style: italic;
+  }
+  .personal-note p:last-child { margin-bottom: 0; }
+
+  /* Sections */
+  .section { padding: 56px 0 16px; border-top: 1px solid rgba(0,63,63,0.06); }
+  .section-header { margin-bottom: 32px; }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 16px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 28px; line-height: 1.18; color: #003F3F;
+    margin: 0 0 14px;
+    letter-spacing: -0.012em;
+  }
+  .section h2 em { font-style: italic; }
+  .section-lede {
+    font-size: 16px; color: rgba(0,63,63,0.78);
+    margin: 0; line-height: 1.6;
+    max-width: 580px;
+  }
+
+  /* Stat grid (property snapshot) */
+  .stat-card {
+    background: #fff;
+    border: 1px solid rgba(0,63,63,0.06);
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.025);
+  }
+  .stat-card-title {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 18px; color: #003F3F;
+    margin: 0 0 4px;
+    letter-spacing: -0.005em;
+  }
+  .stat-card-sub {
+    font-size: 13px; color: rgba(0,63,63,0.55);
+    margin: 0 0 18px;
+  }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
+  .stat-row {
+    display: flex; flex-direction: column;
+    border-top: 1px solid rgba(0,63,63,0.05);
+    padding-top: 12px;
+  }
+  .stat-label {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(0,63,63,0.55); font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .stat-value {
+    font-size: 15px; color: #003F3F; font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-value-lg {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 22px;
+  }
+
+  /* Scenario cards */
+  .scenarios { margin-top: 8px; }
+  .scenario {
+    background: #fff;
+    border: 1px solid rgba(0,63,63,0.08);
+    border-radius: 6px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .scenario.recommended {
+    border-color: rgba(212, 175, 55, 0.45);
+    box-shadow: 0 2px 18px rgba(212, 175, 55, 0.12);
+  }
+  .scenario summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: start;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .scenario summary::-webkit-details-marker { display: none; }
+  .scenario-tag {
+    display: inline-block;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(0,63,63,0.55); font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .scenario-tag.gold {
+    color: #B1922E;
+  }
+  .scenario-title {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 20px; color: #003F3F;
+    margin: 0 0 4px;
+    letter-spacing: -0.008em;
+  }
+  .scenario-title em { font-style: italic; }
+  .scenario-sub {
+    font-size: 14px; color: rgba(0,63,63,0.62);
+    margin: 0;
+  }
+  .scenario-headline {
+    text-align: right;
+    min-width: 110px;
+  }
+  .scenario-headline-label {
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(0,63,63,0.5); font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .scenario-headline-value {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 22px; color: #003F3F;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .scenario-headline-value.negative { color: #9c3a3a; }
+  .scenario-headline-sub {
+    font-size: 11px; color: rgba(0,63,63,0.55);
+    margin-top: 4px;
+  }
+  .scenario-toggle-hint {
+    font-size: 11px; letter-spacing: 0.06em;
+    color: rgba(0,63,63,0.45);
+    grid-column: 1 / -1;
+    padding-top: 4px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .scenario-toggle-hint .chev {
+    display: inline-block; transition: transform 0.2s ease;
+    font-family: 'Inter', sans-serif; font-weight: 400;
+  }
+  .scenario[open] summary .chev { transform: rotate(90deg); }
+  .scenario-detail {
+    padding: 0 24px 24px;
+    border-top: 1px solid rgba(0,63,63,0.06);
+    padding-top: 20px;
+  }
+  .scenario-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px;
+    margin-bottom: 20px;
+  }
+  .scenario-grid .stat-row { padding-top: 10px; }
+  .scenario-prosrcons { display: grid; gap: 14px; }
+  .pros, .cons {
+    padding: 14px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .pros {
+    background: rgba(212, 175, 55, 0.06);
+    border-left: 2px solid #D4AF37;
+  }
+  .cons {
+    background: rgba(156, 58, 58, 0.04);
+    border-left: 2px solid rgba(156, 58, 58, 0.45);
+  }
+  .pros-label, .cons-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .pros-label { color: #B1922E; }
+  .cons-label { color: rgba(156, 58, 58, 0.75); }
+  .pros ul, .cons ul { margin: 0; padding-left: 18px; }
+  .pros li, .cons li { margin-bottom: 4px; }
+  .pros li:last-child, .cons li:last-child { margin-bottom: 0; }
+
+  /* Honest-read callout */
+  .honest-read {
+    background: #003F3F; color: #FAF7F1;
+    padding: 32px 28px;
+    border-radius: 6px;
+    margin: 24px 0 0;
+  }
+  .honest-read .eyebrow {
+    color: #D4AF37;
+    margin-bottom: 14px;
+  }
+  .honest-read h3 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 22px; line-height: 1.22;
+    margin: 0 0 16px;
+    letter-spacing: -0.008em;
+    color: #FAF7F1;
+  }
+  .honest-read h3 em { font-style: italic; }
+  .honest-read p {
+    font-size: 15px; color: rgba(250, 247, 241, 0.85);
+    margin: 0 0 12px; line-height: 1.6;
+  }
+  .honest-read p:last-child { margin-bottom: 0; }
+  .honest-read strong { color: #FAF7F1; font-weight: 600; }
+
+  /* Angle cards (three angles to make the deal work) */
+  .angles { display: grid; gap: 14px; margin-top: 8px; }
+  .angle {
+    background: #fff;
+    border: 1px solid rgba(0,63,63,0.06);
+    border-radius: 6px;
+    padding: 24px;
+  }
+  .angle-num {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 0.04em;
+    color: #D4AF37;
+    margin-bottom: 8px;
+  }
+  .angle h3 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 19px; color: #003F3F;
+    margin: 0 0 10px;
+    letter-spacing: -0.005em;
+  }
+  .angle h3 em { font-style: italic; }
+  .angle p {
+    font-size: 15px; color: rgba(0,63,63,0.75);
+    margin: 0; line-height: 1.55;
+  }
+
+  /* Tax stack accordion */
+  .stack {
+    background: #fff;
+    border: 1px solid rgba(0,63,63,0.06);
+    border-radius: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .stack summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .stack summary::-webkit-details-marker { display: none; }
+  .stack-eyebrow {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .stack-title {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 18px; color: #003F3F;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .stack-title em { font-style: italic; }
+  .stack-impact {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 17px; color: #D4AF37;
+    text-align: right;
+    line-height: 1.2;
+  }
+  .stack-impact-sub {
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(0,63,63,0.5); font-weight: 600;
+    margin-top: 3px;
+  }
+  .stack-chev {
+    grid-column: 1 / -1;
+    font-size: 11px; letter-spacing: 0.06em;
+    color: rgba(0,63,63,0.45);
+    margin-top: 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .stack-chev .chev {
+    display: inline-block; transition: transform 0.2s ease;
+    font-family: 'Inter', sans-serif; font-weight: 400;
+  }
+  .stack[open] summary .chev { transform: rotate(90deg); }
+  .stack-body {
+    padding: 4px 24px 24px;
+    border-top: 1px solid rgba(0,63,63,0.06);
+    padding-top: 18px;
+  }
+  .stack-body p {
+    font-size: 15px; color: rgba(0,63,63,0.78);
+    margin: 0 0 12px; line-height: 1.6;
+  }
+  .stack-body p:last-child { margin-bottom: 0; }
+  .stack-body strong { color: #003F3F; font-weight: 600; }
+  .stack-body ul { margin: 6px 0 12px; padding-left: 20px; }
+  .stack-body li { margin-bottom: 6px; font-size: 15px; color: rgba(0,63,63,0.78); }
+  .stack-body .stat-row {
+    border-top-color: rgba(0,63,63,0.06);
+    padding-top: 10px;
+  }
+  .stack-body .stats {
+    margin-bottom: 14px;
+  }
+  .stack-warning {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: rgba(156, 58, 58, 0.04);
+    border-left: 2px solid rgba(156, 58, 58, 0.45);
+    border-radius: 2px;
+    font-size: 13px;
+    color: rgba(0,63,63,0.78);
+    line-height: 1.55;
+  }
+  .stack-warning strong { color: #9c3a3a; }
+
+  /* Recommended stack table */
+  .recommendation {
+    background: #fff;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 6px;
+    padding: 28px 24px;
+    margin-top: 8px;
+    box-shadow: 0 2px 18px rgba(212, 175, 55, 0.1);
+  }
+  .recommendation h3 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 22px; color: #003F3F;
+    margin: 0 0 18px;
+    letter-spacing: -0.008em;
+  }
+  .recommendation h3 em { font-style: italic; }
+  .rec-row {
+    padding: 14px 0;
+    border-top: 1px solid rgba(0,63,63,0.05);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: start;
+  }
+  .rec-row:first-of-type { border-top: none; padding-top: 0; }
+  .rec-move {
+    font-size: 14px; color: rgba(0,63,63,0.85);
+    line-height: 1.5;
+  }
+  .rec-move strong { color: #003F3F; font-weight: 600; }
+  .rec-impact {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 15px; color: #D4AF37;
+    white-space: nowrap;
+    text-align: right;
+  }
+  .rec-total {
+    margin-top: 16px;
+    padding-top: 18px;
+    border-top: 2px solid rgba(212, 175, 55, 0.3);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: baseline;
+  }
+  .rec-total-label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700;
+  }
+  .rec-total-value {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 26px; color: #003F3F;
+    letter-spacing: -0.008em;
+  }
+
+  /* CPA card */
+  .cpa-card {
+    background: rgba(0, 63, 63, 0.025);
+    border-radius: 6px;
+    padding: 24px;
+    margin-top: 8px;
+  }
+  .cpa-card ol {
+    margin: 8px 0 0; padding-left: 22px;
+  }
+  .cpa-card li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: rgba(0,63,63,0.85);
+    line-height: 1.6;
+  }
+  .cpa-card li:last-child { margin-bottom: 0; }
+
+  /* Feedback section */
+  .feedback {
+    background: #003F3F;
+    color: #FAF7F1;
+    padding: 40px 28px;
+    border-radius: 6px;
+    margin-top: 20px;
+  }
+  .feedback .eyebrow {
+    color: #D4AF37;
+    margin-bottom: 14px;
+  }
+  .feedback h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 26px;
+    color: #FAF7F1;
+    margin: 0 0 14px;
+    letter-spacing: -0.012em;
+  }
+  .feedback h2 em { font-style: italic; }
+  .feedback-lede {
+    font-size: 15px;
+    color: rgba(250, 247, 241, 0.78);
+    margin: 0 0 22px;
+    line-height: 1.55;
+  }
+  .feedback-form {
+    display: grid;
+    gap: 14px;
+  }
+  .feedback-textarea {
+    width: 100%;
+    min-height: 140px;
+    padding: 16px 18px;
+    background: rgba(250, 247, 241, 0.06);
+    border: 1px solid rgba(250, 247, 241, 0.16);
+    border-radius: 4px;
+    color: #FAF7F1;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    resize: vertical;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .feedback-textarea::placeholder {
+    color: rgba(250, 247, 241, 0.4);
+    font-style: italic;
+  }
+  .feedback-textarea:focus {
+    outline: none;
+    border-color: #D4AF37;
+    background: rgba(250, 247, 241, 0.08);
+  }
+  .feedback-actions {
+    display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+  }
+  .feedback-send {
+    display: inline-block;
+    background: #D4AF37;
+    color: #003F3F;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease;
+  }
+  .feedback-send:hover {
+    background: #c19f2e;
+    transform: translateY(-1px);
+  }
+  .feedback-send:active { transform: translateY(0); }
+  .feedback-send:disabled {
+    background: rgba(212, 175, 55, 0.3);
+    color: rgba(0, 63, 63, 0.5);
+    cursor: not-allowed;
+    transform: none;
+  }
+  .feedback-note {
+    font-size: 12px;
+    color: rgba(250, 247, 241, 0.55);
+    letter-spacing: 0.01em;
+    flex: 1; min-width: 200px;
+  }
+  .feedback-success {
+    display: none;
+    padding: 14px 16px;
+    background: rgba(212, 175, 55, 0.12);
+    border-left: 2px solid #D4AF37;
+    border-radius: 2px;
+    font-size: 14px;
+    color: rgba(250, 247, 241, 0.92);
+    margin-top: 4px;
+  }
+  .feedback-success.visible { display: block; }
+
+  /* Footer */
+  .footer {
+    padding: 48px 28px 64px;
+    text-align: center;
+    border-top: 1px solid rgba(0,63,63,0.06);
+    margin-top: 56px;
+  }
+  .signature {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: 19px; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+  .footer-note {
+    font-size: 12px; color: rgba(0,63,63,0.45);
+    margin-top: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Responsive */
+  @media (min-width: 700px) {
+    .hero { padding: 96px 0 64px; }
+    .hero h1 { font-size: 48px; }
+    .hero p { font-size: 19px; }
+    .hero-sub { font-size: 18px; }
+    .personal-note p { font-size: 17px; }
+    .section { padding: 80px 0 24px; }
+    .section h2 { font-size: 34px; }
+    .section-lede { font-size: 17px; }
+    .stat-card { padding: 28px 32px; }
+    .stats { grid-template-columns: 1fr 1fr 1fr; gap: 16px 26px; }
+    .scenario summary { padding: 24px 28px; }
+    .scenario-detail { padding: 22px 28px 28px; }
+    .scenario-prosrcons { grid-template-columns: 1fr 1fr; }
+    .honest-read { padding: 40px; }
+    .honest-read h3 { font-size: 26px; }
+    .honest-read p { font-size: 17px; }
+    .angle { padding: 28px 30px; }
+    .angle h3 { font-size: 21px; }
+    .angle p { font-size: 16px; }
+    .stack summary { padding: 22px 28px; }
+    .stack-body { padding: 22px 28px 28px; }
+    .stack-title { font-size: 19px; }
+    .recommendation { padding: 36px 36px; }
+    .feedback { padding: 48px 40px; }
+    .feedback h2 { font-size: 30px; }
+    .feedback-lede { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">M</div>
+  <div>
+    <div class="brand">Monique</div>
+    <div class="role-label">For Mom and Dad · Investment Read</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="investment-number">Investment No. 01</div>
+    <h1>2517 Grove Ave.<br>The Fan, <em>Richmond</em>.</h1>
+    <p class="hero-sub">A 4-unit multifamily, broken down the way it would actually help.</p>
+
+    <div class="personal-note">
+      <p>Dad, this is what we were looking at together on the call. Mom, I wanted you to have it too so you can see what we'd be stepping into.</p>
+      <p>The numbers, the loan options, and a few creative angles on the tax side are all in here. Tap any section to dig into it. Scroll all the way down and tell me what stands out, what's missing, or what you'd push on. Whatever you send back, I'll update this with.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The property at a glance</div>
+      <h2>What we'd be <em>buying</em>.</h2>
+      <p class="section-lede">From the MLS listing, pulled fresh. Every unit is occupied and on a lease through May or June of 2027, so the rent is locked in day one.</p>
+    </div>
+
+    <div class="stat-card">
+      <h3 class="stat-card-title">2517 Grove Ave, Richmond VA 23220</h3>
+      <p class="stat-card-sub">The Fan District · Built 1910 · Brick · 6,087 sq ft finished</p>
+      <div class="stats">
+        <div class="stat-row">
+          <div class="stat-label">List Price</div>
+          <div class="stat-value stat-value-lg">$1,150,000</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">Monthly Rent</div>
+          <div class="stat-value stat-value-lg">$5,250</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">Annual Rent</div>
+          <div class="stat-value stat-value-lg">$63,000</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">Units</div>
+          <div class="stat-value">3 × 2BR + 1 × 1BR</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">Annual Taxes</div>
+          <div class="stat-value">$10,860</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">Assessed Value</div>
+          <div class="stat-value">$905,000</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">Off-Street Parking</div>
+          <div class="stat-value">4 spaces</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">Owner Pays</div>
+          <div class="stat-value">Water only</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">Leases Through</div>
+          <div class="stat-value">May–June 2027</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">What it costs to own</div>
+      <h2>Five different loan paths, <em>head to head</em>.</h2>
+      <p class="section-lede">Based on Dad's profile from the call: 740-plus credit, W2 income, 20 or 25 percent down. Tap any scenario to see why it is or isn't the right shape.</p>
+    </div>
+
+    <div class="scenarios">
+
+      <details class="scenario recommended" open>
+        <summary>
+          <div>
+            <div class="scenario-tag gold">★ Recommended · Scenario C</div>
+            <h3 class="scenario-title">Conventional, <em>25% down</em></h3>
+            <p class="scenario-sub">$287,500 down · 30-year fixed at 7.5%</p>
+          </div>
+          <div class="scenario-headline">
+            <div class="scenario-headline-label">Monthly Cash Flow</div>
+            <div class="scenario-headline-value negative">−$2,378</div>
+            <div class="scenario-headline-sub">before reserves</div>
+          </div>
+          <div class="scenario-toggle-hint"><span class="chev">›</span> Tap to see why this is the right shape</div>
+        </summary>
+        <div class="scenario-detail">
+          <div class="scenario-grid">
+            <div class="stat-row"><div class="stat-label">Loan Amount</div><div class="stat-value">$862,500</div></div>
+            <div class="stat-row"><div class="stat-label">Cash to Close</div><div class="stat-value">~$316,250</div></div>
+            <div class="stat-row"><div class="stat-label">P&amp;I per Month</div><div class="stat-value">$6,031</div></div>
+            <div class="stat-row"><div class="stat-label">Taxes + Ins + Water</div><div class="stat-value">$1,597</div></div>
+            <div class="stat-row"><div class="stat-label">Total Monthly Outlay</div><div class="stat-value">$7,628</div></div>
+            <div class="stat-row"><div class="stat-label">Income Docs</div><div class="stat-value">Full W2</div></div>
+          </div>
+          <div class="scenario-prosrcons">
+            <div class="pros">
+              <div class="pros-label">Why it wins</div>
+              <ul>
+                <li>Lowest rate locked for 30 years, no surprise resets</li>
+                <li>No prepayment penalty, refi or sell freely</li>
+                <li>Lowest monthly burn of all five paths</li>
+                <li>Full W2 doc gives the cleanest underwriting story</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <div class="cons-label">What it costs</div>
+              <ul>
+                <li>$57K more cash to close than 20% down options</li>
+                <li>Reports on personal credit, affects future borrowing capacity</li>
+                <li>Lender requires ~6 months reserves post-close (~$46K liquid)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="scenario">
+        <summary>
+          <div>
+            <div class="scenario-tag">Scenario A</div>
+            <h3 class="scenario-title">DSCR loan, <em>20% down</em></h3>
+            <p class="scenario-sub">$230,000 down · 30-year fixed at 8.5%</p>
+          </div>
+          <div class="scenario-headline">
+            <div class="scenario-headline-label">Monthly Cash Flow</div>
+            <div class="scenario-headline-value negative">−$3,421</div>
+            <div class="scenario-headline-sub">before reserves</div>
+          </div>
+          <div class="scenario-toggle-hint"><span class="chev">›</span> Tap to see why it underperforms</div>
+        </summary>
+        <div class="scenario-detail">
+          <div class="scenario-grid">
+            <div class="stat-row"><div class="stat-label">Loan Amount</div><div class="stat-value">$920,000</div></div>
+            <div class="stat-row"><div class="stat-label">Cash to Close</div><div class="stat-value">~$258,750</div></div>
+            <div class="stat-row"><div class="stat-label">P&amp;I per Month</div><div class="stat-value">$7,074</div></div>
+            <div class="stat-row"><div class="stat-label">Total Monthly Outlay</div><div class="stat-value">$8,671</div></div>
+            <div class="stat-row"><div class="stat-label">Income Docs</div><div class="stat-value">None (DSCR)</div></div>
+            <div class="stat-row"><div class="stat-label">DSCR Ratio</div><div class="stat-value">0.74 (fails 1.0 cutoff)</div></div>
+          </div>
+          <div class="scenario-prosrcons">
+            <div class="pros">
+              <div class="pros-label">Why it could work</div>
+              <ul>
+                <li>Lowest cash to close ($259K)</li>
+                <li>No personal income verification</li>
+                <li>LLC-friendly, fastest close (21-30 days)</li>
+                <li>Doesn't touch personal DTI for future borrowing</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <div class="cons-label">Why it doesn't</div>
+              <ul>
+                <li>Highest rate of all five options</li>
+                <li>DSCR ratio fails 1.0; "low-DSCR" variant pushes rate to ~9.5%</li>
+                <li>3-5 year prepay penalty limits refi flexibility</li>
+                <li>Worst monthly cash flow</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="scenario">
+        <summary>
+          <div>
+            <div class="scenario-tag">Scenario B</div>
+            <h3 class="scenario-title">Local portfolio bank, <em>20% down</em></h3>
+            <p class="scenario-sub">$230,000 down · 7/1 ARM at 7.5%, 25-year amort</p>
+          </div>
+          <div class="scenario-headline">
+            <div class="scenario-headline-label">Monthly Cash Flow</div>
+            <div class="scenario-headline-value negative">−$3,145</div>
+            <div class="scenario-headline-sub">before reserves</div>
+          </div>
+          <div class="scenario-toggle-hint"><span class="chev">›</span> Tap to see the relationship-banking angle</div>
+        </summary>
+        <div class="scenario-detail">
+          <div class="scenario-grid">
+            <div class="stat-row"><div class="stat-label">Loan Amount</div><div class="stat-value">$920,000</div></div>
+            <div class="stat-row"><div class="stat-label">Cash to Close</div><div class="stat-value">~$258,750</div></div>
+            <div class="stat-row"><div class="stat-label">P&amp;I per Month</div><div class="stat-value">$6,798</div></div>
+            <div class="stat-row"><div class="stat-label">Total Monthly Outlay</div><div class="stat-value">$8,395</div></div>
+            <div class="stat-row"><div class="stat-label">Rate Resets</div><div class="stat-value">Year 7</div></div>
+            <div class="stat-row"><div class="stat-label">Prepay Penalty</div><div class="stat-value">Rare</div></div>
+          </div>
+          <div class="scenario-prosrcons">
+            <div class="pros">
+              <div class="pros-label">Why it could work</div>
+              <ul>
+                <li>Same low cash to close as Scenario A, better rate</li>
+                <li>Local Richmond banks (Atlantic Union, Village, Truist) will flex for 740+ FICO</li>
+                <li>Usually no prepay penalty</li>
+                <li>Relationship-based, can negotiate terms</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <div class="cons-label">Why it doesn't</div>
+              <ul>
+                <li>ARM = rate resets in year 7, pure rate risk</li>
+                <li>25-year amortization raises monthly payment vs 30-year</li>
+                <li>Underwriting takes 45-60 days</li>
+                <li>Personal guarantee still required even in LLC</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="scenario">
+        <summary>
+          <div>
+            <div class="scenario-tag">Scenario D</div>
+            <h3 class="scenario-title">DSCR loan, <em>25% down</em></h3>
+            <p class="scenario-sub">$287,500 down · 30-year fixed at 8.0%</p>
+          </div>
+          <div class="scenario-headline">
+            <div class="scenario-headline-label">Monthly Cash Flow</div>
+            <div class="scenario-headline-value negative">−$2,675</div>
+            <div class="scenario-headline-sub">before reserves</div>
+          </div>
+          <div class="scenario-toggle-hint"><span class="chev">›</span> Tap to see why C beats this</div>
+        </summary>
+        <div class="scenario-detail">
+          <div class="scenario-grid">
+            <div class="stat-row"><div class="stat-label">Loan Amount</div><div class="stat-value">$862,500</div></div>
+            <div class="stat-row"><div class="stat-label">Cash to Close</div><div class="stat-value">~$316,250</div></div>
+            <div class="stat-row"><div class="stat-label">P&amp;I per Month</div><div class="stat-value">$6,328</div></div>
+            <div class="stat-row"><div class="stat-label">Total Monthly Outlay</div><div class="stat-value">$7,925</div></div>
+            <div class="stat-row"><div class="stat-label">DSCR Ratio</div><div class="stat-value">0.83 (still fails 1.0)</div></div>
+            <div class="stat-row"><div class="stat-label">Prepay Penalty</div><div class="stat-value">Yes (3-5 yr)</div></div>
+          </div>
+          <div class="scenario-prosrcons">
+            <div class="pros">
+              <div class="pros-label">Why it could work</div>
+              <ul>
+                <li>No income docs needed, 30-year fixed</li>
+                <li>LLC-friendly out of the box</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <div class="cons-label">Why C beats it</div>
+              <ul>
+                <li>Higher rate than conventional with same down payment</li>
+                <li>3-5 year prepay penalty caps refi flexibility</li>
+                <li>Pays more for benefits Dad doesn't actually need (he has W2)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="scenario">
+        <summary>
+          <div>
+            <div class="scenario-tag">Scenario E</div>
+            <h3 class="scenario-title">Local portfolio bank, <em>25% down</em></h3>
+            <p class="scenario-sub">$287,500 down · 7/1 ARM at 7.25%, 25-year amort</p>
+          </div>
+          <div class="scenario-headline">
+            <div class="scenario-headline-label">Monthly Cash Flow</div>
+            <div class="scenario-headline-value negative">−$2,581</div>
+            <div class="scenario-headline-sub">before reserves</div>
+          </div>
+          <div class="scenario-toggle-hint"><span class="chev">›</span> Tap to see the worst-of-both-worlds case</div>
+        </summary>
+        <div class="scenario-detail">
+          <div class="scenario-grid">
+            <div class="stat-row"><div class="stat-label">Loan Amount</div><div class="stat-value">$862,500</div></div>
+            <div class="stat-row"><div class="stat-label">Cash to Close</div><div class="stat-value">~$316,250</div></div>
+            <div class="stat-row"><div class="stat-label">P&amp;I per Month</div><div class="stat-value">$6,234</div></div>
+            <div class="stat-row"><div class="stat-label">Total Monthly Outlay</div><div class="stat-value">$7,831</div></div>
+            <div class="stat-row"><div class="stat-label">Rate Resets</div><div class="stat-value">Year 7</div></div>
+            <div class="stat-row"><div class="stat-label">Prepay Penalty</div><div class="stat-value">Rare</div></div>
+          </div>
+          <div class="scenario-prosrcons">
+            <div class="pros">
+              <div class="pros-label">Why it could work</div>
+              <ul>
+                <li>Slightly better rate at lower LTV</li>
+                <li>Relationship-based flexibility</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <div class="cons-label">Why C beats it</div>
+              <ul>
+                <li>Still ARM with year-7 rate reset risk</li>
+                <li>Worst-of-both-worlds: gives up 20% down cash advantage AND still takes rate risk</li>
+                <li>Only justifies if bank beats conventional by 0.5%+ or offers interest-only</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The honest read</div>
+      <h2>None of these <em>cash flow</em>.</h2>
+    </div>
+
+    <div class="honest-read">
+      <div class="eyebrow">What the numbers actually say</div>
+      <h3>This is priced like an <em>appreciation play</em>, not an income play.</h3>
+      <p>$1.15M against $63K of annual rent works out to a <strong>2.6% cap rate</strong>. Fan multifamily typically trades 4.5 to 5.5%. The seller priced this for an owner-occupant or a long-term appreciation buyer, not for someone who needs the building to feed itself.</p>
+      <p>Real out-of-pocket on the recommended Scenario C, after factoring in maintenance and vacancy reserves on a 115-year-old building, is closer to <strong>$3,800 per month</strong>. That's roughly <strong>$46,000 a year</strong> Dad would be feeding the property.</p>
+      <p>To break even monthly at asking, the down payment would need to be roughly <strong>$632,000 (55%)</strong>. At that point the cash-on-cash return is effectively zero. Same as a savings account, except you can't pull the money out and the building can leak.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">Three angles to make it work</div>
+      <h2>Where the deal <em>actually opens up</em>.</h2>
+      <p class="section-lede">If we want this property to make sense as a long-term hold, here's where to push.</p>
+    </div>
+
+    <div class="angles">
+      <div class="angle">
+        <div class="angle-num">01</div>
+        <h3>Negotiate the price <em>down</em>.</h3>
+        <p>The seller is a licensed Realtor and the assessment is $905K. A $950K offer drops Scenario C's monthly burn to about $1,328. A $900K offer brings it to about $1,067. Doesn't get us to positive cash flow, but cuts the bleed roughly in half. The $245K gap above assessment is a real anchor for an offer conversation.</p>
+      </div>
+      <div class="angle">
+        <div class="angle-num">02</div>
+        <h3>Plan around the <em>2027 rent reset</em>.</h3>
+        <p>Current rents are well below Fan market. The 2-bedrooms at $1,465 should be $1,650-1,950. The 1-bedroom at $875 should be $1,000-1,250. When the leases roll in May/June 2027, gross rent could lift to roughly $6,400 a month, or $76,800 a year. That's about $1,150 a month of extra income, which puts Scenario C close to break-even monthly. We'd write checks for about 14 months, then the building feeds itself.</p>
+      </div>
+      <div class="angle">
+        <div class="angle-num">03</div>
+        <h3>Stack <em>tax credits</em> that bypass the passive loss rules.</h3>
+        <p>This is the creative layer. At Dad's income, the obvious tax benefits (depreciation, mortgage interest deductions) get suspended. But federal tax <em>credits</em> work differently. They flow directly against W2 income with no passive loss limit. The six stacks below are where the real unlock lives.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The tax stack</div>
+      <h2>Six creative angles, ranked by <em>real impact</em>.</h2>
+      <p class="section-lede">Tap any stack to see the mechanics. The top three bypass passive loss rules entirely, which is what makes them work for an above-$150K AGI investor.</p>
+    </div>
+
+    <details class="stack" open>
+      <summary>
+        <div>
+          <div class="stack-eyebrow">Stack 01 · Cleanest unlock</div>
+          <h3 class="stack-title">Federal Solar <em>Investment Tax Credit</em></h3>
+        </div>
+        <div>
+          <div class="stack-impact">$9,900–$12,600</div>
+          <div class="stack-impact-sub">Direct W2 credit</div>
+        </div>
+        <div class="stack-chev"><span class="chev">›</span> How it works</div>
+      </summary>
+      <div class="stack-body">
+        <p>A 30 percent federal credit on the cost of a solar installation. For a building this size, a 12 kW system runs $33-42K installed, which yields a $9,900-$12,600 credit straight against Dad's W2 tax bill in year one.</p>
+        <p><strong>Why it bypasses the passive loss trap:</strong> Per IRS Notice 2023-17, the Solar ITC is not subject to passive activity loss limits. It flows directly against W2 tax liability. If Dad's tax bill in year one can't absorb the full credit, IRA §6418 lets him sell the unused portion to a corporate buyer at about 92 cents on the dollar.</p>
+        <p><strong>Virginia layer:</strong> Property tax exemption on the system is automatic. Sales tax exemption on equipment saves another $1,800-$2,200. Annual electricity savings are around $1,956 and Virginia SREC revenue adds about $396 a year as portfolio income (also not passive).</p>
+      </div>
+    </details>
+
+    <details class="stack">
+      <summary>
+        <div>
+          <div class="stack-eyebrow">Stack 02 · The big one</div>
+          <h3 class="stack-title">Historic Tax Credit <em>(HTC)</em></h3>
+        </div>
+        <div>
+          <div class="stack-impact">$30K–$60K</div>
+          <div class="stack-impact-sub">Over 5 years</div>
+        </div>
+        <div class="stack-chev"><span class="chev">›</span> How it works</div>
+      </summary>
+      <div class="stack-body">
+        <p>A 20 percent federal credit on qualified rehabilitation expenses for certified historic structures. 2517 Grove is a 1910 brick building in The Fan, which is National Register-eligible. The credit applies to capital improvements (roof, HVAC, electrical, plumbing, windows, insulation) that Dad would be spending on anyway across the first few years.</p>
+        <p><strong>Example math:</strong> A $150K rehab generates a $30K credit, ratable at $6K a year for 5 years. A $300K rehab generates $60K, at $12K a year. Both bypass passive loss limits.</p>
+        <div class="stack-warning">
+          <strong>The catch:</strong> Requires Virginia State Historic Preservation Office (SHPO) approval on Part 1 (description) and Part 2 (rehab plan) <em>before</em> work begins. Adds 6-10 weeks to project timing. Retroactive approval is rare. Plan for it from the start or this credit walks.
+        </div>
+      </div>
+    </details>
+
+    <details class="stack">
+      <summary>
+        <div>
+          <div class="stack-eyebrow">Stack 03 · Tenant amenity + credit</div>
+          <h3 class="stack-title">EV charging credit <em>(§30C)</em></h3>
+        </div>
+        <div>
+          <div class="stack-impact">$2,400–$3,600</div>
+          <div class="stack-impact-sub">Year 1 credit</div>
+        </div>
+        <div class="stack-chev"><span class="chev">›</span> How it works</div>
+      </summary>
+      <div class="stack-body">
+        <p>30 percent federal credit on the cost of installing EV chargers on the property, up to $30K per location. Install 2-4 chargers on the 4 off-street parking spaces. Cost runs $8-12K, so the credit lands at $2,400-$3,600 directly against W2 tax.</p>
+        <p>Also bypasses passive loss rules. Bonus: tenant amenity that future-proofs the property and likely supports rent growth at the 2027 reset.</p>
+      </div>
+    </details>
+
+    <details class="stack">
+      <summary>
+        <div>
+          <div class="stack-eyebrow">Stack 04 · Absorbs trapped losses</div>
+          <h3 class="stack-title">Generate <em>passive income</em> elsewhere</h3>
+        </div>
+        <div>
+          <div class="stack-impact">Frees $20–45K</div>
+          <div class="stack-impact-sub">Of trapped losses</div>
+        </div>
+        <div class="stack-chev"><span class="chev">›</span> How it works</div>
+      </summary>
+      <div class="stack-body">
+        <p>Passive losses can offset passive income with no AGI cap. If Dad buys a cash-flowing passive investment (a multifamily syndication, oil and gas working interest, or a dividend partnership), Grove's suspended losses become useful instead of just sitting on the return.</p>
+        <p><strong>Example:</strong> $200K in a syndication distributing $18K/yr of passive income. Grove generates $25K/yr of passive losses. The $18K of syndication income gets fully shielded, and the rest of Grove's losses still carry forward. Net portfolio tax bill drops materially without changing anything about Grove itself.</p>
+        <p>This is the right pairing if Dad is open to deploying capital into a second income stream that gives the Grove losses a job to do.</p>
+      </div>
+    </details>
+
+    <details class="stack">
+      <summary>
+        <div>
+          <div class="stack-eyebrow">Stack 05 · Worth checking</div>
+          <h3 class="stack-title">Spousal <em>REPS</em> (the override)</h3>
+        </div>
+        <div>
+          <div class="stack-impact">Unlimited</div>
+          <div class="stack-impact-sub">Against W2 income</div>
+        </div>
+        <div class="stack-chev"><span class="chev">›</span> How it works</div>
+      </summary>
+      <div class="stack-body">
+        <p>Real Estate Professional Status under IRC §469(c)(7) makes ALL rental losses non-passive on a joint return. If Mom (or whoever the joint filer is) can credibly log 750+ hours a year materially participating in real estate AND more hours in real estate than in any other trade or business, every dollar of paper loss flows against Dad's W2 income immediately.</p>
+        <p><strong>The qualification bar:</strong> Requires someone in the household who doesn't have another full-time W2 job. The 750 hours can cover managing this property plus others (acquisition research, tenant communication, repair coordination, books, planning).</p>
+        <p>Mom, this is worth a conversation if you're open to it. It would be the single biggest unlock on the deal. Even partial qualification with documented hours changes the picture materially. Worth flagging to the CPA either way.</p>
+      </div>
+    </details>
+
+    <details class="stack">
+      <summary>
+        <div>
+          <div class="stack-eyebrow">Stack 06 · Conditional</div>
+          <h3 class="stack-title">Cost segregation + <em>bonus depreciation</em></h3>
+        </div>
+        <div>
+          <div class="stack-impact">$20K–$30K</div>
+          <div class="stack-impact-sub">Only if Stack 4 or 5 lands</div>
+        </div>
+        <div class="stack-chev"><span class="chev">›</span> Read the catch first</div>
+      </summary>
+      <div class="stack-body">
+        <p>A cost segregation study on a $1.15M property typically reclassifies 25-35 percent of the depreciable basis to 5/7/15-year property. Combined with 2026 bonus depreciation, year-one paper deduction lands at $65-95K. At a 32 percent marginal bracket, that's a theoretical $20.8-30.4K tax benefit.</p>
+        <p>Study fee: $6,500-$10,500.</p>
+        <div class="stack-warning">
+          <strong>The catch:</strong> This generates a deduction, not a credit. At Dad's AGI it gets trapped by passive loss rules. Only worth running the study if Stack 4 (passive income to absorb it) or Stack 5 (spousal REPS) is in place. Otherwise it just makes the suspended loss pile bigger.
+        </div>
+        <p>One nuance worth confirming with the CPA: OBBBA appears to have restored 100 percent bonus depreciation for property acquired after 1/19/2025, which would dramatically change the year-one numbers. The TCJA phase-out schedule says 20 percent for 2026. Practitioners are split on which applies. Get a firm read before committing.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">My recommendation</div>
+      <h2>The stack I'd <em>run</em>.</h2>
+      <p class="section-lede">If Dad moves on this property, here's the combined play that turns the math from "feed the building" to "manageable carry with a real tax shield."</p>
+    </div>
+
+    <div class="recommendation">
+      <h3>The combined <em>stack</em></h3>
+
+      <div class="rec-row">
+        <div class="rec-move"><strong>Buy via single-member LLC</strong><br>Pure asset protection, no tax difference</div>
+        <div class="rec-impact">$0</div>
+      </div>
+      <div class="rec-row">
+        <div class="rec-move"><strong>Install 12 kW solar + EV chargers in year 1</strong><br>Solar ITC + §30C, both bypass passive limits</div>
+        <div class="rec-impact">$12K–$16K</div>
+      </div>
+      <div class="rec-row">
+        <div class="rec-move"><strong>Plan a $200K historic-spec rehab across years 1–3</strong><br>With NPS pre-approval, generates $40K HTC at $8K/yr × 5</div>
+        <div class="rec-impact">$40K total</div>
+      </div>
+      <div class="rec-row">
+        <div class="rec-move"><strong>Buy a passive income vehicle ($150–250K syndication)</strong><br>Gives Grove's trapped losses something to offset</div>
+        <div class="rec-impact">Frees suspended losses</div>
+      </div>
+      <div class="rec-row">
+        <div class="rec-move"><strong>Run cost segregation study ($7–10K)</strong><br>Only if the passive income vehicle or spousal REPS is in place</div>
+        <div class="rec-impact">$20K–$30K</div>
+      </div>
+      <div class="rec-row">
+        <div class="rec-move"><strong>Confirm spousal REPS feasibility</strong><br>The single biggest possible unlock if Mom can credibly qualify</div>
+        <div class="rec-impact">Unlimited</div>
+      </div>
+
+      <div class="rec-total">
+        <div class="rec-total-label">Realistic Year-1 W2 Tax Reduction</div>
+        <div class="rec-total-value">$12K–$30K</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">For the CPA call</div>
+      <h2>Three questions, <em>fifteen minutes</em>.</h2>
+      <p class="section-lede">Walk into the CPA conversation with these. The answers swing the deal.</p>
+    </div>
+
+    <div class="cpa-card">
+      <ol>
+        <li><strong>Confirm the credits flow against W2:</strong> Solar ITC, Historic Tax Credit, and §30C EV credit are all non-passive and bypass §469 limits. Confirm against my specific income situation.</li>
+        <li><strong>Does my spouse qualify for REPS?</strong> Or could she credibly qualify under §469(c)(7) with 750+ hours and more time in real estate than in any other trade or business? If yes, all rental losses become non-passive on our joint return.</li>
+        <li><strong>The passive-income-offset play:</strong> If I buy a passive investment generating $15-25K/yr of passive income alongside this property, does Grove's cost-seg-accelerated paper loss offset that income without restriction?</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">Your turn</div>
+      <h2>What's <em>missing</em>?</h2>
+      <p class="section-lede">Dad, marketing-eye on the framing. Mom, care-eye on the lifestyle implications. Either of you, anything that's off or unclear. Hit send and it comes straight to me. I'll update this page with what I learn from your read.</p>
+    </div>
+
+    <div class="feedback">
+      <div class="eyebrow">Questions or thoughts for Miles</div>
+      <h2>Send it <em>raw</em>.</h2>
+      <p class="feedback-lede">Nothing too small. Nothing too big. The pushback is the value.</p>
+
+      <form class="feedback-form" id="feedback-form" onsubmit="return sendFeedback(event)">
+        <textarea
+          class="feedback-textarea"
+          id="feedback-body"
+          placeholder="What stood out, what's missing, what you'd push on, what doesn't make sense yet, what you'd want to see modeled differently. Whatever shape it comes in."
+          required
+        ></textarea>
+        <div class="feedback-actions">
+          <button type="submit" class="feedback-send" id="feedback-send-btn">Send to Miles</button>
+          <span class="feedback-note">Opens your mail app with this draft addressed to me. You hit send.</span>
+        </div>
+        <div class="feedback-success" id="feedback-success">
+          Mail draft is open. Hit send in your mail app and I'll see it. I'll fold what you say back into this page and re-share.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="signature">- Miles</div>
+    <div class="footer-note">Investment No. 01 · 2517 Grove Ave · Updated 2026-05-23</div>
+  </div>
+
+</div>
+
+<script>
+  function sendFeedback(e) {
+    e.preventDefault();
+    var body = document.getElementById('feedback-body').value.trim();
+    if (!body) return false;
+
+    var subject = 'Family Investment #01 feedback: 2517 Grove Ave';
+    var mailtoUrl = 'mailto:miles@milesagee.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body + '\n\n---\nSent from the 2517 Grove Ave dashboard\nhttps://mamsnow.com/scaffold/intros/dashboards/01-2517-grove-ave.html');
+
+    window.location.href = mailtoUrl;
+
+    document.getElementById('feedback-success').classList.add('visible');
+    setTimeout(function() {
+      document.getElementById('feedback-success').classList.remove('visible');
+    }, 12000);
+
+    return false;
+  }
+</script>
+
+</body>
+</html>
