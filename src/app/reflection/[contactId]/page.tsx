@@ -55,13 +55,13 @@ export default async function ReflectionPage({
           Hand-prepared for {data.firstName}
         </p>
         <h1 className="font-display text-3xl sm:text-4xl text-deep-teal leading-tight">
-          {data.firstName}, three things to lock in before our call.
+          {data.firstName}, three things I want to talk through tomorrow.
         </h1>
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
-          One card on the home that fit and slipped away. One on the home that&rsquo;s still
-          there and waiting. One on how we operate while you&rsquo;re in Ghana. Each one
-          submits on its own. Take them in any order. Your answers come back to me before
-          we get on the phone.
+          One on the home that fit and slipped away. One on the home that&rsquo;s still
+          there and waiting. One on how we keep moving while you and {data.husbandFirstName}{" "}
+          are in Ghana. Each one stands on its own, take them in any order. Your read
+          comes back to me before we get on the phone.
         </p>
       </section>
 

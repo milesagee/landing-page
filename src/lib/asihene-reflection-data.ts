@@ -83,7 +83,7 @@ export const CONTACTS: Record<string, ReflectionData> = {
         },
         // 50-60 words. Second person. No em dashes, no emojis.
         frame:
-          "Cheverton was the home that worked for both of you. Newer construction Yaw could grow into, layout that broke the pattern of your current home, Hallsley quality. It is gone, and it is not coming back. The job of this card is not regret - it is locking in what made it the right blend, so the next one is recognizable on the first walk through.",
+          "Cheverton was the home that worked for both of you. Newer construction Yaw could grow into, layout that broke the pattern of your current home, Hallsley quality. It's gone, and it's not coming back. What I want us to do here is lock in what made it the right blend, so the next one is recognizable on the first walk through.",
         questions: [
           {
             id: "blend",
@@ -123,7 +123,7 @@ export const CONTACTS: Record<string, ReflectionData> = {
           status: "Active on MLS",
         },
         frame:
-          "Sodbury is still on the board. Yaw is anchored to it. You were set to write before Ghana and did not. There is no pressure on this card - the dashboard is not the place we push the deal. The job is to surface what actually changed for you, honestly, so I can either revive the path on Tuesday's call or close the door cleanly. Either move is a clean move.",
+          "Sodbury is still on the board. Yaw is anchored to it. You were set to write before Ghana and didn't. No pressure here. This isn't where we make the decision. I just want to know honestly what changed for you, so we can either revive the path on our call tomorrow or close the door cleanly. Either move is a clean move.",
         questions: [
           {
             id: "pull",
@@ -149,7 +149,7 @@ export const CONTACTS: Record<string, ReflectionData> = {
         headline: "How we tighten the loop while you're overseas.",
         // No anchor quote on this card - the principle stands on its own.
         frame:
-          "I do not write on properties you have not been inside. That is the rule, not the apology. Two homes Kojo was set to walk this month went pending before tour day, and that is the market right now in your range and your neighborhoods. The job of this card is to build a faster lane for the next one - on terms that still respect the rule. Pick the lane that fits how you and Yaw want to operate from Ghana.",
+          "I don't write on properties you haven't been inside. That's the rule, not the apology. Two homes Kojo was set to walk this month went pending before tour day, and that's the market right now in your range and your neighborhoods. What I want us to do here is build a faster lane for the next one, on terms that still respect the rule. Pick the lane that fits how you and Yaw want to operate from Ghana.",
         questions: [
           {
             id: "lane",
