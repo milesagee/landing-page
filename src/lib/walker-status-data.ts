@@ -50,6 +50,88 @@ export type StatusData = {
 };
 
 export const CONTACTS: Record<string, StatusData> = {
+  // Natalie Seymour. GHL contactId IiCKMQNv2xHGLCqOBrYA (MAMS Open Dispo).
+  // Under contract 5/21/2026 with Alexander Virnelson via Donnell Cobb
+  // (Redfin) at $307,500. Inspection scheduled Wed 5/27 1 PM. Strong Title
+  // (Susan Davis) on seller side, Rocket Title (Nancy Lyons) on buyer side.
+  IiCKMQNv2xHGLCqOBrYA: {
+    contactId: "IiCKMQNv2xHGLCqOBrYA",
+    shareToken: "YFlCWz0ulr8T",
+    firstName: "Natalie",
+    property: {
+      address: "2401 Warwick Avenue",
+      city: "Richmond",
+      state: "VA",
+      zip: "23224",
+    },
+    // Source: GHL note 2026-05-19T04:09 (greenlit Donnell/Alexander offer)
+    // + Wendy's contract email 5/21 + the Authentisign packet.
+    contractPrice: 307500,
+    // Standard 30-day target from contract date 5/21. Actual settlement
+    // date may shift after the appraisal lands. Source: contract close
+    // language is a target, not a guarantee. Surface as "target" in copy.
+    closeDate: "2026-06-19",
+    headline:
+      "You're under contract. Inspection tomorrow at 1. Wendy has the helm; I'm watching from the side.",
+    cleared: [
+      {
+        // Source: Wendy's Authentisign packet email 5/21 18:22 + EMD
+        // receipt thread 5/21 from Nancy Lyons at Rocket Title.
+        label: "Contract executed + EMD received",
+        date: "May 21",
+        detail:
+          "$307,500 with Alexander Virnelson, owner-occupant buyer through Donnell Cobb at Redfin. Earnest money deposit hit Rocket Title same afternoon.",
+        status: "done",
+      },
+      {
+        // Source: Wendy's email thread to Susan Davis 5/21 + 5/22, you
+        // chose Strong Title for settlement.
+        label: "Settlement company chosen",
+        date: "May 22",
+        detail:
+          "Strong Title (Susan Davis) handles your side. Wendy delivered the contract package; Susan confirmed receipt the next morning.",
+        status: "done",
+      },
+      {
+        // Source: Wendy's iMessage to Natalie 5/19 21:37, Natalie liked +
+        // confirmed 21:38 ("Ok that's fine. I'll plan to be out of the
+        // house that afternoon"). Ring camera + SimpliSafe called out as
+        // personal items 5/19 15:03.
+        label: "Inspection scheduled",
+        date: "May 19",
+        detail:
+          "Wednesday 5/27 at 1 PM. You'll be out, ring camera + SimpliSafe noted as personal items. Inspection runs about 3 hours; you do not attend.",
+        status: "done",
+      },
+    ],
+    runway: [
+      {
+        label: "Wednesday 1 PM: Home inspection",
+        detail:
+          "Buyer's inspector walks the property. You'll be out. Report typically lands within 24-48 hours.",
+      },
+      {
+        label: "Next 5-7 days: Inspection response",
+        detail:
+          "If the report flags anything material, buyer's agent submits a repair-or-credit request and Wendy walks you through it. If the report comes back clean, we move straight to appraisal.",
+      },
+      {
+        label: "Following 1-2 weeks: Appraisal",
+        detail:
+          "Buyer's lender orders the appraisal. We need it to land at or above $307,500 for their financing to close clean. If it comes in low, you and I talk through the options together before anything happens.",
+      },
+      {
+        label: "~June 19 target: Closing",
+        detail:
+          "Sign at Strong Title. Wire goes out, deed records, sale is done. The specific date locks once the appraisal lands and the lender issues clear-to-close.",
+      },
+    ],
+    checkIn: {
+      label: "Anything you want me to address before Wednesday's inspection or anywhere in the runway above?",
+      placeholder:
+        "Goes straight to me. I'll have an answer ready before our next call.",
+    },
+  },
   // Walker Griffea. GHL contactId fetched via MAMS Open Dispo search 2026-05-24.
   // Surname spelled "Griffea" canonically (confirmed via GHL contact record +
   // Gmail "817 Pleasant St Sales Contract / Seller: Griffea, 5/9").
