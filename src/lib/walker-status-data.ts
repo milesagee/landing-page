@@ -70,8 +70,11 @@ export const CONTACTS: Record<string, StatusData> = {
     // counter $192,000, settled at $188,500 signed 5/8).
     contractPrice: 188500,
     // Source: SkySlope notification 5/24 ("scheduled to close on 05/29/2026").
+    // Original contract date was 5/30 (Saturday). Buyer's side working toward
+    // 5/29; Wendy <-> Ovell thread 5/26 confirms 5/29 target.
     closeDate: "2026-05-29",
-    headline: "We're past inspection. Appraisal Thursday. Five days to close.",
+    headline:
+      "WDI inspection Thursday, notary Friday in DC. One open thread: the buyer's appraisal timing.",
     cleared: [
       {
         // Source: Gmail "817 Pleasant St Sales Contract / Seller: Griffea, 5/9"
@@ -84,7 +87,7 @@ export const CONTACTS: Record<string, StatusData> = {
       {
         // Source: iMessage thread with Walker 5/19-5/22 negotiating inspection
         // addendum + Gmail "817 Pleasant St Ratified Addendum, 5/22".
-        label: "Inspection complete + addendum ratified",
+        label: "Inspection + addendum ratified",
         date: "May 22",
         detail:
           "Buyer accepted your counter of $3,000 additional closing-cost credit and no further repairs. Walked away from the open repair list cleanly.",
@@ -99,38 +102,60 @@ export const CONTACTS: Record<string, StatusData> = {
         status: "done",
       },
       {
-        // Source: iMessage from Miles to Walker 5/21 22:26: "HOA sent
-        // Wednesday so EOD Saturday is when contingency falls off."
-        // Wednesday was 5/20. Saturday EOD = 5/24 (today). The contingency
-        // falls off today at end of day.
-        label: "HOA docs delivered + contingency clock running",
-        date: "Saturday, May 24",
+        // Source: iMessage from Miles to Walker 5/21 22:26 + that window
+        // (EOD Saturday 5/24) has now passed without contingency action.
+        label: "HOA contingency cleared",
+        date: "May 24",
         detail:
-          "HOA disclosure docs went to the buyer last Wednesday. Their HOA contingency window closes at end of day today.",
+          "HOA disclosure docs went to the buyer Wednesday 5/20. The contingency window closed clean on Saturday.",
+        status: "done",
+      },
+      {
+        // Source: Gmail "817 Pleasant St Wiring Instructions, 5/26" from
+        // office@mamsnow.com.
+        label: "Your wiring instructions sent",
+        date: "May 26",
+        detail:
+          "Wendy delivered the seller wire-instruction packet today. Your proceeds will route to the account you specified once the deed records.",
         status: "done",
       },
     ],
     runway: [
       {
-        label: "Thursday: Appraisal",
+        // Source: Gmail calendar invite "817 Pleasant St WDI Inspection-Pest
+        // Now/ Time: TBD @ Thu May 28, 2026 9am (EDT)" sent 5/26 15:01 UTC.
+        label: "Thursday 9 AM: WDI inspection",
         detail:
-          "Appraiser walks the home, comps the market, writes the report. We need it to land at or above the $188,500 contract price for the buyer's financing to close clean.",
+          "Pest Now does the wood-destroying-insect inspection - a standard Virginia closing requirement (termite check). Quick walkthrough, no action needed on your end.",
       },
       {
-        label: "Friday: Final clear to close",
+        // Source: Gmail thread "817 Pleasant St Closing Date Addendum-
+        // Please Reply, 5/28" - Ovell Robinson (buyer's agent) replied 5/26
+        // 9:51 ET: "We are working to close on 5/29 however the appraisal
+        // may not be back in time. I will check with the lender." Wendy
+        // 9:58: "I'll await your update."
+        label: "Open thread: buyer's appraisal timing",
         detail:
-          "Buyer's lender issues clear-to-close after the appraisal report and final underwriter sign-off. Title finalizes the settlement statement.",
+          "Buyer's agent flagged this morning that the appraisal may run tight on Friday's close. They are checking with the lender on the actual return date. If it pushes, we adjust the notary appointment and reset the close date together. Either way, you do not lift a finger - we handle it on our end.",
       },
       {
-        label: "May 29: Closing day",
+        // Source: Gmail calendar invite "817 Pleasant St Seller Mobile
+        // Notary Appointment-Rocket Title Confirmed @ Fri May 29, 2026 12pm
+        // - 1pm (EDT)" sent 5/26 15:03 UTC. Location 626 Burns St SE DC 20019.
+        label: "Friday 12 PM: Mobile notary at you",
         detail:
-          "Sign at Rocket Title, wire confirmation goes out, deed records. We will be in touch with timing and what you need to bring.",
+          "Rocket Title's mobile notary comes to you at 626 Burns St SE, Washington DC 20019. You sign there - no trip to Richmond required. Plan on 30 to 60 minutes.",
+      },
+      {
+        label: "Friday afternoon: Wire + deed records",
+        detail:
+          "Once the notary package is back at title and the buyer's clear-to-close is in hand, your wire goes out and the deed records. You will see the wire confirmation the same day or first thing the following business day.",
       },
     ],
     checkIn: {
-      label: "Anything on your mind ahead of Thursday's appraisal you want me to address before we get there?",
+      label: "Anything you want me to address ahead of Friday - the appraisal timing, the notary appointment, the wire, anything else?",
       placeholder:
-        "Could be a question about the appraisal itself, the closing timeline, the wire process, anything. The dashboard pings me directly when you send.",
+        "Goes straight to me. I'll have an answer ready before we sign Friday.",
     },
   },
 };
