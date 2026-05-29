@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow">
+<title>The Standard · How We Operate</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EE;
+    --ink: #15191F;
+    --ink-soft: #4C5562;
+    --line: #E3DCCF;
+    --line-strong: #D2C8B4;
+    --bronze: #9A7B4F;
+    --bronze-soft: #B89A6E;
+    --bronze-tint: rgba(154, 123, 79, 0.10);
+    --slate: #6A7480;
+    --paper-soft: #FBF8F2;
+    --emerald: #2D6B4F;
+    --char: #20262E;
+    --char-soft: #2E3640;
+    --cream: #FAF6EC;
+  }
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  .font-display { font-family: 'Fraunces', Georgia, serif; }
+  .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  h1, h2, h3 { letter-spacing: -0.02em; }
+  h1 { letter-spacing: -0.03em; }
+  p, li { line-height: 1.75; }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .bg-radial-warm {
+    background:
+      radial-gradient(ellipse at 12% 0%, rgba(154, 123, 79, 0.07) 0%, transparent 45%),
+      radial-gradient(ellipse at 88% 100%, rgba(45, 107, 79, 0.035) 0%, transparent 42%),
+      var(--bg);
+  }
+  .card {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 2px rgba(32, 38, 46, 0.04), 0 4px 14px rgba(32, 38, 46, 0.05);
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.32rem 0.7rem; border-radius: 999px;
+  }
+  .pill-fw {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em;
+    padding: 0.22rem 0.55rem; border-radius: 5px;
+    text-transform: uppercase;
+  }
+  .progress-rail { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: transparent; z-index: 40; }
+  .progress-fill { height: 100%; background: var(--bronze); width: 0%; transition: width 100ms ease-out; }
+
+  .section-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 999px;
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: 15px;
+    background: var(--char); color: var(--cream); flex-shrink: 0;
+  }
+
+  blockquote.miles-note {
+    margin: 1.1rem 0 0;
+    padding: 18px 22px;
+    background: var(--paper-soft);
+    border-left: 3px solid var(--bronze);
+    border-radius: 0 12px 12px 0;
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 17px; line-height: 1.6; color: var(--ink);
+  }
+
+  /* Org ladder */
+  .tier {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 22px;
+    position: relative;
+  }
+  .tier.open-seat { border: 1px dashed var(--line-strong); background: var(--paper-soft); }
+  .tier .tier-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
+    color: var(--bronze); margin-bottom: 6px;
+  }
+  .tier-arrow {
+    width: 30px; height: 30px; border-radius: 999px;
+    background: var(--paper-soft); border: 1px solid var(--line);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--char); margin: 8px 0;
+  }
+
+  /* Pillar cards */
+  .pillar {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 14px;
+    padding: 24px 24px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .pillar:hover { border-color: var(--bronze); transform: translateY(-2px); }
+  .pillar .pillar-num {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 600;
+    font-size: 13px; color: var(--bronze); margin-bottom: 10px; letter-spacing: 0.02em;
+  }
+  .pillar h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 20px; color: var(--ink); margin: 0 0 9px; }
+  .pillar h3 em { font-style: italic; }
+  .pillar p { font-size: 15px; color: var(--ink-soft); margin: 0; line-height: 1.6; }
+
+  /* Loom module */
+  .module {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px;
+    padding: 24px 24px 22px; margin-top: 18px;
+    box-shadow: 0 1px 2px rgba(32, 38, 46, 0.04);
+  }
+  .module-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+  .module-index {
+    font-family: 'Fraunces', serif; font-weight: 600; font-style: italic;
+    font-size: 14px; color: var(--bronze); flex-shrink: 0;
+  }
+  .module h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 21px; color: var(--ink); margin: 0; line-height: 1.25; }
+  .module .framing { font-size: 15px; color: var(--ink-soft); margin: 8px 0 16px; line-height: 1.6; }
+  .module .framing strong { color: var(--ink); font-weight: 600; }
+  .loom-frame {
+    position: relative; width: 100%; aspect-ratio: 16 / 9;
+    border-radius: 12px; overflow: hidden; background: var(--char);
+    border: 1px solid var(--line);
+  }
+  .loom-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .loom-pending {
+    width: 100%; aspect-ratio: 16 / 9;
+    border: 1px dashed var(--line-strong); border-radius: 12px;
+    background: var(--paper-soft);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 24px; gap: 8px;
+  }
+  .loom-pending .lp-mark {
+    width: 40px; height: 40px; border-radius: 999px; background: var(--bronze-tint);
+    color: var(--bronze); display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 600; font-size: 18px;
+  }
+  .loom-pending .lp-text { font-size: 14px; color: var(--slate); font-style: italic; }
+
+  .empty-modules {
+    margin-top: 18px; padding: 40px 28px; text-align: center;
+    background: var(--paper-soft); border: 1px dashed var(--line-strong); border-radius: 16px;
+  }
+  .empty-modules .em-mark {
+    width: 48px; height: 48px; border-radius: 999px; background: var(--bronze-tint);
+    color: var(--bronze); display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 600; font-size: 22px; margin-bottom: 14px;
+  }
+  .empty-modules h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; color: var(--ink); margin: 0 0 8px; }
+  .empty-modules p { font-size: 15px; color: var(--ink-soft); max-width: 30rem; margin: 0 auto; }
+
+  /* Textareas */
+  .why-input {
+    background: var(--paper-soft); border: 1px solid var(--line);
+    font-size: 15px; padding: 13px 15px; border-radius: 10px;
+    color: var(--ink); width: 100%; font-family: 'Inter', sans-serif; line-height: 1.6;
+    transition: border-color 150ms ease, background 150ms ease; resize: vertical;
+  }
+  .why-input:focus { outline: none; border-color: var(--bronze); background: #FFFFFF; box-shadow: 0 0 0 3px rgba(154,123,79,0.10); }
+  .why-input.saved { border-color: var(--emerald); background: #FFFFFF; }
+  .module .reflect-label {
+    display: block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--bronze); font-weight: 600; margin: 16px 0 8px;
+  }
+  .save-indicator { font-size: 11px; color: var(--emerald); opacity: 0; transition: opacity 200ms ease; font-weight: 600; letter-spacing: 0.04em; }
+  .save-indicator.visible { opacity: 1; }
+
+  /* Person track cards */
+  .person {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px;
+  }
+  .person .p-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .person .p-badge {
+    width: 38px; height: 38px; border-radius: 999px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 16px;
+    background: var(--char); color: var(--cream);
+  }
+  .person .p-name { font-family: 'Fraunces', serif; font-weight: 600; font-size: 19px; color: var(--ink); line-height: 1.1; }
+  .person .p-role { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bronze); font-weight: 600; margin-top: 4px; }
+  .person ul { list-style: none; padding: 0; margin: 0; }
+  .person li { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; padding: 9px 0; border-top: 1px solid var(--line); }
+  .person li:first-child { border-top: none; padding-top: 0; }
+  .person li strong { color: var(--ink); font-weight: 600; }
+
+  /* Name selector */
+  .name-picker { display: flex; flex-wrap: wrap; gap: 10px; }
+  .name-chip { position: relative; cursor: pointer; }
+  .name-chip input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .name-chip span {
+    display: inline-block; padding: 10px 20px; border-radius: 999px;
+    border: 1px solid rgba(250,246,236,0.22); background: rgba(250,246,236,0.05);
+    color: var(--cream); font-size: 14px; font-weight: 600;
+    transition: background 0.18s ease, border-color 0.18s ease;
+  }
+  .name-chip input:checked + span { background: var(--bronze); border-color: var(--bronze); color: #FFFFFF; }
+  .name-chip input:focus-visible + span { box-shadow: 0 0 0 3px rgba(154,123,79,0.35); }
+
+  .btn-primary {
+    background: var(--bronze); color: #FFFFFF; border: none; cursor: pointer;
+    transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 200ms ease, background 0.2s ease;
+  }
+  .btn-primary:hover { transform: translateY(-1px); background: #876B43; }
+  .btn-primary:focus-visible { outline: 2px solid var(--cream); outline-offset: 2px; }
+  .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+</style>
+</head>
+<body class="bg-radial-warm">
+
+<div class="grain fixed inset-0 pointer-events-none opacity-50"></div>
+
+<div class="progress-rail"><div class="progress-fill" id="progress-fill"></div></div>
+
+<!-- Header -->
+<header class="relative border-b" style="border-color: var(--line); background: rgba(247, 244, 238, 0.92); backdrop-filter: blur(12px);">
+  <div class="max-w-3xl mx-auto px-6 py-3.5 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="font-display font-semibold text-base" style="color: var(--char); letter-spacing: 0.14em;">AGEE</div>
+      <div style="width:1px; height:26px; background: var(--line-strong);"></div>
+      <div>
+        <div class="font-display font-semibold text-sm leading-tight" style="color: var(--ink);">The Standard</div>
+        <div class="text-xs leading-tight" style="color: var(--slate);">How we operate · One team</div>
+      </div>
+    </div>
+    <div class="text-xs font-mono" style="color: var(--slate);">v1 · May 29, 2026</div>
+  </div>
+</header>
+
+<main class="relative max-w-3xl mx-auto px-6 pt-10 pb-24">
+
+  <!-- HERO -->
+  <section class="mb-14">
+    <div class="pill mb-5" style="background: var(--bronze-tint); color: var(--bronze);">
+      <span class="w-1.5 h-1.5 rounded-full" style="background: var(--bronze);"></span>
+      For the team · Today's work
+    </div>
+    <h1 class="font-display font-medium text-5xl md:text-6xl leading-[0.96]" style="color: var(--ink);">
+      We're becoming <span style="color: var(--bronze);">one team</span>.
+    </h1>
+    <p class="mt-7 text-lg" style="color: var(--ink-soft);">
+      You three are the core. Going forward, we run both businesses off one standard. Same way of thinking, same level of care, same bar. The brands stay separate. The team doesn't.
+    </p>
+    <p class="mt-4 text-lg" style="color: var(--ink-soft);">
+      This page is the introduction to how we operate. A few short videos from me, the new structure, and the standard we hold each other to. Watch in order. Don't rush it.
+    </p>
+    <p class="mt-4 text-lg font-medium" style="color: var(--ink);">
+      This is your work for today. Take your time with it. Then send me the one thing at the bottom.
+    </p>
+  </section>
+
+  <!-- SECTION 1: The Concept -->
+  <section class="card rounded-2xl p-7 md:p-9 mb-7">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-num">1</div>
+      <h2 class="font-display font-medium text-3xl" style="color: var(--ink);">One team. One standard. Two businesses kept clean.</h2>
+    </div>
+    <p class="text-base mb-4" style="color: var(--ink);">
+      Up to now you've each run your lane. That doesn't go away. What changes is that we stop operating as separate parts and start operating as one team that holds one standard, no matter which business the work belongs to.
+    </p>
+    <p class="text-base mb-4" style="color: var(--ink-soft);">
+      Read this part carefully, because it matters: <span class="font-medium" style="color: var(--ink);">the businesses do not merge.</span> The brands, the pipelines, the CRMs, the way each one talks to its market, all of that stays separate on purpose. What merges is us. The team and the standard. You'll be cross-trained so you can back each other up, but the lanes stay clean.
+    </p>
+
+    <h3 class="font-display font-medium text-xl mt-7 mb-4" style="color: var(--ink);">How decisions move now.</h3>
+    <p class="text-base mb-5" style="color: var(--ink-soft);">
+      A clear chain so nothing stalls and nobody's guessing who to go to. It reads top to bottom: the final yes lives at the top, the day-to-day lives at the bottom, and the go-ahead can be given before it ever reaches me.
+    </p>
+
+    <div class="flex flex-col items-stretch">
+
+      <div class="tier">
+        <div class="tier-label">Final approval</div>
+        <div class="flex items-center justify-between gap-3">
+          <div class="font-display font-semibold text-lg" style="color: var(--ink);">Miles</div>
+          <span class="pill-fw" style="background: var(--char); color: var(--cream);">Founder</span>
+        </div>
+        <p class="text-sm mt-1" style="color: var(--ink-soft);">The last yes. I step in for the calls that genuinely need me. Not the ones that don't.</p>
+      </div>
+
+      <div class="flex justify-center"><span class="tier-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 12V2M3 6L7 2L11 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+
+      <div class="tier open-seat">
+        <div class="tier-label">The go-ahead lives here</div>
+        <div class="flex items-center justify-between gap-3">
+          <div class="font-display font-semibold text-lg" style="color: var(--ink);">Director of Operations</div>
+          <span class="pill-fw" style="background: var(--bronze-tint); color: var(--bronze);">Open seat</span>
+        </div>
+        <p class="text-sm mt-1" style="color: var(--ink-soft);">This seat can greenlight without waiting on me, so good work doesn't sit at the top. We're building toward filling it. For now, know that it exists by design.</p>
+      </div>
+
+      <div class="flex justify-center"><span class="tier-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 12V2M3 6L7 2L11 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+
+      <div class="tier" style="border-color: var(--bronze);">
+        <div class="tier-label">Team lead · Things route through here</div>
+        <div class="flex items-center justify-between gap-3">
+          <div class="font-display font-semibold text-lg" style="color: var(--ink);">Wendy</div>
+          <span class="pill-fw" style="background: rgba(45,107,79,0.10); color: var(--emerald);">Lead</span>
+        </div>
+        <p class="text-sm mt-1" style="color: var(--ink-soft);">Wendy steps up. She still owns transaction coordination and compliance, and now she's the routing point. When something needs to move up, it moves through her first. She holds the standard day to day.</p>
+      </div>
+
+      <div class="flex justify-center"><span class="tier-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 12V2M3 6L7 2L11 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+
+      <div class="tier">
+        <div class="tier-label">The team · The front line</div>
+        <div class="font-display font-semibold text-lg" style="color: var(--ink);">Chozen &amp; Aaliyah</div>
+        <p class="text-sm mt-1" style="color: var(--ink-soft);">Chozen owns the MAMS first touch through the booked appointment. Aaliyah owns the AG first touch through qualification. You're being cross-trained to cover each other when it counts, but you each own your lane.</p>
+      </div>
+
+    </div>
+
+    <blockquote class="miles-note">
+      The chain isn't about hierarchy for its own sake. It's so you always know who to go to, and so nothing important ever waits on me when it doesn't have to.
+    </blockquote>
+  </section>
+
+  <!-- SECTION 2: The Standard -->
+  <section class="card rounded-2xl p-7 md:p-9 mb-7">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-num">2</div>
+      <h2 class="font-display font-medium text-3xl" style="color: var(--ink);">The standard we hold.</h2>
+    </div>
+    <p class="text-base mb-6" style="color: var(--ink-soft);">
+      Four things. They apply whether you're on a MAMS buyer or an AG seller, whether you're drafting an email or sitting on a hard call. This is the part that doesn't change between businesses.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="pillar">
+        <div class="pillar-num">One</div>
+        <h3>Do the thing nobody <em>asked for</em>.</h3>
+        <p>The bar isn't "handled it." The bar is: would this make them feel genuinely seen? The unexpected, unrequested move is what people remember and tell other people about.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Two</div>
+        <h3>Run the <em>lens</em>, not the script.</h3>
+        <p>Scripts get you to the right shape. They don't make you good. We're after fluency, the standard living in your bones, so you can read the room and choose the right move instead of reciting one.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Three</div>
+        <h3>Confidence <em>and</em> transparency.</h3>
+        <p>We never fight for our value, we show it. Be direct, be specific, tell the truth even when it's the uncomfortable part. People trust the person who isn't selling them.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Four</div>
+        <h3>Nothing falls through <em>the cracks</em>.</h3>
+        <p>Every lead has a next step. Every client feels remembered. The follow-through is the whole game. The standard is that nobody on our watch ever goes quiet because we forgot them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: The Modules -->
+  <section class="card rounded-2xl p-7 md:p-9 mb-7">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-num">3</div>
+      <h2 class="font-display font-medium text-3xl" style="color: var(--ink);">Watch these, in order.</h2>
+    </div>
+    <p class="text-base mb-2" style="color: var(--ink-soft);">
+      Short videos from me. This is where the mindset actually comes through, not on a page. After each one, drop the single thing you're taking from it in the box. It saves automatically.
+    </p>
+    <div id="modules-root"></div>
+  </section>
+
+  <!-- SECTION 4: What changes for you -->
+  <section class="card rounded-2xl p-7 md:p-9 mb-7">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-num">4</div>
+      <h2 class="font-display font-medium text-3xl" style="color: var(--ink);">What changes for you.</h2>
+    </div>
+    <p class="text-base mb-6" style="color: var(--ink-soft);">
+      The short version, per person. Your lane is still your lane. Here's what's new.
+    </p>
+
+    <div class="grid md:grid-cols-1 gap-4">
+
+      <div class="person">
+        <div class="p-head">
+          <div class="p-badge">W</div>
+          <div>
+            <div class="p-name">Wendy</div>
+            <div class="p-role">Transaction Coordinator · Team Lead</div>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Stays the same:</strong> you own contract-to-close, paperwork, and compliance across the deals that go under contract. That's your foundation and it's not going anywhere.</li>
+          <li><strong>What's new:</strong> you're the team lead now. Things route through you. When Chozen or Aaliyah need to move something up, it comes to you first, and you hold the standard for the group day to day.</li>
+          <li><strong>The shift in your head:</strong> from "I handle my files" to "I'm responsible for how the team operates." Same care, wider lens.</li>
+        </ul>
+      </div>
+
+      <div class="person">
+        <div class="p-head">
+          <div class="p-badge">C</div>
+          <div>
+            <div class="p-name">Chozen</div>
+            <div class="p-role">MAMS · Lead Manager &amp; Client Coordinator</div>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Stays the same:</strong> you own the MAMS pipeline from my first touch through the booked appointment. You're the connective tissue and the trusted day-to-day voice.</li>
+          <li><strong>What's new:</strong> you're being cross-trained on the AG side so you can back Aaliyah up when volume spikes or she's out. You don't switch lanes, you gain the ability to cover one.</li>
+          <li><strong>The shift in your head:</strong> the standard you already run on MAMS is the same standard everywhere. You're not learning a new job, you're applying what you do to a second context.</li>
+        </ul>
+      </div>
+
+      <div class="person">
+        <div class="p-head">
+          <div class="p-badge">A</div>
+          <div>
+            <div class="p-name">Aaliyah</div>
+            <div class="p-role">AG Home Buyers · Lead Manager</div>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Stays the same:</strong> you own the AG first touch through qualification. The desk, the frameworks, the seller calls, that's yours.</li>
+          <li><strong>What's new:</strong> you're being cross-trained on the MAMS side so you can back Chozen up the same way. Two operators who can each hold the line when the other can't.</li>
+          <li><strong>The shift in your head:</strong> same standard, second context. The care you bring to a distressed seller is the care a MAMS buyer gets too.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <blockquote class="miles-note">
+      Cross-trained does not mean overloaded. It means the team has depth. When one of you is out or slammed, the client never feels it. That's the point.
+    </blockquote>
+  </section>
+
+  <!-- SECTION 5: First assignment / acknowledgment -->
+  <section class="card rounded-2xl p-7 md:p-9 mb-7" style="background: var(--char); color: var(--cream);">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-num" style="background: var(--bronze); color: #FFFFFF;">5</div>
+      <h2 class="font-display font-medium text-3xl" style="color: var(--cream);">Close it out.</h2>
+    </div>
+    <p class="text-base mb-6" style="color: rgba(250, 246, 236, 0.80);">
+      Once you've watched the videos and sat with the standard, send me this. Short is fine. I read every one.
+    </p>
+
+    <div class="space-y-6">
+      <div>
+        <label class="block text-sm font-medium mb-3" style="color: var(--cream);">Who's sending this?</label>
+        <div class="name-picker">
+          <label class="name-chip"><input type="radio" name="who" value="Wendy"><span>Wendy</span></label>
+          <label class="name-chip"><input type="radio" name="who" value="Chozen"><span>Chozen</span></label>
+          <label class="name-chip"><input type="radio" name="who" value="Aaliyah"><span>Aaliyah</span></label>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-2" style="color: var(--cream);">The one thing that hit hardest.</label>
+        <textarea class="why-input" rows="3" data-key="standard-close-1" placeholder="From the videos or the standard. What stuck?" style="background: rgba(250, 246, 236, 0.05); border-color: rgba(250, 246, 236, 0.15); color: var(--cream);"></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-2" style="color: var(--cream);">One question you have.</label>
+        <textarea class="why-input" rows="3" data-key="standard-close-2" placeholder="About the structure, your lane, the cross-training, anything." style="background: rgba(250, 246, 236, 0.05); border-color: rgba(250, 246, 236, 0.15); color: var(--cream);"></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-2" style="color: var(--cream);">One thing you're excited about <span style="color: rgba(250,246,236,0.5); font-weight: 400;">(optional)</span>.</label>
+        <textarea class="why-input" rows="2" data-key="standard-close-3" placeholder="Where you see this going." style="background: rgba(250, 246, 236, 0.05); border-color: rgba(250, 246, 236, 0.15); color: var(--cream);"></textarea>
+      </div>
+
+      <button id="send-btn" class="btn-primary px-6 py-3 rounded-xl font-semibold text-sm mt-1">Send to Miles</button>
+      <p class="text-xs mt-3" style="color: rgba(250, 246, 236, 0.55);">Opens your email with everything pre-filled. Read it, then hit send. Pick your name first.</p>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="mb-10 text-center px-6">
+    <div style="font-family: 'Fraunces', serif; font-size: 72px; line-height: 1; color: var(--line);">"</div>
+    <p class="font-display text-2xl italic max-w-2xl mx-auto" style="color: var(--ink); margin-top: -16px;">
+      I'm not building a team that follows instructions. I'm building a team that holds a standard. That's a different thing, and it's why it's you three.
+    </p>
+    <p class="mt-5 font-display italic" style="color: var(--slate);">- Miles</p>
+  </section>
+
+</main>
+
+<script>
+  // ---- Loom modules (data-driven) ----
+  // One entry per video, in order. loomId is the hash from a loom.com/share/<ID> link.
+  const LOOM_MODULES = [
+    { label: "Real Estate Buyer Consultation Overview and Strategy",
+      framing: "The MAMS buyer-side blueprint. Watch how the consultation is structured. The win is the client feeling understood, not pitched.",
+      loomId: "1ed038af16e24b6bbf04d9a018e1a3bc" },
+    { label: "Winning Seller Calls Through Concierge Mindset",
+      framing: "The seller call, run as concierge. Watch the posture. You're the trusted guide, not the salesperson.",
+      loomId: "5d6b20f069124e7d8eb91d018a6102de" },
+    { label: "Duplicate Your Best Energy to Win Fast",
+      framing: "Why your energy is the asset. Watch how to find your best self on a call and repeat it on purpose.",
+      loomId: "d984c602e48b4ace9eb3150d1b14785a" },
+    { label: "Optimizing Underwriting Calls with Live Access",
+      framing: "Underwriting with the numbers live in front of you. Watch how live access changes the speed and the confidence of the call.",
+      loomId: "22d025741bae43339e2d331b51ef3624" },
+    { label: "Preliminary Offer Presentation and Underwriting Approach",
+      framing: "How the first offer gets presented, and the underwriting thinking behind it. Watch the sequence from numbers to offer.",
+      loomId: "8f6b2eded3774494ace09982101c2d4a" },
+    { label: "Underwriting Prep and Market Metrics Walkthrough",
+      framing: "The prep before the call. Watch which market metrics actually matter and how to read them fast.",
+      loomId: "dd7158ebf13e4d579d951c035f394e3c" },
+    { label: "Reverse Engineering Cash Offer Price in NOLA",
+      framing: "Working backward from exit price to a cash offer. Watch the logic, not just the final number. The method travels to any market.",
+      loomId: "8f468c41c6414246bd0810cf437979f1" },
+    { label: "Underwriting a Low Pending Rate Exit Price",
+      framing: "Underwriting when the pending rate is soft. Watch how a tougher market changes the exit math.",
+      loomId: "317b041bac9e43e9a1faed730f8085db" },
+    { label: "Property Calls with Cassandra and Diana",
+      framing: "Real property calls, start to finish. Watch the live reps, where it flows and where it gets handled.",
+      loomId: "9b5bcf8ef3564ff88dd4c20571337dfb" },
+    { label: "Colonial Beach Underwriting Data and MLS Proof",
+      framing: "Backing the number with MLS proof. Watch how the data defends the offer when the seller pushes back.",
+      loomId: "14bdb32b3b434ee3a555f3908845709c" },
+    { label: "Negotiating a Cash Offer with Ackerman Method",
+      framing: "The Ackerman negotiation pattern on a cash offer. Watch the structured concession steps that keep you in control of the number.",
+      loomId: "8794da0041094f77b647f183535019b6" },
+    { label: "Fix Lead Setup and Call Flow",
+      framing: "The operational backbone: clean lead setup and call flow. Watch how good setup makes every call after it easier.",
+      loomId: "fb32775a986944ba8106797e4d00bcb3" },
+  ];
+
+  function renderModules() {
+    const root = document.getElementById('modules-root');
+    if (!root) return;
+    if (!LOOM_MODULES.length) {
+      root.innerHTML = `
+        <div class="empty-modules">
+          <div class="em-mark">M</div>
+          <h3 class="font-display">The videos drop in here.</h3>
+          <p>Miles is loading them now. Refresh this page once he gives the word and they'll be right here, in order, ready to watch.</p>
+        </div>`;
+      return;
+    }
+    root.innerHTML = LOOM_MODULES.map((m, i) => {
+      const n = i + 1;
+      const player = m.loomId
+        ? `<div class="loom-frame"><iframe src="https://www.loom.com/embed/${m.loomId}" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>`
+        : `<div class="loom-pending"><div class="lp-mark">${n}</div><div class="lp-text">Video ${n} drops here.</div></div>`;
+      return `
+        <div class="module">
+          <div class="module-head">
+            <span class="module-index">${String(n).padStart(2, '0')}</span>
+            <h3>${m.label || 'Module ' + n}</h3>
+          </div>
+          ${m.framing ? `<p class="framing">${m.framing}</p>` : ''}
+          ${player}
+          <label class="reflect-label" for="reflect-${n}">The one thing you're taking from this</label>
+          <textarea id="reflect-${n}" class="why-input" rows="2" data-key="standard-loom-${n}" placeholder="One line is enough."></textarea>
+          <div style="text-align:right; margin-top:6px;"><span class="save-indicator" data-target="standard-loom-${n}">Saved</span></div>
+        </div>`;
+    }).join('');
+    bindAutosave();
+  }
+
+  // ---- Autosave (localStorage) ----
+  function bindAutosave() {
+    document.querySelectorAll('.why-input').forEach(input => {
+      if (input.dataset.bound) return;
+      input.dataset.bound = '1';
+      const key = input.dataset.key;
+      const saved = localStorage.getItem(key);
+      if (saved) { input.value = saved; input.classList.add('saved'); }
+      let saveTimer;
+      input.addEventListener('input', () => {
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(() => {
+          localStorage.setItem(key, input.value);
+          input.classList.add('saved');
+          const indicator = document.querySelector(`.save-indicator[data-target="${key}"]`);
+          if (indicator) { indicator.classList.add('visible'); setTimeout(() => indicator.classList.remove('visible'), 1500); }
+        }, 400);
+      });
+    });
+  }
+
+  // ---- Name selector persistence ----
+  function bindNamePicker() {
+    const savedWho = localStorage.getItem('standard-who');
+    document.querySelectorAll('input[name="who"]').forEach(r => {
+      if (savedWho && r.value === savedWho) r.checked = true;
+      r.addEventListener('change', () => localStorage.setItem('standard-who', r.value));
+    });
+  }
+
+  // ---- Progress bar ----
+  const fill = document.getElementById('progress-fill');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+    fill.style.width = (scrolled * 100) + '%';
+  });
+
+  // ---- Send via mailto ----
+  document.getElementById('send-btn').addEventListener('click', () => {
+    const who = (document.querySelector('input[name="who"]:checked') || {}).value;
+    if (!who) { alert('Pick your name first so I know who this is from.'); return; }
+    const fields = [
+      { key: 'standard-close-1', label: 'The one thing that hit hardest' },
+      { key: 'standard-close-2', label: 'One question I have' },
+      { key: 'standard-close-3', label: "What I'm excited about" },
+    ];
+    let body = `Hey Miles,\n\nWatched the videos and sat with the standard. Here's mine.\n\n`;
+    let hasContent = false;
+    fields.forEach(f => {
+      const input = document.querySelector(`[data-key="${f.key}"]`);
+      if (input && input.value.trim()) { body += `${f.label}:\n${input.value.trim()}\n\n`; hasContent = true; }
+    });
+    // Pull any per-module reflections in too
+    const reflections = [];
+    document.querySelectorAll('[data-key^="standard-loom-"]').forEach(t => {
+      if (t.value.trim()) reflections.push(t.value.trim());
+    });
+    if (reflections.length) { body += `From the videos:\n- ${reflections.join('\n- ')}\n\n`; hasContent = true; }
+    if (!hasContent) { alert('Add at least one line before you send.'); return; }
+    body += `--\n${who} · ${new Date().toLocaleString()}`;
+    const subject = `The Standard - completed by ${who}`;
+    window.location.href = `mailto:miles@milesagee.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+
+  // ---- Init ----
+  renderModules();
+  bindAutosave();
+  bindNamePicker();
+</script>
+
+</body>
+</html>
