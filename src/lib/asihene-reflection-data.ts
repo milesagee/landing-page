@@ -15,7 +15,7 @@
  */
 
 export type ReflectionCard = {
-  id: "cheverton" | "sodbury" | "ghana";
+  id: "synthesis" | "cheverton" | "sodbury" | "ghana";
   // Card chrome
   label: string;           // small uppercase label above the headline
   headline: string;        // serif headline
@@ -65,6 +65,37 @@ export const CONTACTS: Record<string, ReflectionData> = {
     // writes "Yaw" in every text. Going with Yaw to match how she says it.
     husbandFirstName: "Yaw",
     cards: [
+      {
+        // Synthesis card added 2026-05-31 after PC deep-read returned
+        // (shared/completed/2026-05-31-0441-sharon-richardson-favorites-deep-read.md).
+        // OPENS the door without giving away PC's punch line. The
+        // "home that holds everyone / suite-for-everyone" reveal is reserved
+        // for the next call eye-to-eye. The frame names "the pattern is sharper"
+        // and asks one open question that primes the suite hypothesis without
+        // stating it. Anchor quote is Sharon's own analytical-mode line on
+        // 3707 Merrington (05/18/2026 iMessage / MLS notes export).
+        id: "synthesis",
+        label: "What I have been seeing",
+        headline: "I have been reading your full list with one question in mind.",
+        // Source: Sharon iMessage / MLS Matrix note on 3707 Merrington VIEW,
+        // 2026-05-18 (per "Sharon Richardson Notes Properperties.pdf").
+        anchorQuote:
+          "This house checks a lot of boxes: cost, space, newer construction, location.",
+        anchorAttribution: "Sharon, May 18 on 3707 Merrington",
+        // 50-60 words. Second person. No em dashes, no emojis. Holds the reveal.
+        frame:
+          "Since you have been in Ghana I have been re-reading all 55 favorites, the noted ones and the ones you only hearted. There is a thread running through every home you and Yaw lit up on. It is sharper than I had it the last time we talked. One question before our next call, in your words.",
+        questions: [
+          {
+            id: "thread",
+            label:
+              "When a home grabs both of you on the first walk through, what is the thing it is doing that the others miss? I want it in your words.",
+            placeholder:
+              "Not what you think I want to hear. What you actually feel when it clicks...",
+          },
+        ],
+        submitLabel: "Send me your read",
+      },
       {
         id: "cheverton",
         label: "The one that fit",
