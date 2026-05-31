@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>A thought for Jacob | West Augusta cabin</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--deep-teal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero__brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .hero__brand img {
+    height: 72px;
+    width: auto;
+    mix-blend-mode: multiply;
+    margin-left: -10px;
+  }
+
+  .hero__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+  }
+
+  .hero__greeting {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--teal);
+    font-style: italic;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero__title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(38px, 6vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--deep-teal);
+    margin-bottom: 18px;
+  }
+
+  .hero__title em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero__sub {
+    font-size: 16px;
+    color: var(--deep-teal);
+    opacity: 0.74;
+    max-width: 56ch;
+    line-height: 1.55;
+  }
+
+  /* ---- Section anatomy ---- */
+  section.block {
+    padding: 44px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section.block:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+  }
+
+  h2.section__title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--deep-teal);
+    margin-bottom: 8px;
+  }
+
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+
+  .section__lede {
+    font-size: 15px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    max-width: 60ch;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  /* ---- Opportunity frame ---- */
+  .opportunity {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    padding: 30px 36px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .opportunity::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.18;
+  }
+
+  .opportunity::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    border: 1px solid var(--teal-light);
+    border-radius: 50%;
+    opacity: 0.22;
+  }
+
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+
+  .opportunity p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.32;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .opportunity p em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* ---- Avatars (audience cards) ---- */
+  .avatars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .avatar {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--teal);
+    border-radius: 6px;
+    padding: 22px 22px 20px;
+    cursor: pointer;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s, border-color 0.22s;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .avatar:nth-child(2) { border-top-color: var(--gold); }
+  .avatar:nth-child(3) { border-top-color: var(--deep-teal); }
+
+  .avatar:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--line-strong);
+  }
+
+  .avatar.open { box-shadow: var(--shadow-md); border-color: var(--gold); }
+
+  .avatar__num {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.04em;
+  }
+
+  .avatar:nth-child(2) .avatar__num { color: var(--gold-dark); }
+  .avatar:nth-child(3) .avatar__num { color: var(--deep-teal); }
+
+  .avatar__name {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.012em;
+    color: var(--deep-teal);
+  }
+
+  .avatar__income {
+    font-size: 10px;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+  }
+
+  .avatar__hook {
+    font-size: 13px;
+    color: var(--deep-teal);
+    line-height: 1.5;
+    border-left: 2px solid var(--gold);
+    padding-left: 10px;
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .avatar__expand {
+    display: none;
+    margin-top: 12px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    font-size: 13px;
+    color: var(--deep-teal);
+    line-height: 1.55;
+  }
+
+  .avatar.open .avatar__expand { display: block; }
+
+  .avatar__expand strong {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold-dark);
+    margin: 10px 0 4px;
+    font-weight: 700;
+  }
+
+  .avatar__expand strong:first-child { margin-top: 0; }
+
+  .avatar__toggle {
+    font-size: 11px;
+    color: var(--teal);
+    margin-top: 8px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---- Proof Gallery ---- */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .proof-card {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s;
+  }
+
+  .proof-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .proof-card__tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+
+  .proof-card__title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--deep-teal);
+    letter-spacing: -0.012em;
+  }
+
+  .proof-card__meta {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .proof-embed {
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    background: var(--paper-soft);
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+
+  .proof-embed--reel { aspect-ratio: 9 / 16; }
+  .proof-embed--video { aspect-ratio: 16 / 9; }
+
+  .proof-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .proof-card__link {
+    font-size: 12px;
+    color: var(--gold-dark);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+  }
+
+  .proof-card__link:hover { color: var(--gold); }
+
+  .proof-profile {
+    grid-column: span 2;
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 22px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .proof-profile__handle {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    letter-spacing: -0.012em;
+    margin-bottom: 4px;
+  }
+
+  .proof-profile__line {
+    font-size: 13px;
+    color: var(--deep-teal);
+    opacity: 0.74;
+    line-height: 1.5;
+  }
+
+  .proof-profile__btn {
+    background: var(--deep-teal);
+    color: var(--gold);
+    border: 0;
+    padding: 12px 22px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  }
+
+  .proof-profile__btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0, 63, 63, 0.25);
+    background: #001f1f;
+  }
+
+  /* ---- "What I'd Film" cards ---- */
+  .shots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .shot {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px 20px 18px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.18s, box-shadow 0.18s;
+  }
+
+  .shot:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .shot__num {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-dark);
+    letter-spacing: 0.04em;
+  }
+
+  .shot__title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+  }
+
+  .shot__body {
+    font-size: 13px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    line-height: 1.55;
+    margin-top: 2px;
+  }
+
+  /* ---- Two-track toggle ---- */
+  .tracks-control {
+    display: flex;
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px;
+    margin-bottom: 22px;
+    width: fit-content;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tracks-control button {
+    background: transparent;
+    border: 0;
+    padding: 10px 22px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--deep-teal);
+    cursor: pointer;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .tracks-control button.active {
+    background: var(--deep-teal);
+    color: var(--gold);
+  }
+
+  .tracks-control button:not(.active):hover {
+    background: rgba(0, 63, 63, 0.06);
+  }
+
+  .track-panel {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: 26px 30px;
+    box-shadow: var(--shadow-sm);
+    display: none;
+  }
+
+  .track-panel.active { display: block; }
+
+  .track-panel--ongoing { border-left-color: var(--teal); }
+
+  .track-panel h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    margin-bottom: 6px;
+    letter-spacing: -0.012em;
+  }
+
+  .track-panel__tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+  }
+
+  .track-panel--ongoing .track-panel__tag { color: var(--teal); }
+
+  .track-panel__desc {
+    font-size: 14px;
+    color: var(--deep-teal);
+    opacity: 0.84;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .track-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px dashed var(--line);
+    padding-top: 14px;
+  }
+
+  .track-panel ul li {
+    font-size: 13.5px;
+    line-height: 1.55;
+    padding: 7px 0 7px 18px;
+    position: relative;
+    color: var(--deep-teal);
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .track-panel ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 10px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* ---- Outcomes comparison ---- */
+  .outcomes {
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px 28px 24px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+  }
+
+  .outcomes__instructions {
+    font-size: 13px;
+    color: var(--deep-teal);
+    opacity: 0.76;
+    margin-bottom: 22px;
+    font-style: italic;
+    font-family: var(--serif);
+    text-align: center;
+  }
+
+  .outcomes__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.95fr 0.95fr 1.1fr;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--ivory);
+  }
+
+  .outcomes__cell {
+    padding: 14px 14px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-size: 13.5px;
+    color: var(--deep-teal);
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .outcomes__cell--head {
+    background: var(--paper-soft);
+    text-align: center;
+    padding: 16px 12px;
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+  }
+
+  .outcomes__cell--head .sub {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  .outcomes__cell--metric {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--teal);
+    background: rgba(0, 95, 95, 0.04);
+    font-weight: 500;
+  }
+
+  .outcomes__cell--metric .sub {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 10px;
+    color: var(--deep-teal);
+    opacity: 0.55;
+    margin-top: 3px;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .outcomes__cell--value {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--deep-teal);
+  }
+
+  .outcomes__cell--value .lift {
+    display: block;
+    font-family: var(--sans);
+    font-size: 10px;
+    color: var(--deep-teal);
+    opacity: 0.55;
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+  }
+
+  .outcomes__col--mams {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    border-right: 0;
+  }
+
+  .outcomes__col--mams .sub { color: var(--gold-soft); opacity: 0.85; }
+  .outcomes__col--mams.outcomes__cell--head { background: var(--deep-teal); color: var(--gold); }
+  .outcomes__col--mams.outcomes__cell--head .sub { color: var(--gold-soft); }
+  .outcomes__col--mams.outcomes__cell--value { color: var(--gold); }
+  .outcomes__col--mams.outcomes__cell--value .lift { color: var(--gold-soft); opacity: 0.85; }
+
+  .outcomes__methodology {
+    margin-top: 18px;
+    padding: 12px 16px;
+    background: rgba(212, 175, 55, 0.08);
+    border-radius: 4px;
+    font-family: var(--serif);
+    font-size: 12.5px;
+    color: var(--deep-teal);
+    font-style: italic;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  .outcomes__methodology strong {
+    color: var(--gold-dark);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ---- CTA ---- */
+  .cta {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    border-radius: 8px;
+    padding: 36px 38px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta__title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  .cta__sub {
+    font-size: 14px;
+    opacity: 0.78;
+    margin-bottom: 18px;
+    max-width: 48ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__paste {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px dashed rgba(212, 175, 55, 0.4);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 0 auto 22px;
+    max-width: 38ch;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--gold-soft);
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .cta__paste:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--gold);
+  }
+
+  .cta__paste-label {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .cta__buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__btn {
+    background: var(--gold);
+    color: var(--deep-teal);
+    border: 0;
+    padding: 14px 26px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  }
+
+  .cta__btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
+    background: var(--gold-soft);
+  }
+
+  .cta__btn--ghost {
+    background: transparent;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+  }
+
+  .cta__btn--ghost:hover {
+    background: rgba(212, 175, 55, 0.1);
+  }
+
+  .cta__or {
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--gold-soft);
+    opacity: 0.78;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Footer ---- */
+  footer.foot {
+    padding: 38px 0 60px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--deep-teal);
+    opacity: 0.55;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+  }
+
+  footer.foot .why {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 8px;
+    letter-spacing: 0;
+  }
+
+  footer.foot .why em { color: var(--gold-dark); }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 34px; }
+    section.block { padding: 32px 0; }
+    .avatars { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr; gap: 14px; }
+    .proof-profile { grid-column: span 1; flex-direction: column; align-items: flex-start; padding: 18px 20px; }
+    .shots { grid-template-columns: 1fr; }
+    .opportunity { padding: 22px 24px; }
+    .opportunity p { font-size: 18px; }
+    .outcomes { padding: 20px 18px; }
+    .outcomes__grid { grid-template-columns: 1.2fr 1fr; }
+    .outcomes__cell { font-size: 12.5px; padding: 12px 10px; }
+    .outcomes__cell--head { font-size: 13px; padding: 14px 10px; }
+    .outcomes__cell--head .sub { font-size: 8.5px; letter-spacing: 0.1em; }
+    .outcomes__cell--value { font-size: 17px; }
+    .outcomes__cell--hide-mobile { display: none; }
+    .track-panel { padding: 22px 22px; }
+    .cta { padding: 28px 24px; }
+    .cta__title { font-size: 22px; }
+    .cta__buttons { flex-direction: column; }
+    .cta__btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand">
+      <img src="mams-logo.png" alt="MAMS LLC"/>
+    </div>
+    <div class="hero__eyebrow">For Jacob &middot; West Augusta cabin</div>
+    <div class="hero__greeting">Hey Jacob,</div>
+    <h1 class="hero__title">A thought, <em>while I'm here.</em></h1>
+    <p class="hero__sub">You're hosting me tomorrow. I read your no-refund policy and respect it. While we're already in your space, here's something worth your 60 seconds.</p>
+  </header>
+
+  <!-- OPPORTUNITY FRAME -->
+  <section class="block">
+    <div class="opportunity">
+      <div class="eyebrow">The Frame</div>
+      <p>Most agents would book a cabin and disappear. I'm not that. Your place is the kind of stay my Richmond audience asks about every week. <em>Letting me feature it costs you nothing</em> and gets your listing in front of the people already searching for exactly this.</p>
+    </div>
+  </section>
+
+  <!-- AUDIENCE OVERLAP -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; The Audience Overlap</div>
+    <h2 class="section__title">Three guests who already exist. <em>They just haven't found you yet.</em></h2>
+    <p class="section__lede">Tap any card to see who they are, what hooks them, and what loses them. Built from the people who actually engage with my Richmond content every week.</p>
+
+    <div class="avatars">
+      <div class="avatar" data-i="0">
+        <div class="avatar__num">01</div>
+        <div class="avatar__name">The Richmond weekend reset</div>
+        <div class="avatar__income">Couples &middot; mid-20s to late-30s</div>
+        <div class="avatar__hook">"I need a phone-off weekend. Two hours west. No resort. Just trees and quiet."</div>
+        <div class="avatar__toggle">Tap to expand &darr;</div>
+        <div class="avatar__expand">
+          <strong>Who they are</strong>Richmond couples who DM me asking where to go for a weekend reset that isn't another brewery crawl. Most have already done Charlottesville. They want quieter.
+          <strong>Why they pick your cabin</strong>Two hours from Richmond is the sweet spot. Cabin not condo. One bedroom, two beds, real bath. They are not looking for a hot tub package, they are looking for trees and silence.
+          <strong>Best fit</strong>Friday afternoon to Sunday morning, paid in full, low maintenance guests who care about not breaking the vibe.
+          <strong>What loses them</strong>Listings that read like a checklist instead of a place. They scroll past anything that feels like a sales pitch and stop on anything that feels like a recommendation from a friend.
+        </div>
+      </div>
+
+      <div class="avatar" data-i="1">
+        <div class="avatar__num">02</div>
+        <div class="avatar__name">The relocation scout</div>
+        <div class="avatar__income">Families &middot; out-of-state</div>
+        <div class="avatar__hook">"We are moving to Richmond. We want one weekend in the Blue Ridge before we sign anything."</div>
+        <div class="avatar__toggle">Tap to expand &darr;</div>
+        <div class="avatar__expand">
+          <strong>Who they are</strong>People who found me through the relocation guide and are doing scouting trips before they commit. They book Richmond Tuesday through Friday and want a buffer night in the mountains before they fly home.
+          <strong>Why they pick your cabin</strong>The mountains are part of the Richmond pitch. Showing them how close they are to the Shenandoah on a Sunday is the closing move on the relocation decision.
+          <strong>Best fit</strong>One night extensions on the back of a longer Richmond stay. Books months in advance.
+          <strong>What loses them</strong>Anything that feels resort-y or theme-park-y. They want proof Virginia is the right call, not a manufactured experience.
+        </div>
+      </div>
+
+      <div class="avatar" data-i="2">
+        <div class="avatar__num">03</div>
+        <div class="avatar__name">The remote-work solitude trip</div>
+        <div class="avatar__income">Professionals &middot; 30s to 40s</div>
+        <div class="avatar__hook">"I need to disappear for a long weekend and still take two calls on Thursday."</div>
+        <div class="avatar__toggle">Tap to expand &darr;</div>
+        <div class="avatar__expand">
+          <strong>Who they are</strong>Solo professionals who follow my content for Richmond context but want the rural escape. They book Wednesday through Sunday, charge it to the company, work mornings, hike afternoons.
+          <strong>Why they pick your cabin</strong>1 bedroom, 2 beds, private bath checks the must-have list. Two hours west of Richmond is close enough that they could be back for a Friday in-person if anything urgent comes up.
+          <strong>Best fit</strong>Mid-week stays at full nightly rate. The midweek calendar is where every cabin host bleeds revenue. This guest fills it.
+          <strong>What loses them</strong>Listings without honest signal about cell service and connectivity. They will pay full price for a place that tells the truth about both.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF GALLERY -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; The Proof</div>
+    <h2 class="section__title">My audience is real. <em>Here's the receipt.</em></h2>
+    <p class="section__lede">Four pieces of public proof. Open them on your phone, watch 30 seconds of each, then come back. The Reels load directly below. The YouTube piece is the production quality, the Reels are the everyday cadence.</p>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-card__tag">Reach proof &middot; 104K views</div>
+        <div class="proof-card__title">Richmond 2025 = Austin 1995</div>
+        <div class="proof-card__meta">104K views &middot; 6,024 likes &middot; Instagram</div>
+        <div class="proof-embed proof-embed--reel">
+          <iframe src="https://www.instagram.com/reel/DQF1kAUjHjc/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://www.instagram.com/reel/DQF1kAUjHjc/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-card__tag">Production proof</div>
+        <div class="proof-card__title">Scott's Addition Richmond walkthrough</div>
+        <div class="proof-card__meta">Long-form &middot; YouTube</div>
+        <div class="proof-embed proof-embed--video">
+          <iframe src="https://www.youtube.com/embed/a_qy9Scnjmg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://youtu.be/a_qy9Scnjmg" target="_blank" rel="noopener">Open on YouTube &rarr;</a>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-card__tag">Unstaged style</div>
+        <div class="proof-card__title">POV: tired of staged house tours</div>
+        <div class="proof-card__meta">3,315 views &middot; Instagram Reel</div>
+        <div class="proof-embed proof-embed--reel">
+          <iframe src="https://www.instagram.com/reel/DOwlCGSDkup/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://www.instagram.com/reel/DOwlCGSDkup/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-card__tag">"Heart of the place" treatment</div>
+        <div class="proof-card__title">Things you should know before moving to Richmond</div>
+        <div class="proof-card__meta">1,428 views &middot; Instagram Reel</div>
+        <div class="proof-embed proof-embed--reel">
+          <iframe src="https://www.instagram.com/reel/DRaoqr2Dg_U/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://www.instagram.com/reel/DRaoqr2Dg_U/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
+      </div>
+
+      <div class="proof-profile">
+        <div>
+          <div class="proof-profile__handle">@milesaminutesolutions</div>
+          <div class="proof-profile__line">Miles &middot; Moving to Richmond. Real-estate and Richmond content for the people moving here and the people already in love with it.</div>
+        </div>
+        <a class="proof-profile__btn" href="https://www.instagram.com/milesaminutesolutions" target="_blank" rel="noopener">See the full profile &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I'D FILM -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; What I'd Film</div>
+    <h2 class="section__title">Three angles. <em>No staged tour energy.</em></h2>
+    <p class="section__lede">If you say yes, here's exactly what I shoot. Real, specific, the things people actually notice. You see every cut before anything goes up.</p>
+
+    <div class="shots">
+      <div class="shot">
+        <div class="shot__num">Angle 01</div>
+        <div class="shot__title">The drive in</div>
+        <div class="shot__body">The road from Richmond to your gate. The gradient from interstate to two-lane to gravel. Two hours, one cabin, no notifications. This is the hook.</div>
+      </div>
+      <div class="shot">
+        <div class="shot__num">Angle 02</div>
+        <div class="shot__title">The cabin as it really lives</div>
+        <div class="shot__body">Coffee in the morning. The light through the windows at golden hour. The reason your reviews say what they say. Not a checklist. The actual feel.</div>
+      </div>
+      <div class="shot">
+        <div class="shot__num">Angle 03</div>
+        <div class="shot__title">What's worth driving for</div>
+        <div class="shot__body">Whatever you'd tell a friend to do nearby. Hikes, food, a quiet view, a thing the algorithm doesn't surface. Your insider knowledge becomes the reason people book.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; The Outcomes</div>
+    <h2 class="section__title">Same cabin. <em>Three reach paths.</em></h2>
+    <p class="section__lede">What it looks like for your listing under three different promotion approaches. Numbers are projections, not promises. Sources cited under the table.</p>
+
+    <div class="outcomes">
+      <div class="outcomes__instructions">Same cabin, same calendar, three different distribution strategies.</div>
+
+      <div class="outcomes__grid">
+        <div class="outcomes__cell outcomes__cell--head">Metric<span class="sub">Per month</span></div>
+        <div class="outcomes__cell outcomes__cell--head outcomes__cell--hide-mobile">Self-promoted<span class="sub">Owner social</span></div>
+        <div class="outcomes__cell outcomes__cell--head outcomes__cell--hide-mobile">Airbnb organic<span class="sub">Platform only</span></div>
+        <div class="outcomes__cell outcomes__cell--head outcomes__col--mams">MAMS feature<span class="sub">Proposed</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">Impressions to source market<span class="sub">people who see your cabin in the Richmond and Mid-Atlantic feed</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">500-2K<span class="lift">owner-side social</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">50-300<span class="lift">Airbnb platform serve</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">40K-100K<span class="lift">single Reel to Richmond audience</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">Listing-page visits driven<span class="sub">people who tap from the video to your Airbnb page</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">10-50<span class="lift">baseline</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">5-30<span class="lift">discovery surface</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">600-1.8K<span class="lift">15-20x lift, conservative</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">Booking nights added<span class="sub">incremental nights inside 30 days post-feature</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">baseline<span class="lift">flat</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">+0-1<span class="lift">organic only</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">+3-8<span class="lift">midweek &amp; shoulder fill</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">Cost to you<span class="sub">out of pocket for the first feature</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">time<span class="lift">your hours</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">$0<span class="lift">platform default</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">$0<span class="lift">first feature on me</span></div>
+      </div>
+
+      <div class="outcomes__methodology">
+        <strong>The math.</strong> Impression range built from comparable Reels on the same channel (1,400-104K range, median ~8K, the cited 104K piece is the ceiling not the floor). Visit-lift uses 1.5-2% CTR from view to bio link, well below platform median. Booking nights assume 3-5% visit-to-book conversion. Audience overlap drawn from the @milesaminutesolutions Richmond-area follower base. Estimates only, not guarantees.
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO-TRACK ASK -->
+  <section class="block">
+    <div class="eyebrow">Section 05 &middot; The Ask</div>
+    <h2 class="section__title">First feature is on me. <em>Ongoing is a conversation.</em></h2>
+    <p class="section__lede">The default is a free first feature. If it produces what we both think it can, we talk about what an ongoing relationship looks like. Tap to compare.</p>
+
+    <div class="tracks-control">
+      <button class="active" data-track="free">Track 01 &middot; Free first feature</button>
+      <button data-track="ongoing">Track 02 &middot; Ongoing partnership</button>
+    </div>
+
+    <div class="track-panel track-panel--free active" data-track="free">
+      <div class="track-panel__tag">Track 01 &middot; Default</div>
+      <h3>One feature, zero cost to you</h3>
+      <p class="track-panel__desc">You say yes. I film while I'm there tomorrow. You see every cut before anything publishes. The piece goes up across my channels with a clear call to action that drives people to your Airbnb listing. We measure what happens in the 30 days that follow.</p>
+      <ul>
+        <li>One short-form Reel for Instagram and TikTok, cinematic style, your cabin as the hero.</li>
+        <li>Filming happens tomorrow during my stay, no extra scheduling on your end.</li>
+        <li>You approve every cut before it goes live. No surprises, no narrative you didn't sign off on.</li>
+        <li>Direct link to your Airbnb listing in the caption, bio, and pinned comment.</li>
+        <li>30-day reporting back to you on reach, listing-page taps, and booking signals.</li>
+      </ul>
+    </div>
+
+    <div class="track-panel track-panel--ongoing" data-track="ongoing">
+      <div class="track-panel__tag">Track 02 &middot; If the first one lands</div>
+      <h3>What an ongoing relationship could look like</h3>
+      <p class="track-panel__desc">If the first feature does what we both think it can, here are the shapes an ongoing partnership can take. No commitment now. This is just so you can see where it could go.</p>
+      <ul>
+        <li>Quarterly seasonal features. One Reel per quarter that catches the season the cabin sells hardest.</li>
+        <li>Booking-attribution model. You pay a flat fee per booking traced back to a MAMS feature, nothing if it doesn't produce.</li>
+        <li>Cross-promotion with my Richmond home base. You become the recommended weekend escape in the relocation guide.</li>
+        <li>Co-created content. Your insider knowledge of the area, my camera, my distribution. You get the audience, I get the local color.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block">
+    <div class="cta">
+      <div class="cta__title">Reply <em>yes</em> on the Airbnb thread.</div>
+      <p class="cta__sub">Easiest path is the Airbnb thread we already have open. One word works. If you'd rather email, the button below is prefilled.</p>
+
+      <div class="cta__paste" id="pasteSnippet">
+        <span class="cta__paste-label">Paste-ready reply</span>
+        Hey Miles, yes, let's film.
+      </div>
+
+      <div class="cta__buttons">
+        <a href="#" id="emailBtn" class="cta__btn cta__btn--ghost">Or email me &rarr;</a>
+      </div>
+      <div class="cta__or">no pressure either way, the booking stands</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Built by <em>Miles Agee</em> &middot; MAMS LLC &middot; Richmond, Virginia</div>
+    <div>miles@milesagee.com &middot; mamsnow.com &middot; Single-recipient page for Jacob. Not indexed.</div>
+  </footer>
+
+</div>
+
+<script>
+  // Avatar expand/collapse (tap any card to expand; tap again to close)
+  document.querySelectorAll('.avatar').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasOpen = card.classList.contains('open');
+      document.querySelectorAll('.avatar').forEach(c => c.classList.remove('open'));
+      if (!wasOpen) card.classList.add('open');
+    });
+  });
+
+  // Two-track toggle (Free first feature / Ongoing partnership)
+  document.querySelectorAll('.tracks-control button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const track = btn.dataset.track;
+      document.querySelectorAll('.tracks-control button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.track-panel').forEach(p => {
+        p.classList.toggle('active', p.dataset.track === track);
+      });
+    });
+  });
+
+  // Click-to-copy on the paste snippet
+  const pasteSnippet = document.getElementById('pasteSnippet');
+  if (pasteSnippet) {
+    pasteSnippet.addEventListener('click', async () => {
+      const text = 'Hey Miles, yes, let\'s film.';
+      try {
+        await navigator.clipboard.writeText(text);
+        const original = pasteSnippet.innerHTML;
+        pasteSnippet.innerHTML = '<span class="cta__paste-label">Copied. Paste into Airbnb.</span>Hey Miles, yes, let\'s film.';
+        setTimeout(() => { pasteSnippet.innerHTML = original; }, 2400);
+      } catch (e) { /* clipboard not available, no-op */ }
+    });
+  }
+
+  // Email CTA mailto: prefilled
+  const emailBtn = document.getElementById('emailBtn');
+  if (emailBtn) {
+    const subject = encodeURIComponent('Cabin feature, yes');
+    const body = encodeURIComponent(
+      'Hey Miles,\n\n' +
+      'Saw the page. Yes on the feature. Let\'s line it up.\n\n' +
+      'Jacob'
+    );
+    emailBtn.href = 'mailto:miles@milesagee.com?subject=' + subject + '&body=' + body;
+  }
+</script>
+
+</body>
+</html>
