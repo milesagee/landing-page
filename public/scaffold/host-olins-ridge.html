@@ -385,9 +385,7 @@
     width: 100%;
     border-radius: 5px;
     overflow: hidden;
-    background:
-      radial-gradient(ellipse 70% 55% at 50% 45%, rgba(212, 175, 55, 0.18), transparent 70%),
-      var(--deep-teal);
+    background: var(--deep-teal);
     box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.18);
     display: flex;
     flex-direction: column;
@@ -398,6 +396,25 @@
     transition: background 0.22s, box-shadow 0.22s;
   }
 
+  .proof-tap > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 0;
+  }
+
+  .proof-tap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 30, 30, 0.18) 0%, transparent 32%, transparent 55%, rgba(0, 30, 30, 0.85) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
   .proof-tap--reel { aspect-ratio: 9 / 16; }
   .proof-tap--video { aspect-ratio: 16 / 9; }
 
@@ -406,6 +423,8 @@
   }
 
   .proof-tap__play {
+    position: relative;
+    z-index: 2;
     width: 64px;
     height: 64px;
     border-radius: 50%;
@@ -416,7 +435,7 @@
     justify-content: center;
     font-size: 22px;
     padding-left: 5px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28), 0 0 0 2px rgba(0, 30, 30, 0.25);
     transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -425,6 +444,8 @@
   }
 
   .proof-tap__cta {
+    position: relative;
+    z-index: 2;
     font-family: var(--sans);
     font-size: 11px;
     font-weight: 700;
@@ -433,6 +454,7 @@
     color: var(--gold);
     text-align: center;
     padding: 0 14px;
+    text-shadow: 0 1px 6px rgba(0, 20, 20, 0.85);
   }
 
   .proof-profile {
@@ -1053,6 +1075,7 @@
         <div class="proof-card__title">Richmond 2025 = Austin 1995</div>
         <div class="proof-card__meta">173K views &middot; 6.1K likes &middot; Instagram</div>
         <div class="proof-tap proof-tap--reel">
+          <img src="proof/proof-richmond-2025-austin.jpg" alt="" loading="lazy">
           <div class="proof-tap__play">&#9654;</div>
           <div class="proof-tap__cta">Tap to play on Instagram</div>
         </div>
@@ -1063,6 +1086,7 @@
         <div class="proof-card__title">Scott's Addition Richmond walkthrough</div>
         <div class="proof-card__meta">Long-form &middot; YouTube</div>
         <div class="proof-tap proof-tap--video">
+          <img src="proof/proof-scotts-addition.jpg" alt="" loading="lazy">
           <div class="proof-tap__play">&#9654;</div>
           <div class="proof-tap__cta">Tap to watch on YouTube</div>
         </div>
@@ -1073,6 +1097,7 @@
         <div class="proof-card__title">POV: tired of staged house tours</div>
         <div class="proof-card__meta">163K views &middot; 5.3K likes &middot; Instagram Reel</div>
         <div class="proof-tap proof-tap--reel">
+          <img src="proof/proof-staged-tours.jpg" alt="" loading="lazy">
           <div class="proof-tap__play">&#9654;</div>
           <div class="proof-tap__cta">Tap to play on Instagram</div>
         </div>
@@ -1083,6 +1108,7 @@
         <div class="proof-card__title">Things you should know before moving to Richmond</div>
         <div class="proof-card__meta">6,796 views &middot; Instagram Reel</div>
         <div class="proof-tap proof-tap--reel">
+          <img src="proof/proof-things-you-should-know.jpg" alt="" loading="lazy">
           <div class="proof-tap__play">&#9654;</div>
           <div class="proof-tap__cta">Tap to play on Instagram</div>
         </div>
