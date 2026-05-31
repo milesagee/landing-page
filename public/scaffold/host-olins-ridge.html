@@ -119,6 +119,16 @@
     line-height: 1.55;
   }
 
+  .hero__cue {
+    display: none;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold-dark);
+    margin-top: 18px;
+    letter-spacing: 0.02em;
+  }
+
   /* ---- Section anatomy ---- */
   section.block {
     padding: 44px 0;
@@ -360,36 +370,70 @@
     letter-spacing: 0.02em;
   }
 
-  .proof-embed {
+  a.proof-card {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a.proof-card:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .proof-tap {
     position: relative;
     width: 100%;
     border-radius: 5px;
     overflow: hidden;
-    background: var(--paper-soft);
-    box-shadow: inset 0 0 0 1px var(--line);
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 45%, rgba(212, 175, 55, 0.18), transparent 70%),
+      var(--deep-teal);
+    box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--gold);
+    transition: background 0.22s, box-shadow 0.22s;
   }
 
-  .proof-embed--reel { aspect-ratio: 9 / 16; }
-  .proof-embed--video { aspect-ratio: 16 / 9; }
+  .proof-tap--reel { aspect-ratio: 9 / 16; }
+  .proof-tap--video { aspect-ratio: 16 / 9; }
 
-  .proof-embed iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
+  a.proof-card:hover .proof-tap {
+    box-shadow: inset 0 0 0 1px var(--gold);
   }
 
-  .proof-card__link {
-    font-size: 12px;
-    color: var(--gold-dark);
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    margin-top: 2px;
+  .proof-tap__play {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--deep-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    padding-left: 5px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .proof-card__link:hover { color: var(--gold); }
+  a.proof-card:hover .proof-tap__play {
+    transform: scale(1.06);
+  }
+
+  .proof-tap__cta {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    padding: 0 14px;
+  }
 
   .proof-profile {
     grid-column: span 2;
@@ -899,6 +943,7 @@
     .hero { padding: 32px 0 24px; }
     .hero__brand img { height: 56px; }
     .hero__title { font-size: 34px; }
+    .hero__cue { display: block; }
     section.block { padding: 32px 0; }
     .avatars { grid-template-columns: 1fr; }
     .proof-grid { grid-template-columns: 1fr; gap: 14px; }
@@ -934,6 +979,7 @@
     <div class="hero__greeting">Hey Holly,</div>
     <h1 class="hero__title">A thought, <em>while I'm here.</em></h1>
     <p class="hero__sub">You're hosting me at Olin's Ridge tomorrow. I read the no-refund policy and respect it. While we're already in your space, here's something worth your 60 seconds.</p>
+    <div class="hero__cue">What I noticed &darr;</div>
   </header>
 
   <!-- OPPORTUNITY FRAME -->
@@ -999,48 +1045,48 @@
   <section class="block">
     <div class="eyebrow">Section 02 &middot; The Proof</div>
     <h2 class="section__title">My audience is real. <em>Here's the receipt.</em></h2>
-    <p class="section__lede">Four pieces of public proof. Open them on your phone, watch 30 seconds of each, then come back. The Reels load directly below. The YouTube piece is the production quality, the Reels are the everyday cadence.</p>
+    <p class="section__lede">Four pieces of public proof. Tap any card to play it where it lives. The YouTube piece is the production quality, the Reels are the everyday cadence.</p>
 
     <div class="proof-grid">
-      <div class="proof-card">
+      <a class="proof-card" href="https://www.instagram.com/reel/DQF1kAUjHjc/" target="_blank" rel="noopener">
         <div class="proof-card__tag">Reach proof &middot; 104K views</div>
         <div class="proof-card__title">Richmond 2025 = Austin 1995</div>
         <div class="proof-card__meta">104K views &middot; 6,024 likes &middot; Instagram</div>
-        <div class="proof-embed proof-embed--reel">
-          <iframe src="https://www.instagram.com/reel/DQF1kAUjHjc/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        <div class="proof-tap proof-tap--reel">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to play on Instagram</div>
         </div>
-        <a class="proof-card__link" href="https://www.instagram.com/reel/DQF1kAUjHjc/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
-      </div>
+      </a>
 
-      <div class="proof-card">
+      <a class="proof-card" href="https://youtu.be/a_qy9Scnjmg" target="_blank" rel="noopener">
         <div class="proof-card__tag">Production proof</div>
         <div class="proof-card__title">Scott's Addition Richmond walkthrough</div>
         <div class="proof-card__meta">Long-form &middot; YouTube</div>
-        <div class="proof-embed proof-embed--video">
-          <iframe src="https://www.youtube.com/embed/a_qy9Scnjmg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <div class="proof-tap proof-tap--video">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to watch on YouTube</div>
         </div>
-        <a class="proof-card__link" href="https://youtu.be/a_qy9Scnjmg" target="_blank" rel="noopener">Open on YouTube &rarr;</a>
-      </div>
+      </a>
 
-      <div class="proof-card">
+      <a class="proof-card" href="https://www.instagram.com/reel/DOwlCGSDkup/" target="_blank" rel="noopener">
         <div class="proof-card__tag">Unstaged style</div>
         <div class="proof-card__title">POV: tired of staged house tours</div>
         <div class="proof-card__meta">3,315 views &middot; Instagram Reel</div>
-        <div class="proof-embed proof-embed--reel">
-          <iframe src="https://www.instagram.com/reel/DOwlCGSDkup/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        <div class="proof-tap proof-tap--reel">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to play on Instagram</div>
         </div>
-        <a class="proof-card__link" href="https://www.instagram.com/reel/DOwlCGSDkup/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
-      </div>
+      </a>
 
-      <div class="proof-card">
+      <a class="proof-card" href="https://www.instagram.com/reel/DRaoqr2Dg_U/" target="_blank" rel="noopener">
         <div class="proof-card__tag">"Heart of the place" treatment</div>
         <div class="proof-card__title">Things you should know before moving to Richmond</div>
         <div class="proof-card__meta">1,428 views &middot; Instagram Reel</div>
-        <div class="proof-embed proof-embed--reel">
-          <iframe src="https://www.instagram.com/reel/DRaoqr2Dg_U/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        <div class="proof-tap proof-tap--reel">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to play on Instagram</div>
         </div>
-        <a class="proof-card__link" href="https://www.instagram.com/reel/DRaoqr2Dg_U/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
-      </div>
+      </a>
 
       <div class="proof-profile">
         <div>
@@ -1191,6 +1237,12 @@
       if (!wasOpen) card.classList.add('open');
     });
   });
+
+  // Auto-expand the first audience card on mobile so the pattern is visible
+  if (window.matchMedia('(max-width: 720px)').matches) {
+    const firstAvatar = document.querySelector('.avatar');
+    if (firstAvatar) firstAvatar.classList.add('open');
+  }
 
   // Two-track toggle (Free first feature / Ongoing partnership)
   document.querySelectorAll('.tracks-control button').forEach(btn => {
