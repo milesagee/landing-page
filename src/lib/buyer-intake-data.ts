@@ -99,6 +99,12 @@ export const CONTACTS: Record<string, BuyerIntakeContact> = {
       budgetMax: 350000,
     },
   },
+  "lgeB3atlT6LsxEzT3mdr": {
+    contactId: "lgeB3atlT6LsxEzT3mdr",
+    shareToken: "Lqo6Pmxy-u6P",
+    firstName: "Cece",
+    establishedChannel: "mams-line-established",
+  },
 };
 
 export function getBuyerIntakeByToken(
