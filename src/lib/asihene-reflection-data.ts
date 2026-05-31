@@ -105,16 +105,25 @@ export const CONTACTS: Record<string, ReflectionData> = {
           "Why haven't Cheverton closed if it was cash ???? Do I smell a rat??",
         anchorAttribution: "Sharon, May 8",
         factBlock: {
-          // Source: MLS Matrix PDF, listing #9, MLS 2607155.
+          // Source: MLS Matrix PDF, listing #9, MLS 2607155. Close terms
+          // pulled from CVR MLS Sold Information panel 2026-05-31 (Miles
+          // direct lookup): Sold 05/14/2026 at $1,600,000 cash. Buyer
+          // Lauren Garber / Providence Hill Real Estate. PC's first deep
+          // read had this as "Closed off-market" - that was wrong. The
+          // close was on-MLS at her ceiling for cash.
           address: "16506 Cheverton Court",
           neighborhood: "Hallsley",
-          listPrice: "$1,500,000",
+          listPrice: "Listed $1,500,000 / Closed $1,600,000 cash",
           specs: "5 BR / 6.1 BA / 5,454 sq ft / 2019 build",
-          status: "Closed - off-market",
+          status: "Closed 05/14/2026 cash",
         },
-        // 50-60 words. Second person. No em dashes, no emojis.
+        // Frame updated 2026-05-31 with verified close data. The close
+        // teaches the market: a Cheverton-grade home clears at her ceiling
+        // in cash. That sets the bar for what readiness looks like next time
+        // a comparable home lists. Honors her 5/8 frustration with hard data
+        // (the cash buyers DID close) without re-litigating the loss.
         frame:
-          "Cheverton was the home that worked for both of you. Newer construction Yaw could grow into, layout that broke the pattern of your current home, Hallsley quality. It's gone, and it's not coming back. What I want us to do here is lock in what made it the right blend, so the next one is recognizable on the first walk through.",
+          "Cheverton was the home that worked for both of you. Newer construction Yaw could grow into, layout that broke the pattern of your current home, Hallsley quality. It closed at $1.6M cash on 5/14, at your ceiling, with decisive terms. That tells us the bar for the next one. It will clear at the top of your range and reward whoever moves first. Lock in what made Cheverton the right blend so the next one is recognizable on the first walk through.",
         questions: [
           {
             id: "blend",
