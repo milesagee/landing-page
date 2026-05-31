@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>A thought for {{HOST_FIRST_NAME}} | {{PROPERTY_DESCRIPTOR}}</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--line); }
+  .hero__brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .hero__brand img { height: 72px; width: auto; mix-blend-mode: multiply; margin-left: -10px; }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+  .hero__greeting { font-family: var(--serif); font-size: 13px; color: var(--teal); font-style: italic; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(38px, 6vw, 54px); line-height: 1.02; letter-spacing: -0.025em; color: var(--deep-teal); margin-bottom: 18px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 16px; color: var(--deep-teal); opacity: 0.74; max-width: 56ch; line-height: 1.55; }
+
+  section.block { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.section__title { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34px); line-height: 1.1; letter-spacing: -0.02em; color: var(--deep-teal); margin-bottom: 8px; }
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+  .section__lede { font-size: 15px; color: var(--deep-teal); opacity: 0.78; max-width: 60ch; line-height: 1.6; margin-bottom: 28px; }
+
+  .opportunity { background: var(--deep-teal); color: var(--ivory); padding: 30px 36px; border-radius: 6px; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+  .opportunity::after { content: ''; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .opportunity::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border: 1px solid var(--teal-light); border-radius: 50%; opacity: 0.22; }
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+  .opportunity p { font-family: var(--serif); font-size: 22px; line-height: 1.32; font-weight: 300; letter-spacing: -0.005em; position: relative; z-index: 1; }
+  .opportunity p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  .avatars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .avatar { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 6px; padding: 22px 22px 20px; cursor: pointer; transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s, border-color 0.22s; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 10px; }
+  .avatar:nth-child(2) { border-top-color: var(--gold); }
+  .avatar:nth-child(3) { border-top-color: var(--deep-teal); }
+  .avatar:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--line-strong); }
+  .avatar.open { box-shadow: var(--shadow-md); border-color: var(--gold); }
+  .avatar__num { font-family: var(--serif); font-size: 11px; font-weight: 600; color: var(--teal); letter-spacing: 0.04em; }
+  .avatar:nth-child(2) .avatar__num { color: var(--gold-dark); }
+  .avatar:nth-child(3) .avatar__num { color: var(--deep-teal); }
+  .avatar__name { font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.15; letter-spacing: -0.012em; color: var(--deep-teal); }
+  .avatar__income { font-size: 10px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; }
+  .avatar__hook { font-size: 13px; color: var(--deep-teal); line-height: 1.5; border-left: 2px solid var(--gold); padding-left: 10px; margin-top: 2px; font-style: italic; }
+  .avatar__expand { display: none; margin-top: 12px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 13px; color: var(--deep-teal); line-height: 1.55; }
+  .avatar.open .avatar__expand { display: block; }
+  .avatar__expand strong { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold-dark); margin: 10px 0 4px; font-weight: 700; }
+  .avatar__expand strong:first-child { margin-top: 0; }
+  .avatar__toggle { font-size: 11px; color: var(--teal); margin-top: 8px; font-weight: 600; letter-spacing: 0.04em; }
+
+  .proof-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .proof-card { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 18px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 12px; transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s; }
+  .proof-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .proof-card__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); }
+  .proof-card__title { font-family: var(--serif); font-size: 16px; font-weight: 500; line-height: 1.25; color: var(--deep-teal); letter-spacing: -0.012em; }
+  .proof-card__meta { font-size: 12px; color: var(--teal); font-weight: 600; letter-spacing: 0.02em; }
+  .proof-embed { position: relative; width: 100%; border-radius: 5px; overflow: hidden; background: var(--paper-soft); box-shadow: inset 0 0 0 1px var(--line); }
+  .proof-embed--reel { aspect-ratio: 9 / 16; }
+  .proof-embed--video { aspect-ratio: 16 / 9; }
+  .proof-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .proof-card__link { font-size: 12px; color: var(--gold-dark); text-decoration: none; font-weight: 600; letter-spacing: 0.02em; margin-top: 2px; }
+  .proof-card__link:hover { color: var(--gold); }
+  .proof-profile { grid-column: span 2; background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 8px; padding: 22px 26px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .proof-profile__handle { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--deep-teal); letter-spacing: -0.012em; margin-bottom: 4px; }
+  .proof-profile__line { font-size: 13px; color: var(--deep-teal); opacity: 0.74; line-height: 1.5; }
+  .proof-profile__btn { background: var(--deep-teal); color: var(--gold); border: 0; padding: 12px 22px; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; }
+  .proof-profile__btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0, 63, 63, 0.25); background: #001f1f; }
+
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .shot { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 20px 20px 18px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 8px; transition: transform 0.18s, box-shadow 0.18s; }
+  .shot:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .shot__num { font-family: var(--serif); font-size: 11px; font-weight: 600; color: var(--gold-dark); letter-spacing: 0.04em; }
+  .shot__title { font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--deep-teal); line-height: 1.2; letter-spacing: -0.012em; }
+  .shot__body { font-size: 13px; color: var(--deep-teal); opacity: 0.78; line-height: 1.55; margin-top: 2px; }
+
+  .tracks-control { display: flex; background: var(--ivory); border: 1px solid var(--line); border-radius: 999px; padding: 4px; margin-bottom: 22px; width: fit-content; box-shadow: var(--shadow-sm); }
+  .tracks-control button { background: transparent; border: 0; padding: 10px 22px; font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--deep-teal); cursor: pointer; border-radius: 999px; transition: background 0.2s, color 0.2s; letter-spacing: 0.02em; }
+  .tracks-control button.active { background: var(--deep-teal); color: var(--gold); }
+  .tracks-control button:not(.active):hover { background: rgba(0, 63, 63, 0.06); }
+  .track-panel { background: var(--ivory); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 6px; padding: 26px 30px; box-shadow: var(--shadow-sm); display: none; }
+  .track-panel.active { display: block; }
+  .track-panel--ongoing { border-left-color: var(--teal); }
+  .track-panel h3 { font-family: var(--serif); font-size: 21px; font-weight: 500; color: var(--deep-teal); margin-bottom: 6px; letter-spacing: -0.012em; }
+  .track-panel__tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700; color: var(--gold-dark); margin-bottom: 14px; }
+  .track-panel--ongoing .track-panel__tag { color: var(--teal); }
+  .track-panel__desc { font-size: 14px; color: var(--deep-teal); opacity: 0.84; line-height: 1.6; margin-bottom: 18px; }
+  .track-panel ul { list-style: none; padding: 0; margin: 0; border-top: 1px dashed var(--line); padding-top: 14px; }
+  .track-panel ul li { font-size: 13.5px; line-height: 1.55; padding: 7px 0 7px 18px; position: relative; color: var(--deep-teal); font-family: var(--serif); font-style: italic; font-weight: 400; }
+  .track-panel ul li::before { content: ''; position: absolute; left: 0; top: 16px; width: 10px; height: 1px; background: var(--gold); }
+
+  .outcomes { background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-radius: 8px; padding: 28px 28px 24px; box-shadow: var(--shadow-md); position: relative; }
+  .outcomes__instructions { font-size: 13px; color: var(--deep-teal); opacity: 0.76; margin-bottom: 22px; font-style: italic; font-family: var(--serif); text-align: center; }
+  .outcomes__grid { display: grid; grid-template-columns: 1.1fr 0.95fr 0.95fr 1.1fr; border-top: 1px solid var(--line); border-left: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--ivory); }
+  .outcomes__cell { padding: 14px 14px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13.5px; color: var(--deep-teal); line-height: 1.4; display: flex; flex-direction: column; justify-content: center; }
+  .outcomes__cell--head { background: var(--paper-soft); text-align: center; padding: 16px 12px; font-family: var(--serif); font-size: 14px; font-weight: 500; letter-spacing: -0.005em; line-height: 1.2; }
+  .outcomes__cell--head .sub { display: block; font-family: var(--sans); font-style: normal; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-top: 4px; }
+  .outcomes__cell--metric { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--teal); background: rgba(0, 95, 95, 0.04); font-weight: 500; }
+  .outcomes__cell--metric .sub { display: block; font-family: var(--sans); font-style: normal; font-size: 10px; color: var(--deep-teal); opacity: 0.55; margin-top: 3px; letter-spacing: 0; line-height: 1.4; }
+  .outcomes__cell--value { text-align: center; font-family: var(--serif); font-size: 19px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.15; color: var(--deep-teal); }
+  .outcomes__cell--value .lift { display: block; font-family: var(--sans); font-size: 10px; color: var(--deep-teal); opacity: 0.55; margin-top: 4px; letter-spacing: 0.02em; font-weight: 600; }
+  .outcomes__col--mams { background: var(--deep-teal); color: var(--ivory); border-right: 0; }
+  .outcomes__col--mams .sub { color: var(--gold-soft); opacity: 0.85; }
+  .outcomes__col--mams.outcomes__cell--head { background: var(--deep-teal); color: var(--gold); }
+  .outcomes__col--mams.outcomes__cell--head .sub { color: var(--gold-soft); }
+  .outcomes__col--mams.outcomes__cell--value { color: var(--gold); }
+  .outcomes__col--mams.outcomes__cell--value .lift { color: var(--gold-soft); opacity: 0.85; }
+  .outcomes__methodology { margin-top: 18px; padding: 12px 16px; background: rgba(212, 175, 55, 0.08); border-radius: 4px; font-family: var(--serif); font-size: 12.5px; color: var(--deep-teal); font-style: italic; line-height: 1.55; text-align: center; }
+  .outcomes__methodology strong { color: var(--gold-dark); font-style: normal; font-weight: 600; }
+
+  .cta { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 36px 38px; text-align: center; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%); pointer-events: none; }
+  .cta__title { font-family: var(--serif); font-size: 28px; font-weight: 300; margin-bottom: 8px; letter-spacing: -0.02em; position: relative; z-index: 1; }
+  .cta__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .cta__sub { font-size: 14px; opacity: 0.78; margin-bottom: 18px; max-width: 48ch; margin-left: auto; margin-right: auto; line-height: 1.6; position: relative; z-index: 1; }
+  .cta__paste { background: rgba(255, 255, 255, 0.06); border: 1px dashed rgba(212, 175, 55, 0.4); border-radius: 6px; padding: 14px 18px; margin: 0 auto 22px; max-width: 38ch; font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--gold-soft); position: relative; z-index: 1; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+  .cta__paste:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold); }
+  .cta__paste-label { display: block; font-family: var(--sans); font-style: normal; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; font-weight: 700; }
+  .cta__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+  .cta__btn { background: var(--gold); color: var(--deep-teal); border: 0; padding: 14px 26px; font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; }
+  .cta__btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4); background: var(--gold-soft); }
+  .cta__btn--ghost { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+  .cta__btn--ghost:hover { background: rgba(212, 175, 55, 0.1); }
+  .cta__or { margin-top: 14px; font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold-soft); opacity: 0.78; position: relative; z-index: 1; }
+
+  footer.foot { padding: 38px 0 60px; text-align: center; font-size: 11px; color: var(--deep-teal); opacity: 0.55; letter-spacing: 0.06em; line-height: 1.6; }
+  footer.foot .why { font-family: var(--serif); font-size: 13px; font-style: italic; opacity: 0.8; margin-bottom: 8px; letter-spacing: 0; }
+  footer.foot .why em { color: var(--gold-dark); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 34px; }
+    section.block { padding: 32px 0; }
+    .avatars { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr; gap: 14px; }
+    .proof-profile { grid-column: span 1; flex-direction: column; align-items: flex-start; padding: 18px 20px; }
+    .shots { grid-template-columns: 1fr; }
+    .opportunity { padding: 22px 24px; }
+    .opportunity p { font-size: 18px; }
+    .outcomes { padding: 20px 18px; }
+    .outcomes__grid { grid-template-columns: 1.2fr 1fr; }
+    .outcomes__cell { font-size: 12.5px; padding: 12px 10px; }
+    .outcomes__cell--head { font-size: 13px; padding: 14px 10px; }
+    .outcomes__cell--head .sub { font-size: 8.5px; letter-spacing: 0.1em; }
+    .outcomes__cell--value { font-size: 17px; }
+    .outcomes__cell--hide-mobile { display: none; }
+    .track-panel { padding: 22px 22px; }
+    .cta { padding: 28px 24px; }
+    .cta__title { font-size: 22px; }
+    .cta__buttons { flex-direction: column; }
+    .cta__btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand"><img src="mams-logo.png" alt="MAMS LLC"/></div>
+    <div class="hero__eyebrow">For {{HOST_FIRST_NAME}} &middot; {{PROPERTY_DESCRIPTOR}}</div>
+    <div class="hero__greeting">Hey {{HOST_FIRST_NAME}},</div>
+    <h1 class="hero__title">{{HERO_TITLE_BEFORE_EM}} <em>{{HERO_TITLE_EM}}</em></h1>
+    <p class="hero__sub">{{HERO_SUB}}</p>
+  </header>
+
+  <!-- OPPORTUNITY FRAME -->
+  <section class="block">
+    <div class="opportunity">
+      <div class="eyebrow">The Frame</div>
+      <p>{{OPPORTUNITY_COPY_BEFORE_EM}} <em>{{OPPORTUNITY_COPY_EM}}</em> {{OPPORTUNITY_COPY_AFTER_EM}}</p>
+    </div>
+  </section>
+
+  <!-- AUDIENCE OVERLAP -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; The Audience Overlap</div>
+    <h2 class="section__title">{{AUDIENCE_SECTION_TITLE_BEFORE_EM}} <em>{{AUDIENCE_SECTION_TITLE_EM}}</em></h2>
+    <p class="section__lede">{{AUDIENCE_SECTION_LEDE}}</p>
+
+    <div class="avatars">
+      <div class="avatar" data-i="0">
+        <div class="avatar__num">01</div>
+        <div class="avatar__name">{{AUDIENCE_1_NAME}}</div>
+        <div class="avatar__income">{{AUDIENCE_1_DEMO}}</div>
+        <div class="avatar__hook">"{{AUDIENCE_1_HOOK}}"</div>
+        <div class="avatar__toggle">Tap to expand &darr;</div>
+        <div class="avatar__expand">
+          <strong>Who they are</strong>{{AUDIENCE_1_WHO}}
+          <strong>Why they pick your place</strong>{{AUDIENCE_1_WHY}}
+          <strong>Best fit</strong>{{AUDIENCE_1_FIT}}
+          <strong>What loses them</strong>{{AUDIENCE_1_LOSES}}
+        </div>
+      </div>
+
+      <div class="avatar" data-i="1">
+        <div class="avatar__num">02</div>
+        <div class="avatar__name">{{AUDIENCE_2_NAME}}</div>
+        <div class="avatar__income">{{AUDIENCE_2_DEMO}}</div>
+        <div class="avatar__hook">"{{AUDIENCE_2_HOOK}}"</div>
+        <div class="avatar__toggle">Tap to expand &darr;</div>
+        <div class="avatar__expand">
+          <strong>Who they are</strong>{{AUDIENCE_2_WHO}}
+          <strong>Why they pick your place</strong>{{AUDIENCE_2_WHY}}
+          <strong>Best fit</strong>{{AUDIENCE_2_FIT}}
+          <strong>What loses them</strong>{{AUDIENCE_2_LOSES}}
+        </div>
+      </div>
+
+      <div class="avatar" data-i="2">
+        <div class="avatar__num">03</div>
+        <div class="avatar__name">{{AUDIENCE_3_NAME}}</div>
+        <div class="avatar__income">{{AUDIENCE_3_DEMO}}</div>
+        <div class="avatar__hook">"{{AUDIENCE_3_HOOK}}"</div>
+        <div class="avatar__toggle">Tap to expand &darr;</div>
+        <div class="avatar__expand">
+          <strong>Who they are</strong>{{AUDIENCE_3_WHO}}
+          <strong>Why they pick your place</strong>{{AUDIENCE_3_WHY}}
+          <strong>Best fit</strong>{{AUDIENCE_3_FIT}}
+          <strong>What loses them</strong>{{AUDIENCE_3_LOSES}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF GALLERY (proof palette is canonical, swap only when palette refreshes) -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; The Proof</div>
+    <h2 class="section__title">My audience is real. <em>Here's the receipt.</em></h2>
+    <p class="section__lede">Four pieces of public proof. Open them on your phone, watch 30 seconds of each, then come back. The Reels load directly below. The YouTube piece is the production quality, the Reels are the everyday cadence.</p>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-card__tag">Reach proof &middot; 104K views</div>
+        <div class="proof-card__title">Richmond 2025 = Austin 1995</div>
+        <div class="proof-card__meta">104K views &middot; 6,024 likes &middot; Instagram</div>
+        <div class="proof-embed proof-embed--reel">
+          <iframe src="https://www.instagram.com/reel/DQF1kAUjHjc/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://www.instagram.com/reel/DQF1kAUjHjc/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-card__tag">Production proof</div>
+        <div class="proof-card__title">Scott's Addition Richmond walkthrough</div>
+        <div class="proof-card__meta">Long-form &middot; YouTube</div>
+        <div class="proof-embed proof-embed--video">
+          <iframe src="https://www.youtube.com/embed/a_qy9Scnjmg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://youtu.be/a_qy9Scnjmg" target="_blank" rel="noopener">Open on YouTube &rarr;</a>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-card__tag">Unstaged style</div>
+        <div class="proof-card__title">POV: tired of staged house tours</div>
+        <div class="proof-card__meta">3,315 views &middot; Instagram Reel</div>
+        <div class="proof-embed proof-embed--reel">
+          <iframe src="https://www.instagram.com/reel/DOwlCGSDkup/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://www.instagram.com/reel/DOwlCGSDkup/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-card__tag">"Heart of the place" treatment</div>
+        <div class="proof-card__title">Things you should know before moving to Richmond</div>
+        <div class="proof-card__meta">1,428 views &middot; Instagram Reel</div>
+        <div class="proof-embed proof-embed--reel">
+          <iframe src="https://www.instagram.com/reel/DRaoqr2Dg_U/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://www.instagram.com/reel/DRaoqr2Dg_U/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
+      </div>
+
+      <div class="proof-profile">
+        <div>
+          <div class="proof-profile__handle">@milesaminutesolutions</div>
+          <div class="proof-profile__line">Miles &middot; Moving to Richmond. Real-estate and Richmond content for the people moving here and the people already in love with it.</div>
+        </div>
+        <a class="proof-profile__btn" href="https://www.instagram.com/milesaminutesolutions" target="_blank" rel="noopener">See the full profile &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I'D FILM -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; What I'd Film</div>
+    <h2 class="section__title">Three angles. <em>No staged tour energy.</em></h2>
+    <p class="section__lede">{{SHOTS_LEDE}}</p>
+
+    <div class="shots">
+      <div class="shot"><div class="shot__num">Angle 01</div><div class="shot__title">{{SHOT_1_TITLE}}</div><div class="shot__body">{{SHOT_1_BODY}}</div></div>
+      <div class="shot"><div class="shot__num">Angle 02</div><div class="shot__title">{{SHOT_2_TITLE}}</div><div class="shot__body">{{SHOT_2_BODY}}</div></div>
+      <div class="shot"><div class="shot__num">Angle 03</div><div class="shot__title">{{SHOT_3_TITLE}}</div><div class="shot__body">{{SHOT_3_BODY}}</div></div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; The Outcomes</div>
+    <h2 class="section__title">{{OUTCOMES_TITLE_BEFORE_EM}} <em>{{OUTCOMES_TITLE_EM}}</em></h2>
+    <p class="section__lede">{{OUTCOMES_LEDE}}</p>
+
+    <div class="outcomes">
+      <div class="outcomes__instructions">{{OUTCOMES_INSTRUCTIONS}}</div>
+
+      <div class="outcomes__grid">
+        <div class="outcomes__cell outcomes__cell--head">Metric<span class="sub">Per month</span></div>
+        <div class="outcomes__cell outcomes__cell--head outcomes__cell--hide-mobile">{{COL_2_HEAD}}<span class="sub">{{COL_2_SUB}}</span></div>
+        <div class="outcomes__cell outcomes__cell--head outcomes__cell--hide-mobile">{{COL_3_HEAD}}<span class="sub">{{COL_3_SUB}}</span></div>
+        <div class="outcomes__cell outcomes__cell--head outcomes__col--mams">MAMS feature<span class="sub">Proposed</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">{{M1_NAME}}<span class="sub">{{M1_SUB}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{M1_C2_VALUE}}<span class="lift">{{M1_C2_LIFT}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{M1_C3_VALUE}}<span class="lift">{{M1_C3_LIFT}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">{{M1_MAMS_VALUE}}<span class="lift">{{M1_MAMS_LIFT}}</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">{{M2_NAME}}<span class="sub">{{M2_SUB}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{M2_C2_VALUE}}<span class="lift">{{M2_C2_LIFT}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{M2_C3_VALUE}}<span class="lift">{{M2_C3_LIFT}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">{{M2_MAMS_VALUE}}<span class="lift">{{M2_MAMS_LIFT}}</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">{{M3_NAME}}<span class="sub">{{M3_SUB}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{M3_C2_VALUE}}<span class="lift">{{M3_C2_LIFT}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{M3_C3_VALUE}}<span class="lift">{{M3_C3_LIFT}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">{{M3_MAMS_VALUE}}<span class="lift">{{M3_MAMS_LIFT}}</span></div>
+
+        <div class="outcomes__cell outcomes__cell--metric">{{M4_NAME}}<span class="sub">{{M4_SUB}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{M4_C2_VALUE}}<span class="lift">{{M4_C2_LIFT}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">{{M4_C3_VALUE}}<span class="lift">{{M4_C3_LIFT}}</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">{{M4_MAMS_VALUE}}<span class="lift">{{M4_MAMS_LIFT}}</span></div>
+      </div>
+
+      <div class="outcomes__methodology"><strong>The math.</strong> {{OUTCOMES_METHODOLOGY}}</div>
+    </div>
+  </section>
+
+  <!-- TWO-TRACK ASK -->
+  <section class="block">
+    <div class="eyebrow">Section 05 &middot; The Ask</div>
+    <h2 class="section__title">{{ASK_TITLE_BEFORE_EM}} <em>{{ASK_TITLE_EM}}</em></h2>
+    <p class="section__lede">{{ASK_LEDE}}</p>
+
+    <div class="tracks-control">
+      <button class="active" data-track="free">Track 01 &middot; {{TRACK_1_LABEL}}</button>
+      <button data-track="ongoing">Track 02 &middot; {{TRACK_2_LABEL}}</button>
+    </div>
+
+    <div class="track-panel track-panel--free active" data-track="free">
+      <div class="track-panel__tag">Track 01 &middot; Default</div>
+      <h3>{{TRACK_1_TITLE}}</h3>
+      <p class="track-panel__desc">{{TRACK_1_DESC}}</p>
+      <ul>{{TRACK_1_LIST_ITEMS}}</ul>
+    </div>
+
+    <div class="track-panel track-panel--ongoing" data-track="ongoing">
+      <div class="track-panel__tag">Track 02 &middot; If the first one lands</div>
+      <h3>{{TRACK_2_TITLE}}</h3>
+      <p class="track-panel__desc">{{TRACK_2_DESC}}</p>
+      <ul>{{TRACK_2_LIST_ITEMS}}</ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block">
+    <div class="cta">
+      <div class="cta__title">{{CTA_TITLE_BEFORE_EM}} <em>{{CTA_TITLE_EM}}</em>{{CTA_TITLE_AFTER_EM}}</div>
+      <p class="cta__sub">{{CTA_SUB}}</p>
+
+      <div class="cta__paste" id="pasteSnippet">
+        <span class="cta__paste-label">Paste-ready reply</span>
+        {{CTA_PASTE_TEXT}}
+      </div>
+
+      <div class="cta__buttons">
+        <a href="#" id="emailBtn" class="cta__btn cta__btn--ghost">Or email me &rarr;</a>
+      </div>
+      <div class="cta__or">{{CTA_OR}}</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Built by <em>Miles Agee</em> &middot; MAMS LLC &middot; Richmond, Virginia</div>
+    <div>miles@milesagee.com &middot; mamsnow.com &middot; Single-recipient page for {{HOST_FIRST_NAME}}. Not indexed.</div>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.avatar').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasOpen = card.classList.contains('open');
+      document.querySelectorAll('.avatar').forEach(c => c.classList.remove('open'));
+      if (!wasOpen) card.classList.add('open');
+    });
+  });
+
+  document.querySelectorAll('.tracks-control button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const track = btn.dataset.track;
+      document.querySelectorAll('.tracks-control button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.track-panel').forEach(p => {
+        p.classList.toggle('active', p.dataset.track === track);
+      });
+    });
+  });
+
+  const pasteSnippet = document.getElementById('pasteSnippet');
+  if (pasteSnippet) {
+    pasteSnippet.addEventListener('click', async () => {
+      const text = '{{CTA_PASTE_TEXT}}';
+      try {
+        await navigator.clipboard.writeText(text);
+        const original = pasteSnippet.innerHTML;
+        pasteSnippet.innerHTML = '<span class="cta__paste-label">Copied. Paste into Airbnb.</span>' + text;
+        setTimeout(() => { pasteSnippet.innerHTML = original; }, 2400);
+      } catch (e) { /* clipboard not available, no-op */ }
+    });
+  }
+
+  const emailBtn = document.getElementById('emailBtn');
+  if (emailBtn) {
+    const subject = encodeURIComponent('{{CTA_MAILTO_SUBJECT}}');
+    const body = encodeURIComponent('{{CTA_MAILTO_BODY}}');
+    emailBtn.href = 'mailto:miles@milesagee.com?subject=' + subject + '&body=' + body;
+  }
+</script>
+
+</body>
+</html>
