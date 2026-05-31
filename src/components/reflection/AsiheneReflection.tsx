@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { ReflectionCard, ReflectionData } from "@/lib/asihene-reflection-data";
+import type {
+  ActiveListing,
+  ReflectionCard,
+  ReflectionData,
+} from "@/lib/asihene-reflection-data";
 
 type SubmitState = "idle" | "submitting" | "done" | "error";
 
@@ -154,6 +158,14 @@ function CardBlock({
 
         <p className="text-base text-deep-teal/85 leading-relaxed">{card.frame}</p>
 
+        {card.listings && card.listings.length > 0 && (
+          <div className="space-y-3">
+            {card.listings.map((listing) => (
+              <ListingRow key={listing.mlsNumber} listing={listing} />
+            ))}
+          </div>
+        )}
+
         <div className="space-y-4 pt-2">
           {card.questions.map((q) => (
             <div key={q.id} className="space-y-2">
@@ -196,5 +208,40 @@ function CardBlock({
         </div>
       </div>
     </article>
+  );
+}
+
+function ListingRow({ listing }: { listing: ActiveListing }) {
+  return (
+    <div
+      className={
+        "rounded border p-4 " +
+        (listing.isStretch
+          ? "border-gold/50 bg-gold/[0.06]"
+          : "border-deep-teal/15 bg-paper")
+      }
+    >
+      <div className="flex items-baseline justify-between gap-3 flex-wrap">
+        <p className="font-display text-lg text-deep-teal leading-tight">
+          {listing.address}
+        </p>
+        <p className="text-sm font-semibold text-deep-teal whitespace-nowrap">
+          {listing.price}
+        </p>
+      </div>
+      <p className="text-xs text-deep-teal/65 mt-0.5">
+        {listing.neighborhood} &middot; MLS {listing.mlsNumber} &middot;{" "}
+        {listing.daysOnMarket}
+        {listing.isStretch ? " · stretch above ceiling" : ""}
+      </p>
+      <p className="text-xs text-deep-teal/70 mt-2">{listing.specs}</p>
+      <p className="text-xs text-deep-teal/70">
+        {listing.garage} &middot; {listing.style}
+      </p>
+      <p className="text-sm text-deep-teal/85 mt-3 leading-snug">{listing.why}</p>
+      <p className="text-sm text-deep-teal/65 italic mt-1 leading-snug">
+        Friction: {listing.friction}
+      </p>
+    </div>
   );
 }

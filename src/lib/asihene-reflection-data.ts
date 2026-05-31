@@ -15,14 +15,14 @@
  */
 
 export type ReflectionCard = {
-  id: "synthesis" | "cheverton" | "sodbury" | "ghana";
+  id: "synthesis" | "active-listings" | "cheverton" | "sodbury" | "ghana";
   // Card chrome
   label: string;           // small uppercase label above the headline
   headline: string;        // serif headline
   // Anchor (Sharon's own verbatim line, italicized in the page)
   anchorQuote?: string;    // optional - only when we have a verified verbatim quote
   anchorAttribution?: string; // e.g. "Sharon, May 8" - source comment in code, attribution shown on page
-  // Property facts block (only for cards 1+2)
+  // Property facts block (single property, only for the Cheverton/Sodbury reflection cards)
   factBlock?: {
     address: string;
     neighborhood: string;
@@ -30,6 +30,9 @@ export type ReflectionCard = {
     specs: string;
     status: string;
   };
+  // Multi-property listing array (only for the active-listings card).
+  // Rendered as a stack of mini-rows between the frame and the questions.
+  listings?: ActiveListing[];
   // Frame paragraph (~50-60 words, second person, Sharon-facing)
   frame: string;
   // Interactive section
@@ -40,6 +43,23 @@ export type ReflectionCard = {
   }[];
   // Submit CTA label
   submitLabel: string;
+};
+
+// Active CVR MLS listing surfaced on the reflection portal.
+// Every field except mlsUrl is required; every field must be CVR MLS direct
+// (cvrmls.mlsmatrix.com) per the zero-accuracy-lapses rule.
+export type ActiveListing = {
+  address: string;
+  neighborhood: string;
+  mlsNumber: string;
+  price: string;
+  specs: string;             // e.g. "5BR / 5 full BA / 5,682 sq ft / 2012 build"
+  garage: string;            // e.g. "3-car attached"
+  style: string;             // CVR MLS verbatim style
+  daysOnMarket: string;      // e.g. "16 days" or "DOM not exposed on CVR detail"
+  why: string;               // one-sentence why-this-matches
+  friction: string;          // one-sentence honest friction read
+  isStretch?: boolean;       // true if above the $1.6M preapproval ceiling
 };
 
 export type ReflectionData = {
@@ -95,6 +115,96 @@ export const CONTACTS: Record<string, ReflectionData> = {
           },
         ],
         submitLabel: "Send me your read",
+      },
+      {
+        // Active-listings card added 2026-05-31 after PC verification follow-up
+        // (shared/completed/2026-05-31-0542-sharon-active-listings-verify.md).
+        // All 5 specs verified against cvrmls.mlsmatrix.com direct at ~6:00-6:15
+        // AM EDT 2026-05-31, NOT realtor.com. Three of PC's first-brief Colonial
+        // labels were wrong; corrected here from CVR MLS verbatim.
+        // Lead with the two homes that hit suite + 3-car garage (Lynchell + Kimbolton).
+        // Third card is Thistledew (5 full baths, Craftsman, 2-car friction).
+        // Stretch card is Maple Hall (above ceiling, flagged explicitly).
+        // Dropped from headline per PC's recommendation: Elmslie (only 4 baths)
+        // and Braehead (only 3 baths despite new construction + 4-car + acreage).
+        id: "active-listings",
+        label: "Active and worth your eye",
+        headline: "The market read I owe you ahead of our call.",
+        frame:
+          "Nothing on the open market today carries the full Cheverton blend. Two homes hit the suite count and the garage cleanly. One hits the suite and Craftsman feel but lands short on the garage. The stretch band has one near-miss above your ceiling. Tell me which you want me to send Kojo to walk first.",
+        listings: [
+          {
+            // Source: CVR MLS Matrix detail for ML 2608275, pulled 2026-05-31 ~6:00 AM EDT.
+            address: "401 Lynchell Pl",
+            neighborhood: "Riverlake Colony, Henrico",
+            mlsNumber: "2608275",
+            price: "$1,475,000",
+            specs: "5 BR / 5 full + 1 half BA / 5,682 sq ft / 2012 build / 0.45 ac",
+            garage: "3-car attached",
+            // PC first brief had this as "Colonial" - CVR MLS direct says
+            // "Green Certified Home, Transitional". Style match improved.
+            style: "Green Certified Home, Transitional",
+            daysOnMarket: "16 days",
+            why: "Hits the suite count and the 3-car garage cleanly, the closest functional twin to Cheverton on the open market today. Tuckahoe-side Henrico, which lines up with your Kingsdown note.",
+            friction: "Built 2012, just under your 2014+ lean. Not the Hallsley belt, so Yaw may want the room-by-room story before the elevation.",
+          },
+          {
+            // Source: CVR MLS Matrix detail for ML 2607447, pulled 2026-05-31 ~6:00 AM EDT.
+            address: "11712 Kimbolton Pl",
+            neighborhood: "Glen Allen",
+            mlsNumber: "2607447",
+            price: "$1,200,000",
+            specs: "5 BR / 5 full + 1 half BA / 5,044 sq ft / 2007 build / 0.55 ac",
+            garage: "3-car attached, side/rear load",
+            // PC first brief had this as "Colonial" - CVR MLS direct says
+            // "2-Story, Transitional". Style match improved.
+            style: "2-Story, Transitional",
+            daysOnMarket: "55 days",
+            why: "Second of only two homes in the active set that pairs 5 full baths with a 3-car garage. Value side of your range, in greater RVA, Transitional.",
+            friction: "2007 build, and 55 days on market suggests price has room to move, which works in your favor.",
+          },
+          {
+            // Source: CVR MLS Matrix detail for ML 2609891, pulled 2026-05-31 ~6:00 AM EDT.
+            address: "6306 Thistledew Mews",
+            neighborhood: "Foxcreek, Moseley",
+            mlsNumber: "2609891",
+            price: "$1,190,000",
+            specs: "5 BR / 5 full + 1 half BA / 6,569 sq ft / 2006 build / 0.72 ac",
+            garage: "2-car attached",
+            // PC first brief had this as "Colonial" - CVR MLS direct says
+            // "Craftsman, Custom, Tri-Level/Quad Level". Style match strong.
+            style: "Craftsman, Custom, Tri-Level/Quad Level",
+            daysOnMarket: "47 days",
+            why: "Best price-per-suite in the active set. Craftsman feel, 6,569 sq ft, and Foxcreek is the same belt as the Burnt Mills home you already favorited.",
+            friction: "2-car garage is the real gap given how consistent 3+ car is across your favorites.",
+          },
+          {
+            // Source: CVR MLS Matrix stretch-zone query 2026-05-31. The closest
+            // active home to Cheverton DNA in the $1.6-2.1M band. Miss only on
+            // style label ("Custom, Farm House" not Craftsman/Transitional).
+            address: "16219 Maple Hall Dr",
+            neighborhood: "Chesterfield (stretch zone)",
+            mlsNumber: "2612573",
+            price: "$1,725,000",
+            specs: "6 BR / 5 full BA / 5,777 sq ft / 2021 build",
+            garage: "3-car attached",
+            style: "Custom, Farm House",
+            daysOnMarket: "DOM not surfaced",
+            why: "The closest the open market gets to a stretch-zone Cheverton today. 2021 build, 5 full baths, 3-car, in the suite-and-infrastructure zone.",
+            friction: "$1.725M is above your $1.6M preapproval ceiling. Style reads Farm House, not Craftsman. Hold as exploratory unless you want to test the stretch.",
+            isStretch: true,
+          },
+        ],
+        questions: [
+          {
+            id: "kojo",
+            label:
+              "Which one do you want me to send Kojo to walk first, and which can stay on the list for now?",
+            placeholder:
+              "Lynchell first? Kimbolton? Skip the stretch? Tell me where to point him...",
+          },
+        ],
+        submitLabel: "Send Kojo the call",
       },
       {
         id: "cheverton",

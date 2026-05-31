@@ -55,13 +55,14 @@ export default async function ReflectionPage({
           Hand-prepared for {data.firstName}
         </p>
         <h1 className="font-display text-3xl sm:text-4xl text-deep-teal leading-tight">
-          {data.firstName}, three things I want to talk through tomorrow.
+          {data.firstName}, here is what I have been seeing.
         </h1>
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
-          One on the home that fit and slipped away. One on the home that&rsquo;s still
-          there and waiting. One on how we keep moving while you and {data.husbandFirstName}{" "}
-          are in Ghana. Each one stands on its own, take them in any order. Your read
-          comes back to me before we get on the phone.
+          The pattern across your full favorites list, the market read on what is active
+          today, and the three reflection cards on Cheverton, Sodbury, and how we keep
+          moving while you and {data.husbandFirstName} are in Ghana. Each card stands on
+          its own, take them in any order. Your read comes back to me before we get on
+          the phone.
         </p>
       </section>
 

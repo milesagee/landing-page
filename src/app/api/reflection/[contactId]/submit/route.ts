@@ -18,7 +18,12 @@ const GHL_VERSION = "2021-07-28";
 type Params = Promise<{ contactId: string }>;
 
 type SubmissionBody = {
-  cardId?: "synthesis" | "cheverton" | "sodbury" | "ghana";
+  cardId?:
+    | "synthesis"
+    | "active-listings"
+    | "cheverton"
+    | "sodbury"
+    | "ghana";
   answers?: Record<string, string>;
 };
 
@@ -45,6 +50,7 @@ async function ghlPost(urlPath: string, body: unknown) {
 
 const CARD_TAG: Record<string, string> = {
   synthesis: "asihene-synthesis-reflected",
+  "active-listings": "asihene-active-listings-prioritized",
   cheverton: "asihene-cheverton-reflected",
   sodbury: "asihene-sodbury-reflected",
   ghana: "asihene-ghana-protocol-set",
