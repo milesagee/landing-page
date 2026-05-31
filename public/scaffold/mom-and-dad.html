@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>A thought for Mom and Dad</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--deep-teal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero__brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .hero__brand img {
+    height: 72px;
+    width: auto;
+    mix-blend-mode: multiply;
+    margin-left: -10px;
+  }
+
+  .hero__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+  }
+
+  .hero__greeting {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--teal);
+    font-style: italic;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero__title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(38px, 6vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--deep-teal);
+    margin-bottom: 18px;
+  }
+
+  .hero__title em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero__sub {
+    font-size: 16px;
+    color: var(--deep-teal);
+    opacity: 0.74;
+    max-width: 60ch;
+    line-height: 1.6;
+  }
+
+  .hero__cue {
+    display: none;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold-dark);
+    margin-top: 18px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ---- Section anatomy ---- */
+  section.block {
+    padding: 44px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section.block:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+  }
+
+  h2.section__title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--deep-teal);
+    margin-bottom: 8px;
+  }
+
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+
+  .section__lede {
+    font-size: 15px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    max-width: 60ch;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  /* ---- Opportunity frame ---- */
+  .opportunity {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    padding: 30px 36px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .opportunity::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.18;
+  }
+
+  .opportunity::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    border: 1px solid var(--teal-light);
+    border-radius: 50%;
+    opacity: 0.22;
+  }
+
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+
+  .opportunity p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.32;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .opportunity p em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* ---- Lanes (what you already do) ---- */
+  .lanes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .lane {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--teal);
+    border-radius: 6px;
+    padding: 22px 22px 20px;
+    cursor: pointer;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s, border-color 0.22s;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .lane:nth-child(2) { border-top-color: var(--gold); }
+  .lane:nth-child(3) { border-top-color: var(--deep-teal); }
+
+  .lane:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--line-strong);
+  }
+
+  .lane.open { box-shadow: var(--shadow-md); border-color: var(--gold); }
+
+  .lane__num {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.04em;
+  }
+
+  .lane:nth-child(2) .lane__num { color: var(--gold-dark); }
+  .lane:nth-child(3) .lane__num { color: var(--deep-teal); }
+
+  .lane__name {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.012em;
+    color: var(--deep-teal);
+  }
+
+  .lane__lead {
+    font-size: 10px;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+  }
+
+  .lane__hook {
+    font-size: 13px;
+    color: var(--deep-teal);
+    line-height: 1.5;
+    border-left: 2px solid var(--gold);
+    padding-left: 10px;
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .lane__expand {
+    display: none;
+    margin-top: 12px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    font-size: 13px;
+    color: var(--deep-teal);
+    line-height: 1.55;
+  }
+
+  .lane.open .lane__expand { display: block; }
+
+  .lane__expand strong {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold-dark);
+    margin: 10px 0 4px;
+    font-weight: 700;
+  }
+
+  .lane__expand strong:first-child { margin-top: 0; }
+
+  .lane__toggle {
+    font-size: 11px;
+    color: var(--teal);
+    margin-top: 8px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---- Proof Gallery ---- */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .proof-card {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s;
+  }
+
+  .proof-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .proof-card__tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+
+  .proof-card__title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--deep-teal);
+    letter-spacing: -0.012em;
+  }
+
+  .proof-card__meta {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  a.proof-card {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a.proof-card:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .proof-tap {
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    background: var(--deep-teal);
+    box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--gold);
+    transition: background 0.22s, box-shadow 0.22s;
+  }
+
+  .proof-tap > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 0;
+  }
+
+  .proof-tap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 30, 30, 0.18) 0%, transparent 32%, transparent 55%, rgba(0, 30, 30, 0.85) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .proof-tap--reel { aspect-ratio: 9 / 16; }
+  .proof-tap--video { aspect-ratio: 16 / 9; }
+
+  a.proof-card:hover .proof-tap {
+    box-shadow: inset 0 0 0 1px var(--gold);
+  }
+
+  .proof-tap__play {
+    position: relative;
+    z-index: 2;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--deep-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    padding-left: 5px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28), 0 0 0 2px rgba(0, 30, 30, 0.25);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  a.proof-card:hover .proof-tap__play {
+    transform: scale(1.06);
+  }
+
+  .proof-tap__cta {
+    position: relative;
+    z-index: 2;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    padding: 0 14px;
+    text-shadow: 0 1px 6px rgba(0, 20, 20, 0.85);
+  }
+
+  .proof-profile {
+    grid-column: span 2;
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 22px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .proof-profile__handle {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    letter-spacing: -0.012em;
+    margin-bottom: 4px;
+  }
+
+  .proof-profile__line {
+    font-size: 13px;
+    color: var(--deep-teal);
+    opacity: 0.74;
+    line-height: 1.5;
+  }
+
+  .proof-profile__btn {
+    background: var(--deep-teal);
+    color: var(--gold);
+    border: 0;
+    padding: 12px 22px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  }
+
+  .proof-profile__btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0, 63, 63, 0.25);
+    background: #001f1f;
+  }
+
+  /* ---- Episode shapes ---- */
+  .shots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .shot {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px 20px 18px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.18s, box-shadow 0.18s;
+  }
+
+  .shot:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .shot__num {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-dark);
+    letter-spacing: 0.04em;
+  }
+
+  .shot__title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+  }
+
+  .shot__lead {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--teal);
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .shot__body {
+    font-size: 13px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    line-height: 1.55;
+    margin-top: 6px;
+  }
+
+  /* ---- Partnership operating model ---- */
+  .partnership {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .partner-step {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px 16px 16px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+  }
+
+  .partner-step__num {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .partner-step__title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+
+  .partner-step__body {
+    font-size: 12.5px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    line-height: 1.5;
+  }
+
+  .partner-economics {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    padding: 22px 26px;
+    border-radius: 6px;
+    border-left: 4px solid var(--gold);
+    box-shadow: var(--shadow-md);
+  }
+
+  .partner-economics .eyebrow { color: var(--gold); margin-bottom: 6px; }
+
+  .partner-economics p {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: var(--ivory);
+  }
+
+  .partner-economics p em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* ---- Production logistics table ---- */
+  .logistics {
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px 26px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .logistics__row {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1.4fr;
+    gap: 18px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+    align-items: baseline;
+  }
+
+  .logistics__row:last-child { border-bottom: none; }
+
+  .logistics__label {
+    font-family: var(--serif);
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  .logistics__when {
+    font-size: 12.5px;
+    color: var(--deep-teal);
+    opacity: 0.76;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .logistics__how {
+    font-size: 13px;
+    color: var(--deep-teal);
+    line-height: 1.5;
+  }
+
+  /* ---- First ask block ---- */
+  .first-ask {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: 28px 32px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .first-ask__tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+  }
+
+  .first-ask__title {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--deep-teal);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    margin-bottom: 12px;
+  }
+
+  .first-ask__title em { color: var(--gold-dark); font-style: italic; }
+
+  .first-ask__body {
+    font-size: 15px;
+    color: var(--deep-teal);
+    opacity: 0.84;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .first-ask__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px dashed var(--line);
+    padding-top: 16px;
+  }
+
+  .first-ask__list li {
+    font-size: 14px;
+    line-height: 1.55;
+    padding: 6px 0 6px 18px;
+    position: relative;
+    color: var(--deep-teal);
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .first-ask__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 10px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* ---- Closing block (Miles voice) ---- */
+  .closing {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    border-radius: 8px;
+    padding: 36px 40px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .closing__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .closing__title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .closing__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  .closing__body {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ivory);
+    opacity: 0.92;
+    max-width: 56ch;
+    position: relative;
+    z-index: 1;
+  }
+
+  .closing__body p + p { margin-top: 14px; }
+
+  .closing__signoff {
+    margin-top: 22px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold-soft);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Footer ---- */
+  footer.foot {
+    padding: 38px 0 60px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--deep-teal);
+    opacity: 0.55;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+  }
+
+  footer.foot .why {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 8px;
+    letter-spacing: 0;
+  }
+
+  footer.foot .why em { color: var(--gold-dark); }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 34px; }
+    .hero__cue { display: block; }
+    section.block { padding: 32px 0; }
+    .lanes { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr; gap: 14px; }
+    .proof-profile { grid-column: span 1; flex-direction: column; align-items: flex-start; padding: 18px 20px; }
+    .shots { grid-template-columns: 1fr; }
+    .opportunity { padding: 22px 24px; }
+    .opportunity p { font-size: 18px; }
+    .partnership { grid-template-columns: 1fr 1fr; }
+    .partner-economics { padding: 18px 20px; }
+    .partner-economics p { font-size: 15px; }
+    .logistics { padding: 18px 18px; }
+    .logistics__row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+    .logistics__when { font-size: 11.5px; }
+    .first-ask { padding: 22px 22px; }
+    .first-ask__title { font-size: 22px; }
+    .closing { padding: 28px 24px; }
+    .closing__title { font-size: 24px; }
+    .closing__body { font-size: 15.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand">
+      <img src="mams-logo.png" alt="MAMS LLC"/>
+    </div>
+    <div class="hero__eyebrow">For Mom + Dad</div>
+    <div class="hero__greeting">Hey Mom, hey Dad,</div>
+    <h1 class="hero__title">What you already do. <em>On camera, and on the books.</em></h1>
+    <p class="hero__sub">You hike. You wine. Mom takes the grandkids to every state park she can. The only thing missing is a business that pays you to keep doing it. Here is how I want to build it.</p>
+    <div class="hero__cue">What I noticed &darr;</div>
+  </header>
+
+  <!-- OPPORTUNITY FRAME -->
+  <section class="block">
+    <div class="opportunity">
+      <div class="eyebrow">The Frame</div>
+      <p>Most content channels start with a brief. <em>This one starts with the date you already had on the calendar.</em> The format is not invented. It is witnessed.</p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU ALREADY DO -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; What you already do</div>
+    <h2 class="section__title">Three lanes. <em>One umbrella series.</em></h2>
+    <p class="section__lede">Tap any card to see how each one becomes content without changing what you already do. Names, places, rhythms come from your life, not from a brief.</p>
+
+    <div class="lanes">
+      <div class="lane" data-i="0">
+        <div class="lane__num">Lane 01</div>
+        <div class="lane__name">Your standing date</div>
+        <div class="lane__lead">Mom + Dad &middot; together</div>
+        <div class="lane__hook">"Trail in the morning. Tasting room in the afternoon. The Saturday you do not give up."</div>
+        <div class="lane__toggle">Tap to expand &darr;</div>
+        <div class="lane__expand">
+          <strong>Why it is content</strong>It is already cinematic. The drive in, the trail, the pour at the tasting bar, the light hitting the table at four. We are not staging anything. We are pointing the camera at what you already do.
+          <strong>What I would film</strong>The morning packing the car. The first thirty seconds at the trailhead. The pour. The slow conversation at four o'clock. Nothing rehearsed.
+          <strong>Why it lands</strong>Couples in their forties and fifties watch this and remember they used to plan Saturdays like this. The audience for "do this again" content is bigger than the audience for any house tour.
+          <strong>What stays yours</strong>The places you stop without me. The conversations off camera. Dinner after the wine. The trip is yours. The cut is mine.
+        </div>
+      </div>
+
+      <div class="lane" data-i="1">
+        <div class="lane__num">Lane 02</div>
+        <div class="lane__name">Every state park in Virginia</div>
+        <div class="lane__lead">Mom &middot; with the grandkids</div>
+        <div class="lane__hook">"Forty-three parks. A bucket list with company. A project the grandkids will remember."</div>
+        <div class="lane__toggle">Tap to expand &darr;</div>
+        <div class="lane__expand">
+          <strong>Why it is content</strong>A grandmother and her grandkids on a deliberate quest is the kind of story the algorithm rewards and the audience saves. Nobody else gets to make this. It is yours.
+          <strong>What I would film</strong>The arrival at each park. One short trail with the kids. You narrating what you see that the ranger sign does not say. The kids being kids. <!-- MILES: swap "the grandkids" / "the kids" for [niece first name] and [nephew first name] in body copy where natural. Do NOT put names in alt= or aria= or metadata. -->
+          <strong>Why it lands</strong>Multigenerational content with a real project behind it is rare. Most family content is one-off. This is a season. With a number you can track.
+          <strong>What stays yours</strong>The inside jokes. Anything either kid does not want filmed. The slow drives between parks.
+        </div>
+      </div>
+
+      <div class="lane" data-i="2">
+        <div class="lane__num">Lane 03</div>
+        <div class="lane__name">Dad's table</div>
+        <div class="lane__lead">Dad &middot; what I wish I knew at 30</div>
+        <div class="lane__hook">"The reflection lands different at the table than on the trail. Half-volume, full weight."</div>
+        <div class="lane__toggle">Tap to expand &darr;</div>
+        <div class="lane__expand">
+          <strong>Why it is content</strong>A man with quiet authority talking about what he learned the hard way, framed by a pour. Direct, unhurried, the truth at half-volume. Most content yells. Yours does not.
+          <strong>What I would film</strong>You walking into a tasting room. Naming a wine you actually drink. Sitting down. Saying one thing at a time, letting it land, moving on.
+          <strong>Why it lands</strong>Black fatherhood on screen, with no performance, no costume, no Hallmark energy. The audience for this is loud, loyal, and underserved.
+          <strong>What stays yours</strong>Anything you do not want said on camera. Period. You read every line before it goes anywhere.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF GALLERY -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; Why I can carry you</div>
+    <h2 class="section__title">You already follow this channel. <em>Here is why it can carry the project.</em></h2>
+    <p class="section__lede">Four pieces from the last twelve months. You have probably seen most of these. The Austin reel crossed 173K. The YouTube piece is the production quality your episodes get. Tap any one to open it.</p>
+
+    <div class="proof-grid">
+      <a class="proof-card" href="https://www.instagram.com/reel/DQF1kAUjHjc/" target="_blank" rel="noopener">
+        <div class="proof-card__tag">Reach proof &middot; 173K views</div>
+        <div class="proof-card__title">Richmond 2025 = Austin 1995</div>
+        <div class="proof-card__meta">173K views &middot; 6.1K likes &middot; Instagram</div>
+        <div class="proof-tap proof-tap--reel">
+          <img src="proof/proof-richmond-2025-austin.jpg" alt="" loading="lazy">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to play on Instagram</div>
+        </div>
+      </a>
+
+      <a class="proof-card" href="https://youtu.be/a_qy9Scnjmg" target="_blank" rel="noopener">
+        <div class="proof-card__tag">Production proof</div>
+        <div class="proof-card__title">Scott's Addition Richmond walkthrough</div>
+        <div class="proof-card__meta">Long-form &middot; YouTube</div>
+        <div class="proof-tap proof-tap--video">
+          <img src="proof/proof-scotts-addition.jpg" alt="" loading="lazy">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to watch on YouTube</div>
+        </div>
+      </a>
+
+      <a class="proof-card" href="https://www.instagram.com/reel/DOwlCGSDkup/" target="_blank" rel="noopener">
+        <div class="proof-card__tag">Unstaged style</div>
+        <div class="proof-card__title">POV: tired of staged house tours</div>
+        <div class="proof-card__meta">163K views &middot; 5.3K likes &middot; Instagram Reel</div>
+        <div class="proof-tap proof-tap--reel">
+          <img src="proof/proof-staged-tours.jpg" alt="" loading="lazy">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to play on Instagram</div>
+        </div>
+      </a>
+
+      <a class="proof-card" href="https://www.instagram.com/reel/DRaoqr2Dg_U/" target="_blank" rel="noopener">
+        <div class="proof-card__tag">"Heart of the place" treatment</div>
+        <div class="proof-card__title">Things you should know before moving to Richmond</div>
+        <div class="proof-card__meta">6,796 views &middot; Instagram Reel</div>
+        <div class="proof-tap proof-tap--reel">
+          <img src="proof/proof-things-you-should-know.jpg" alt="" loading="lazy">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to play on Instagram</div>
+        </div>
+      </a>
+
+      <div class="proof-profile">
+        <div>
+          <div class="proof-profile__handle">@milesaminutesolutions</div>
+          <div class="proof-profile__line">Miles &middot; Moving to Richmond. The channel your episodes ship through. You are already subscribed.</div>
+        </div>
+        <a class="proof-profile__btn" href="https://www.instagram.com/milesaminutesolutions" target="_blank" rel="noopener">See the full profile &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I'D FILM (EPISODE SHAPES) -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; What I would film</div>
+    <h2 class="section__title">Three episode shapes. <em>Same umbrella, three flavors.</em></h2>
+    <p class="section__lede">First season runs Fall 2026. One keystone, one Mom-led, one Dad-led. You see every cut before anything ships.</p>
+
+    <div class="shots">
+      <div class="shot">
+        <div class="shot__num">Episode A</div>
+        <div class="shot__title">The standing date, filmed</div>
+        <div class="shot__lead">Both of you &middot; keystone</div>
+        <div class="shot__body">A weekend at a winery-adjacent VA Airbnb. Trail in the morning, tasting in the afternoon. Long-form on YouTube, five short cuts across Reels and TikTok. The format is the date you already plan.</div>
+      </div>
+      <div class="shot">
+        <div class="shot__num">Episode B</div>
+        <div class="shot__title">The state park project, episode one</div>
+        <div class="shot__lead">Mom &middot; with the grandkids</div>
+        <div class="shot__body">Pick a park you have been meaning to take them to. Stay nearby. One short trail with the kids. You narrating what you see. The season is the project. The episode is the chapter.</div>
+      </div>
+      <div class="shot">
+        <div class="shot__num">Episode C</div>
+        <div class="shot__title">Dad's table, episode one</div>
+        <div class="shot__lead">Dad &middot; what I wish I knew at 30</div>
+        <div class="shot__body">A winery you actually want to spend an afternoon at. One sit-down. Three reflections at half-volume. The trip is the spine. The reflections are the spine. The pour is the punctuation.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW THE PARTNERSHIP WORKS -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; How the partnership works</div>
+    <h2 class="section__title">You travel. I close. <em>We share.</em></h2>
+    <p class="section__lede">Four moves on a loop. You live your life on purpose. I work the business around it. Value flows back so the trips pay for themselves.</p>
+
+    <div class="partnership">
+      <div class="partner-step">
+        <div class="partner-step__num">01</div>
+        <div class="partner-step__title">You travel + scout</div>
+        <div class="partner-step__body">Go where you would go anyway. Note the Airbnbs you would love to actually stay at. Note the wineries you want to spend an afternoon at. Note the parks you want to take the kids to.</div>
+      </div>
+      <div class="partner-step">
+        <div class="partner-step__num">02</div>
+        <div class="partner-step__title">You send me the leads</div>
+        <div class="partner-step__body">A text, a screenshot, a name. That is the whole handoff. You do not have to write anything. The thinking has already happened by the time you have noticed.</div>
+      </div>
+      <div class="partner-step">
+        <div class="partner-step__num">03</div>
+        <div class="partner-step__title">I close with a proposal</div>
+        <div class="partner-step__body">I run the same kind of branded dashboard pitch I am running with hosts right now. The host gets a real proposal, not a DM. I do the work. You do not pitch anyone.</div>
+      </div>
+      <div class="partner-step">
+        <div class="partner-step__num">04</div>
+        <div class="partner-step__title">Value flows back</div>
+        <div class="partner-step__body">In-kind hosting covers the stay. Travel and meals are on me. The rest is the part we talk about together, in the callout below.</div>
+      </div>
+    </div>
+
+    <div class="partner-economics">
+      <div class="eyebrow">The economics</div>
+      <p><!-- MILES: locked partnership-economics line goes here. Default placeholder below until you write the real line. Keep it short. One sentence beats three. -->The Airbnb covers itself. The travel covers itself. <em>Anything the proposals produce beyond that, we split in a way we both feel good about.</em> We talk numbers on Sunday.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCTION LOGISTICS -->
+  <section class="block">
+    <div class="eyebrow">Section 05 &middot; The first season</div>
+    <h2 class="section__title">Fall 2026. Two trips. <em>A real production.</em></h2>
+    <p class="section__lede">Locked from the planning brief I just finished. Four to five months runway. Two episodes ship by mid-November.</p>
+
+    <div class="logistics">
+      <div class="logistics__row">
+        <div class="logistics__label">Mom's first trip</div>
+        <div class="logistics__when">October or early November 2026</div>
+        <div class="logistics__how">One scenic VA Airbnb, two to three days. Hired videographer per trip. First state park episode books off this trip.</div>
+      </div>
+      <div class="logistics__row">
+        <div class="logistics__label">Dad's first trip</div>
+        <div class="logistics__when">Four to eight weeks after Mom's</div>
+        <div class="logistics__how">Same shape, different lane. Airbnb near a winery you actually want to spend an afternoon at. Same hired shooter or a new one if the first trip's read says so.</div>
+      </div>
+      <div class="logistics__row">
+        <div class="logistics__label">Each episode</div>
+        <div class="logistics__when">Friday long-form, Monday through Friday Reels</div>
+        <div class="logistics__how">Weekend event drop. Long-form goes up Friday on YouTube. Five short pieces drop one per day the following week. Airbnb hosts get tagged the day of.</div>
+      </div>
+      <div class="logistics__row">
+        <div class="logistics__label">Lodging</div>
+        <div class="logistics__when">Zero out of pocket</div>
+        <div class="logistics__how">Covered in-kind through the same host-pitch dashboard I am running with Airbnb owners now. You stay free. They get the feature.</div>
+      </div>
+      <div class="logistics__row">
+        <div class="logistics__label">Travel + meals</div>
+        <div class="logistics__when">On me</div>
+        <div class="logistics__how">Flights, ground, and food are MAMS-funded. The trip is the work. The work pays for the trip.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIRST ASK -->
+  <section class="block">
+    <div class="eyebrow">Section 06 &middot; The first move</div>
+    <h2 class="section__title">Send me three places.</h2>
+    <p class="section__lede">If you are in, here is the only thing I need from you right now.</p>
+
+    <div class="first-ask">
+      <div class="first-ask__tag">Step 01 &middot; This week</div>
+      <div class="first-ask__title">Three places you have been meaning to go this fall.</div>
+      <p class="first-ask__body">An Airbnb you have eyeballed. A trail you have not gotten to. A winery with a porch worth a Saturday. A state park on the list. Any combination of three. Send them however you want. I will write the proposals. We see what comes back.</p>
+      <ul class="first-ask__list">
+        <li>Mom, your three can be a mix or all three parks. Up to you.</li>
+        <li>Dad, your three can be wineries, or one winery plus two Airbnbs.</li>
+        <li>If both of you want to send the same three, that is the keystone episode picking itself.</li>
+        <li>No prep required on your end. The note can be one sentence each.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CLOSING (MILES VOICE) -->
+  <section class="block">
+    <div class="closing">
+      <div class="closing__eyebrow">A note from me</div>
+      <h2 class="closing__title">Built around <em>you</em>, not the other way around.</h2>
+      <div class="closing__body">
+        <!-- MILES: ~3 paragraphs of close in your own voice goes here. Draft below is a placeholder so the page reads decently even before you edit. Replace freely. -->
+        <p>I have spent the last six months building branded pitch dashboards for Airbnb hosts, builders, sellers, and prospects. Every one of them is built on the same idea. One person gets a surface that proves I paid attention.</p>
+        <p>This is the same surface. The difference is that I have been paying attention to you my whole life.</p>
+        <p>The business is the reason the trips pay for themselves. The trips are the reason the business is worth running. Talk to you Sunday.</p>
+      </div>
+      <div class="closing__signoff">Love, Miles</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Built by <em>Miles Agee</em> &middot; MAMS LLC &middot; Richmond, Virginia</div>
+    <div>miles@milesagee.com &middot; mamsnow.com &middot; Single-recipient page for Mom and Dad. Not indexed.</div>
+  </footer>
+
+</div>
+
+<script>
+  // Lane expand/collapse (tap any card to expand; tap again to close)
+  document.querySelectorAll('.lane').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasOpen = card.classList.contains('open');
+      document.querySelectorAll('.lane').forEach(c => c.classList.remove('open'));
+      if (!wasOpen) card.classList.add('open');
+    });
+  });
+
+  // Auto-expand the first lane card on mobile so the pattern is visible
+  if (window.matchMedia('(max-width: 720px)').matches) {
+    const firstLane = document.querySelector('.lane');
+    if (firstLane) firstLane.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
