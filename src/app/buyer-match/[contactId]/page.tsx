@@ -71,12 +71,69 @@ export default async function BuyerMatchPage({
         </section>
       )}
 
+      {data.strategy && (
+        <section className="max-w-3xl mx-auto px-6 pb-6">
+          <div className="bg-white rounded-lg border border-deep-teal/10 p-6 sm:p-8">
+            <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold mb-2">
+              {data.strategyHeading ?? "The read on your must-haves"}
+            </p>
+            <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed whitespace-pre-line">
+              {data.strategy}
+            </p>
+          </div>
+        </section>
+      )}
+
+      {data.neighborhoodReads && data.neighborhoodReads.length > 0 && (
+        <section className="max-w-3xl mx-auto px-6 pb-6 space-y-4">
+          <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold">
+            Your neighborhoods, the honest version
+          </p>
+          {data.neighborhoodReads.map((n) => (
+            <div
+              key={n.name}
+              className="bg-white rounded-lg border border-deep-teal/10 overflow-hidden"
+            >
+              <div className="flex items-baseline justify-between gap-4 px-6 sm:px-8 py-4 bg-deep-teal/[0.04] border-b border-deep-teal/10">
+                <h3 className="font-display text-xl text-deep-teal leading-tight">{n.name}</h3>
+                <span className="text-[10px] uppercase tracking-[0.14em] text-gold-dark font-semibold whitespace-nowrap">
+                  {n.rankLabel}
+                </span>
+              </div>
+              <div className="px-6 sm:px-8 py-5 space-y-3">
+                <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">{n.body}</p>
+                <div className="border-l-2 border-gold/40 pl-4">
+                  <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold mb-1">
+                    What your budget gets here
+                  </p>
+                  <p className="text-sm text-deep-teal/75 leading-relaxed">{n.budgetReality}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+
       <section className="max-w-3xl mx-auto px-6 pb-12 space-y-6">
         {data.properties.length === 0 ? (
-          <div className="bg-white rounded-lg border border-deep-teal/10 p-8 text-center">
-            <p className="text-sm text-deep-teal/70">
-              Curation in progress. Refresh this page once you hear from Miles.
-            </p>
+          <div className="bg-white rounded-lg border border-deep-teal/10 overflow-hidden">
+            <div className="px-6 sm:px-8 py-4 bg-gold/10 border-b border-gold/20">
+              <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold">
+                Your shortlist is being built right now
+              </p>
+            </div>
+            <div className="px-6 sm:px-8 py-6 space-y-3">
+              <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">
+                Every home that makes your list gets confirmed against live listings first, so nothing
+                you see is already under contract or priced wrong. Each one lands with a photo, a
+                one-tap link to the full gallery, the reason it earned a spot, and the trade-off you
+                deserve to see before you fall for it.
+              </p>
+              <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">
+                That is the part the public sites skip. It is worth getting right.
+                {data.shortlistEta ? ` Watch for it ${data.shortlistEta}.` : ""}
+              </p>
+            </div>
           </div>
         ) : (
           data.properties.map((p) => (

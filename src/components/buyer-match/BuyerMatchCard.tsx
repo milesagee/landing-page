@@ -14,6 +14,13 @@ export function BuyerMatchCard({
 }) {
   const [interest, setInterest] = useState<"idle" | "pending" | "done" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [imgError, setImgError] = useState(false);
+
+  // The buyer needs a face to the address. A photo plus a one-tap link to the
+  // full gallery beats a wall of details they can't picture. Falls back to a
+  // branded panel if the photo URL is missing or fails to load.
+  const galleryUrl = property.sourceUrl || property.photoUrl || null;
+  const showPhoto = Boolean(property.photoUrl) && !imgError;
 
   const tellMore = async () => {
     setInterest("pending");
@@ -38,6 +45,38 @@ export function BuyerMatchCard({
 
   return (
     <article className="bg-white rounded-lg border border-deep-teal/10 overflow-hidden">
+      {/* Photo (gives the address a face + a one-tap link to the full gallery) */}
+      {galleryUrl && (
+        <a
+          href={galleryUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block relative aspect-[16/9] bg-deep-teal/[0.06] group focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold"
+          aria-label={`See all photos for ${property.address}`}
+        >
+          {showPhoto ? (
+            // eslint-disable-next-line @next/next/no-img-element -- external listing CDN, arbitrary domains; next/image remotePatterns can't enumerate them
+            <img
+              src={property.photoUrl as string}
+              alt={`${property.address}, ${property.city}`}
+              loading="lazy"
+              onError={() => setImgError(true)}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-display text-deep-teal/40 text-sm tracking-wide">
+                Photo on the listing
+              </span>
+            </div>
+          )}
+          <span className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-deep-teal/70 to-transparent" />
+          <span className="absolute bottom-3 right-3 text-[11px] font-semibold text-ivory bg-deep-teal/70 group-hover:bg-deep-teal px-3 py-1.5 rounded-md transition-colors">
+            See all photos
+          </span>
+        </a>
+      )}
+
       {/* Header */}
       <header className="bg-deep-teal/[0.04] px-6 sm:px-8 py-5 border-b border-deep-teal/10">
         <div className="flex items-baseline justify-between gap-4 flex-wrap">
