@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Two Richmond rentals, hand-checked for you | MAMS</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    --warn: #B85C2C;
+  }
+
+  html, body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--deep-teal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { max-width: 920px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  /* HERO */
+  .hero { padding: 48px 0 36px; border-bottom: 1px solid var(--line); }
+  .hero__brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .hero__brand img { height: 72px; width: auto; mix-blend-mode: multiply; margin-left: -10px; }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+  .hero__greeting { font-family: var(--serif); font-size: 14px; color: var(--teal); font-style: italic; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(38px, 6vw, 54px); line-height: 1.02; letter-spacing: -0.025em; color: var(--deep-teal); margin-bottom: 18px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 16px; color: var(--deep-teal); opacity: 0.80; max-width: 60ch; line-height: 1.62; }
+
+  /* SECTION ANATOMY */
+  section.block { padding: 44px 0; border-bottom: 1px solid var(--line); position: relative; z-index: 1; }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.section__title { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34px); line-height: 1.1; letter-spacing: -0.02em; color: var(--deep-teal); margin-bottom: 8px; }
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+  .section__lede { font-size: 15px; color: var(--deep-teal); opacity: 0.80; max-width: 64ch; line-height: 1.62; margin-bottom: 28px; }
+
+  /* OPPORTUNITY FRAME */
+  .opportunity { background: var(--deep-teal); color: var(--ivory); padding: 30px 36px; border-radius: 6px; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+  .opportunity::after { content: ''; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .opportunity::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border: 1px solid var(--teal-light); border-radius: 50%; opacity: 0.22; }
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+  .opportunity p { font-family: var(--serif); font-size: 22px; line-height: 1.36; font-weight: 300; letter-spacing: -0.005em; position: relative; z-index: 1; }
+  .opportunity p em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .opportunity__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 22px; position: relative; z-index: 1; }
+  .opportunity__list div { background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.22); border-radius: 4px; padding: 12px 14px; font-size: 12px; color: var(--ivory); line-height: 1.45; }
+  .opportunity__list div strong { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 4px; font-weight: 700; }
+
+  /* PROPERTY TRACKS */
+  .tracks-control { display: flex; background: var(--ivory); border: 1px solid var(--line); border-radius: 999px; padding: 4px; margin-bottom: 26px; width: fit-content; box-shadow: var(--shadow-sm); max-width: 100%; }
+  .tracks-control button { background: transparent; border: 0; padding: 11px 22px; font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--deep-teal); cursor: pointer; border-radius: 999px; transition: background 0.2s, color 0.2s; letter-spacing: 0.01em; }
+  .tracks-control button.active { background: var(--deep-teal); color: var(--gold); }
+  .tracks-control button:not(.active):hover { background: rgba(0, 63, 63, 0.06); }
+
+  .property-panel { display: none; }
+  .property-panel.active { display: block; animation: fade 0.3s cubic-bezier(0.16,1,0.3,1); }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .property-header { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 6px; padding: 22px 26px; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+  .property-header__name { font-family: var(--serif); font-size: 25px; font-weight: 500; color: var(--deep-teal); letter-spacing: -0.012em; margin-bottom: 3px; }
+  .property-header__address { font-size: 12.5px; color: var(--teal); margin-bottom: 10px; }
+  .property-header__meta { font-size: 12px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.13em; font-weight: 700; margin-bottom: 14px; }
+  .property-header__thesis { font-size: 14.5px; color: var(--deep-teal); opacity: 0.88; line-height: 1.65; }
+  .property-header__thesis em { color: var(--gold-dark); font-style: italic; font-weight: 500; }
+
+  /* FIT STRIP */
+  .fit { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 22px; }
+  .fit__cell { background: var(--paper-soft); border: 1px solid var(--line); border-radius: 5px; padding: 12px 14px; }
+  .fit__label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 4px; }
+  .fit__value { font-family: var(--serif); font-size: 15px; font-weight: 500; color: var(--deep-teal); line-height: 1.3; }
+  .fit__value small { display: block; font-family: var(--sans); font-size: 11px; font-weight: 400; color: var(--teal); opacity: 0.9; margin-top: 2px; letter-spacing: 0; }
+
+  .property-subhead { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--deep-teal); margin: 24px 0 6px; letter-spacing: -0.01em; }
+  .property-subhead em { color: var(--gold-dark); font-style: italic; }
+  .property-subhead-note { font-size: 12.5px; color: var(--teal); opacity: 0.86; margin-bottom: 14px; font-style: italic; font-family: var(--serif); }
+
+  /* INTEL CARDS (expandable) */
+  .channel-list { display: flex; flex-direction: column; gap: 10px; }
+  .channel { background: var(--ivory); border: 1px solid var(--line); border-radius: 5px; padding: 14px 18px; cursor: pointer; transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s, border-color 0.18s; }
+  .channel:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); border-color: var(--line-strong); }
+  .channel.open { box-shadow: var(--shadow-md); border-color: var(--gold); }
+  .channel__head { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .channel__name { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--deep-teal); flex: 1; letter-spacing: -0.005em; }
+  .channel__why { font-size: 12px; color: var(--teal); opacity: 0.86; text-align: right; max-width: 48%; line-height: 1.4; }
+  .channel__chev { flex-shrink: 0; color: var(--gold-dark); font-size: 12px; transition: transform 0.2s; }
+  .channel.open .channel__chev { transform: rotate(90deg); }
+  .channel__detail { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 13.5px; color: var(--deep-teal); line-height: 1.62; opacity: 0.92; }
+  .channel.open .channel__detail { display: block; }
+  .channel__detail strong { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold-dark); font-weight: 700; display: block; margin: 10px 0 4px; }
+  .channel__detail strong:first-child { margin-top: 0; }
+  .channel__detail em { color: var(--gold-dark); font-style: italic; font-weight: 500; }
+
+  /* HONEST TRUTHS */
+  .truths { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 24px 28px; box-shadow: var(--shadow-sm); }
+  .truths p { font-size: 14.5px; color: var(--deep-teal); line-height: 1.7; margin-bottom: 12px; }
+  .truths p:last-child { margin-bottom: 0; }
+  .truths p strong { color: var(--gold-dark); font-weight: 600; }
+
+  /* NEXT STEPS */
+  .steps { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 26px 30px; box-shadow: var(--shadow-sm); }
+  .steps ol { list-style: none; counter-reset: step; padding: 0; margin: 0; }
+  .steps li { counter-increment: step; position: relative; padding: 0 0 18px 44px; font-size: 14.5px; color: var(--deep-teal); line-height: 1.6; }
+  .steps li:last-child { padding-bottom: 0; }
+  .steps li::before { content: counter(step); position: absolute; left: 0; top: -2px; width: 28px; height: 28px; background: var(--deep-teal); color: var(--gold); border-radius: 50%; font-family: var(--serif); font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+  .steps li strong { color: var(--gold-dark); font-weight: 600; }
+
+  /* ASK */
+  .ask { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 28px 32px; box-shadow: var(--shadow-md); }
+  .ask__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .ask__head { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ivory); margin-bottom: 8px; letter-spacing: -0.012em; }
+  .ask__sub { font-size: 13.5px; color: var(--ivory); opacity: 0.80; margin-bottom: 16px; line-height: 1.55; }
+  .ask__textarea { width: 100%; min-height: 110px; background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.32); border-radius: 5px; padding: 12px 14px; color: var(--ivory); font-family: var(--sans); font-size: 14px; line-height: 1.55; resize: vertical; outline: none; transition: border-color 0.18s; }
+  .ask__textarea:focus { border-color: var(--gold); }
+  .ask__textarea::placeholder { color: rgba(255,255,255,0.45); font-style: italic; }
+  .ask__submit { margin-top: 14px; background: var(--gold); color: var(--deep-teal); border: 0; padding: 12px 26px; font-family: var(--sans); font-weight: 700; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 999px; cursor: pointer; transition: background 0.18s, transform 0.18s; }
+  .ask__submit:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .ask__submit:active { transform: translateY(0); }
+  .ask__status { font-size: 12px; color: var(--gold); margin-top: 10px; min-height: 16px; font-family: var(--serif); font-style: italic; }
+
+  /* FOOTER */
+  .foot { padding: 36px 0 56px; text-align: center; font-size: 11.5px; color: var(--deep-teal); opacity: 0.62; line-height: 1.6; }
+  .foot__logo { height: 32px; width: auto; margin: 0 auto 12px; opacity: 0.62; mix-blend-mode: multiply; }
+  .foot a { color: var(--gold-dark); text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 18px; }
+    .opportunity { padding: 24px 22px; }
+    .opportunity p { font-size: 18px; }
+    .channel__why { max-width: 56%; }
+    .property-header { padding: 20px 20px; }
+    .steps { padding: 22px 20px; }
+    .tracks-control button { padding: 11px 16px; font-size: 12.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand">
+      <img src="/scaffold/mams-logo.png" alt="MAMS LLC"/>
+    </div>
+    <div class="hero__eyebrow">Your Richmond search</div>
+    <div class="hero__greeting">Tiffany,</div>
+    <h1 class="hero__title">Two places worth <em>your first weekend here</em>.</h1>
+    <p class="hero__sub">You and your partner land in Richmond the last week of June, you start at Henrico Doctors, and you want to walk to coffee without giving up a 20-minute drive to work. So instead of a search-results dump, here are the two we would actually walk through first. One in the Fan, one in Manchester. Both checked the way we check for the people who hire us all the way through.</p>
+  </header>
+
+  <!-- POSTURE -->
+  <section class="block">
+    <div class="eyebrow">Why only two</div>
+    <h2 class="section__title">Most agents send a Zillow link. <em>We read your intake first.</em></h2>
+    <p class="section__lede">You told Chosen the real list: two bedrooms, a cat and a dog, under twenty-four hundred, walkable, fifteen to twenty minutes from Henrico Doctors, leaving Austin June 22nd. We took that and pulled the two buildings that fit it cleanly, then ran each one against the things the listing sites quietly leave out. This is a taste of how we work, not the whole search. You get to keep it either way.</p>
+
+    <div class="opportunity">
+      <div class="eyebrow">What we already matched to you</div>
+      <p>Both pass the test that matters most for a fresh-to-Richmond renter: a <em>flexible enough lease</em>, a real pet policy for your two, and a true monthly cost we did the math on so the number on the listing is not a surprise on move-in day.</p>
+      <div class="opportunity__list">
+        <div><strong>Your commute</strong>Both inside the 15 to 20 minute window you gave us to Henrico Doctors.</div>
+        <div><strong>Your two pets</strong>Cats and dogs welcome at both. Real fees listed, not buried.</div>
+        <div><strong>Your budget</strong>Both have a two-bed under $2,400 before the move-in rush season.</div>
+        <div><strong>Your timeline</strong>Both have two-beds available now for a late-June move.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTY TRACKS -->
+  <section class="block">
+    <div class="eyebrow">The two</div>
+    <h2 class="section__title">One walkable, one roomier. <em>Toggle between them.</em></h2>
+    <p class="section__lede">The Fan pick wins on walking to coffee and a park. The Manchester pick wins on square footage and price. Tap each tab, then tap any card to open the part the listing page would not tell you.</p>
+
+    <div class="tracks-control" role="tablist">
+      <button class="active" data-property="fan" role="tab">The Fan</button>
+      <button data-property="manchester" role="tab">Old Town Manchester</button>
+    </div>
+
+    <!-- FAN PANEL: THE CAROUSEL -->
+    <div class="property-panel active" data-panel="fan">
+      <div class="property-header">
+        <div class="property-header__name">The Carousel</div>
+        <div class="property-header__address">2400 Grayland Ave, Richmond 23220 · The Fan</div>
+        <div class="property-header__meta">2 BR · 2 BA · 864 sq ft · 9 to 13 month lease</div>
+        <p class="property-header__thesis">This is the one that answers your "walk to a coffee shop or a park" line directly. It sits in the heart of the Fan with a <em>Walk Score of 92</em>, which in Richmond terms means you step out the door and you are already there. About 15 minutes up I-195 to Henrico Doctors. The shorter lease band is a gift when you are new to a city and not ready to commit to a year in one square mile.</p>
+      </div>
+
+      <div class="fit">
+        <div class="fit__cell"><div class="fit__label">Two-bed rent</div><div class="fit__value">$2,102<small>to $2,132 / month</small></div></div>
+        <div class="fit__cell"><div class="fit__label">Walk Score</div><div class="fit__value">92<small>Bike 81 · very walkable</small></div></div>
+        <div class="fit__cell"><div class="fit__label">Pets</div><div class="fit__value">Welcome<small>$300 deposit · $35 / mo</small></div></div>
+        <div class="fit__cell"><div class="fit__label">Lease</div><div class="fit__value">9 to 13 mo<small>flexible terms</small></div></div>
+      </div>
+
+      <div class="property-subhead">What the listing page <em>will not show you</em></div>
+      <div class="property-subhead-note">Tap a card to open it.</div>
+      <div class="channel-list">
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__name">The five-star reviews are mostly fake</div>
+            <div class="channel__why">8 of 14 flagged as likely AI-written</div>
+            <div class="channel__chev">&#9656;</div>
+          </div>
+          <div class="channel__detail">
+            <strong>What we found</strong>Of the 14 five-star Google reviews we analyzed, 8 read as likely fake or AI-generated. The tell: the same first name keeps appearing, the language is generic brochure praise, and several reviewers admit they only toured and never actually moved in. There was also a burst of four-plus reviews inside one week, which is how a leasing office pads a rating.
+            <strong>Why it matters to you</strong>You should weight the rating lightly and weight the lease tour heavily. The real signal lives in the genuine reviews below, not the star average.
+            <strong>The honest read</strong>The 6 reviews that pass the smell test are <em>genuinely good</em>: responsive leasing staff, a clean and well-kept building, and notably good soundproofing between units. That last one matters with a dog.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__name">The true monthly cost</div>
+            <div class="channel__why">closer to $2,227, not $2,102</div>
+            <div class="channel__chev">&#9656;</div>
+          </div>
+          <div class="channel__detail">
+            <strong>The math we did</strong>The $2,102 is rent only. Add the $15 monthly trash fee, the $35 monthly pet rent for your two, and $75 a month for a surface parking spot, and your real recurring number is about <em>$2,227 before utilities</em>. Still under your ceiling, but now you know.
+            <strong>The one-time hits at signing</strong>A $50 application fee, a $200 amenity fee, and a security deposit that ranges from $500 up to one month's rent depending on how your application scores.
+            <strong>What we would ask for you</strong>Whether the parking spot is required or optional, and whether the deposit lands at the $500 floor or higher. Those two answers move your move-in cost by hundreds.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__name">Who actually runs it</div>
+            <div class="channel__why">PRG Real Estate Management</div>
+            <div class="channel__chev">&#9656;</div>
+          </div>
+          <div class="channel__detail">
+            <strong>Management</strong>PRG Real Estate Management. A regional operator with several Fan buildings, so they are not a fly-by-night landlord, but they do run a portfolio, which means your maintenance request gets a ticket, not a neighbor.
+            <strong>The one question that tells you everything</strong>Ask how long the average maintenance request takes to close. We can ask it on your behalf so it does not sound like you are already worried.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MANCHESTER PANEL: THE NAVIGATOR -->
+    <div class="property-panel" data-panel="manchester">
+      <div class="property-header">
+        <div class="property-header__name">The Navigator</div>
+        <div class="property-header__address">103 E 2nd St, Richmond 23224 · Old Town Manchester</div>
+        <div class="property-header__meta">2 BR · 2 BA · 951 sq ft · 12 to 15 month lease</div>
+        <p class="property-header__thesis">This is the value-and-space pick. You get a two-bed that starts <em>under two thousand</em> with almost a hundred more square feet than the Fan unit, in the highest-rated building of the two. Manchester is the riverfront-and-floodwall walk rather than the coffee-on-every-corner walk, and it is about 20 minutes to Henrico Doctors over the Powhite, still inside your window.</p>
+      </div>
+
+      <div class="fit">
+        <div class="fit__cell"><div class="fit__label">Two-bed rent</div><div class="fit__value">$1,960<small>951 sq ft, 1 available</small></div></div>
+        <div class="fit__cell"><div class="fit__label">Walk Score</div><div class="fit__value">58<small>quieter, car-friendly</small></div></div>
+        <div class="fit__cell"><div class="fit__label">Pets</div><div class="fit__value">Welcome<small>$400 deposit · $45 / mo</small></div></div>
+        <div class="fit__cell"><div class="fit__label">Lease</div><div class="fit__value">12 to 15 mo<small>standard term</small></div></div>
+      </div>
+
+      <div class="property-subhead">What the listing page <em>will not show you</em></div>
+      <div class="property-subhead-note">Tap a card to open it.</div>
+      <div class="channel-list">
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__name">The reviews are mostly real here</div>
+            <div class="channel__why">only 6 of 26 flagged</div>
+            <div class="channel__chev">&#9656;</div>
+          </div>
+          <div class="channel__detail">
+            <strong>What we found</strong>We analyzed 26 five-star reviews and only 6 read as suspicious, which is a far healthier ratio than most buildings we check. The genuine majority points the same direction.
+            <strong>The honest read</strong>Residents consistently praise <em>responsive management</em>, a welcoming leasing team, and a well-kept modern building with strong amenities. The soundproofing reading is the best of the two buildings, which again matters with a dog.
+            <strong>Why it matters to you</strong>When a 4.3 rating is built on mostly real reviews, you can trust your tour to confirm what you read instead of having to disprove it.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__name">The true monthly cost</div>
+            <div class="channel__why">about $2,125 fully loaded</div>
+            <div class="channel__chev">&#9656;</div>
+          </div>
+          <div class="channel__detail">
+            <strong>The math we did</strong>The $1,960 looks like the cheaper option, and it still is, but Manchester buildings love a fee stack. Add internet at $45, pest control at $5, trash at $15, a billing admin fee at $5, your $45 pet rent, and a $50 surface parking spot, and your real recurring number is about <em>$2,125 before utilities</em>. A garage spot pushes it to roughly $2,170.
+            <strong>The one-time hits at signing</strong>A $50 application fee, a $250 admin fee, and a security deposit anywhere from $500 to $2,000 based on your application.
+            <strong>What we would push on</strong>That deposit range is wide. We would get yours pinned down in writing before you fall in love with the unit, because the difference is real money.
+          </div>
+        </div>
+
+        <div class="channel" data-channel>
+          <div class="channel__head">
+            <div class="channel__name">Who actually runs it</div>
+            <div class="channel__why">Greystar</div>
+            <div class="channel__chev">&#9656;</div>
+          </div>
+          <div class="channel__detail">
+            <strong>Management</strong>Greystar, the largest apartment operator in the country. The upside is professional systems, an online portal, and predictable processes. The trade-off is that you are a unit in a large machine, so the personal touch depends on the local site team, which here reviews well.
+            <strong>The Manchester catch</strong>The neighborhood is still filling in. Great riverfront, strong new construction, but some blocks are livelier than others at night. We would tell you exactly which side of the building to ask for. That is the kind of thing you only know if you actually work the neighborhood.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HONEST TRUTHS -->
+  <section class="block">
+    <div class="eyebrow">Straight talk</div>
+    <h2 class="section__title">A few things <em>worth saying out loud</em>.</h2>
+    <p class="section__lede">The kind of notes we would give you over coffee, not in a brochure.</p>
+
+    <div class="truths">
+      <p><strong>You said full house, and these are apartments.</strong> We know. We led with these two because they fit your budget, your pets, and your timeline cleanly, and because they are easy to tour the same weekend you land. The actual full-house rentals, the privately listed townhomes and single-families that never hit Zillow looking clean, are the harder hunt. That hunt is exactly what the full concierge does.</p>
+      <p><strong>The Fan if walking matters most, Manchester if space and price matter most.</strong> You cannot fully optimize for both in this budget. The Carousel buys you the coffee-shop walk. The Navigator buys you the extra room and a lower real number. Knowing which one you weight heavier tells us what to chase next.</p>
+      <p><strong>Late June is the tightest window of the rental year.</strong> Every relocation and every lease turn lands at once. The two-beds that are open today may not be open in three weeks. If either of these speaks to you, the move is to lock a tour before you fly, not after.</p>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section class="block">
+    <div class="eyebrow">From here</div>
+    <h2 class="section__title">If one of these is a yes.</h2>
+    <p class="section__lede">No pressure either way. The intel above is yours to keep. But if you want to actually walk one, here is the path.</p>
+
+    <div class="steps">
+      <ol>
+        <li>Reply and tell us which one caught your eye, the Fan or Manchester, or both. One word is plenty.</li>
+        <li><strong>Chosen lines up the tours</strong> and asks the management-company questions for you, the deposit range, the parking rules, the maintenance turnaround, so you walk in already knowing the answers.</li>
+        <li>If you decide you want help all the way through, the tours, the application, the lease read, and the keys, that is the full Move-In Concierge. If you would rather take it from here with this in hand, that works too. Either way you are not doing this blind.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ASK -->
+  <section class="block">
+    <div class="ask">
+      <div class="ask__tag">Tell us what we missed</div>
+      <h3 class="ask__head">Anything change since the call?</h3>
+      <p class="ask__sub">A neighborhood you want ruled in or out, a hard no on stairs, a parking must-have, a different budget than what we wrote down. The more you tell us, the sharper the next round gets.</p>
+      <textarea class="ask__textarea" id="askText" placeholder="Type freely. We read every word."></textarea>
+      <button class="ask__submit" id="askSubmit">Send to Miles &amp; Chosen</button>
+      <div class="ask__status" id="askStatus"></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <img src="/scaffold/mams-logo.png" alt="MAMS LLC" class="foot__logo"/>
+    <div>Built for you, Tiffany. Not a template.</div>
+    <div style="margin-top:8px;">Reach us directly: <a href="mailto:miles@mamsnow.com">miles@mamsnow.com</a></div>
+    <div style="margin-top:8px;">MAMS LLC · Richmond, Virginia · Miles Agee, Realtor, OneSouth Realty Team powered by Samson Properties</div>
+  </footer>
+
+</div>
+
+<script>
+  // Property tabs
+  document.querySelectorAll('.tracks-control button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var target = btn.dataset.property;
+      document.querySelectorAll('.tracks-control button').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.property-panel').forEach(function(p) {
+        p.classList.toggle('active', p.dataset.panel === target);
+      });
+    });
+  });
+
+  // Intel cards expand
+  document.querySelectorAll('[data-channel]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      card.classList.toggle('open');
+    });
+  });
+
+  // Ask submit: open mailto pre-filled so the note actually delivers
+  document.getElementById('askSubmit').addEventListener('click', function(e) {
+    e.stopPropagation();
+    var txt = document.getElementById('askText').value.trim();
+    var status = document.getElementById('askStatus');
+    if (!txt) {
+      status.textContent = 'Type something first.';
+      return;
+    }
+    var subject = encodeURIComponent('Tiffany, note on the Richmond rentals');
+    var body = encodeURIComponent(txt + '\n\n--\nSent from my MAMS rental shortlist');
+    window.location.href = 'mailto:miles@mamsnow.com?subject=' + subject + '&body=' + body;
+    status.textContent = 'Opening your email so you can hit send.';
+  });
+</script>
+
+</body>
+</html>
