@@ -403,11 +403,11 @@ export function ConciergeSearchDashboard({
               anything you want eyes on.
             </li>
             <li>
-              I call Monday on 9231 Gregory to resolve the status conflict and book the 9810 Tuxford
-              first-day showing for June 11.
+              When the timing&rsquo;s right, book a call on the calendar. We talk through the
+              survivors, resolve any open status questions, and lock the tour schedule.
             </li>
             <li>
-              We tour the survivors mid-week. Energy verification happens at the panel and the meter
+              We tour together mid-week. Energy verification happens at the panel and the meter
               with you in person.
             </li>
             <li>
@@ -415,6 +415,33 @@ export function ConciergeSearchDashboard({
               Equity Snapshot in full.
             </li>
           </ol>
+        </div>
+      </section>
+
+      {/* Book a call CTA — self-serve, no calendar push */}
+      <section className="bg-deep-teal text-ivory rounded-lg overflow-hidden">
+        <div className="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="min-w-0">
+            <p className="text-xs uppercase tracking-[0.18em] text-gold font-semibold mb-2">
+              Book a call
+            </p>
+            <h3 className="font-display text-xl sm:text-2xl text-ivory leading-tight">
+              {viewer.viewerType === "primary"
+                ? `When the timing's right for you and ${data.partnerFirstName}.`
+                : "When the timing works for you."}
+            </h3>
+            <p className="text-sm text-ivory/75 mt-2 leading-relaxed">
+              Open my calendar. Grab whatever window works. No pressure to do it today.
+            </p>
+          </div>
+          <a
+            href="https://api.leadconnectorhq.com/widget/booking/OGeuwB3XL6klvQFHG5Bj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-block rounded-md bg-gold text-deep-teal px-5 py-3 text-sm font-semibold hover:bg-gold/85 active:translate-y-px transition-colors duration-150 text-center"
+          >
+            Open the calendar
+          </a>
         </div>
       </section>
     </div>
