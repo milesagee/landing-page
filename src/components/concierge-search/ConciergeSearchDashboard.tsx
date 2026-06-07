@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Script from "next/script";
 import type {
   JosephusSearchData,
   Property,
   Viewer,
 } from "@/lib/josephus-concierge-search-data";
+
+const BOOKING_WIDGET_URL = "https://api.leadconnectorhq.com/widget/booking/OGeuwB3XL6klvQFHG5Bj";
 
 type ActionState = "idle" | "pending" | "done" | "error";
 type Rating = "love" | "maybe" | "hide";
@@ -275,7 +278,7 @@ export function ConciergeSearchDashboard({
                   </p>
                   <p className="text-xs text-deep-teal/60 mt-0.5">
                     {p.zip} &middot; {STATUS_LABEL[p.status]}
-                    {p.price > 0 ? ` &middot; $${p.price.toLocaleString()}` : ""}
+                    {p.price > 0 ? ` · $${p.price.toLocaleString()}` : ""}
                   </p>
                 </div>
                 <span className={`text-[10px] uppercase tracking-[0.15em] px-2 py-0.5 rounded ${STATUS_TONE[p.status]}`}>
@@ -403,12 +406,12 @@ export function ConciergeSearchDashboard({
               anything you want eyes on.
             </li>
             <li>
-              When the timing&rsquo;s right, book a call on the calendar. We talk through the
-              survivors, resolve any open status questions, and lock the tour schedule.
+              When the timing&rsquo;s right, grab a slot on the calendar below. We talk through the
+              survivors and answer anything that came up on the page.
             </li>
             <li>
-              We tour together mid-week. Energy verification happens at the panel and the meter
-              with you in person.
+              If a property earns a tour, we go in person. Energy verification happens at the panel
+              and the meter when we&rsquo;re there.
             </li>
             <li>
               Troy listing prep is a separate conversation. When you&rsquo;re ready, we run the
@@ -418,30 +421,45 @@ export function ConciergeSearchDashboard({
         </div>
       </section>
 
-      {/* Book a call CTA — self-serve, no calendar push */}
-      <section className="bg-deep-teal text-ivory rounded-lg overflow-hidden">
-        <div className="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div className="min-w-0">
-            <p className="text-xs uppercase tracking-[0.18em] text-gold font-semibold mb-2">
-              Book a call
-            </p>
-            <h3 className="font-display text-xl sm:text-2xl text-ivory leading-tight">
-              {viewer.viewerType === "primary"
-                ? `When the timing's right for you and ${data.partnerFirstName}.`
-                : "When the timing works for you."}
-            </h3>
-            <p className="text-sm text-ivory/75 mt-2 leading-relaxed">
-              Open my calendar. Grab whatever window works. No pressure to do it today.
-            </p>
-          </div>
+      {/* Book a call — inline slot picker, self-serve */}
+      <section className="rounded-lg overflow-hidden border border-deep-teal/15">
+        <div className="bg-deep-teal text-ivory p-6 sm:p-8">
+          <p className="text-xs uppercase tracking-[0.18em] text-gold font-semibold mb-2">
+            Book a call
+          </p>
+          <h3 className="font-display text-xl sm:text-2xl text-ivory leading-tight">
+            {viewer.viewerType === "primary"
+              ? `When the timing's right for you and ${data.partnerFirstName}.`
+              : "When the timing works for you."}
+          </h3>
+          <p className="text-sm text-ivory/75 mt-2 leading-relaxed">
+            Grab whatever window works. The slot picker is right here. No pressure to do it today.
+          </p>
+        </div>
+        <div className="bg-white">
+          <iframe
+            src={BOOKING_WIDGET_URL}
+            id="OGeuwB3XL6klvQFHG5Bj_concierge-search"
+            title="Book a call with Miles"
+            style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "640px" }}
+            scrolling="no"
+          />
+          <Script
+            src="https://link.msgsndr.com/js/form_embed.js"
+            strategy="afterInteractive"
+          />
+        </div>
+        <div className="bg-paper px-6 py-3 text-xs text-deep-teal/60 leading-relaxed border-t border-deep-teal/10">
+          Slot picker not loading?{" "}
           <a
-            href="https://api.leadconnectorhq.com/widget/booking/OGeuwB3XL6klvQFHG5Bj"
+            href={BOOKING_WIDGET_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-block rounded-md bg-gold text-deep-teal px-5 py-3 text-sm font-semibold hover:bg-gold/85 active:translate-y-px transition-colors duration-150 text-center"
+            className="underline hover:text-gold-dark"
           >
-            Open the calendar
+            Open the calendar in a new tab
           </a>
+          .
         </div>
       </section>
     </div>

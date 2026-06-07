@@ -247,7 +247,7 @@ export const SEARCHES: Record<string, JosephusSearchData> = {
           electrificationStatus: "not disclosed",
           estMonthlyUtilityCost: "not disclosed",
           energyNotes:
-            "Upgraded electrical box is the only Tier 1 property with any energy-readiness signal. Worth a Day 1 tour the moment it hits.",
+            "Upgraded electrical box is the only Tier 1 property with any energy-readiness signal in the disclosed data.",
         },
       },
       // Tier 2.
@@ -331,16 +331,15 @@ export const SEARCHES: Record<string, JosephusSearchData> = {
         slug: "gregory-9231",
         rank: 9,
         tier: "watch",
-        status: "status-conflict",
+        status: "comp",
         address: "9231 Gregory Dr",
         city: "North Chesterfield",
         county: "Chesterfield",
         zip: "23234",
-        price: 449950, // Zillow + PenFed list price.
+        price: 475000, // closed May 14, 2026.
         whyItMatters:
-          "Strong suite layout. Was a top April pick. Status is contested between data feeds, agent call required.",
-        caveat:
-          "Trulia reports sold May 14, 2026 at $475K. Zillow and PenFed still show active. We resolve this before treating it as live.",
+          "Closed May 14 at $475K. Was a top April pick before it sold. Strong suite layout, useful as the closest comp for what real multigen pricing looks like in North Chesterfield this season.",
+        caveat: "Sold comp only. Not available.",
         zillowUrl:
           "https://www.zillow.com/homedetails/9231-Gregory-Dr-North-Chesterfield-VA-23234/12181014_zpid/",
         energy: {
@@ -350,7 +349,7 @@ export const SEARCHES: Record<string, JosephusSearchData> = {
           electrificationStatus: "Carport electricity disclosed (single outlet, not full EV)",
           estMonthlyUtilityCost: "not disclosed",
           energyNotes:
-            "Carport electricity is the only signal. If the home is actually still active, this is the call I want to make Monday.",
+            "Carport electricity was the only energy signal in the listing. Comp data point now, not a tour target.",
         },
       },
       {
@@ -479,8 +478,8 @@ export const SEARCHES: Record<string, JosephusSearchData> = {
     milesNote: {
       headline: "Josephus, six days late on this brief was not the move.",
       body: [
-        "I ran a full refresh because the April search left 145 homes untouched, and because you told me the energy lens matters. Two things you should know honestly. One: the listing data does not disclose solar potential, panel amperage, EV readiness, or utility cost for any of these properties. That is a listing-platform limitation, not a research gap. We verify on tour day with the panel, the roof, and the meter, not from the screen. Two: the strongest active match is 5823 Stanbrook in North Chesterfield. The strongest accessibility match is 4512 Wraywood. The strongest dark-horse is 9810 Tuxford the moment it lists June 11.",
-        "You and Dominique each have your own view of this page. Rate what speaks. Hide what doesn't. The Equity Snapshot card below is for when the timing on Troy lines up. October is real and we move when you're ready.",
+        "I ran a full refresh because the April search left 145 homes untouched, and because you told me the energy lens matters. Two things you should know honestly. One: the listing data does not disclose solar potential, panel amperage, EV readiness, or utility cost for any of these properties. That is a listing-platform limitation, not a research gap. We verify on tour day with the panel, the roof, and the meter, not from the screen. Two: the strongest active match is 5823 Stanbrook in North Chesterfield. The strongest accessibility option is 4512 Wraywood. 9810 Tuxford comes live June 11 if you want eyes on it.",
+        "You and Dominique each have your own view of this page. Rate what speaks. Hide what doesn't. The Equity Snapshot card below is for when the timing on Troy lines up. October is real, and the pace is yours.",
       ],
     },
     fieldsNotDisclosed: [
