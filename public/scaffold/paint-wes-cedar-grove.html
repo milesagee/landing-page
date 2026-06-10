@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Paint picks for Wes | 3901 Cedar Grove</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+
+    --hardwood: #6B5742;
+  }
+
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--line); }
+  .hero__brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .hero__brand img { height: 72px; width: auto; mix-blend-mode: multiply; margin-left: -10px; }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+  .hero__greeting { font-family: var(--serif); font-size: 13px; color: var(--teal); font-style: italic; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(38px, 6vw, 54px); line-height: 1.02; letter-spacing: -0.025em; color: var(--deep-teal); margin-bottom: 18px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 16px; color: var(--deep-teal); opacity: 0.74; max-width: 56ch; line-height: 1.55; }
+
+  section.block { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.section__title { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34px); line-height: 1.1; letter-spacing: -0.02em; color: var(--deep-teal); margin-bottom: 8px; }
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+  .section__lede { font-size: 15px; color: var(--deep-teal); opacity: 0.82; max-width: 60ch; line-height: 1.6; margin-bottom: 28px; }
+
+  .frame { background: var(--deep-teal); color: var(--ivory); padding: 30px 36px; border-radius: 6px; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+  .frame::after { content: ''; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .frame::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border: 1px solid var(--teal-light); border-radius: 50%; opacity: 0.22; }
+  .frame .eyebrow { color: var(--gold); margin-bottom: 6px; }
+  .frame p { font-family: var(--serif); font-size: 22px; line-height: 1.32; font-weight: 300; letter-spacing: -0.005em; position: relative; z-index: 1; }
+  .frame p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  .light-read { background: var(--ivory); border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 6px; padding: 22px 26px; box-shadow: var(--shadow-sm); }
+  .light-read p { font-size: 14.5px; line-height: 1.65; color: var(--deep-teal); opacity: 0.88; margin-bottom: 10px; }
+  .light-read p:last-child { margin-bottom: 0; }
+  .light-read strong { color: var(--gold-dark); font-weight: 700; letter-spacing: 0.01em; }
+
+  .picks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .picks--solo { grid-template-columns: 1fr; max-width: 520px; }
+  .pick { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s; }
+  .pick:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+  .room {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .room__ceiling { position: absolute; top: 0; left: 0; right: 0; height: 13%; }
+  .room__wall { position: absolute; top: 13%; bottom: 16%; left: 0; right: 0; }
+  .room__window {
+    position: absolute;
+    top: 22%;
+    left: 18%;
+    width: 36%;
+    height: 44%;
+    border: 4px solid var(--window-trim);
+    border-radius: 2px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 60%, rgba(255,255,255,0.0) 100%),
+      linear-gradient(90deg, rgba(255,253,240,0.35), rgba(220,235,235,0.25));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
+  }
+  .room__window::before, .room__window::after {
+    content: '';
+    position: absolute;
+    background: var(--window-trim);
+  }
+  .room__window::before { left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-1px); }
+  .room__window::after { top: 50%; left: 0; right: 0; height: 2px; transform: translateY(-1px); }
+  .room__baseboard { position: absolute; bottom: 8%; left: 0; right: 0; height: 8%; }
+  .room__floor { position: absolute; bottom: 0; left: 0; right: 0; height: 8%; background: var(--hardwood); background-image: linear-gradient(90deg, rgba(0,0,0,0.18) 0%, transparent 22%, rgba(0,0,0,0.0) 50%, transparent 78%, rgba(0,0,0,0.15) 100%); }
+  .room__floor::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: rgba(0,0,0,0.12); }
+
+  .pick__body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .pick__sku { font-family: var(--serif); font-size: 18px; font-weight: 500; line-height: 1.18; letter-spacing: -0.012em; color: var(--deep-teal); }
+  .pick__code { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); }
+  .pick__chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+  .chip { font-size: 10.5px; font-weight: 600; color: var(--teal); background: rgba(0, 95, 95, 0.07); padding: 4px 9px; border-radius: 999px; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px; }
+  .chip__swatch { width: 9px; height: 9px; border-radius: 2px; border: 1px solid rgba(0,0,0,0.12); }
+  .pick__why { font-size: 13.5px; line-height: 1.55; color: var(--deep-teal); opacity: 0.85; border-left: 2px solid var(--gold); padding-left: 11px; margin-top: 4px; }
+  .pick__rule { font-size: 11.5px; font-weight: 600; color: var(--gold-dark); margin-top: 8px; letter-spacing: 0.02em; text-transform: uppercase; }
+  .pick__rule--warn { color: var(--gold-dark); }
+
+  .skip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .skip__chip { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; opacity: 0.78; transition: opacity 0.2s; }
+  .skip__chip:hover { opacity: 1; }
+  .skip__swatch { width: 30px; height: 30px; border-radius: 4px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.08); }
+  .skip__copy { display: flex; flex-direction: column; gap: 2px; }
+  .skip__name { font-family: var(--serif); font-size: 13.5px; font-weight: 500; color: var(--deep-teal); line-height: 1.2; letter-spacing: -0.005em; }
+  .skip__code { font-size: 9.5px; font-weight: 700; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 3px; }
+  .skip__why { font-size: 12px; color: var(--deep-teal); opacity: 0.74; line-height: 1.45; }
+
+  .closing { background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 8px; padding: 28px 30px; box-shadow: var(--shadow-md); }
+  .closing__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+  .closing__title { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--deep-teal); letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 14px; }
+  .closing__title em { color: var(--gold-dark); font-style: italic; }
+  .closing__body { font-size: 15px; line-height: 1.7; color: var(--deep-teal); }
+  .closing__body p { margin-bottom: 10px; }
+  .closing__body p:last-child { margin-bottom: 0; }
+  .closing__signoff { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--gold-dark); margin-top: 14px; letter-spacing: 0.01em; }
+
+  footer.foot { padding: 38px 0 60px; text-align: center; font-size: 11px; color: var(--deep-teal); opacity: 0.55; letter-spacing: 0.06em; line-height: 1.6; }
+  footer.foot .why { font-family: var(--serif); font-size: 13px; font-style: italic; opacity: 0.8; margin-bottom: 8px; letter-spacing: 0; }
+  footer.foot .why em { color: var(--gold-dark); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 34px; }
+    section.block { padding: 32px 0; }
+    .picks { grid-template-columns: 1fr; gap: 16px; }
+    .picks--solo { max-width: 100%; }
+    .frame { padding: 22px 24px; }
+    .frame p { font-size: 18px; }
+    .light-read { padding: 18px 20px; }
+    .skip { grid-template-columns: 1fr; }
+    .closing { padding: 22px 22px; }
+    .closing__title { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand"><img src="mams-logo.png" alt="MAMS LLC"/></div>
+    <div class="hero__eyebrow">For Wes &middot; 3901 Cedar Grove &middot; Paint Picks</div>
+    <div class="hero__greeting">Hey Wes,</div>
+    <h1 class="hero__title">Three picks for Cedar Grove. <em>Plus two for the moments that matter.</em></h1>
+    <p class="hero__sub">Built around how your house actually catches light. Built around what a 2026 buyer reacts to the second they walk in. None of the gray-era defaults.</p>
+  </header>
+
+  <!-- THE FRAME -->
+  <section class="block">
+    <div class="frame">
+      <div class="eyebrow">The Frame</div>
+      <p>The goal is one feeling. The buyer walks in and the house feels <em>brighter, warmer, and more intentional</em> than every other Huguenot listing they walked through that weekend.</p>
+    </div>
+  </section>
+
+  <!-- LIGHT READ -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; The Light Read</div>
+    <h2 class="section__title">Cedar Grove drinks light. <em>That changes the rules.</em></h2>
+    <p class="section__lede">Your block has mature hardwoods. The canopy filters every south-facing window. That means anything below <strong>LRV 60</strong> will read dull in the halls and secondary bedrooms.</p>
+
+    <div class="light-read">
+      <p>The lighter, warmer end of the palette wins here. We're looking for <strong>LRV 64 or higher</strong> as the whole-house standard. Anything darker becomes a single-room moment, not a default.</p>
+      <p>That's the call behind every pick below. Brightness first. Warmth second. Trend third. In that order.</p>
+    </div>
+  </section>
+
+  <!-- THE THREE THAT HOLD THE HOUSE -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; The Whole-House Picks</div>
+    <h2 class="section__title">Three that hold the house. <em>And feel current.</em></h2>
+    <p class="section__lede">Each one carries entry, living, dining, halls, and bedrooms without ever entering the overused gray family. Ranked.</p>
+
+    <div class="picks">
+
+      <!-- 01 Shoji White -->
+      <div class="pick">
+        <div class="room" style="--window-trim:#EEEAE0;">
+          <div class="room__ceiling" style="background:#EDECE4;"></div>
+          <div class="room__wall" style="background:#E5DFCE;">
+            <div class="room__window"></div>
+          </div>
+          <div class="room__baseboard" style="background:#EEEAE0;"></div>
+          <div class="room__floor"></div>
+        </div>
+        <div class="pick__body">
+          <div class="pick__code">Pick 01 &middot; The Default</div>
+          <div class="pick__sku">SW Shoji White</div>
+          <div class="pick__chips">
+            <span class="chip"><span class="chip__swatch" style="background:#E5DFCE;"></span>#E5DFCE</span>
+            <span class="chip">LRV 74</span>
+            <span class="chip">Warm white</span>
+          </div>
+          <div class="pick__why">Brightens a wooded lot without going sterile. Warms the brick and hardwood context the block was built on. Trim in SW Alabaster. Ceiling in SW Pure White.</div>
+        </div>
+      </div>
+
+      <!-- 02 Natural Linen -->
+      <div class="pick">
+        <div class="room" style="--window-trim:#EDECE4;">
+          <div class="room__ceiling" style="background:#EDECE4;"></div>
+          <div class="room__wall" style="background:#DFD3C3;">
+            <div class="room__window"></div>
+          </div>
+          <div class="room__baseboard" style="background:#EDECE4;"></div>
+          <div class="room__floor"></div>
+        </div>
+        <div class="pick__body">
+          <div class="pick__code">Pick 02 &middot; The Warmer Read</div>
+          <div class="pick__sku">SW Natural Linen</div>
+          <div class="pick__chips">
+            <span class="chip"><span class="chip__swatch" style="background:#DFD3C3;"></span>#DFD3C3</span>
+            <span class="chip">LRV 66</span>
+            <span class="chip">Soft linen</span>
+          </div>
+          <div class="pick__why">More character than a warm white. None of the cool gray cast. The Richmond-specific answer for anyone who's tired of the agreeable gray era but doesn't want stark.</div>
+        </div>
+      </div>
+
+      <!-- 03 Swiss Coffee -->
+      <div class="pick">
+        <div class="room" style="--window-trim:#EFEEE2;">
+          <div class="room__ceiling" style="background:#EFEEE2;"></div>
+          <div class="room__wall" style="background:#EEE9E1;">
+            <div class="room__window"></div>
+          </div>
+          <div class="room__baseboard" style="background:#EFEEE2;"></div>
+          <div class="room__floor"></div>
+        </div>
+        <div class="pick__body">
+          <div class="pick__code">Pick 03 &middot; The Brightest</div>
+          <div class="pick__sku">BM Swiss Coffee</div>
+          <div class="pick__chips">
+            <span class="chip"><span class="chip__swatch" style="background:#EEE9E1;"></span>#EEE9E1</span>
+            <span class="chip">LRV 82</span>
+            <span class="chip">Warm white</span>
+          </div>
+          <div class="pick__why">Use this if the house feels darker than expected on the walkthrough. Highest light bounce on the list. Photographs cleaner than anything in the gray family ever has.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ONE FOR THE MAIN ROOMS -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; If We Get Bolder</div>
+    <h2 class="section__title">One room. <em>One statement.</em></h2>
+    <p class="section__lede">Sherwin-Williams 2026 Color of the Year. Use it in the entry or dining if we want one room to land harder than the rest. Not in halls. Not in shaded bedrooms.</p>
+
+    <div class="picks picks--solo">
+      <div class="pick">
+        <div class="room" style="--window-trim:#EEEAE0;">
+          <div class="room__ceiling" style="background:#EDECE4;"></div>
+          <div class="room__wall" style="background:#B8A992;">
+            <div class="room__window"></div>
+          </div>
+          <div class="room__baseboard" style="background:#EEEAE0;"></div>
+          <div class="room__floor"></div>
+        </div>
+        <div class="pick__body">
+          <div class="pick__code">Statement Pick &middot; Main Areas Only</div>
+          <div class="pick__sku">SW Universal Khaki</div>
+          <div class="pick__chips">
+            <span class="chip"><span class="chip__swatch" style="background:#B8A992;"></span>#B8A992</span>
+            <span class="chip">LRV 40</span>
+            <span class="chip">Sandy khaki</span>
+          </div>
+          <div class="pick__why">The most current 2026 signal we have. Earthy, grounded, modern without being trendy. Pair with Alabaster trim. Use in one well-lit room only.</div>
+          <div class="pick__rule pick__rule--warn">Rule: never the halls, never the shaded bedrooms.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONE FOR THE BEDROOM -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; The Primary Bedroom</div>
+    <h2 class="section__title">Calm. Premium. <em>Never bold.</em></h2>
+    <p class="section__lede">The primary bedroom is where 2026 buyers want to feel a deep breath. A soft sage hits that note without becoming a color statement.</p>
+
+    <div class="picks picks--solo">
+      <div class="pick">
+        <div class="room" style="--window-trim:#EFEEE2;">
+          <div class="room__ceiling" style="background:#EFEEE2;"></div>
+          <div class="room__wall" style="background:#B6B8A5;">
+            <div class="room__window"></div>
+          </div>
+          <div class="room__baseboard" style="background:#EFEEE2;"></div>
+          <div class="room__floor"></div>
+        </div>
+        <div class="pick__body">
+          <div class="pick__code">Accent Pick &middot; Primary Bedroom</div>
+          <div class="pick__sku">BM October Mist</div>
+          <div class="pick__chips">
+            <span class="chip"><span class="chip__swatch" style="background:#B6B8A5;"></span>#B6B8A5</span>
+            <span class="chip">LRV 47</span>
+            <span class="chip">Soft sage</span>
+          </div>
+          <div class="pick__why">Connects to the 2026 nature-grounded movement without being green-loud. Reads as a softened neutral, not a statement. Pair with White Dove trim. Use full-room or feature wall.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SKIP LIST -->
+  <section class="block">
+    <div class="eyebrow">Section 05 &middot; The Skip List</div>
+    <h2 class="section__title">Seven colors that <em>had their moment.</em></h2>
+    <p class="section__lede">These were the defaults of the last decade. They read like older resale prep to a 2026 buyer. We're not going there.</p>
+
+    <div class="skip">
+      <div class="skip__chip">
+        <div class="skip__swatch" style="background:#D1C7B7;"></div>
+        <div class="skip__copy">
+          <div class="skip__code">SW 7029</div>
+          <div class="skip__name">Agreeable Gray</div>
+          <div class="skip__why">Last decade's greige default. Reads dated.</div>
+        </div>
+      </div>
+      <div class="skip__chip">
+        <div class="skip__swatch" style="background:#CCC8BD;"></div>
+        <div class="skip__copy">
+          <div class="skip__code">SW 7015</div>
+          <div class="skip__name">Repose Gray</div>
+          <div class="skip__why">Goes blue and cold in filtered light.</div>
+        </div>
+      </div>
+      <div class="skip__chip">
+        <div class="skip__swatch" style="background:#BDB7AB;"></div>
+        <div class="skip__copy">
+          <div class="skip__code">SW 7016</div>
+          <div class="skip__name">Mindful Gray</div>
+          <div class="skip__why">Flattens listing photos. Heavier in shade.</div>
+        </div>
+      </div>
+      <div class="skip__chip">
+        <div class="skip__swatch" style="background:#CFC1AC;"></div>
+        <div class="skip__copy">
+          <div class="skip__code">SW 7036</div>
+          <div class="skip__name">Accessible Beige</div>
+          <div class="skip__why">Same overused greige family. Skip.</div>
+        </div>
+      </div>
+      <div class="skip__chip">
+        <div class="skip__swatch" style="background:#D9D6CE;"></div>
+        <div class="skip__copy">
+          <div class="skip__code">BM OC-23</div>
+          <div class="skip__name">Classic Gray</div>
+          <div class="skip__why">Cool gray era. The market moved on.</div>
+        </div>
+      </div>
+      <div class="skip__chip">
+        <div class="skip__swatch" style="background:#C0B7A4;"></div>
+        <div class="skip__copy">
+          <div class="skip__code">BM HC-172</div>
+          <div class="skip__name">Revere Pewter</div>
+          <div class="skip__why">Iconic for the wrong reason now.</div>
+        </div>
+      </div>
+      <div class="skip__chip">
+        <div class="skip__swatch" style="background:#CDC4B3;"></div>
+        <div class="skip__copy">
+          <div class="skip__code">BM HC-173</div>
+          <div class="skip__name">Edgecomb Gray</div>
+          <div class="skip__why">Still greige. Cleaner picks are above.</div>
+        </div>
+      </div>
+      <div class="skip__chip" style="opacity:0.55;">
+        <div class="skip__swatch" style="background: var(--paper-soft); border-style: dashed;"></div>
+        <div class="skip__copy">
+          <div class="skip__code">The Standing Rule</div>
+          <div class="skip__name">No gray. No greige.</div>
+          <div class="skip__why">If a candidate looks like 2018, it's out.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="block">
+    <div class="closing">
+      <div class="closing__tag">Where I land</div>
+      <div class="closing__title">Pick the lane. <em>We'll take it from there.</em></div>
+      <div class="closing__body">
+        <p>The house needs warmth and light first, Wes. Everything else is downstream of that.</p>
+        <p>Shoji White is the safest, most current default. That's where I'd start the conversation.</p>
+        <p>Natural Linen is the move if you want more character on the walls without losing the brightness.</p>
+        <p>Universal Khaki is the move if we want one room to land harder than the rest. Entry or dining only.</p>
+        <p>October Mist is the move for the primary bedroom if you want the calm, premium read 2026 buyers are responding to.</p>
+        <p>Text me what's resonating and we'll lock the call.</p>
+      </div>
+      <div class="closing__signoff">Miles</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Built for <em>Wes</em> &middot; 3901 Cedar Grove Rd &middot; MAMS LLC &middot; Richmond, Virginia</div>
+    <div>miles@milesagee.com &middot; mamsnow.com &middot; Single-recipient page. Not indexed.</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
