@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Two minutes from Walker | MAMS LLC</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--line); }
+  .hero__brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .hero__brand img { height: 72px; width: auto; mix-blend-mode: multiply; margin-left: -10px; }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+  .hero__greeting { font-family: var(--serif); font-size: 14px; color: var(--teal); font-style: italic; margin-bottom: 8px; letter-spacing: 0.02em; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(34px, 5.4vw, 48px); line-height: 1.05; letter-spacing: -0.022em; color: var(--deep-teal); margin-bottom: 22px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 16px; color: var(--deep-teal); opacity: 0.78; line-height: 1.6; max-width: 56ch; }
+  .hero__sub strong { color: var(--gold-dark); font-weight: 600; }
+
+  section.block { padding: 40px 0; }
+  section.block + section.block { border-top: 1px solid var(--line); }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+
+  .ask-card { background: var(--ivory); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 8px; padding: 26px 30px; box-shadow: var(--shadow-sm); }
+  .ask-card__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  .ask-card__body { font-family: var(--serif); font-size: 18px; line-height: 1.45; color: var(--deep-teal); font-weight: 400; letter-spacing: -0.005em; }
+  .ask-card__body em { color: var(--gold-dark); font-style: italic; font-weight: 500; }
+
+  h2.section__title { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 3.6vw, 30px); line-height: 1.15; letter-spacing: -0.02em; color: var(--deep-teal); margin-bottom: 8px; }
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+  .section__lede { font-size: 14px; color: var(--deep-teal); opacity: 0.78; line-height: 1.6; margin-bottom: 22px; max-width: 56ch; }
+
+  .platforms { display: flex; flex-direction: column; gap: 14px; }
+  .platform { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 24px 26px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .platform::after { content: ''; position: absolute; top: -60px; right: -60px; width: 160px; height: 160px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.14; pointer-events: none; }
+  .platform__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; position: relative; z-index: 1; }
+  .platform__name { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -0.012em; margin-bottom: 8px; position: relative; z-index: 1; }
+  .platform__hint { font-size: 13px; color: rgba(255, 255, 255, 0.78); line-height: 1.55; margin-bottom: 16px; position: relative; z-index: 1; max-width: 50ch; }
+  .platform__btn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--deep-teal); padding: 12px 22px; border-radius: 999px; text-decoration: none; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s, background 0.18s; position: relative; z-index: 1; }
+  .platform__btn:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(212, 175, 55, 0.32); background: var(--gold-soft); }
+  .platform__btn:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+
+  .signoff { padding: 34px 0 8px; }
+  .signoff__body { font-family: var(--serif); font-size: 17px; line-height: 1.55; color: var(--deep-teal); margin-bottom: 22px; font-style: italic; font-weight: 400; }
+  .signoff__name { font-family: var(--serif); font-size: 22px; color: var(--deep-teal); font-weight: 500; letter-spacing: -0.012em; }
+
+  footer.foot { padding: 28px 0 60px; text-align: center; font-size: 11px; color: var(--deep-teal); opacity: 0.55; letter-spacing: 0.06em; line-height: 1.6; border-top: 1px solid var(--line); margin-top: 18px; }
+  footer.foot .why { font-family: var(--serif); font-size: 13px; font-style: italic; opacity: 0.8; margin-bottom: 8px; letter-spacing: 0; }
+  footer.foot .why em { color: var(--gold-dark); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 32px; }
+    section.block { padding: 30px 0; }
+    .ask-card { padding: 22px 22px; }
+    .ask-card__body { font-size: 16px; }
+    .platform { padding: 20px 22px; }
+    .platform__name { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="hero">
+    <div class="hero__brand"><img src="mams-logo.png" alt="MAMS LLC"/></div>
+    <div class="hero__eyebrow">For Walker &middot; A post-close note</div>
+    <div class="hero__greeting">Walker,</div>
+    <h1 class="hero__title">Two minutes from you means <em>the world here.</em></h1>
+    <p class="hero__sub">817 Pleasant was one of the more layered closings I have been a part of. Mixed-use, real moving parts, a real one. Grateful you trusted me to run it with you. If you have a couple of minutes, the rest of this page is the only thing I am asking for.</p>
+  </header>
+
+  <section class="block">
+    <div class="ask-card">
+      <div class="ask-card__eyebrow">One ask before you click</div>
+      <p class="ask-card__body">If there is any reason you can not give me <em>all 5 stars</em>, please call me before submitting the review.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Where to leave it</div>
+    <h2 class="section__title">Three places. <em>Same review works on all of them.</em></h2>
+    <p class="section__lede">Write it once, copy and paste across the three. Two minutes total. Tap whichever opens first on your phone.</p>
+
+    <div class="platforms">
+      <div class="platform">
+        <div class="platform__eyebrow">Platform 01 &middot; Zillow</div>
+        <div class="platform__name">Zillow</div>
+        <div class="platform__hint">Opens my Zillow profile. Scroll down once and the review form is right there.</div>
+        <a class="platform__btn" href="https://www.zillow.com/profile/milesRVA" target="_blank" rel="noopener">Open Zillow &rarr;</a>
+      </div>
+
+      <div class="platform">
+        <div class="platform__eyebrow">Platform 02 &middot; Google</div>
+        <div class="platform__name">Google</div>
+        <div class="platform__hint">Opens the MAMS at Long &amp; Foster Google listing. Hit the Reviews tab and Write a review.</div>
+        <a class="platform__btn" href="https://www.google.com/search?q=Miles-A-Minute+Solutions(MAMS)+at+Long+%26+Foster+Realtors" target="_blank" rel="noopener">Open Google &rarr;</a>
+      </div>
+
+      <div class="platform">
+        <div class="platform__eyebrow">Platform 03 &middot; Facebook</div>
+        <div class="platform__name">Facebook</div>
+        <div class="platform__hint">Opens the MAMS Facebook page. Recommend the page and drop your review there.</div>
+        <a class="platform__btn" href="https://www.facebook.com/MilesAMinuteSolutions" target="_blank" rel="noopener">Open Facebook &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="signoff">
+    <p class="signoff__body">Reviews like yours are what put the next family in front of us. Truly appreciate you, Walker.</p>
+    <div class="signoff__name">Miles</div>
+  </section>
+
+  <footer class="foot">
+    <div class="why">Built by <em>Miles Agee</em> &middot; MAMS LLC &middot; Richmond, Virginia</div>
+    <div>miles@milesagee.com &middot; mamsnow.com &middot; Single-recipient page for Walker. Not indexed.</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
