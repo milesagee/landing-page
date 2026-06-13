@@ -1,0 +1,1158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Threaded Fall '26 | Sponsor Acquisition Kit for Darrian Hewlett</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--deep-teal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero__mark {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.18em;
+    color: var(--deep-teal);
+    margin-bottom: 4px;
+  }
+
+  .hero__mark .needle { color: var(--gold-dark); }
+
+  .hero__tag {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 30px;
+    opacity: 0.85;
+  }
+
+  .hero__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+  }
+
+  .hero__greeting {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--teal);
+    font-style: italic;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero__title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(36px, 5.5vw, 50px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    color: var(--deep-teal);
+    margin-bottom: 18px;
+  }
+
+  .hero__title em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero__sub {
+    font-size: 16px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    max-width: 58ch;
+    line-height: 1.55;
+  }
+
+  /* ---- Section anatomy ---- */
+  section.block {
+    padding: 44px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section.block:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+  }
+
+  h2.section__title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--deep-teal);
+    margin-bottom: 8px;
+  }
+
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+
+  .section__lede {
+    font-size: 15px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    max-width: 62ch;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  /* ---- Stack math frame ---- */
+  .frame {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    padding: 30px 36px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .frame::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.18;
+  }
+
+  .frame::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    border: 1px solid var(--teal-light);
+    border-radius: 50%;
+    opacity: 0.22;
+  }
+
+  .frame .eyebrow { color: var(--gold); margin-bottom: 6px; }
+
+  .frame p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.32;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .frame p em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .frame__math {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .frame__math .step {
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.32);
+    border-radius: 6px;
+    padding: 14px 14px;
+    text-align: center;
+  }
+
+  .frame__math .step .label {
+    font-size: 10px;
+    color: var(--gold-soft);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .frame__math .step .value {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .frame__math .step .name {
+    font-size: 11px;
+    color: var(--ivory);
+    opacity: 0.84;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* ---- Existing sponsor wall (proof) ---- */
+  .wall {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--teal);
+    border-radius: 6px;
+    padding: 22px 26px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .wall__title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    margin-bottom: 4px;
+  }
+
+  .wall__sub {
+    font-size: 12px;
+    color: var(--teal);
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+    opacity: 0.84;
+  }
+
+  .wall__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .wall__chip {
+    font-size: 12px;
+    color: var(--deep-teal);
+    background: var(--paper-soft);
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  /* ---- Sponsor target cards ---- */
+  .targets {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .target {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--teal);
+    border-radius: 6px;
+    padding: 22px 24px;
+    cursor: pointer;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s, border-color 0.22s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .target:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--line-strong);
+  }
+
+  .target.open {
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--gold);
+  }
+
+  .target.priority-1 { border-left-color: var(--gold); }
+  .target.priority-1 .target__rank { color: var(--gold-dark); }
+
+  .target__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .target__rank {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .target__name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.012em;
+    color: var(--deep-teal);
+    margin: 4px 0 2px;
+  }
+
+  .target__pitch {
+    font-size: 13px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  .target__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    min-width: 140px;
+  }
+
+  .target__tier {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--gold-dark);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .target__segment {
+    font-size: 10px;
+    color: var(--teal);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .target__prob {
+    font-size: 10px;
+    background: var(--paper-soft);
+    padding: 3px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-weight: 700;
+    color: var(--deep-teal);
+    letter-spacing: 0.06em;
+  }
+
+  .target__prob.high { background: rgba(0, 95, 95, 0.1); color: var(--teal); border-color: rgba(0, 95, 95, 0.32); }
+  .target__prob.med { background: rgba(212, 175, 55, 0.12); color: var(--gold-dark); border-color: rgba(212, 175, 55, 0.4); }
+
+  .target__toggle {
+    font-size: 11px;
+    color: var(--teal);
+    margin-top: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .target__expand {
+    display: none;
+    margin-top: 16px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--line);
+  }
+
+  .target.open .target__expand { display: block; }
+
+  .target__row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 14px;
+    padding: 6px 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--deep-teal);
+  }
+
+  .target__row strong {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold-dark);
+    font-weight: 700;
+    padding-top: 2px;
+  }
+
+  .target__row a {
+    color: var(--teal);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .target__draft {
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 16px 18px;
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--deep-teal);
+    white-space: pre-wrap;
+  }
+
+  .target__draft .label {
+    font-family: var(--sans);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold-dark);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .target__copy {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--deep-teal);
+    color: var(--gold);
+    border: 0;
+    padding: 9px 16px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s;
+  }
+
+  .target__copy:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0, 63, 63, 0.25);
+  }
+
+  .target__copy.copied {
+    background: var(--gold);
+    color: var(--deep-teal);
+  }
+
+  /* ---- Per-segment matrix ---- */
+  .matrix {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .matrix__row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.8fr 1.4fr;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+
+  .matrix__row:last-child { border-bottom: 0; }
+
+  .matrix__cell {
+    padding: 14px 16px;
+    border-right: 1px solid var(--line);
+    color: var(--deep-teal);
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .matrix__cell:last-child { border-right: 0; }
+
+  .matrix__head {
+    background: var(--paper-soft);
+    font-family: var(--serif);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--teal);
+    text-transform: uppercase;
+  }
+
+  .matrix__segment {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--deep-teal);
+    letter-spacing: -0.005em;
+  }
+
+  .matrix__price {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--gold-dark);
+    font-weight: 500;
+  }
+
+  .matrix__status {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+  }
+
+  .matrix__status.open { color: var(--teal); }
+  .matrix__status.locked { color: var(--gold-dark); }
+
+  /* ---- Action block (warm intro asks) ---- */
+  .actions {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: 26px 30px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .actions h3 {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    margin-bottom: 4px;
+    letter-spacing: -0.012em;
+  }
+
+  .actions .sub {
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 18px;
+    font-style: italic;
+    font-family: var(--serif);
+  }
+
+  .actions ol {
+    list-style: none;
+    counter-reset: actions;
+    padding: 0;
+  }
+
+  .actions ol li {
+    counter-increment: actions;
+    padding: 10px 0 10px 36px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--deep-teal);
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .actions ol li:last-child { border-bottom: 0; }
+
+  .actions ol li::before {
+    content: counter(actions, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    letter-spacing: 0.06em;
+  }
+
+  .actions ol li strong {
+    font-weight: 600;
+    color: var(--deep-teal);
+  }
+
+  /* ---- CTA ---- */
+  .cta {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    border-radius: 8px;
+    padding: 36px 38px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta__title {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  .cta__sub {
+    font-size: 14px;
+    opacity: 0.84;
+    margin-bottom: 22px;
+    max-width: 48ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Footer ---- */
+  footer.foot {
+    padding: 38px 0 60px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--deep-teal);
+    opacity: 0.55;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+  }
+
+  footer.foot .why {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.84;
+    margin-bottom: 8px;
+    letter-spacing: 0;
+  }
+
+  footer.foot .why em { color: var(--gold-dark); }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__title { font-size: 30px; }
+    section.block { padding: 32px 0; }
+    .frame { padding: 22px 24px; }
+    .frame p { font-size: 18px; }
+    .frame__math { grid-template-columns: repeat(2, 1fr); }
+    .target { padding: 18px 20px; }
+    .target__name { font-size: 19px; }
+    .target__meta { align-items: flex-start; }
+    .target__row { grid-template-columns: 1fr; gap: 4px; }
+    .target__row strong { padding-top: 6px; }
+    .matrix__row { grid-template-columns: 1.2fr 1fr; }
+    .matrix__cell:nth-child(3), .matrix__cell:nth-child(4) { display: none; }
+    .actions { padding: 22px 22px; }
+    .cta { padding: 28px 22px; }
+    .cta__title { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__mark">THREADED <span class="needle">FW</span></div>
+    <div class="hero__tag">The Thread that binds us together is&nbsp;<em>FASHION</em>.</div>
+    <div class="hero__eyebrow">Sponsor Acquisition Kit &middot; Threaded Fall '26 &middot; For Darrian + Stephen</div>
+    <div class="hero__greeting">Darrian,</div>
+    <h1 class="hero__title">Six targets. <em>$47K</em> on the table.<br/>Three calls close the gap.</h1>
+    <p class="hero__sub">Built around your stated #1 (Dominion Energy), the menswear runway anchor we've been missing, and the corporate-Richmond civic players who have CSR budget pointed exactly at what Threaded is. Every card carries the decision-maker, the segment fit, and a paste-ready outreach draft in your voice.</p>
+  </header>
+
+  <!-- THE FRAME / STACK MATH -->
+  <section class="block">
+    <div class="frame">
+      <div class="eyebrow">The Stack Math</div>
+      <p>You need $25K to close. Dominion Energy on the Grand Finale, Altria on the VIP Lounge, CarMax on the Apprentice Show. That's <em>three calls, $47K, gap closed twice over</em>. Everything else after that is upside.</p>
+      <div class="frame__math">
+        <div class="step">
+          <div class="label">Call 01</div>
+          <div class="value">$20K</div>
+          <div class="name">Dominion Energy</div>
+        </div>
+        <div class="step">
+          <div class="label">Call 02</div>
+          <div class="value">$15K</div>
+          <div class="name">Altria Foundation</div>
+        </div>
+        <div class="step">
+          <div class="label">Call 03</div>
+          <div class="value">$12K</div>
+          <div class="name">CarMax CSR</div>
+        </div>
+        <div class="step">
+          <div class="label">Total</div>
+          <div class="value">$47K</div>
+          <div class="name">Gap cleared 1.9x</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF / EXISTING SPONSOR WALL -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; Proof On The Wall</div>
+    <h2 class="section__title">You're not pitching cold. <em>You're inviting them to a wall that already has names on it.</em></h2>
+    <p class="section__lede">Last cycle's sponsor wall is the credibility play. Every new pitch starts here. Lead with the names that have already cleared diligence, then ask the new target to join.</p>
+    <div class="wall">
+      <div class="wall__title">Threaded Fall '25 Sponsor Wall</div>
+      <div class="wall__sub">Already cleared corporate diligence . Already on the recap reels . Already in the program</div>
+      <div class="wall__list">
+        <div class="wall__chip">Capital One</div>
+        <div class="wall__chip">City of Richmond</div>
+        <div class="wall__chip">Marriott</div>
+        <div class="wall__chip">ESPN Richmond</div>
+        <div class="wall__chip">106.5 The Beat</div>
+        <div class="wall__chip">Dapper 7</div>
+        <div class="wall__chip">The Stephen Collection (Adkins x Alton Lane)</div>
+        <div class="wall__chip">District 804</div>
+        <div class="wall__chip">Stvrs Kicks</div>
+        <div class="wall__chip">Dayvii Seven</div>
+        <div class="wall__chip">804 The Culture</div>
+        <div class="wall__chip">Breast Cancer Foundation (CSR tie)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSOR TARGETS -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; The Six Targets</div>
+    <h2 class="section__title">Six sponsors. <em>Tap any card</em> for the named decision-maker + draft outreach.</h2>
+    <p class="section__lede">Hand-curated for Threaded Fall '26 in Richmond. Drafts are written in your voice (mission-first, civic-warm, NALP/PHM signoff, tagline closer). Edit, copy, send. Names with linked sources are verified; others have a department-target with PC enrichment queued.</p>
+
+    <div class="targets">
+
+      <!-- TARGET 1: DOMINION ENERGY -->
+      <div class="target priority-1" data-i="dominion">
+        <div class="target__head">
+          <div>
+            <div class="target__rank">Target 01 . Your stated #1</div>
+            <div class="target__name">Dominion Energy</div>
+            <div class="target__pitch">Richmond HQ Fortune 500 utility, the state's largest corporate citizen. Foundation funds community vitality + diverse arts and culture. Threaded is the exact civic-arts-Black-culture story they get credit for funding for the next decade.</div>
+          </div>
+          <div class="target__meta">
+            <div class="target__tier">$20K . Title</div>
+            <div class="target__segment">Grand Finale</div>
+            <div class="target__prob high">HIGH</div>
+          </div>
+        </div>
+        <div class="target__toggle">Tap for decision-maker + draft outreach &darr;</div>
+        <div class="target__expand">
+          <div class="target__row"><strong>Decision-maker</strong><span>Lindsey Norfolk, External Affairs Manager, Community Engagement &nbsp;.&nbsp; <a href="https://www.linkedin.com/in/lindsey-norfolk-2a123b40/" target="_blank" rel="noopener">LinkedIn</a></span></div>
+          <div class="target__row"><strong>Secondary</strong><span>Dominion Energy Charitable Foundation grant cycle (spring + fall) . <a href="http://www.dominionenergy.com/en/About/Our-Company/Charitable-Foundation" target="_blank" rel="noopener">Foundation portal</a>. For Oct 2026 timing, route through External Affairs / Corporate Citizenship, not the grant cycle.</span></div>
+          <div class="target__row"><strong>Why fit</strong><span>Their CSR explicitly prioritizes "community vitality" and "diverse and inclusive arts and culture" in Virginia. Threaded as Richmond's first men's fashion week is precisely that.</span></div>
+          <div class="target__row"><strong>Activation</strong><span>"Threaded Grand Finale, powered by Dominion Energy." Branded stage, runway lighting, recap reels, program inclusion, community impact report contribution.</span></div>
+          <div class="target__draft" id="draft-dominion"><span class="label">Draft outreach . Email + LinkedIn DM</span>Subject: Threaded Fall '26 . Dominion Energy + Richmond's first men's fashion week
+
+Lindsey,
+
+Men are less than 25% of the modeling industry. Threaded was built to give them a space where they can shine and be seen. Last cycle Capital One, City of Richmond, and Marriott put their names on the wall. October 2026 we run four days of shows in Richmond, with a Grand Finale that has Dominion Energy's name on it.
+
+Here's why I'm writing you directly. The Foundation funds community vitality and diverse arts and culture in Virginia. Threaded is the civic-arts story Dominion gets credit for funding for the next decade. First men's-only fashion week the city has ever had. Real designers. Real audience. Real CSR signal.
+
+The Grand Finale presenting sponsor at $20K cash sponsors the headline night. Dominion on the stage, in the program, on the runway lighting, in every recap reel, and in the community impact report that follows. I would like 20 minutes to walk you through what that looks like.
+
+The Thread that binds us together is FASHION.
+
+Darrian Hewlett (NALP, PHM)
+Co-Founder, Threaded Fashion Week</div>
+          <button class="target__copy" data-copy="draft-dominion">Copy draft</button>
+        </div>
+      </div>
+
+      <!-- TARGET 2: ALTRIA -->
+      <div class="target" data-i="altria">
+        <div class="target__head">
+          <div>
+            <div class="target__rank">Target 02 . Named DM verified</div>
+            <div class="target__name">Altria</div>
+            <div class="target__pitch">Richmond HQ Fortune 500. Single largest corporate arts funder in the city. Director leads "diverse and inclusive arts and culture" giving. Frame as a grant application, not a sponsorship pitch, depending on what's cleaner on their side.</div>
+          </div>
+          <div class="target__meta">
+            <div class="target__tier">$15K . Platinum</div>
+            <div class="target__segment">VIP Lounge</div>
+            <div class="target__prob high">HIGH</div>
+          </div>
+        </div>
+        <div class="target__toggle">Tap for decision-maker + draft outreach &darr;</div>
+        <div class="target__expand">
+          <div class="target__row"><strong>Decision-maker</strong><span>Kathryn Fessler, Director Corporate Philanthropy . <a href="https://www.conference-board.org/bio/Kathryn-Fessler" target="_blank" rel="noopener">Conference Board bio</a></span></div>
+          <div class="target__row"><strong>Application path</strong><span><a href="https://www.altria.com/people-and-careers/community-impact-and-partnership" target="_blank" rel="noopener">Altria community impact portal</a></span></div>
+          <div class="target__row"><strong>Why fit</strong><span>Funds diverse arts and culture in greater Richmond explicitly. Virginia Opera donor as of March 2026. Threaded is a perfect-fit arts-and-culture grant on their existing CSR thesis.</span></div>
+          <div class="target__row"><strong>Activation</strong><span>VIP Lounge presenting sponsor. Branded lounge experience for press + VIPs across four nights. Content rights, community impact report tie-in.</span></div>
+          <div class="target__draft" id="draft-altria"><span class="label">Draft outreach . Email</span>Subject: Threaded Fall '26 . Diverse arts and culture grant fit
+
+Kathryn,
+
+I run Threaded Fashion Week, Richmond's first men's-only fashion week. We launched in 2025 and run our second Richmond Fall Fashion Week October 2026. Capital One, City of Richmond, and Marriott are on the sponsor wall already.
+
+I am writing because Altria funds diverse arts and culture in greater Richmond, and Threaded is precisely that. Black male designers, models, makers, photographers. A four-day platform for representation in an industry where men are less than 25%.
+
+The VIP Lounge presenting sponsor at $15K is the activation we would build with Altria's name on it. I would rather frame this as a Diverse Arts and Culture grant application than a traditional sponsorship pitch, depending on what is cleaner on your end.
+
+Twenty minutes when you have it.
+
+The Thread that binds us together is FASHION.
+
+Darrian Hewlett (NALP, PHM)
+Co-Founder, Threaded Fashion Week</div>
+          <button class="target__copy" data-copy="draft-altria">Copy draft</button>
+        </div>
+      </div>
+
+      <!-- TARGET 3: CARMAX -->
+      <div class="target" data-i="carmax">
+        <div class="target__head">
+          <div>
+            <div class="target__rank">Target 03 . Civic CSR slot</div>
+            <div class="target__name">CarMax</div>
+            <div class="target__pitch">Richmond HQ Fortune 500. Opening CarMax Park in 2026, doubling down on Richmond civic sponsorship. Already on Richmond Ivy, Kickers, Squirrels, U of R, VCU. Threaded is the cultural-arts adjacency that's missing.</div>
+          </div>
+          <div class="target__meta">
+            <div class="target__tier">$12K . Platinum</div>
+            <div class="target__segment">Apprentice Show</div>
+            <div class="target__prob high">HIGH</div>
+          </div>
+        </div>
+        <div class="target__toggle">Tap for decision-maker + draft outreach &darr;</div>
+        <div class="target__expand">
+          <div class="target__row"><strong>Decision-maker</strong><span>Director of Community Relations / VP Communications, CarMax HQ (Goochland) . PC enrichment queued for named contact</span></div>
+          <div class="target__row"><strong>CSR portal</strong><span><a href="https://socialresponsibility.carmax.com/communities.html" target="_blank" rel="noopener">socialresponsibility.carmax.com</a></span></div>
+          <div class="target__row"><strong>Why fit</strong><span>$1M committed to racial/social equity programs (STRIVE partnership = Black/Brown low-income communities). They're already buying Richmond cultural visibility. Apprentice Show ties directly to their education + entrepreneurship CSR pillars.</span></div>
+          <div class="target__row"><strong>Activation</strong><span>Apprentice Show presenting sponsor. Career-pathway framing. Branded segment, vendor activation if they want it, community impact report contribution mirrored on STRIVE framing.</span></div>
+          <div class="target__draft" id="draft-carmax"><span class="label">Draft outreach . Email</span>Subject: Threaded . CarMax + the Apprentice Show at Richmond's first men's fashion week
+
+Team,
+
+Threaded is Richmond's first men's fashion week. October 2026, four days. The Apprentice Show is the night that puts emerging Black male designers on the runway for the first time in their careers. It is career pathways, it is entrepreneurship, it is the Richmond civic story.
+
+That show needs CarMax's name on it.
+
+The Apprentice Show presenting sponsor at $12K. Branded segment, MC mention, vendor activation if you want it, full content rights, and a community impact report that mirrors the STRIVE framing. CarMax is already showing up for Richmond Ivy, Kickers, Squirrels, VCU. Threaded is the cultural-arts adjacency that is missing from that lineup.
+
+Twenty minutes when it works.
+
+The Thread that binds us together is FASHION.
+
+Darrian Hewlett (NALP, PHM)
+Co-Founder, Threaded Fashion Week</div>
+          <button class="target__copy" data-copy="draft-carmax">Copy draft</button>
+        </div>
+      </div>
+
+      <!-- TARGET 4: TODD SNYDER -->
+      <div class="target" data-i="snyder">
+        <div class="target__head">
+          <div>
+            <div class="target__rank">Target 04 . Runway anchor</div>
+            <div class="target__name">Todd Snyder</div>
+            <div class="target__pitch">Premium American menswear with no Mid-Atlantic anchor yet. Alton Lane plays bespoke (already on the wall). Todd Snyder plays elevated American sportswear. Zero brand overlap. Single best national menswear pick for the runway.</div>
+          </div>
+          <div class="target__meta">
+            <div class="target__tier">$15K + product</div>
+            <div class="target__segment">Runway Segment</div>
+            <div class="target__prob med">MED-HIGH</div>
+          </div>
+        </div>
+        <div class="target__toggle">Tap for decision-maker + draft outreach &darr;</div>
+        <div class="target__expand">
+          <div class="target__row"><strong>Decision-maker</strong><span>VP Marketing / Brand Partnerships + PR, Todd Snyder Inc., NYC . <a href="https://www.linkedin.com/company/todd-snyder" target="_blank" rel="noopener">Company LinkedIn</a> . PC enrichment queued for named contact</span></div>
+          <div class="target__row"><strong>Why fit</strong><span>Brand explicitly stays "front and center in retailers' minds" via runway. Richmond opens a Mid-Atlantic activation footprint they don't have, at a fraction of NYFW cost. Brand voice matches Threaded's editorial-not-flashy register.</span></div>
+          <div class="target__row"><strong>Activation</strong><span>Runway presenting sponsor, hybrid cash + in-kind (models styled in new season). Content rights through 2027. "First Southern men's fashion week" framing.</span></div>
+          <div class="target__draft" id="draft-snyder"><span class="label">Draft outreach . Email + brand partnerships form</span>Subject: Threaded . Richmond's first men's fashion week wants Todd Snyder on the runway
+
+Team Snyder,
+
+I run Threaded Fashion Week. Richmond, October 2026. Charlotte's inaugural already ran. We are the first men's-only fashion week in the South, and I am writing because Todd Snyder is the single brand we want anchoring the runway segment.
+
+The audience is 1,500+ in-person across four nights, expansive social reach, designers feeding from VCU and the Mid-Atlantic emerging-designer pipeline. Capital One, City of Richmond, Marriott already on the sponsor wall. ESPN Richmond and 106.5 The Beat carrying the cultural side.
+
+Runway presenting sponsor at $15K cash plus models styled in the new season. Brand front and center in every recap, content rights through 2027. The Mid-Atlantic activation Todd Snyder does not have yet, at a fraction of NYFW cost.
+
+Twenty minutes when it is good for you.
+
+The Thread that binds us together is FASHION.
+
+Darrian Hewlett (NALP, PHM)
+Co-Founder, Threaded Fashion Week</div>
+          <button class="target__copy" data-copy="draft-snyder">Copy draft</button>
+        </div>
+      </div>
+
+      <!-- TARGET 5: CAPITAL ONE UPGRADE -->
+      <div class="target" data-i="capone">
+        <div class="target__head">
+          <div>
+            <div class="target__rank">Target 05 . Renewal-Upgrade (existing yes)</div>
+            <div class="target__name">Capital One . Renewal-Upgrade</div>
+            <div class="target__pitch">Already said yes once. The ROI on a renewal-upsell call is 5x a cold pitch. Capital One Cafe (Short Pump) is a built-for-culture-activation space we can put under your name as a pre-event activation.</div>
+          </div>
+          <div class="target__meta">
+            <div class="target__tier">$12-15K renewal</div>
+            <div class="target__segment">StreetWear / Networking</div>
+            <div class="target__prob high">HIGH</div>
+          </div>
+        </div>
+        <div class="target__toggle">Tap for decision-maker + draft outreach &darr;</div>
+        <div class="target__expand">
+          <div class="target__row"><strong>Decision-maker</strong><span>Your existing Capital One contact from last cycle . re-quote at next tier with named segment attached</span></div>
+          <div class="target__row"><strong>Why fit</strong><span>Already cleared their diligence. Already on the wall. Renewal-with-upgrade is the lowest-friction path to closing your largest known sponsor at a higher tier.</span></div>
+          <div class="target__row"><strong>Activation</strong><span>StreetWear Show OR Networking presenting sponsor. Branded segment, MC mention, vendor activation at Capital One Cafe Short Pump as the off-night pre-event. Content rights through 2027.</span></div>
+          <div class="target__draft" id="draft-capone"><span class="label">Draft outreach . Email to existing contact</span>Subject: Threaded . Renewal + named segment upgrade
+
+[Capital One contact name],
+
+Hope you are well. Threaded's second Richmond Fall Fashion Week runs October 2026. Capital One's name is already on the wall from last cycle, and I am writing to upgrade your seat at the table.
+
+The StreetWear Show or Networking presenting sponsor is the slot we would put you in. $12-15K, branded segment, MC mention, vendor activation at Capital One Cafe Short Pump as the off-night pre-event if you want it. Content rights through 2027, full recap deck.
+
+Twenty minutes to walk through what last cycle delivered and what the upgrade gets you.
+
+The Thread that binds us together is FASHION.
+
+Darrian Hewlett (NALP, PHM)
+Co-Founder, Threaded Fashion Week</div>
+          <button class="target__copy" data-copy="draft-capone">Copy draft</button>
+        </div>
+      </div>
+
+      <!-- TARGET 6: HARDYWOOD -->
+      <div class="target" data-i="hardywood">
+        <div class="target__head">
+          <div>
+            <div class="target__rank">Target 06 . After-party anchor</div>
+            <div class="target__name">Hardywood Park Craft Brewery</div>
+            <div class="target__pitch">Richmond-born craft brewer. Already programs to your exact audience. Juneteenth Kickoff, Bad Thursdays, Art Seen, Unlocking Richmond beneficiary. Cultural credibility, not just check-writing. After-Party is theirs.</div>
+          </div>
+          <div class="target__meta">
+            <div class="target__tier">$4K + pour</div>
+            <div class="target__segment">After-Party</div>
+            <div class="target__prob high">HIGH</div>
+          </div>
+        </div>
+        <div class="target__toggle">Tap for decision-maker + draft outreach &darr;</div>
+        <div class="target__expand">
+          <div class="target__row"><strong>Decision-maker</strong><span>Events / Partnerships Manager . <a href="https://www.hardywood.com/private-events" target="_blank" rel="noopener">hardywood.com/private-events</a> . PC enrichment queued</span></div>
+          <div class="target__row"><strong>Why fit</strong><span>Two locations + 2,500-cap event space. Existing programming overlaps the Threaded audience. Cultural credibility on the line, not just sponsorship dollars.</span></div>
+          <div class="target__row"><strong>Activation</strong><span>After-Party sponsor, hybrid cash + in-kind. Hardywood bar, branded cups, signature cocktail named for the season. Two locations of cross-promotion benefit.</span></div>
+          <div class="target__draft" id="draft-hardywood"><span class="label">Draft outreach . Email + partner form</span>Subject: Threaded After-Party . Hardywood pour rights
+
+Team,
+
+Threaded Fashion Week October 2026 in Richmond. After-Party is the cultural anchor night and we want Hardywood pouring it.
+
+You already program to this audience. Juneteenth Kickoff, Bad Thursdays, Art Seen, Unlocking Richmond. Threaded brings the next generation of Richmond's Black men's fashion and culture community into your venue or under your name at ours, four nights running.
+
+After-Party sponsor at $4K cash plus pour rights. Hardywood bar, branded cups, signature cocktail named with the season, full content recap. Two locations of cross-promotion benefit.
+
+Twenty minutes.
+
+The Thread that binds us together is FASHION.
+
+Darrian Hewlett (NALP, PHM)
+Co-Founder, Threaded Fashion Week</div>
+          <button class="target__copy" data-copy="draft-hardywood">Copy draft</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PER-SEGMENT MATRIX -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; Per-Segment Matrix</div>
+    <h2 class="section__title">Your stated structure. <em>Mapped against the targets above.</em></h2>
+    <p class="section__lede">Per-segment sponsorship is the right call. It lets you stack multiple high-fit sponsors without competing on category exclusivity. This is the map we hand the targets when the asks land.</p>
+
+    <div class="matrix">
+      <div class="matrix__row matrix__head">
+        <div class="matrix__cell">Segment</div>
+        <div class="matrix__cell">Recommended Target</div>
+        <div class="matrix__cell">Price</div>
+        <div class="matrix__cell">Activation Notes</div>
+      </div>
+      <div class="matrix__row">
+        <div class="matrix__cell matrix__segment">Grand Finale</div>
+        <div class="matrix__cell">Dominion Energy</div>
+        <div class="matrix__cell matrix__price">$20K</div>
+        <div class="matrix__cell">Stage + lighting + recap reels + community impact report</div>
+      </div>
+      <div class="matrix__row">
+        <div class="matrix__cell matrix__segment">VIP Lounge</div>
+        <div class="matrix__cell">Altria Foundation</div>
+        <div class="matrix__cell matrix__price">$15K</div>
+        <div class="matrix__cell">Branded press + VIP experience across four nights</div>
+      </div>
+      <div class="matrix__row">
+        <div class="matrix__cell matrix__segment">Runway Segment</div>
+        <div class="matrix__cell">Todd Snyder</div>
+        <div class="matrix__cell matrix__price">$15K + product</div>
+        <div class="matrix__cell">Models styled in season, runway co-brand, content rights 2027</div>
+      </div>
+      <div class="matrix__row">
+        <div class="matrix__cell matrix__segment">Apprentice Show</div>
+        <div class="matrix__cell">CarMax</div>
+        <div class="matrix__cell matrix__price">$12K</div>
+        <div class="matrix__cell">Emerging-designer career-pathway framing, STRIVE-style report</div>
+      </div>
+      <div class="matrix__row">
+        <div class="matrix__cell matrix__segment">StreetWear Show</div>
+        <div class="matrix__cell">Capital One (Renewal-Upgrade)</div>
+        <div class="matrix__cell matrix__price">$12-15K</div>
+        <div class="matrix__cell">Cafe Short Pump pre-event activation option</div>
+      </div>
+      <div class="matrix__row">
+        <div class="matrix__cell matrix__segment">After-Party</div>
+        <div class="matrix__cell">Hardywood Park</div>
+        <div class="matrix__cell matrix__price">$4K + pour</div>
+        <div class="matrix__cell">Branded bar + signature cocktail + content recap</div>
+      </div>
+      <div class="matrix__row">
+        <div class="matrix__cell matrix__segment">Networking</div>
+        <div class="matrix__cell">Open . second-tranche target</div>
+        <div class="matrix__cell matrix__price">$5-10K</div>
+        <div class="matrix__cell">Markel, Genworth, or Performance Food Group fit here</div>
+      </div>
+      <div class="matrix__row">
+        <div class="matrix__cell matrix__segment">Model Lounge</div>
+        <div class="matrix__cell">Open . second-tranche target</div>
+        <div class="matrix__cell matrix__price">$5-10K</div>
+        <div class="matrix__cell">PFG fits (food + beverage in-kind), Levi's fits (apparel)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARM INTRO ASKS / ACTION BLOCK -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; Next 48 Hours</div>
+    <h2 class="section__title">What I need from you. <em>In order.</em></h2>
+
+    <div class="actions">
+      <h3>The warm-intro multiplier</h3>
+      <div class="sub">One warm intro collapses four weeks of cold outreach into one week.</div>
+      <ol>
+        <li><strong>Dominion Energy.</strong> Do you, Stephen, or anyone on the Threaded board already know someone in Dominion's External Affairs, Foundation, or Community Engagement? Even one degree of separation routes this.</li>
+        <li><strong>Altria.</strong> Same question. Anyone in Richmond civic-arts circles you're already in touch with who has a line into Kathryn Fessler or the Community Impact team?</li>
+        <li><strong>CarMax.</strong> Same question. Anyone in your network at CarMax HQ in Goochland, especially Community Relations or Communications.</li>
+        <li><strong>Confirm your Capital One contact from last cycle.</strong> The renewal-upgrade pitch routes through that name, not through cold outreach. Send the name and we draft the upgrade ask tonight.</li>
+        <li><strong>Approve the audience numbers</strong> in the draft outreach (1,500+ in-person across four nights, expansive social reach). If those numbers need to be different, tell me what they are and we update every draft in one pass.</li>
+        <li><strong>Greenlight the Todd Snyder runway hybrid structure</strong> ($15K cash + product). If you'd rather lead a different national menswear brand, name it and we re-source the target with the same template.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block">
+    <div class="cta">
+      <div class="cta__title">Three calls. <em>Gap closed.</em></div>
+      <p class="cta__sub">Dominion + Altria + CarMax. $47K. Twice over the $25K you need. Reply to Miles with warm-intro names and we run the outreach this week.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Built by <em>Miles Agee</em> at MAMS LLC for <em>Darrian Hewlett</em> + <em>Stephen G. Adkins III</em> &middot; Threaded Fashion Week . Richmond, VA</div>
+    <div>miles@milesagee.com &middot; mamsnow.com &middot; This kit is for Darrian + Stephen only. Please do not share publicly.</div>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.target').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.classList.contains('target__copy') || e.target.tagName === 'A') return;
+      card.classList.toggle('open');
+    });
+  });
+
+  document.querySelectorAll('.target__copy').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.copy;
+      const el = document.getElementById(id);
+      if (!el) return;
+      const text = el.innerText.replace(/^Draft outreach.*?\n/, '').trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'Copied to clipboard';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = orig;
+          btn.classList.remove('copied');
+        }, 2200);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
