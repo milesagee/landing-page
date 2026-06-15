@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>2119 Pimmit Dr | Off-Market Lot</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--deep-teal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero__brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .hero__brand img {
+    height: 72px;
+    width: auto;
+    mix-blend-mode: multiply;
+    margin-left: -10px;
+  }
+
+  .hero__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+  }
+
+  .hero__address {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--teal);
+    font-style: italic;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero__title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(38px, 6vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--deep-teal);
+    margin-bottom: 18px;
+  }
+
+  .hero__title em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero__sub {
+    font-size: 16px;
+    color: var(--deep-teal);
+    opacity: 0.74;
+    max-width: 58ch;
+    line-height: 1.55;
+  }
+
+  /* ---- Section anatomy ---- */
+  section.block {
+    padding: 44px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section.block:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+  }
+
+  h2.section__title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--deep-teal);
+    margin-bottom: 8px;
+  }
+
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+
+  .section__lede {
+    font-size: 15px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    max-width: 62ch;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  /* ---- Opportunity / polarity frame ---- */
+  .opportunity {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    padding: 30px 36px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .opportunity::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.18;
+  }
+
+  .opportunity::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    border: 1px solid var(--teal-light);
+    border-radius: 50%;
+    opacity: 0.22;
+  }
+
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+
+  .opportunity p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.32;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .opportunity p em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* ---- Fact grid (The Lot) ---- */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .fact {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--teal);
+    border-radius: 6px;
+    padding: 18px 18px 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .fact:nth-child(3n+2) { border-top-color: var(--gold); }
+  .fact:nth-child(3n) { border-top-color: var(--deep-teal); }
+
+  .fact__label {
+    font-size: 9.5px;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    margin-bottom: 7px;
+  }
+
+  .fact__value {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.012em;
+    color: var(--deep-teal);
+  }
+
+  .fact__value .sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    opacity: 0.6;
+    margin-top: 4px;
+    letter-spacing: 0;
+  }
+
+  /* ---- Why this block (proof points) ---- */
+  .points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .points li {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .points li:last-child { margin-bottom: 0; }
+
+  .points__stat {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--gold-dark);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 84px;
+  }
+
+  .points__text {
+    font-size: 14px;
+    color: var(--deep-teal);
+    line-height: 1.55;
+    opacity: 0.9;
+  }
+
+  /* ---- Rebuild market band + comps ---- */
+  .band {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .band__card {
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 22px 20px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .band__card--lead {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    box-shadow: var(--shadow-md);
+  }
+
+  .band__num {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--deep-teal);
+  }
+
+  .band__card--lead .band__num { color: var(--gold); }
+
+  .band__label {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: var(--teal);
+    margin-top: 9px;
+  }
+
+  .band__card--lead .band__label { color: var(--gold-soft); }
+
+  .comps-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--deep-teal);
+    opacity: 0.82;
+    line-height: 1.6;
+    padding: 14px 18px;
+    background: rgba(212, 175, 55, 0.08);
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .comps-note strong { color: var(--gold-dark); font-style: normal; font-weight: 600; }
+
+  /* ---- Comps table (populated when verified comps land) ---- */
+  .comps {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 16px;
+  }
+
+  .comps th {
+    background: var(--paper-soft);
+    font-family: var(--sans);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--teal);
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .comps th.num, .comps td.num { text-align: right; }
+
+  .comps td {
+    font-size: 13.5px;
+    color: var(--deep-teal);
+    padding: 13px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .comps tr:last-child td { border-bottom: 0; }
+
+  .comps td.addr { font-family: var(--serif); font-weight: 500; }
+  .comps td.price { font-family: var(--serif); font-weight: 600; color: var(--gold-dark); }
+
+  /* ---- The Numbers ---- */
+  .numbers {
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px 28px 22px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .numbers__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--ivory);
+    margin-bottom: 16px;
+  }
+
+  .numbers__cell {
+    padding: 20px 16px;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+
+  .numbers__cell:last-child { border-right: 0; }
+
+  .numbers__cell--spread { background: var(--deep-teal); }
+
+  .numbers__val {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--deep-teal);
+  }
+
+  .numbers__cell--spread .numbers__val { color: var(--gold); }
+
+  .numbers__key {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: var(--teal);
+    margin-top: 9px;
+  }
+
+  .numbers__cell--spread .numbers__key { color: var(--gold-soft); }
+
+  .numbers__foot {
+    font-family: var(--serif);
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  /* ---- Media slot (walkthrough) ---- */
+  .media {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--line);
+  }
+
+  .media__frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: var(--deep-teal);
+  }
+
+  .media__frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .media__placeholder {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .media__placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .media__placeholder .eyebrow { color: var(--gold); position: relative; z-index: 1; }
+
+  .media__placeholder p {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+    max-width: 44ch;
+    margin: 8px auto 0;
+  }
+
+  /* ---- CTA ---- */
+  .cta {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    border-radius: 8px;
+    padding: 36px 38px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta__title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  .cta__sub {
+    font-size: 14px;
+    opacity: 0.82;
+    margin-bottom: 24px;
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__btn {
+    background: var(--gold);
+    color: var(--deep-teal);
+    border: 0;
+    padding: 14px 26px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  }
+
+  .cta__btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
+    background: var(--gold-soft);
+  }
+
+  .cta__or {
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--gold-soft);
+    opacity: 0.82;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Footer ---- */
+  footer.foot {
+    padding: 38px 0 60px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--deep-teal);
+    opacity: 0.55;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+  }
+
+  footer.foot .why {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 8px;
+    letter-spacing: 0;
+  }
+
+  footer.foot .why em { color: var(--gold-dark); }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 34px; }
+    section.block { padding: 32px 0; }
+    .opportunity { padding: 22px 24px; }
+    .opportunity p { font-size: 18px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .band { grid-template-columns: 1fr; }
+    .points li { flex-direction: column; gap: 4px; }
+    .points__stat { min-width: 0; }
+    .numbers { padding: 20px 18px; }
+    .numbers__row { grid-template-columns: 1fr; }
+    .numbers__cell { border-right: 0; border-bottom: 1px solid var(--line); }
+    .numbers__cell:last-child { border-bottom: 0; }
+    .comps th, .comps td { font-size: 12px; padding: 10px 10px; }
+    .cta { padding: 28px 24px; }
+    .cta__title { font-size: 22px; }
+    .cta__buttons { flex-direction: column; }
+    .cta__btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand">
+      <img src="mams-logo.png" alt="MAMS LLC"/>
+    </div>
+    <div class="hero__eyebrow">Off-Market Disposition &middot; Pimmit Hills</div>
+    <div class="hero__address">2119 Pimmit Dr, Falls Church VA 22043 &middot; Fairfax County</div>
+    <h1 class="hero__title">A vacant teardown lot in <em>Pimmit Hills</em>,<br/>priced to move off-market.</h1>
+    <p class="hero__sub">A scrape-ready lot in one of inner Fairfax County's most active teardown pockets, minutes from Tysons and the McLean line. The existing house is vacant and empty. You are buying the dirt and the location, not the structure. Everything you need to start underwriting it is on this page.</p>
+  </header>
+
+  <!-- POLARITY FRAME -->
+  <section class="block">
+    <div class="opportunity">
+      <div class="eyebrow">Why You're Seeing This</div>
+      <p>Most lots like this hit MLS and get bid up by five builders before you can finish underwriting them. This one moves <em>off-market, once</em>, to one buyer who can close clean and fast.</p>
+    </div>
+  </section>
+
+  <!-- THE LOT -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; The Lot</div>
+    <h2 class="section__title">What you're <em>actually buying.</em></h2>
+    <p class="section__lede">The value here is the lot and the location, not the house standing on it. The existing structure is a vacant original rambler, delivered empty. Here is what the parcel gives you.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="fact__label">Lot Size</div>
+        <div class="fact__value">Quarter-acre&plusmn;<span class="sub">Pimmit Hills block-typical; survey on the deal sheet</span></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">Use</div>
+        <div class="fact__value">Single-family<span class="sub">Fairfax County residential, rebuild precedent on the block</span></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">Status</div>
+        <div class="fact__value">Vacant<span class="sub">Teardown, delivered empty</span></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">Existing Structure</div>
+        <div class="fact__value">Original rambler<span class="sub">1950s, scrape candidate</span></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">Buildable</div>
+        <div class="fact__value">New SFD<span class="sub">Matches what the street is already building</span></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">Jurisdiction</div>
+        <div class="fact__value">Fairfax County<span class="sub">22043, Pimmit Hills</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS BLOCK -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; Why This Block</div>
+    <h2 class="section__title">The street is <em>already rebuilding.</em></h2>
+    <p class="section__lede">Pimmit Hills has been one of inner Fairfax County's most active scrape-and-rebuild pockets for years. New construction keeps replacing original 1950s ramblers up and down these streets. Your finished product is not a bet, it is what the block is already selling.</p>
+
+    <ul class="points">
+      <li>
+        <div class="points__stat">Under 2 mi</div>
+        <div class="points__text">To Tysons and the McLean line. The location premium is what underwrites the rebuild price. This is the demand engine, not a far-out lot hoping the market shows up.</div>
+      </li>
+      <li>
+        <div class="points__stat">1950s to new</div>
+        <div class="points__text">Original ramblers are being scraped and replaced with new single-family homes across Pimmit Hills. You build into an established pattern, next to comps that already closed.</div>
+      </li>
+      <li>
+        <div class="points__stat">Off-market</div>
+        <div class="points__text">This lot is not listed. No MLS bidding war, no five-builder pile-on, no public price history dragging the basis up. One conversation, one buyer, one clean close.</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- REBUILD COMPS -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; The Rebuild Comps</div>
+    <h2 class="section__title">What the finished product <em>sells for.</em></h2>
+    <p class="section__lede">The numbers below reflect the range of new-construction homes selling on and around the block. Address-level closed comps, verified to the parcel, go to qualified buyers directly so you underwrite against confirmed records, not a Zillow estimate.</p>
+
+    <div class="band">
+      <div class="band__card band__card--lead">
+        <div class="band__num">$1.1M to $2M+</div>
+        <div class="band__label">Rebuild Sale Range</div>
+      </div>
+      <div class="band__card">
+        <div class="band__num">4,500 to 6,000 SF</div>
+        <div class="band__label">Typical New-Build Size</div>
+      </div>
+      <div class="band__card">
+        <div class="band__num">Area new-build</div>
+        <div class="band__label">Pricing Per The Block</div>
+      </div>
+    </div>
+
+    <div class="comps-note"><strong>Verified to the parcel.</strong> Address-level closed comps are confirmed against the deed record and shared directly with qualified buyers. The range above reflects active new-construction sales on and around the block, with a few finished homes clearing the $2M mark.</div>
+  </section>
+
+  <!-- THE NUMBERS -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; The Numbers</div>
+    <h2 class="section__title">The math, <em>shown openly.</em></h2>
+    <p class="section__lede">No hype, no inflated pro forma. Here is the frame. You run the spread on your own model with your own build costs, because you know them better than anyone.</p>
+
+    <div class="numbers">
+      <div class="numbers__row">
+        <div class="numbers__cell">
+          <div class="numbers__val">Shared direct</div>
+          <div class="numbers__key">Acquisition</div>
+        </div>
+        <div class="numbers__cell">
+          <div class="numbers__val">$1.1M to $2M+</div>
+          <div class="numbers__key">Rebuild ARV</div>
+        </div>
+        <div class="numbers__cell numbers__cell--spread">
+          <div class="numbers__val">Your model</div>
+          <div class="numbers__key">Run The Spread</div>
+        </div>
+      </div>
+      <div class="numbers__foot">The acquisition figure and assignment terms go to qualified, funded buyers directly. The ARV range reflects active new-construction sales on and around the block. Verify everything against your own pro forma before you commit a dollar.</div>
+    </div>
+  </section>
+
+  <!-- AS-IS / WALKTHROUGH -->
+  <section class="block">
+    <div class="eyebrow">Section 05 &middot; As-Is Condition</div>
+    <h2 class="section__title">See it <em>for yourself.</em></h2>
+    <p class="section__lede">The house is a scrape, so condition is not the point. The lot and the block are. Walk both before you commit.</p>
+    <div class="media">
+      <div class="media__placeholder">
+        <div class="eyebrow">Walkthrough</div>
+        <p>A full lot-and-block walkthrough is being filmed now. Ask and I will send it the moment it is cut, or I will set you a private showing on the ground.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY OFF-MARKET / WHY NOW -->
+  <section class="block">
+    <div class="opportunity">
+      <div class="eyebrow">Why Off-Market, Why Now</div>
+      <p>The basis on a teardown is everything. A lot that never touches MLS never builds a public price history, so the dirt stays priced to <em>build, not to bid.</em> That edge lasts exactly as long as it stays quiet.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block">
+    <div class="cta">
+      <div class="cta__title">Want the <em>acquisition number?</em></div>
+      <p class="cta__sub">Send your buying entity, proof-of-funds status, and target close. Funded buyers get the figure and the assignment terms direct. This goes to a short list, so the fastest clean close wins it.</p>
+      <div class="cta__buttons">
+        <a href="#" id="interestBtn" class="cta__btn">Register interest</a>
+      </div>
+      <div class="cta__or">or reply straight to the text I sent you</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Disposition facilitated by <em>Miles Agee</em> &middot; MAMS LLC</div>
+    <div>miles@milesagee.com &middot; Shared with a select group of qualified buyers. Please do not forward.</div>
+  </footer>
+
+</div>
+
+<script>
+  // Register-interest mailto: prefilled with the deal + the fields a serious buyer answers up front
+  const interestBtn = document.getElementById('interestBtn');
+  if (interestBtn) {
+    const subject = encodeURIComponent('Interested, 2119 Pimmit Dr');
+    const body = encodeURIComponent(
+      'Miles,\n\n' +
+      'Interested in 2119 Pimmit Dr. Quick details on my end:\n\n' +
+      'Buying entity (LLC): \n' +
+      'Proof of funds ready (yes / no): \n' +
+      'Target close timeline: \n' +
+      'Any contingencies: \n\n' +
+      'Send the acquisition figure and assignment terms and let\'s move.\n'
+    );
+    interestBtn.href = 'mailto:miles@milesagee.com?subject=' + subject + '&body=' + body;
+  }
+</script>
+
+</body>
+</html>
