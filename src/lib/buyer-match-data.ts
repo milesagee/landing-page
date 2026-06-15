@@ -422,6 +422,53 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
     ],
     completedAt: "2026-06-07T14:07:48-04:00",
   },
+
+  // Emmanuel Massi -- IG DM lead, intake 06/13 + call 06/14. Military family at
+  // Fort Gregg-Adams (Fort Lee). Preliminary cast 2026-06-15: market read +
+  // neighborhood strategy live, properties[] empty until the PC deep-research
+  // brief returns (shared/outbox-to-pc/2026-06-15-1240-emmanuel-massi-buyer-curation.yaml).
+  Oxa0NouzAdpfkwdGwhCe: {
+    contactId: "Oxa0NouzAdpfkwdGwhCe",
+    firstName: "Emmanuel",
+    shareToken: "vxUOs3NGh_CU",
+    marketCommentary:
+      "Emmanuel, at $500 to $600K you are shopping the upper tier of the Southside market, not fighting for scraps, and that shapes the whole strategy. Chesterfield's median sale price was $428,714 in May 2026 per Redfin, so your range reaches newer construction with the square footage a family needs, not a fixer. The commute math is the lever. Chester and the Route 10 corridor keep you tight to I-95 and the base, while Varina trades a little drive time for more land. The 2000s-or-newer filter is where the public sites quietly bury your strongest options.",
+    strategyHeading: "What your must-haves are really telling me",
+    strategy:
+      "Three of your asks point the same direction: 2000s-or-newer, three-plus bedrooms, and a family-sized single-family or townhouse. In this market that profile lives in the newer subdivisions, and those cluster in specific pockets rather than spread evenly across all three areas. Chester is where newer construction and quick I-95 and base access overlap best, so it is the center of gravity. Chesterfield County widens the net into the newer Route 288 and Hull Street corridor builds when you want more house or more yard per dollar. Varina is the trade: more land and a quieter setting, fewer turnkey 2000s builds, and a longer run to the base. You do not have to choose today. I just need to know whether newest-possible construction or shortest-commute-to-base wins when they pull apart, because that is the one lever the whole search turns on. September move-in gives us room to do this right.",
+    neighborhoodReads: [
+      {
+        name: "Chester",
+        rankLabel: "Your #1",
+        body: "Chester runs along the Route 10 corridor in northern Chesterfield, roughly fifteen minutes from Fort Gregg-Adams and a quick on-ramp to I-95 in either direction. It mixes established subdivisions with newer construction, anchored by a historic village center, everyday retail along Route 10, and easy reach to both Richmond and the Tri-Cities.",
+        budgetReality:
+          "This is where your range works hardest for the commute. At $500 to $600K you sit at the top of the local market here, so 2000s-or-newer single-family homes with the bedroom count and square footage you described are realistic, not a stretch. The newest inventory moves quickly, so the edge is seeing it early.",
+      },
+      {
+        name: "Chesterfield County",
+        rankLabel: "Your wider net",
+        body: "Beyond Chester, the county opens into the newer-build corridors along Route 288 and the Hull Street and Midlothian directions. These pockets trade a few minutes of base commute for more recent construction, larger lots, and master-planned communities built in the 2000s and later.",
+        budgetReality:
+          "Your budget stretches furthest here on house and yard. The same $500 to $600K that buys a solid home in Chester can buy more square footage or a newer subdivision a little further out. The trade you are weighing is drive time to the base against house for the money.",
+      },
+      {
+        name: "Varina",
+        rankLabel: "Your trade",
+        body: "Varina sits in eastern Henrico, just across the river from the Southside, with I-295 close at hand and a more open, rural character than Chester or the inner county. It is land-rich and quieter, with newer homes spread across larger parcels rather than concentrated in dense subdivisions.",
+        budgetReality:
+          "This is the land-and-space play. At your range you can find acreage and a newer home, but turnkey 2000s-or-newer inventory is thinner here and the run to Fort Gregg-Adams is longer than from Chester. Worth it if more land outranks a shorter commute.",
+      },
+    ],
+    properties: [],
+    sources: [
+      {
+        url: "https://www.redfin.com/county/2957/VA/Chesterfield-County/housing-market",
+        description:
+          "Redfin, Chesterfield County housing market -- median sale price $428,714, up 2.1% year over year, May 2026.",
+      },
+    ],
+    completedAt: "2026-06-15T12:40:36-04:00",
+  },
 };
 
 export function getBuyerMatchByToken(
