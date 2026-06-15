@@ -779,19 +779,19 @@
     <div class="numbers">
       <div class="numbers__row">
         <div class="numbers__cell">
-          <div class="numbers__val">Shared direct</div>
-          <div class="numbers__key">Acquisition</div>
+          <div class="numbers__val">$750K</div>
+          <div class="numbers__key">The Ask, On The Dirt</div>
         </div>
         <div class="numbers__cell">
           <div class="numbers__val">$1.85M to $2.35M</div>
           <div class="numbers__key">Rebuild ARV</div>
         </div>
         <div class="numbers__cell numbers__cell--spread">
-          <div class="numbers__val">Your model</div>
-          <div class="numbers__key">Run The Spread</div>
+          <div class="numbers__val">~1/3 of ARV</div>
+          <div class="numbers__key">Your Land Basis</div>
         </div>
       </div>
-      <div class="numbers__foot">The acquisition figure and assignment terms go to qualified, funded buyers directly. The ARV range is six closed new-construction sales in Pimmit Hills 22043 over the last year. Verify everything against your own pro forma before you commit a dollar.</div>
+      <div class="numbers__foot">The ask is $750,000 on the lot. The ARV range is six closed new-construction sales in Pimmit Hills 22043 over the last year. At that basis the land runs near a third of finished value. Run your own build costs and confirm the spread.</div>
     </div>
   </section>
 
@@ -799,13 +799,13 @@
   <section class="block">
     <div class="eyebrow">Section 05 &middot; As-Is Condition</div>
     <h2 class="section__title">See it <em>for yourself.</em></h2>
-    <p class="section__lede">The house is a scrape, so condition is not the point. The lot and the block are. Walk both before you commit.</p>
+    <p class="section__lede">The house is a scrape, so condition is not the point. The lot and the block are. Here is the parcel from above. The active 2110 Pimmit build sits just up the same street.</p>
     <div class="media">
-      <div class="media__placeholder">
-        <div class="eyebrow">Walkthrough</div>
-        <p>A full lot-and-block walkthrough is being filmed now. Ask and I will send it the moment it is cut, or I will set you a private showing on the ground.</p>
+      <div class="media__frame">
+        <iframe src="https://maps.google.com/maps?q=2119+Pimmit+Dr+Falls+Church+VA+22043&t=k&z=18&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="2119 Pimmit Dr aerial"></iframe>
       </div>
     </div>
+    <div class="comps-note" style="margin-top: 14px;"><strong>Walkthrough on request.</strong> A full lot-and-block video is being filmed now. Ask and I will send it the moment it is cut, or set you a private showing on the ground.</div>
   </section>
 
   <!-- WHY OFF-MARKET / WHY NOW -->
@@ -819,10 +819,10 @@
   <!-- CTA -->
   <section class="block">
     <div class="cta">
-      <div class="cta__title">Want the <em>acquisition number?</em></div>
-      <p class="cta__sub">Send your buying entity, proof-of-funds status, and target close. Funded buyers get the figure and the assignment terms direct. This goes to a short list, so the fastest clean close wins it.</p>
+      <div class="cta__title">Present your <em>offer.</em></div>
+      <p class="cta__sub">The ask is $750,000 on the dirt. Send your entity, your number, proof of funds, and a target close. The cleanest offer from a buyer who can actually perform takes the lot.</p>
       <div class="cta__buttons">
-        <a href="#" id="interestBtn" class="cta__btn">Register interest</a>
+        <a href="#" id="interestBtn" class="cta__btn">Present an offer</a>
       </div>
       <div class="cta__or">or reply straight to the text I sent you</div>
     </div>
@@ -840,15 +840,16 @@
   // Register-interest mailto: prefilled with the deal + the fields a serious buyer answers up front
   const interestBtn = document.getElementById('interestBtn');
   if (interestBtn) {
-    const subject = encodeURIComponent('Interested, 2119 Pimmit Dr');
+    const subject = encodeURIComponent('Offer, 2119 Pimmit Dr');
     const body = encodeURIComponent(
       'Miles,\n\n' +
-      'Interested in 2119 Pimmit Dr. Quick details on my end:\n\n' +
+      'Offer on 2119 Pimmit Dr:\n\n' +
       'Buying entity (LLC): \n' +
+      'Offer price: \n' +
       'Proof of funds ready (yes / no): \n' +
-      'Target close timeline: \n' +
+      'Target close date: \n' +
       'Any contingencies: \n\n' +
-      'Send the acquisition figure and assignment terms and let\'s move.\n'
+      'Ready to move on terms.\n'
     );
     interestBtn.href = 'mailto:miles@milesagee.com?subject=' + subject + '&body=' + body;
   }
