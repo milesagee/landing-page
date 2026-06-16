@@ -80,12 +80,17 @@
   .proof-card__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); }
   .proof-card__title { font-family: var(--serif); font-size: 16px; font-weight: 500; line-height: 1.25; color: var(--deep-teal); letter-spacing: -0.012em; }
   .proof-card__meta { font-size: 12px; color: var(--teal); font-weight: 600; letter-spacing: 0.02em; }
-  .proof-embed { position: relative; width: 100%; border-radius: 5px; overflow: hidden; background: var(--paper-soft); box-shadow: inset 0 0 0 1px var(--line); }
-  .proof-embed--reel { aspect-ratio: 9 / 16; }
-  .proof-embed--video { aspect-ratio: 16 / 9; }
-  .proof-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  .proof-card__link { font-size: 12px; color: var(--gold-dark); text-decoration: none; font-weight: 600; letter-spacing: 0.02em; margin-top: 2px; }
-  .proof-card__link:hover { color: var(--gold); }
+  a.proof-card { text-decoration: none; color: inherit; }
+  a.proof-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .proof-tap { position: relative; width: 100%; border-radius: 5px; overflow: hidden; background: var(--deep-teal); box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.18); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--gold); transition: background 0.22s, box-shadow 0.22s; }
+  .proof-tap > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 0; }
+  .proof-tap::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 30, 30, 0.18) 0%, transparent 32%, transparent 55%, rgba(0, 30, 30, 0.85) 100%); pointer-events: none; z-index: 1; }
+  .proof-tap--reel { aspect-ratio: 9 / 16; }
+  .proof-tap--video { aspect-ratio: 16 / 9; }
+  a.proof-card:hover .proof-tap { box-shadow: inset 0 0 0 1px var(--gold); }
+  .proof-tap__play { position: relative; z-index: 2; width: 64px; height: 64px; border-radius: 50%; background: var(--gold); color: var(--deep-teal); display: flex; align-items: center; justify-content: center; font-size: 22px; padding-left: 5px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28), 0 0 0 2px rgba(0, 30, 30, 0.25); transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1); }
+  a.proof-card:hover .proof-tap__play { transform: scale(1.06); }
+  .proof-tap__cta { position: relative; z-index: 2; font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); text-align: center; padding: 0 14px; text-shadow: 0 1px 6px rgba(0, 20, 20, 0.85); }
   .proof-profile { grid-column: span 2; background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 8px; padding: 22px 26px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
   .proof-profile__handle { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--deep-teal); letter-spacing: -0.012em; margin-bottom: 4px; }
   .proof-profile__line { font-size: 13px; color: var(--deep-teal); opacity: 0.74; line-height: 1.5; }
@@ -255,48 +260,52 @@
   <section class="block">
     <div class="eyebrow">Section 02 &middot; The Proof</div>
     <h2 class="section__title">My audience is real. <em>Here's the receipt.</em></h2>
-    <p class="section__lede">Four pieces of public proof. Open them on your phone, watch 30 seconds of each, then come back. The Reels load directly below. The YouTube piece is the production quality, the Reels are the everyday cadence.</p>
+    <p class="section__lede">Four pieces of public proof. Tap any card to play it where it lives. The YouTube piece is the production quality, the Reels are the everyday cadence.</p>
 
     <div class="proof-grid">
-      <div class="proof-card">
-        <div class="proof-card__tag">Reach proof &middot; 104K views</div>
+      <a class="proof-card" href="https://www.instagram.com/reel/DQF1kAUjHjc/" target="_blank" rel="noopener">
+        <div class="proof-card__tag">Reach proof &middot; 173K views</div>
         <div class="proof-card__title">Richmond 2025 = Austin 1995</div>
-        <div class="proof-card__meta">104K views &middot; 6,024 likes &middot; Instagram</div>
-        <div class="proof-embed proof-embed--reel">
-          <iframe src="https://www.instagram.com/reel/DQF1kAUjHjc/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        <div class="proof-card__meta">173K views &middot; 6.1K likes &middot; Instagram</div>
+        <div class="proof-tap proof-tap--reel">
+          <img src="proof/proof-richmond-2025-austin.jpg" alt="" loading="lazy">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to play on Instagram</div>
         </div>
-        <a class="proof-card__link" href="https://www.instagram.com/reel/DQF1kAUjHjc/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
-      </div>
+      </a>
 
-      <div class="proof-card">
+      <a class="proof-card" href="https://youtu.be/a_qy9Scnjmg" target="_blank" rel="noopener">
         <div class="proof-card__tag">Production proof</div>
         <div class="proof-card__title">Scott's Addition Richmond walkthrough</div>
         <div class="proof-card__meta">Long-form &middot; YouTube</div>
-        <div class="proof-embed proof-embed--video">
-          <iframe src="https://www.youtube.com/embed/a_qy9Scnjmg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <div class="proof-tap proof-tap--video">
+          <img src="proof/proof-scotts-addition.jpg" alt="" loading="lazy">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to watch on YouTube</div>
         </div>
-        <a class="proof-card__link" href="https://youtu.be/a_qy9Scnjmg" target="_blank" rel="noopener">Open on YouTube &rarr;</a>
-      </div>
+      </a>
 
-      <div class="proof-card">
+      <a class="proof-card" href="https://www.instagram.com/reel/DOwlCGSDkup/" target="_blank" rel="noopener">
         <div class="proof-card__tag">Unstaged style</div>
         <div class="proof-card__title">POV: tired of staged house tours</div>
-        <div class="proof-card__meta">3,315 views &middot; Instagram Reel</div>
-        <div class="proof-embed proof-embed--reel">
-          <iframe src="https://www.instagram.com/reel/DOwlCGSDkup/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        <div class="proof-card__meta">163K views &middot; 5.3K likes &middot; Instagram Reel</div>
+        <div class="proof-tap proof-tap--reel">
+          <img src="proof/proof-staged-tours.jpg" alt="" loading="lazy">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to play on Instagram</div>
         </div>
-        <a class="proof-card__link" href="https://www.instagram.com/reel/DOwlCGSDkup/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
-      </div>
+      </a>
 
-      <div class="proof-card">
+      <a class="proof-card" href="https://www.instagram.com/reel/DRaoqr2Dg_U/" target="_blank" rel="noopener">
         <div class="proof-card__tag">"Heart of the place" treatment</div>
         <div class="proof-card__title">Things you should know before moving to Richmond</div>
-        <div class="proof-card__meta">1,428 views &middot; Instagram Reel</div>
-        <div class="proof-embed proof-embed--reel">
-          <iframe src="https://www.instagram.com/reel/DRaoqr2Dg_U/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        <div class="proof-card__meta">6,796 views &middot; Instagram Reel</div>
+        <div class="proof-tap proof-tap--reel">
+          <img src="proof/proof-things-you-should-know.jpg" alt="" loading="lazy">
+          <div class="proof-tap__play">&#9654;</div>
+          <div class="proof-tap__cta">Tap to play on Instagram</div>
         </div>
-        <a class="proof-card__link" href="https://www.instagram.com/reel/DRaoqr2Dg_U/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
-      </div>
+      </a>
 
       <div class="proof-profile">
         <div>
@@ -354,7 +363,7 @@
         <div class="outcomes__cell outcomes__cell--metric">Cost to you<span class="sub">out of pocket</span></div>
         <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">your time<span class="lift">&nbsp;</span></div>
         <div class="outcomes__cell outcomes__cell--value outcomes__cell--hide-mobile">$0<span class="lift">platform default</span></div>
-        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">$0<span class="lift">first feature on me</span></div>
+        <div class="outcomes__cell outcomes__cell--value outcomes__col--mams">$0<span class="lift">a guest giving back</span></div>
       </div>
 
       <div class="outcomes__methodology"><strong>The math.</strong> Impression range is built from comparable Reels on my own channel. Two pieces sit above 100K. Visit lift uses a conservative 1.5 to 2% click rate. Audience overlap is drawn from my Richmond area following. Estimates, not guarantees.</div>
@@ -364,18 +373,18 @@
   <!-- TWO-TRACK ASK -->
   <section class="block">
     <div class="eyebrow">Section 05 &middot; The Ask</div>
-    <h2 class="section__title">First feature is on me. <em>Ongoing is a conversation.</em></h2>
-    <p class="section__lede">The default is one free feature when I am back out that way. If it brings you bookings, we talk about what a longer run looks like. No pressure on either.</p>
+    <h2 class="section__title">I paid to stay here. <em>That is exactly why this works.</em></h2>
+    <p class="section__lede">I booked three nights, extended to a fourth, and paid like any guest. So this is not a brand pitched cold. It is a guest who actually slept here, telling people who trust me that your place is worth the drive. Start with one piece. Track 02 only matters if it works.</p>
 
     <div class="tracks-control">
-      <button class="active" data-track="free">Track 01 &middot; Free first feature</button>
+      <button class="active" data-track="free">Track 01 &middot; The give-back</button>
       <button data-track="ongoing">Track 02 &middot; Ongoing partnership</button>
     </div>
 
     <div class="track-panel track-panel--free active" data-track="free">
-      <div class="track-panel__tag">Track 01 &middot; Default</div>
-      <h3>One feature, zero cost to you</h3>
-      <p class="track-panel__desc">I come back out, shoot a short real piece on the cottage and the land, and run it to my Richmond audience. You stay in control the whole way.</p>
+      <div class="track-panel__tag">Track 01 &middot; Start here</div>
+      <h3>A guest who stayed, telling the real story</h3>
+      <p class="track-panel__desc">I come back out, shoot a short honest piece on the cottage and the land, and run it to my Richmond audience. No invoice and no catch. Call it the thank-you from a guest who actually slept here. You stay in control the whole way.</p>
       <ul><li>One short form piece for Instagram and TikTok, tagged to your listing.</li><li>Filmed on a return visit, on a date that works for you.</li><li>You approve every cut before anything goes live.</li><li>A direct link to your Fox Den Airbnb in the caption and bio.</li><li>A simple report back on views and listing taps after thirty days.</li></ul>
     </div>
 
