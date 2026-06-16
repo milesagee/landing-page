@@ -59,62 +59,12 @@ export default async function BuyerMatchPage({
           {data.firstName}, here&rsquo;s your shortlist.
         </h1>
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
-          The inventory the public sites aren&rsquo;t surfacing for your shape -- with the reason each
-          one is here, the anchors that line up with what you told us, and the trade-off line you
-          deserve to see before you fall in love.
+          Start with the homes. Each one fits what you told me, with the drive to base, the highway
+          access, and the honest trade-off. The market read is underneath if you want it.
         </p>
       </section>
 
-      {data.marketCommentary && (
-        <section className="max-w-3xl mx-auto px-6 pb-6">
-          <MarketCommentary text={data.marketCommentary} />
-        </section>
-      )}
-
-      {data.strategy && (
-        <section className="max-w-3xl mx-auto px-6 pb-6">
-          <div className="bg-white rounded-lg border border-deep-teal/10 p-6 sm:p-8">
-            <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold mb-2">
-              {data.strategyHeading ?? "The read on your must-haves"}
-            </p>
-            <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed whitespace-pre-line">
-              {data.strategy}
-            </p>
-          </div>
-        </section>
-      )}
-
-      {data.neighborhoodReads && data.neighborhoodReads.length > 0 && (
-        <section className="max-w-3xl mx-auto px-6 pb-6 space-y-4">
-          <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold">
-            Your neighborhoods, the honest version
-          </p>
-          {data.neighborhoodReads.map((n) => (
-            <div
-              key={n.name}
-              className="bg-white rounded-lg border border-deep-teal/10 overflow-hidden"
-            >
-              <div className="flex items-baseline justify-between gap-4 px-6 sm:px-8 py-4 bg-deep-teal/[0.04] border-b border-deep-teal/10">
-                <h3 className="font-display text-xl text-deep-teal leading-tight">{n.name}</h3>
-                <span className="text-[10px] uppercase tracking-[0.14em] text-gold-dark font-semibold whitespace-nowrap">
-                  {n.rankLabel}
-                </span>
-              </div>
-              <div className="px-6 sm:px-8 py-5 space-y-3">
-                <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">{n.body}</p>
-                <div className="border-l-2 border-gold/40 pl-4">
-                  <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold mb-1">
-                    What your budget gets here
-                  </p>
-                  <p className="text-sm text-deep-teal/75 leading-relaxed">{n.budgetReality}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </section>
-      )}
-
-      <section className="max-w-3xl mx-auto px-6 pb-12 space-y-6">
+      <section className="max-w-3xl mx-auto px-6 pb-10 space-y-6">
         {data.properties.length === 0 ? (
           <div className="bg-white rounded-lg border border-deep-teal/10 overflow-hidden">
             <div className="px-6 sm:px-8 py-4 bg-gold/10 border-b border-gold/20">
@@ -146,6 +96,75 @@ export default async function BuyerMatchPage({
           ))
         )}
       </section>
+
+      {(data.marketCommentary ||
+        data.strategy ||
+        (data.neighborhoodReads && data.neighborhoodReads.length > 0)) && (
+        <section className="max-w-3xl mx-auto px-6 pb-10">
+          <details className="group">
+            <summary className="cursor-pointer list-none flex items-center justify-between gap-4 bg-white rounded-lg border border-deep-teal/10 px-6 sm:px-8 py-4 hover:border-gold/40 transition-colors">
+              <span className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold">
+                The market read on your search
+              </span>
+              <svg
+                className="w-4 h-4 text-deep-teal/50 group-open:rotate-180 transition-transform"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden="true"
+              >
+                <path d="M4 6l4 4 4-4" />
+              </svg>
+            </summary>
+
+            <div className="mt-4 space-y-6">
+              {data.marketCommentary && <MarketCommentary text={data.marketCommentary} />}
+
+              {data.strategy && (
+                <div className="bg-white rounded-lg border border-deep-teal/10 p-6 sm:p-8">
+                  <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold mb-2">
+                    {data.strategyHeading ?? "The read on your must-haves"}
+                  </p>
+                  <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed whitespace-pre-line">
+                    {data.strategy}
+                  </p>
+                </div>
+              )}
+
+              {data.neighborhoodReads && data.neighborhoodReads.length > 0 && (
+                <div className="space-y-4">
+                  <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold">
+                    Your neighborhoods, the honest version
+                  </p>
+                  {data.neighborhoodReads.map((n) => (
+                    <div
+                      key={n.name}
+                      className="bg-white rounded-lg border border-deep-teal/10 overflow-hidden"
+                    >
+                      <div className="flex items-baseline justify-between gap-4 px-6 sm:px-8 py-4 bg-deep-teal/[0.04] border-b border-deep-teal/10">
+                        <h3 className="font-display text-xl text-deep-teal leading-tight">{n.name}</h3>
+                        <span className="text-[10px] uppercase tracking-[0.14em] text-gold-dark font-semibold whitespace-nowrap">
+                          {n.rankLabel}
+                        </span>
+                      </div>
+                      <div className="px-6 sm:px-8 py-5 space-y-3">
+                        <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">{n.body}</p>
+                        <div className="border-l-2 border-gold/40 pl-4">
+                          <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold mb-1">
+                            What your budget gets here
+                          </p>
+                          <p className="text-sm text-deep-teal/75 leading-relaxed">{n.budgetReality}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </details>
+        </section>
+      )}
 
       <section className="max-w-3xl mx-auto px-6 pb-16">
         <div className="bg-white rounded-lg border border-deep-teal/10 p-6 sm:p-8">

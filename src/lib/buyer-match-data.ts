@@ -474,7 +474,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         mlsNumber: "2605747",
         daysOnMarket: 96,
         sourceUrl: "https://www.homes.com/property/1769-outrigger-dr-chester-va/ywjdlj07kc2k0/",
-        photoUrl: null,
+        photoUrl: "https://ssl.cdn-redfin.com/photo/131/mbpaddedwide/747/genMid.2605747_7.jpg",
         gapFillReason:
           "The 96-day listing reads stale on the portals before a buyer notices it is a 2023 ranch with the shortest base commute in the set.",
         vibes:
@@ -562,7 +562,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         mlsNumber: "2614222",
         daysOnMarket: 20,
         sourceUrl: "https://www.homes.com/property/13601-green-spire-cir-chester-va/mh1g3d5szqff7/",
-        photoUrl: null,
+        photoUrl: "https://www.compass.com/m/531eeecfb3d3f729a24b671741bb099f88b0969e_img_0_8d252/640x480.jpg",
         gapFillReason:
           "The portal card reads like a standard 5-bedroom suburban listing, but 3,100 sqft on a cul-de-sac lot with equal I-95 and I-295 access is the real buyer-specific fit.",
         vibes:
@@ -606,7 +606,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         mlsNumber: "2614824",
         daysOnMarket: 14,
         sourceUrl: "https://www.homes.com/property/12225-twin-rivers-dr-chester-va/gv8rs3g5x2kks/",
-        photoUrl: null,
+        photoUrl: "https://www.compass.com/m/23329979b5ca7f26036babf5ac2ad288cae5ae79_img_0_0ea10/640x480.jpg",
         gapFillReason:
           "With only 3 beds and 2,041 sqft, broad portal sorting underrates it, but it directly matches the newer-home, low-maintenance lifestyle side of what you described.",
         vibes:
@@ -694,7 +694,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         mlsNumber: "2615479",
         daysOnMarket: 8,
         sourceUrl: "https://www.homes.com/property/1813-james-overlook-dr-chester-va/v2mv5mlyw08gq/",
-        photoUrl: "https://ssl.cdn-redfin.com/photo/262/mbpaddedwide/479/genMid.2615479_0.jpg",
+        photoUrl: "https://ssl.cdn-redfin.com/photo/131/mbpaddedwide/479/genMid.2615479_1.jpg",
         gapFillReason:
           "Search cards emphasize river-front appeal and price, but the buyer-specific value is the 2018 build, 3,022 sqft, and the same tight Chester 23836 base and interstate geometry.",
         vibes:
@@ -738,7 +738,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         mlsNumber: "2611122",
         daysOnMarket: 19,
         sourceUrl: "https://www.homes.com/property/5106-timsbury-pointe-dr-chester-va/9rcpyxng3kftk/",
-        photoUrl: null,
+        photoUrl: "https://www.compass.com/m/e5a0012284f8d0a2dcc0e676833e474667395794_img_0_ad507/640x480.jpg",
         gapFillReason:
           "Portals do not elevate it because it is less riverfront and less new than some competitors, but the 2.87-acre lot is unusually strong for the price band.",
         vibes:
