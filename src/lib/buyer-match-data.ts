@@ -459,15 +459,451 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
           "This is the land-and-space play. At your range you can find acreage and a newer home, but turnkey 2000s-or-newer inventory is thinner here and the run to Fort Gregg-Adams is longer than from Chester. Worth it if more land outranks a shorter commute.",
       },
     ],
-    properties: [],
-    sources: [
+    properties: [
       {
-        url: "https://www.redfin.com/county/2957/VA/Chesterfield-County/housing-market",
-        description:
-          "Redfin, Chesterfield County housing market -- median sale price $428,714, up 2.1% year over year, May 2026.",
+        slug: "1769-outrigger-dr",
+        address: "1769 Outrigger Dr",
+        city: "Chester",
+        state: "VA",
+        zip: "23836",
+        listPrice: 505000,
+        priceLabel: "$505,000",
+        beds: 4,
+        baths: 3,
+        sqft: 2248,
+        mlsNumber: "2605747",
+        daysOnMarket: 96,
+        sourceUrl: "https://www.homes.com/property/1769-outrigger-dr-chester-va/ywjdlj07kc2k0/",
+        photoUrl: null,
+        gapFillReason:
+          "The 96-day listing reads stale on the portals before a buyer notices it is a 2023 ranch with the shortest base commute in the set.",
+        vibes:
+          "The cleanest logistics fit in the group: a 2023 one-story home in Twin Rivers at Meadowville Landing, 4 beds, 3 baths, 2,248 sqft, screened porch, high ceilings, granite counters, induction cooktop, tankless water heater, and a direct-access 2-car garage. The $106 per month HOA brings pool, fitness, and water-oriented community amenities.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams Gregg Avenue Gate",
+            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
+            distance: "15 min drive",
+            matches: "Fort Gregg-Adams commute",
+          },
+          {
+            name: "I-95 Exit 61, VA-10 Chester Road",
+            address: "VA-10 at I-95, Chester, VA 23831",
+            distance: "4 min drive",
+            matches: "I-95 access",
+          },
+          {
+            name: "I-295 Exit 15A, VA-10 East Hundred Road",
+            address: "VA-10 at I-295, Chester, VA 23836",
+            distance: "5 min drive",
+            matches: "I-295 access",
+          },
+        ],
+        whyThisOne:
+          "It hits your newer-construction requirement with 2023 build quality, 4 beds, 3 full baths, and the fastest verified Fort Gregg-Adams commute on this list.",
+        tradeOff:
+          "The longer days-on-market count needs a showing-level explanation, because it may signal pricing friction despite strong criteria fit.",
+      },
+      {
+        slug: "12218-winbolt-dr",
+        address: "12218 Winbolt Dr",
+        city: "Chester",
+        state: "VA",
+        zip: "23836",
+        listPrice: 500000,
+        priceLabel: "$500,000",
+        beds: 4,
+        baths: 2.5,
+        sqft: 2560,
+        mlsNumber: "2611744",
+        daysOnMarket: 43,
+        sourceUrl: "https://www.homes.com/property/12218-winbolt-dr-chester-va/sjytndddw758s/",
+        photoUrl: null,
+        gapFillReason:
+          "Portals treat it as one more Meadowville Landing result, but the $500,000 price plus 2016 build gives it a stronger value-to-commute ratio than several prettier higher-priced cards.",
+        vibes:
+          "A 2016 single-family home in Meadowville Landing's Mount Blanco section with 4 beds, 2.5 baths, 2,560 sqft, fresh paint and carpet, granite counters, induction cooktop, kitchen island, and a 2-car rear garage. The listing shows a $32,000 price drop and a $106 per month HOA tied to pool, boat dock, beach, and tennis amenities.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams Gregg Avenue Gate",
+            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
+            distance: "17 min drive",
+            matches: "Fort Gregg-Adams commute",
+          },
+          {
+            name: "I-95 Exit 61, VA-10 Chester Road",
+            address: "VA-10 at I-95, Chester, VA 23831",
+            distance: "5 min drive",
+            matches: "I-95 access",
+          },
+          {
+            name: "I-295 Exit 15A, VA-10 East Hundred Road",
+            address: "VA-10 at I-295, Chester, VA 23836",
+            distance: "6 min drive",
+            matches: "I-295 access",
+          },
+        ],
+        whyThisOne:
+          "It is the lowest-priced verified finalist while still clearing the 2000-plus build, bedroom, bath, and base-access requirements.",
+        tradeOff:
+          "The rear-garage layout and community HOA should be checked against how you and Shannon actually use parking, storage, and outdoor space.",
+      },
+      {
+        slug: "13601-green-spire-cir",
+        address: "13601 Green Spire Cir",
+        city: "Chester",
+        state: "VA",
+        zip: "23836",
+        listPrice: 515000,
+        priceLabel: "$515,000",
+        beds: 5,
+        baths: 3.5,
+        sqft: 3100,
+        mlsNumber: "2614222",
+        daysOnMarket: 20,
+        sourceUrl: "https://www.homes.com/property/13601-green-spire-cir-chester-va/mh1g3d5szqff7/",
+        photoUrl: null,
+        gapFillReason:
+          "The portal card reads like a standard 5-bedroom suburban listing, but 3,100 sqft on a cul-de-sac lot with equal I-95 and I-295 access is the real buyer-specific fit.",
+        vibes:
+          "This 2009 Cypress Woods home has 5 beds, 3.5 baths, 3,100 sqft, an 11,761 sqft cul-de-sac lot, fenced backyard, large deck, granite counters, 2-car attached garage, and a $43 per month HOA. The listing calls out proximity to I-295, I-95, and VA-288.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams Gregg Avenue Gate",
+            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
+            distance: "16 min drive",
+            matches: "Fort Gregg-Adams commute",
+          },
+          {
+            name: "I-95 Exit 61, VA-10 Chester Road",
+            address: "VA-10 at I-95, Chester, VA 23831",
+            distance: "5 min drive",
+            matches: "I-95 access",
+          },
+          {
+            name: "I-295 Exit 15A, VA-10 East Hundred Road",
+            address: "VA-10 at I-295, Chester, VA 23836",
+            distance: "5 min drive",
+            matches: "I-295 access",
+          },
+        ],
+        whyThisOne:
+          "It gives you 5 beds, 3.5 baths, and 3,100 sqft while staying near the bottom of budget and close to both requested interstates.",
+        tradeOff:
+          "It is not the newest home in the set, so finishes and system condition need to justify choosing it over the 2023 and new-construction options.",
+      },
+      {
+        slug: "12225-twin-rivers-dr",
+        address: "12225 Twin Rivers Dr",
+        city: "Chester",
+        state: "VA",
+        zip: "23836",
+        listPrice: 554950,
+        priceLabel: "$554,950",
+        beds: 3,
+        baths: 2.5,
+        sqft: 2041,
+        mlsNumber: "2614824",
+        daysOnMarket: 14,
+        sourceUrl: "https://www.homes.com/property/12225-twin-rivers-dr-chester-va/gv8rs3g5x2kks/",
+        photoUrl: null,
+        gapFillReason:
+          "With only 3 beds and 2,041 sqft, broad portal sorting underrates it, but it directly matches the newer-home, low-maintenance lifestyle side of what you described.",
+        vibes:
+          "This 2023 one-story Twin Rivers home has 3 beds, 2.5 baths, 2,041 sqft, a river-front lot notation, built-ins, high ceilings, French doors, granite counters, in-ground pool, patio, 2.5-car heated garage, tankless water heater, and community boat dock and fitness amenities. The HOA is listed at $212 per month.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams Gregg Avenue Gate",
+            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
+            distance: "16 min drive",
+            matches: "Fort Gregg-Adams commute",
+          },
+          {
+            name: "I-95 Exit 61, VA-10 Chester Road",
+            address: "VA-10 at I-95, Chester, VA 23831",
+            distance: "5 min drive",
+            matches: "I-95 access",
+          },
+          {
+            name: "I-295 Exit 15A, VA-10 East Hundred Road",
+            address: "VA-10 at I-295, Chester, VA 23836",
+            distance: "6 min drive",
+            matches: "I-295 access",
+          },
+        ],
+        whyThisOne:
+          "It is a 2023 single-family home that clears the bedroom and bath minimums and keeps Fort Gregg-Adams and both interstates very manageable.",
+        tradeOff:
+          "The higher HOA and smaller square footage make this more of a lifestyle fit than a maximum-space play.",
+      },
+      {
+        slug: "1625-n-white-mountain-dr",
+        address: "1625 N White Mountain Dr",
+        city: "Chester",
+        state: "VA",
+        zip: "23836",
+        listPrice: 569950,
+        priceLabel: "$569,950",
+        beds: 5,
+        baths: 3,
+        sqft: 3154,
+        mlsNumber: "2613685",
+        daysOnMarket: 25,
+        sourceUrl: "https://www.homes.com/property/1625-n-white-mountain-dr-chester-va/fblbvb9jwkcxc/",
+        photoUrl: null,
+        gapFillReason:
+          "It looks like a mid-budget 5-bedroom among many, but the Mount Blanco on the James setting, 2013 construction, and 17-minute base drive make it a stronger fit than the price alone suggests.",
+        vibes:
+          "A 2013 Mount Blanco on the James home with 5 beds, 3 baths, 3,154 sqft, a 16,509 sqft lot, water views, gas fireplace, large bonus room, deck, granite counters, island kitchen, soaking tub, and community pool, boat dock, playground, and basketball amenities. The HOA is listed at $106 per month.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams Gregg Avenue Gate",
+            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
+            distance: "17 min drive",
+            matches: "Fort Gregg-Adams commute",
+          },
+          {
+            name: "I-95 Exit 61, VA-10 Chester Road",
+            address: "VA-10 at I-95, Chester, VA 23831",
+            distance: "5 min drive",
+            matches: "I-95 access",
+          },
+          {
+            name: "I-295 Exit 15A, VA-10 East Hundred Road",
+            address: "VA-10 at I-295, Chester, VA 23836",
+            distance: "6 min drive",
+            matches: "I-295 access",
+          },
+        ],
+        whyThisOne:
+          "It offers the 5-bed, 3-full-bath layout with water views while staying inside budget and close to both I-95 and I-295.",
+        tradeOff:
+          "At $569,950 it competes directly with newer builds, so the showing needs to prove the condition is worth the premium.",
+      },
+      {
+        slug: "1813-james-overlook-dr",
+        address: "1813 James Overlook Dr",
+        city: "Chester",
+        state: "VA",
+        zip: "23836",
+        listPrice: 584900,
+        priceLabel: "$584,900",
+        beds: 4,
+        baths: 2.5,
+        sqft: 3022,
+        mlsNumber: "2615479",
+        daysOnMarket: 8,
+        sourceUrl: "https://www.homes.com/property/1813-james-overlook-dr-chester-va/v2mv5mlyw08gq/",
+        photoUrl: "https://ssl.cdn-redfin.com/photo/262/mbpaddedwide/479/genMid.2615479_0.jpg",
+        gapFillReason:
+          "Search cards emphasize river-front appeal and price, but the buyer-specific value is the 2018 build, 3,022 sqft, and the same tight Chester 23836 base and interstate geometry.",
+        vibes:
+          "A 2018 Meadowville Landing home with 4 beds, 2.5 baths, 3,022 sqft, a river-front lot notation, wood flooring, loft, deck, tankless water heater, butler's pantry, granite counters, 2-car garage, and a $107 per month HOA. This is one of the freshest active resales on the list by days on market.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams Gregg Avenue Gate",
+            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
+            distance: "16 min drive",
+            matches: "Fort Gregg-Adams commute",
+          },
+          {
+            name: "I-95 Exit 61, VA-10 Chester Road",
+            address: "VA-10 at I-95, Chester, VA 23831",
+            distance: "5 min drive",
+            matches: "I-95 access",
+          },
+          {
+            name: "I-295 Exit 15A, VA-10 East Hundred Road",
+            address: "VA-10 at I-295, Chester, VA 23836",
+            distance: "6 min drive",
+            matches: "I-295 access",
+          },
+        ],
+        whyThisOne:
+          "It gives you a 2018 single-family home over 3,000 sqft with a short Fort Gregg-Adams drive and strong I-95 and I-295 access.",
+        tradeOff:
+          "It is near the top of the no-stretch budget while offering 2.5 baths rather than 3 full baths.",
+      },
+      {
+        slug: "5106-timsbury-pointe-dr",
+        address: "5106 Timsbury Pointe Dr",
+        city: "Chester",
+        state: "VA",
+        zip: "23831",
+        listPrice: 525000,
+        priceLabel: "$525,000",
+        beds: 5,
+        baths: 2.5,
+        sqft: 3064,
+        mlsNumber: "2611122",
+        daysOnMarket: 19,
+        sourceUrl: "https://www.homes.com/property/5106-timsbury-pointe-dr-chester-va/9rcpyxng3kftk/",
+        photoUrl: null,
+        gapFillReason:
+          "Portals do not elevate it because it is less riverfront and less new than some competitors, but the 2.87-acre lot is unusually strong for the price band.",
+        vibes:
+          "This 2010 Stoney Glen South home has 5 beds, 2.5 baths, 3,064 sqft, a 2.87-acre wooded lot, gas fireplace, deck, granite counters, 2-car attached garage, fenced backyard, and a sprinkler system, with a $16 per month HOA. It also shows a $20,000 price drop.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams Gregg Avenue Gate",
+            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
+            distance: "23 min drive",
+            matches: "Fort Gregg-Adams commute",
+          },
+          {
+            name: "I-95 Exit 61, VA-10 Chester Road",
+            address: "VA-10 at I-95, Chester, VA 23831",
+            distance: "7 min drive",
+            matches: "I-95 access",
+          },
+          {
+            name: "I-295 Exit 9B, VA-36 Oaklawn Boulevard",
+            address: "VA-36 at I-295, Colonial Heights, VA 23834",
+            distance: "10 min drive",
+            matches: "I-295 access",
+          },
+        ],
+        whyThisOne:
+          "It fits the bedroom, size, and construction requirements while adding acreage that most $500,000 to $600,000 Chester options do not offer.",
+        tradeOff:
+          "The base commute is meaningfully longer than the Chester 23836 finalists, so this is the privacy-and-land option rather than the shortest drive.",
+      },
+      {
+        slug: "6909-sir-galahad-rd",
+        address: "6909 Sir Galahad Rd",
+        city: "Henrico",
+        state: "VA",
+        zip: "23231",
+        listPrice: 514000,
+        priceLabel: "$514,000",
+        beds: 5,
+        baths: 3.5,
+        sqft: 2738,
+        mlsNumber: "2614869",
+        daysOnMarket: 13,
+        sourceUrl: "https://www.homes.com/property/6909-sir-galahad-rd-henrico-va/hdwzdjz81rc02/",
+        photoUrl: null,
+        gapFillReason:
+          "Varina and eastern Henrico listings get lost when the search starts in Chester, but this 2020 Castleton home keeps I-295 close and stays near the low end of budget.",
+        vibes:
+          "A 2020 Castleton single-family home with 5 beds, 3.5 baths, 2,738 sqft, a 27,007 sqft corner lot, main-floor primary bedroom, gas fireplace, formal dining, granite counters, 2-car garage, deck, and porch, with a $65 per month HOA. The listing notes a 15-minute drive to Richmond.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams Gregg Avenue Gate",
+            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
+            distance: "21 min drive",
+            matches: "Fort Gregg-Adams commute",
+          },
+          {
+            name: "I-295 Exit 22, VA-5 Charles City Road",
+            address: "VA-5 at I-295, Henrico, VA 23231",
+            distance: "6 min drive",
+            matches: "I-295 access",
+          },
+          {
+            name: "I-95 Exit 74, Bells Road area",
+            address: "I-95 at Bells Road, Richmond, VA 23234",
+            distance: "8 min drive",
+            matches: "I-95 access",
+          },
+        ],
+        whyThisOne:
+          "It gives you a newer 2020 build with 5 beds and 3.5 baths in your Varina and eastern Henrico target lane while keeping I-295 close.",
+        tradeOff:
+          "It is not as base-convenient as the Chester 23836 homes, so the location only wins if Varina or eastern Henrico is a real lifestyle preference.",
+      },
+      {
+        slug: "2905-clifford-tower-dr",
+        address: "2905 Clifford Tower Dr",
+        city: "Henrico",
+        state: "VA",
+        zip: "23231",
+        listPrice: 524950,
+        priceLabel: "$524,950",
+        beds: 4,
+        baths: 3,
+        sqft: 2754,
+        mlsNumber: "2603729",
+        daysOnMarket: 82,
+        sourceUrl: "https://www.homes.com/property/2905-clifford-tower-dr-henrico-va/e4s4kcb2qxffj/",
+        photoUrl: null,
+        gapFillReason:
+          "The 82-day count pushes buyers past it, but the builder-model-home detail and 2019 construction keep it relevant for a buyer who explicitly does not want an old house.",
+        vibes:
+          "This Castleton home is a 2019 builder's model with 4 beds, 3 baths, 2,754 sqft, a newly remodeled notation, solar panels, crown molding, vaulted ceilings, loft, gas fireplace, induction cooktop, granite, soaking tub, and plantation shutters, with pool, tennis, and fitness amenities through a $65 per month HOA.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams Gregg Avenue Gate",
+            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
+            distance: "21 min drive",
+            matches: "Fort Gregg-Adams commute",
+          },
+          {
+            name: "I-295 Exit 22, VA-5 Charles City Road",
+            address: "VA-5 at I-295, Henrico, VA 23231",
+            distance: "6 min drive",
+            matches: "I-295 access",
+          },
+          {
+            name: "I-95 Exit 74, Bells Road area",
+            address: "I-95 at Bells Road, Richmond, VA 23234",
+            distance: "8 min drive",
+            matches: "I-95 access",
+          },
+        ],
+        whyThisOne:
+          "It fits the 2000-plus, 4-bed, 3-bath requirement and gives a Varina and eastern Henrico alternative without pushing above budget.",
+        tradeOff:
+          "The 82 days on market deserves scrutiny around pricing history, condition, and whether the model-home upgrades translate into daily-use value.",
       },
     ],
-    completedAt: "2026-06-15T12:40:36-04:00",
+    sources: [
+      {
+        url: "https://www.homes.com/property/1769-outrigger-dr-chester-va/ywjdlj07kc2k0/",
+        description: "1769 Outrigger Dr, Chester 23836. Active listing, 2023 build, MLS 2605747.",
+      },
+      {
+        url: "https://www.homes.com/property/12218-winbolt-dr-chester-va/sjytndddw758s/",
+        description: "12218 Winbolt Dr, Chester 23836. Active listing, 2016 build, MLS 2611744.",
+      },
+      {
+        url: "https://www.homes.com/property/13601-green-spire-cir-chester-va/mh1g3d5szqff7/",
+        description: "13601 Green Spire Cir, Chester 23836. Active listing, 2009 build, MLS 2614222.",
+      },
+      {
+        url: "https://www.homes.com/property/12225-twin-rivers-dr-chester-va/gv8rs3g5x2kks/",
+        description: "12225 Twin Rivers Dr, Chester 23836. Active listing, 2023 build, MLS 2614824.",
+      },
+      {
+        url: "https://www.homes.com/property/1625-n-white-mountain-dr-chester-va/fblbvb9jwkcxc/",
+        description: "1625 N White Mountain Dr, Chester 23836. Active listing, 2013 build, MLS 2613685.",
+      },
+      {
+        url: "https://www.homes.com/property/1813-james-overlook-dr-chester-va/v2mv5mlyw08gq/",
+        description: "1813 James Overlook Dr, Chester 23836. Active listing, 2018 build, MLS 2615479.",
+      },
+      {
+        url: "https://www.homes.com/property/5106-timsbury-pointe-dr-chester-va/9rcpyxng3kftk/",
+        description: "5106 Timsbury Pointe Dr, Chester 23831. Active listing, 2010 build, MLS 2611122.",
+      },
+      {
+        url: "https://www.homes.com/property/6909-sir-galahad-rd-henrico-va/hdwzdjz81rc02/",
+        description: "6909 Sir Galahad Rd, Henrico 23231. Active listing, 2020 build, MLS 2614869.",
+      },
+      {
+        url: "https://www.homes.com/property/2905-clifford-tower-dr-henrico-va/e4s4kcb2qxffj/",
+        description: "2905 Clifford Tower Dr, Henrico 23231. Active listing, 2019 build, MLS 2603729.",
+      },
+      {
+        url: "https://www.redfin.com/county/2957/VA/Chesterfield-County/housing-market",
+        description: "Redfin, Chesterfield County. April 2026 median sale price $433,788, up 2.1% year over year.",
+      },
+      {
+        url: "https://www.srmfre.com/market-report/Henrico-County/491816/",
+        description: "SRMF, Henrico County last-30-days report. Median sold $426,000, indexed June 7, 2026.",
+      },
+    ],
+    completedAt: "2026-06-15T13:10:00-04:00",
   },
 };
 
