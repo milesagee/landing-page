@@ -512,6 +512,138 @@
     margin: 8px auto 0;
   }
 
+  /* ---- Photo gallery (strip) ---- */
+  .gallery {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: clamp(240px, 80%, 300px);
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--teal-light) transparent;
+  }
+  .gallery::-webkit-scrollbar { height: 6px; }
+  .gallery::-webkit-scrollbar-thumb { background: var(--teal-light); border-radius: 999px; }
+
+  .gallery__item {
+    scroll-snap-align: start;
+    position: relative;
+    border: 0;
+    padding: 0;
+    background: var(--deep-teal);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    aspect-ratio: 3 / 2;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s;
+  }
+  .gallery__item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .gallery__item:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .gallery__item:active { transform: translateY(0); }
+  .gallery__item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery__cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 18px 12px 9px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    background: linear-gradient(to top, rgba(0, 42, 42, 0.86), transparent);
+    text-align: left;
+  }
+  .gallery__hint {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--teal);
+    margin-top: 10px;
+    opacity: 0.85;
+  }
+
+  /* ---- Lightbox ---- */
+  .lb {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0, 30, 30, 0.94);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .lb.open { display: flex; }
+  .lb__stage {
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    max-height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .lb__img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+  .lb__cap {
+    margin-top: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    color: var(--ivory);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .lb__count { color: var(--gold); }
+  .lb__close {
+    position: absolute;
+    top: 16px; right: 18px;
+    background: transparent;
+    border: 0;
+    color: var(--ivory);
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.85;
+    transition: color 0.2s;
+  }
+  .lb__close:hover { color: var(--gold); }
+  .lb__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 63, 63, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: var(--ivory);
+    width: 48px; height: 48px;
+    border-radius: 999px;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .lb__nav:hover { background: var(--gold); color: var(--deep-teal); }
+  .lb__prev { left: 14px; }
+  .lb__next { right: 14px; }
+  body.lb-open { overflow: hidden; }
+
   /* ---- CTA ---- */
   .cta {
     background: var(--deep-teal);
@@ -645,6 +777,13 @@
     .cta__title { font-size: 22px; }
     .cta__buttons { flex-direction: column; }
     .cta__btn { width: 100%; justify-content: center; }
+    .gallery { grid-auto-columns: 86%; }
+    .lb { padding: 12px; }
+    .lb__img { max-height: 74vh; }
+    .lb__nav { width: 40px; height: 40px; font-size: 22px; }
+    .lb__prev { left: 6px; }
+    .lb__next { right: 6px; }
+    .lb__close { top: 10px; right: 12px; }
   }
 </style>
 </head>
@@ -799,13 +938,29 @@
   <section class="block">
     <div class="eyebrow">Section 05 &middot; As-Is Condition</div>
     <h2 class="section__title">See it <em>for yourself.</em></h2>
-    <p class="section__lede">The house is a scrape, so condition is not the point. The lot and the block are. Here is the parcel from above. The active 2110 Pimmit build sits just up the same street.</p>
-    <div class="media">
+    <p class="section__lede">Eleven shots, front elevation to drone aerials to the interior. The house is a scrape, so the condition is not the point. The lot, the block, and the bones are. Tap any photo to open it full screen.</p>
+
+    <div class="gallery" id="gallery">
+      <button class="gallery__item" data-i="0"><img src="dispo-2119-pimmit-pics/pimmit-01-thumb.jpg" alt="Front elevation" loading="eager"/><span class="gallery__cap">Front elevation</span></button>
+      <button class="gallery__item" data-i="1"><img src="dispo-2119-pimmit-pics/pimmit-02-thumb.jpg" alt="Aerial, lot and roofline" loading="lazy"/><span class="gallery__cap">Aerial, lot and roofline</span></button>
+      <button class="gallery__item" data-i="2"><img src="dispo-2119-pimmit-pics/pimmit-03-thumb.jpg" alt="Aerial, rear lot" loading="lazy"/><span class="gallery__cap">Aerial, rear lot</span></button>
+      <button class="gallery__item" data-i="3"><img src="dispo-2119-pimmit-pics/pimmit-04-thumb.jpg" alt="Living room" loading="lazy"/><span class="gallery__cap">Living room</span></button>
+      <button class="gallery__item" data-i="4"><img src="dispo-2119-pimmit-pics/pimmit-05-thumb.jpg" alt="Living room" loading="lazy"/><span class="gallery__cap">Living room</span></button>
+      <button class="gallery__item" data-i="5"><img src="dispo-2119-pimmit-pics/pimmit-06-thumb.jpg" alt="Toward kitchen" loading="lazy"/><span class="gallery__cap">Toward kitchen</span></button>
+      <button class="gallery__item" data-i="6"><img src="dispo-2119-pimmit-pics/pimmit-07-thumb.jpg" alt="Kitchen" loading="lazy"/><span class="gallery__cap">Kitchen</span></button>
+      <button class="gallery__item" data-i="7"><img src="dispo-2119-pimmit-pics/pimmit-08-thumb.jpg" alt="Utility, electrical" loading="lazy"/><span class="gallery__cap">Utility, electrical</span></button>
+      <button class="gallery__item" data-i="8"><img src="dispo-2119-pimmit-pics/pimmit-09-thumb.jpg" alt="Bedroom" loading="lazy"/><span class="gallery__cap">Bedroom</span></button>
+      <button class="gallery__item" data-i="9"><img src="dispo-2119-pimmit-pics/pimmit-10-thumb.jpg" alt="Bedroom" loading="lazy"/><span class="gallery__cap">Bedroom</span></button>
+      <button class="gallery__item" data-i="10"><img src="dispo-2119-pimmit-pics/pimmit-11-thumb.jpg" alt="Bathroom" loading="lazy"/><span class="gallery__cap">Bathroom</span></button>
+    </div>
+    <div class="gallery__hint">Swipe the strip, tap to expand. Eleven photos, front to back.</div>
+
+    <div class="media" style="margin-top: 20px;">
       <div class="media__frame">
         <iframe src="https://maps.google.com/maps?q=2119+Pimmit+Dr+Falls+Church+VA+22043&t=k&z=18&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="2119 Pimmit Dr aerial"></iframe>
       </div>
     </div>
-    <div class="comps-note" style="margin-top: 14px;"><strong>Walkthrough on request.</strong> A full lot-and-block video is being filmed now. Ask and I will send it the moment it is cut, or set you a private showing on the ground.</div>
+    <div class="comps-note" style="margin-top: 14px;"><strong>The block from above.</strong> The active 2110 Pimmit build sits just up the same street. Want boots on the ground, say the word and I will set a private showing.</div>
   </section>
 
   <!-- WHY OFF-MARKET / WHY NOW -->
@@ -836,6 +991,17 @@
 
 </div>
 
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb__close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb__nav lb__prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <figure class="lb__stage">
+    <img class="lb__img" id="lbImg" src="" alt=""/>
+    <figcaption class="lb__cap"><span id="lbCapText"></span><span class="lb__count" id="lbCount"></span></figcaption>
+  </figure>
+  <button class="lb__nav lb__next" id="lbNext" aria-label="Next photo">&#8250;</button>
+</div>
+
 <script>
   // Register-interest mailto: prefilled with the deal + the fields a serious buyer answers up front
   const interestBtn = document.getElementById('interestBtn');
@@ -853,6 +1019,65 @@
     );
     interestBtn.href = 'mailto:miles@milesagee.com?subject=' + subject + '&body=' + body;
   }
+
+  // Photo gallery lightbox
+  (function () {
+    const photos = [
+      { f: 'dispo-2119-pimmit-pics/pimmit-01.jpg', c: 'Front elevation' },
+      { f: 'dispo-2119-pimmit-pics/pimmit-02.jpg', c: 'Aerial, lot and roofline' },
+      { f: 'dispo-2119-pimmit-pics/pimmit-03.jpg', c: 'Aerial, rear lot' },
+      { f: 'dispo-2119-pimmit-pics/pimmit-04.jpg', c: 'Living room' },
+      { f: 'dispo-2119-pimmit-pics/pimmit-05.jpg', c: 'Living room' },
+      { f: 'dispo-2119-pimmit-pics/pimmit-06.jpg', c: 'Toward kitchen' },
+      { f: 'dispo-2119-pimmit-pics/pimmit-07.jpg', c: 'Kitchen' },
+      { f: 'dispo-2119-pimmit-pics/pimmit-08.jpg', c: 'Utility, electrical' },
+      { f: 'dispo-2119-pimmit-pics/pimmit-09.jpg', c: 'Bedroom' },
+      { f: 'dispo-2119-pimmit-pics/pimmit-10.jpg', c: 'Bedroom' },
+      { f: 'dispo-2119-pimmit-pics/pimmit-11.jpg', c: 'Bathroom' }
+    ];
+    const lb = document.getElementById('lb');
+    const img = document.getElementById('lbImg');
+    const capText = document.getElementById('lbCapText');
+    const count = document.getElementById('lbCount');
+    let idx = 0;
+    function show(i) {
+      idx = (i + photos.length) % photos.length;
+      img.src = photos[idx].f;
+      img.alt = photos[idx].c;
+      capText.textContent = photos[idx].c;
+      count.textContent = (idx + 1) + ' / ' + photos.length;
+    }
+    function open(i) {
+      show(i);
+      lb.classList.add('open');
+      document.body.classList.add('lb-open');
+      lb.setAttribute('aria-hidden', 'false');
+    }
+    function close() {
+      lb.classList.remove('open');
+      document.body.classList.remove('lb-open');
+      lb.setAttribute('aria-hidden', 'true');
+    }
+    document.querySelectorAll('.gallery__item').forEach(function (btn) {
+      btn.addEventListener('click', function () { open(parseInt(btn.dataset.i, 10)); });
+    });
+    document.getElementById('lbClose').addEventListener('click', close);
+    document.getElementById('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); show(idx - 1); });
+    document.getElementById('lbNext').addEventListener('click', function (e) { e.stopPropagation(); show(idx + 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(idx - 1);
+      else if (e.key === 'ArrowRight') show(idx + 1);
+    });
+    let tx = 0;
+    lb.addEventListener('touchstart', function (e) { tx = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+  })();
 </script>
 
 </body>
