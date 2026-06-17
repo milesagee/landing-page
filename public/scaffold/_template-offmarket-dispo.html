@@ -663,6 +663,34 @@
   .lb__next { right: 14px; }
   body.lb-open { overflow: hidden; }
 
+  /* ---- Offer modal ---- */
+  .offer-modal { position: fixed; inset: 0; z-index: 110; background: rgba(0, 30, 30, 0.9); display: none; align-items: center; justify-content: center; padding: 20px; }
+  .offer-modal.open { display: flex; }
+  .offer-card { background: var(--paper); border-radius: 12px; max-width: 460px; width: 100%; max-height: 92vh; overflow-y: auto; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4); position: relative; }
+  .offer-card__head { background: var(--deep-teal); color: var(--ivory); padding: 22px 24px 18px; border-radius: 12px 12px 0 0; position: relative; overflow: hidden; }
+  .offer-card__head::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.14), transparent 70%); pointer-events: none; }
+  .offer-card__eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; position: relative; z-index: 1; }
+  .offer-card__title { font-family: var(--serif); font-size: 22px; font-weight: 300; margin-top: 4px; position: relative; z-index: 1; }
+  .offer-card__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .offer-card__close { position: absolute; top: 14px; right: 16px; background: transparent; border: 0; color: var(--ivory); font-size: 26px; line-height: 1; cursor: pointer; z-index: 2; opacity: 0.85; transition: color 0.2s; }
+  .offer-card__close:hover { color: var(--gold); }
+  .offer-form { padding: 20px 24px 24px; }
+  .offer-field { margin-bottom: 14px; }
+  .offer-field label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--teal); margin-bottom: 5px; }
+  .offer-field input, .offer-field select, .offer-field textarea { width: 100%; font-family: var(--sans); font-size: 14px; color: var(--deep-teal); background: var(--ivory); border: 1px solid var(--line); border-radius: 7px; padding: 11px 12px; }
+  .offer-field input:focus, .offer-field select:focus, .offer-field textarea:focus { outline: 2px solid var(--gold); outline-offset: 0; border-color: var(--gold); }
+  .offer-field textarea { resize: vertical; min-height: 60px; }
+  .offer-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .offer-submit { width: 100%; background: var(--gold); color: var(--deep-teal); border: 0; padding: 14px; font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; cursor: pointer; margin-top: 6px; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; }
+  .offer-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4); background: var(--gold-soft); }
+  .offer-submit:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
+  .offer-note { font-size: 11px; color: var(--teal); opacity: 0.85; margin-top: 12px; text-align: center; line-height: 1.5; }
+  .offer-success { padding: 44px 28px; text-align: center; }
+  .offer-success__mark { width: 52px; height: 52px; margin: 0 auto; border-radius: 999px; background: var(--deep-teal); color: var(--gold); font-size: 26px; display: flex; align-items: center; justify-content: center; }
+  .offer-success__title { font-family: var(--serif); font-size: 23px; color: var(--deep-teal); margin-top: 14px; }
+  .offer-success__sub { font-size: 14px; color: var(--teal); margin-top: 8px; line-height: 1.55; }
+  body.modal-open { overflow: hidden; }
+
   /* ---- CTA ---- */
   .cta {
     background: var(--deep-teal);
@@ -1004,22 +1032,84 @@
   <button class="lb__nav lb__next" id="lbNext" aria-label="Next photo">&#8250;</button>
 </div>
 
+<!-- OFFER MODAL -->
+<div class="offer-modal" id="offerModal" aria-hidden="true">
+  <div class="offer-card">
+    <button class="offer-card__close" id="offerClose" aria-label="Close">&times;</button>
+    <div class="offer-card__head">
+      <div class="offer-card__eyebrow">{{DEAL_SHORT}}</div>
+      <div class="offer-card__title">Present your <em>offer.</em></div>
+    </div>
+    <form class="offer-form" id="offerForm">
+      <div class="offer-field"><label>Your name</label><input name="name" autocomplete="name" required/></div>
+      <div class="offer-row">
+        <div class="offer-field"><label>Email</label><input name="email" type="email" autocomplete="email"/></div>
+        <div class="offer-field"><label>Phone</label><input name="phone" type="tel" autocomplete="tel"/></div>
+      </div>
+      <div class="offer-field"><label>Buying entity (LLC)</label><input name="entity"/></div>
+      <div class="offer-row">
+        <div class="offer-field"><label>Your offer</label><input name="offerPrice" inputmode="decimal" required/></div>
+        <div class="offer-field"><label>Proof of funds</label><select name="proofOfFunds"><option value="Yes, ready">Yes, ready</option><option value="Not yet">Not yet</option></select></div>
+      </div>
+      <div class="offer-field"><label>Target close</label><input name="targetClose" placeholder="e.g. 30 days, all cash"/></div>
+      <div class="offer-field"><label>Contingencies or notes</label><textarea name="contingencies" placeholder="Optional"></textarea></div>
+      <button type="submit" class="offer-submit" id="offerSubmit">Send my offer</button>
+      <div class="offer-note">Goes straight to Miles. Add an email or phone so he can get back to you.</div>
+    </form>
+    <div class="offer-success" id="offerSuccess" style="display:none">
+      <div class="offer-success__mark">&#10003;</div>
+      <div class="offer-success__title">Offer received.</div>
+      <div class="offer-success__sub">Miles has it and will be in touch directly. The cleanest offer from a buyer who can perform takes the lot.</div>
+    </div>
+  </div>
+</div>
+
 <script>
-  // Register-interest mailto: prefilled with the deal + the fields a serious buyer answers up front
-  const interestBtn = document.getElementById('interestBtn');
-  if (interestBtn) {
-    const subject = encodeURIComponent('{{INTEREST_SUBJECT}}');
-    const body = encodeURIComponent(
-      'Miles,\n\n' +
-      'Interested in {{PROPERTY_ADDRESS}}. Quick details on my end:\n\n' +
-      'Buying entity (LLC): \n' +
-      'Proof of funds ready (yes / no): \n' +
-      'Target close timeline: \n' +
-      'Any contingencies: \n\n' +
-      'Send the acquisition figure and assignment terms and let\'s move.\n'
-    );
-    interestBtn.href = 'mailto:miles@milesagee.com?subject=' + subject + '&body=' + body;
-  }
+  // Present-an-offer modal: posts to /api/offmarket-offer (upserts buyer in OpenDispo + texts Miles).
+  // Fill {{DEAL_LABEL}} (full address) and {{DEAL_SLUG}} (kebab). Token must match OFFER_TOKEN in the route.
+  (function () {
+    const btn = document.getElementById('interestBtn');
+    const modal = document.getElementById('offerModal');
+    const form = document.getElementById('offerForm');
+    const success = document.getElementById('offerSuccess');
+    const submitBtn = document.getElementById('offerSubmit');
+    if (!btn || !modal) return;
+    function open(e) { if (e) e.preventDefault(); modal.classList.add('open'); document.body.classList.add('modal-open'); modal.setAttribute('aria-hidden', 'false'); }
+    function close() { modal.classList.remove('open'); document.body.classList.remove('modal-open'); modal.setAttribute('aria-hidden', 'true'); }
+    btn.addEventListener('click', open);
+    document.getElementById('offerClose').addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const payload = {
+        t: 'offmarket-offer-2026',
+        deal: '{{DEAL_LABEL}}',
+        dealSlug: '{{DEAL_SLUG}}',
+        name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'),
+        entity: fd.get('entity'), offerPrice: fd.get('offerPrice'),
+        proofOfFunds: fd.get('proofOfFunds'), targetClose: fd.get('targetClose'),
+        contingencies: fd.get('contingencies')
+      };
+      if (!payload.offerPrice || (!payload.email && !payload.phone)) {
+        alert('Add your offer and an email or phone so Miles can reach you.');
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      try {
+        const res = await fetch('/api/offmarket-offer', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        const data = await res.json();
+        if (data.ok) { form.style.display = 'none'; success.style.display = 'block'; }
+        else { throw new Error(data.error || 'failed'); }
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send my offer';
+        alert('Something went wrong sending that. Email miles@milesagee.com directly and he will sort it.');
+      }
+    });
+  })();
 
   // Photo gallery lightbox (fill photos[] from {{GALLERY_PHOTOS_ARRAY}}, same order as the strip)
   (function () {
