@@ -512,11 +512,31 @@
     margin: 8px auto 0;
   }
 
+  /* ---- Street View lead image ---- */
+  .streetview {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 16px;
+  }
+  .streetview img { width: 100%; height: auto; display: block; }
+  .streetview__cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 26px 16px 12px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ivory);
+    background: linear-gradient(to top, rgba(0, 42, 42, 0.88), transparent);
+  }
+
   /* ---- Photo gallery (strip) ---- */
   .gallery {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: clamp(240px, 80%, 300px);
+    grid-auto-columns: clamp(400px, 72%, 600px);
     gap: 12px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -776,6 +796,19 @@
     .cta__title { font-size: 22px; }
     .cta__buttons { flex-direction: column; }
     .cta__btn { width: 100%; justify-content: center; }
+    .streetview { margin-left: -20px; margin-right: -20px; border-radius: 0; }
+    .streetview__cap { font-size: 13px; }
+    .gallery {
+      margin-left: -20px; margin-right: -20px;
+      padding-left: 20px; padding-right: 20px;
+      grid-auto-columns: 90%;
+    }
+    .lb { padding: 12px; }
+    .lb__img { max-height: 74vh; }
+    .lb__nav { width: 40px; height: 40px; font-size: 22px; }
+    .lb__prev { left: 6px; }
+    .lb__next { right: 6px; }
+    .lb__close { top: 10px; right: 12px; }
   }
 </style>
 </head>
@@ -793,6 +826,19 @@
     <h1 class="hero__title">A vacant teardown lot in <em>{{MARKET_NAME}}</em>,<br/>priced to move off-market.</h1>
     <p class="hero__sub">{{HERO_SUB}}</p>
   </header>
+
+  <!-- LEAD VISUAL: street view + photo gallery (forefront). The property is the first thing they see, not words.
+       {{STREETVIEW_BLOCK}}: a <div class="streetview"><img src="dispo-<slug>-pics/streetview.jpg" .../><div class="streetview__cap">...</div></div>, or empty if no street view.
+       Drop optimized photos in dispo-<slug>-pics/ (full <name>.jpg + <name>-thumb.jpg). Fill {{GALLERY_ITEMS}} with one
+       button per photo (data-i 0-indexed, thumb src, caption) and {{GALLERY_PHOTOS_ARRAY}} (JS objects, SAME order).
+       If a deal has no photos, remove this whole section + the lightbox block. -->
+  <section class="block">
+    {{STREETVIEW_BLOCK}}
+    <div class="gallery" id="gallery">
+      {{GALLERY_ITEMS}}
+    </div>
+    <div class="gallery__hint">{{GALLERY_HINT}}</div>
+  </section>
 
   <!-- POLARITY FRAME -->
   <section class="block">
@@ -909,22 +955,12 @@
     </div>
   </section>
 
-  <!-- AS-IS / WALKTHROUGH -->
+  <!-- THE BLOCK FROM ABOVE (satellite map, kept near the end) -->
   <section class="block">
-    <div class="eyebrow">Section 05 &middot; As-Is Condition</div>
-    <h2 class="section__title">See it <em>for yourself.</em></h2>
+    <div class="eyebrow">Section 05 &middot; The Block From Above</div>
+    <h2 class="section__title">The whole street, <em>in context.</em></h2>
     <p class="section__lede">{{MEDIA_LEDE}}</p>
-
-    <!-- GALLERY: drop optimized photos in dispo-<slug>-pics/ (full pimmit-NN.jpg + pimmit-NN-thumb.jpg).
-         Fill {{GALLERY_ITEMS}} with one button per photo (data-i 0-indexed, thumb src, caption) and
-         {{GALLERY_PHOTOS_ARRAY}} with the matching JS objects {f:'<full>', c:'<caption>'} in the SAME order.
-         If a deal has no photos yet, remove this gallery + the lightbox block and keep only {{MEDIA_BLOCK}}. -->
-    <div class="gallery" id="gallery">
-      {{GALLERY_ITEMS}}
-    </div>
-    <div class="gallery__hint">{{GALLERY_HINT}}</div>
-
-    <div class="media" style="margin-top: 20px;">
+    <div class="media">
       {{MEDIA_BLOCK}}
     </div>
   </section>
