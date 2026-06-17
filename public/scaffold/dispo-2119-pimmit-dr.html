@@ -512,11 +512,31 @@
     margin: 8px auto 0;
   }
 
+  /* ---- Street View lead image ---- */
+  .streetview {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 16px;
+  }
+  .streetview img { width: 100%; height: auto; display: block; }
+  .streetview__cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 26px 16px 12px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ivory);
+    background: linear-gradient(to top, rgba(0, 42, 42, 0.88), transparent);
+  }
+
   /* ---- Photo gallery (strip) ---- */
   .gallery {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: clamp(240px, 80%, 300px);
+    grid-auto-columns: clamp(400px, 72%, 600px);
     gap: 12px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -777,7 +797,13 @@
     .cta__title { font-size: 22px; }
     .cta__buttons { flex-direction: column; }
     .cta__btn { width: 100%; justify-content: center; }
-    .gallery { grid-auto-columns: 86%; }
+    .streetview { margin-left: -20px; margin-right: -20px; border-radius: 0; }
+    .streetview__cap { font-size: 13px; }
+    .gallery {
+      margin-left: -20px; margin-right: -20px;
+      padding-left: 20px; padding-right: 20px;
+      grid-auto-columns: 90%;
+    }
     .lb { padding: 12px; }
     .lb__img { max-height: 74vh; }
     .lb__nav { width: 40px; height: 40px; font-size: 22px; }
@@ -799,8 +825,31 @@
     <div class="hero__eyebrow">Off-Market Disposition &middot; Pimmit Hills</div>
     <div class="hero__address">2119 Pimmit Dr, Falls Church VA 22043 &middot; Fairfax County</div>
     <h1 class="hero__title">A vacant teardown lot in <em>Pimmit Hills</em>,<br/>priced to move off-market.</h1>
-    <p class="hero__sub">A scrape-ready lot in one of inner Fairfax County's most active teardown pockets, minutes from Tysons and the McLean line. The existing house is vacant and empty. You are buying the dirt and the location, not the structure. Everything you need to start underwriting it is on this page.</p>
+    <p class="hero__sub">A scrape-ready lot minutes from Tysons and the McLean line. You are buying the dirt and the location, not the house. See it first.</p>
   </header>
+
+  <!-- LEAD VISUAL: street view + photo gallery (forefront) -->
+  <section class="block">
+    <div class="streetview">
+      <img src="dispo-2119-pimmit-pics/streetview.jpg" alt="2119 Pimmit Dr from the street, the scrape between finished new builds"/>
+      <div class="streetview__cap">2119 Pimmit Dr from the street. The scrape sits between finished new builds.</div>
+    </div>
+
+    <div class="gallery" id="gallery">
+      <button class="gallery__item" data-i="0"><img src="dispo-2119-pimmit-pics/pimmit-01-thumb.jpg" alt="Front elevation" loading="eager"/><span class="gallery__cap">Front elevation</span></button>
+      <button class="gallery__item" data-i="1"><img src="dispo-2119-pimmit-pics/pimmit-02-thumb.jpg" alt="Aerial, lot and roofline" loading="lazy"/><span class="gallery__cap">Aerial, lot and roofline</span></button>
+      <button class="gallery__item" data-i="2"><img src="dispo-2119-pimmit-pics/pimmit-03-thumb.jpg" alt="Aerial, rear lot" loading="lazy"/><span class="gallery__cap">Aerial, rear lot</span></button>
+      <button class="gallery__item" data-i="3"><img src="dispo-2119-pimmit-pics/pimmit-04-thumb.jpg" alt="Living room" loading="lazy"/><span class="gallery__cap">Living room</span></button>
+      <button class="gallery__item" data-i="4"><img src="dispo-2119-pimmit-pics/pimmit-05-thumb.jpg" alt="Living room" loading="lazy"/><span class="gallery__cap">Living room</span></button>
+      <button class="gallery__item" data-i="5"><img src="dispo-2119-pimmit-pics/pimmit-06-thumb.jpg" alt="Toward kitchen" loading="lazy"/><span class="gallery__cap">Toward kitchen</span></button>
+      <button class="gallery__item" data-i="6"><img src="dispo-2119-pimmit-pics/pimmit-07-thumb.jpg" alt="Kitchen" loading="lazy"/><span class="gallery__cap">Kitchen</span></button>
+      <button class="gallery__item" data-i="7"><img src="dispo-2119-pimmit-pics/pimmit-08-thumb.jpg" alt="Utility, electrical" loading="lazy"/><span class="gallery__cap">Utility, electrical</span></button>
+      <button class="gallery__item" data-i="8"><img src="dispo-2119-pimmit-pics/pimmit-09-thumb.jpg" alt="Bedroom" loading="lazy"/><span class="gallery__cap">Bedroom</span></button>
+      <button class="gallery__item" data-i="9"><img src="dispo-2119-pimmit-pics/pimmit-10-thumb.jpg" alt="Bedroom" loading="lazy"/><span class="gallery__cap">Bedroom</span></button>
+      <button class="gallery__item" data-i="10"><img src="dispo-2119-pimmit-pics/pimmit-11-thumb.jpg" alt="Bathroom" loading="lazy"/><span class="gallery__cap">Bathroom</span></button>
+    </div>
+    <div class="gallery__hint">Swipe through, tap any photo to open it full screen. Front elevation to drone aerials to the interior.</div>
+  </section>
 
   <!-- POLARITY FRAME -->
   <section class="block">
@@ -936,31 +985,16 @@
 
   <!-- AS-IS / WALKTHROUGH -->
   <section class="block">
-    <div class="eyebrow">Section 05 &middot; As-Is Condition</div>
-    <h2 class="section__title">See it <em>for yourself.</em></h2>
-    <p class="section__lede">Eleven shots, front elevation to drone aerials to the interior. The house is a scrape, so the condition is not the point. The lot, the block, and the bones are. Tap any photo to open it full screen.</p>
+    <div class="eyebrow">Section 05 &middot; The Block From Above</div>
+    <h2 class="section__title">The whole street, <em>in context.</em></h2>
+    <p class="section__lede">Satellite view of the lot and the block. The active 2110 Pimmit build sits just up the same street, so you can see the rebuild pattern around the parcel.</p>
 
-    <div class="gallery" id="gallery">
-      <button class="gallery__item" data-i="0"><img src="dispo-2119-pimmit-pics/pimmit-01-thumb.jpg" alt="Front elevation" loading="eager"/><span class="gallery__cap">Front elevation</span></button>
-      <button class="gallery__item" data-i="1"><img src="dispo-2119-pimmit-pics/pimmit-02-thumb.jpg" alt="Aerial, lot and roofline" loading="lazy"/><span class="gallery__cap">Aerial, lot and roofline</span></button>
-      <button class="gallery__item" data-i="2"><img src="dispo-2119-pimmit-pics/pimmit-03-thumb.jpg" alt="Aerial, rear lot" loading="lazy"/><span class="gallery__cap">Aerial, rear lot</span></button>
-      <button class="gallery__item" data-i="3"><img src="dispo-2119-pimmit-pics/pimmit-04-thumb.jpg" alt="Living room" loading="lazy"/><span class="gallery__cap">Living room</span></button>
-      <button class="gallery__item" data-i="4"><img src="dispo-2119-pimmit-pics/pimmit-05-thumb.jpg" alt="Living room" loading="lazy"/><span class="gallery__cap">Living room</span></button>
-      <button class="gallery__item" data-i="5"><img src="dispo-2119-pimmit-pics/pimmit-06-thumb.jpg" alt="Toward kitchen" loading="lazy"/><span class="gallery__cap">Toward kitchen</span></button>
-      <button class="gallery__item" data-i="6"><img src="dispo-2119-pimmit-pics/pimmit-07-thumb.jpg" alt="Kitchen" loading="lazy"/><span class="gallery__cap">Kitchen</span></button>
-      <button class="gallery__item" data-i="7"><img src="dispo-2119-pimmit-pics/pimmit-08-thumb.jpg" alt="Utility, electrical" loading="lazy"/><span class="gallery__cap">Utility, electrical</span></button>
-      <button class="gallery__item" data-i="8"><img src="dispo-2119-pimmit-pics/pimmit-09-thumb.jpg" alt="Bedroom" loading="lazy"/><span class="gallery__cap">Bedroom</span></button>
-      <button class="gallery__item" data-i="9"><img src="dispo-2119-pimmit-pics/pimmit-10-thumb.jpg" alt="Bedroom" loading="lazy"/><span class="gallery__cap">Bedroom</span></button>
-      <button class="gallery__item" data-i="10"><img src="dispo-2119-pimmit-pics/pimmit-11-thumb.jpg" alt="Bathroom" loading="lazy"/><span class="gallery__cap">Bathroom</span></button>
-    </div>
-    <div class="gallery__hint">Swipe the strip, tap to expand. Eleven photos, front to back.</div>
-
-    <div class="media" style="margin-top: 20px;">
+    <div class="media">
       <div class="media__frame">
         <iframe src="https://maps.google.com/maps?q=2119+Pimmit+Dr+Falls+Church+VA+22043&t=k&z=18&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="2119 Pimmit Dr aerial"></iframe>
       </div>
     </div>
-    <div class="comps-note" style="margin-top: 14px;"><strong>The block from above.</strong> The active 2110 Pimmit build sits just up the same street. Want boots on the ground, say the word and I will set a private showing.</div>
+    <div class="comps-note" style="margin-top: 14px;"><strong>Want boots on the ground?</strong> Say the word and I will set a private showing on the lot.</div>
   </section>
 
   <!-- WHY OFF-MARKET / WHY NOW -->
