@@ -968,24 +968,25 @@
   <!-- LEAD VISUAL: street view + photo gallery (forefront) -->
   <section class="block">
     <div class="streetview">
-      <img src="dispo-2119-pimmit-pics/streetview.jpg" alt="2119 Pimmit Dr from the street, the scrape between finished new builds"/>
-      <div class="streetview__cap">2119 Pimmit Dr from the street. The scrape sits between finished new builds.</div>
+      <img src="dispo-2119-pimmit-pics/pimmit-render.jpg" alt="Illustrative rendering of a new custom home on the 2119 Pimmit Dr lot"/>
+      <div class="streetview__cap">Illustrative rendering. What this lot becomes, in the style already rising up and down the block. The lot today is in the photos below.</div>
     </div>
 
     <div class="gallery" id="gallery">
-      <button class="gallery__item" data-i="0"><img src="dispo-2119-pimmit-pics/pimmit-01-thumb.jpg" alt="Front elevation" loading="eager"/><span class="gallery__cap">Front elevation</span></button>
-      <button class="gallery__item" data-i="1"><img src="dispo-2119-pimmit-pics/pimmit-02-thumb.jpg" alt="Aerial, lot and roofline" loading="lazy"/><span class="gallery__cap">Aerial, lot and roofline</span></button>
-      <button class="gallery__item" data-i="2"><img src="dispo-2119-pimmit-pics/pimmit-03-thumb.jpg" alt="Aerial, rear lot" loading="lazy"/><span class="gallery__cap">Aerial, rear lot</span></button>
-      <button class="gallery__item" data-i="3"><img src="dispo-2119-pimmit-pics/pimmit-04-thumb.jpg" alt="Living room" loading="lazy"/><span class="gallery__cap">Living room</span></button>
-      <button class="gallery__item" data-i="4"><img src="dispo-2119-pimmit-pics/pimmit-05-thumb.jpg" alt="Living room" loading="lazy"/><span class="gallery__cap">Living room</span></button>
-      <button class="gallery__item" data-i="5"><img src="dispo-2119-pimmit-pics/pimmit-06-thumb.jpg" alt="Toward kitchen" loading="lazy"/><span class="gallery__cap">Toward kitchen</span></button>
-      <button class="gallery__item" data-i="6"><img src="dispo-2119-pimmit-pics/pimmit-07-thumb.jpg" alt="Kitchen" loading="lazy"/><span class="gallery__cap">Kitchen</span></button>
-      <button class="gallery__item" data-i="7"><img src="dispo-2119-pimmit-pics/pimmit-08-thumb.jpg" alt="Utility, electrical" loading="lazy"/><span class="gallery__cap">Utility, electrical</span></button>
-      <button class="gallery__item" data-i="8"><img src="dispo-2119-pimmit-pics/pimmit-09-thumb.jpg" alt="Bedroom" loading="lazy"/><span class="gallery__cap">Bedroom</span></button>
-      <button class="gallery__item" data-i="9"><img src="dispo-2119-pimmit-pics/pimmit-10-thumb.jpg" alt="Bedroom" loading="lazy"/><span class="gallery__cap">Bedroom</span></button>
-      <button class="gallery__item" data-i="10"><img src="dispo-2119-pimmit-pics/pimmit-11-thumb.jpg" alt="Bathroom" loading="lazy"/><span class="gallery__cap">Bathroom</span></button>
+      <button class="gallery__item" data-i="0"><img src="dispo-2119-pimmit-pics/streetview-thumb.jpg" alt="The lot today, from the street" loading="eager"/><span class="gallery__cap">The lot today</span></button>
+      <button class="gallery__item" data-i="1"><img src="dispo-2119-pimmit-pics/pimmit-01-thumb.jpg" alt="Front elevation" loading="lazy"/><span class="gallery__cap">Front elevation</span></button>
+      <button class="gallery__item" data-i="2"><img src="dispo-2119-pimmit-pics/pimmit-02-thumb.jpg" alt="Aerial, lot and roofline" loading="lazy"/><span class="gallery__cap">Aerial, lot and roofline</span></button>
+      <button class="gallery__item" data-i="3"><img src="dispo-2119-pimmit-pics/pimmit-03-thumb.jpg" alt="Aerial, rear lot" loading="lazy"/><span class="gallery__cap">Aerial, rear lot</span></button>
+      <button class="gallery__item" data-i="4"><img src="dispo-2119-pimmit-pics/pimmit-04-thumb.jpg" alt="Living room" loading="lazy"/><span class="gallery__cap">Living room</span></button>
+      <button class="gallery__item" data-i="5"><img src="dispo-2119-pimmit-pics/pimmit-05-thumb.jpg" alt="Living room" loading="lazy"/><span class="gallery__cap">Living room</span></button>
+      <button class="gallery__item" data-i="6"><img src="dispo-2119-pimmit-pics/pimmit-06-thumb.jpg" alt="Toward kitchen" loading="lazy"/><span class="gallery__cap">Toward kitchen</span></button>
+      <button class="gallery__item" data-i="7"><img src="dispo-2119-pimmit-pics/pimmit-07-thumb.jpg" alt="Kitchen" loading="lazy"/><span class="gallery__cap">Kitchen</span></button>
+      <button class="gallery__item" data-i="8"><img src="dispo-2119-pimmit-pics/pimmit-08-thumb.jpg" alt="Utility, electrical" loading="lazy"/><span class="gallery__cap">Utility, electrical</span></button>
+      <button class="gallery__item" data-i="9"><img src="dispo-2119-pimmit-pics/pimmit-09-thumb.jpg" alt="Bedroom" loading="lazy"/><span class="gallery__cap">Bedroom</span></button>
+      <button class="gallery__item" data-i="10"><img src="dispo-2119-pimmit-pics/pimmit-10-thumb.jpg" alt="Bedroom" loading="lazy"/><span class="gallery__cap">Bedroom</span></button>
+      <button class="gallery__item" data-i="11"><img src="dispo-2119-pimmit-pics/pimmit-11-thumb.jpg" alt="Bathroom" loading="lazy"/><span class="gallery__cap">Bathroom</span></button>
     </div>
-    <div class="gallery__hint">Swipe through, tap any photo to open it full screen. Front elevation to drone aerials to the interior.</div>
+    <div class="gallery__hint">Swipe through, tap any photo to open it full screen. The lot today, the front elevation, drone aerials, then the interior.</div>
   </section>
 
   <!-- POLARITY FRAME -->
@@ -1258,6 +1259,7 @@
   // Photo gallery lightbox
   (function () {
     const photos = [
+      { f: 'dispo-2119-pimmit-pics/streetview.jpg', c: 'The lot today' },
       { f: 'dispo-2119-pimmit-pics/pimmit-01.jpg', c: 'Front elevation' },
       { f: 'dispo-2119-pimmit-pics/pimmit-02.jpg', c: 'Aerial, lot and roofline' },
       { f: 'dispo-2119-pimmit-pics/pimmit-03.jpg', c: 'Aerial, rear lot' },
