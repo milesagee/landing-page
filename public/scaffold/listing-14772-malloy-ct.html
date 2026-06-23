@@ -425,10 +425,48 @@
     background: var(--deep-teal);
     border-radius: 8px;
     overflow: hidden;
+    cursor: pointer;
     box-shadow: var(--shadow-sm);
     aspect-ratio: 3 / 2;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s;
   }
+  .gallery__item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .gallery__item:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .gallery__item:active { transform: translateY(0); }
   .gallery__item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery__cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 18px 12px 9px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    background: linear-gradient(to top, rgba(0, 42, 42, 0.86), transparent);
+    text-align: left;
+  }
+
+  /* ---- Lead front image ---- */
+  .streetview {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 14px;
+    cursor: pointer;
+  }
+  .streetview img { width: 100%; height: auto; display: block; }
+  .streetview__cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 26px 16px 12px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ivory);
+    background: linear-gradient(to top, rgba(0, 42, 42, 0.88), transparent);
+  }
   .gallery__ph {
     width: 100%; height: 100%;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -460,6 +498,21 @@
     margin-top: 10px;
     opacity: 0.85;
   }
+
+  /* ---- Lightbox ---- */
+  .lb { position: fixed; inset: 0; z-index: 100; background: rgba(0, 30, 30, 0.94); display: none; align-items: center; justify-content: center; padding: 20px; }
+  .lb.open { display: flex; }
+  .lb__stage { position: relative; max-width: 1100px; width: 100%; max-height: 100%; margin: 0; display: flex; flex-direction: column; align-items: center; }
+  .lb__img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: 6px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); }
+  .lb__cap { margin-top: 14px; display: flex; gap: 14px; align-items: baseline; color: var(--ivory); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+  .lb__count { color: var(--gold); }
+  .lb__close { position: absolute; top: 16px; right: 18px; background: transparent; border: 0; color: var(--ivory); font-size: 34px; line-height: 1; cursor: pointer; z-index: 2; opacity: 0.85; transition: color 0.2s; }
+  .lb__close:hover { color: var(--gold); }
+  .lb__nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 63, 63, 0.6); border: 1px solid rgba(212, 175, 55, 0.4); color: var(--ivory); width: 48px; height: 48px; border-radius: 999px; font-size: 26px; line-height: 1; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+  .lb__nav:hover { background: var(--gold); color: var(--deep-teal); }
+  .lb__prev { left: 14px; }
+  .lb__next { right: 14px; }
+  body.lb-open { overflow: hidden; }
 
   /* ---- CTA ---- */
   .cta {
@@ -650,20 +703,28 @@
     </div>
   </section>
 
-  <!-- PHOTO GALLERY (placeholder slots; edited photos drop in this week) -->
+  <!-- PHOTO GALLERY (lead front image + swipeable strip; tap any to open the lightbox) -->
   <section class="block">
     <div class="eyebrow">The Walkthrough</div>
     <h2 class="section__title">See it for <em>yourself.</em></h2>
-    <p class="section__lede">Professional photos drop in this week. Here's the order they'll land.</p>
-    <div class="gallery" id="gallery">
-      <div class="gallery__item"><div class="gallery__ph"><span class="room">Exterior</span><span class="tag">Photo coming this week</span></div></div>
-      <div class="gallery__item"><div class="gallery__ph"><span class="room">Living</span><span class="tag">Photo coming this week</span></div></div>
-      <div class="gallery__item"><div class="gallery__ph"><span class="room">Kitchen</span><span class="tag">Photo coming this week</span></div></div>
-      <div class="gallery__item"><div class="gallery__ph"><span class="room">Primary Suite</span><span class="tag">Photo coming this week</span></div></div>
-      <div class="gallery__item"><div class="gallery__ph"><span class="room">Garage</span><span class="tag">Photo coming this week</span></div></div>
-      <div class="gallery__item"><div class="gallery__ph"><span class="room">The Court</span><span class="tag">Photo coming this week</span></div></div>
+    <p class="section__lede">Tap any photo to open it full screen, then swipe through the home.</p>
+
+    <div class="streetview" data-i="0">
+      <img src="listing-14772-malloy-pics/malloy-01.jpg" alt="Front exterior of 14772 Malloy Ct, end unit" loading="eager"/>
+      <div class="streetview__cap">14772 Malloy Ct, the end unit with the brick front</div>
     </div>
-    <div class="gallery__hint">Swipe through. Real photos replace these the day they're edited.</div>
+
+    <div class="gallery" id="gallery">
+      <button class="gallery__item" data-i="1"><img src="listing-14772-malloy-pics/malloy-02-thumb.jpg" alt="Rear exterior with balconies" loading="lazy"/><div class="gallery__cap">Rear Exterior</div></button>
+      <button class="gallery__item" data-i="2"><img src="listing-14772-malloy-pics/malloy-03-thumb.jpg" alt="Kitchen with granite island and stainless appliances" loading="lazy"/><div class="gallery__cap">Kitchen</div></button>
+      <button class="gallery__item" data-i="3"><img src="listing-14772-malloy-pics/malloy-04-thumb.jpg" alt="Open living and dining area" loading="lazy"/><div class="gallery__cap">Living &amp; Dining</div></button>
+      <button class="gallery__item" data-i="4"><img src="listing-14772-malloy-pics/malloy-05-thumb.jpg" alt="Primary bedroom" loading="lazy"/><div class="gallery__cap">Primary Bedroom</div></button>
+      <button class="gallery__item" data-i="5"><img src="listing-14772-malloy-pics/malloy-06-thumb.jpg" alt="Primary bath with double vanity" loading="lazy"/><div class="gallery__cap">Primary Bath</div></button>
+      <button class="gallery__item" data-i="6"><img src="listing-14772-malloy-pics/malloy-07-thumb.jpg" alt="Walk-in shower" loading="lazy"/><div class="gallery__cap">Walk-In Shower</div></button>
+      <button class="gallery__item" data-i="7"><img src="listing-14772-malloy-pics/malloy-08-thumb.jpg" alt="Full bath with tub" loading="lazy"/><div class="gallery__cap">Full Bath</div></button>
+      <button class="gallery__item" data-i="8"><img src="listing-14772-malloy-pics/malloy-09-thumb.jpg" alt="Second bedroom" loading="lazy"/><div class="gallery__cap">Second Bedroom</div></button>
+    </div>
+    <div class="gallery__hint">Front, back, then room by room.</div>
   </section>
 
   <!-- POLARITY FRAME -->
@@ -761,6 +822,68 @@
   </footer>
 
 </div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb__close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb__nav lb__prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <figure class="lb__stage">
+    <img class="lb__img" id="lbImg" src="" alt=""/>
+    <figcaption class="lb__cap"><span id="lbCapText"></span><span class="lb__count" id="lbCount"></span></figcaption>
+  </figure>
+  <button class="lb__nav lb__next" id="lbNext" aria-label="Next photo">&#8250;</button>
+</div>
+
+<script>
+  (function () {
+    var P = 'listing-14772-malloy-pics/';
+    var photos = [
+      { f: P + 'malloy-01.jpg', c: 'Front Exterior' },
+      { f: P + 'malloy-02.jpg', c: 'Rear Exterior' },
+      { f: P + 'malloy-03.jpg', c: 'Kitchen' },
+      { f: P + 'malloy-04.jpg', c: 'Living & Dining' },
+      { f: P + 'malloy-05.jpg', c: 'Primary Bedroom' },
+      { f: P + 'malloy-06.jpg', c: 'Primary Bath' },
+      { f: P + 'malloy-07.jpg', c: 'Walk-In Shower' },
+      { f: P + 'malloy-08.jpg', c: 'Full Bath' },
+      { f: P + 'malloy-09.jpg', c: 'Second Bedroom' }
+    ];
+    var lb = document.getElementById('lb');
+    if (!lb || !photos.length) return;
+    var img = document.getElementById('lbImg');
+    var capText = document.getElementById('lbCapText');
+    var count = document.getElementById('lbCount');
+    var idx = 0;
+    function show(i) {
+      idx = (i + photos.length) % photos.length;
+      img.src = photos[idx].f;
+      img.alt = photos[idx].c;
+      capText.textContent = photos[idx].c;
+      count.textContent = (idx + 1) + ' / ' + photos.length;
+    }
+    function open(i) { show(i); lb.classList.add('open'); document.body.classList.add('lb-open'); lb.setAttribute('aria-hidden', 'false'); }
+    function close() { lb.classList.remove('open'); document.body.classList.remove('lb-open'); lb.setAttribute('aria-hidden', 'true'); }
+    document.querySelectorAll('[data-i]').forEach(function (el) {
+      el.addEventListener('click', function () { open(parseInt(el.dataset.i, 10)); });
+    });
+    document.getElementById('lbClose').addEventListener('click', close);
+    document.getElementById('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); show(idx - 1); });
+    document.getElementById('lbNext').addEventListener('click', function (e) { e.stopPropagation(); show(idx + 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(idx - 1);
+      else if (e.key === 'ArrowRight') show(idx + 1);
+    });
+    var tx = 0;
+    lb.addEventListener('touchstart', function (e) { tx = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+  })();
+</script>
 
 </body>
 </html>
