@@ -1146,7 +1146,7 @@
     document.getElementById('lbClose').addEventListener('click', close);
     document.getElementById('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); show(idx - 1); });
     document.getElementById('lbNext').addEventListener('click', function (e) { e.stopPropagation(); show(idx + 1); });
-    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    lb.addEventListener('click', function (e) { if (!e.target.closest('.lb__img, .lb__nav, .lb__close, .lb__cap')) close(); });
     document.addEventListener('keydown', function (e) {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') close();

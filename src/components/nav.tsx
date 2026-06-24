@@ -15,7 +15,7 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-deep-teal/95 backdrop-blur-sm border-b border-gold/20">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a
-          href="#"
+          href="/"
           className="flex items-center gap-3 focus-visible:outline-1 focus-visible:outline-gold focus-visible:outline-offset-4"
           aria-label="MAMS Home"
         >
@@ -32,25 +32,31 @@ export default function Nav() {
         </a>
         <div className="flex items-center gap-2 md:gap-8">
           <a
-            href="#how-it-works"
+            href="/#how-it-works"
             onClick={(e) => scrollToId(e, 'how-it-works')}
             className="nav-link text-sm font-medium tracking-wide hidden md:block"
           >
             How It Works
           </a>
           <a
-            href="#about"
+            href="/#about"
             onClick={(e) => scrollToId(e, 'about')}
             className="nav-link text-sm font-medium tracking-wide hidden md:block"
           >
             About
           </a>
           <a
-            href="#testimonials"
+            href="/#testimonials"
             onClick={(e) => scrollToId(e, 'testimonials')}
             className="nav-link text-sm font-medium tracking-wide hidden md:block"
           >
             Results
+          </a>
+          <a
+            href="/listings"
+            className="nav-link text-sm font-medium tracking-wide hidden md:block"
+          >
+            Listings
           </a>
           <a
             href="/quiz"
@@ -60,7 +66,7 @@ export default function Nav() {
             Take the Quiz
           </a>
           <a
-            href="#guide"
+            href="/#guide"
             onClick={(e) => scrollToId(e, 'guide')}
             className="cta-primary px-2.5 sm:px-5 py-1.5 sm:py-2.5 rounded-sm text-xs sm:text-sm font-semibold tracking-wide whitespace-nowrap"
           >
