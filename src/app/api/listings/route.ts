@@ -41,6 +41,53 @@ function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
 }
 
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+// Instant first-touch SMS to the inquirer. Monique intro framing (brand, not
+// AI disclosure) per the MAMS first-touch rule. No implied urgency, no calendar
+// push, no em dash. The listings page is cold inbound, so the channel is the
+// MAMS line and this is their first contact from it.
+function buildInquirerSms(firstName: string, listing?: string, intent?: string): string {
+  const i = (intent || "").toLowerCase();
+  if (listing) {
+    return `Hi ${firstName}, this is Monique with MAMS, Miles Agee's coordinator. Your question on ${listing} came through. Miles handles these himself and will follow up. Anything you want him to know first, just reply here.`;
+  }
+  if (i.includes("sell")) {
+    return `Hi ${firstName}, this is Monique with MAMS, Miles Agee's coordinator. Your note about selling came through. Miles will follow up personally. Anything you want him to know first, just reply here.`;
+  }
+  return `Hi ${firstName}, this is Monique with MAMS, Miles Agee's coordinator. Your inquiry from the listings page came through. Miles will follow up personally. Anything you want him to know first, just reply here.`;
+}
+
+function buildMilesEmailHtml(p: ListingsPayload): string {
+  return `
+<!DOCTYPE html>
+<html><body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #003F3F; max-width: 600px; margin: 0 auto; padding: 20px; line-height: 1.5;">
+  <div style="background: #003F3F; color: white; padding: 20px; border-radius: 8px 8px 0 0;">
+    <div style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #D4AF37; font-weight: 600;">Listings Page - new inquiry</div>
+    <div style="font-size: 22px; font-weight: 700; margin-top: 8px; font-family: 'Fraunces', serif;">${escapeHtml(p.firstName)} just reached out from /listings.</div>
+  </div>
+  <div style="background: white; border: 1px solid #003F3F1A; border-top: none; padding: 24px; border-radius: 0 0 8px 8px;">
+    <p style="margin: 0 0 16px 0;">Monique sent the holding first-touch SMS on the MAMS line. Your move next.</p>
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+      <tr><td style="padding: 4px 8px 4px 0; color: #003F3F99;">Name</td><td style="padding: 4px 0;">${escapeHtml(p.firstName)} ${escapeHtml(p.lastName)}</td></tr>
+      <tr><td style="padding: 4px 8px 4px 0; color: #003F3F99;">Phone</td><td style="padding: 4px 0;">${escapeHtml(p.phone)}</td></tr>
+      <tr><td style="padding: 4px 8px 4px 0; color: #003F3F99;">Email</td><td style="padding: 4px 0;">${escapeHtml(p.email)}</td></tr>
+      <tr><td style="padding: 4px 8px 4px 0; color: #003F3F99;">Intent</td><td style="padding: 4px 0;">${escapeHtml(p.intent || "Not specified")}</td></tr>
+      <tr><td style="padding: 4px 8px 4px 0; color: #003F3F99;">Listing</td><td style="padding: 4px 0;">${escapeHtml(p.listing || "No specific listing")}</td></tr>
+    </table>
+    ${p.message ? `<div style="background: #FAF7F1; border-left: 3px solid #D4AF37; padding: 12px 16px; margin: 16px 0 0 0; font-size: 14px; line-height: 1.6;"><strong>What they're looking for:</strong><br/>${escapeHtml(p.message)}</div>` : ""}
+  </div>
+</body></html>
+  `.trim();
+}
+
 interface ListingsPayload {
   firstName: string;
   lastName: string;
@@ -190,7 +237,44 @@ export async function POST(request: Request) {
       }),
     });
 
-    // Step 3: Enroll in listings follow-up workflow (if configured)
+    // Step 3: Speed-to-lead first-touch. Sent directly here (not deferred to a
+    // GHL workflow) so a buyer never hits silence. Two sends in parallel:
+    //   a) Monique intro + holding-reply SMS to the inquirer on the MAMS line.
+    //   b) Instant notification email to Miles so he can follow up personally.
+    // Failures are non-fatal: the lead is already captured (contact + note), so
+    // a send hiccup must not 502 the form.
+    const inquirerSms = buildInquirerSms(body.firstName, body.listing, body.intent);
+    const milesEmailHtml = buildMilesEmailHtml(body);
+
+    const firstTouch = await Promise.allSettled([
+      fetch(`${GHL_BASE}/conversations/messages`, {
+        method: "POST",
+        headers: ghlHeaders,
+        body: JSON.stringify({ type: "SMS", contactId, message: inquirerSms }),
+      }),
+      fetch(`${GHL_BASE}/conversations/messages`, {
+        method: "POST",
+        headers: ghlHeaders,
+        body: JSON.stringify({
+          type: "Email",
+          contactId,
+          emailTo: "miles@milesagee.com",
+          subject: `[Listings Inquiry] ${body.firstName} ${body.lastName}`,
+          html: milesEmailHtml,
+        }),
+      }),
+    ]);
+    if (firstTouch[0].status === "rejected") {
+      console.error("Listings first-touch SMS failed:", firstTouch[0].reason);
+    }
+    if (firstTouch[1].status === "rejected") {
+      console.error("Listings Miles-notification email failed:", firstTouch[1].reason);
+    }
+
+    // Step 4: Optionally enroll in a longer nurture workflow (if configured).
+    // This is now supplemental to the instant first-touch above, not the only
+    // response. Leave GHL_LISTINGS_WORKFLOW_ID unset and inquiries still get the
+    // immediate Monique touch + Miles alert.
     if (GHL_WORKFLOW_ID) {
       await fetch(
         `${GHL_BASE}/contacts/${contactId}/workflow/${GHL_WORKFLOW_ID}`,

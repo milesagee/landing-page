@@ -59,6 +59,12 @@ export default function Nav() {
             Listings
           </a>
           <a
+            href="/neighborhoods"
+            className="nav-link text-sm font-medium tracking-wide hidden md:block"
+          >
+            Neighborhoods
+          </a>
+          <a
             href="/quiz"
             className="cta-secondary px-2.5 sm:px-5 py-1.5 sm:py-2.5 rounded-sm text-xs sm:text-sm font-semibold tracking-wide whitespace-nowrap"
             style={{ borderColor: 'rgba(255,255,255,0.25)', color: '#FFFFFF' }}

@@ -9,6 +9,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CountUp } from '@/components/ui/count-up';
 import { useLucideDrawerAnimation } from '@/components/ui/lucide-icon-drawer';
 import { MapPin, Building2, Heart } from 'lucide-react';
+import { neighborhoods } from './neighborhoods/content';
 
 const testimonials = [
   { name: 'Client 1', body: 'Miles is the best thing that could have happened to us. He was always available and quick to respond, guided us through the entire home buying process, and full of knowledge. From coffee to electricians, Miles\u2019 abundant excitement and energy made the stressful process enjoyable.', img: '/images/testimonials/testimonial-01.png' },
@@ -59,66 +60,102 @@ function TestimonialCard({ img }: { img: string; name: string; body: string }) {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  name: "MAMS | Miles Agee",
-  url: "https://mamsnow.com",
-  telephone: "+1-804-809-8340",
-  email: "miles@mamssolutions.com",
-  image: "https://mamsnow.com/images/miles-hero.jpg",
-  logo: "https://mamsnow.com/images/mams-logo.png",
-  description:
-    "Richmond's neighborhood-level real estate expert. Buyer and seller representation across 40+ neighborhoods in Greater Richmond. Free Relocation Guide and Neighborhood Quiz.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Richmond",
-    addressRegion: "VA",
-    addressCountry: "US",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 37.5407,
-    longitude: -77.436,
-  },
-  areaServed: [
-    { "@type": "City", name: "Richmond, Virginia" },
-    { "@type": "AdministrativeArea", name: "Henrico County, Virginia" },
-    { "@type": "AdministrativeArea", name: "Chesterfield County, Virginia" },
-    { "@type": "AdministrativeArea", name: "Hanover County, Virginia" },
-    { "@type": "AdministrativeArea", name: "Goochland County, Virginia" },
-    { "@type": "AdministrativeArea", name: "Powhatan County, Virginia" },
-    { "@type": "AdministrativeArea", name: "New Kent County, Virginia" },
-  ],
-  sameAs: [
-    "https://www.instagram.com/milesaminutesolutions/",
-    "https://www.tiktok.com/@milesaminutemedia",
-    "https://www.youtube.com/@RVALifewithMiles",
-    "https://www.zillow.com/profile/milesRVA",
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Real Estate Services",
-    itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Buyer Representation" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Seller Representation" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Relocation Services" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Free Richmond Relocation Guide" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Neighborhood Matching Quiz" } },
-    ],
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "26",
-    bestRating: "5",
-  },
-  knowsAbout: [
-    "The Fan District", "Museum District", "Church Hill", "Scott's Addition",
-    "Jackson Ward", "Manchester", "Byrd Park", "Carytown", "Shockoe Bottom",
-    "Fulton", "Rocketts Landing", "Laburnum Park", "Northside", "Forest Hill",
-    "Ginter Park", "Lakeside", "Short Pump", "Glen Allen", "Wyndham",
-    "Twin Hickory", "West Broad Village", "River Road", "Midlothian", "Moseley",
-    "Brandermill", "Woodlake", "Salisbury", "Hallsley", "Magnolia Green",
-    "Mechanicsville", "Atlee", "Ashland", "Goochland", "Powhatan",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://mamsnow.com/#miles",
+      name: "Miles Agee",
+      alternateName: "Miles Agee, Realtor",
+      url: "https://mamsnow.com",
+      mainEntityOfPage: "https://mamsnow.com",
+      image: "https://mamsnow.com/images/miles-hero.jpg",
+      jobTitle: "Realtor",
+      telephone: "+1-804-809-8340",
+      email: "miles@mamssolutions.com",
+      description:
+        "Miles Agee is a Richmond, Virginia Realtor on the OneSouth Realty team, licensed under Samson Properties. Neighborhood-level buyer and seller representation across 40+ neighborhoods in Greater Richmond.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Richmond",
+        addressRegion: "VA",
+        addressCountry: "US",
+      },
+      worksFor: {
+        "@type": "RealEstateAgency",
+        "@id": "https://www.samsonproperties.net/#agency",
+        name: "Samson Properties",
+        url: "https://www.samsonproperties.net/",
+      },
+      memberOf: {
+        "@type": "Organization",
+        "@id": "https://richmondrelocation.net/#org",
+        name: "OneSouth Realty",
+        url: "https://richmondrelocation.net/",
+      },
+      brand: { "@id": "https://mamsnow.com/#brand" },
+      hasCredential: {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "license",
+        name: "Virginia Real Estate Salesperson License",
+        recognizedBy: {
+          "@type": "GovernmentOrganization",
+          name: "Virginia Department of Professional and Occupational Regulation",
+        },
+      },
+      areaServed: [
+        { "@type": "City", name: "Richmond, Virginia" },
+        { "@type": "AdministrativeArea", name: "Henrico County, Virginia" },
+        { "@type": "AdministrativeArea", name: "Chesterfield County, Virginia" },
+        { "@type": "AdministrativeArea", name: "Hanover County, Virginia" },
+        { "@type": "AdministrativeArea", name: "Goochland County, Virginia" },
+        { "@type": "AdministrativeArea", name: "Powhatan County, Virginia" },
+        { "@type": "AdministrativeArea", name: "New Kent County, Virginia" },
+      ],
+      knowsAbout: [
+        "The Fan District", "Museum District", "Church Hill", "Scott's Addition",
+        "Jackson Ward", "Manchester", "Byrd Park", "Carytown", "Shockoe Bottom",
+        "Fulton", "Rocketts Landing", "Laburnum Park", "Northside", "Forest Hill",
+        "Ginter Park", "Lakeside", "Short Pump", "Glen Allen", "Wyndham",
+        "Twin Hickory", "West Broad Village", "River Road", "Midlothian", "Moseley",
+        "Brandermill", "Woodlake", "Salisbury", "Hallsley", "Magnolia Green",
+        "Mechanicsville", "Atlee", "Ashland", "Goochland", "Powhatan",
+        "Richmond relocation", "First-time buyer guidance", "Seller pricing strategy",
+        "Historic Richmond homes", "Neighborhood selection",
+      ],
+      sameAs: [
+        "https://www.instagram.com/milesaminutesolutions/",
+        "https://www.tiktok.com/@milesaminutemedia",
+        "https://www.youtube.com/@RVALifewithMiles",
+        "https://www.zillow.com/profile/milesRVA",
+      ],
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5.0",
+        reviewCount: "26",
+        bestRating: "5",
+      },
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://mamsnow.com/#brand",
+      name: "MAMS",
+      alternateName: "MAMS LLC",
+      url: "https://mamsnow.com",
+      logo: "https://mamsnow.com/images/mams-logo.png",
+      description:
+        "MAMS is Miles Agee's Richmond, Virginia personal real estate brand. Buyer and seller representation, free Richmond Relocation Guide, and the Richmond neighborhood matching quiz. Real estate services delivered through OneSouth Realty / Samson Properties.",
+      founder: { "@id": "https://mamsnow.com/#miles" },
+      slogan: "Find your neighborhood. Not just a house.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://mamsnow.com/#website",
+      url: "https://mamsnow.com",
+      name: "MAMS — Richmond Real Estate by Miles Agee",
+      publisher: { "@id": "https://mamsnow.com/#miles" },
+      about: { "@id": "https://mamsnow.com/#brand" },
+      inLanguage: "en-US",
+    },
   ],
 };
 
@@ -864,20 +901,27 @@ export default function Home() {
           </h2>
 
           <div className="flex flex-wrap justify-center gap-3">
-            {[
-              'The Fan', 'Church Hill', "Scott's Addition", 'Manchester', 'Carytown',
-              'Museum District', 'Midlothian', 'Short Pump', 'Jackson Ward', 'Oregon Hill',
-              'Shockoe Bottom', 'Glen Allen', 'Chesterfield', 'Henrico', 'Mechanicsville',
-            ].map((hood) => (
-              <span
-                key={hood}
-                className="px-5 py-2.5 bg-ivory border border-deep-teal/8 rounded-sm text-sm font-medium text-deep-teal/70"
-                style={{ boxShadow: '0 1px 2px rgba(0,63,63,0.03)' }}
+            {neighborhoods.map((hood) => (
+              <a
+                key={hood.slug}
+                href={`/neighborhoods/${hood.slug}`}
+                className="px-5 py-2.5 bg-ivory border border-deep-teal/8 rounded-sm text-sm font-medium text-deep-teal/70 hover:border-deep-teal/25 hover:bg-paper hover:text-deep-teal focus-visible:outline-1 focus-visible:outline-gold focus-visible:outline-offset-2"
+                style={{ boxShadow: '0 1px 2px rgba(0,63,63,0.03)', transition: 'border-color 0.2s ease, background 0.2s ease, color 0.2s ease' }}
               >
-                {hood}
-              </span>
+                {hood.name}
+              </a>
             ))}
           </div>
+          <div className="mt-10">
+            <a
+              href="/neighborhoods"
+              className="cta-secondary px-7 py-3.5 rounded-sm text-sm font-semibold tracking-wide inline-block"
+              style={{ borderColor: 'rgba(0,63,63,0.2)', color: '#003F3F' }}
+            >
+              Browse all neighborhood guides
+            </a>
+          </div>
+          <p className="text-xs text-deep-teal/40 mt-6 italic">More neighborhood guides shipping weekly.</p>
         </div>
       </section>
 
@@ -958,6 +1002,16 @@ export default function Home() {
               style={{ transition: 'color 0.2s ease' }}
             >
               (804) 809-8340
+            </a>
+          </p>
+          <p className="text-sm text-ivory/40 mt-4">
+            Or{' '}
+            <a
+              href="/listings"
+              className="text-gold/70 font-medium hover:text-gold focus-visible:outline-1 focus-visible:outline-gold focus-visible:outline-offset-2"
+              style={{ transition: 'color 0.2s ease' }}
+            >
+              browse active listings
             </a>
           </p>
         </div>
