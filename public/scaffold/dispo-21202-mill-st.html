@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>21202 Mill Street, Cape Charles, VA | Off-Market</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--deep-teal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero__brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .hero__brand img {
+    height: 72px;
+    width: auto;
+    mix-blend-mode: multiply;
+    margin-left: -10px;
+  }
+
+  .hero__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+  }
+
+  .hero__address {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--teal);
+    font-style: italic;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero__title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(38px, 6vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--deep-teal);
+    margin-bottom: 18px;
+  }
+
+  .hero__title em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero__sub {
+    font-size: 16px;
+    color: var(--deep-teal);
+    opacity: 0.74;
+    max-width: 58ch;
+    line-height: 1.55;
+  }
+
+  /* ---- Section anatomy ---- */
+  section.block {
+    padding: 44px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section.block:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+  }
+
+  h2.section__title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--deep-teal);
+    margin-bottom: 8px;
+  }
+
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+
+  .section__lede {
+    font-size: 15px;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    max-width: 62ch;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  /* ---- Opportunity / polarity frame ---- */
+  .opportunity {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    padding: 30px 36px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .opportunity::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.18;
+  }
+
+  .opportunity::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    border: 1px solid var(--teal-light);
+    border-radius: 50%;
+    opacity: 0.22;
+  }
+
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+
+  .opportunity p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.32;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .opportunity p em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* ---- Fact grid ---- */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .fact {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--teal);
+    border-radius: 6px;
+    padding: 18px 18px 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .fact:nth-child(3n+2) { border-top-color: var(--gold); }
+  .fact:nth-child(3n) { border-top-color: var(--deep-teal); }
+
+  .fact__label {
+    font-size: 9.5px;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    margin-bottom: 7px;
+  }
+
+  .fact__value {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.012em;
+    color: var(--deep-teal);
+  }
+
+  .fact__value .sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    opacity: 0.6;
+    margin-top: 4px;
+    letter-spacing: 0;
+  }
+
+  /* ---- Why this block (proof points) ---- */
+  .points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .points li {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .points li:last-child { margin-bottom: 0; }
+
+  .points__stat {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--gold-dark);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    flex-shrink: 0;
+    min-width: 116px;
+  }
+
+  .points__text {
+    font-size: 14px;
+    color: var(--deep-teal);
+    line-height: 1.55;
+    opacity: 0.9;
+  }
+
+  /* ---- Market band + comps ---- */
+  .band {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .band__card {
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 22px 20px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .band__card--lead {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    box-shadow: var(--shadow-md);
+  }
+
+  .band__num {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--deep-teal);
+  }
+
+  .band__card--lead .band__num { color: var(--gold); }
+
+  .band__label {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: var(--teal);
+    margin-top: 9px;
+  }
+
+  .band__card--lead .band__label { color: var(--gold-soft); }
+
+  .comps-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--deep-teal);
+    opacity: 0.82;
+    line-height: 1.6;
+    padding: 14px 18px;
+    background: rgba(212, 175, 55, 0.08);
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .comps-note strong { color: var(--gold-dark); font-style: normal; font-weight: 600; }
+
+  /* ---- Comps table ---- */
+  .comps {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 14px;
+  }
+  .comps th {
+    background: var(--paper-soft);
+    font-family: var(--sans);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--teal);
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .comps th.num, .comps td.num { text-align: right; }
+  .comps td {
+    font-size: 13.5px;
+    color: var(--deep-teal);
+    padding: 13px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .comps tr:last-child td { border-bottom: 0; }
+  .comps td.addr { font-family: var(--serif); font-weight: 500; }
+  .comps td.addr .tag { display: block; font-family: var(--sans); font-size: 10px; font-weight: 600; color: var(--gold-dark); letter-spacing: 0.04em; margin-top: 2px; }
+  .comps td.price { font-family: var(--serif); font-weight: 600; color: var(--gold-dark); }
+
+  /* ---- The Numbers ---- */
+  .numbers {
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px 28px 22px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .numbers__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--ivory);
+    margin-bottom: 16px;
+  }
+
+  .numbers__cell {
+    padding: 20px 16px;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+
+  .numbers__cell:last-child { border-right: 0; }
+
+  .numbers__cell--spread { background: var(--deep-teal); }
+
+  .numbers__val {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--deep-teal);
+  }
+
+  .numbers__cell--spread .numbers__val { color: var(--gold); }
+
+  .numbers__key {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: var(--teal);
+    margin-top: 9px;
+  }
+
+  .numbers__cell--spread .numbers__key { color: var(--gold-soft); }
+
+  .numbers__foot {
+    font-family: var(--serif);
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--deep-teal);
+    opacity: 0.78;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  /* ---- Media slot (walkthrough) ---- */
+  .media {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--line);
+  }
+
+  .media__frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: var(--deep-teal);
+  }
+
+  .media__frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .media__placeholder {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .media__placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .media__placeholder .eyebrow { color: var(--gold); position: relative; z-index: 1; }
+
+  .media__placeholder p {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+    max-width: 42ch;
+    margin: 8px auto 0;
+  }
+
+  /* ---- Photo gallery (strip) ---- */
+  .gallery {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: clamp(400px, 72%, 600px);
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--teal-light) transparent;
+  }
+  .gallery::-webkit-scrollbar { height: 6px; }
+  .gallery::-webkit-scrollbar-thumb { background: var(--teal-light); border-radius: 999px; }
+  .gallery__item {
+    scroll-snap-align: start;
+    position: relative;
+    border: 0;
+    padding: 0;
+    background: var(--deep-teal);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    aspect-ratio: 3 / 2;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s;
+  }
+  .gallery__item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .gallery__item:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .gallery__item:active { transform: translateY(0); }
+  .gallery__item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery__cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 18px 12px 9px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    background: linear-gradient(to top, rgba(0, 42, 42, 0.86), transparent);
+    text-align: left;
+  }
+  .gallery__hint {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--teal);
+    margin-top: 10px;
+    opacity: 0.85;
+  }
+
+  /* ---- Lightbox ---- */
+  .lb {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0, 30, 30, 0.94);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .lb.open { display: flex; }
+  .lb__stage {
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    max-height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .lb__img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+  .lb__cap {
+    margin-top: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    color: var(--ivory);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .lb__count { color: var(--gold); }
+  .lb__close {
+    position: absolute;
+    top: 16px; right: 18px;
+    background: transparent;
+    border: 0;
+    color: var(--ivory);
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.85;
+    transition: color 0.2s;
+  }
+  .lb__close:hover { color: var(--gold); }
+  .lb__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 63, 63, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: var(--ivory);
+    width: 48px; height: 48px;
+    border-radius: 999px;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .lb__nav:hover { background: var(--gold); color: var(--deep-teal); }
+  .lb__prev { left: 14px; }
+  .lb__next { right: 14px; }
+  body.lb-open { overflow: hidden; }
+
+  /* ---- Offer modal ---- */
+  .offer-modal { position: fixed; inset: 0; z-index: 110; background: rgba(0, 30, 30, 0.9); display: none; align-items: center; justify-content: center; padding: 20px; }
+  .offer-modal.open { display: flex; }
+  .offer-card { background: var(--paper); border-radius: 12px; max-width: 460px; width: 100%; max-height: 92vh; overflow-y: auto; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4); position: relative; }
+  .offer-card__head { background: var(--deep-teal); color: var(--ivory); padding: 22px 24px 18px; border-radius: 12px 12px 0 0; position: relative; overflow: hidden; }
+  .offer-card__head::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.14), transparent 70%); pointer-events: none; }
+  .offer-card__eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; position: relative; z-index: 1; }
+  .offer-card__title { font-family: var(--serif); font-size: 22px; font-weight: 300; margin-top: 4px; position: relative; z-index: 1; }
+  .offer-card__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .offer-card__close { position: absolute; top: 14px; right: 16px; background: transparent; border: 0; color: var(--ivory); font-size: 26px; line-height: 1; cursor: pointer; z-index: 2; opacity: 0.85; transition: color 0.2s; }
+  .offer-card__close:hover { color: var(--gold); }
+  .offer-form { padding: 20px 24px 24px; }
+  .offer-field { margin-bottom: 14px; }
+  .offer-field label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--teal); margin-bottom: 5px; }
+  .offer-field input, .offer-field select, .offer-field textarea { width: 100%; font-family: var(--sans); font-size: 14px; color: var(--deep-teal); background: var(--ivory); border: 1px solid var(--line); border-radius: 7px; padding: 11px 12px; }
+  .offer-field input:focus, .offer-field select:focus, .offer-field textarea:focus { outline: 2px solid var(--gold); outline-offset: 0; border-color: var(--gold); }
+  .offer-field textarea { resize: vertical; min-height: 60px; }
+  .offer-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .offer-submit { width: 100%; background: var(--gold); color: var(--deep-teal); border: 0; padding: 14px; font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; cursor: pointer; margin-top: 6px; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; }
+  .offer-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4); background: var(--gold-soft); }
+  .offer-submit:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
+  .offer-note { font-size: 11px; color: var(--teal); opacity: 0.85; margin-top: 12px; text-align: center; line-height: 1.5; }
+  .offer-success { padding: 44px 28px; text-align: center; }
+  .offer-success__mark { width: 52px; height: 52px; margin: 0 auto; border-radius: 999px; background: var(--deep-teal); color: var(--gold); font-size: 26px; display: flex; align-items: center; justify-content: center; }
+  .offer-success__title { font-family: var(--serif); font-size: 23px; color: var(--deep-teal); margin-top: 14px; }
+  .offer-success__sub { font-size: 14px; color: var(--teal); margin-top: 8px; line-height: 1.55; }
+  body.modal-open { overflow: hidden; }
+
+  /* ---- CTA ---- */
+  .cta {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    border-radius: 8px;
+    padding: 36px 38px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta__title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  .cta__sub {
+    font-size: 14px;
+    opacity: 0.82;
+    margin-bottom: 24px;
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__btn {
+    background: var(--gold);
+    color: var(--deep-teal);
+    border: 0;
+    padding: 14px 26px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  }
+
+  .cta__btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
+    background: var(--gold-soft);
+  }
+
+  .cta__or {
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--gold-soft);
+    opacity: 0.82;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Footer ---- */
+  footer.foot {
+    padding: 38px 0 60px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--deep-teal);
+    opacity: 0.55;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+  }
+
+  footer.foot .why {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 8px;
+    letter-spacing: 0;
+  }
+
+  footer.foot .why em { color: var(--gold-dark); }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 34px; }
+    section.block { padding: 32px 0; }
+    .opportunity { padding: 22px 24px; }
+    .opportunity p { font-size: 18px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .band { grid-template-columns: 1fr; }
+    .points li { flex-direction: column; gap: 4px; }
+    .points__stat { min-width: 0; }
+    .numbers { padding: 20px 18px; }
+    .numbers__row { grid-template-columns: 1fr; }
+    .numbers__cell { border-right: 0; border-bottom: 1px solid var(--line); }
+    .numbers__cell:last-child { border-bottom: 0; }
+    .comps th, .comps td { font-size: 11px; padding: 9px 7px; }
+    .comps td.addr .tag { font-size: 9px; }
+    .cta { padding: 28px 24px; }
+    .cta__title { font-size: 22px; }
+    .cta__buttons { flex-direction: column; }
+    .cta__btn { width: 100%; justify-content: center; }
+    .gallery {
+      margin-left: -20px; margin-right: -20px;
+      padding-left: 20px; padding-right: 20px;
+      grid-auto-columns: 90%;
+    }
+    .lb { padding: 12px; }
+    .lb__img { max-height: 74vh; }
+    .lb__nav { width: 40px; height: 40px; font-size: 22px; }
+    .lb__prev { left: 6px; }
+    .lb__next { right: 6px; }
+    .lb__close { top: 10px; right: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand">
+      <img src="mams-logo.png" alt="MAMS LLC"/>
+    </div>
+    <div class="hero__eyebrow">Off-Market Insight &middot; Cape Charles, VA</div>
+    <div class="hero__address">21202 Mill Street, Cape Charles, VA 23310</div>
+    <h1 class="hero__title">A two-story home minutes from the bay, <em>priced to move</em> before the market catches it.</h1>
+    <p class="hero__sub">A 1929 two-story, 2,164 square feet, three beds, original hardwoods, with honest foundation work the finished-only buyers run from. At $124,945 that is about $58 a foot. That gap is exactly where the upside lives.</p>
+  </header>
+
+  <!-- LEAD VISUAL: photo gallery -->
+  <section class="block">
+    <div class="gallery" id="gallery">
+      <button class="gallery__item" data-i="0"><img src="dispo-21202-mill-st-pics/dji_0595-thumb.jpg" alt="Aerial of the home and lot" loading="lazy"/><div class="gallery__cap">Aerial &middot; home and lot</div></button>
+      <button class="gallery__item" data-i="1"><img src="dispo-21202-mill-st-pics/dji_0597-thumb.jpg" alt="Aerial, rooftop and setback" loading="lazy"/><div class="gallery__cap">Aerial &middot; rooftop and setback</div></button>
+      <button class="gallery__item" data-i="2"><img src="dispo-21202-mill-st-pics/dji_0598-thumb.jpg" alt="Aerial, backyard and outbuilding" loading="lazy"/><div class="gallery__cap">Aerial &middot; backyard and garage</div></button>
+      <button class="gallery__item" data-i="3"><img src="dispo-21202-mill-st-pics/dji_0600-thumb.jpg" alt="Aerial, street context" loading="lazy"/><div class="gallery__cap">Aerial &middot; street context</div></button>
+      <button class="gallery__item" data-i="4"><img src="dispo-21202-mill-st-pics/dji_0601-thumb.jpg" alt="Aerial, the full parcel" loading="lazy"/><div class="gallery__cap">Aerial &middot; the full parcel</div></button>
+      <button class="gallery__item" data-i="5"><img src="dispo-21202-mill-st-pics/dji_0602-thumb.jpg" alt="Aerial, the neighborhood" loading="lazy"/><div class="gallery__cap">Aerial &middot; the neighborhood</div></button>
+      <button class="gallery__item" data-i="6"><img src="dispo-21202-mill-st-pics/dji_20260625155212_0173_d-thumb.jpg" alt="Kitchen with white cabinets" loading="lazy"/><div class="gallery__cap">Kitchen</div></button>
+      <button class="gallery__item" data-i="7"><img src="dispo-21202-mill-st-pics/dji_20260625155223_0174_d-thumb.jpg" alt="Pantry with wire shelving" loading="lazy"/><div class="gallery__cap">Pantry</div></button>
+      <button class="gallery__item" data-i="8"><img src="dispo-21202-mill-st-pics/dji_20260625155232_0175_d-thumb.jpg" alt="Eat-in kitchen" loading="lazy"/><div class="gallery__cap">Eat-in kitchen</div></button>
+      <button class="gallery__item" data-i="9"><img src="dispo-21202-mill-st-pics/dji_20260625155302_0176_d-thumb.jpg" alt="Living room with original hardwoods" loading="lazy"/><div class="gallery__cap">Living room, original hardwoods</div></button>
+      <button class="gallery__item" data-i="10"><img src="dispo-21202-mill-st-pics/dji_20260625155329_0177_d-thumb.jpg" alt="Front room and staircase" loading="lazy"/><div class="gallery__cap">Front room and staircase</div></button>
+      <button class="gallery__item" data-i="11"><img src="dispo-21202-mill-st-pics/dji_20260625155355_0178_d-thumb.jpg" alt="Family room with hardwoods" loading="lazy"/><div class="gallery__cap">Family room, hardwoods</div></button>
+      <button class="gallery__item" data-i="12"><img src="dispo-21202-mill-st-pics/dji_20260625155425_0179_d-thumb.jpg" alt="Main-level room with original hardwoods" loading="lazy"/><div class="gallery__cap">Main-level room</div></button>
+      <button class="gallery__item" data-i="13"><img src="dispo-21202-mill-st-pics/dji_20260625155449_0180_d-thumb.jpg" alt="Full bathroom" loading="lazy"/><div class="gallery__cap">Full bathroom</div></button>
+      <button class="gallery__item" data-i="14"><img src="dispo-21202-mill-st-pics/dji_20260625155504_0181_d-thumb.jpg" alt="Bath and vanity" loading="lazy"/><div class="gallery__cap">Bath and vanity</div></button>
+      <button class="gallery__item" data-i="15"><img src="dispo-21202-mill-st-pics/dji_20260625155541_0182_d-thumb.jpg" alt="Bedroom" loading="lazy"/><div class="gallery__cap">Bedroom</div></button>
+      <button class="gallery__item" data-i="16"><img src="dispo-21202-mill-st-pics/dji_20260625155555_0183_d-thumb.jpg" alt="Bedroom with closet" loading="lazy"/><div class="gallery__cap">Bedroom with closet</div></button>
+      <button class="gallery__item" data-i="17"><img src="dispo-21202-mill-st-pics/dji_20260625155655_0184_d-thumb.jpg" alt="Upstairs landing" loading="lazy"/><div class="gallery__cap">Upstairs landing</div></button>
+      <button class="gallery__item" data-i="18"><img src="dispo-21202-mill-st-pics/dji_20260625155713_0185_d-thumb.jpg" alt="Bedroom with hardwood floors" loading="lazy"/><div class="gallery__cap">Bedroom, hardwood floors</div></button>
+      <button class="gallery__item" data-i="19"><img src="dispo-21202-mill-st-pics/dji_20260625155726_0186_d-thumb.jpg" alt="Bedroom with accent wall" loading="lazy"/><div class="gallery__cap">Bedroom</div></button>
+      <button class="gallery__item" data-i="20"><img src="dispo-21202-mill-st-pics/dji_20260625155746_0187_d-thumb.jpg" alt="Bedroom with corner windows" loading="lazy"/><div class="gallery__cap">Bedroom, corner windows</div></button>
+      <button class="gallery__item" data-i="21"><img src="dispo-21202-mill-st-pics/dji_20260625155808_0188_d-thumb.jpg" alt="Bedroom and closet" loading="lazy"/><div class="gallery__cap">Bedroom and closet</div></button>
+      <button class="gallery__item" data-i="22"><img src="dispo-21202-mill-st-pics/dji_20260625155823_0189_d-thumb.jpg" alt="Bright corner room" loading="lazy"/><div class="gallery__cap">Bright corner room</div></button>
+      <button class="gallery__item" data-i="23"><img src="dispo-21202-mill-st-pics/dji_20260625155839_0191_d-thumb.jpg" alt="Upstairs bedroom" loading="lazy"/><div class="gallery__cap">Upstairs bedroom</div></button>
+      <button class="gallery__item" data-i="24"><img src="dispo-21202-mill-st-pics/img_3961-thumb.jpg" alt="Detached garage and outbuilding" loading="lazy"/><div class="gallery__cap">Detached garage</div></button>
+    </div>
+    <div class="gallery__hint">Swipe through 25 photos. Tap any to open it full screen.</div>
+  </section>
+
+  <!-- POLARITY FRAME -->
+  <section class="block">
+    <div class="opportunity">
+      <div class="eyebrow">Why You're Seeing This</div>
+      <p>Most buyers chase the finished cottage in town and pay top dollar for someone else's work. The smart money buys the home with <em>a story still to write</em>, a short drive from everything Cape Charles is becoming.</p>
+    </div>
+  </section>
+
+  <!-- THE PROPERTY -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; The Property</div>
+    <h2 class="section__title">What you're <em>actually buying.</em></h2>
+    <p class="section__lede">Here is what is in front of you, no staging and no spin. A solid two-story shell with good square footage, original hardwoods under foot, and a detached garage, on a quiet Cape Charles street.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="fact__label">Beds / Baths</div>
+        <div class="fact__value">3 Bed / 2.5 Bath<span class="sub">2 full, 1 half</span></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">Living Area</div>
+        <div class="fact__value">2,164 SqFt<span class="sub">Conventional two-story</span></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">Year Built</div>
+        <div class="fact__value">1929<span class="sub">Original hardwoods inside</span></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">Lot</div>
+        <div class="fact__value">1 Acre<span class="sub">Per assessor, buyer verifies</span></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">Condition</div>
+        <div class="fact__value">Sold As-Is<span class="sub">Investor special, foundation work</span></div>
+      </div>
+      <div class="fact">
+        <div class="fact__label">Location</div>
+        <div class="fact__value">Cape Charles<span class="sub">Northampton County, VA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CAPE CHARLES -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; Why Cape Charles</div>
+    <h2 class="section__title">The bet is not the house. <em>It's the block.</em></h2>
+    <p class="section__lede">A house you can fix. A location you cannot manufacture. The $124,945 start sits well below Cape Charles market medians, on the edge of one of the most active small markets on the Eastern Shore.</p>
+
+    <ul class="points">
+      <li>
+        <div class="points__stat">10 min</div>
+        <div class="points__text">To Cape Charles Town Beach, the only public beach on the Eastern Shore with no entrance or parking fee. The town harbor, 95 slips and 1,200 feet of dock, sits about 9 minutes out.</div>
+      </li>
+      <li>
+        <div class="points__stat">+7.1%</div>
+        <div class="points__text">Cape Charles home values are up about 7.1 percent year over year. The town keeps appreciating while this specific street is still early and still cheap to get into.</div>
+      </li>
+      <li>
+        <div class="points__stat">Historic</div>
+        <div class="points__text">Cape Charles is a National Register historic district with a walkable Mason Avenue core, about 9 minutes away. Scarcity you cannot build, a short drive from the front door.</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- COMPS -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; The Comps</div>
+    <h2 class="section__title">What the street <em>actually trades for.</em></h2>
+    <p class="section__lede">Three closed sales pulled from public record. At $124,945 on 2,164 finished feet, you are buying in near $58 a foot while ordinary closed comps run $156 to $230. That gap is the whole deal.</p>
+
+    <div class="band">
+      <div class="band__card band__card--lead">
+        <div class="band__num">~$58 / sqft</div>
+        <div class="band__label">Your entry at $124,945</div>
+      </div>
+      <div class="band__card">
+        <div class="band__num">$156 to $230</div>
+        <div class="band__label">Closed comp $/sqft</div>
+      </div>
+      <div class="band__card">
+        <div class="band__num">$250k to $369k</div>
+        <div class="band__label">Recent sale range</div>
+      </div>
+    </div>
+
+    <table class="comps">
+      <thead>
+        <tr><th class="addr">Comparable sale</th><th>Sold</th><th class="num">Price</th><th class="num">SqFt</th><th class="num">$/SqFt</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="addr">21149 Mill St<span class="tag">Same street</span></td><td>Jul 2024</td><td class="num price">$250,000</td><td class="num">1,600</td><td class="num">$156</td></tr>
+        <tr><td class="addr">21237 Huntington Rd<span class="tag">Cheriton, nearby</span></td><td>Oct 2025</td><td class="num price">$259,000</td><td class="num">1,125</td><td class="num">$230</td></tr>
+        <tr><td class="addr">5134 Hortense Ln<span class="tag">Resale context</span></td><td>May 2026</td><td class="num price">$369,000</td><td class="num">2,004</td><td class="num">$184</td></tr>
+      </tbody>
+    </table>
+
+    <div class="comps-note">Public record via the <strong>Northampton County assessor</strong> and listing portals. 5134 Hortense is a livable-resale comp, shown as upper context, not as an as-is value on this house.</div>
+  </section>
+
+  <!-- THE NUMBERS -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; The Entry</div>
+    <h2 class="section__title">The math, <em>shown openly.</em></h2>
+    <p class="section__lede">No spread games. No inflated promises. One honest entry price, and the horizon the right buyer is playing for.</p>
+
+    <div class="numbers">
+      <div class="numbers__row">
+        <div class="numbers__cell">
+          <div class="numbers__val">$124,945</div>
+          <div class="numbers__key">Starting Price</div>
+        </div>
+        <div class="numbers__cell">
+          <div class="numbers__val">Foundation</div>
+          <div class="numbers__key">The Honest Work</div>
+        </div>
+        <div class="numbers__cell numbers__cell--spread">
+          <div class="numbers__val">~9 Years</div>
+          <div class="numbers__key">The Horizon</div>
+        </div>
+      </div>
+      <div class="numbers__foot">The entry sits here because of foundation work an inspection will scope, not because the location is worth less. The buyer who makes this home what it can be is positioned for a strong return over the hold. Bring your numbers and your sharpest advisor. The best of them, the Kofi Thompson types, will read it the way I do.</div>
+    </div>
+  </section>
+
+  <!-- WALKTHROUGH -->
+  <section class="block">
+    <div class="eyebrow">Section 05 &middot; The Walkthrough</div>
+    <h2 class="section__title">Every honest inch, <em>including the floor.</em></h2>
+    <p class="section__lede">I walked it myself. The full video tour covers the layout, the hardwoods, the garage, and the room that flagged me on the foundation. No edit that hides the work.</p>
+    <div class="media">
+      <div class="media__placeholder">
+        <div class="eyebrow">Full Walkthrough</div>
+        <p>Three on-site clips, about six minutes total. Shared with qualified buyers on request.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY OFF-MARKET / WHY NOW -->
+  <section class="block">
+    <div class="opportunity">
+      <div class="eyebrow">Why Off-Market, Why Now</div>
+      <p>This is not on the open market. It is shown to a short list of buyers who move on <em>conviction, not committees.</em> The price is set to move it fast. The window is the part you cannot get back.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block">
+    <div class="cta">
+      <div class="cta__title">Walk it through my <em>read.</em></div>
+      <p class="cta__sub">If the bones and the block fit your hold, tell me where you stand. The cleanest buyer who can perform sets the terms.</p>
+      <div class="cta__buttons">
+        <a href="#" id="interestBtn" class="cta__btn">Present Your Position</a>
+      </div>
+      <div class="cta__or">Or reach Miles directly at miles@milesagee.com</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Disposition facilitated by <em>Miles Agee</em> &middot; MAMS LLC</div>
+    <div>miles@milesagee.com &middot; Shared with a select group of qualified buyers. Please do not forward.</div>
+  </footer>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb__close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb__nav lb__prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <figure class="lb__stage">
+    <img class="lb__img" id="lbImg" src="" alt=""/>
+    <figcaption class="lb__cap"><span id="lbCapText"></span><span class="lb__count" id="lbCount"></span></figcaption>
+  </figure>
+  <button class="lb__nav lb__next" id="lbNext" aria-label="Next photo">&#8250;</button>
+</div>
+
+<!-- OFFER MODAL -->
+<div class="offer-modal" id="offerModal" aria-hidden="true">
+  <div class="offer-card">
+    <button class="offer-card__close" id="offerClose" aria-label="Close">&times;</button>
+    <div class="offer-card__head">
+      <div class="offer-card__eyebrow">21202 Mill St</div>
+      <div class="offer-card__title">Present your <em>position.</em></div>
+    </div>
+    <form class="offer-form" id="offerForm">
+      <div class="offer-field"><label>Your name</label><input name="name" autocomplete="name" required/></div>
+      <div class="offer-row">
+        <div class="offer-field"><label>Email</label><input name="email" type="email" autocomplete="email"/></div>
+        <div class="offer-field"><label>Phone</label><input name="phone" type="tel" autocomplete="tel"/></div>
+      </div>
+      <div class="offer-field"><label>Buying entity (LLC)</label><input name="entity"/></div>
+      <div class="offer-row">
+        <div class="offer-field"><label>Your offer</label><input name="offerPrice" inputmode="decimal" required/></div>
+        <div class="offer-field"><label>Proof of funds</label><select name="proofOfFunds"><option value="Yes, ready">Yes, ready</option><option value="Not yet">Not yet</option></select></div>
+      </div>
+      <div class="offer-field"><label>Target close</label><input name="targetClose" placeholder="e.g. 30 days, all cash"/></div>
+      <div class="offer-field"><label>Contingencies or notes</label><textarea name="contingencies" placeholder="Optional"></textarea></div>
+      <button type="submit" class="offer-submit" id="offerSubmit">Send to Miles</button>
+      <div class="offer-note">Goes straight to Miles. Add an email or phone so he can get back to you.</div>
+    </form>
+    <div class="offer-success" id="offerSuccess" style="display:none">
+      <div class="offer-success__mark">&#10003;</div>
+      <div class="offer-success__title">Got it.</div>
+      <div class="offer-success__sub">Miles has your position and will be in touch directly. The cleanest buyer who can perform takes the deal.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Present-your-position modal: posts to /api/offmarket-offer (upserts buyer in OpenDispo + texts Miles).
+  (function () {
+    const btn = document.getElementById('interestBtn');
+    const modal = document.getElementById('offerModal');
+    const form = document.getElementById('offerForm');
+    const success = document.getElementById('offerSuccess');
+    const submitBtn = document.getElementById('offerSubmit');
+    if (!btn || !modal) return;
+    function open(e) { if (e) e.preventDefault(); modal.classList.add('open'); document.body.classList.add('modal-open'); modal.setAttribute('aria-hidden', 'false'); }
+    function close() { modal.classList.remove('open'); document.body.classList.remove('modal-open'); modal.setAttribute('aria-hidden', 'true'); }
+    btn.addEventListener('click', open);
+    document.getElementById('offerClose').addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const payload = {
+        t: 'offmarket-offer-2026',
+        deal: '21202 Mill Street, Cape Charles, VA 23310',
+        dealSlug: '21202-mill-st',
+        name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'),
+        entity: fd.get('entity'), offerPrice: fd.get('offerPrice'),
+        proofOfFunds: fd.get('proofOfFunds'), targetClose: fd.get('targetClose'),
+        contingencies: fd.get('contingencies')
+      };
+      if (!payload.offerPrice || (!payload.email && !payload.phone)) {
+        alert('Add your offer and an email or phone so Miles can reach you.');
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      try {
+        const res = await fetch('/api/offmarket-offer', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        const data = await res.json();
+        if (data.ok) { form.style.display = 'none'; success.style.display = 'block'; }
+        else { throw new Error(data.error || 'failed'); }
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send to Miles';
+        alert('Something went wrong sending that. Email miles@milesagee.com directly and he will sort it.');
+      }
+    });
+  })();
+
+  // Photo gallery lightbox
+  (function () {
+    const photos = [
+      { f: 'dispo-21202-mill-st-pics/dji_0595.jpg', c: 'Aerial · home and lot' },
+      { f: 'dispo-21202-mill-st-pics/dji_0597.jpg', c: 'Aerial · rooftop and setback' },
+      { f: 'dispo-21202-mill-st-pics/dji_0598.jpg', c: 'Aerial · backyard and garage' },
+      { f: 'dispo-21202-mill-st-pics/dji_0600.jpg', c: 'Aerial · street context' },
+      { f: 'dispo-21202-mill-st-pics/dji_0601.jpg', c: 'Aerial · the full parcel' },
+      { f: 'dispo-21202-mill-st-pics/dji_0602.jpg', c: 'Aerial · the neighborhood' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155212_0173_d.jpg', c: 'Kitchen' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155223_0174_d.jpg', c: 'Pantry' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155232_0175_d.jpg', c: 'Eat-in kitchen' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155302_0176_d.jpg', c: 'Living room, original hardwoods' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155329_0177_d.jpg', c: 'Front room and staircase' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155355_0178_d.jpg', c: 'Family room, hardwoods' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155425_0179_d.jpg', c: 'Main-level room' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155449_0180_d.jpg', c: 'Full bathroom' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155504_0181_d.jpg', c: 'Bath and vanity' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155541_0182_d.jpg', c: 'Bedroom' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155555_0183_d.jpg', c: 'Bedroom with closet' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155655_0184_d.jpg', c: 'Upstairs landing' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155713_0185_d.jpg', c: 'Bedroom, hardwood floors' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155726_0186_d.jpg', c: 'Bedroom' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155746_0187_d.jpg', c: 'Bedroom, corner windows' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155808_0188_d.jpg', c: 'Bedroom and closet' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155823_0189_d.jpg', c: 'Bright corner room' },
+      { f: 'dispo-21202-mill-st-pics/dji_20260625155839_0191_d.jpg', c: 'Upstairs bedroom' },
+      { f: 'dispo-21202-mill-st-pics/img_3961.jpg', c: 'Detached garage and outbuilding' }
+    ];
+    const lb = document.getElementById('lb');
+    if (!lb || !photos.length) return;
+    const img = document.getElementById('lbImg');
+    const capText = document.getElementById('lbCapText');
+    const count = document.getElementById('lbCount');
+    let idx = 0;
+    function show(i) {
+      idx = (i + photos.length) % photos.length;
+      img.src = photos[idx].f;
+      img.alt = photos[idx].c;
+      capText.textContent = photos[idx].c;
+      count.textContent = (idx + 1) + ' / ' + photos.length;
+    }
+    function open(i) {
+      show(i);
+      lb.classList.add('open');
+      document.body.classList.add('lb-open');
+      lb.setAttribute('aria-hidden', 'false');
+    }
+    function close() {
+      lb.classList.remove('open');
+      document.body.classList.remove('lb-open');
+      lb.setAttribute('aria-hidden', 'true');
+    }
+    document.querySelectorAll('.gallery__item').forEach(function (btn) {
+      btn.addEventListener('click', function () { open(parseInt(btn.dataset.i, 10)); });
+    });
+    document.getElementById('lbClose').addEventListener('click', close);
+    document.getElementById('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); show(idx - 1); });
+    document.getElementById('lbNext').addEventListener('click', function (e) { e.stopPropagation(); show(idx + 1); });
+    lb.addEventListener('click', function (e) { if (!e.target.closest('.lb__img, .lb__nav, .lb__close, .lb__cap')) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(idx - 1);
+      else if (e.key === 'ArrowRight') show(idx + 1);
+    });
+    let tx = 0;
+    lb.addEventListener('touchstart', function (e) { tx = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
