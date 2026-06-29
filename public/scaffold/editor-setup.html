@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Editor Trial: Setup Decision</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --deep-teal: #003F3F; --teal: #005F5F; --teal-light: #80AFAF;
+    --gold: #D4AF37; --gold-soft: #E2CA7A; --gold-dark: #B1922E;
+    --paper: #FAF7F1; --paper-soft: #f3ede1; --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16); --line-strong: rgba(0, 63, 63, 0.30);
+    --green: #2f7d52; --red: #b1462e; --amber: #B1922E;
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212,175,55,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,95,95,0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 920px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  header.hero { padding: 44px 0 24px; border-bottom: 1px solid var(--line); }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(30px, 5vw, 44px); line-height: 1.04; letter-spacing: -0.025em; margin-bottom: 14px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 15.5px; opacity: 0.78; max-width: 64ch; }
+
+  .recap { background: var(--paper-soft); border: 1px solid var(--line); border-left: 3px solid var(--teal); border-radius: 6px; padding: 16px 20px; margin-top: 22px; font-size: 14px; }
+  .recap b { color: var(--deep-teal); }
+
+  section.block { padding: 36px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.title { font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 3.4vw, 30px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 6px; }
+  h2.title em { color: var(--gold-dark); font-style: italic; }
+  .lede { font-size: 14.5px; opacity: 0.78; max-width: 64ch; margin-bottom: 22px; }
+
+  /* recommended call box */
+  .rec { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 26px 28px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .rec::after { content: ''; position: absolute; top: -70px; right: -70px; width: 200px; height: 200px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .rec__tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--deep-teal); background: var(--gold); padding: 5px 11px; border-radius: 999px; margin-bottom: 14px; }
+  .rec__line { font-family: var(--serif); font-size: 20px; font-weight: 300; line-height: 1.4; position: relative; z-index: 1; }
+  .rec__line em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .rec__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; position: relative; z-index: 1; }
+  .rec__cell { background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.3); border-radius: 6px; padding: 14px 16px; }
+  .rec__cell h4 { font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; margin-bottom: 6px; }
+  .rec__cell p { font-size: 13.5px; opacity: 0.92; }
+  .rec__cost { margin-top: 16px; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--gold-soft); position: relative; z-index: 1; }
+
+  /* option tables */
+  .tbl { width: 100%; border-collapse: collapse; background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); font-size: 13.5px; }
+  .tbl th { background: var(--paper-soft); text-align: left; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--teal); padding: 11px 14px; border-bottom: 1px solid var(--line); }
+  .tbl td { padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .tbl tr:last-child td { border-bottom: 0; }
+  .tbl tr.pick { background: rgba(212,175,55,0.10); }
+  .tbl td.name { font-weight: 700; color: var(--deep-teal); white-space: nowrap; }
+  .tbl td.name .pill { display: inline-block; font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--deep-teal); background: var(--gold); padding: 2px 7px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+  .verdict { font-weight: 700; }
+  .verdict.yes { color: var(--green); }
+  .verdict.no { color: var(--red); }
+  .verdict.mid { color: var(--amber); }
+
+  /* checklist */
+  .steps { list-style: none; counter-reset: s; display: grid; gap: 10px; }
+  .steps li { counter-increment: s; background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 6px; padding: 14px 18px 14px 52px; position: relative; box-shadow: var(--shadow-sm); font-size: 14px; }
+  .steps li::before { content: counter(s); position: absolute; left: 14px; top: 12px; width: 26px; height: 26px; background: var(--deep-teal); color: var(--gold); border-radius: 999px; font-family: var(--serif); font-size: 14px; display: flex; align-items: center; justify-content: center; }
+  .steps li b { color: var(--deep-teal); }
+  .steps .micro { display: block; font-size: 12.5px; opacity: 0.7; margin-top: 2px; }
+
+  /* two-card trial */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 8px; padding: 20px 22px; box-shadow: var(--shadow-sm); }
+  .card:nth-child(2) { border-top-color: var(--gold); }
+  .card h3 { font-family: var(--serif); font-size: 18px; font-weight: 500; margin-bottom: 4px; }
+  .card .what { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--teal); margin-bottom: 10px; }
+  .card p { font-size: 13.5px; opacity: 0.9; }
+  .card .reveals { margin-top: 10px; font-family: var(--serif); font-style: italic; font-size: 13.5px; color: var(--gold-dark); }
+
+  /* folder tree */
+  .tree { background: var(--deep-teal); color: var(--gold-soft); border-radius: 8px; padding: 20px 22px; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; line-height: 1.75; box-shadow: var(--shadow-md); overflow-x: auto; }
+  .tree .c { color: var(--teal-light); }
+  .tree .top { color: var(--ivory); font-weight: 700; }
+
+  .foot { padding: 30px 0 56px; text-align: center; font-size: 11px; opacity: 0.5; letter-spacing: 0.04em; }
+  .foot em { font-family: var(--serif); font-style: italic; color: var(--gold-dark); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 18px; }
+    .rec__grid { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr; }
+    .tbl { font-size: 12.5px; }
+    .tbl th, .tbl td { padding: 10px 10px; }
+    .tbl td.name { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <div class="hero__eyebrow">Editor Hire &middot; Trial Week Setup</div>
+    <h1 class="hero__title">Where the editor's files live, <em>and how you both edit.</em></h1>
+    <p class="hero__sub">One decision, two layers: where the raw video lives, and where the editing happens. Below is the full option set and the recommended path so you can stand it up tonight.</p>
+    <div class="recap">
+      <b>Where we left off:</b> you're running a one-week "gauntlet" trial with a video editor. You need a free, clean way to hand them your designated folders and collaborate in CapCut, so you can both log in, edit, save, and keep moving. This is the decision page for that.
+    </div>
+  </header>
+
+  <!-- THE CALL -->
+  <section class="block">
+    <div class="eyebrow">The Recommendation</div>
+    <h2 class="title">Start here. <em>Free tonight, upgrade only if they earn it.</em></h2>
+    <p class="lede">This is the lowest-friction setup that costs nothing and still lets you both work the same project. You're testing the editor's hands this week, not the collaboration plumbing.</p>
+    <div class="rec">
+      <span class="rec__tag">Recommended</span>
+      <div class="rec__line">Google Drive holds the raw files. CapCut is where the editing happens. <em>Raws in Drive, working clips in CapCut.</em></div>
+      <div class="rec__grid">
+        <div class="rec__cell">
+          <h4>Layer 1 &middot; Storage + handoff</h4>
+          <p>Google Drive (already in your Workspace). The source of truth. Holds every raw shoot. Share one folder to the editor, revoke in one click.</p>
+        </div>
+        <div class="rec__cell">
+          <h4>Layer 2 &middot; Editing + back-and-forth</h4>
+          <p>CapCut free cloud. You edit, save, it syncs, the editor logs into their own account and edits. Sequential, not simultaneous, which matches your flow.</p>
+        </div>
+      </div>
+      <div class="rec__cost">Cost tonight: $0. Optional later: $10 for one month of CapCut Pro if the editor earns the seat.</div>
+    </div>
+  </section>
+
+  <!-- STORAGE OPTIONS -->
+  <section class="block">
+    <div class="eyebrow">Full Option Set &middot; 1 of 2</div>
+    <h2 class="title">Where the <em>raw files</em> live</h2>
+    <p class="lede">Raw video is big (multi-GB per shoot), so the free cloud has to be the master store. This is the layer you keep long-term no matter what editor you land on.</p>
+    <table class="tbl">
+      <thead><tr><th>Option</th><th>Free space</th><th>Read</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr class="pick">
+          <td class="name">Google Drive <span class="pill">Pick</span></td>
+          <td>15GB personal, more pooled in your Workspace</td>
+          <td>Already paid for. Share one folder cleanly without exposing the rest. Editor needs only a Google login.</td>
+          <td class="verdict yes">Use this</td>
+        </tr>
+        <tr>
+          <td class="name">MEGA</td>
+          <td>20GB</td>
+          <td>Most free space, strong privacy. But a second account for both of you and less familiar.</td>
+          <td class="verdict mid">Backup option</td>
+        </tr>
+        <tr>
+          <td class="name">Frame.io (Adobe)</td>
+          <td>~2GB free</td>
+          <td>Built for video review and timestamped comments. Great for feedback, too small to be the raw store.</td>
+          <td class="verdict mid">Add later for review</td>
+        </tr>
+        <tr>
+          <td class="name">Dropbox Basic</td>
+          <td>2GB</td>
+          <td>Best-in-class sync, but 2GB is nothing for video. You'd hit the wall in one shoot.</td>
+          <td class="verdict no">Too small</td>
+        </tr>
+        <tr>
+          <td class="name">OneDrive</td>
+          <td>5GB</td>
+          <td>Fine if you lived in Microsoft. You don't. No reason to add it.</td>
+          <td class="verdict no">Skip</td>
+        </tr>
+        <tr>
+          <td class="name">iCloud</td>
+          <td>5GB</td>
+          <td>Apple-native but weak for sharing a folder to a non-Apple collaborator. Friction for a remote editor.</td>
+          <td class="verdict no">Skip</td>
+        </tr>
+        <tr>
+          <td class="name">WeTransfer / Smash</td>
+          <td>One-off transfers</td>
+          <td>Good for sending a one-time batch, not a shared workspace you return to.</td>
+          <td class="verdict no">Not a workspace</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- EDITING OPTIONS -->
+  <section class="block">
+    <div class="eyebrow">Full Option Set &middot; 2 of 2</div>
+    <h2 class="title">Where the <em>editing</em> happens</h2>
+    <p class="lede">You want shared projects in the cloud so you both log in and edit. CapCut does this, with one honest caveat: it is sequential, not Google-Docs-style live co-editing. That still fits how you described working.</p>
+    <table class="tbl">
+      <thead><tr><th>Option</th><th>Cost</th><th>Read</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr class="pick">
+          <td class="name">CapCut free + own logins <span class="pill">Pick</span></td>
+          <td>$0</td>
+          <td>Each of you has your own CapCut account. Working clips live in CapCut cloud (~5GB), raws stay in Drive. Trade drafts, edit sequentially. Enough for the trial.</td>
+          <td class="verdict yes">Use this week</td>
+        </tr>
+        <tr>
+          <td class="name">CapCut Pro Spaces</td>
+          <td>~$10/mo</td>
+          <td>Real team Space: roles, more cloud, cleaner invites and shared projects. The proper long-term home if the editor sticks.</td>
+          <td class="verdict mid">Upgrade if earned</td>
+        </tr>
+        <tr>
+          <td class="name">CapCut local + Drive</td>
+          <td>$0</td>
+          <td>Editor edits on their own machine, pulls assets from Drive, exports drafts back to Drive. Zero cloud-limit worries. Most manual.</td>
+          <td class="verdict mid">Fallback if cloud is tight</td>
+        </tr>
+        <tr>
+          <td class="name">DaVinci Resolve</td>
+          <td>$0</td>
+          <td>Free and genuinely pro, but no easy cloud co-editing and a steeper learning curve. Wrong tool for fast short-form collab.</td>
+          <td class="verdict no">Not for this</td>
+        </tr>
+        <tr>
+          <td class="name">Premiere + Frame.io</td>
+          <td>Paid</td>
+          <td>The pro-studio answer. Overkill and costly for a trial week. Revisit only if you scale way up.</td>
+          <td class="verdict no">Later, maybe</td>
+        </tr>
+        <tr>
+          <td class="name">Veed / Kapwing</td>
+          <td>Paid for real use</td>
+          <td>Browser-based team editors. Decent, but you've chosen to standardize on CapCut, and free tiers watermark.</td>
+          <td class="verdict no">Off-path</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FOLDER STRUCTURE -->
+  <section class="block">
+    <div class="eyebrow">Set Once</div>
+    <h2 class="title">The folder structure <em>that scales</em></h2>
+    <p class="lede">Date-prefix everything and label the vertical. The brand kit is what makes a trial editor's work actually look like yours instead of generic.</p>
+    <div class="tree">
+<span class="top">MAMS Content/</span>
+  _BRAND KIT/      <span class="c"># logo, fonts, colors, lower-third style, music, caption rules</span>
+  _RAW INBOX/      <span class="c"># dated dump zone for new shoots</span>
+  PROJECTS/
+    2026-06-26 [project name]/
+      01 RAW/      <span class="c"># original clips + photos</span>
+      02 WORKING/  <span class="c"># drafts in progress</span>
+      03 EXPORTS/  <span class="c"># final renders ready to post</span>
+  PUBLISHED/       <span class="c"># what went live + the caption used</span>
+    </div>
+  </section>
+
+  <!-- TONIGHT -->
+  <section class="block">
+    <div class="eyebrow">Execute Tonight</div>
+    <h2 class="title">Five steps to <em>hand it over</em></h2>
+    <ol class="steps">
+      <li><b>Create the Drive folder tree above.</b><span class="micro">Or have me scaffold it for you in one move.</span></li>
+      <li><b>Load one project.</b><span class="micro">Drop a shoot's raws into 01 RAW and your logo/fonts/music into _BRAND KIT.</span></li>
+      <li><b>Share the MAMS Content folder</b> to the editor's Google account.<span class="micro">Editor access. Never your password. Revoke after the week in one click.</span></li>
+      <li><b>Editor makes their own CapCut account.</b><span class="micro">Invite by email if you go Pro Spaces. Never share your CapCut/TikTok login.</span></li>
+      <li><b>Send the two-task trial brief</b> (below).<span class="micro">Same folder, two clear asks. Then you watch.</span></li>
+    </ol>
+  </section>
+
+  <!-- TRIAL DESIGN -->
+  <section class="block">
+    <div class="eyebrow">The Gauntlet</div>
+    <h2 class="title">Give them <em>both</em> tasks</h2>
+    <p class="lede">Each one tests a different muscle. You want to see both before you commit a seat.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Raw clips, one Reel</h3>
+        <div class="what">Tests instinct</div>
+        <p>Hand over a RAW folder plus the brand kit. Brief: make one Reel. No script, no guidance.</p>
+        <div class="reveals">Nails it = taste. Story, hook, and pacing are theirs.</div>
+      </div>
+      <div class="card">
+        <h3>Finish to brand</h3>
+        <div class="what">Tests discipline</div>
+        <p>Hand over a near-done timeline or a script plus clips. Brief: finish it to match our look.</p>
+        <div class="reveals">Nails it = discipline. They can match the brand without hand-holding.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAG -->
+  <section class="block">
+    <div class="eyebrow">One Flag</div>
+    <h2 class="title">Keep raws in Drive, <em>not</em> in CapCut</h2>
+    <p class="lede">CapCut is ByteDance, and its US availability has wobbled politically before. For a trial week it does not matter. But keeping your raw files in Drive means a CapCut disruption never touches your source footage. Drive is the asset you own; CapCut is just the workbench.</p>
+  </section>
+
+  <footer class="foot">
+    Built for <em>Miles Agee</em> &middot; MAMS LLC &middot; internal decision surface
+  </footer>
+
+</div>
+</body>
+</html>
