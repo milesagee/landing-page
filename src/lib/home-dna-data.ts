@@ -61,6 +61,32 @@ export type AreaRead = {
   livabilityRead: string;
 };
 
+// A single scored candidate listing. Populated by the PC scoring pass
+// (request_id 2026-06-30-1615-mary-candidate-scoring). Every home here has been
+// opened, its photos read, and scored on the two proprietary systems. The page
+// renders this section ONLY when at least one candidate is present, so the surface
+// never shows an empty or "pending" shortlist to the buyer.
+export type Candidate = {
+  address: string;
+  areaLabel: string; // "Bon Air 23235", "Lakeside 23228", "23229", "City 23224"
+  rankLabel?: string; // optional flag, e.g. "Top pick"
+  price: number;
+  beds?: number;
+  baths?: number;
+  sqft?: number;
+  yearBuilt?: number;
+  lightScore: number; // 0-10, from the PC photo review
+  lightReason: string; // 1-2 sentences, buyer language
+  facadeVerdict: "PASS" | "FLAG";
+  facadeReason: string; // one sentence naming the materials seen
+  listingUrl: string;
+  photoUrl?: string; // representative exterior photo if accessible
+  statusNote?: string;
+  // true = cleared the 7+ tour bar; false = on the watch list (one factor short).
+  // The page renders these as two separate tiers.
+  cleared: boolean;
+};
+
 export type HomeDnaData = {
   contactId: string;
   firstName: string;
@@ -89,6 +115,10 @@ export type HomeDnaData = {
   // Area Intelligence (synthesized + cited). Verdict first.
   verdict: string;
   areaReads: AreaRead[];
+
+  // Scored candidate shortlist. Empty until the PC scoring pass returns.
+  candidatesIntro: string;
+  candidates: Candidate[];
 
   // Sources audit (rendered in footer).
   sources: { url: string; description: string }[];
@@ -270,6 +300,124 @@ export const CONTACTS: Record<string, HomeDnaData> = {
           "Renovated kitchens are easy to find in this band because it includes both updated older homes and new construction. The catch is matching the renovation quality and the exterior feel to you, and confirming hardwood versus engineered or vinyl plank rather than assuming.",
         livabilityRead:
           "Richmond averages a Walk Score around 51, with the most walkable pockets near the center often above your single-family budget. We point any city candidate at the facts, never at a label, and we read safety from published crime statistics by area, not assumptions.",
+      },
+    ],
+
+    // Miles voice intro over the scored shortlist. You-frame, no urgency, no
+    // calendar push (per standing outbound rules). Honest about the thin Bon Air
+    // inventory rather than papering over it.
+    candidatesIntro:
+      "I ran 14 live homes in your range through both checks and scored every one. Three cleared your light bar and are ready to tour. Three more came up one point short, so they sit on your watch list while I track them, including the one home active in Bon Air right now. You are seeing the screen, not the haystack. The Light Score is out of 10. The facade verdict runs off the front photo, your one hard line.",
+    // Scored by the PC pass (2026-06-30-1615-mary-candidate-scoring). cleared=true
+    // are the 7+ tour list; cleared=false are the best 6s on the watch list. The
+    // 5s, the dim-capped 2107 Barclay (light 4), and the coming-soon / auction
+    // listings were excluded. Every figure traces to the listing page in listingUrl.
+    candidates: [
+      {
+        address: "7409 Fairway Ave",
+        areaLabel: "Lakeside 23228",
+        rankLabel: "Top pick",
+        price: 359950,
+        beds: 3,
+        baths: 1,
+        sqft: 1104,
+        yearBuilt: 1957,
+        lightScore: 8,
+        lightReason:
+          "The sun model rates this lot 95 out of 100 with a full 10 hours of June sun, and the listing calls out a picture window in the living room. The one-story open layout with hardwood throughout carries that light room to room.",
+        facadeVerdict: "PASS",
+        facadeReason: "Solid all-brick ranch front, nothing competing.",
+        listingUrl: "https://www.redfin.com/VA/Henrico/7409-Fairway-Ave-23228/home/59646008",
+        statusNote: "Active. Lands $50 under your ceiling.",
+        cleared: true,
+      },
+      {
+        address: "3429 Keighly Rd",
+        areaLabel: "City 23234",
+        price: 300000,
+        beds: 3,
+        baths: 2,
+        sqft: 1209,
+        yearBuilt: 1948,
+        lightScore: 7,
+        lightReason:
+          "The painted-brick Cape Cod photographs with a bright living room of paired large windows and a second room with corner windows. The listing flags a triple front window and the interior shots back it up.",
+        facadeVerdict: "PASS",
+        facadeReason: "Uniformly painted brick across the whole front, no mixed materials.",
+        listingUrl:
+          "https://www.zillow.com/homedetails/3429-Keighly-Rd-Richmond-VA-23234/12543654_zpid/",
+        statusNote: "Active at your ideal number. Outside the four priority zones, so a value wildcard.",
+        cleared: true,
+      },
+      {
+        address: "22 E 31st St",
+        areaLabel: "City 23224",
+        price: 329999,
+        beds: 3,
+        baths: 1.5,
+        sqft: 1194,
+        lightScore: 7,
+        lightReason:
+          "Fully renovated inside with bright white walls, several living-room windows, and an open stair hall that pulls light through both floors. Light tree cover overhead supports the score.",
+        facadeVerdict: "PASS",
+        facadeReason: "Blue-gray lap siding across the whole front, a single consistent material.",
+        listingUrl: "https://www.redfin.com/VA/Richmond/22-E-31st-St-23224/home/55430694",
+        statusNote: "Active.",
+        cleared: true,
+      },
+      {
+        address: "1812 Stone River Rd",
+        areaLabel: "Bon Air 23235",
+        rankLabel: "Your #1 area",
+        price: 330000,
+        beds: 4,
+        baths: 2,
+        sqft: 1416,
+        yearBuilt: 1998,
+        lightScore: 6,
+        lightReason:
+          "The lot gets very good sun, more than 7 hours in June, but the Cape Cod dormers limit the upper bedrooms and the main living level reads as adequate, not bright. That one point is the only thing keeping it off your tour list.",
+        facadeVerdict: "PASS",
+        facadeReason: "Clean cream vinyl siding across the front, nothing competing.",
+        listingUrl:
+          "https://www.redfin.com/VA/North-Chesterfield/1812-Stone-River-Rd-23235/home/59537503",
+        statusNote: "Active. The only home active in Bon Air 23235 in your range right now.",
+        cleared: false,
+      },
+      {
+        address: "2309 Fleet Ave",
+        areaLabel: "Lakeside 23228",
+        price: 305000,
+        beds: 2,
+        baths: 1,
+        sqft: 780,
+        yearBuilt: 1950,
+        lightScore: 6,
+        lightReason:
+          "The renovated cottage has a bright kitchen window and a clean living-room window, so it reads well for its size. The small 780 square foot footprint is what caps the total light, not the quality of it.",
+        facadeVerdict: "PASS",
+        facadeReason: "Blue-painted wood siding across the whole front, one consistent material.",
+        listingUrl: "https://www.redfin.com/VA/Henrico/2309-Fleet-Ave-23228/home/59654812",
+        statusNote: "Active. Two bedrooms, right at your minimum.",
+        cleared: false,
+      },
+      {
+        address: "6230 Lamar Dr",
+        areaLabel: "City 23225",
+        price: 339500,
+        beds: 3,
+        baths: 2.5,
+        sqft: 1788,
+        yearBuilt: 2002,
+        lightScore: 6,
+        lightReason:
+          "The 2002 build has standard builder windows and an open layout, so ambient light is decent, but nothing in the listing points to a standout light feature. A solid maybe, not a wow.",
+        facadeVerdict: "PASS",
+        facadeReason: "Single-material siding front consistent with its 2002 build, nothing competing.",
+        listingUrl:
+          "https://www.zillow.com/homedetails/6230-Lamar-Dr-Richmond-VA-23225/59794659_zpid/",
+        statusNote: "Active.",
+        cleared: false,
       },
     ],
 
