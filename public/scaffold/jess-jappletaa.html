@@ -283,6 +283,78 @@
   }
   .pending p { font-size: 15px; color: rgba(0,63,63,0.75); margin: 0 auto; line-height: 1.55; max-width: 460px; }
 
+  .plain {
+    display: block;
+    margin: 12px 0 0;
+    padding: 12px 16px;
+    background: rgba(212,175,55,0.08);
+    border-left: 2px solid #D4AF37;
+    border-radius: 2px;
+    font-size: 14px; line-height: 1.5;
+    color: rgba(0,63,63,0.82);
+  }
+  .plain b {
+    display: inline-block;
+    font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-right: 8px;
+  }
+  .compare {
+    margin: 28px 0 0;
+    display: grid; grid-template-columns: 1fr; gap: 12px;
+  }
+  .compare-row {
+    display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center;
+    padding: 16px 18px; border-radius: 10px;
+    border: 1px solid rgba(0,63,63,0.10);
+  }
+  .compare-row.bad { background: rgba(0,63,63,0.03); }
+  .compare-row.good { background: rgba(212,175,55,0.08); border-color: rgba(212,175,55,0.4); }
+  .compare-what { font-size: 15px; line-height: 1.4; color: rgba(0,63,63,0.82); font-weight: 500; }
+  .compare-row.bad .compare-what { color: rgba(0,63,63,0.6); }
+  .compare-num {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 20px; color: #003F3F; white-space: nowrap;
+  }
+  .compare-row.bad .compare-num { color: rgba(0,63,63,0.5); }
+
+  .gate-list { list-style: none; padding: 0; margin: 24px 0 0; }
+  .gate {
+    padding: 20px 22px; margin-bottom: 14px;
+    border: 1px solid rgba(212,175,55,0.4);
+    background: rgba(212,175,55,0.06);
+    border-radius: 12px;
+  }
+  .gate.no {
+    border-color: rgba(0,63,63,0.12);
+    background: rgba(0,63,63,0.03);
+  }
+  .gate-tag {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 8px; color: #B1922E;
+  }
+  .gate.no .gate-tag { color: rgba(0,63,63,0.45); }
+  .gate h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 18px; color: #003F3F; margin: 0 0 6px; letter-spacing: -0.005em;
+  }
+  .gate p { font-size: 15px; color: rgba(0,63,63,0.78); margin: 0; line-height: 1.55; }
+
+  .script-box {
+    margin: 24px 0 0; padding: 20px 22px;
+    background: rgba(0,63,63,0.04);
+    border-radius: 12px; border: 1px solid rgba(0,63,63,0.08);
+  }
+  .script-box .script-cue {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 12px;
+  }
+  .script-box p {
+    font-size: 15.5px; line-height: 1.55; margin: 0 0 12px;
+    color: #003F3F; font-style: italic;
+  }
+  .script-box p:last-child { margin-bottom: 0; }
+  .script-box p .who { font-style: normal; font-weight: 700; color: rgba(0,63,63,0.5); font-size: 12px; display: block; margin-bottom: 3px; letter-spacing: 0.04em; }
+
   .wall {
     margin: 28px 0 0; padding: 24px 24px;
     border-left: 2px solid #003F3F;
@@ -379,7 +451,9 @@
       </div>
     </div>
 
-    <p style="margin-top:28px;">You already did this once. The fashion promo you planned end to end, where you built the itinerary and ran the shoot. That is the JAppleTaa a brand pays real money for. The fix is to make that the front of the house, not the exception.</p>
+    <p style="margin-top:28px;">You already told me the truth: the party recaps are getting old. Same video every time, barely any creative direction, and you can feel the ceiling. That boredom is not a problem. It's a signal. You've outgrown the work, and you're ready for the promotion.</p>
+
+    <p>You also did the brand version once. The fashion promo you planned end to end, where you built the itinerary and ran the shoot. That is the JAppleTaa a brand pays real money for. The fix is to make that the front of the house, not the exception.</p>
 
     <ul class="value-list">
       <li class="value-item">
@@ -431,8 +505,23 @@
       <p>Say the number that lets you drop the part-time work is <strong>$5,000 a month take-home</strong>.</p>
       <p>As a freelancer, roughly a third goes to taxes and overhead, so you target about <strong>$7,500 gross a month</strong>.</p>
       <p>That is <strong>three brand projects</strong> in the low thousands, or <strong>two projects plus one monthly retainer</strong>.</p>
-      <p class="strike">Not fifteen party recaps at $400 that burn every weekend.</p>
+      <p class="strike">Not twenty party recaps at $250 that eat every weekend.</p>
     </div>
+
+    <p style="margin-top:24px;">Here's the math that matters, in your real numbers. You charge <strong>$250 for a party recap</strong> right now. Look at what a single repriced job does to your week.</p>
+
+    <div class="compare">
+      <div class="compare-row bad">
+        <div class="compare-what">4 party recaps · 4 shoots · 4 weekends gone · 4 near-identical edits</div>
+        <div class="compare-num">$1,000</div>
+      </div>
+      <div class="compare-row good">
+        <div class="compare-what">1 brand film · 1 shoot · a portfolio piece that books the next one</div>
+        <div class="compare-num">$1,000+</div>
+      </div>
+    </div>
+
+    <p style="margin-top:20px;">Same money. A quarter of the work. And the brand film is the asset that lands the client after it. The party recap just ends. That is the whole game.</p>
 
     <div class="tiers">
       <div class="tier">
@@ -458,16 +547,54 @@
       </div>
     </div>
 
-    <p style="margin-top:24px;">The exact Richmond rate bands, what a beginner charges versus what a positioned brand filmmaker commands, land in section 05 with live market data. The logic above holds no matter the number: build the rate up from your life, not down from their budget.</p>
+    <span class="plain"><b>Plain English</b>None of these words are as fancy as they sound. <strong>Package price</strong> means one flat number for the whole job, not an hourly rate you have to track. <strong>Retainer</strong> means a client pays you the same amount every month for a set amount of content, so your income is steady instead of gig to gig. <strong>Net 15</strong> just means the client has 15 days to pay your invoice after you deliver. You are never dumb for asking what a term means. You are smart for pinning it down.</span>
+
+    <p style="margin-top:24px;">The exact Richmond rate bands, what a beginner charges versus what a positioned brand filmmaker commands, land in the final section with live market data. The logic above holds no matter the number: build the rate up from your life, not down from their budget.</p>
   </section>
 
   <section class="section">
     <div class="section-header">
       <div class="section-index">04</div>
+      <div class="eyebrow">The free-work rule</div>
+      <h2>Free work is a tool. <em>Stop letting it use you.</em></h2>
+      <p class="section-lede">You said you love free work when you can take your time and make something real, and you want out of the exposure collabs. You're right on both. The fix is one rule so you stop deciding case by case.</p>
+    </div>
+
+    <p>Free or discounted work is worth it only when it passes one of two gates. If a job clears a gate, take it and pour your heart in. If it clears neither, it gets a real number or a polite no.</p>
+
+    <ul class="gate-list">
+      <li class="gate">
+        <div class="gate-tag">Gate 1 · Passes</div>
+        <h4>A portfolio piece you direct and control.</h4>
+        <p>Like the fashion shoot. You set the vision, you own the footage, it shows the tier you want to be hired for. This is not free work. It's paying yourself in a reel that books the next three clients.</p>
+      </li>
+      <li class="gate">
+        <div class="gate-tag">Gate 2 · Passes</div>
+        <h4>A written path to paid work.</h4>
+        <p>Not "maybe later." An actual named next step: a paid project on the calendar, or an intro to someone who hires. If they can't put it in writing, it isn't real yet.</p>
+      </li>
+      <li class="gate no">
+        <div class="gate-tag">Fails both · Retire it</div>
+        <h4>Discounted party recaps.</h4>
+        <p>Same video every time, no creative direction, no portfolio lift, no paid path. You already feel the ceiling. These are the first thing to drop as the brand work comes in.</p>
+      </li>
+    </ul>
+
+    <div class="script-box">
+      <div class="script-cue">The exit line for the exposure collabs you want to drop</div>
+      <p><span class="who">You say</span>"I've loved making these. I'm shifting my free work to a couple of portfolio pieces this year so I can put everything into them. For your project I'd love to send over a paid package. Want me to?"</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">05</div>
       <div class="eyebrow">The proposal</div>
       <h2>You have the skill. You're missing <em>the close</em>.</h2>
       <p class="section-lede">The creative is not the problem. The moment the price comes up is. So build a proposal that connects to their vision first, and lands the number without flinching.</p>
     </div>
+
+    <p>You told me you ask the client their budget and go from there. That one habit is capping every job. <strong>Their budget is a ceiling. Their vision is not.</strong> When you ask "what's your budget," the best you can do is their number. When you ask "what do you want this to do for you," the number becomes yours to set.</p>
 
     <ol class="ask-list">
       <li class="ask-item"><p><strong>Never quote first.</strong> When someone asks your rate, ask about their vision instead. What's the outcome, who's it for, what does winning look like. Price the value, not the hours.</p></li>
@@ -476,6 +603,17 @@
       <li class="ask-item"><p><strong>State the number, then stop talking.</strong> Say the price and go silent. Whoever speaks first loses leverage. Do not fill the pause by discounting yourself.</p></li>
       <li class="ask-item"><p><strong>Send a real proposal, not a text.</strong> A one-page doc with scope, deliverables, timeline, deposit, and Net 15 terms. It signals you're a studio, and it kills the negotiate-down reflex before it starts.</p></li>
     </ol>
+
+    <span class="plain"><b>Plain English</b><strong>Scope</strong> is what the job includes and where it stops. <strong>Deliverables</strong> are the actual files they get (the hero film, the cutdowns, the stills). <strong>Deposit</strong> is money up front to hold the date, usually half, so a client can't ghost after you've blocked the day.</span>
+
+    <p style="margin-top:24px;">I know "don't say a number" feels impossible when they push. So here's the exact line for when someone asks your rate before you're ready. You don't dodge. You redirect, then you anchor high.</p>
+
+    <div class="script-box">
+      <div class="script-cue">When they say "so what do you charge?"</div>
+      <p><span class="who">You say</span>"Good question. Before I throw out a number, let me make sure I price it right. What are you hoping this video actually does for you?"</p>
+      <p><span class="who">If they still want a number now</span>"For a brand project like this I usually land between [your Tier 1 floor] and [your Tier 3], depending on scope. Once I know what you need, I'll send you a real proposal with clear options."</p>
+      <p><span class="who">Then</span>you stop talking. A range with a real proposal behind it beats a cheap number blurted out to fill the silence.</p>
+    </div>
 
     <div class="code-panel">
       <div class="code-header">
@@ -511,7 +649,7 @@ Shoot: [date]  ·  First cut: [date]  ·  Final: [date]</pre>
 
   <section class="section">
     <div class="section-header">
-      <div class="section-index">05</div>
+      <div class="section-index">06</div>
       <div class="eyebrow">The rooms</div>
       <h2>Ten real Richmond clients. <em>And how to find more.</em></h2>
       <p class="section-lede">Positioning and pricing only matter if you're in front of the right people. So this section names ten actual Richmond brands, agencies, and founders worth reaching, with a warm-angle opener for each, plus the standing rooms where higher-budget clients gather.</p>
