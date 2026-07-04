@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Draft Week | Miles Agee</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  .hero { padding: 48px 0 36px; border-bottom: 1px solid var(--line); }
+  .hero__wordmark { font-family: var(--serif); font-weight: 600; font-size: 19px; letter-spacing: 0.02em; color: var(--deep-teal); margin-bottom: 34px; display: inline-flex; align-items: baseline; gap: 10px; }
+  .hero__wordmark span { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dark); }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 16px; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(38px, 6vw, 56px); line-height: 1.02; letter-spacing: -0.025em; color: var(--deep-teal); margin-bottom: 20px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 16px; color: var(--deep-teal); opacity: 0.76; max-width: 58ch; line-height: 1.6; }
+  .hero__meta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero__chip { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; color: var(--teal); background: var(--ivory); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; box-shadow: var(--shadow-sm); }
+  .hero__chip strong { color: var(--deep-teal); font-weight: 700; }
+
+  section.block { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.section__title { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34px); line-height: 1.1; letter-spacing: -0.02em; color: var(--deep-teal); margin-bottom: 8px; }
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+  .section__lede { font-size: 15px; color: var(--deep-teal); opacity: 0.78; max-width: 62ch; line-height: 1.6; margin-bottom: 28px; }
+
+  .opportunity { background: var(--deep-teal); color: var(--ivory); padding: 30px 36px; border-radius: 6px; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+  .opportunity::after { content: ''; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .opportunity::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border: 1px solid var(--teal-light); border-radius: 50%; opacity: 0.22; }
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+  .opportunity p { font-family: var(--serif); font-size: 22px; line-height: 1.34; font-weight: 300; letter-spacing: -0.005em; position: relative; z-index: 1; }
+  .opportunity p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  .avatars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .avatar { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 6px; padding: 22px 22px 20px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 10px; }
+  .avatar:nth-child(2) { border-top-color: var(--gold); }
+  .avatar:nth-child(3) { border-top-color: var(--deep-teal); }
+  .avatar__num { font-family: var(--serif); font-size: 11px; font-weight: 600; color: var(--teal); letter-spacing: 0.04em; }
+  .avatar:nth-child(2) .avatar__num { color: var(--gold-dark); }
+  .avatar:nth-child(3) .avatar__num { color: var(--deep-teal); }
+  .avatar__name { font-family: var(--serif); font-size: 21px; font-weight: 500; line-height: 1.15; letter-spacing: -0.012em; color: var(--deep-teal); }
+  .avatar__income { font-size: 10px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; }
+  .avatar__hook { font-size: 13px; color: var(--deep-teal); line-height: 1.5; border-left: 2px solid var(--gold); padding-left: 10px; margin-top: 2px; }
+
+  .proof-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .proof-card { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 18px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 12px; transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s; }
+  .proof-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .proof-card__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); }
+  .proof-card__title { font-family: var(--serif); font-size: 16px; font-weight: 500; line-height: 1.25; color: var(--deep-teal); letter-spacing: -0.012em; }
+  .proof-card__meta { font-size: 12px; color: var(--teal); font-weight: 600; letter-spacing: 0.02em; }
+  .proof-embed { position: relative; width: 100%; border-radius: 5px; overflow: hidden; background: var(--paper-soft); box-shadow: inset 0 0 0 1px var(--line); }
+  .proof-embed--reel { aspect-ratio: 9 / 16; }
+  .proof-embed--video { aspect-ratio: 16 / 9; }
+  .proof-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .proof-embed--thumb { display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; text-decoration: none; transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1); }
+  .proof-embed--thumb:hover { transform: scale(1.012); }
+  .proof-play { width: 58px; height: 58px; border-radius: 50%; background: rgba(0, 63, 63, 0.84); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 18px; padding-left: 4px; border: 1.5px solid var(--gold); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4); transition: background 0.18s; }
+  .proof-embed--thumb:hover .proof-play { background: var(--deep-teal); }
+  .proof-card__link { font-size: 12px; color: var(--gold-dark); text-decoration: none; font-weight: 600; letter-spacing: 0.02em; margin-top: 2px; }
+  .proof-card__link:hover { color: var(--gold); }
+  .proof-profile { grid-column: span 2; background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 8px; padding: 22px 26px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .proof-profile__handle { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--deep-teal); letter-spacing: -0.012em; margin-bottom: 4px; }
+  .proof-profile__line { font-size: 13px; color: var(--deep-teal); opacity: 0.74; line-height: 1.5; max-width: 52ch; }
+  .proof-profile__btn { background: var(--deep-teal); color: var(--gold); border: 0; padding: 12px 22px; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; }
+  .proof-profile__btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0, 63, 63, 0.25); background: #001f1f; }
+
+  .footage { background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 8px; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; box-shadow: var(--shadow-sm); }
+  .footage__title { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--deep-teal); letter-spacing: -0.012em; margin-bottom: 6px; }
+  .footage__line { font-size: 13px; color: var(--deep-teal); opacity: 0.76; line-height: 1.5; max-width: 50ch; }
+  .footage__btn { background: var(--deep-teal); color: var(--gold); border: 0; padding: 14px 26px; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; flex-shrink: 0; }
+  .footage__btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0, 63, 63, 0.25); background: #001f1f; }
+
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .shot { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 20px 20px 18px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 8px; transition: transform 0.18s, box-shadow 0.18s; }
+  .shot:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .shot__num { font-family: var(--serif); font-size: 11px; font-weight: 600; color: var(--gold-dark); letter-spacing: 0.04em; }
+  .shot__title { font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--deep-teal); line-height: 1.2; letter-spacing: -0.012em; }
+  .shot__body { font-size: 13px; color: var(--deep-teal); opacity: 0.78; line-height: 1.55; margin-top: 2px; }
+
+  .cta { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 38px 38px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%); pointer-events: none; }
+  .cta__title { font-family: var(--serif); font-size: 28px; font-weight: 300; margin-bottom: 8px; letter-spacing: -0.02em; position: relative; z-index: 1; text-align: center; }
+  .cta__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .cta__sub { font-size: 14px; opacity: 0.8; margin-bottom: 24px; max-width: 52ch; margin-left: auto; margin-right: auto; line-height: 1.6; position: relative; z-index: 1; text-align: center; }
+  .cta__steps { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+  .cta__step { background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.22); border-radius: 8px; padding: 16px 18px; display: flex; gap: 14px; align-items: flex-start; }
+  .cta__step-num { font-family: var(--serif); font-size: 18px; color: var(--gold); font-weight: 500; line-height: 1.4; flex-shrink: 0; }
+  .cta__step-body { font-size: 13.5px; line-height: 1.55; opacity: 0.9; }
+  .cta__step-body strong { color: var(--gold-soft); font-weight: 600; }
+  .cta__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+  .cta__btn { background: var(--gold); color: var(--deep-teal); border: 0; padding: 15px 28px; font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; }
+  .cta__btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4); background: var(--gold-soft); }
+  .cta__note { margin-top: 16px; font-family: var(--serif); font-style: italic; font-size: 12.5px; color: var(--gold-soft); opacity: 0.82; text-align: center; position: relative; z-index: 1; }
+
+  footer.foot { padding: 38px 0 60px; text-align: center; font-size: 11px; color: var(--deep-teal); opacity: 0.55; letter-spacing: 0.06em; line-height: 1.6; }
+  footer.foot .why { font-family: var(--serif); font-size: 13px; font-style: italic; opacity: 0.8; margin-bottom: 8px; letter-spacing: 0; }
+  footer.foot .why em { color: var(--gold-dark); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 26px; }
+    .hero__title { font-size: 34px; }
+    section.block { padding: 32px 0; }
+    .avatars { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr; gap: 14px; }
+    .proof-profile { grid-column: span 1; flex-direction: column; align-items: flex-start; padding: 18px 20px; }
+    .footage { flex-direction: column; align-items: flex-start; padding: 20px 22px; }
+    .shots { grid-template-columns: 1fr; }
+    .opportunity { padding: 22px 24px; }
+    .opportunity p { font-size: 18px; }
+    .cta { padding: 28px 24px; }
+    .cta__title { font-size: 22px; }
+    .cta__buttons { flex-direction: column; }
+    .cta__btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__wordmark">Miles Agee <span>Richmond, VA</span></div>
+    <div class="hero__eyebrow">Draft Week &middot; Video Editor &middot; 7 Days</div>
+    <h1 class="hero__title">Your draft week <em>starts now.</em></h1>
+    <p class="hero__sub">You reached out, and I want to see how you actually work. I have already started building this content machine. This is your real shot to prove you can run it. Seven days, one footage folder, six finished pieces cut in my voice. The work decides.</p>
+    <div class="hero__meta">
+      <span class="hero__chip"><strong>7-day</strong> clock</span>
+      <span class="hero__chip"><strong>5 short-form</strong> + 1 YouTube</span>
+      <span class="hero__chip">Footage provided</span>
+      <span class="hero__chip">Unpaid tryout, paid ramp to <strong>$1,000/mo</strong></span>
+    </div>
+  </header>
+
+  <!-- THE FRAME -->
+  <section class="block">
+    <div class="opportunity">
+      <div class="eyebrow">The Shot</div>
+      <p>Most tryouts ask for a resume. This one asks for the work. You get the same footage every finalist gets, and one week to prove you can cut in my voice. Do it well and you step straight into the paid seat and <em>build the machine with me.</em></p>
+    </div>
+  </section>
+
+  <!-- THE ASSIGNMENT -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; The Assignment</div>
+    <h2 class="section__title">Six pieces. <em>One week.</em></h2>
+    <p class="section__lede">All of it cut from the one footage folder I am giving you. Same source for everyone. What you pull out of it is the whole test.</p>
+
+    <div class="avatars">
+      <div class="avatar">
+        <div class="avatar__num">Deliverable 01</div>
+        <div class="avatar__name">5 short-form verticals</div>
+        <div class="avatar__income">IG Reels &middot; TikTok &middot; 9:16</div>
+        <div class="avatar__hook">30 to 60 seconds each. Tight cuts, clean burned-in captions, a hook that lands in the first second. This is the daily engine of the brand.</div>
+      </div>
+      <div class="avatar">
+        <div class="avatar__num">Deliverable 02</div>
+        <div class="avatar__name">1 YouTube piece</div>
+        <div class="avatar__income">Long-form &middot; 16:9</div>
+        <div class="avatar__hook">One longer, more produced cut from the same footage. Voiceover driven, music synced, exported clean for YouTube. Show me the production gear.</div>
+      </div>
+      <div class="avatar">
+        <div class="avatar__num">Deliverable 03</div>
+        <div class="avatar__name">In my voice</div>
+        <div class="avatar__income">Research me first</div>
+        <div class="avatar__hook">Study my content before you cut. Confident, Richmond-coded, specific. A reel that could have been made for any agent in any city is a miss.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH ME -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; Research Me</div>
+    <h2 class="section__title">Before you cut, <em>study the brand.</em></h2>
+    <p class="section__lede">This is the voice you are cutting for. Watch how the daily verticals move and how the cinematic pieces breathe. Then make your six pieces feel like they belong next to these.</p>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-card__tag">Reach proof &middot; 173K views</div>
+        <div class="proof-card__title">Richmond 2025 = Austin 1995</div>
+        <div class="proof-card__meta">173K views &middot; 6.1K likes &middot; Instagram</div>
+        <div class="proof-embed proof-embed--reel">
+          <iframe src="https://www.instagram.com/reel/DQF1kAUjHjc/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://www.instagram.com/reel/DQF1kAUjHjc/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-card__tag">Production proof</div>
+        <div class="proof-card__title">Scott's Addition Richmond walkthrough</div>
+        <div class="proof-card__meta">Long-form &middot; YouTube</div>
+        <a class="proof-embed proof-embed--video proof-embed--thumb" href="https://youtu.be/a_qy9Scnjmg" target="_blank" rel="noopener" style="background-image: url('https://img.youtube.com/vi/a_qy9Scnjmg/maxresdefault.jpg');">
+          <span class="proof-play">&#9654;</span>
+        </a>
+        <a class="proof-card__link" href="https://youtu.be/a_qy9Scnjmg" target="_blank" rel="noopener">Open on YouTube &rarr;</a>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-card__tag">Unstaged style</div>
+        <div class="proof-card__title">POV: tired of staged house tours</div>
+        <div class="proof-card__meta">163K views &middot; 5.3K likes &middot; Instagram Reel</div>
+        <div class="proof-embed proof-embed--reel">
+          <iframe src="https://www.instagram.com/reel/DOwlCGSDkup/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://www.instagram.com/reel/DOwlCGSDkup/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-card__tag">"Heart of the place" treatment</div>
+        <div class="proof-card__title">Things you should know before moving to Richmond</div>
+        <div class="proof-card__meta">6,796 views &middot; Instagram Reel</div>
+        <div class="proof-embed proof-embed--reel">
+          <iframe src="https://www.instagram.com/reel/DRaoqr2Dg_U/embed/" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <a class="proof-card__link" href="https://www.instagram.com/reel/DRaoqr2Dg_U/" target="_blank" rel="noopener">Open on Instagram &rarr;</a>
+      </div>
+
+      <div class="proof-profile">
+        <div>
+          <div class="proof-profile__handle">@milesaminutesolutions</div>
+          <div class="proof-profile__line">The brand you would be cutting for. Real-estate and Richmond content for the people moving here and the people already in love with it. Scroll the whole feed before you start.</div>
+        </div>
+        <a class="proof-profile__btn" href="https://www.instagram.com/milesaminutesolutions" target="_blank" rel="noopener">See the full profile &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FOOTAGE -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; The Footage</div>
+    <h2 class="section__title">Everything you need is <em>in one folder.</em></h2>
+    <p class="section__lede">Run-and-gun source. I shoot solo on a handheld phone and a DJI Osmo Pocket, voiceover over the top. Your job is to make it look intentional. Same footage goes to every finalist, so the cut is the only thing that separates you.</p>
+
+    <div class="footage">
+      <div>
+        <div class="footage__title">Draft Week footage folder</div>
+        <div class="footage__line">Open it, pull what you need, and build your six pieces from it. View-only. Do not wait on me for anything else.</div>
+      </div>
+      <a class="footage__btn" href="https://drive.google.com/drive/folders/1izwpzxFH18heygbV4xKGW6wmI4DWTviC" target="_blank" rel="noopener">Open the footage &rarr;</a>
+    </div>
+  </section>
+
+  <!-- THE BAR -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; The Bar</div>
+    <h2 class="section__title">Exactly how you're <em>scored.</em></h2>
+    <p class="section__lede">Every piece you send gets read against these five. This is the same bar the seat is held to every single day.</p>
+
+    <div class="shots">
+      <div class="shot"><div class="shot__num">Bar 01</div><div class="shot__title">Hook in 1.5 seconds</div><div class="shot__body">The viewer knows what this is and why to stay, instantly. If the open makes them scroll, nothing else matters.</div></div>
+      <div class="shot"><div class="shot__num">Bar 02</div><div class="shot__title">Clean captions</div><div class="shot__body">Burned-in, correctly timed, no autocaption sludge, no drift. Readable on a phone at a glance.</div></div>
+      <div class="shot"><div class="shot__num">Bar 03</div><div class="shot__title">Beat-locked pacing</div><div class="shot__body">Cuts ride the voiceover and the track. Retention is the craft. Dead air and lazy cuts lose the viewer.</div></div>
+      <div class="shot"><div class="shot__num">Bar 04</div><div class="shot__title">On-brand</div><div class="shot__body">Confident, Richmond-coded, specific. It sounds like me, not like a generic agent template.</div></div>
+      <div class="shot"><div class="shot__num">Bar 05</div><div class="shot__title">Correct export</div><div class="shot__body">Verticals at 1080x1920, no letterboxing. The YouTube piece exported clean at 16:9. Platform-ready on delivery.</div></div>
+    </div>
+  </section>
+
+  <!-- DEADLINE + SUBMIT -->
+  <section class="block">
+    <div class="cta">
+      <div class="cta__title">Your clock starts <em>now.</em></div>
+      <p class="cta__sub">Seven days. Everything is due Friday, July 11. Speed with a tight, on-brand queue beats one over-polished piece delivered late.</p>
+
+      <div class="cta__steps">
+        <div class="cta__step">
+          <div class="cta__step-num">01</div>
+          <div class="cta__step-body">
+            Pull the footage and cut <strong>5 short-form verticals plus 1 YouTube piece</strong>, all in my voice. Six finished pieces, not six rough ones.
+          </div>
+        </div>
+        <div class="cta__step">
+          <div class="cta__step-num">02</div>
+          <div class="cta__step-body">
+            <strong>Reply to my email</strong> with your links in one message: Google Drive, WeTransfer, or unlisted YouTube. Label each piece so I know what I am watching.
+          </div>
+        </div>
+      </div>
+
+      <div class="cta__buttons">
+        <a href="mailto:miles@milesagee.com?subject=Draft%20Week%20Submission" class="cta__btn">Reply with my cut &rarr;</a>
+      </div>
+      <div class="cta__note">This round is unpaid. If your cut hits, we move straight into the paid ramp and you start building the machine with me.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Built by <em>Miles Agee</em> &middot; Richmond, Virginia</div>
+    <div>Draft Week &middot; Video Editor tryout &middot; Six pieces in seven days.</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
