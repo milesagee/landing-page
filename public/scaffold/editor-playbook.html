@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>MAMS Editor Playbook</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --deep-teal: #003F3F; --teal: #005F5F; --teal-light: #80AFAF;
+    --gold: #D4AF37; --gold-soft: #E2CA7A; --gold-dark: #B1922E;
+    --paper: #FAF7F1; --paper-soft: #f3ede1; --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16); --line-strong: rgba(0, 63, 63, 0.30);
+    --green: #2f7d52; --red: #b1462e;
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212,175,55,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,95,95,0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  header.hero { padding: 44px 0 26px; border-bottom: 1px solid var(--line); }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(30px, 5vw, 46px); line-height: 1.04; letter-spacing: -0.025em; margin-bottom: 14px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 15.5px; opacity: 0.8; max-width: 60ch; }
+  .callout { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 20px 24px; margin-top: 22px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .callout::after { content: ''; position: absolute; top: -70px; right: -70px; width: 190px; height: 190px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .callout p { font-family: var(--serif); font-size: 18px; font-weight: 300; line-height: 1.4; position: relative; z-index: 1; }
+  .callout p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  section.block { padding: 34px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.title { font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 3.4vw, 30px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 6px; }
+  h2.title em { color: var(--gold-dark); font-style: italic; }
+  .lede { font-size: 14.5px; opacity: 0.8; max-width: 64ch; margin-bottom: 22px; }
+
+  /* rules list */
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .rule { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 6px; padding: 13px 16px; font-size: 13.5px; box-shadow: var(--shadow-sm); }
+  .rule b { color: var(--deep-teal); }
+  .rule:nth-child(2n) { border-left-color: var(--teal); }
+
+  /* archetype cards */
+  .arch { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 8px; padding: 20px 22px; box-shadow: var(--shadow-sm); margin-bottom: 14px; }
+  .arch:nth-child(2n) { border-top-color: var(--gold); }
+  .arch__head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+  .arch__name { font-family: var(--serif); font-size: 19px; font-weight: 500; }
+  .arch__tag { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); }
+  .arch__why { font-size: 13px; opacity: 0.78; margin-bottom: 14px; }
+  .arch__row { margin-bottom: 9px; }
+  .arch__k { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--gold-dark); display: block; margin-bottom: 4px; }
+  .chip { display: inline-block; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; background: var(--paper-soft); border: 1px solid var(--line); border-radius: 5px; padding: 4px 9px; margin: 0 4px 4px 0; color: var(--deep-teal); }
+  .chip.land { background: rgba(212,175,55,0.12); border-color: rgba(212,175,55,0.4); font-style: italic; font-family: var(--serif); font-size: 13px; }
+
+  /* specificity columns */
+  .spec { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .spec div { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 12px 15px; font-size: 13px; box-shadow: var(--shadow-sm); }
+  .spec div b { display: block; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 5px; }
+
+  /* mock cards */
+  .mocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .mock { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 18px 18px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .mock::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212,175,55,0.10), transparent 70%); pointer-events: none; }
+  .mock h3 { font-family: var(--serif); font-size: 15px; font-weight: 500; color: var(--gold-soft); margin-bottom: 10px; position: relative; z-index: 1; }
+  .mock ol { list-style: none; position: relative; z-index: 1; }
+  .mock li { font-size: 12.5px; opacity: 0.94; margin-bottom: 5px; line-height: 1.4; }
+  .mock li.card { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--gold-soft); }
+  .mock li.land { font-family: var(--serif); font-style: italic; color: var(--ivory); }
+
+  .doc { background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-radius: 8px; padding: 20px 22px; box-shadow: var(--shadow-sm); font-size: 14px; }
+  .doc b { color: var(--deep-teal); }
+
+  .foot { padding: 30px 0 56px; text-align: center; font-size: 11px; opacity: 0.5; letter-spacing: 0.04em; }
+  .foot em { font-family: var(--serif); font-style: italic; color: var(--gold-dark); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 18px; }
+    .rules, .spec { grid-template-columns: 1fr; }
+    .mocks { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <div class="hero__eyebrow">MAMS &middot; Editor Playbook &middot; Draft Week</div>
+    <h1 class="hero__title">Make text that sounds like <em>Miles</em>, not like an agent.</h1>
+    <p class="hero__sub">You're cutting one vertical from footage Miles already shot and voiced. This is your vocabulary and your rules, so your on-screen text lands on brand. Read it once, keep it open while you cut.</p>
+    <div class="callout">
+      <p>The words are here. The video isn't. You pick the hook, lock the cuts, time the captions. <em>That craft is the whole test.</em></p>
+    </div>
+  </header>
+
+  <!-- BRAND -->
+  <section class="block">
+    <div class="eyebrow">The Brand in 30 Seconds</div>
+    <h2 class="title">Confident, specific, <em>Richmond-coded.</em></h2>
+    <p class="lede">MAMS is Richmond real estate with a point of view. The audience is people moving here and locals who love it. The brand pushes the wrong people away so the right people lean in. That polarity is the engine. Never sand it into something safe.</p>
+    <div class="doc"><b>The read-aloud test:</b> if the text sounds like Miles talking on TikTok, ship it. If it sounds like a brokerage, rewrite it.</div>
+  </section>
+
+  <!-- RULES -->
+  <section class="block">
+    <div class="eyebrow">The Hard Rules</div>
+    <h2 class="title">Break these and it's <em>off-brand.</em></h2>
+    <div class="rules">
+      <div class="rule"><b>No em dashes. Ever.</b> Period, comma, or line break.</div>
+      <div class="rule"><b>No emojis</b> in the on-screen text.</div>
+      <div class="rule"><b>You-frame.</b> Talk to the viewer. Never open on "I".</div>
+      <div class="rule"><b>Contractions always.</b> you're, it's, let's. Never "you are".</div>
+      <div class="rule"><b>Title card = one word or phrase.</b> All caps. Never a sentence.</div>
+      <div class="rule"><b>Land line = 5 to 9 words.</b> Short, punchy, quotable.</div>
+      <div class="rule"><b>Hook in the first 1.5 seconds.</b> Topic and tension, instant.</div>
+      <div class="rule"><b>Captions burned in, beat-timed.</b> No autocaption sludge.</div>
+      <div class="rule"><b>Specificity over warmth.</b> Named streets and real numbers.</div>
+      <div class="rule"><b>Fair housing.</b> Talk about the place, never who lives there. No "good schools", no "family-friendly".</div>
+    </div>
+  </section>
+
+  <!-- ARCHETYPES -->
+  <section class="block">
+    <div class="eyebrow">On-Screen Text Bank</div>
+    <h2 class="title">Four hooks, ranked by <em>what actually works.</em></h2>
+    <p class="lede">These are the patterns that perform on this account. Use them as models. Swap in the real topic from the footage. Never invent a number you can't back.</p>
+
+    <div class="arch">
+      <div class="arch__head"><span class="arch__name">1. Authority / Comparison</span><span class="arch__tag">The breakout engine &middot; 6x reach</span></div>
+      <div class="arch__why">Puts Richmond next to something the viewer already respects. Made the biggest videos on the account.</div>
+      <div class="arch__row"><span class="arch__k">Title cards</span><span class="chip">RICHMOND 2025 = AUSTIN 1995</span><span class="chip">RICHMOND IS THE NEXT ___</span><span class="chip">#160 TO #51</span></div>
+      <div class="arch__row"><span class="arch__k">Build lines</span><span class="chip">Same money bought twice the house five years ago.</span><span class="chip">The people who saw Austin coming are looking here now.</span></div>
+      <div class="arch__row"><span class="arch__k">Land</span><span class="chip land">Richmond is early. For now.</span></div>
+    </div>
+
+    <div class="arch">
+      <div class="arch__head"><span class="arch__name">2. Polarity / Pattern-interrupt</span><span class="arch__tag">Reliable amplifier</span></div>
+      <div class="arch__why">Says the thing other agents won't. Rooted in insider knowledge, never in insult.</div>
+      <div class="arch__row"><span class="arch__k">Title cards</span><span class="chip">PEOPLE ARE GOING TO BE UPSET ABOUT THIS</span><span class="chip">MOST AGENTS WON'T POST THIS</span><span class="chip">THE PART THEY LEAVE OUT</span></div>
+      <div class="arch__row"><span class="arch__k">The move</span><span class="chip">Most agents will price your home in the Fan wrong. Here's why.</span></div>
+      <div class="arch__row"><span class="arch__k">Land</span><span class="chip land">That's the part they don't say out loud.</span></div>
+    </div>
+
+    <div class="arch">
+      <div class="arch__head"><span class="arch__name">3. TYSK Numbered Series</span><span class="arch__tag">Daily base load &middot; your draft-week format</span></div>
+      <div class="arch__why">"Things You Should Know before moving to Richmond." Numbered, repeatable. This is the format you're cutting.</div>
+      <div class="arch__row"><span class="arch__k">Open card</span><span class="chip">THINGS YOU SHOULD KNOW BEFORE MOVING TO RICHMOND</span><span class="chip">NO. ___</span></div>
+      <div class="arch__row"><span class="arch__k">Close card</span><span class="chip">FOLLOW FOR NO. ___</span></div>
+      <div class="arch__row"><span class="arch__k">Land</span><span class="chip land">Pick from those four. Anywhere else, you need a car.</span></div>
+    </div>
+
+    <div class="arch">
+      <div class="arch__head"><span class="arch__name">4. Lifestyle / Aspirational</span><span class="arch__tag">Drives saves &middot; the bio click</span></div>
+      <div class="arch__why">The "I want that life" beat. Best for getting people to the link in bio.</div>
+      <div class="arch__row"><span class="arch__k">Title cards</span><span class="chip">WAKE UP TO THE JAMES</span><span class="chip">A REAL SATURDAY IN RICHMOND</span><span class="chip">10 MINUTES FROM DOWNTOWN</span></div>
+      <div class="arch__row"><span class="arch__k">Build lines</span><span class="chip">Belle Isle before the city wakes up.</span><span class="chip">Coffee on the river. No traffic to get there.</span></div>
+      <div class="arch__row"><span class="arch__k">Land</span><span class="chip land">This is the trade you're actually making.</span></div>
+    </div>
+
+    <div class="arch">
+      <div class="arch__head"><span class="arch__name">CTA cards</span><span class="arch__tag">End every video</span></div>
+      <div class="arch__row"><span class="chip">GRAB THE RELOCATION GUIDE &middot; LINK IN BIO</span><span class="chip">DM "RICHMOND" AND I'LL SEND IT</span><span class="chip">FOLLOW FOR THE NEXT ONE</span></div>
+    </div>
+  </section>
+
+  <!-- SPECIFICITY -->
+  <section class="block">
+    <div class="eyebrow">Richmond Cheat Sheet</div>
+    <h2 class="title">Pull from these so it's <em>Richmond, not anywhere.</em></h2>
+    <p class="lede">Use what matches the footage. Talk about places, never about who lives there. If you're unsure a fact is true, cut the line.</p>
+    <div class="spec">
+      <div><b>Walkable core</b>The Fan, Museum District, Carytown, Scott's Addition. The honest "walkable" list is these four.</div>
+      <div><b>Character neighborhoods</b>Church Hill, Jackson Ward, Oregon Hill, Bellevue, Forest Hill.</div>
+      <div><b>Lifestyle spots</b>Belle Isle, the James River, Browns Island, the Pipeline, Maymont, Pocahontas State Park.</div>
+      <div><b>Named places (color)</b>Mama J's, Maggie Walker, Saison, the Byrd Theatre, Sub Rosa Bakery.</div>
+      <div><b>Farther out</b>Short Pump, Midlothian, Hanover, Ashland, Bon Air.</div>
+      <div><b>Real patterns</b>Homes under $400K move fast. Scott's Addition is condos and townhomes, no yards. Church Hill changes block by block.</div>
+    </div>
+  </section>
+
+  <!-- MOCKS -->
+  <section class="block">
+    <div class="eyebrow">Mock Concepts</div>
+    <h2 class="title">The shape, <em>not your cut.</em></h2>
+    <p class="lede">Style models so you can see how the pieces fit. Your draft-week video uses the real footage, not these. Do not copy them.</p>
+    <div class="mocks">
+      <div class="mock">
+        <h3>A. TYSK: the walkable truth</h3>
+        <ol>
+          <li class="card">THINGS YOU SHOULD KNOW / NO. 7</li>
+          <li>Everyone says Richmond is walkable.</li>
+          <li>They mean four neighborhoods.</li>
+          <li>Fan. Museum. Carytown. Scott's Addition.</li>
+          <li class="land">Anywhere else, you need a car.</li>
+          <li class="card">FOLLOW FOR NO. 8</li>
+        </ol>
+      </div>
+      <div class="mock">
+        <h3>B. Authority: the early call</h3>
+        <ol>
+          <li class="card">RICHMOND IS EARLY</li>
+          <li>The people who saw Austin coming?</li>
+          <li>They're looking at Richmond now.</li>
+          <li>Same money, twice the house five years ago.</li>
+          <li class="land">Early doesn't last forever.</li>
+          <li class="card">GRAB THE RELOCATION GUIDE</li>
+        </ol>
+      </div>
+      <div class="mock">
+        <h3>C. Lifestyle: the river morning</h3>
+        <ol>
+          <li class="card">WAKE UP TO THE JAMES</li>
+          <li>Belle Isle before the city's awake.</li>
+          <li>Coffee on the rocks. No traffic.</li>
+          <li>Ten minutes from downtown.</li>
+          <li class="land">This is the trade you're making.</li>
+          <li class="card">DM "RICHMOND" FOR THE GUIDE</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- BALANCE -->
+  <section class="block">
+    <div class="eyebrow">The Balance</div>
+    <h2 class="title">This is your vocabulary. <em>Not your script.</em></h2>
+    <p class="lede">We gave you the words so your text sounds like us. We did not give you the video. Pick the strongest angle in the footage. Choose the hook. Lock the cuts to the voiceover. Time the captions. Make it land. That craft is the whole test, and it's the reason we're watching. When in doubt: specific over generic, short over long, and the read-aloud test decides.</p>
+  </section>
+
+  <footer class="foot">
+    Built for the MAMS editor draft week &middot; <em>Miles Agee</em> &middot; MAMS LLC
+  </footer>
+
+</div>
+</body>
+</html>
