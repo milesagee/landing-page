@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>West Grace St · Corridor Discount Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --teal:#003F3F; --teal-2:#00514f; --gold:#D4AF37; --gold-deep:#b8932a;
+    --paper:#FAF7F1; --ink:#1c2523; --muted:#5c6b67; --line:#e3ddcf;
+    --good:#2f7d5b; --warn:#b8932a; --bad:#b0503a;
+    --sh: 0 1px 2px rgba(0,63,63,.06), 0 8px 24px -8px rgba(0,63,63,.16);
+    --sh-lift: 0 2px 4px rgba(0,63,63,.08), 0 18px 44px -12px rgba(0,63,63,.24);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif; color:var(--ink); line-height:1.7;
+    background:
+      radial-gradient(1100px 620px at 12% -6%, rgba(212,175,55,.10), transparent 60%),
+      radial-gradient(900px 560px at 108% 4%, rgba(0,63,63,.10), transparent 55%),
+      var(--paper);
+    min-height:100vh; padding:0 20px 72px;
+  }
+  .noise{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .wrap{max-width:1040px;margin:0 auto;position:relative;z-index:1}
+
+  header{padding:34px 0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--teal-2));
+    display:grid;place-items:center;color:var(--gold);font-family:'Fraunces',serif;font-weight:600;font-size:18px;
+    box-shadow:var(--sh)}
+  .brand b{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.01em;font-size:17px;color:var(--teal)}
+  .brand span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.5)}
+
+  .hero{padding:20px 0 8px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:12px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,5vw,46px);line-height:1.06;letter-spacing:-.03em;color:var(--teal)}
+  h1 em{font-style:italic;color:var(--gold-deep)}
+  .sub{margin-top:14px;max-width:70ch;font-size:16.5px;color:var(--ink)}
+  .facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+  .fact{background:rgba(255,255,255,.62);border:1px solid var(--line);border-radius:12px;padding:11px 15px;box-shadow:var(--sh)}
+  .fact b{font-family:'Fraunces',serif;color:var(--teal);font-size:20px;letter-spacing:-.01em}
+  .fact span{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+  .verdict{margin:28px 0 8px;background:linear-gradient(135deg,var(--teal),var(--teal-2));color:#eef4f2;
+    border-radius:18px;padding:28px;box-shadow:var(--sh-lift);position:relative;overflow:hidden}
+  .verdict::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,175,55,.22),transparent 65%)}
+  .verdict .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+  .verdict h2{font-family:'Fraunces',serif;font-weight:600;font-size:24px;line-height:1.25;letter-spacing:-.01em;margin-bottom:12px}
+  .verdict p{font-size:15px;color:#d7e2df;max-width:76ch}
+  .verdict p + p{margin-top:10px}
+  .verdict .lens{margin-top:18px;padding-top:16px;border-top:1px solid rgba(212,175,55,.28);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .verdict .lens h4{font-family:'Fraunces',serif;color:var(--gold);font-size:15px;margin-bottom:5px}
+  .verdict .lens p{font-size:13.5px;color:#cddbd7}
+  @media(max-width:640px){.verdict .lens{grid-template-columns:1fr}}
+
+  section{margin-top:38px}
+  .sh{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+  .sh h3{font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:var(--teal);letter-spacing:-.01em}
+  .sh .n{font-family:'Fraunces',serif;color:var(--gold-deep);font-size:15px;font-weight:600}
+  .sh .note{margin-left:auto;font-size:12px;color:var(--muted)}
+
+  .card{background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--sh)}
+
+  /* $/sqft bars */
+  .bars{display:flex;flex-direction:column;gap:18px}
+  .barrow .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+  .barrow .top b{font-family:'Inter';font-weight:600;font-size:14.5px;color:var(--ink)}
+  .barrow .top .v{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--teal)}
+  .track{height:20px;background:#efeadd;border-radius:999px;overflow:hidden;position:relative}
+  .fill{height:100%;border-radius:999px;position:relative}
+  .fill.grace{background:linear-gradient(90deg,var(--bad),#c56a54)}
+  .fill.comp{background:linear-gradient(90deg,var(--teal),var(--teal-2))}
+  .spread{font-size:12px;color:var(--muted);margin-top:5px}
+  .gapline{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+  .gapline b{font-family:'Fraunces',serif;color:var(--bad);font-size:22px}
+  .gapline span{font-size:13.5px;color:var(--muted)}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;
+    padding:0 12px 9px;border-bottom:2px solid var(--line);white-space:nowrap}
+  th.r,td.r{text-align:right}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td b{color:var(--teal);font-weight:600}
+  .psf{font-family:'Fraunces',serif;font-weight:600;color:var(--teal)}
+  .pill{display:inline-block;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;
+    padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .pill.core{background:rgba(47,125,91,.13);color:var(--good)}
+  .pill.flag{background:rgba(184,147,42,.15);color:var(--gold-deep)}
+  .pill.ex{background:rgba(176,80,58,.12);color:var(--bad)}
+  .medrow td{background:rgba(0,63,63,.045);font-weight:600}
+  .medrow td b{font-family:'Fraunces',serif}
+
+  /* drivers */
+  .drivers{display:flex;flex-direction:column;gap:12px}
+  .driver{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:start;
+    background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:14px;padding:15px 18px;box-shadow:var(--sh)}
+  .driver .rank{font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:var(--gold-deep);line-height:1}
+  .driver h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:3px}
+  .driver p{font-size:13.5px;color:var(--muted);max-width:64ch}
+  .conf{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .conf.prov{background:rgba(47,125,91,.14);color:var(--good)}
+  .conf.part{background:rgba(184,147,42,.15);color:var(--gold-deep)}
+  .conf.inf{background:rgba(92,107,103,.14);color:var(--muted)}
+  @media(max-width:640px){.driver{grid-template-columns:28px 1fr}.driver .conf{grid-column:2}}
+
+  /* method */
+  .method{counter-reset:step;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:640px){.method{grid-template-columns:1fr}}
+  .step{position:relative;background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:12px;padding:14px 16px 14px 46px;box-shadow:var(--sh)}
+  .step::before{counter-increment:step;content:counter(step);position:absolute;left:13px;top:13px;
+    width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,var(--teal),var(--teal-2));color:var(--gold);
+    font-family:'Fraunces',serif;font-weight:600;font-size:13px;display:grid;place-items:center}
+  .step b{font-size:13.5px;color:var(--ink);display:block;margin-bottom:2px}
+  .step span{font-size:12.5px;color:var(--muted)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.split{grid-template-columns:1fr}}
+  .mini{background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--sh)}
+  .mini h4{font-family:'Fraunces',serif;font-size:16px;color:var(--teal);margin-bottom:8px}
+  .mini ul{list-style:none;font-size:13.5px;color:var(--muted)}
+  .mini li{padding-left:16px;position:relative;margin-bottom:7px}
+  .mini li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .mini li b{color:var(--ink);font-weight:600}
+
+  /* report-back */
+  .rick{background:linear-gradient(135deg,#0a2e2c,#00514f);color:#e9f1ef;border-radius:16px;padding:24px 26px;box-shadow:var(--sh-lift);position:relative}
+  .rick .status{position:absolute;top:18px;right:20px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+    color:#ffd9cf;background:rgba(176,80,58,.35);border:1px solid rgba(255,150,130,.4);padding:4px 11px;border-radius:999px}
+  .rick .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+  .rick blockquote{font-size:15px;line-height:1.72;color:#eef4f2;border-left:3px solid var(--gold);padding-left:16px;max-width:80ch}
+  .rick .alt{margin-top:16px;font-size:13px;color:#bcd0cb}
+
+  footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.65}
+  footer b{color:var(--ink)}
+  .src{margin-top:8px;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="mark">M</div>
+      <div><b>MAMS</b><span>Infill Niche · Corridor Model</span></div>
+    </div>
+    <div class="tag">Prepared for Rick Jarvis</div>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">West Grace St · Upper Fan &amp; Museum District edge</div>
+    <h1>The Fan's busy street, <em>priced like it.</em></h1>
+    <p class="sub">West Grace trades at a real, measurable discount to the quiet parallel avenues around it. Here is the number, the comps behind it, why it happens, and the method so you can run it on any corridor in Richmond next week.</p>
+    <div class="facts">
+      <div class="fact"><b>15&ndash;18%</b><span>Single-family discount</span></div>
+      <div class="fact"><b>$67/sf</b><span>Gap vs. matched streets</span></div>
+      <div class="fact"><b>~20%</b><span>2&ndash;4 unit basis</span></div>
+      <div class="fact"><b>Moderate</b><span>Confidence · sample thin</span></div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="k">The verdict</div>
+    <h2>Grace runs about 15 to 18 percent under matched Fan streets on a single-family basis, and roughly 20 percent under the median on 2 to 4 unit product.</h2>
+    <p>Single-family base case: a West Grace median of <b style="color:#fff">$314/sqft</b> against a matched comparison median of <b style="color:#fff">$381/sqft</b> (Stuart, Franklin, Park, Kensington), a $67/sqft gap and a 17.6% discount. It holds under sensitivity, narrowing to ~15.6% if the low Grove outlier is included. The direction is stable; the public sold sample is thin, so treat it as a working underwriting range, not an appraisal.</p>
+    <div class="lens">
+      <div>
+        <h4>Single-family lens</h4>
+        <p>The buyer pays less for an otherwise similar house on a higher-throughput through-street. Street function is the lead driver.</p>
+      </div>
+      <div>
+        <h4>Multi-family lens</h4>
+        <p>Per-door income value holds (2603 Grace ~$292k/door, near the 75th pct) while whole-building price sits at the 25th. The missing money is the owner-occupant premium.</p>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sh"><span class="n">01</span><h3>The spread, in dollars per foot</h3><span class="note">Median of included sold comps</span></div>
+    <div class="card">
+      <div class="bars">
+        <div class="barrow">
+          <div class="top"><b>West Grace St (2000&ndash;3300 blocks)</b><span class="v">$314/sf</span></div>
+          <div class="track"><div class="fill grace" style="width:74.6%"></div></div>
+          <div class="spread">Spread $309 to $339/sf &nbsp;·&nbsp; 4 clean single-family comps</div>
+        </div>
+        <div class="barrow">
+          <div class="top"><b>Matched Fan &amp; Museum edge (Stuart · Franklin · Park · Kensington)</b><span class="v">$381/sf</span></div>
+          <div class="track"><div class="fill comp" style="width:100%"></div></div>
+          <div class="spread">Spread $335 to $421/sf &nbsp;·&nbsp; 5 matched comps</div>
+        </div>
+      </div>
+      <div class="gapline">
+        <b>$67/sf&nbsp; ·&nbsp; 17.6%</b>
+        <span>base-case discount. Defensible range $58 to $67/sf (15% to 18%) under sensitivity.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">02</span><h3>West Grace comps</h3><span class="note">Sold, trailing ~18 mo · $/sf median = $314</span></div>
+    <div class="card tablewrap">
+      <table>
+        <thead><tr><th>Address</th><th>Sold</th><th class="r">Price</th><th class="r">Sqft</th><th class="r">$/sf</th><th>Note</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td><b>3325 W Grace</b></td><td>Dec 2024</td><td class="r">$535,000</td><td class="r">1,730</td><td class="r psf">$309</td><td>1926 SF</td><td><span class="pill core">Core</span></td></tr>
+          <tr><td><b>3109 W Grace</b></td><td>Nov 2025</td><td class="r">$575,000</td><td class="r">1,840</td><td class="r psf">$313</td><td>1926 townhome</td><td><span class="pill core">Core</span></td></tr>
+          <tr><td><b>2705 W Grace</b></td><td>Mar 2025</td><td class="r">$907,000</td><td class="r">2,866</td><td class="r psf">$316</td><td>1913, sold over list</td><td><span class="pill core">Core</span></td></tr>
+          <tr><td><b>2202 W Grace</b></td><td>Jun 2025</td><td class="r">$1,400,000</td><td class="r">4,134</td><td class="r psf">$339</td><td>1908 Victorian, large</td><td><span class="pill flag">Flag</span></td></tr>
+          <tr class="medrow"><td colspan="4"><b>Median (core set)</b></td><td class="r"><b>$314</b></td><td colspan="2">even set, avg of $313 &amp; $316</td></tr>
+          <tr><td>2500 W Grace</td><td>May 2025</td><td class="r">$1,060,000</td><td class="r">3,015</td><td class="r psf">$351</td><td>heavy reno</td><td><span class="pill flag">Sens.</span></td></tr>
+          <tr><td>2612 W Grace</td><td>Aug 2025</td><td class="r">$1,400,000</td><td class="r">4,516</td><td class="r psf">$310</td><td>reno, large</td><td><span class="pill flag">Sens.</span></td></tr>
+          <tr><td>3102 W Grace</td><td>Jul 2025</td><td class="r">$660,000</td><td class="r">1,496</td><td class="r psf">$441</td><td>small-home outlier</td><td><span class="pill ex">Excl.</span></td></tr>
+          <tr><td>2601 W Grace U3</td><td>Feb 2025</td><td class="r">$281,550</td><td class="r">610</td><td class="r psf">$462</td><td>tiny condo</td><td><span class="pill ex">Excl.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">03</span><h3>Matched comparison comps</h3><span class="note">Quiet parallel streets · $/sf median = $381</span></div>
+    <div class="card tablewrap">
+      <table>
+        <thead><tr><th>Address</th><th>Sold</th><th class="r">Price</th><th class="r">Sqft</th><th class="r">$/sf</th><th>Note</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td><b>3412 W Franklin</b></td><td>Dec 2024</td><td class="r">$890,000</td><td class="r">2,656</td><td class="r psf">$335</td><td>1948 SF</td><td><span class="pill core">Core</span></td></tr>
+          <tr><td><b>3913 Kensington</b></td><td>Jul 2024</td><td class="r">$740,000</td><td class="r">2,031</td><td class="r psf">$364</td><td>large lot</td><td><span class="pill core">Core</span></td></tr>
+          <tr><td><b>3128 Kensington</b></td><td>2025</td><td class="r">$705,000</td><td class="r">1,848</td><td class="r psf">$381</td><td>date unconfirmed</td><td><span class="pill core">Core</span></td></tr>
+          <tr><td><b>3113 Park Ave</b></td><td>Mar 2026</td><td class="r">$590,000</td><td class="r">1,454</td><td class="r psf">$406</td><td>1927 townhouse</td><td><span class="pill core">Core</span></td></tr>
+          <tr><td><b>2206 Stuart Ave</b></td><td>Aug 2025</td><td class="r">$777,500</td><td class="r">1,846</td><td class="r psf">$421</td><td>1915 rowhouse</td><td><span class="pill core">Core</span></td></tr>
+          <tr class="medrow"><td colspan="4"><b>Median (core set)</b></td><td class="r"><b>$381</b></td><td colspan="2">odd set, middle value</td></tr>
+          <tr><td>2025 Grove Ave</td><td>Jul 2025</td><td class="r">$592,000</td><td class="r">3,116</td><td class="r psf">$190</td><td>low-$/sf outlier</td><td><span class="pill flag">Sens.</span></td></tr>
+          <tr><td>3131 W Franklin</td><td>Jul 2025</td><td class="r">$1,209,900</td><td class="r">n/a</td><td class="r psf">n/a</td><td>built 2022</td><td><span class="pill ex">Excl.</span></td></tr>
+          <tr><td>2611 Kensington</td><td>Aug 2025</td><td class="r">$980,000</td><td class="r">n/a</td><td class="r psf">n/a</td><td>built 2017</td><td><span class="pill ex">Excl.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">04</span><h3>Why Grace discounts</h3><span class="note">Ranked · labeled evidence vs. inference</span></div>
+    <div class="drivers">
+      <div class="driver"><div class="rank">1</div><div><h4>Through-route / corridor function</h4><p>Grace is one of the Fan's main east-west thoroughfares; the comparison set is quiet parallel streets (Stuart, Park, Kensington). Buyers pay less for otherwise-similar houses on higher-throughput streets. Largest driver.</p></div><span class="conf prov">Provable function</span></div>
+      <div class="driver"><div class="rank">2</div><div><h4>Traffic conflict &amp; street design</h4><p>One-way-to-two-way conversion history and higher crash-conflict on Grace than Franklin in the discussed segment. Grace is perceived and experienced differently than the side streets.</p></div><span class="conf part">Partially supported</span></div>
+      <div class="driver"><div class="rank">3</div><div><h4>Parking pressure near the VCU edge</h4><p>Extended permit hours on the 1600 and 1800 blocks of W Grace vs. standard Fan limits. Explains the eastern edge; not the whole 2000&ndash;3300 corridor equally.</p></div><span class="conf part">Partially supported</span></div>
+      <div class="driver"><div class="rank">4</div><div><h4>VCU proximity &amp; rental-conversion density</h4><p>Dense off-campus rental supply, mixed-use labeling, on-corridor multifamily (2607, 3230 W Grace). Shifts buyer expectations on occupancy mix, parking, condition. <b>This is the lead driver on the multifamily basis.</b></p></div><span class="conf part">Partially supported</span></div>
+      <div class="driver"><div class="rank">5</div><div><h4>Commercial &amp; mixed-use edges</h4><p>Parts of the broader Grace corridor read as mixed-use, unlike the purely residential parallel streets. Secondary, because the 2000&ndash;3300 range still holds strong residential blocks.</p></div><span class="conf part">Partially supported</span></div>
+      <div class="driver"><div class="rank">6</div><div><h4>Lot geometry &amp; condition mix</h4><p>Grace included comps skew larger or renovated yet still cluster in the low $300s/sf. A sample-composition warning that may understate the like-for-like discount, not a proven independent driver.</p></div><span class="conf inf">Inferred</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">05</span><h3>The method: measuring any corridor discount</h3><span class="note">The transferable product. The number is the byproduct.</span></div>
+    <div class="method">
+      <div class="step"><b>Draw the ends first</b><span>Fix a start and end block before pulling comps. Stop where the product changes, not where the street name does.</span></div>
+      <div class="step"><b>Name the comparison set</b><span>Nearby streets a buyer would cross-shop. Share era, product type, size band, buyer profile.</span></div>
+      <div class="step"><b>State what is held constant</b><span>Geography, type, era, size, recency held. Let the corridor variable move (traffic, parking, edges, conversion).</span></div>
+      <div class="step"><b>Sold comps, not listings</b><span>12-month window if possible, 24 if thin (label it). Listings are context, not evidence.</span></div>
+      <div class="step"><b>Two tables before any math</b><span>Subject corridor and comparison set. Address, date, price, sqft, $/sf, beds/baths, lot, condition, include/exclude.</span></div>
+      <div class="step"><b>Normalize by $/sf</b><span>Price / finished sqft each row. Same finished-area convention across sources.</span></div>
+      <div class="step"><b>Flag distortions first</b><span>New build, condos, multifamily, estate/non-arms-length, teardowns, heavy reno, very small/large, missing data.</span></div>
+      <div class="step"><b>Median, not average</b><span>Harder for one weird sale to bend. Always report the range alongside it.</span></div>
+      <div class="step"><b>Discount two ways</b><span>Subtract subject median from comparison median; divide that gap by the comparison median for the percent.</span></div>
+      <div class="step"><b>Run one sensitivity test</b><span>Add back flagged-but-plausible sales. If the number survives, it is usable. If it swings, the sample is fragile.</span></div>
+      <div class="step"><b>Split per-door vs. whole-building</b><span>On income product: if per-door holds but whole-building lags, the discount is a missing buyer, not weak income.</span></div>
+      <div class="step"><b>Label every driver</b><span>Provable, Partially supported, or Inferred. The math proves the spread; drivers explain it separately.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">06</span><h3>Confidence, sensitivity &amp; the gaps</h3></div>
+    <div class="split">
+      <div class="mini">
+        <h4>What holds up</h4>
+        <ul>
+          <li><b>Direction is stable.</b> Grace trades below the matched set under every cut.</li>
+          <li><b>Sensitivity survives.</b> $58 to $67/sf, 15% to 18%. Adding back reno comps barely moves the Grace median.</li>
+          <li><b>Two bases agree.</b> Single-family (15&ndash;18%) and 2-4 unit (~20%) point the same way.</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>What to tighten before pricing a deal</h4>
+        <ul>
+          <li><b>Sample is thin.</b> Under ~5 clean comps a side. Working range, not appraisal-grade.</li>
+          <li><b>No causal isolation.</b> The table proves the spread; it does not split traffic vs. parking vs. use vs. condition mathematically.</li>
+          <li><b>Next move:</b> full MLS export + assessor-transfer reconciliation for the 2000&ndash;3400 band, code condition by hand, re-run.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">07</span><h3>The short version</h3></div>
+    <div class="rick">
+      <div class="k">Where I land, Rick</div>
+      <blockquote>Ran the West Grace homework. On a single-family basis Grace trades about 15 to 18 percent under matched Fan and Museum edge streets, a West Grace median near $314 a foot against about $381 on Stuart, Franklin, Park and Kensington, so a $67 a foot gap. The biggest driver is that Grace is one of the Fan's main east-west thoroughfares, not a quiet parallel street, and the number holds under sensitivity down to about 15.6 percent if you include the low Grove outlier. Secondary drivers are parking pressure at the VCU edge, rental-conversion and mixed-use exposure, and a more variable condition mix, all labeled as partial evidence, not proven causes. On the 2 to 4 unit side it is about 20 percent under the median, and the tell there is that per-door income value holds while whole-building price sits at the 25th percentile, so the missing money is the owner-occupant premium. The sample is public-data thin, so this is a working underwriting range, and the next tightening move is a full MLS and assessor-transfer pull before pricing any acquisition. The method is what travels: fix the corridor ends, bench against matched parallel streets only, normalize by dollar per foot, median not average, then sensitivity-test before you believe it.</blockquote>
+      <p class="alt">This is the single-family read built on the deep-research comps. The 2 to 4 unit basis is on file too if you want to see that cut.</p>
+    </div>
+  </section>
+
+  <footer>
+    <b>Basis:</b> single-family discount from Perplexity Computer deep research (public sold comps, July 2026); 2-4 unit figures from our recorded-deed comp set (May 2024&ndash;May 2026). All numbers are public-data working ranges, not appraisals.<br>
+    <b>Sources:</b> Zillow / Redfin / Realtor.com property pages, broker pages, Richmond assessor + transfer records, VCU off-campus housing, RVA.gov Fan parking, Richmond PDR staff report, Fan District overview.<br>
+    <b>MAMS</b> · Miles Agee · OneSouth Realty · Samson Properties. Working underwriting ranges, not appraisals.
+  </footer>
+
+</div>
+</body>
+</html>
