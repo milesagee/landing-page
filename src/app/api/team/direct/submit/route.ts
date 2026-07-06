@@ -13,8 +13,6 @@
  */
 
 import { NextResponse } from "next/server";
-import * as fs from "node:fs/promises";
-import * as path from "node:path";
 import Anthropic from "@anthropic-ai/sdk";
 import {
   getTeamMemberByToken,
@@ -35,153 +33,6 @@ export const dynamic = "force-dynamic";
 const MODEL = "claude-sonnet-4-6";
 const MAX_TOKENS = 1500;
 const TEMPERATURE = 0.7;
-
-const GHL_API = "https://services.leadconnectorhq.com";
-const GHL_VERSION = "2021-07-28";
-const IS_VERCEL = !!process.env.VERCEL;
-
-async function ghlPost(urlPath: string, body: unknown) {
-  const token = process.env.GHL_MAMS_TOKEN;
-  if (!token) throw new Error("GHL_MAMS_TOKEN missing");
-  const res = await fetch(`${GHL_API}${urlPath}`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Version: GHL_VERSION,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`GHL POST ${urlPath} -> ${res.status}: ${text.substring(0, 200)}`);
-  }
-  return res.json();
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function stampForFilename(d: Date): string {
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return (
-    d.getUTCFullYear() +
-    "-" +
-    pad(d.getUTCMonth() + 1) +
-    "-" +
-    pad(d.getUTCDate()) +
-    "-" +
-    pad(d.getUTCHours()) +
-    pad(d.getUTCMinutes()) +
-    pad(d.getUTCSeconds())
-  );
-}
-
-function buildTeamNoteBody(member: TeamMember, payload: TeamDirectPayload, response: TeamDirectResponse): string {
-  return [
-    `[TEAM DIRECT] ${member.displayName} submitted through her direct line.`,
-    `Submitted: ${payload.submittedAt}`,
-    `Shape of help: ${SHAPE_LABELS[payload.shape]}`,
-    ``,
-    `Situation (verbatim):`,
-    payload.situation.trim(),
-    ``,
-    payload.tried ? `What she tried:\n${payload.tried.trim()}\n` : "",
-    `Monique response headline: ${response.headline}`,
-    ``,
-    `Monique response body:`,
-    response.body,
-    response.nextStep ? `\nNext step: ${response.nextStep}` : "",
-  ]
-    .filter(Boolean)
-    .join("\n");
-}
-
-function buildTeamEmailHtml(member: TeamMember, payload: TeamDirectPayload, response: TeamDirectResponse): string {
-  return `
-<!DOCTYPE html>
-<html><body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #003F3F; max-width: 600px; margin: 0 auto; padding: 20px; line-height: 1.5;">
-  <div style="background: #003F3F; color: white; padding: 20px; border-radius: 8px 8px 0 0;">
-    <div style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #D4AF37; font-weight: 600;">${escapeHtml(member.displayName)} -> Monique direct line</div>
-    <div style="font-size: 20px; font-weight: 700; margin-top: 8px; font-family: 'Fraunces', serif;">${escapeHtml(response.headline || "Direct-line submit")}</div>
-  </div>
-  <div style="background: white; border: 1px solid #003F3F1A; border-top: none; padding: 24px; border-radius: 0 0 8px 8px;">
-    <div style="font-size: 12px; color: #003F3F99; text-transform: uppercase; letter-spacing: 0.08em;">${escapeHtml(member.displayName)}'s situation</div>
-    <div style="background: #FAF7F1; border-left: 3px solid #D4AF37; padding: 12px 16px; margin: 8px 0 20px; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${escapeHtml(payload.situation.trim())}</div>
-    <div style="font-size: 12px; color: #003F3F99; text-transform: uppercase; letter-spacing: 0.08em;">Shape</div>
-    <div style="font-size: 14px; margin: 4px 0 16px;">${escapeHtml(SHAPE_LABELS[payload.shape])}</div>
-    <div style="font-size: 12px; color: #003F3F99; text-transform: uppercase; letter-spacing: 0.08em;">Monique's response (already shown to her in-page)</div>
-    <div style="font-size: 14px; margin: 4px 0 0; line-height: 1.6; white-space: pre-wrap;">${escapeHtml(response.body)}</div>
-    ${response.nextStep ? `<p style="margin: 16px 0 0; font-size: 13px; color: #003F3F99;">Next step proposed: ${escapeHtml(response.nextStep)}</p>` : ""}
-  </div>
-</body></html>
-  `.trim();
-}
-
-async function writeLocalTeamSubmission(
-  member: TeamMember,
-  payload: TeamDirectPayload,
-  response: TeamDirectResponse,
-): Promise<string> {
-  if (IS_VERCEL) return "skipped (Vercel)";
-  try {
-    const projectRoot = path.resolve(process.cwd(), "..");
-    const dir = path.join(projectRoot, "shared", "submissions", "team-direct");
-    await fs.mkdir(dir, { recursive: true });
-    const filename = `${stampForFilename(new Date())}-${member.slug}.json`;
-    const filepath = path.join(dir, filename);
-    const payloadOut = {
-      member: { slug: member.slug, displayName: member.displayName, role: member.role },
-      submittedAt: payload.submittedAt,
-      shape: payload.shape,
-      shapeLabel: SHAPE_LABELS[payload.shape],
-      situation: payload.situation,
-      tried: payload.tried || null,
-      moniqueResponse: response,
-    };
-    await fs.writeFile(filepath, JSON.stringify(payloadOut, null, 2), "utf-8");
-    return `ok: ${filepath}`;
-  } catch (e) {
-    return `failed: ${(e as Error).message}`;
-  }
-}
-
-async function fireTeamGhlWrites(
-  member: TeamMember,
-  payload: TeamDirectPayload,
-  response: TeamDirectResponse,
-): Promise<void> {
-  const contactIdEnv = member.slug === "chozen"
-    ? process.env.GHL_MAMS_CHOZEN_CONTACT_ID
-    : process.env.GHL_MAMS_WENDY_CONTACT_ID;
-  if (!contactIdEnv) return;
-  const tag = `team-direct-${member.slug}-submitted`;
-  const noteBody = buildTeamNoteBody(member, payload, response);
-  const emailHtml = buildTeamEmailHtml(member, payload, response);
-  const subjectTrail = payload.situation.slice(0, 60).trim();
-  const writes = await Promise.allSettled([
-    ghlPost(`/contacts/${contactIdEnv}/notes`, { body: noteBody }),
-    ghlPost(`/contacts/${contactIdEnv}/tags`, { tags: [tag] }),
-    ghlPost(`/conversations/messages`, {
-      type: "Email",
-      contactId: contactIdEnv,
-      emailTo: "miles@milesagee.com",
-      subject: `${member.displayName} -> Monique: ${subjectTrail}`,
-      html: emailHtml,
-    }),
-  ]);
-  for (const w of writes) {
-    if (w.status === "rejected") {
-      console.error("[team-direct][ghl-write]", (w as PromiseRejectedResult).reason);
-    }
-  }
-}
 
 function buildSystemPrompt(member: TeamMember): string {
   return [
@@ -375,19 +226,6 @@ export async function POST(req: Request) {
         { status: 502 },
       );
     }
-
-    // Persist for chamber-pulse readability. Local file is canonical (works
-    // even when no per-team-member contactId is configured). GHL writes are
-    // best-effort and gated on env vars. Both must complete BEFORE the response
-    // returns: on Vercel serverless the function is frozen/killed once the
-    // response ships, so a fire-and-forget write can silently never run.
-    // fireTeamGhlWrites uses Promise.allSettled internally and never rejects,
-    // so awaiting it is safe and cannot 500 the submission.
-    const localFileStatus = await writeLocalTeamSubmission(member, payload, response);
-    if (!localFileStatus.startsWith("ok")) {
-      console.error("[team-direct][local-file]", localFileStatus);
-    }
-    await fireTeamGhlWrites(member, payload, response);
 
     return NextResponse.json({
       ok: true,
