@@ -531,15 +531,15 @@ export default function QuizPage() {
             Your Results
           </p>
           <h1 className="font-display text-3xl md:text-4xl font-light text-deep-teal mb-2">
-            Your Top 6 Parts of Town
+            Your Top 3 Parts of Town
           </h1>
           <p className="text-teal mb-10">
-            Based on your answers, here are the six areas of Greater Richmond that best fit your lifestyle, budget, and priorities. Your best match is #1. Each one has neighborhoods worth exploring.
+            Based on your answers, here are the three areas of Greater Richmond that fit you best. Your full top 6 plus the Richmond Relocation Guide unlock below.
           </p>
 
-          {/* Top 3 Zone Cards */}
+          {/* Top 3 Zone Cards (full top 6 ships via email after verification) */}
           <div className="space-y-6 mb-12">
-            {results.map((r, i) => {
+            {results.slice(0, 3).map((r, i) => {
               const z = r.zone;
               const lifeStage = answers.lifeStage || "default";
               const blurb = z.whyFitsYou[lifeStage] || z.whyFitsYou.default;

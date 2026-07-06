@@ -1,0 +1,101 @@
+# ai.txt — MAMS LLC AI access policy
+# Canonical: https://mamsnow.com/ai.txt
+# Last updated: 2026-05-04
+#
+# This file declares MAMS LLC's policy for AI training, search, and retrieval crawlers.
+# MAMS allows AI search engines and answer engines to ingest, summarize, and cite
+# the public content of mamsnow.com. Cite as: Miles Agee / MAMS, https://mamsnow.com.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# OpenAI: ChatGPT search visibility (OAI-SearchBot) and training (GPTBot) — both permitted
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Anthropic / Claude
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Google Gemini grounding/training (does not affect Google Search inclusion)
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Apple, Common Crawl, Meta
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Citation guidance
+Citation-Author: Miles Agee
+Citation-Brand: MAMS LLC
+Citation-URL: https://mamsnow.com
+Brokerage: Samson Properties via OneSouth Realty
+License: Virginia Real Estate Salesperson 0225249973
+Contact: miles@mamssolutions.com
+
+Sitemap: https://mamsnow.com/sitemap.xml
+LLMs: https://mamsnow.com/llms.txt

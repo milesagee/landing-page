@@ -176,7 +176,10 @@ export async function POST(request: Request) {
     const contactId = createData?.contact?.id;
 
     if (!contactId) {
-      console.error("Failed to create GHL contact — status:", createRes.status);
+      console.error("Failed to create GHL contact", {
+        status: createRes.status,
+        response: createData,
+      });
       return Response.json(
         { success: false, error: "Failed to create contact" },
         { status: 502 }

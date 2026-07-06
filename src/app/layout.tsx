@@ -78,6 +78,9 @@ export const metadata: Metadata = {
   },
 };
 
+const BROKERAGE_DISCLOSURE =
+  "Miles Agee, Realtor® · Licensed in Virginia · OneSouth Realty · Samson Properties · Lic # 0225249973";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -88,7 +91,16 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${inter.variable} antialiased`}
     >
-      <body className="font-body text-deep-teal bg-paper">{children}</body>
+      <body className="font-body text-deep-teal bg-paper">
+        {children}
+        <div
+          role="contentinfo"
+          aria-label="Brokerage disclosure"
+          className="bg-deep-teal text-ivory/55 text-[11px] tracking-wide text-center px-6 py-3 border-t border-gold/15"
+        >
+          {BROKERAGE_DISCLOSURE}
+        </div>
+      </body>
     </html>
   );
 }
