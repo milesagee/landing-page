@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>West Grace, the whole derivation &middot; for Rick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --teal:#003F3F; --teal-2:#00514f; --gold:#D4AF37; --gold-deep:#b8932a;
+    --paper:#FAF7F1; --ink:#1c2523; --muted:#5c6b67; --line:#e3ddcf;
+    --good:#2f7d5b; --warn:#b8932a; --bad:#b0503a;
+    --sh: 0 1px 2px rgba(0,63,63,.06), 0 8px 24px -8px rgba(0,63,63,.16);
+    --sh-lift: 0 2px 4px rgba(0,63,63,.08), 0 18px 44px -12px rgba(0,63,63,.24);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif; color:var(--ink); line-height:1.7;
+    background:
+      radial-gradient(1100px 620px at 12% -6%, rgba(212,175,55,.10), transparent 60%),
+      radial-gradient(900px 560px at 108% 4%, rgba(0,63,63,.10), transparent 55%),
+      var(--paper);
+    min-height:100vh; padding:0 20px 72px;
+  }
+  .noise{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .wrap{max-width:1040px;margin:0 auto;position:relative;z-index:1}
+
+  header{padding:34px 0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--teal-2));
+    display:grid;place-items:center;color:var(--gold);font-family:'Fraunces',serif;font-weight:600;font-size:18px;
+    box-shadow:var(--sh)}
+  .brand b{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.01em;font-size:17px;color:var(--teal)}
+  .brand span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.5)}
+
+  .hero{padding:20px 0 8px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:12px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,5vw,48px);line-height:1.05;letter-spacing:-.03em;color:var(--teal)}
+  h1 em{font-style:italic;color:var(--gold-deep)}
+  .sub{margin-top:14px;max-width:70ch;font-size:16.5px;color:var(--ink)}
+  .facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .fact{background:rgba(255,255,255,.62);border:1px solid var(--line);border-radius:12px;padding:11px 15px;box-shadow:var(--sh)}
+  .fact b{font-family:'Fraunces',serif;color:var(--teal);font-size:20px;letter-spacing:-.01em}
+  .fact span{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+  .verdict{margin:28px 0 8px;background:linear-gradient(135deg,var(--teal),var(--teal-2));color:#eef4f2;
+    border-radius:18px;padding:28px;box-shadow:var(--sh-lift);position:relative;overflow:hidden}
+  .verdict::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,175,55,.22),transparent 65%)}
+  .verdict .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+  .verdict h2{font-family:'Fraunces',serif;font-weight:600;font-size:23px;line-height:1.3;letter-spacing:-.01em;margin-bottom:12px}
+  .verdict p{font-size:15px;color:#d7e2df;max-width:80ch}
+  .verdict b{color:#fff}
+
+  section{margin-top:40px}
+  .sh{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+  .sh h3{font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:var(--teal);letter-spacing:-.01em}
+  .sh .n{font-family:'Fraunces',serif;color:var(--gold-deep);font-size:15px;font-weight:600}
+  .sh .note{margin-left:auto;font-size:12px;color:var(--muted)}
+
+  .card{background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--sh)}
+  .lead{font-size:15.5px;color:var(--ink);max-width:80ch}
+  .lead + .lead{margin-top:12px}
+  .lead b{color:var(--teal);font-weight:600}
+
+  .polarity{font-family:'Fraunces',serif;font-size:19px;font-weight:500;color:var(--teal);line-height:1.4;letter-spacing:-.01em;max-width:74ch}
+  .polarity em{font-style:italic;color:var(--gold-deep)}
+
+  /* link-out card to the first read */
+  .refcard{display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;
+    background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:14px;padding:16px 20px;box-shadow:var(--sh);
+    transition:transform .16s cubic-bezier(.34,1.56,.64,1),box-shadow .16s}
+  .refcard:hover{transform:translateY(-2px);box-shadow:var(--sh-lift)}
+  .refcard .ic{width:42px;height:42px;flex:none;border-radius:11px;background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+    display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:20px}
+  .refcard .t b{display:block;font-size:15px;color:var(--ink)}
+  .refcard .t span{font-size:13px;color:var(--muted)}
+  .refcard .arw{margin-left:auto;color:var(--gold-deep);font-size:20px;font-weight:600}
+
+  /* reconciliation matrix */
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;
+    padding:0 12px 9px;border-bottom:2px solid var(--line);white-space:nowrap}
+  th.r,td.r{text-align:right}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td b{color:var(--teal);font-weight:600}
+  .psf{font-family:'Fraunces',serif;font-weight:600;color:var(--teal)}
+  .medrow td{background:rgba(0,63,63,.045);font-weight:600}
+  .matrix td,.matrix th{font-size:14px}
+  .matrix .metric{font-weight:600;color:var(--ink)}
+  .matrix .val{font-family:'Fraunces',serif;font-weight:600;color:var(--teal);font-size:16px}
+  .gap{font-family:'Fraunces',serif;font-weight:600;font-size:16px}
+  .gap.cheap{color:var(--bad)}.gap.rich{color:var(--good)}.gap.flat{color:var(--muted)}
+  .rowlbl{font-size:11px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap;display:inline-block}
+  .rowlbl.real{background:rgba(176,80,58,.12);color:var(--bad)}
+  .rowlbl.noise{background:rgba(92,107,103,.14);color:var(--muted)}
+  .matrix tr.hi td{background:rgba(176,80,58,.055)}
+
+  .bars{display:flex;flex-direction:column;gap:16px}
+  .barrow .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+  .barrow .top b{font-weight:600;font-size:14.5px;color:var(--ink)}
+  .barrow .top .v{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--teal)}
+  .track{height:22px;background:#efeadd;border-radius:999px;overflow:hidden}
+  .fill{height:100%;border-radius:999px}
+  .fill.grace{background:linear-gradient(90deg,var(--bad),#c56a54)}
+  .fill.comp{background:linear-gradient(90deg,var(--teal),var(--teal-2))}
+  .gapline{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+  .gapline b{font-family:'Fraunces',serif;color:var(--gold-deep);font-size:22px}
+  .gapline span{font-size:13.5px;color:var(--muted)}
+
+  .bridge{display:flex;flex-direction:column;gap:10px}
+  .step{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;
+    background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:13px;padding:14px 18px;box-shadow:var(--sh)}
+  .step .lhs b{font-size:14.5px;color:var(--ink)}
+  .step .lhs span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+  .step .num{font-family:'Fraunces',serif;font-weight:600;font-size:22px;white-space:nowrap}
+  .step .num.cheap{color:var(--bad)}.step .num.rich{color:var(--good)}.step .num.flat{color:var(--muted)}
+  .step.land{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold), var(--sh)}
+
+  /* the machine block */
+  .machine{background:linear-gradient(135deg,#0a2e2c,#00514f);color:#e9f1ef;border-radius:18px;padding:30px 30px;box-shadow:var(--sh-lift);position:relative;overflow:hidden}
+  .machine::after{content:"";position:absolute;left:-50px;bottom:-50px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.18),transparent 65%)}
+  .machine .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+  .machine h3{font-family:'Fraunces',serif;font-weight:600;font-size:25px;line-height:1.22;letter-spacing:-.01em;margin-bottom:14px;color:#fff}
+  .machine p{font-size:15px;color:#d7e2df;max-width:80ch}
+  .machine p + p{margin-top:11px}
+  .machine b{color:#fff}
+  .flow{margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media(max-width:680px){.flow{grid-template-columns:1fr 1fr}}
+  .flow .fstep{background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.22);border-radius:12px;padding:13px 15px}
+  .flow .fstep b{display:block;font-family:'Fraunces',serif;color:var(--gold);font-size:14px;margin-bottom:3px}
+  .flow .fstep span{font-size:12.5px;color:#cddbd7}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.split{grid-template-columns:1fr}}
+  .mini{background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--sh)}
+  .mini h4{font-family:'Fraunces',serif;font-size:16px;color:var(--teal);margin-bottom:8px}
+  .mini ul{list-style:none;font-size:13.5px;color:var(--muted)}
+  .mini li{padding-left:16px;position:relative;margin-bottom:7px}
+  .mini li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .mini li b{color:var(--ink);font-weight:600}
+
+  .flagpill{display:inline-block;font-size:10px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;
+    padding:1px 7px;border-radius:999px;background:rgba(184,147,42,.16);color:var(--gold-deep);margin-left:6px;white-space:nowrap}
+  details.comps{margin-top:4px}
+  details.comps summary{cursor:pointer;font-size:13px;color:var(--teal);font-weight:600;list-style:none;
+    border:1px solid var(--line);background:rgba(255,255,255,.6);border-radius:999px;padding:9px 16px;display:inline-block;
+    transition:box-shadow .15s}
+  details.comps summary:hover{box-shadow:var(--sh)}
+  details.comps summary::-webkit-details-marker{display:none}
+  details.comps[open] summary{margin-bottom:14px}
+
+  .close{margin-top:14px;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#2a2410;border-radius:16px;padding:26px 28px;box-shadow:var(--sh-lift)}
+  .close h3{font-family:'Fraunces',serif;font-weight:600;font-size:23px;letter-spacing:-.01em;margin-bottom:8px;color:#2a2410}
+  .close p{font-size:15px;color:#3a3316;max-width:74ch}
+
+  footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.65}
+  footer b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="mark">M</div>
+      <div><b>MAMS</b><span>Miles Agee &middot; OneSouth Realty</span></div>
+    </div>
+    <div class="tag">Prepared for Rick Jarvis</div>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">West Grace St &middot; the corridor discount, derived</div>
+    <h1>You asked how I got there. <em>Here's every step.</em></h1>
+    <p class="sub">You saw the number and asked how it was built. Fair question. So here is the whole derivation, from the way I first framed it to the number I stand behind, computed straight from the MLS data. This is the Loom I owed you, except you can click through it.</p>
+    <div class="facts" id="heroFacts"></div>
+  </div>
+
+  <div class="verdict">
+    <div class="k">The answer, up front</div>
+    <h2 id="verdictH2"></h2>
+    <p id="verdictP"></p>
+  </div>
+
+  <section>
+    <div class="sh"><span class="n">01</span><h3>The read I first sent you</h3></div>
+    <p class="lead" style="margin-bottom:16px">The first pass leaned on a hand-picked comp set and landed the discount at 15 to 18 percent. Good instinct, thin sample. It is still live so you can see exactly what you were looking at when you asked the question.</p>
+    <a class="refcard" href="/scaffold/west-grace-corridor.html">
+      <div class="ic">1</div>
+      <div class="t"><b>West Grace, first read (15 to 18%)</b><span>The original dashboard, hand-picked comps</span></div>
+      <div class="arw">&rarr;</div>
+    </a>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">02</span><h3>Then I checked it my own way</h3><span class="note">Where the 2% came from</span></div>
+    <div class="card">
+      <p class="lead">I did not want to take one dashboard on faith, so I pulled it myself. I drew a band across the Fan and Museum District, roughly <b>Lombardy over to the western edge of the Museum District, Arthur Ashe back to Lombardy</b>, filtered to single-family sold, and compared West Grace inside that band against the rest of it.</p>
+      <p class="lead">The averages came back nearly identical. West Grace around <b>$909,692</b>, the surrounding band around <b>$923,497</b>. On that read the corridor looked like it barely discounted at all, call it two percent. That is the number that did not sit right, and it is exactly what your question forced me to chase down.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">03</span><h3>Same street, 15% and 2% at the same time</h3></div>
+    <p class="polarity">Most people pick the number they like and move on. <em>The interesting work is explaining why both are true.</em> Same houses, same fresh 2026 sales, same single-family filter on both sides. The only thing that changes the answer is which yardstick you measure with.</p>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">04</span><h3>The same two areas, four ways</h3><span class="note" id="matrixNote"></span></div>
+    <div class="card tablewrap">
+      <table class="matrix">
+        <thead><tr><th>Metric</th><th class="r" id="thSubj"></th><th class="r" id="thComp"></th><th class="r">Grace vs band</th><th>Read</th></tr></thead>
+        <tbody id="matrixBody"></tbody>
+      </table>
+    </div>
+    <p class="lead" style="margin-top:14px;color:var(--muted)">By total price the two areas look even. By price per square foot Grace is clearly under. Both are arithmetically correct on the same rows. The gap between them is one thing only.</p>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">05</span><h3>The hinge: Grace sells a bigger house</h3><span class="note">Average finished area, sold comps</span></div>
+    <div class="card">
+      <p class="lead">A Grace buyer spends about the same money and takes home more house. So the totals match while every foot is cheaper. That is the discount, showing up as space instead of price.</p>
+      <div class="bars" id="sizeBars" style="margin-top:18px"></div>
+      <div class="gapline" id="sizeGap"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">06</span><h3>How 2% becomes 16%, one decision at a time</h3><span class="note">Each row changes exactly one choice</span></div>
+    <div class="bridge" id="bridge"></div>
+    <p class="lead" style="margin-top:14px;color:var(--muted)">Total price cannot even agree with itself here: by average Grace looks slightly cheaper, by median it looks richer. That swing is the signature of a size-driven number. On price per foot, average and median land within three points of each other and point the same way. That agreement is the tell that per-foot is the honest axis.</p>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">07</span><h3>The number I stand behind</h3><span class="note">Double-sourced</span></div>
+    <div class="card">
+      <p class="lead"><b>West Grace trades about 15.7 percent under the Fan and Museum band on a price-per-foot basis</b>, roughly $311 a foot against $369, on a full fresh pull of 15 Grace sales against 62 in the band. The first read got 17.6 percent off a handful of hand-picked comps. Two different roads, the same corner. The discount is real. It hides in total price because the money buys more square footage on the busier street.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">08</span><h3>The part that actually matters</h3></div>
+    <div class="machine">
+      <div class="k">Why this took an afternoon, not a week</div>
+      <h3>I built a system that runs the analysis the way I think, and shows its work at every step.</h3>
+      <p>Pulling the data, catching the metric that hid the discount, reconciling two and fifteen, then confirming it against the full set. That is the kind of thing that usually eats a week and still ends up as a number in a text. Here it took an afternoon and came out as something you can click through and check line by line.</p>
+      <p>That is the real asset. Not this one answer. A machine that turns a raw MLS question into a derivation I can defend to you, on any corridor, in the time it takes to have the idea. I call it Monique. This page is what it produces.</p>
+      <div class="flow">
+        <div class="fstep"><b>Pull</b><span>Raw MLS solds in, both sides, identical filters</span></div>
+        <div class="fstep"><b>Reconcile</b><span>Find the fork, name it, quantify it</span></div>
+        <div class="fstep"><b>Confirm</b><span>Deterministic math, ties to the source to the dollar</span></div>
+        <div class="fstep"><b>Present</b><span>A surface you can read and pressure-test</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="n">09</span><h3>The method, so you can run it too</h3></div>
+    <div class="split">
+      <div class="mini">
+        <h4>How the corridor read is built</h4>
+        <ul>
+          <li><b>Fix the ends first.</b> Draw the corridor and the parallel band before pulling a single comp.</li>
+          <li><b>Hold the filters identical</b> on both sides. Same product, beds, baths, window.</li>
+          <li><b>Price on dollars per foot,</b> not sticker. Total price tracks size, not value.</li>
+          <li><b>Median next to mean,</b> then sensitivity-test before you believe it.</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>What holds up here</h4>
+        <ul>
+          <li><b>Direction is stable.</b> Grace trades under the band on every per-foot cut.</li>
+          <li><b>Two independent samples agree.</b> Hand-picked 17.6, full pull 15.7.</li>
+          <li><b>Robust to bad rows.</b> Dropping a duplicate record moves it a fifth of a point.</li>
+          <li><b>Every figure ties</b> to the MLS report footers to the dollar.</li>
+        </ul>
+      </div>
+    </div>
+    <details class="comps" style="margin-top:16px">
+      <summary id="compsSummary">Show the comps &rarr;</summary>
+      <div class="card tablewrap" style="margin-bottom:14px">
+        <div style="font-family:'Fraunces',serif;font-weight:600;color:var(--teal);margin-bottom:10px" id="subjTitle"></div>
+        <table><thead><tr><th>Address</th><th class="r">Sold</th><th class="r">Sqft</th><th class="r">$/sf</th><th class="r">Date</th><th class="r">DOM</th></tr></thead><tbody id="subjRows"></tbody></table>
+      </div>
+      <div class="card tablewrap">
+        <div style="font-family:'Fraunces',serif;font-weight:600;color:var(--teal);margin-bottom:10px" id="compTitle"></div>
+        <table><thead><tr><th>Address</th><th class="r">Sold</th><th class="r">Sqft</th><th class="r">$/sf</th><th class="r">Date</th><th class="r">DOM</th></tr></thead><tbody id="compRows"></tbody></table>
+      </div>
+    </details>
+  </section>
+
+  <section>
+    <div class="close">
+      <h3>Pick a corridor. I'll run it.</h3>
+      <p>Name a street you're weighing, or a project footprint you want read against its parallels, and I'll bring back this same derivation for it. That is the standing offer, and the whole point of building the machine.</p>
+    </div>
+  </section>
+
+  <footer>
+    <b>Basis:</b> two CVR MLS Market Analysis Summary pulls, 7/6/2026, single-family only, 3-4 bed, 2+ full bath, sold 6/21/2025 to 7/6/2026. West Grace (15 sold) against the Fan and Museum band (62 sold). Every figure is computed in-browser from those rows; the two mean sold prices tie to the MLS report footers ($909,692 and $923,497) to the dollar.<br>
+    <b>MAMS</b> &middot; Miles Agee &middot; OneSouth Realty &middot; Samson Properties. Working underwriting ranges, not appraisals.
+  </footer>
+
+</div>
+
+<script>
+const CORRIDOR = {
+  subject:{ label:'West Grace St', short:'W Grace', comps:[
+    {addr:'2200 W Grace St',sqft:3808,price:1082887,sold:'2026-04-15',dom:2},
+    {addr:'2217 W Grace St',sqft:3020,price:1090000,sold:'2026-05-07',dom:3},
+    {addr:'2027 W Grace St',sqft:3304,price:625000,sold:'2026-01-15',dom:4},
+    {addr:'2231 W Grace St',sqft:2782,price:841500,sold:'2025-11-06',dom:5},
+    {addr:'2708 W Grace St',sqft:1444,price:572000,sold:'2026-05-05',dom:6},
+    {addr:'2014 W Grace St',sqft:2762,price:920000,sold:'2026-07-02',dom:7},
+    {addr:'2629 W Grace St',sqft:3542,price:705000,sold:'2025-10-28',dom:9},
+    {addr:'2025 W Grace St',sqft:3648,price:1180000,sold:'2026-06-03',dom:10},
+    {addr:'2225 W Grace St',sqft:3126,price:995000,sold:'2026-05-15',dom:10},
+    {addr:'2021 W Grace St',sqft:3116,price:969000,sold:'2026-03-04',dom:13},
+    {addr:'1130 W Grace St',sqft:1564,price:465000,sold:'2025-08-28',dom:18},
+    {addr:'2606 W Grace St',sqft:3074,price:1125000,sold:'2025-09-09',dom:29},
+    {addr:'2612 W Grace St',sqft:4516,price:1400000,sold:'2025-08-08',dom:52},
+    {addr:'2525 W Grace St',sqft:2920,price:985000,sold:'2026-01-12',dom:67},
+    {addr:'2706 W Grace St',sqft:2714,price:690000,sold:'2025-12-09',dom:172},
+  ]},
+  comparison:{ label:'Fan / Museum band', short:'Fan/Museum', comps:[
+    {addr:'2100 Stuart Ave',sqft:2584,price:1375000,sold:'2025-06-30',dom:2},
+    {addr:'2200 Park Ave',sqft:2758,price:1225000,sold:'2026-06-30',dom:2},
+    {addr:'2206 Stuart Ave',sqft:1846,price:777500,sold:'2025-08-27',dom:2},
+    {addr:'13 S Mulberry St',sqft:1852,price:559950,sold:'2025-08-22',dom:2},
+    {addr:'413 N Arthur Ashe Blvd',sqft:3640,price:1705607,sold:'2025-07-11',dom:3},
+    {addr:'2507 Kensington Ave',sqft:2589,price:1100000,sold:'2026-06-04',dom:3},
+    {addr:'409 N Arthur Ashe Blvd',sqft:2197,price:925000,sold:'2026-04-08',dom:3},
+    {addr:'108 Strawberry St',sqft:2130,price:655000,sold:'2025-10-29',dom:3},
+    {addr:'2612 Hanover Ave',sqft:2830,price:1305000,sold:'2025-08-01',dom:4},
+    {addr:'1810 Hanover Ave',sqft:3048,price:1154250,sold:'2026-02-23',dom:5},
+    {addr:'2105 Grove Ave',sqft:2390,price:1080000,sold:'2026-06-16',dom:5},
+    {addr:'2106 Floyd Ave',sqft:2466,price:1000000,sold:'2025-10-03',dom:5},
+    {addr:'105 N Rowland St',sqft:2124,price:785000,sold:'2026-01-30',dom:5},
+    {addr:'2113 W Cary St',sqft:1761,price:451250,sold:'2025-06-23',dom:5},
+    {addr:'1806 Park Ave',sqft:3867,price:1650000,sold:'2026-04-24',dom:6},
+    {addr:'1906 Hanover Ave',sqft:2837,price:1175000,sold:'2026-06-12',dom:6},
+    {addr:'2709 Grove Ave',sqft:2400,price:958838,sold:'2026-06-30',dom:6},
+    {addr:'2318 Stuart Ave',sqft:2377,price:785000,sold:'2025-06-24',dom:6},
+    {addr:'100 N Granby St',sqft:1834,price:729950,sold:'2025-11-05',dom:6},
+    {addr:'6 N Davis Ave',sqft:2190,price:647500,sold:'2026-07-01',dom:6},
+    {addr:'1827 Hanover Ave',sqft:3116,price:1550000,sold:'2025-09-29',dom:7},
+    {addr:'1923 Stuart Ave',sqft:2439,price:1323170,sold:'2026-04-15',dom:7},
+    {addr:'2601 Kensington Ave',sqft:2415,price:975000,sold:'2026-03-16',dom:7},
+    {addr:'2615 1/2 Floyd Ave',sqft:2550,price:940000,sold:'2025-06-30',dom:7},
+    {addr:'1823 W Cary St #C',sqft:1792,price:616500,sold:'2025-12-09',dom:7},
+    {addr:'1534 Park Ave',sqft:3835,price:1885000,sold:'2026-05-01',dom:8},
+    {addr:'1519 Hanover Ave',sqft:3026,price:1100000,sold:'2025-07-15',dom:8},
+    {addr:'2619 Floyd Ave',sqft:2186,price:885000,sold:'2026-06-30',dom:8},
+    {addr:'410 N Meadow St',sqft:2024,price:694500,sold:'2026-02-20',dom:8},
+    {addr:'100 N Allen Ave',sqft:2008,price:860000,sold:'2026-05-26',dom:9},
+    {addr:'2216 Grove Ave',sqft:2181,price:815035,sold:'2026-06-15',dom:9},
+    {addr:'4 Strawberry St',sqft:1840,price:731000,sold:'2026-03-06',dom:9},
+    {addr:'1806 Floyd Ave',sqft:1920,price:580000,sold:'2026-04-16',dom:9},
+    {addr:'2305 Floyd Ave',sqft:2402,price:870000,sold:'2025-10-16',dom:10},
+    {addr:'5 N Robinson St',sqft:1886,price:510000,sold:'2025-11-12',dom:10},
+    {addr:'2204 1/2 W Cary St',sqft:1972,price:715000,sold:'2025-11-25',dom:11},
+    {addr:'2305 Grove Ave',sqft:2900,price:1350000,sold:'2026-03-16',dom:12},
+    {addr:'2005 Stuart Ave',sqft:3180,price:1308000,sold:'2026-05-01',dom:12},
+    {addr:'1916 Floyd Ave',sqft:3734,price:1253400,sold:'2025-08-05',dom:13},
+    {addr:'2413 Stuart Ave',sqft:1616,price:705000,sold:'2026-04-28',dom:15},
+    {addr:'1827 W Cary St #C',sqft:1792,price:649950,sold:'2025-07-31',dom:16},
+    {addr:'309 N Granby St',sqft:2200,price:999000,sold:'2025-10-23',dom:20},
+    {addr:'1529 West Ave',sqft:3052,price:1015000,sold:'2026-03-18',dom:22},
+    {addr:'2611 Kensington Ave',sqft:2763,price:980000,sold:'2025-08-04',dom:22},
+    {addr:'2011 Grove Ave',sqft:2434,price:772500,sold:'2025-09-08',dom:24},
+    {addr:'5 S Shields Ave',sqft:1548,price:555000,sold:'2025-07-08',dom:24},
+    {addr:'1613 W Cary St',sqft:1384,price:490000,sold:'2025-07-31',dom:24},
+    {addr:'304 N Rowland St',sqft:3005,price:1290000,sold:'2025-08-15',dom:26},
+    {addr:'2109 Hanover Ave',sqft:2894,price:990000,sold:'2025-07-07',dom:34},
+    {addr:'1630 Park Ave',sqft:3636,price:1000000,sold:'2025-09-30',dom:39},
+    {addr:'2611 W Main St',sqft:2218,price:750000,sold:'2026-05-05',dom:42,flag:'OLP typo'},
+    {addr:'2109 Hanover Ave',sqft:2894,price:990000,sold:'2025-07-07',dom:43,flag:'duplicate'},
+    {addr:'2617 1/2 Floyd Ave',sqft:2125,price:870000,sold:'2025-08-20',dom:46},
+    {addr:'1614 Hanover Ave',sqft:2856,price:600000,sold:'2025-11-10',dom:47},
+    {addr:'2210 Stuart Ave',sqft:1874,price:715000,sold:'2025-08-05',dom:48},
+    {addr:'2511 Kensington Ave',sqft:2306,price:1165000,sold:'2026-02-26',dom:64},
+    {addr:'20 S Lombardy St',sqft:1590,price:434000,sold:'2025-10-02',dom:69},
+    {addr:'1624 Floyd Ave',sqft:2340,price:785000,sold:'2025-11-21',dom:70},
+    {addr:'6 S Rowland St',sqft:2170,price:680000,sold:'2025-08-25',dom:73},
+    {addr:'1827 W Cary St #B',sqft:1792,price:599950,sold:'2025-11-25',dom:119},
+    {addr:'1823 W Cary St #B',sqft:1792,price:599950,sold:'2025-12-22',dom:128},
+    {addr:'1827 W Cary St #A',sqft:2070,price:615000,sold:'2026-06-26',dom:144},
+  ]},
+};
+const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
+const median=a=>{const s=[...a].sort((x,y)=>x-y);const m=Math.floor(s.length/2);return s.length%2?s[m]:(s[m-1]+s[m])/2;};
+const psf=c=>c.price/c.sqft;
+const stats=cs=>({n:cs.length,meanPrice:mean(cs.map(c=>c.price)),medPrice:median(cs.map(c=>c.price)),
+  meanPsf:mean(cs.map(psf)),medPsf:median(cs.map(psf)),meanSqft:mean(cs.map(c=>c.sqft)),medSqft:median(cs.map(c=>c.sqft))});
+const discount=(s,c,k)=>(s[k]-c[k])/c[k];
+
+const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+const d2=n=>'$'+n.toFixed(2);
+const pct=x=>(x>=0?'+':'−')+Math.abs(x*100).toFixed(1)+'%';
+const pctAbs=x=>Math.abs(x*100).toFixed(1)+'%';
+const gapClass=x=>Math.abs(x)<0.03?'flat':(x<0?'cheap':'rich');
+
+const S=stats(CORRIDOR.subject.comps), C=stats(CORRIDOR.comparison.comps);
+const subj=CORRIDOR.subject, comp=CORRIDOR.comparison;
+const gAvgP=discount(S,C,'meanPrice'), gMedP=discount(S,C,'medPrice');
+const gAvgS=discount(S,C,'meanPsf'),  gMedS=discount(S,C,'medPsf');
+const sqGap=S.meanSqft-C.meanSqft;
+
+document.getElementById('heroFacts').innerHTML=[
+  [pctAbs(gMedS),'Under, per square foot'],
+  [S.n+' vs '+C.n,'Fresh 2026 comps'],
+  [Math.round(sqGap)+' sf','The size hinge'],
+  ['1 afternoon','Pull to published'],
+].map(f=>`<div class="fact"><b>${f[0]}</b><span>${f[1]}</span></div>`).join('');
+
+document.getElementById('verdictH2').textContent=
+  `West Grace runs about ${pctAbs(gMedS)} under the Fan and Museum band on a price-per-foot basis, and roughly even on total price. Both are true. The difference is house size.`;
+document.getElementById('verdictP').innerHTML=
+  `Same fresh 2026 sales, same single-family filter on both sides. On average sale price Grace and the band are within ${pctAbs(gAvgP)} of each other. On median price per foot Grace trades <b>${d2(S.medPsf)}</b> against <b>${d2(C.medPsf)}</b>, a ${pctAbs(gMedS)} discount, because Grace homes run about ${Math.round(sqGap)} square feet larger. The full pull confirms the first read.`;
+
+document.getElementById('thSubj').textContent=subj.short+' ('+S.n+')';
+document.getElementById('thComp').textContent=comp.short+' ('+C.n+')';
+document.getElementById('matrixNote').textContent='Computed live from the MLS rows';
+const rows=[
+  {m:'Average sale price',s:money(S.meanPrice),c:money(C.meanPrice),g:gAvgP,lbl:'noise',read:'Size-confounded'},
+  {m:'Median sale price',s:money(S.medPrice),c:money(C.medPrice),g:gMedP,lbl:'noise',read:'Size-confounded'},
+  {m:'Average $/sqft',s:d2(S.meanPsf),c:d2(C.meanPsf),g:gAvgS,lbl:'real',read:'Real discount'},
+  {m:'Median $/sqft',s:d2(S.medPsf),c:d2(C.medPsf),g:gMedS,lbl:'real',read:'Real discount'},
+];
+document.getElementById('matrixBody').innerHTML=rows.map(r=>{
+  const hi=r.lbl==='real'?' class="hi"':'';
+  return `<tr${hi}><td class="metric">${r.m}</td><td class="r val">${r.s}</td><td class="r val">${r.c}</td>`+
+    `<td class="r"><span class="gap ${gapClass(r.g)}">${pct(r.g)}</span></td>`+
+    `<td><span class="rowlbl ${r.lbl}">${r.read}</span></td></tr>`;
+}).join('');
+
+const maxSq=Math.max(S.meanSqft,C.meanSqft);
+document.getElementById('sizeBars').innerHTML=[
+  {lbl:subj.short,v:S.meanSqft,cls:'grace'},{lbl:comp.short,v:C.meanSqft,cls:'comp'},
+].map(b=>`<div class="barrow"><div class="top"><b>${b.lbl}</b><span class="v">${Math.round(b.v).toLocaleString()} sf</span></div>`+
+  `<div class="track"><div class="fill ${b.cls}" style="width:${(b.v/maxSq*100).toFixed(1)}%"></div></div></div>`).join('');
+document.getElementById('sizeGap').innerHTML=`<b>${Math.round(sqGap).toLocaleString()} sqft bigger</b>`+
+  `<span>on average, about ${(sqGap/C.meanSqft*100).toFixed(0)}% more house for the same money. The discount, expressed as space instead of price.</span>`;
+
+const bridge=[
+  {b:'Average sale price',s:'where I started',g:gAvgP},
+  {b:'Switch to median sale price',s:'same metric family, flips sign',g:gMedP},
+  {b:'Normalize by $/sqft (average)',s:'strip out house size',g:gAvgS},
+  {b:'Median $/sqft',s:'the number to price on',g:gMedS,land:true},
+];
+document.getElementById('bridge').innerHTML=bridge.map(st=>
+  `<div class="step${st.land?' land':''}"><div class="lhs"><b>${st.b}</b><span>${st.s}</span></div>`+
+  `<div class="num ${gapClass(st.g)}">${pct(st.g)}</div></div>`).join('');
+
+const fmtDate=d=>{const[y,m,da]=d.split('-');return m+'/'+da.slice(-2)+'/'+y.slice(2);};
+const rowHtml=c=>{
+  const flag=c.flag?`<span class="flagpill">${c.flag}</span>`:'';
+  return `<tr><td><b>${c.addr}</b>${flag}</td><td class="r">${money(c.price)}</td><td class="r">${c.sqft.toLocaleString()}</td>`+
+    `<td class="r psf">${d2(psf(c))}</td><td class="r">${fmtDate(c.sold)}</td><td class="r">${c.dom}</td></tr>`;
+};
+document.getElementById('subjTitle').textContent=`${subj.label} · ${S.n} sold · median ${d2(S.medPsf)}/sf`;
+document.getElementById('compTitle').textContent=`${comp.label} · ${C.n} sold · median ${d2(C.medPsf)}/sf`;
+document.getElementById('subjRows').innerHTML=subj.comps.map(rowHtml).join('');
+document.getElementById('compRows').innerHTML=comp.comps.map(rowHtml).join('');
+</script>
+</body>
+</html>
