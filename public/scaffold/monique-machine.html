@@ -168,6 +168,21 @@
   footer{padding:3rem 0 4rem;color:var(--muted-dim);font-size:0.82rem;border-top:1px solid var(--line-soft);margin-top:4rem}
   .src{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted-dim);letter-spacing:0.04em}
 
+  .proof-band{margin-top:2.5rem;background:linear-gradient(180deg,rgba(212,175,55,0.10),var(--teal-panel));
+    border:1px solid var(--line);border-radius:20px;padding:2rem 2.2rem;box-shadow:var(--shadow)}
+  .proof-band h3{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.4rem,2.6vw,1.9rem);
+    color:var(--paper);letter-spacing:-0.02em;margin:0.4rem 0 0.8rem;max-width:26ch}
+  .proof-band p{color:var(--muted);max-width:64ch;margin-bottom:0.9rem;font-size:0.98rem}
+  .proof-band p.k{color:var(--ink)}
+  .proof-band p.k b{color:var(--paper)}
+  .proof-band em{color:var(--gold-soft);font-style:italic}
+  .proof-btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--teal-deep);background:var(--gold);
+    padding:0.72rem 1.2rem;border-radius:10px;text-decoration:none;margin-top:0.4rem;
+    transition:transform .25s cubic-bezier(.2,.9,.2,1),box-shadow .25s}
+  .proof-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(212,175,55,0.5)}
+  .proof-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
   @media(max-width:860px){
     .stat-strip,.g4,.flow{grid-template-columns:repeat(2,1fr)}
     .g3,.g2,.price-grid,.earn,.dec{grid-template-columns:1fr}
@@ -260,6 +275,14 @@
     <li><div><b>It learns the client</b><span class="tag">the lock-in</span><p>Month by month the Machine absorbs their voice, their preferences, their relationships, their decisions. Leaving means starting over from zero. Every month deepens the reason to stay.</p></div></li>
     <li><div><b>The partnership keeps it sharp</b><span class="tag">recurring</span><p>Clients are not buying a piece of software. They are buying a system that stays tuned, integrated, and alive as their business grows and the technology moves. We keep it sharp. That is the retainer, and it is why this compounds instead of ending at the sale.</p></div></li>
   </ol>
+
+  <div class="proof-band">
+    <div class="eyebrow" style="margin-bottom:0.6rem">Proof, live · see it work</div>
+    <h3>It turns a raw question into an answer you can defend.</h3>
+    <p>A mentor challenged one of our market numbers on the spot: <em>"how did you get there?"</em> In one afternoon the Machine ingested the raw data, caught that two conflicting reads were actually the same truth measured two different ways, named the hinge in a single line, and reproduced the answer to the dollar with zero guesswork. Then it shipped the whole derivation as a clickable page that defends the number step by step.</p>
+    <p class="k"><b>That is the product.</b> Not one answer. A system that turns any data question into something the operator can defend to the sharpest person in the room, in the time it takes to have the idea, and do it again tomorrow with a drop-in.</p>
+    <a class="proof-btn" href="https://mamsnow.com/scaffold/west-grace-for-rick.html" target="_blank" rel="noopener">See the live proof →</a>
+  </div>
 </section>
 
 <!-- THE MARKET -->
