@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>The Monique Machine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#003F3F; --teal-deep:#04120F; --teal-panel:#0A211C; --teal-panel-2:#0D2A23;
+    --gold:#D4AF37; --gold-soft:#E7CE86; --paper:#FAF7F1;
+    --ink:#F3EFE6; --muted:#9DB2AD; --muted-dim:#6E847E;
+    --line:rgba(212,175,55,0.16); --line-soft:rgba(212,175,55,0.09);
+    --green:#5FB98E; --amber:#E0A94A; --red:#D9795F;
+    --shadow: 0 1px 0 rgba(212,175,55,0.06), 0 18px 40px -24px rgba(0,20,16,0.9), 0 4px 14px -8px rgba(0,0,0,0.6);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--teal-deep);
+    line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .bg-field{position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(920px 620px at 12% -8%, rgba(0,63,63,0.65), transparent 60%),
+      radial-gradient(820px 560px at 92% 4%, rgba(212,175,55,0.10), transparent 58%),
+      radial-gradient(1200px 900px at 60% 108%, rgba(0,63,63,0.5), transparent 62%),
+      linear-gradient(180deg,#04120F 0%, #061713 42%, #04120F 100%);}
+  .bg-grain{position:fixed;inset:0;z-index:-1;opacity:0.035;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(4,18,15,0.72);border-bottom:1px solid var(--line-soft);}
+  .nav-in{max-width:1180px;margin:0 auto;padding:0.85rem 1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;letter-spacing:-0.01em;color:var(--paper);white-space:nowrap}
+  .brand span{color:var(--gold)}
+  .nav-links{display:flex;gap:1.35rem;margin-left:auto;flex-wrap:wrap}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:0.8rem;font-weight:500;transition:color .25s cubic-bezier(.2,.8,.2,1)}
+  .nav-links a:hover{color:var(--gold-soft)}
+  .nav-links a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:3px}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+  section{padding:4.2rem 0 1rem}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:600;letter-spacing:0.22em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:0.9rem;display:flex;align-items:center;gap:0.7rem}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);opacity:0.7}
+  h1{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.035em;line-height:1.02;
+    font-size:clamp(2.6rem,6vw,4.4rem);color:var(--paper)}
+  h2{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.025em;line-height:1.08;
+    font-size:clamp(1.7rem,3.4vw,2.5rem);color:var(--paper);margin-bottom:0.6rem}
+  h2 em{font-style:italic;color:var(--gold)}
+  .sec-intro{max-width:64ch;color:var(--muted);margin-bottom:2.2rem;font-size:1rem}
+  a.src-link{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,175,55,0.4);
+    transition:color .2s,border-color .2s}
+  a.src-link:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
+  a.src-link:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+  .hero{padding-top:3.4rem}
+  .hero h1{margin-bottom:1.4rem;max-width:16ch}
+  .hero h1 .g{color:var(--gold);font-style:italic}
+  .status-row{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1.8rem}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:600;letter-spacing:0.06em;
+    padding:0.42rem 0.8rem;border-radius:999px;border:1px solid var(--line);color:var(--gold-soft);
+    background:rgba(212,175,55,0.05);display:inline-flex;align-items:center;gap:0.45rem}
+  .chip .dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+  .chip.amber .dot{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+  .hero-thesis{font-size:1.18rem;line-height:1.6;color:var(--ink);max-width:60ch;margin-bottom:1.2rem}
+  .hero-thesis b{color:var(--gold-soft);font-weight:600}
+  .pull{border-left:2px solid var(--gold);padding:0.4rem 0 0.4rem 1.2rem;margin:1.6rem 0 0;
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.28rem;color:var(--paper);line-height:1.4;max-width:52ch}
+
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:3rem;
+    background:var(--line-soft);border:1px solid var(--line-soft);border-radius:16px;overflow:hidden}
+  .stat{background:linear-gradient(180deg,rgba(13,42,35,0.6),rgba(8,26,22,0.6));padding:1.5rem 1.3rem}
+  .stat .num{font-family:'Fraunces',serif;font-weight:600;font-size:2rem;color:var(--paper);letter-spacing:-0.02em;line-height:1}
+  .stat .num small{font-size:1rem;color:var(--gold);font-family:'Inter'}
+  .stat .lbl{font-size:0.78rem;color:var(--muted);margin-top:0.45rem;line-height:1.4}
+
+  .grid{display:grid;gap:1.1rem}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:linear-gradient(180deg,var(--teal-panel-2),var(--teal-panel));
+    border:1px solid var(--line-soft);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow);
+    transition:transform .3s cubic-bezier(.2,.9,.2,1),border-color .3s}
+  .card:hover{transform:translateY(-3px);border-color:var(--line)}
+  .card h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.16rem;color:var(--paper);margin-bottom:0.5rem;letter-spacing:-0.01em}
+  .card p{font-size:0.92rem;color:var(--muted)}
+  .card .ki{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--gold);letter-spacing:0.08em;margin-bottom:0.9rem;text-transform:uppercase}
+  .card .flag{font-family:'JetBrains Mono',monospace;font-size:0.64rem;letter-spacing:0.06em;color:var(--gold-soft);
+    background:rgba(212,175,55,0.06);border:1px solid var(--line-soft);padding:0.2rem 0.5rem;border-radius:6px;display:inline-block;margin-top:0.9rem}
+
+  .comp{margin:0.5rem 0 2rem}
+  .comp-bar{display:flex;height:54px;border-radius:12px;overflow:hidden;border:1px solid var(--line-soft)}
+  .comp-seg{display:flex;flex-direction:column;justify-content:center;padding:0 1rem;color:var(--teal-deep)}
+  .comp-seg b{font-family:'Fraunces',serif;font-size:1.15rem;line-height:1}
+  .comp-seg span{font-size:0.68rem;font-weight:600;letter-spacing:0.03em}
+  .s-generic{background:linear-gradient(180deg,#E7CE86,#D4AF37);flex:37}
+  .s-templ{background:linear-gradient(180deg,#7FA99B,#5C8578);flex:23;color:#04120F}
+  .s-bespoke{background:linear-gradient(180deg,#1A4038,#12312A);flex:40;color:var(--muted)}
+  .s-bespoke b{color:var(--paper)}
+  .comp-legend{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:0.8rem;font-size:0.82rem;color:var(--muted)}
+  .comp-legend span{display:inline-flex;align-items:center;gap:0.45rem}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  .moat{list-style:none;counter-reset:m}
+  .moat li{counter-increment:m;display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line-soft)}
+  .moat li:last-child{border-bottom:none}
+  .moat li::before{content:counter(m);font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;color:var(--gold);
+    width:30px;height:30px;flex:0 0 30px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+  .moat b{color:var(--paper);font-weight:600}
+  .moat .tag{font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;padding:0.15rem 0.5rem;border-radius:5px;margin-left:0.5rem;text-transform:uppercase;white-space:nowrap;
+    background:rgba(95,185,142,0.14);color:var(--green);border:1px solid rgba(95,185,142,0.3)}
+  .moat p{font-size:0.9rem;color:var(--muted);margin-top:0.2rem}
+
+  .price-grid{display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:1.1rem}
+  .price{background:linear-gradient(180deg,var(--teal-panel-2),var(--teal-panel));border:1px solid var(--line-soft);
+    border-radius:18px;padding:1.7rem;box-shadow:var(--shadow);position:relative}
+  .price.feature{border-color:var(--line);background:linear-gradient(180deg,rgba(212,175,55,0.10),var(--teal-panel))}
+  .price .tier{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.7rem}
+  .price .amt{font-family:'Fraunces',serif;font-size:2.3rem;font-weight:600;color:var(--paper);line-height:1;letter-spacing:-0.02em}
+  .price .amt small{font-size:0.95rem;color:var(--muted);font-family:'Inter';font-weight:500}
+  .price .desc{font-size:0.86rem;color:var(--muted);margin-top:0.9rem}
+  .badge-best{position:absolute;top:1.3rem;right:1.3rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;
+    letter-spacing:0.1em;padding:0.25rem 0.55rem;border-radius:6px;background:var(--gold);color:var(--teal-deep);font-weight:700}
+
+  .bench{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.3rem}
+  .bench .b{font-size:0.8rem;color:var(--ink);background:rgba(212,175,55,0.04);border:1px solid var(--line-soft);
+    padding:0.5rem 0.85rem;border-radius:10px}
+  .bench .b b{color:var(--paper)}
+
+  .note{background:rgba(212,175,55,0.06);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.4rem;margin-top:1.4rem}
+  .note .nh{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;color:var(--gold)}
+  .note p{font-size:0.92rem;color:var(--ink)}
+  .note b{color:var(--paper)}
+  .note.real{background:rgba(95,185,142,0.05);border-color:rgba(95,185,142,0.28)}
+  .note.real .nh{color:var(--green)}
+
+  .earn{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.2rem}
+  .earn .card .big{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:600;color:var(--gold);line-height:1;margin-bottom:0.3rem}
+
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:1rem}
+  .step{background:linear-gradient(180deg,var(--teal-panel-2),var(--teal-panel));border:1px solid var(--line-soft);
+    border-radius:14px;padding:1.3rem;position:relative}
+  .step .n{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--gold);font-weight:600;line-height:1;margin-bottom:0.6rem}
+  .step h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;color:var(--paper);margin-bottom:0.35rem}
+  .step p{font-size:0.85rem;color:var(--muted)}
+
+  .obj{padding:1.1rem 0;border-bottom:1px solid var(--line-soft)}
+  .obj:last-child{border-bottom:none}
+  .obj .q{font-family:'Fraunces',serif;font-style:italic;font-size:1.08rem;color:var(--paper);margin-bottom:0.35rem}
+  .obj .q::before{content:"“";color:var(--gold);margin-right:0.15rem}
+  .obj .q::after{content:"”";color:var(--gold);margin-left:0.1rem}
+  .obj .a{font-size:0.92rem;color:var(--muted)}
+  .obj .a b{color:var(--gold-soft);font-weight:600}
+
+  .dec{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  .dec .card{border-left:2px solid var(--gold)}
+  .dec .q{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--paper);margin-bottom:0.4rem}
+  .dec .a{font-size:0.88rem;color:var(--muted)}
+  .dec .a b{color:var(--gold-soft)}
+
+  .cta{background:linear-gradient(180deg,rgba(212,175,55,0.10),var(--teal-panel));border:1px solid var(--line);
+    border-radius:20px;padding:2.4rem;margin-top:2rem;text-align:center}
+  .cta h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.7rem;color:var(--paper);margin-bottom:0.6rem;letter-spacing:-0.02em}
+  .cta p{color:var(--muted);max-width:56ch;margin:0 auto;font-size:1rem}
+
+  footer{padding:3rem 0 4rem;color:var(--muted-dim);font-size:0.82rem;border-top:1px solid var(--line-soft);margin-top:4rem}
+  .src{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted-dim);letter-spacing:0.04em}
+
+  @media(max-width:860px){
+    .stat-strip,.g4,.flow{grid-template-columns:repeat(2,1fr)}
+    .g3,.g2,.price-grid,.earn,.dec{grid-template-columns:1fr}
+    .nav-links{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="bg-field"></div>
+<div class="bg-grain"></div>
+
+<nav>
+  <div class="nav-in">
+    <div class="brand">The Monique <span>Machine</span></div>
+    <div class="nav-links">
+      <a href="#built">What it is</a>
+      <a href="#market">The market</a>
+      <a href="#numbers">Pricing</a>
+      <a href="#who">Who we sell to</a>
+      <a href="#how">How it works</a>
+      <a href="#objections">Objections</a>
+      <a href="#together">Let's build it</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="wrap hero">
+  <div class="eyebrow">The Monique Machine · Product &amp; Positioning</div>
+  <h1>Sell the assistant<br>that already <span class="g">runs the business.</span></h1>
+  <div class="status-row">
+    <span class="chip"><span class="dot"></span>Working today</span>
+    <span class="chip"><span class="dot"></span>Price validated in market</span>
+    <span class="chip amber"><span class="dot"></span>Ready to take out</span>
+  </div>
+  <p class="hero-thesis">This is not a product we have to invent. It is a working system, <b>48 skills, 6 agents, running real businesses for over a year</b>, packaged as a dedicated machine you deliver to a client. The whole edge is the one thing most AI sellers cannot show. <b>Proof over promises.</b></p>
+  <div class="pull">"Your assistant lives in your house. It reads what only a machine in the room can read, and answers to no one but you."</div>
+
+  <div class="stat-strip">
+    <div class="stat"><div class="num">48</div><div class="lbl">Skills built &amp; running</div></div>
+    <div class="stat"><div class="num">6</div><div class="lbl">Specialized agents</div></div>
+    <div class="stat"><div class="num">14<small>+ mo</small></div><div class="lbl">Proven in production, real revenue</div></div>
+    <div class="stat"><div class="num">$20<small>K</small></div><div class="lbl">Setup + $2K/mo. A live market price, not a guess.</div></div>
+  </div>
+</header>
+
+<!-- WHAT IT IS -->
+<section id="built" class="wrap">
+  <div class="eyebrow">01 · What it is</div>
+  <h2>A real operations layer, <em>ready to package.</em></h2>
+  <p class="sec-intro">A year of building produced a system that already does the work: reads every channel, drafts in your voice, tracks the money, builds client surfaces, runs research. We split it into what ships to everyone versus what we build custom.</p>
+
+  <div class="comp">
+    <div class="comp-bar">
+      <div class="comp-seg s-generic"><b>37%</b><span>SHIPS ON EVERY MACHINE</span></div>
+      <div class="comp-seg s-templ"><b>23%</b><span>LIGHT CONFIG</span></div>
+      <div class="comp-seg s-bespoke"><b>40%</b><span>CUSTOM / BUILT TO ORDER</span></div>
+    </div>
+    <div class="comp-legend">
+      <span><i class="sw" style="background:#D4AF37"></i>The base Machine, boots day one</span>
+      <span><i class="sw" style="background:#5C8578"></i>Templates that adapt to their business</span>
+      <span><i class="sw" style="background:#12312A"></i>Custom builds per client, the ongoing lane</span>
+    </div>
+  </div>
+
+  <div class="grid g3" style="margin-bottom:2rem">
+    <div class="card">
+      <div class="ki">The base Machine</div>
+      <h3>What boots day one</h3>
+      <p>A daily brief across their texts, email, calendar and CRM. An assistant that learns their voice and drafts replies. Pipeline and cash tracking. A research engine. Client-facing dashboards in their brand. All of it, running on their own machine.</p>
+    </div>
+    <div class="card">
+      <div class="ki">Cost safety, built in</div>
+      <h3>It cannot run away with their money</h3>
+      <p>A hard spend cap, a kill switch, and smart model routing are wired in from the start. The system uses the expensive intelligence only when the stakes call for it. That is a real differentiator against anyone bolting raw AI onto a business.</p>
+    </div>
+    <div class="card">
+      <div class="ki">The custom lane</div>
+      <h3>The part that keeps paying</h3>
+      <p>Every client's industry gets its own tailored skills after launch. The base Machine creates the appetite; the ongoing partnership feeds it. This is how one sale becomes a relationship, not a transaction.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--paper);margin:1rem 0 0.4rem">Why nobody can copy it overnight</h3>
+  <p class="sec-intro" style="margin-bottom:1.2rem">The code is the easy part. The edge is deeper, and it holds.</p>
+  <ol class="moat">
+    <li><div><b>It lives on their machine</b><span class="tag">the real edge</span><p>Texts, WhatsApp, bank data: these only exist on the client's own device. No cloud service, no other agency, can touch them without being in the room. The highest-value information is exactly what only a local machine can reach. Lead with this every time.</p></div></li>
+    <li><div><b>It is already proven</b><span class="tag">the receipts</span><p>Over a year in production, running real businesses, real revenue, replies in under a second and a half. Almost everyone pitching AI to a business owner has never run anything. This one already has. That is the proof that closes.</p></div></li>
+    <li><div><b>The integration is brutal to replicate</b><span class="tag">the labor</span><p>Wiring a business's email, CRM, calendar, messages, and permissions into one system that actually works is weeks of specialized work. That is what the setup fee buys, and it is why a client will not just "do it themselves."</p></div></li>
+    <li><div><b>It learns the client</b><span class="tag">the lock-in</span><p>Month by month the Machine absorbs their voice, their preferences, their relationships, their decisions. Leaving means starting over from zero. Every month deepens the reason to stay.</p></div></li>
+    <li><div><b>The partnership keeps it sharp</b><span class="tag">recurring</span><p>Clients are not buying a piece of software. They are buying a system that stays tuned, integrated, and alive as their business grows and the technology moves. We keep it sharp. That is the retainer, and it is why this compounds instead of ending at the sale.</p></div></li>
+  </ol>
+</section>
+
+<!-- THE MARKET -->
+<section id="market" class="wrap">
+  <div class="eyebrow">02 · The market</div>
+  <h2>The price is <em>already proven</em> in the open.</h2>
+  <p class="sec-intro">We did not pull these numbers out of the air. Every claim below links to its source so you can verify it and dive in yourself.</p>
+
+  <div class="grid g3" style="margin-bottom:2rem">
+    <div class="card" style="border-color:var(--line)">
+      <div class="ki">The comp that holds the price</div>
+      <h3>$20K + $2K/mo, live in market</h3>
+      <p>An AI agency publishes a near-identical package at <b style="color:var(--paper)">$20,000 setup plus $2,000/month</b>. Our price sits in a real market band, not an invented one.</p>
+      <span class="flag"><a class="src-link" href="https://www.digitalapplied.com/blog/ai-agency-services-pricing-strategies-2026" target="_blank" rel="noopener">Verify: Digital Applied pricing →</a></span>
+    </div>
+    <div class="card">
+      <div class="ki">The reframe that wins</div>
+      <h3>Sell against payroll, not apps</h3>
+      <p>A human executive assistant runs <b style="color:var(--paper)">$36K to $50K a year</b>, forever. Even a software company markets against "the $8,000/month human assistant." Never let a buyer compare us to a $30/month app.</p>
+      <span class="flag"><a class="src-link" href="https://www.athena.com/pricing" target="_blank" rel="noopener">Athena $36K/yr →</a>&nbsp; <a class="src-link" href="https://www.wishup.co/blog/belay-virtual-assistant-pricing/" target="_blank" rel="noopener">Belay ~$45K/yr →</a></span>
+    </div>
+    <div class="card">
+      <div class="ki">The open lane</div>
+      <h3>Nobody sells this shape</h3>
+      <p>Software assistants live in the cloud and hold your data. Human assistants quit. Agencies build fragile cloud stacks. <b style="color:var(--paper)">No one sells a client-owned machine that keeps your data in your hands, backed by proof.</b> That lane is empty.</p>
+      <span class="flag"><a class="src-link" href="https://www.lindy.ai/pricing" target="_blank" rel="noopener">Compare: Lindy (cloud SaaS) →</a></span>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <div class="ki">Where the pros land</div>
+      <h3>"An operating system, not a tutorial"</h3>
+      <p>The market's most-followed automation voice sells on a ladder that ends in a $3K to $10K/month retainer, and coaches sellers to lead with the outcome, not the how-to. We start the client near the top of that ladder because the proof does the trust-building for us.</p>
+      <span class="flag"><a class="src-link" href="https://x.com/nateherk/status/2057868433744613614" target="_blank" rel="noopener">The pricing ladder →</a></span>
+    </div>
+    <div class="card">
+      <div class="ki">The positioning gift</div>
+      <h3>Proof over promises</h3>
+      <p>There is a loud, growing backlash against fake AI: recycled templates, empty demos, "revolutionary agents" that do nothing. Our answer is simply to show the working thing. <b style="color:var(--paper)">A case study, not a testimonial. A running machine, not a slide deck.</b> The one rule: every claim we make stays verifiable, because this audience punishes exaggeration.</p>
+      <span class="flag"><a class="src-link" href="https://www.youtube.com/watch?v=k_0oXnp7FBE" target="_blank" rel="noopener">The anti-hype thesis →</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="numbers" class="wrap">
+  <div class="eyebrow">03 · Pricing</div>
+  <h2>One Machine. <em>The retainer is the business.</em></h2>
+  <p class="sec-intro">One product, two ways to deliver it. Do not water it down into a cheap version. The recurring retainer is where the real money lives, so the setup exists to earn the relationship.</p>
+
+  <div class="price-grid">
+    <div class="price">
+      <div class="tier">Install on your Mac</div>
+      <div class="amt">$20K</div>
+      <div class="desc">We set the Machine up on the client's own computer. The full system, two onboarding sessions, all the integration wiring, 30 days of white-glove support after launch.</div>
+    </div>
+    <div class="price feature">
+      <span class="badge-best">FLAGSHIP</span>
+      <div class="tier">Built &amp; shipped</div>
+      <div class="amt">$24.5K</div>
+      <div class="desc">We build, harden, and ship a dedicated machine, ready to plug in. Everything at left, plus the hardware, secure remote support, and a box we can fully stand behind. This is the default we lead with.</div>
+    </div>
+    <div class="price">
+      <div class="tier">Retainer · Keeper</div>
+      <div class="amt">$2K<small>/mo</small></div>
+      <div class="desc">Six-month minimum. Ongoing monitoring, maintenance, cost tuning, monthly build hours, and a quarterly deep re-sync. Step up to <b style="color:var(--paper)">Operator at $3.5K/mo</b> for power clients who want more.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.6rem">
+    <div class="ki" style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.7rem">How we know the price is right</div>
+    <div class="bench">
+      <span class="b"><b>$20K + $2K/mo</b> published agent-license comp <a class="src-link" href="https://www.digitalapplied.com/blog/ai-agency-services-pricing-strategies-2026" target="_blank" rel="noopener">→</a></span>
+      <span class="b">Agency builds <b>$15K to $40K</b> setup</span>
+      <span class="b">Custom agent work <b>$35K to $100K+</b> <a class="src-link" href="https://arsum.com/blog/posts/ai-automation-agency-pricing/" target="_blank" rel="noopener">→</a></span>
+      <span class="b">Human EA <b>$36K to $50K/yr</b></span>
+      <span class="b">Mature agencies draw <b>70 to 80%</b> from retainers <a class="src-link" href="https://ciela.ai/blogs/ai-agency-pricing-guide-retainers-projects" target="_blank" rel="noopener">→</a></span>
+    </div>
+    <p class="sec-intro" style="margin-top:0.9rem;margin-bottom:0">Room to grow: for bigger clients there is a <b style="color:var(--gold-soft)">Custom tier from $35K setup and $3K to $8K/month</b>. That is your expansion lane once the flagship is landing.</p>
+  </div>
+
+  <div class="note">
+    <div class="nh">The qualification screen, our favorite filter</div>
+    <p>We only pitch operators who clear <b>$8K+ per deal AND $250K+ a year</b>. For that buyer, one or two extra deals pays for the whole first year. Below the line, the answer is "not yet," never a discount. Chasing small buyers cheapens the brand. Qualifying hard makes every pitch land.</p>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--paper);margin:2rem 0 0.4rem">What this means for you, Natalie</h3>
+  <div class="earn">
+    <div class="card"><div class="big">~$11K+</div><p>Your cut on every Machine sold, at 55% of setup. The flagship pays you more.</p></div>
+    <div class="card"><div class="big">10%</div><p>A perpetual trail on every retainer, for the life of the account. It compounds as the book grows.</p></div>
+    <div class="card"><div class="big">You run it</div><p>The sales function is yours to build and lead. This is a partnership, and the ceiling is what we decide to make it.</p></div>
+  </div>
+
+  <div class="note real">
+    <div class="nh">The honesty that makes the pitch bulletproof</div>
+    <p><b style="color:var(--green)">True and powerful:</b> we never hold their data or their keys, the Machine runs on their box, they can unplug it any time. <b style="color:var(--red)">What we never claim:</b> that "your data never leaves your machine," because the AI still calls out to think. Saying that difference out loud is exactly what makes buyers trust everything else we say.</p>
+  </div>
+</section>
+
+<!-- WHO WE SELL TO -->
+<section id="who" class="wrap">
+  <div class="eyebrow">04 · Who we sell to</div>
+  <h2>Where we plant the flag. <em>Your call, partner.</em></h2>
+  <p class="sec-intro">The research points at high-income operators with heavy admin and privacy that matters. Here are the strongest lanes. This is where you weigh in, because the segment we own should be one you are excited to go win.</p>
+
+  <div class="grid g2" style="margin-bottom:1.1rem">
+    <div class="card">
+      <div class="ki">Lane 01</div>
+      <h3>Small-firm attorneys</h3>
+      <p>Every hour on admin is a billed hour lost. Intake, drafting, deadlines, client comms: all things the Machine carries. They already spend heavily on software and take privacy seriously. A clean, high-trust fit.</p>
+    </div>
+    <div class="card">
+      <div class="ki">Lane 02</div>
+      <h3>Med spa &amp; aesthetics owners</h3>
+      <p>High-ticket bookings leaking through no-shows and slow follow-up. They already run four and five-figure monthly marketing budgets. The Machine plugs the leaks and never sleeps.</p>
+    </div>
+    <div class="card" style="border-color:var(--line)">
+      <div class="ki">Lane 03 · high upside</div>
+      <h3>Athletes &amp; high-profile individuals</h3>
+      <p>High earners, real admin drag, and privacy that is non-negotiable. The local-first story was built for them: their world stays on their own machine, not in someone's cloud. A premium, word-of-mouth market where one client opens a room full of others.</p>
+    </div>
+    <div class="card" style="border-color:var(--line)">
+      <div class="ki">Lane 04 · brand-defining</div>
+      <h3>Black business excellence</h3>
+      <p>Building these for Black founders, entrepreneurs, and leaders, in Richmond and beyond, makes a name that means something. A mission and a market at once. This is how we become known for something bigger than a tool.</p>
+    </div>
+  </div>
+  <div class="note">
+    <div class="nh">Held for later</div>
+    <p>Real estate investors and wholesalers are a real market, but not where we start. That is a strong <b>template lane to sell down the road</b>, once the flagship is proven with higher-trust, higher-margin clients.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="wrap">
+  <div class="eyebrow">05 · How it works</div>
+  <h2>How a client comes on. <em>Local-first is the pitch.</em></h2>
+  <p class="sec-intro">The rollout itself is part of the sell. We earn trust in stages, and the security model is the proof that backs every promise.</p>
+
+  <div class="flow">
+    <div class="step"><div class="n">1</div><h4>Discovery &amp; fit</h4><p>We confirm they clear the screen and map where the Machine saves them the most. No pitch to a bad-fit buyer.</p></div>
+    <div class="step"><div class="n">2</div><h4>Build &amp; personalize</h4><p>The system learns their voice and their business, and we wire in every channel. This is the work that cannot be faked.</p></div>
+    <div class="step"><div class="n">3</div><h4>Staged secure rollout</h4><p>Week one is low-sensitivity. Their private data unlocks later, once they have felt the value and ask for more. Access is pulled by them, never pushed.</p></div>
+    <div class="step"><div class="n">4</div><h4>Ongoing partnership</h4><p>The retainer begins. We keep it tuned, add new skills, and grow it with them. The relationship, not the sale, is the point.</p></div>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--paper);margin:2rem 0 1rem">Local-first is the pitch. Two tiers of security are the proof.</h3>
+  <div class="grid g2">
+    <div class="card">
+      <div class="ki">Day one, every client</div>
+      <h3>The trust package</h3>
+      <p>A plain-English data agreement, multi-factor login, full-disk encryption, locked-down remote support, and staged access. Enough for any private, high-trust buyer to feel completely safe from the first conversation.</p>
+    </div>
+    <div class="card">
+      <div class="ki">When the big clients come</div>
+      <h3>The enterprise unlock</h3>
+      <p>Formal audits, deeper monitoring, and insurance come online when a large deal calls for them. We treat that as a sales unlock we grow into, not a wall that blocks the start. <a class="src-link" href="https://sprinto.com/blog/soc-2-audit-for-small-business/" target="_blank" rel="noopener">What that looks like →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section id="objections" class="wrap">
+  <div class="eyebrow">06 · Objections</div>
+  <h2>What you'll hear, <em>and how we answer it.</em></h2>
+  <p class="sec-intro">Every one of these has a clean answer. Know them cold and there is nothing on the call that can knock you off balance.</p>
+
+  <div class="card">
+    <div class="obj"><div class="q">$20K is a lot. ChatGPT is twenty bucks a month.</div><div class="a"><b>Different category.</b> ChatGPT cannot read your texts, does not know your pipeline, and forgets you between chats. We are the price of one deal's commission, and it works every single day for years. Then show the daily brief live. The demo is the close.</div></div>
+    <div class="obj"><div class="q">And I still pay monthly costs on top?</div><div class="a"><b>Their accounts, their keys, no markup from us.</b> The spend cap means they control the ceiling. Framed right, it is $25 to $40 a day for a full-time analyst that never clocks out.</div></div>
+    <div class="obj"><div class="q">What happens when it breaks?</div><div class="a"><b>That is what the retainer is for.</b> Maintenance and monitoring are baked in, we can service it remotely without ever touching their data, and the machine we ship is one we fully stand behind.</div></div>
+    <div class="obj"><div class="q">How do I know my private data is safe?</div><div class="a"><b>Because it never leaves the room.</b> The Machine runs on their box, we hold no keys, access unlocks in stages, and there is a kill switch. The local-first design is not a feature we bolt on, it is the whole architecture.</div></div>
+    <div class="obj"><div class="q">Isn't AI going to make all this free soon?</div><div class="a"><b>Every improvement makes their Machine better at no cost to them.</b> They are not buying the model. They are buying the integration into their business and a partner who keeps it sharp. That does not commoditize.</div></div>
+  </div>
+</section>
+
+<!-- TOGETHER -->
+<section id="together" class="wrap">
+  <div class="eyebrow">07 · Let's build it</div>
+  <h2>What we <em>decide together.</em></h2>
+  <div class="dec" style="margin-top:1.5rem">
+    <div class="card"><div class="q">The lane we own</div><div class="a">Which segment do we plant the flag in first? Attorneys, med spas, athletes, Black business excellence. Your read matters most here.</div></div>
+    <div class="card"><div class="q">The founding offer</div><div class="a">A founding-client rate for the first one or two, to stack proof fast. What terms feel right to lead with?</div></div>
+    <div class="card"><div class="q">What you want to own</div><div class="a">This is your function to build. Tell me where you want to focus so we shape the whole go-to-market around it.</div></div>
+  </div>
+
+  <div class="cta">
+    <h3>This is money on the table, and it is real.</h3>
+    <p>A working product, a proven price, and an open lane. The only question left is which door we knock on first. Let's pick it together.</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p class="src">The Monique Machine · a working AI operations system, delivered as a dedicated machine. Market figures sourced from Digital Applied, Athena, Belay, Lindy, Arsum, Ciela, and Sprinto, linked inline above.</p>
+</footer>
+
+</body>
+</html>
