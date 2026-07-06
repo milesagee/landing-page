@@ -59,10 +59,38 @@ export default async function BuyerMatchPage({
           {data.firstName}, here&rsquo;s your shortlist.
         </h1>
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
-          Start with the homes. Each one fits what you told me, with the drive to base, the highway
-          access, and the honest trade-off. The market read is underneath if you want it.
+          {data.schoolMethod && data.schoolMethod.length > 0
+            ? "Ranked by the Elementary School Read for the exact school each home is zoned to. Every number below comes with the source it came from, so you can check it yourself. The drive to base and the honest trade-off ride on each card."
+            : "Start with the homes. Each one fits what you told me, with the drive to base, the highway access, and the honest trade-off. The market read is underneath if you want it."}
         </p>
       </section>
+
+      {data.schoolMethod && data.schoolMethod.length > 0 && (
+        <section className="max-w-3xl mx-auto px-6 pb-4">
+          <div className="bg-white rounded-lg border border-deep-teal/10 overflow-hidden">
+            <div className="px-6 sm:px-8 py-4 bg-deep-teal/[0.04] border-b border-deep-teal/10">
+              <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold">
+                How your Elementary School Read is built
+              </p>
+            </div>
+            <div className="px-6 sm:px-8 py-6 space-y-5">
+              {data.schoolLensIntro && (
+                <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">
+                  {data.schoolLensIntro}
+                </p>
+              )}
+              <ul className="space-y-3">
+                {data.schoolMethod.map((factor) => (
+                  <li key={factor.name} className="border-l-2 border-gold/40 pl-4">
+                    <p className="font-display text-base text-deep-teal leading-tight">{factor.name}</p>
+                    <p className="text-xs text-deep-teal/65 mt-0.5 leading-relaxed">{factor.sourceNote}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="max-w-3xl mx-auto px-6 pb-10 space-y-6">
         {data.properties.length === 0 ? (

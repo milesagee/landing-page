@@ -82,8 +82,12 @@ export function BuyerMatchCard({
         <div className="flex items-baseline justify-between gap-4 flex-wrap">
           <div>
             <p className="text-[10px] uppercase tracking-[0.14em] text-deep-teal/55 font-semibold mb-1">
-              {property.daysOnMarket !== null ? `${property.daysOnMarket} days on market` : "Off-market"}
-              {property.mlsNumber ? ` &middot; MLS ${property.mlsNumber}` : ""}
+              {[
+                property.daysOnMarket !== null ? `${property.daysOnMarket} days on market` : null,
+                property.mlsNumber ? `MLS ${property.mlsNumber}` : null,
+              ]
+                .filter(Boolean)
+                .join(" · ")}
             </p>
             <h3 className="font-display text-xl sm:text-2xl text-deep-teal leading-tight">
               {property.address}
@@ -95,8 +99,13 @@ export function BuyerMatchCard({
           <div className="text-right">
             <p className="font-display text-2xl text-deep-teal leading-none">{property.priceLabel}</p>
             <p className="text-[11px] text-deep-teal/55 mt-1">
-              {property.beds} bed &middot; {property.baths} bath
-              {property.sqft ? ` &middot; ${property.sqft.toLocaleString()} sqft` : ""}
+              {[
+                `${property.beds} bed`,
+                `${property.baths} bath`,
+                property.sqft ? `${property.sqft.toLocaleString()} sqft` : null,
+              ]
+                .filter(Boolean)
+                .join(" · ")}
             </p>
           </div>
         </div>
@@ -109,6 +118,65 @@ export function BuyerMatchCard({
         </p>
         <p className="text-sm text-deep-teal/85 leading-relaxed">{property.gapFillReason}</p>
       </div>
+
+      {/* Elementary School Read (buyer-stated priority). The sourced research
+          makes the claim; MAMS never does. Renders only when the assigned
+          school was resolved and a Read exists. Every datapoint carries a
+          source link. */}
+      {property.assignedElementary && typeof property.schoolRead === "number" && (
+        <section className="px-6 sm:px-8 py-6 border-b border-deep-teal/10 bg-deep-teal/[0.04] space-y-4">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold mb-1">
+                Elementary School Read
+              </p>
+              <p className="font-display text-lg text-deep-teal leading-tight">
+                {property.assignedElementary.name}
+              </p>
+              <a
+                href={property.assignedElementary.source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] text-deep-teal/60 underline hover:text-gold-dark"
+              >
+                Zoned by {property.assignedElementary.source.label}
+              </a>
+            </div>
+            <div className="shrink-0 text-center rounded-md border border-gold/40 bg-gold/10 px-3 py-2">
+              <span className="font-display text-2xl text-deep-teal leading-none">
+                {property.schoolRead}
+              </span>
+              <span className="block text-[10px] uppercase tracking-[0.12em] text-deep-teal/55 mt-0.5">
+                out of 10
+              </span>
+            </div>
+          </div>
+
+          {property.schoolReadSummary && (
+            <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">
+              {property.schoolReadSummary}
+            </p>
+          )}
+
+          {property.schoolEvidence && property.schoolEvidence.length > 0 && (
+            <ul className="space-y-2 pt-1">
+              {property.schoolEvidence.map((e, i) => (
+                <li key={i} className="border-l-2 border-gold/40 pl-4">
+                  <p className="text-sm text-deep-teal/80 leading-relaxed">{e.point}</p>
+                  <a
+                    href={e.source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] text-deep-teal/55 underline hover:text-gold-dark"
+                  >
+                    {e.source.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
 
       {/* Vibes */}
       {property.vibes && (

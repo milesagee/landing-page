@@ -23,6 +23,24 @@ export type AnchorMatch = {
   matches: string; // The intake must-have or lifestyle tag this anchor pairs to
 };
 
+// A single cited school datapoint. `point` is a neutral fact or a verbatim,
+// attributed parent quote. It ALWAYS carries a source. If a datapoint has no
+// source it does not exist on the page (fair-housing spine: every school
+// statement is a citation, never an assertion in MAMS's own voice).
+export type SchoolEvidenceItem = {
+  point: string; // factual datapoint OR verbatim quoted parent text
+  source: { label: string; url: string };
+};
+
+// The transparent "how the Read is built" method card, rendered once above the
+// shortlist (mirrors Mary's Natural Light Score method card in home-dna). It
+// names the sourced factors so the buyer sees the Read is a rollup of published
+// indicators, not MAMS opinion.
+export type SchoolReadFactor = {
+  name: string; // e.g. "Assigned elementary", "Published academic signal"
+  sourceNote: string; // one line naming the sourced inputs behind this factor
+};
+
 export type BuyerMatchProperty = {
   // Identity
   slug: string; // kebab-case slug from address, e.g. "2401-warwick-avenue"
@@ -61,6 +79,21 @@ export type BuyerMatchProperty = {
   // Per-buyer narrative
   whyThisOne: string; // ONE sentence; mechanics-first; cites intake specific
   tradeOff: string; // ONE sentence; "Clean fit -- no notable trade-offs surfaced." allowed
+
+  // ---- Elementary-school lens (optional; buyer-stated priority) ----
+  // All four render together or not at all. Populated only when the assigned
+  // school was resolved from the exact address AND at least one sourced
+  // datapoint exists. Empty beats invented.
+  assignedElementary?: { name: string; source: { label: string; url: string } };
+  // 0-10 transparent rollup of the buyer's stated priority against published
+  // indicators. Sourced signal, not a MAMS quality claim. Drives the re-rank.
+  schoolRead?: number;
+  // One paragraph synthesizing the sourced evidence in the "sourced, never
+  // claimed" voice. Never characterizes ("good"/"safe"/"family-friendly").
+  schoolReadSummary?: string;
+  // The cited evidence behind the Read: SOL data, ratings, ratios, programs,
+  // and verbatim attributed parent quotes. Each item carries its source.
+  schoolEvidence?: SchoolEvidenceItem[];
 };
 
 // A per-neighborhood read. Renders as a card above the shortlist. Lets the
@@ -89,6 +122,13 @@ export type BuyerMatchData = {
 
   // Optional: per-neighborhood reads, rendered as cards above the shortlist.
   neighborhoodReads?: NeighborhoodRead[];
+
+  // Optional: the elementary-school lens intro + method card. When present, the
+  // page renders a "How your Elementary School Read is built" section and the
+  // shortlist is ordered by schoolRead (buyer-stated priority). When absent, the
+  // page renders exactly as before (no school lens).
+  schoolLensIntro?: string; // Miles-voice, you-frame, method not opinion
+  schoolMethod?: SchoolReadFactor[];
 
   // Optional: ETA copy for the shortlist-pending state ("by tomorrow morning").
   // When properties is empty, the page renders a substantive "being built"
@@ -459,94 +499,242 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
           "This is the land-and-space play. At your range you can find acreage and a newer home, but turnkey 2000s-or-newer inventory is thinner here and the run to Fort Gregg-Adams is longer than from Chester. Worth it if more land outranks a shorter commute.",
       },
     ],
-    properties: [
+    schoolLensIntro:
+      "You told us the assigned elementary drives this search, so we resolved the exact school each address is zoned to and pulled the published record for each one: Virginia DOE pass rates and trend, GreatSchools and Niche figures, ratios, and verbatim parent reviews. The Read is a rollup of that sourced evidence against your stated priority, not our opinion of any school. Reconfirm every assignment with the district before contract, since boundaries can change.",
+    schoolMethod: [
       {
-        slug: "1769-outrigger-dr",
-        address: "1769 Outrigger Dr",
-        city: "Chester",
-        state: "VA",
-        zip: "23836",
-        listPrice: 505000,
-        priceLabel: "$505,000",
-        beds: 4,
-        baths: 3,
-        sqft: 2248,
-        mlsNumber: "2605747",
-        daysOnMarket: 96,
-        sourceUrl: "https://www.homes.com/property/1769-outrigger-dr-chester-va/ywjdlj07kc2k0/",
-        photoUrl: "https://ssl.cdn-redfin.com/photo/131/mbpaddedwide/747/genMid.2605747_7.jpg",
-        gapFillReason:
-          "The 96-day listing reads stale on the portals before a buyer notices it is a 2023 ranch with the shortest base commute in the set.",
-        vibes:
-          "The cleanest logistics fit in the group: a 2023 one-story home in Twin Rivers at Meadowville Landing, 4 beds, 3 baths, 2,248 sqft, screened porch, high ceilings, granite counters, induction cooktop, tankless water heater, and a direct-access 2-car garage. The $106 per month HOA brings pool, fitness, and water-oriented community amenities.",
-        anchors: [
-          {
-            name: "Fort Gregg-Adams Gregg Avenue Gate",
-            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
-            distance: "15 min drive",
-            matches: "Fort Gregg-Adams commute",
-          },
-          {
-            name: "I-95 Exit 61, VA-10 Chester Road",
-            address: "VA-10 at I-95, Chester, VA 23831",
-            distance: "4 min drive",
-            matches: "I-95 access",
-          },
-          {
-            name: "I-295 Exit 15A, VA-10 East Hundred Road",
-            address: "VA-10 at I-295, Chester, VA 23836",
-            distance: "5 min drive",
-            matches: "I-295 access",
-          },
-        ],
-        whyThisOne:
-          "It hits your newer-construction requirement with 2023 build quality, 4 beds, 3 full baths, and the fastest verified Fort Gregg-Adams commute on this list.",
-        tradeOff:
-          "The longer days-on-market count needs a showing-level explanation, because it may signal pricing friction despite strong criteria fit.",
+        name: "Assigned elementary",
+        sourceNote:
+          "Point-in-polygon against the Chesterfield County Public Schools boundary layer (Virginia Open Data) and the Henrico County Public Schools attendance-zone locator, from each geocoded street address.",
       },
       {
-        slug: "12218-winbolt-dr",
-        address: "12218 Winbolt Dr",
-        city: "Chester",
+        name: "Published academic signal",
+        sourceNote: "Virginia DOE SOL reading and math pass rates plus trend, GreatSchools, and Niche.",
+      },
+      {
+        name: "Program specifics",
+        sourceNote: "Gifted, immersion, and specialty programs where the district or school publishes them.",
+      },
+      {
+        name: "Class size",
+        sourceNote: "Published enrollment and student-teacher ratio.",
+      },
+      {
+        name: "Parent-reported texture",
+        sourceNote: "Verbatim, attributed quotes from GreatSchools parent reviews, positive and negative.",
+      },
+    ],
+    properties: [
+      {
+        slug: "15667-henningford-dr",
+        address: "15667 Henningford Dr",
+        city: "Chesterfield",
         state: "VA",
-        zip: "23836",
-        listPrice: 500000,
-        priceLabel: "$500,000",
-        beds: 4,
-        baths: 2.5,
-        sqft: 2560,
-        mlsNumber: "2611744",
-        daysOnMarket: 43,
-        sourceUrl: "https://www.homes.com/property/12218-winbolt-dr-chester-va/sjytndddw758s/",
-        photoUrl: null,
+        zip: "23832",
+        listPrice: 553000,
+        priceLabel: "$553,000",
+        beds: 3,
+        baths: 3,
+        sqft: 2194,
+        mlsNumber: "2610493",
+        daysOnMarket: null,
+        sourceUrl: "https://www.compass.com/homedetails/15667-Henningford-Dr-Chesterfield-VA-23832/KS2NK_pid/",
+        photoUrl: "https://www.compass.com/m/d1ba9e925d5c6409e758cefec08f3115de974739_img_0_ad1c7/640x480.jpg",
         gapFillReason:
-          "Portals treat it as one more Meadowville Landing result, but the $500,000 price plus 2016 build gives it a stronger value-to-commute ratio than several prettier higher-priced cards.",
+          "Active 23836 inventory at your bed count and price was sparse at research date, so this secondary-area Chesterfield home carries the highest published school indicators on the list.",
         vibes:
-          "A 2016 single-family home in Meadowville Landing's Mount Blanco section with 4 beds, 2.5 baths, 2,560 sqft, fresh paint and carpet, granite counters, induction cooktop, kitchen island, and a 2-car rear garage. The listing shows a $32,000 price drop and a $106 per month HOA tied to pool, boat dock, beach, and tennis amenities.",
+          "Built 2022, 2,194 sqft, 3 bedrooms and 3 full baths at $553,000, reduced from $559,900 per the Compass record. The newest build year and the smallest square footage on the shortlist. Zoned to Winterpock Elementary, where published enrollment rose from 760 to 834 across the last three reported years per the VDOE profile.",
         anchors: [
           {
-            name: "Fort Gregg-Adams Gregg Avenue Gate",
-            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
-            distance: "17 min drive",
-            matches: "Fort Gregg-Adams commute",
-          },
-          {
-            name: "I-95 Exit 61, VA-10 Chester Road",
-            address: "VA-10 at I-95, Chester, VA 23831",
-            distance: "5 min drive",
-            matches: "I-95 access",
-          },
-          {
-            name: "I-295 Exit 15A, VA-10 East Hundred Road",
-            address: "VA-10 at I-295, Chester, VA 23836",
-            distance: "6 min drive",
-            matches: "I-295 access",
+            name: "Fort Gregg-Adams",
+            address: "",
+            distance: "~48 min drive (free-flow, OSRM)",
+            matches: "base commute",
           },
         ],
         whyThisOne:
-          "It is the lowest-priced verified finalist while still clearing the 2000-plus build, bedroom, bath, and base-access requirements.",
+          "The zoned school posts the highest published SOL pass rates on the shortlist while the home stays under your cap.",
         tradeOff:
-          "The rear-garage layout and community HOA should be checked against how you and Shannon actually use parking, storage, and outdoor space.",
+          "The ~48-minute free-flow commute is the second longest on the list and 3 bedrooms is your stated minimum.",
+        assignedElementary: {
+          name: "Winterpock Elementary",
+          source: {
+            label: "Chesterfield elementary boundary layer (Virginia Open Data)",
+            url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
+          },
+        },
+        schoolRead: 8,
+        schoolReadSummary:
+          "Winterpock posts the highest published numbers on your shortlist: SOL reading 86% and math 89% for 2024-25, Fully Accredited, Niche A minus, 16:1 student-teacher ratio, not a Title I school. Enrollment grew from 760 to 834 over three published years, and parent reviews on GreatSchools run both directions, including a 2021 parent describing crowding from new construction and a 2024 parent alleging bullying of new students. The Read reflects the published indicators plus that mixed parent texture; a GreatSchools overall rating was not extractable at research date.",
+        schoolEvidence: [
+          {
+            point: "SOL All Students reading pass rate: 86% (2022-23), 83% (2023-24), 86% (2024-25); math 85%, 84%, 89%.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/winterpock-elementary" },
+          },
+          {
+            point: "Fully Accredited; enrollment 760 (2022-23), 798 (2023-24), 834 (2024-25).",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/winterpock-elementary" },
+          },
+          {
+            point: "Niche grade A minus; student-teacher ratio 16:1.",
+            source: { label: "Niche", url: "https://www.niche.com/k12/winterpock-elementary-school-chesterfield-va/" },
+          },
+          {
+            point: "Not a Title I school.",
+            source: { label: "Chesterfield County Public Schools Title I list", url: "https://www.oneccps.org/page/title-i" },
+          },
+          {
+            point: "Parent, October 27, 2025: “I'm very impressed by how much attention the teachers give to each student. The principal is absolutely amazing! I noticed that she knows every student by name and truly understands their personalities and behaviors.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/chesterfield/4967-Winterpock-Elementary-School/" },
+          },
+          {
+            point: "Parent, September 13, 2024: “Worst school allows bullying and kids being targeted because they are new.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/chesterfield/4967-Winterpock-Elementary-School/" },
+          },
+        ],
+      },
+      {
+        slug: "14719-clover-ridge-ln",
+        address: "14719 Clover Ridge Ln",
+        city: "Chesterfield",
+        state: "VA",
+        zip: "23832",
+        listPrice: 510000,
+        priceLabel: "$510,000",
+        beds: 3,
+        baths: 2,
+        sqft: 2348,
+        mlsNumber: "2616393",
+        daysOnMarket: null,
+        sourceUrl: "https://www.redfin.com/VA/Chesterfield/14719-Clover-Ridge-Ln-23832/home/59584096",
+        photoUrl: "https://photos.prod.cirrussystem.net/1321/0c23c876c8951685d997d1d38bd88c55/975363467.jpeg",
+        gapFillReason:
+          "Included from the secondary Chesterfield area because active 23836 inventory in your box was sparse at research date.",
+        vibes:
+          "Built 2002, 2,348 sqft, 3 bedrooms and 2 baths at $510,000 per Redfin, with the listing marked recently added and updated May 27, 2026. Sits at the bedroom and bath minimum of your box. Zoned to Clover Hill Elementary, whose published math pass rate rose three consecutive years per the VDOE profile.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams",
+            address: "",
+            distance: "~46 min drive (free-flow, OSRM)",
+            matches: "base commute",
+          },
+        ],
+        whyThisOne:
+          "Second-highest published school pass rates on the shortlist at the second-lowest list price.",
+        tradeOff:
+          "The ~46-minute free-flow commute is the longest on the list, and 3 bed / 2 bath is your stated floor.",
+        assignedElementary: {
+          name: "Clover Hill Elementary",
+          source: {
+            label: "Chesterfield elementary boundary layer (Virginia Open Data)",
+            url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
+          },
+        },
+        schoolRead: 7,
+        schoolReadSummary:
+          "Clover Hill's published math pass rate rose 73% to 78% to 82% across three years with reading holding at 78%, Fully Accredited / On Track, Niche B, 15:1 ratio, not Title I. The Redfin listing displays a GreatSchools rating of 5 out of 10. Parent reviews on GreatSchools diverge sharply, from a July 2020 parent praising the principal and staff to a January 2024 parent alleging failures on disability support and bullying. The Read reflects the pass-rate trend and ratio against that split texture and the 5/10 displayed rating.",
+        schoolEvidence: [
+          {
+            point: "SOL All Students reading pass rate: 78% (2022-23), 80% (2023-24), 78% (2024-25); math 73%, 78%, 82%.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/clover-hill-elementary" },
+          },
+          {
+            point: "Fully Accredited / On Track; enrollment 866 (2024-25).",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/clover-hill-elementary" },
+          },
+          {
+            point: "Niche grade B; student-teacher ratio 15:1.",
+            source: { label: "Niche", url: "https://www.niche.com/k12/clover-hill-elementary-school-midlothian-va/" },
+          },
+          {
+            point: "GreatSchools rating 5 out of 10, as displayed on the Redfin listing.",
+            source: { label: "Redfin listing", url: "https://www.redfin.com/VA/Chesterfield/14719-Clover-Ridge-Ln-23832/home/59584096" },
+          },
+          {
+            point: "Not a Title I school.",
+            source: { label: "Chesterfield County Public Schools Title I list", url: "https://www.oneccps.org/page/title-i" },
+          },
+          {
+            point: "Parent, January 27, 2024: “This school does not support children with disabilities. They go out of their way to disqualify students with autism for an IEP. Students are relentlessly bullied with no support.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/midlothian/378-Clover-Hill-Elementary-School/" },
+          },
+          {
+            point: "Parent, July 11, 2020: “Principal, teachers and staff are absolutely wonderful. Their dedication to the students is incredible as well as providing them with a positive self image.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/midlothian/378-Clover-Hill-Elementary-School/" },
+          },
+        ],
+      },
+      {
+        slug: "518-greymont-ln",
+        address: "518 Greymont Ln",
+        city: "Chester",
+        state: "VA",
+        zip: "23836",
+        listPrice: 530000,
+        priceLabel: "$530,000",
+        beds: 4,
+        baths: 3,
+        sqft: 2776,
+        mlsNumber: "2617048",
+        daysOnMarket: null,
+        sourceUrl: "https://mikechenaultgroup.com/idx/mls-2617048-518_greymont_lane_chester_va_23836",
+        photoUrl: "https://photos.prod.cirrussystem.net/1321/a0c3f1c1be782534fdc160f32f027215/4068396977.jpeg",
+        gapFillReason: "Direct hit on your primary ZIP 23836 with 4 bedrooms inside budget.",
+        vibes:
+          "Built 2003, 2,776 sqft, 4 bedrooms and 3 full baths at $530,000, inside your primary ZIP 23836. Free-flow routing puts Fort Gregg-Adams at about 16 minutes and 10.0 miles. Zoned to Elizabeth N. Scott Elementary, which operates a Dual Language Program referenced in parent reviews on GreatSchools.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams",
+            address: "",
+            distance: "~16 min drive (free-flow, OSRM)",
+            matches: "base commute",
+          },
+        ],
+        whyThisOne:
+          "Four bedrooms and three full baths inside your primary ZIP with the shortest commute cluster on the list.",
+        tradeOff:
+          "The zoned school's published reading pass rate dropped 13 points over three years and the most recent parent reviews on GreatSchools run negative.",
+        assignedElementary: {
+          name: "Elizabeth N. Scott Elementary",
+          source: {
+            label: "Chesterfield elementary boundary layer (Virginia Open Data)",
+            url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
+          },
+        },
+        schoolRead: 6,
+        schoolReadSummary:
+          "Elizabeth N. Scott's published reading pass rate fell 84% to 74% to 71% across three years while math rose to 83%. GreatSchools sub-ratings are Student Progress 7 and Test Score 6, Niche B minus, 15:1 ratio, Title I, Fully Accredited / On Track. The school operates a Dual Language Program per parent references. Parent reviews from 2024 to 2026 on GreatSchools cite communication and staffing concerns; a January 2025 community member reviewed positively. The Read balances the sub-ratings and math trend against the reading decline and recent parent texture.",
+        schoolEvidence: [
+          {
+            point: "SOL All Students reading pass rate: 84% (2022-23), 74% (2023-24), 71% (2024-25); math 79%, 82%, 83%.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/elizabeth-scott-elementary" },
+          },
+          {
+            point: "Fully Accredited / On Track; enrollment 729 (2024-25).",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/elizabeth-scott-elementary" },
+          },
+          {
+            point: "GreatSchools sub-ratings: Student Progress 7, Test Score 6.",
+            source: { label: "GreatSchools", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
+          },
+          {
+            point: "Niche grade B minus; student-teacher ratio 15:1.",
+            source: { label: "Niche", url: "https://www.niche.com/k12/elizabeth-scott-elementary-school-chester-va/" },
+          },
+          {
+            point: "Title I school (yes).",
+            source: { label: "Chesterfield County Public Schools Title I list", url: "https://www.oneccps.org/page/title-i" },
+          },
+          {
+            point: "Community member, January 30, 2025: “I love the discipline and of course the Dual Language Program.”",
+            source: { label: "GreatSchools review", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
+          },
+          {
+            point: "Parent, July 1, 2026: “We have grown increasingly disappointed in the lack of meaningful communication and academic partnership between this school and its families. What began as minor frustrations has worsened each year.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
+          },
+        ],
       },
       {
         slug: "13601-green-spire-cir",
@@ -554,131 +742,62 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         city: "Chester",
         state: "VA",
         zip: "23836",
-        listPrice: 515000,
-        priceLabel: "$515,000",
+        listPrice: 509995,
+        priceLabel: "$509,995",
         beds: 5,
         baths: 3.5,
         sqft: 3100,
         mlsNumber: "2614222",
-        daysOnMarket: 20,
-        sourceUrl: "https://www.homes.com/property/13601-green-spire-cir-chester-va/mh1g3d5szqff7/",
-        photoUrl: "https://www.compass.com/m/531eeecfb3d3f729a24b671741bb099f88b0969e_img_0_8d252/640x480.jpg",
-        gapFillReason:
-          "The portal card reads like a standard 5-bedroom suburban listing, but 3,100 sqft on a cul-de-sac lot with equal I-95 and I-295 access is the real buyer-specific fit.",
+        daysOnMarket: null,
+        sourceUrl: "https://mikechenaultgroup.com/idx/mls-2614222-13601_green_spire_circle_chester_va_23836",
+        photoUrl: "https://photos.prod.cirrussystem.net/1321/62952ca5db0f3e3d5c99cc93578ee0ce/3290885997.jpeg",
+        gapFillReason: "Direct hit on your primary ZIP 23836; the lowest list price on the shortlist at the highest bedroom count.",
         vibes:
-          "This 2009 Cypress Woods home has 5 beds, 3.5 baths, 3,100 sqft, an 11,761 sqft cul-de-sac lot, fenced backyard, large deck, granite counters, 2-car attached garage, and a $43 per month HOA. The listing calls out proximity to I-295, I-95, and VA-288.",
+          "Built 2009, approximately 3,100 sqft, 5 bedrooms and 3.5 baths at $509,995, the lowest list price on the shortlist. Inside your primary ZIP 23836 with a free-flow base estimate of about 16 minutes and 10.3 miles. Zoned to Elizabeth N. Scott Elementary, same assignment as 518 Greymont Ln, resolved from this exact address.",
         anchors: [
           {
-            name: "Fort Gregg-Adams Gregg Avenue Gate",
-            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
-            distance: "16 min drive",
-            matches: "Fort Gregg-Adams commute",
-          },
-          {
-            name: "I-95 Exit 61, VA-10 Chester Road",
-            address: "VA-10 at I-95, Chester, VA 23831",
-            distance: "5 min drive",
-            matches: "I-95 access",
-          },
-          {
-            name: "I-295 Exit 15A, VA-10 East Hundred Road",
-            address: "VA-10 at I-295, Chester, VA 23836",
-            distance: "5 min drive",
-            matches: "I-295 access",
+            name: "Fort Gregg-Adams",
+            address: "",
+            distance: "~16 min drive (free-flow, OSRM)",
+            matches: "base commute",
           },
         ],
         whyThisOne:
-          "It gives you 5 beds, 3.5 baths, and 3,100 sqft while staying near the bottom of budget and close to both requested interstates.",
+          "Five bedrooms at the lowest price on the list inside your primary ZIP with the shortest commute cluster.",
         tradeOff:
-          "It is not the newest home in the set, so finishes and system condition need to justify choosing it over the 2023 and new-construction options.",
-      },
-      {
-        slug: "12225-twin-rivers-dr",
-        address: "12225 Twin Rivers Dr",
-        city: "Chester",
-        state: "VA",
-        zip: "23836",
-        listPrice: 554950,
-        priceLabel: "$554,950",
-        beds: 3,
-        baths: 2.5,
-        sqft: 2041,
-        mlsNumber: "2614824",
-        daysOnMarket: 14,
-        sourceUrl: "https://www.homes.com/property/12225-twin-rivers-dr-chester-va/gv8rs3g5x2kks/",
-        photoUrl: "https://www.compass.com/m/23329979b5ca7f26036babf5ac2ad288cae5ae79_img_0_0ea10/640x480.jpg",
-        gapFillReason:
-          "With only 3 beds and 2,041 sqft, broad portal sorting underrates it, but it directly matches the newer-home, low-maintenance lifestyle side of what you described.",
-        vibes:
-          "This 2023 one-story Twin Rivers home has 3 beds, 2.5 baths, 2,041 sqft, a river-front lot notation, built-ins, high ceilings, French doors, granite counters, in-ground pool, patio, 2.5-car heated garage, tankless water heater, and community boat dock and fitness amenities. The HOA is listed at $212 per month.",
-        anchors: [
+          "Same zoning trade-off as Greymont: the school's published reading pass rate fell 13 points over three years while math rose.",
+        assignedElementary: {
+          name: "Elizabeth N. Scott Elementary",
+          source: {
+            label: "Chesterfield elementary boundary layer (Virginia Open Data)",
+            url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
+          },
+        },
+        schoolRead: 6,
+        schoolReadSummary:
+          "Same assigned school as 518 Greymont Ln. Elizabeth N. Scott's published reading pass rate fell 84% to 74% to 71% over three years while math rose to 83%. GreatSchools sub-ratings are Student Progress 7 and Test Score 6, Niche B minus, 15:1, Title I, Fully Accredited / On Track, with a Dual Language Program referenced in parent reviews. Recent parent reviews on GreatSchools cite communication concerns; a 2025 community member reviewed positively. The Read matches Greymont's because the evidence is identical.",
+        schoolEvidence: [
           {
-            name: "Fort Gregg-Adams Gregg Avenue Gate",
-            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
-            distance: "16 min drive",
-            matches: "Fort Gregg-Adams commute",
+            point: "SOL All Students reading pass rate: 84% (2022-23), 74% (2023-24), 71% (2024-25); math 79%, 82%, 83%.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/elizabeth-scott-elementary" },
           },
           {
-            name: "I-95 Exit 61, VA-10 Chester Road",
-            address: "VA-10 at I-95, Chester, VA 23831",
-            distance: "5 min drive",
-            matches: "I-95 access",
+            point: "GreatSchools sub-ratings: Student Progress 7, Test Score 6.",
+            source: { label: "GreatSchools", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
           },
           {
-            name: "I-295 Exit 15A, VA-10 East Hundred Road",
-            address: "VA-10 at I-295, Chester, VA 23836",
-            distance: "6 min drive",
-            matches: "I-295 access",
+            point: "Niche grade B minus; student-teacher ratio 15:1; Title I school (yes).",
+            source: { label: "Niche", url: "https://www.niche.com/k12/elizabeth-scott-elementary-school-chester-va/" },
+          },
+          {
+            point: "Parent, May 15, 2026: “I made multiple requests for a parent-teacher conference to discuss my son's academics and ways to help him finish the school year strong. Unfortunately, those requests went unanswered for an extended period of time, which left me feeling ignored and concerned as a parent.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
+          },
+          {
+            point: "Community member, January 30, 2025: “The school is amazing, a wonderful place to work and I like that they embrace different cultures and the work environment is friendly and supportive. I love the discipline and of course the Dual Language Program.”",
+            source: { label: "GreatSchools review", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
           },
         ],
-        whyThisOne:
-          "It is a 2023 single-family home that clears the bedroom and bath minimums and keeps Fort Gregg-Adams and both interstates very manageable.",
-        tradeOff:
-          "The higher HOA and smaller square footage make this more of a lifestyle fit than a maximum-space play.",
-      },
-      {
-        slug: "1625-n-white-mountain-dr",
-        address: "1625 N White Mountain Dr",
-        city: "Chester",
-        state: "VA",
-        zip: "23836",
-        listPrice: 569950,
-        priceLabel: "$569,950",
-        beds: 5,
-        baths: 3,
-        sqft: 3154,
-        mlsNumber: "2613685",
-        daysOnMarket: 25,
-        sourceUrl: "https://www.homes.com/property/1625-n-white-mountain-dr-chester-va/fblbvb9jwkcxc/",
-        photoUrl: null,
-        gapFillReason:
-          "It looks like a mid-budget 5-bedroom among many, but the Mount Blanco on the James setting, 2013 construction, and 17-minute base drive make it a stronger fit than the price alone suggests.",
-        vibes:
-          "A 2013 Mount Blanco on the James home with 5 beds, 3 baths, 3,154 sqft, a 16,509 sqft lot, water views, gas fireplace, large bonus room, deck, granite counters, island kitchen, soaking tub, and community pool, boat dock, playground, and basketball amenities. The HOA is listed at $106 per month.",
-        anchors: [
-          {
-            name: "Fort Gregg-Adams Gregg Avenue Gate",
-            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
-            distance: "17 min drive",
-            matches: "Fort Gregg-Adams commute",
-          },
-          {
-            name: "I-95 Exit 61, VA-10 Chester Road",
-            address: "VA-10 at I-95, Chester, VA 23831",
-            distance: "5 min drive",
-            matches: "I-95 access",
-          },
-          {
-            name: "I-295 Exit 15A, VA-10 East Hundred Road",
-            address: "VA-10 at I-295, Chester, VA 23836",
-            distance: "6 min drive",
-            matches: "I-295 access",
-          },
-        ],
-        whyThisOne:
-          "It offers the 5-bed, 3-full-bath layout with water views while staying inside budget and close to both I-95 and I-295.",
-        tradeOff:
-          "At $569,950 it competes directly with newer builds, so the showing needs to prove the condition is worth the premium.",
       },
       {
         slug: "1813-james-overlook-dr",
@@ -686,224 +805,311 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         city: "Chester",
         state: "VA",
         zip: "23836",
-        listPrice: 584900,
-        priceLabel: "$584,900",
+        listPrice: 570000,
+        priceLabel: "$570,000",
         beds: 4,
         baths: 2.5,
         sqft: 3022,
         mlsNumber: "2615479",
-        daysOnMarket: 8,
-        sourceUrl: "https://www.homes.com/property/1813-james-overlook-dr-chester-va/v2mv5mlyw08gq/",
-        photoUrl: "https://ssl.cdn-redfin.com/photo/131/mbpaddedwide/479/genMid.2615479_1.jpg",
-        gapFillReason:
-          "Search cards emphasize river-front appeal and price, but the buyer-specific value is the 2018 build, 3,022 sqft, and the same tight Chester 23836 base and interstate geometry.",
+        daysOnMarket: null,
+        sourceUrl: "https://mikechenaultgroup.com/idx/mls-2615479-1813_james_overlook_drive_chester_va_23836",
+        photoUrl: "https://photos.prod.cirrussystem.net/1321/fabd87d5ce715fd5c884d43fbff9c80c/489442888.jpeg",
+        gapFillReason: "Direct hit on your primary ZIP 23836; the second-newest build on the shortlist.",
         vibes:
-          "A 2018 Meadowville Landing home with 4 beds, 2.5 baths, 3,022 sqft, a river-front lot notation, wood flooring, loft, deck, tankless water heater, butler's pantry, granite counters, 2-car garage, and a $107 per month HOA. This is one of the freshest active resales on the list by days on market.",
+          "Built 2018, approximately 3,022 sqft, 4 bedrooms and 2.5 baths at $570,000. Second-newest build year on the shortlist and inside your primary ZIP 23836. Free-flow routing to Fort Gregg-Adams is about 17 minutes and 10.9 miles. Zoned to Enon Elementary, whose published pass rates rose three consecutive years per the VDOE profile.",
         anchors: [
           {
-            name: "Fort Gregg-Adams Gregg Avenue Gate",
-            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
-            distance: "16 min drive",
-            matches: "Fort Gregg-Adams commute",
-          },
-          {
-            name: "I-95 Exit 61, VA-10 Chester Road",
-            address: "VA-10 at I-95, Chester, VA 23831",
-            distance: "5 min drive",
-            matches: "I-95 access",
-          },
-          {
-            name: "I-295 Exit 15A, VA-10 East Hundred Road",
-            address: "VA-10 at I-295, Chester, VA 23836",
-            distance: "6 min drive",
-            matches: "I-295 access",
+            name: "Fort Gregg-Adams",
+            address: "",
+            distance: "~17 min drive (free-flow, OSRM)",
+            matches: "base commute",
           },
         ],
         whyThisOne:
-          "It gives you a 2018 single-family home over 3,000 sqft with a short Fort Gregg-Adams drive and strong I-95 and I-295 access.",
+          "A 2018 build at 3,000-plus sqft inside your primary ZIP, zoned to a school with three consecutive years of rising published pass rates.",
         tradeOff:
-          "It is near the top of the no-stretch budget while offering 2.5 baths rather than 3 full baths.",
+          "Enon's current pass rates (71% reading, 72% math) sit below the two Chesterfield 23832 options, and its parent reviews are positive but dated, 2018 to 2023.",
+        assignedElementary: {
+          name: "Enon Elementary",
+          source: {
+            label: "Chesterfield elementary boundary layer (Virginia Open Data)",
+            url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
+          },
+        },
+        schoolRead: 6,
+        schoolReadSummary:
+          "Enon's published pass rates rose three straight years: reading 68% to 69% to 71%, math 66% to 70% to 72%. Niche B, 16:1 ratio, not Title I, On Track accreditation, GreatSchools sub-ratings of Student Progress 6 and Test Score 5. Parent reviews on GreatSchools are consistently positive but the most recent is April 2023 and the rest date to 2018-2019, which limits how much current texture the pack carries. The Read reflects the rising trend and ratio against the lower absolute pass rates and dated reviews.",
+        schoolEvidence: [
+          {
+            point: "SOL All Students reading pass rate: 68% (2022-23), 69% (2023-24), 71% (2024-25); math 66%, 70%, 72%.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/enon-elementary" },
+          },
+          {
+            point: "Accreditation: On Track; enrollment 691 (2024-25).",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/enon-elementary" },
+          },
+          {
+            point: "Niche grade B; student-teacher ratio 16:1.",
+            source: { label: "Niche", url: "https://www.niche.com/k12/enon-elementary-school-chester-va/" },
+          },
+          {
+            point: "GreatSchools sub-ratings: Student Progress 6, Test Score 5; not a Title I school.",
+            source: { label: "GreatSchools", url: "https://www.greatschools.org/virginia/chester/341-Enon-Elementary-School/" },
+          },
+          {
+            point: "Parent, April 13, 2023: “Enon is always engaging parents to be more involved with the students. The teachers keep us up to date and my child loves going to school.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/chester/341-Enon-Elementary-School/" },
+          },
+        ],
       },
       {
-        slug: "5106-timsbury-pointe-dr",
-        address: "5106 Timsbury Pointe Dr",
+        slug: "305-redbird-dr",
+        address: "305 Redbird Dr",
         city: "Chester",
         state: "VA",
-        zip: "23831",
-        listPrice: 525000,
-        priceLabel: "$525,000",
-        beds: 5,
-        baths: 2.5,
-        sqft: 3064,
-        mlsNumber: "2611122",
-        daysOnMarket: 19,
-        sourceUrl: "https://www.homes.com/property/5106-timsbury-pointe-dr-chester-va/9rcpyxng3kftk/",
-        photoUrl: "https://www.compass.com/m/e5a0012284f8d0a2dcc0e676833e474667395794_img_0_ad507/640x480.jpg",
-        gapFillReason:
-          "Portals do not elevate it because it is less riverfront and less new than some competitors, but the 2.87-acre lot is unusually strong for the price band.",
-        vibes:
-          "This 2010 Stoney Glen South home has 5 beds, 2.5 baths, 3,064 sqft, a 2.87-acre wooded lot, gas fireplace, deck, granite counters, 2-car attached garage, fenced backyard, and a sprinkler system, with a $16 per month HOA. It also shows a $20,000 price drop.",
-        anchors: [
-          {
-            name: "Fort Gregg-Adams Gregg Avenue Gate",
-            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
-            distance: "23 min drive",
-            matches: "Fort Gregg-Adams commute",
-          },
-          {
-            name: "I-95 Exit 61, VA-10 Chester Road",
-            address: "VA-10 at I-95, Chester, VA 23831",
-            distance: "7 min drive",
-            matches: "I-95 access",
-          },
-          {
-            name: "I-295 Exit 9B, VA-36 Oaklawn Boulevard",
-            address: "VA-36 at I-295, Colonial Heights, VA 23834",
-            distance: "10 min drive",
-            matches: "I-295 access",
-          },
-        ],
-        whyThisOne:
-          "It fits the bedroom, size, and construction requirements while adding acreage that most $500,000 to $600,000 Chester options do not offer.",
-        tradeOff:
-          "The base commute is meaningfully longer than the Chester 23836 finalists, so this is the privacy-and-land option rather than the shortest drive.",
-      },
-      {
-        slug: "6909-sir-galahad-rd",
-        address: "6909 Sir Galahad Rd",
-        city: "Henrico",
-        state: "VA",
-        zip: "23231",
-        listPrice: 514000,
-        priceLabel: "$514,000",
+        zip: "23836",
+        listPrice: 579000,
+        priceLabel: "$579,000",
         beds: 5,
         baths: 3.5,
-        sqft: 2738,
-        mlsNumber: "2614869",
-        daysOnMarket: 13,
-        sourceUrl: "https://www.homes.com/property/6909-sir-galahad-rd-henrico-va/hdwzdjz81rc02/",
+        sqft: 2892,
+        mlsNumber: "2605443",
+        daysOnMarket: null,
+        sourceUrl: "https://teamhensley.com/home-search/listings/2674117165362614697-305-Redbird-Dr",
         photoUrl: null,
         gapFillReason:
-          "Varina and eastern Henrico listings get lost when the search starts in Chester, but this 2020 Castleton home keeps I-295 close and stays near the low end of budget.",
+          "Direct hit on your primary ZIP 23836, included with a flag: sources conflicted on the MLS number and days-on-market, so reconfirm both with the listing agent before acting.",
         vibes:
-          "A 2020 Castleton single-family home with 5 beds, 3.5 baths, 2,738 sqft, a 27,007 sqft corner lot, main-floor primary bedroom, gas fireplace, formal dining, granite counters, 2-car garage, deck, and porch, with a $65 per month HOA. The listing notes a 15-minute drive to Richmond.",
+          "Built 1995, 2,892 sqft, 5 bedrooms and 3.5 baths at $579,000, the highest list price on the shortlist. Inside your primary ZIP 23836 with a free-flow base estimate of about 17 minutes and 9.8 miles. Zoned to Enon Elementary, the same assignment as 1813 James Overlook Dr, resolved from this exact address.",
         anchors: [
           {
-            name: "Fort Gregg-Adams Gregg Avenue Gate",
-            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
-            distance: "21 min drive",
-            matches: "Fort Gregg-Adams commute",
-          },
-          {
-            name: "I-295 Exit 22, VA-5 Charles City Road",
-            address: "VA-5 at I-295, Henrico, VA 23231",
-            distance: "6 min drive",
-            matches: "I-295 access",
-          },
-          {
-            name: "I-95 Exit 74, Bells Road area",
-            address: "I-95 at Bells Road, Richmond, VA 23234",
-            distance: "8 min drive",
-            matches: "I-95 access",
+            name: "Fort Gregg-Adams",
+            address: "",
+            distance: "~17 min drive (free-flow, OSRM)",
+            matches: "base commute",
           },
         ],
         whyThisOne:
-          "It gives you a newer 2020 build with 5 beds and 3.5 baths in your Varina and eastern Henrico target lane while keeping I-295 close.",
+          "Five bedrooms and 3.5 baths inside your primary ZIP, zoned to the same rising-trend school as James Overlook.",
         tradeOff:
-          "It is not as base-convenient as the Chester 23836 homes, so the location only wins if Varina or eastern Henrico is a real lifestyle preference.",
+          "Sources conflicted on the MLS number and days-on-market, so reconfirm both with the listing agent before acting, and it is the highest list price on the shortlist.",
+        assignedElementary: {
+          name: "Enon Elementary",
+          source: {
+            label: "Chesterfield elementary boundary layer (Virginia Open Data)",
+            url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
+          },
+        },
+        schoolRead: 6,
+        schoolReadSummary:
+          "Same assigned school as 1813 James Overlook Dr. Enon's published pass rates rose three straight years: reading 68% to 69% to 71%, math 66% to 70% to 72%. Niche B, 16:1 ratio, not Title I, On Track accreditation, GreatSchools sub-ratings of Student Progress 6 and Test Score 5. Parent reviews on GreatSchools are positive but dated, 2018 to 2023. The Read reflects the rising trend and ratio against the lower absolute pass rates and dated reviews.",
+        schoolEvidence: [
+          {
+            point: "SOL All Students reading pass rate: 68% (2022-23), 69% (2023-24), 71% (2024-25); math 66%, 70%, 72%.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/enon-elementary" },
+          },
+          {
+            point: "Accreditation: On Track; enrollment 691 (2024-25); not a Title I school.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/enon-elementary" },
+          },
+          {
+            point: "Niche grade B; student-teacher ratio 16:1; GreatSchools Student Progress 6, Test Score 5.",
+            source: { label: "GreatSchools", url: "https://www.greatschools.org/virginia/chester/341-Enon-Elementary-School/" },
+          },
+          {
+            point: "Parent, February 23, 2019: “This is a great school. My son loves it! The teachers are amazing and always willing to help.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/chester/341-Enon-Elementary-School/" },
+          },
+        ],
       },
       {
-        slug: "2905-clifford-tower-dr",
-        address: "2905 Clifford Tower Dr",
+        slug: "5305-wellington-ridge-rd",
+        address: "5305 Wellington Ridge Rd",
+        city: "Richmond",
+        state: "VA",
+        zip: "23231",
+        listPrice: 530000,
+        priceLabel: "$530,000",
+        beds: 4,
+        baths: 3,
+        sqft: 2602,
+        mlsNumber: "2615289",
+        daysOnMarket: null,
+        sourceUrl: "https://midatlantic.penfedrealty.com/listing/cvrmls/2615289/Richmond/5305-Wellington-Ridge-Road/",
+        photoUrl: "https://listing-images.homejunction.com/cvrmls/1173085244/photo_1.jpg",
+        gapFillReason:
+          "An eastern Henrico option at 4 bed / 3 bath inside budget, previously listed at $520,000 per PenFed, in the more-space lane you flagged as your trade.",
+        vibes:
+          "Built 2006, 2,602 sqft, 4 bedrooms and 3 full baths at $530,000, up from a prior $520,000 list per PenFed. Eastern Henrico, with a free-flow base estimate of about 38 minutes and 23.0 miles. Zoned to Henry D. Ward Elementary.",
+        anchors: [
+          {
+            name: "Fort Gregg-Adams",
+            address: "",
+            distance: "~38 min drive (free-flow, OSRM)",
+            matches: "base commute",
+          },
+        ],
+        whyThisOne:
+          "Four bedrooms and three full baths at $530K in the eastern Henrico lane you flagged as your trade for more space.",
+        tradeOff:
+          "The zoned school's published indicators sit well below the Chesterfield options and the base commute runs about 38 minutes free-flow.",
+        assignedElementary: {
+          name: "Henry D. Ward Elementary",
+          source: {
+            label: "Henrico County school locator",
+            url: "https://www.henricoschools.us/school-locator/",
+          },
+        },
+        schoolRead: 3,
+        schoolReadSummary:
+          "Ward's most recent published pass rates are reading 56% and math 52% (2023-24), Niche C plus, 17:1 ratio, Title I, and the school is identified for ESSA Targeted Support and Improvement. Parent reviews on GreatSchools run both directions, from a 2023 parent calling it a disappointment on communication to a 2018 parent citing strong teachers. The 2024-25 SOL year was not yet posted at research date, so reconfirm. The Read reflects the lower published pass rates and the ESSA identification against the mixed parent texture.",
+        schoolEvidence: [
+          {
+            point: "SOL All Students reading pass rate: 58% (2021-22), 55% (2022-23), 56% (2023-24); math 46%, 52%, 52%. 2024-25 not posted at research date.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/henry-d-ward-elementary" },
+          },
+          {
+            point: "Accredited; identified for ESSA Targeted Support and Improvement; enrollment 526 (2024-25).",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/henry-d-ward-elementary" },
+          },
+          {
+            point: "Niche grade C plus; student-teacher ratio 17:1.",
+            source: { label: "Niche", url: "https://www.niche.com/k12/henry-d-ward-elementary-school-richmond-va/" },
+          },
+          {
+            point: "Title I school (yes).",
+            source: { label: "ZIPDataMaps Henrico Title I map", url: "https://www.zipdatamaps.com/schools/virginia/county/map-of-henrico-county-va-elementary-school-title-1-status" },
+          },
+          {
+            point: "Parent, April 26, 2023: “This school is a major disappointment. The admins and other staff will wait until literally the last minute to contact the parent about an issue involving your child.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/richmond/895-Ward-Elementary-School/" },
+          },
+          {
+            point: "Parent, September 6, 2018: “From personal experience this school has been a place for my son to grow and challenge himself in the guidance of very strong and loving teachers!”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/richmond/895-Ward-Elementary-School/" },
+          },
+        ],
+      },
+      {
+        slug: "1590-cardinal-woods-ln",
+        address: "1590 Cardinal Woods Ln",
         city: "Henrico",
         state: "VA",
         zip: "23231",
-        listPrice: 524950,
-        priceLabel: "$524,950",
+        listPrice: 525000,
+        priceLabel: "$525,000",
         beds: 4,
-        baths: 3,
-        sqft: 2754,
-        mlsNumber: "2603729",
-        daysOnMarket: 82,
-        sourceUrl: "https://www.homes.com/property/2905-clifford-tower-dr-henrico-va/e4s4kcb2qxffj/",
-        photoUrl: null,
+        baths: 2,
+        sqft: null,
+        mlsNumber: "2616395",
+        daysOnMarket: null,
+        sourceUrl: "https://midatlantic.penfedrealty.com/listing/cvrmls/2616395/Henrico/1590-Cardinal-Woods-Lane/",
+        photoUrl: "https://listing-images.homejunction.com/cvrmls/1174746985/photo_1.jpg",
         gapFillReason:
-          "The 82-day count pushes buyers past it, but the builder-model-home detail and 2019 construction keep it relevant for a buyer who explicitly does not want an old house.",
+          "An eastern Henrico option near Varina, flagged because this address splits across two elementary schools with a transition after grade 2.",
         vibes:
-          "This Castleton home is a 2019 builder's model with 4 beds, 3 baths, 2,754 sqft, a newly remodeled notation, solar panels, crown molding, vaulted ceilings, loft, gas fireplace, induction cooktop, granite, soaking tub, and plantation shutters, with pool, tennis, and fitness amenities through a $65 per month HOA.",
+          "Built 1983, 4 bedrooms and 2 baths at $525,000; square footage was not listed. Eastern Henrico near Varina, with a free-flow base estimate of about 30 minutes and 19.5 miles, the shortest Henrico commute on the shortlist.",
         anchors: [
           {
-            name: "Fort Gregg-Adams Gregg Avenue Gate",
-            address: "500 Gregg Ave, Fort Gregg-Adams, VA 23801",
-            distance: "21 min drive",
-            matches: "Fort Gregg-Adams commute",
-          },
-          {
-            name: "I-295 Exit 22, VA-5 Charles City Road",
-            address: "VA-5 at I-295, Henrico, VA 23231",
-            distance: "6 min drive",
-            matches: "I-295 access",
-          },
-          {
-            name: "I-95 Exit 74, Bells Road area",
-            address: "I-95 at Bells Road, Richmond, VA 23234",
-            distance: "8 min drive",
-            matches: "I-95 access",
+            name: "Fort Gregg-Adams",
+            address: "",
+            distance: "~30 min drive (free-flow, OSRM)",
+            matches: "base commute",
           },
         ],
         whyThisOne:
-          "It fits the 2000-plus, 4-bed, 3-bath requirement and gives a Varina and eastern Henrico alternative without pushing above budget.",
+          "The shortest eastern-Henrico base commute on the list at 4 bed / 2 bath inside budget.",
         tradeOff:
-          "The 82 days on market deserves scrutiny around pricing history, condition, and whether the model-home upgrades translate into daily-use value.",
+          "The address splits across Mehfoud (PK-2) and Varina (3-5), a school transition after grade 2, and both schools' published indicators sit at the low end of the list.",
+        assignedElementary: {
+          name: "Mehfoud (PK-2) and Varina (3-5)",
+          source: {
+            label: "Henrico County school locator",
+            url: "https://www.henricoschools.us/school-locator/",
+          },
+        },
+        schoolRead: 3,
+        schoolReadSummary:
+          "This address splits across two schools. Mehfoud posts ESSA current pass rates of reading 55% and math 53% with a GreatSchools Student Progress of 1; Varina posts SOL reading 55% and math 52% (2024-25), Niche C, GreatSchools Progress 1 and Test Score 2; both are identified for ESSA Targeted Support. Mehfoud's public review pack is thin, a single 2011 parent review, which caps the Read. The split assignment means a school transition after grade 2. The Read reflects the low published indicators and the thin recent texture.",
+        schoolEvidence: [
+          {
+            point: "Mehfoud (grades PK-2): ESSA All Students current pass rate reading 55%, math 53%; identified for ESSA Targeted Support; GreatSchools Student Progress 1.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/anthony-p-mehfoud-elementary" },
+          },
+          {
+            point: "Varina (grades 3-5): SOL reading 58% (2022-23), 56% (2023-24), 55% (2024-25); math 48%, 44%, 52%; identified for ESSA Targeted Support.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/varina-elementary" },
+          },
+          {
+            point: "Varina Niche grade C; GreatSchools Student Progress 1, Test Score 2; student-teacher ratio around 12:1 to 15:1.",
+            source: { label: "GreatSchools", url: "https://www.greatschools.org/virginia/richmond/892-Varina-Elementary-School/" },
+          },
+          {
+            point: "Parent (Varina), September 13, 2025: “My child has continually reported a lack of social engagements, excessive foul language without any correction, violence, bullying, and not engaging class learning and material. Do not recommend.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/richmond/892-Varina-Elementary-School/" },
+          },
+          {
+            point: "Parent (Mehfoud), August 10, 2011 (only public review available at research date): “This school is absolutely wonderful! The principal is very hands on and involved with all of the students. Reading is a priority and stressed at every level.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/richmond/903-Mehfoud-Elementary-School/" },
+          },
+        ],
       },
     ],
     sources: [
       {
-        url: "https://www.homes.com/property/1769-outrigger-dr-chester-va/ywjdlj07kc2k0/",
-        description: "1769 Outrigger Dr, Chester 23836. Active listing, 2023 build, MLS 2605747.",
+        url: "https://www.redfin.com/VA/Chester/518-Greymont-Ln-23836/home/59587756",
+        description: "518 Greymont Ln, Chester 23836. Active listing, 2003 build, MLS 2617048.",
       },
       {
-        url: "https://www.homes.com/property/12218-winbolt-dr-chester-va/sjytndddw758s/",
-        description: "12218 Winbolt Dr, Chester 23836. Active listing, 2016 build, MLS 2611744.",
-      },
-      {
-        url: "https://www.homes.com/property/13601-green-spire-cir-chester-va/mh1g3d5szqff7/",
-        description: "13601 Green Spire Cir, Chester 23836. Active listing, 2009 build, MLS 2614222.",
-      },
-      {
-        url: "https://www.homes.com/property/12225-twin-rivers-dr-chester-va/gv8rs3g5x2kks/",
-        description: "12225 Twin Rivers Dr, Chester 23836. Active listing, 2023 build, MLS 2614824.",
-      },
-      {
-        url: "https://www.homes.com/property/1625-n-white-mountain-dr-chester-va/fblbvb9jwkcxc/",
-        description: "1625 N White Mountain Dr, Chester 23836. Active listing, 2013 build, MLS 2613685.",
-      },
-      {
-        url: "https://www.homes.com/property/1813-james-overlook-dr-chester-va/v2mv5mlyw08gq/",
+        url: "https://mikechenaultgroup.com/idx/mls-2615479-1813_james_overlook_drive_chester_va_23836",
         description: "1813 James Overlook Dr, Chester 23836. Active listing, 2018 build, MLS 2615479.",
       },
       {
-        url: "https://www.homes.com/property/5106-timsbury-pointe-dr-chester-va/9rcpyxng3kftk/",
-        description: "5106 Timsbury Pointe Dr, Chester 23831. Active listing, 2010 build, MLS 2611122.",
+        url: "https://mikechenaultgroup.com/idx/mls-2614222-13601_green_spire_circle_chester_va_23836",
+        description: "13601 Green Spire Cir, Chester 23836. Active listing, 2009 build, MLS 2614222.",
       },
       {
-        url: "https://www.homes.com/property/6909-sir-galahad-rd-henrico-va/hdwzdjz81rc02/",
-        description: "6909 Sir Galahad Rd, Henrico 23231. Active listing, 2020 build, MLS 2614869.",
+        url: "https://teamhensley.com/home-search/listings/2674117165362614697-305-Redbird-Dr",
+        description: "305 Redbird Dr, Chester 23836. Active listing, 1995 build; MLS and days-on-market conflicted across sources, reconfirm.",
       },
       {
-        url: "https://www.homes.com/property/2905-clifford-tower-dr-henrico-va/e4s4kcb2qxffj/",
-        description: "2905 Clifford Tower Dr, Henrico 23231. Active listing, 2019 build, MLS 2603729.",
+        url: "https://www.compass.com/homedetails/15667-Henningford-Dr-Chesterfield-VA-23832/KS2NK_pid/",
+        description: "15667 Henningford Dr, Chesterfield 23832. Active listing, 2022 build, MLS 2610493.",
       },
       {
-        url: "https://www.redfin.com/county/2957/VA/Chesterfield-County/housing-market",
-        description: "Redfin, Chesterfield County. April 2026 median sale price $433,788, up 2.1% year over year.",
+        url: "https://www.redfin.com/VA/Chesterfield/14719-Clover-Ridge-Ln-23832/home/59584096",
+        description: "14719 Clover Ridge Ln, Chesterfield 23832. Active listing, 2002 build, MLS 2616393.",
       },
       {
-        url: "https://www.srmfre.com/market-report/Henrico-County/491816/",
-        description: "SRMF, Henrico County last-30-days report. Median sold $426,000, indexed June 7, 2026.",
+        url: "https://midatlantic.penfedrealty.com/listing/cvrmls/2615289/Richmond/5305-Wellington-Ridge-Road/",
+        description: "5305 Wellington Ridge Rd, Henrico 23231. Active listing, 2006 build, MLS 2615289.",
+      },
+      {
+        url: "https://midatlantic.penfedrealty.com/listing/cvrmls/2616395/Henrico/1590-Cardinal-Woods-Lane/",
+        description: "1590 Cardinal Woods Ln, Henrico 23231. Active listing, 1983 build, MLS 2616395.",
+      },
+      {
+        url: "https://schoolquality.virginia.gov/",
+        description: "Virginia DOE School Quality Profiles. SOL pass rates, accreditation, enrollment for every assigned school (All Students group).",
+      },
+      {
+        url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
+        description: "Chesterfield County elementary attendance boundary layer (Virginia Open Data). Used for point-in-polygon school assignment.",
+      },
+      {
+        url: "https://www.henricoschools.us/school-locator/",
+        description: "Henrico County Public Schools attendance-zone locator. Used for point-in-polygon school assignment.",
+      },
+      {
+        url: "https://www.oneccps.org/page/title-i",
+        description: "Chesterfield County Public Schools Title I list.",
+      },
+      {
+        url: "https://router.project-osrm.org",
+        description: "OSRM public routing engine. Free-flow (no-traffic) drive-time and distance to Fort Gregg-Adams; peak-hour times run higher.",
       },
     ],
-    completedAt: "2026-06-15T13:10:00-04:00",
+    completedAt: "2026-07-06T17:10:00-04:00",
   },
 };
 
