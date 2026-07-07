@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>The Money, Straight · For Mom and Dad</title>
+<meta name="description" content="An honest accounting of where the money is, what it returned, and where the next injection goes. Built for you to reopen anytime.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamsnow.com/scaffold/intros/dashboards/snapshot-61a0746a28.html">
+<meta property="og:title" content="The Money, Straight · For Mom and Dad">
+<meta property="og:description" content="Where it stands, what it returned, where the next $9,000 goes.">
+<meta property="og:site_name" content="MAMS">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #003F3F; text-decoration: none; }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .header {
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(0,63,63,0.06);
+  }
+  .logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px; flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.08);
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1; color: #003F3F; letter-spacing: -0.005em;
+  }
+  .role-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; margin-top: 6px; font-weight: 700;
+  }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 0 28px; }
+
+  .hero { padding: 64px 0 44px; }
+  .eyebrow-top {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 38px; line-height: 1.1; color: #003F3F;
+    margin: 0 0 18px; letter-spacing: -0.015em;
+  }
+  .hero h1 em { font-style: italic; }
+  .hero-sub {
+    font-size: 17px; color: rgba(0,63,63,0.62); margin: 0 0 24px; letter-spacing: 0.005em;
+  }
+
+  .chip {
+    display: inline-flex; flex-direction: column; gap: 2px;
+    background: #fff; border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 10px; padding: 14px 20px; margin-bottom: 22px;
+    box-shadow: 0 2px 16px rgba(212,175,55,0.1);
+  }
+  .chip-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(0,63,63,0.55); font-weight: 700; }
+  .chip-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 26px; color: #003F3F; line-height: 1.1; }
+  .chip-sub { font-size: 12px; color: rgba(0,63,63,0.55); }
+
+  .personal-note {
+    margin: 0; padding: 20px 22px;
+    background: rgba(212, 175, 55, 0.06);
+    border-left: 2px solid #D4AF37; border-radius: 2px;
+  }
+  .personal-note p {
+    font-size: 16px; color: rgba(0,63,63,0.82); margin: 0 0 10px; line-height: 1.6; font-style: italic;
+  }
+  .personal-note p:last-child { margin-bottom: 0; }
+
+  .section { padding: 52px 0 12px; border-top: 1px solid rgba(0,63,63,0.06); }
+  .section-header { margin-bottom: 28px; }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 14px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 28px; line-height: 1.18; color: #003F3F;
+    margin: 0 0 12px; letter-spacing: -0.012em;
+  }
+  .section h2 em { font-style: italic; }
+  .section-lede {
+    font-size: 16px; color: rgba(0,63,63,0.78); margin: 0; line-height: 1.6; max-width: 580px;
+  }
+
+  /* Big number */
+  .bignum-card {
+    background: #003F3F; color: #FAF7F1; border-radius: 8px;
+    padding: 30px 28px; margin-bottom: 18px;
+  }
+  .bignum-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #D4AF37; font-weight: 700; margin-bottom: 10px; }
+  .bignum-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -0.02em; }
+  .bignum-sub { font-size: 14px; color: rgba(250,247,241,0.72); margin-top: 12px; line-height: 1.5; }
+
+  /* Monthly bars */
+  .bars { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin: 20px 0 8px; align-items: end; }
+  .bar-col { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .bar-track { width: 100%; height: 110px; display: flex; align-items: flex-end; }
+  .bar-fill { width: 100%; background: linear-gradient(180deg, #D4AF37, #c19f2e); border-radius: 4px 4px 0 0; min-height: 3px; transition: height 0.6s cubic-bezier(0.34,1.4,0.64,1); }
+  .bar-fill.zero { background: rgba(0,63,63,0.12); }
+  .bar-month { font-size: 11px; font-weight: 700; color: rgba(0,63,63,0.7); }
+  .bar-amt { font-size: 10px; color: rgba(0,63,63,0.5); font-variant-numeric: tabular-nums; }
+
+  /* Rows */
+  .rows { background: #fff; border: 1px solid rgba(0,63,63,0.06); border-radius: 8px; padding: 8px 20px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(0,63,63,0.025); }
+  .row { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline; padding: 14px 0; border-top: 1px solid rgba(0,63,63,0.05); }
+  .row:first-child { border-top: none; }
+  .row-label { font-size: 14px; color: rgba(0,63,63,0.82); line-height: 1.4; }
+  .row-label .sub { display: block; font-size: 12px; color: rgba(0,63,63,0.5); margin-top: 2px; }
+  .row-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 17px; color: #003F3F; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .row-value.pending { color: #B1922E; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; font-style: italic; }
+  .row-total { border-top: 2px solid rgba(212,175,55,0.3); margin-top: 2px; }
+  .row-total .row-label { font-weight: 700; color: #003F3F; text-transform: uppercase; font-size: 11px; letter-spacing: 0.12em; }
+  .row-total .row-value { color: #B1922E; }
+
+  /* Pipeline mini pair */
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 6px 0 12px; }
+  .pair-card { background: #fff; border: 1px solid rgba(0,63,63,0.07); border-radius: 8px; padding: 18px 20px; }
+  .pair-tag { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+  .pair-tag.mams { color: #005F5F; }
+  .pair-tag.ag { color: #5B7B9A; }
+  .pair-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 24px; color: #003F3F; line-height: 1; }
+  .pair-sub { font-size: 12px; color: rgba(0,63,63,0.55); margin-top: 5px; }
+
+  .kicker { font-size: 15px; color: rgba(0,63,63,0.72); line-height: 1.6; margin: 4px 0 0; font-style: italic; }
+
+  /* Deal ledger */
+  .deal-badge { display: inline-block; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 2px 7px; border-radius: 4px; margin-left: 8px; vertical-align: 1px; }
+  .deal-badge.buyer { color: #5B7B9A; background: rgba(91,123,154,0.1); }
+  .deal-badge.seller { color: #005F5F; background: rgba(0,95,95,0.1); }
+  .deal-badge.pending { color: #B1922E; background: rgba(212,175,55,0.12); }
+  .deal-addr { display: block; font-size: 12px; color: rgba(0,63,63,0.5); margin-top: 2px; }
+  .proof-note { background: rgba(0,63,63,0.03); border-radius: 8px; padding: 18px 20px; margin: 6px 0 14px; font-size: 14px; color: rgba(0,63,63,0.75); line-height: 1.55; }
+  .proof-note strong { color: #003F3F; }
+
+  /* Engine cards */
+  .engine-note { font-size: 15px; color: rgba(0,63,63,0.78); line-height: 1.6; margin: 0 0 20px; }
+  .engines { display: grid; gap: 16px; }
+  .engine { background: #fff; border: 1px solid rgba(0,63,63,0.08); border-radius: 10px; padding: 24px; box-shadow: 0 1px 2px rgba(0,63,63,0.025); }
+  .engine.mams { border-top: 3px solid #005F5F; }
+  .engine.ag { border-top: 3px solid #5B7B9A; }
+  .engine-name { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 22px; color: #003F3F; margin: 0; letter-spacing: -0.01em; }
+  .engine-tag { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
+  .engine.mams .engine-tag { color: #005F5F; }
+  .engine.ag .engine-tag { color: #5B7B9A; }
+  .engine-oneliner { font-size: 14px; color: rgba(0,63,63,0.7); line-height: 1.55; margin: 8px 0 18px; }
+  .engine-headline { display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; background: rgba(0,63,63,0.03); border-radius: 6px; margin-bottom: 16px; }
+  .engine-headline-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,63,63,0.55); font-weight: 700; }
+  .engine-headline-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 28px; color: #003F3F; line-height: 1; }
+  .engine-headline-sub { font-size: 12px; color: rgba(0,63,63,0.55); }
+  .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  .metric { display: flex; flex-direction: column; gap: 2px; border-top: 1px solid rgba(0,63,63,0.06); padding-top: 10px; }
+  .metric-label { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(0,63,63,0.5); font-weight: 600; }
+  .metric-value { font-size: 16px; font-weight: 700; color: #003F3F; font-variant-numeric: tabular-nums; }
+  .metric-value .unit { font-size: 11px; font-weight: 600; color: rgba(0,63,63,0.5); }
+  .engine-foot { font-size: 13px; color: rgba(0,63,63,0.62); margin: 16px 0 0; padding-top: 14px; border-top: 1px solid rgba(0,63,63,0.06); line-height: 1.5; }
+
+  /* Forward plan cards */
+  .plan { background: #fff; border: 1px solid rgba(0,63,63,0.08); border-radius: 8px; padding: 20px 22px; margin-bottom: 12px; }
+  .plan.separate { border-style: dashed; background: rgba(0,63,63,0.015); }
+  .plan-top { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; }
+  .plan-label { font-size: 15px; font-weight: 700; color: #003F3F; }
+  .plan-amt { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 22px; color: #B1922E; white-space: nowrap; }
+  .plan-detail { font-size: 13px; color: rgba(0,63,63,0.66); margin: 8px 0 0; line-height: 1.5; }
+  .plan-struct { font-size: 13px; color: rgba(0,63,63,0.6); line-height: 1.6; margin: 12px 0 0; font-style: italic; }
+
+  /* Honest / ask callout */
+  .honest-read { background: #003F3F; color: #FAF7F1; padding: 32px 28px; border-radius: 8px; margin: 6px 0 0; }
+  .honest-read .eyebrow { color: #D4AF37; margin-bottom: 14px; }
+  .honest-read h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.22; margin: 0 0 16px; letter-spacing: -0.008em; color: #FAF7F1; }
+  .ask-list { list-style: none; margin: 0 0 18px; padding: 0; }
+  .ask-list li { font-size: 15px; color: rgba(250,247,241,0.9); line-height: 1.55; padding: 10px 0 10px 22px; position: relative; border-top: 1px solid rgba(250,247,241,0.1); }
+  .ask-list li:first-child { border-top: none; }
+  .ask-list li::before { content: '·'; position: absolute; left: 6px; color: #D4AF37; font-weight: 700; }
+  .ask-close { font-size: 16px; color: #FAF7F1; line-height: 1.55; margin: 0; font-weight: 500; }
+
+  /* Feedback */
+  .feedback { background: #003F3F; color: #FAF7F1; padding: 40px 28px; border-radius: 8px; margin-top: 20px; }
+  .feedback .eyebrow { color: #D4AF37; margin-bottom: 14px; }
+  .feedback h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 26px; color: #FAF7F1; margin: 0 0 14px; letter-spacing: -0.012em; }
+  .feedback h2 em { font-style: italic; }
+  .feedback-lede { font-size: 15px; color: rgba(250,247,241,0.78); margin: 0 0 22px; line-height: 1.55; }
+  .feedback-form { display: grid; gap: 14px; }
+  .feedback-textarea { width: 100%; min-height: 130px; padding: 16px 18px; background: rgba(250,247,241,0.06); border: 1px solid rgba(250,247,241,0.16); border-radius: 4px; color: #FAF7F1; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.55; resize: vertical; transition: border-color 0.2s ease, background 0.2s ease; }
+  .feedback-textarea::placeholder { color: rgba(250,247,241,0.4); font-style: italic; }
+  .feedback-textarea:focus { outline: none; border-color: #D4AF37; background: rgba(250,247,241,0.08); }
+  .feedback-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .feedback-send { display: inline-block; background: #D4AF37; color: #003F3F; padding: 14px 30px; border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; border: none; cursor: pointer; font-family: 'Inter', sans-serif; transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease; }
+  .feedback-send:hover { background: #c19f2e; transform: translateY(-1px); }
+  .feedback-send:active { transform: translateY(0); }
+  .feedback-note { font-size: 12px; color: rgba(250,247,241,0.55); flex: 1; min-width: 200px; }
+  .feedback-success { display: none; padding: 14px 16px; background: rgba(212,175,55,0.12); border-left: 2px solid #D4AF37; border-radius: 2px; font-size: 14px; color: rgba(250,247,241,0.92); margin-top: 4px; }
+  .feedback-success.visible { display: block; }
+
+  .footer { padding: 44px 28px 60px; text-align: center; border-top: 1px solid rgba(0,63,63,0.06); margin-top: 52px; }
+  .signature { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 19px; color: #003F3F; letter-spacing: -0.005em; }
+  .footer-note { font-size: 12px; color: rgba(0,63,63,0.45); margin-top: 14px; letter-spacing: 0.02em; }
+
+  .loading { padding: 80px 28px; text-align: center; color: rgba(0,63,63,0.5); font-style: italic; }
+
+  @media (min-width: 700px) {
+    .hero { padding: 88px 0 56px; }
+    .hero h1 { font-size: 46px; }
+    .hero-sub { font-size: 18px; }
+    .section { padding: 72px 0 20px; }
+    .section h2 { font-size: 32px; }
+    .section-lede { font-size: 17px; }
+    .bignum-value { font-size: 52px; }
+    .engines { grid-template-columns: 1fr 1fr; align-items: start; }
+    .feedback { padding: 48px 40px; }
+    .feedback h2 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">M</div>
+  <div>
+    <div class="brand">Monique</div>
+    <div class="role-label">For Mom and Dad · The Money, Straight</div>
+  </div>
+</header>
+
+<div id="app" class="container">
+  <div class="loading">Loading the numbers.</div>
+</div>
+
+<script>
+  var DATA_URL = './snapshot-61a0746a28-data.json';
+
+  function money(n) {
+    if (n === null || n === undefined) return '';
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+  function moneyExact(n) {
+    if (n === null || n === undefined) return '';
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function compact(n) {
+    if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (n >= 1000) return Math.round(n / 1000) + 'K';
+    return String(n);
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function render(D) {
+    var app = document.getElementById('app');
+    var h = '';
+
+    /* HERO */
+    var s = D.snapshot;
+    h += '<section class="hero">';
+    h += '<div class="eyebrow-top">The next $9,000</div>';
+    h += '<h1>Here is exactly where <em>the money</em> stands.</h1>';
+    h += '<p class="hero-sub">What came in, what it returned, where it went, and where the next $9,000 goes. Nothing rounded away.</p>';
+    h += '<div class="chip"><span class="chip-label">Cash on hand today</span><span class="chip-value">' + esc(s.currentLiquidLabel) + '</span><span class="chip-sub">as of ' + esc(D.meta.asOf) + ', by design</span></div>';
+    h += '<div class="personal-note"><p>' + esc(s.loanContext) + '</p><p>' + esc(s.honestLine) + '</p></div>';
+    h += '</section>';
+
+    /* CLOSINGS LEDGER */
+    var c = D.closings;
+    h += '<section class="section">';
+    h += '<div class="section-header"><div class="eyebrow">' + esc(c.eyebrow) + '</div><h2>' + esc(c.title) + '</h2><p class="section-lede">' + esc(c.subtitle) + '</p></div>';
+    var subLine = c.confirmedCount + ' closings, each matched to a signed disclosure and a deposit.'
+      + (c.pendingCount > 0 ? ' ' + c.pendingCount + ' more just closed and landing now.' : '');
+    h += '<div class="bignum-card"><div class="bignum-label">Commission closed · ' + esc(c.windowLabel) + '</div><div class="bignum-value">' + moneyExact(c.confirmedTotal) + '</div><div class="bignum-sub">' + subLine + '</div></div>';
+
+    h += '<div class="rows">';
+    c.deals.forEach(function (d) {
+      var pend = d.status === 'pending';
+      var badge = pend ? '<span class="deal-badge pending">Just closed</span>'
+        : (d.side === 'Buyer' ? '<span class="deal-badge buyer">Buyer</span>' : '<span class="deal-badge seller">Seller</span>');
+      var addr = d.address ? '<span class="deal-addr">' + esc(d.address) + '</span>' : '';
+      var val = (d.commission === null)
+        ? '<div class="row-value pending">confirming</div>'
+        : '<div class="row-value">' + money(d.commission) + '</div>';
+      h += '<div class="row"><div class="row-label">' + esc(d.client) + badge + addr + '</div>' + val + '</div>';
+    });
+    if (c.decLandDeal) {
+      var dl = c.decLandDeal;
+      h += '<div class="row"><div class="row-label">' + esc(dl.label) + '<span class="deal-addr">' + esc(dl.note) + '</span></div><div class="row-value pending">confirming</div></div>';
+    }
+    h += '</div>';
+
+    h += '<div class="proof-note"><strong>' + esc(c.depositProof.label) + '.</strong> ' + esc(c.depositProof.text) + '</div>';
+    h += '</section>';
+
+    /* LIVE PIPELINE */
+    var lv = D.live;
+    h += '<section class="section">';
+    h += '<div class="section-header"><div class="eyebrow">' + esc(lv.eyebrow) + '</div><h2>' + esc(lv.title) + '</h2><p class="section-lede">' + esc(lv.subtitle) + '</p></div>';
+    h += '<div class="rows">';
+    lv.activeListings.forEach(function (al) {
+      h += '<div class="row"><div class="row-label">' + esc(al.address) + '<span class="deal-addr">MAMS listing</span></div><div class="row-value"><span class="deal-badge seller">' + esc(al.status) + '</span></div></div>';
+    });
+    lv.underContract.forEach(function (uc) {
+      h += '<div class="row"><div class="row-label">' + esc(uc.label) + '<span class="deal-addr">' + esc(uc.detail) + '</span></div><div class="row-value"><span class="deal-badge buyer">Under contract</span></div></div>';
+    });
+    h += '</div>';
+    h += '<p class="kicker">' + esc(lv.momentum) + '</p>';
+    h += '<div class="pair">';
+    h += '<div class="pair-card"><div class="pair-tag ag">AG pipeline ahead</div><div class="pair-value">' + money(D.pipeline.ag.weighted) + '</div><div class="pair-sub">' + D.pipeline.ag.deals + ' deals, weighted</div></div>';
+    h += '<div class="pair-card"><div class="pair-tag mams">MAMS pipeline ahead</div><div class="pair-value">' + money(D.pipeline.mams.weighted) + '</div><div class="pair-sub">' + D.pipeline.mams.deals + ' deals, weighted</div></div>';
+    h += '</div>';
+    h += '</section>';
+
+    /* ENGINES */
+    var e = D.engines;
+    h += '<section class="section">';
+    h += '<div class="section-header"><div class="eyebrow">Two engines</div><h2>One proven. One to <em>fund</em>.</h2><p class="engine-note">' + esc(e.note) + '</p></div>';
+    h += '<div class="engines">';
+
+    var m = e.mams;
+    h += '<div class="engine mams">';
+    h += '<div class="engine-tag">' + esc(m.tag) + '</div><h3 class="engine-name">' + esc(m.name) + '</h3>';
+    h += '<p class="engine-oneliner">' + esc(m.oneLiner) + '</p>';
+    h += '<div class="engine-headline"><span class="engine-headline-label">' + esc(m.headlineStat.label) + '</span><span class="engine-headline-value">' + money(m.headlineStat.value) + '</span><span class="engine-headline-sub">' + esc(m.headlineStat.sub) + '</span></div>';
+    h += '<div class="metrics">';
+    h += '<div class="metric"><span class="metric-label">Followers</span><span class="metric-value">' + m.content.followers.toLocaleString() + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">Grew by</span><span class="metric-value">+' + m.content.followersGained.toLocaleString() + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">Video views</span><span class="metric-value">' + compact(m.content.views) + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">Shares</span><span class="metric-value">' + m.content.shares.toLocaleString() + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">Ad spend (Meta)</span><span class="metric-value">' + money(m.ads.spend) + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">New leads</span><span class="metric-value">' + m.ads.leads + '</span></div>';
+    h += '</div>';
+    h += '<p class="engine-foot">Top video, "' + esc(m.content.topReel.label) + '," reached ' + m.content.topReel.reach.toLocaleString() + ' people and was shared ' + m.content.topReel.shares.toLocaleString() + ' times.</p>';
+    h += '</div>';
+
+    var a = e.ag;
+    h += '<div class="engine ag">';
+    h += '<div class="engine-tag">' + esc(a.tag) + '</div><h3 class="engine-name">' + esc(a.name) + '</h3>';
+    h += '<p class="engine-oneliner">' + esc(a.oneLiner) + '</p>';
+    h += '<div class="engine-headline"><span class="engine-headline-label">' + esc(a.headlineStat.label) + '</span><span class="engine-headline-value">' + money(a.headlineStat.value) + '</span><span class="engine-headline-sub">' + esc(a.headlineStat.sub) + '</span></div>';
+    h += '<div class="metrics">';
+    h += '<div class="metric"><span class="metric-label">Ad views</span><span class="metric-value">' + compact(a.ads.impressions) + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">Clicks</span><span class="metric-value">' + a.ads.clicks.toLocaleString() + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">Conversions</span><span class="metric-value">' + a.ads.conversions + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">New leads</span><span class="metric-value">' + a.ads.leads + '</span></div>';
+    h += '</div>';
+    h += '<p class="engine-foot">Every closed facilitation pays ' + esc(a.feePerDeal) + '. This is the lane the next $9,000 feeds.</p>';
+    h += '</div>';
+
+    h += '</div></section>';
+
+    /* SPEND */
+    var sp = D.spend;
+    h += '<section class="section">';
+    h += '<div class="section-header"><div class="eyebrow">Where it went</div><h2>Full transparency, <em>every dollar</em>.</h2><p class="section-lede">' + esc(sp.note) + '</p></div>';
+
+    function spendBlock(title, block) {
+      var out = '<div class="rows">';
+      block.items.forEach(function (it) {
+        var extra = (it.detail || it.note) ? '<span class="sub">' + esc(it.detail || it.note) + '</span>' : '';
+        var val = it.amount === null ? '<span class="row-value pending">the balance</span>' : '<div class="row-value">' + (it.approx ? '~' : '') + money(it.amount) + '</div>';
+        out += '<div class="row"><div class="row-label">' + esc(it.label) + extra + '</div>' + val + '</div>';
+      });
+      if (block.total !== undefined && block.total !== null) {
+        out += '<div class="row row-total"><div class="row-label">' + esc(title) + '</div><div class="row-value">' + money(block.total) + '</div></div>';
+      }
+      out += '</div>';
+      return out;
+    }
+    h += '<div class="eyebrow" style="margin-top:6px">AG Home Buyers, reinvested</div>' + spendBlock('AG reinvestment', sp.reinvestment.ag);
+    h += '<div class="eyebrow">MAMS, reinvested</div>' + spendBlock('MAMS reinvestment', sp.reinvestment.mams);
+    h += '<div class="eyebrow">How I have been living</div>' + spendBlock('', sp.lifestyle);
+    h += '<p class="kicker">' + esc(sp.lifestyle.honestClose) + '</p>';
+    h += '</section>';
+
+    /* FORWARD */
+    var f = D.forward;
+    h += '<section class="section">';
+    h += '<div class="section-header"><div class="eyebrow">The forward plan</div><h2>' + esc(f.headline) + '</h2><p class="section-lede">' + esc(f.note) + '</p></div>';
+    f.allocation.forEach(function (al) {
+      h += '<div class="plan' + (al.separate ? ' separate' : '') + '"><div class="plan-top"><span class="plan-label">' + esc(al.label) + '</span><span class="plan-amt">' + money(al.amount) + '</span></div><p class="plan-detail">' + esc(al.detail) + '</p></div>';
+    });
+    h += '<p class="plan-struct">' + esc(f.budgetStructure) + '</p>';
+    h += '</section>';
+
+    /* ASK */
+    var k = D.ask;
+    h += '<section class="section">';
+    h += '<div class="section-header"><div class="eyebrow">The ask</div><h2>' + esc(k.headline) + '</h2></div>';
+    h += '<div class="honest-read"><div class="eyebrow">Why the return is close to a sure thing</div><ul class="ask-list">';
+    k.roiLogic.forEach(function (li) { h += '<li>' + esc(li) + '</li>'; });
+    h += '</ul><p class="ask-close">' + esc(k.close) + '</p></div>';
+    h += '</section>';
+
+    /* FEEDBACK */
+    h += '<section class="section">';
+    h += '<div class="section-header"><div class="eyebrow">Your turn</div><h2>Tell me what you <em>think</em>.</h2><p class="section-lede">Push on anything. What is unclear, what you would want to see, what you would do differently. It comes straight to me.</p></div>';
+    h += '<div class="feedback"><div class="eyebrow">A note for Miles</div><h2>Send it <em>straight</em>.</h2><p class="feedback-lede">Nothing too small, nothing too big. The honest read is the value.</p>';
+    h += '<form class="feedback-form" id="feedback-form" onsubmit="return sendFeedback(event)"><textarea class="feedback-textarea" id="feedback-body" placeholder="What stands out, what is missing, what you would push on." required></textarea>';
+    h += '<div class="feedback-actions"><button type="submit" class="feedback-send">Send to Miles</button><span class="feedback-note">Opens your mail app with this addressed to me. You hit send.</span></div>';
+    h += '<div class="feedback-success" id="feedback-success">Mail draft is open. Hit send and I will see it. Whatever you say, I fold it back in and re-share.</div></form></div>';
+    h += '</section>';
+
+    /* FOOTER */
+    h += '<div class="footer"><div class="signature">- Miles</div><div class="footer-note">' + esc(D.meta.updatedLabel) + ' · Built for Mom and Dad · Refreshes as the numbers move</div></div>';
+
+    app.innerHTML = h;
+  }
+
+  function sendFeedback(ev) {
+    ev.preventDefault();
+    var body = document.getElementById('feedback-body').value.trim();
+    if (!body) return false;
+    var subject = 'The Money, Straight: a note from your read';
+    var url = 'mailto:miles@milesagee.com?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body + '\n\n---\nSent from the investor snapshot\nhttps://mamsnow.com/scaffold/intros/dashboards/snapshot-61a0746a28.html');
+    window.location.href = url;
+    document.getElementById('feedback-success').classList.add('visible');
+    setTimeout(function () { document.getElementById('feedback-success').classList.remove('visible'); }, 12000);
+    return false;
+  }
+
+  fetch(DATA_URL, { cache: 'no-store' })
+    .then(function (res) { if (!res.ok) throw new Error('load'); return res.json(); })
+    .then(render)
+    .catch(function () {
+      document.getElementById('app').innerHTML = '<div class="loading">Open this from the link Miles sent so the numbers can load.</div>';
+    });
+</script>
+
+</body>
+</html>

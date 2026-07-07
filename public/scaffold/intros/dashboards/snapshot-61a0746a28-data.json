@@ -1,0 +1,310 @@
+{
+  "meta": {
+    "asOf": "2026-07-06",
+    "updatedLabel": "Updated 2026-07-06",
+    "refreshNote": "Live figures. This page refreshes as the numbers move, so you can reopen it anytime and see where things actually stand.",
+    "dashboardUrl": "https://mamsnow.com/scaffold/intros/dashboards/snapshot-61a0746a28.html"
+  },
+  "snapshot": {
+    "currentLiquidLabel": "~$1,800",
+    "honestLine": "Cash on hand is tight right now, on purpose. It goes back into the two engines the moment it lands. Here is the full picture, deal by deal, dollar by dollar.",
+    "loanContext": "You floated the first $9,000. This is the accounting you are owed, built so you can check every number against a real closing, plus exactly where the next $9,000 goes."
+  },
+  "closings": {
+    "eyebrow": "The returns, matched to a closing",
+    "title": "Nine homes closed, every dollar on a document.",
+    "subtitle": "Not a round number. Each of these ties to a signed Closing Disclosure and a matching deposit in the business account. You can check any one of them.",
+    "confirmedTotal": 96697.87,
+    "confirmedCount": 9,
+    "pendingCount": 0,
+    "windowLabel": "Closed Feb to July 2026",
+    "deals": [
+      {
+        "client": "Trevis Dawidowicz",
+        "address": "8713 Eli Place, Glen Allen",
+        "side": "Buyer",
+        "commission": 14910.75,
+        "won": "Mar 2026",
+        "status": "closed"
+      },
+      {
+        "client": "Harry Canaday",
+        "address": "10401 Oak Bay Court, Henrico",
+        "side": "Buyer",
+        "commission": 13959.0,
+        "won": "Apr 2026",
+        "status": "closed"
+      },
+      {
+        "client": "Stephen Ashihene",
+        "address": "8740 Pioneer Hill Dr, Chesterfield",
+        "side": "Buyer",
+        "commission": 11622.26,
+        "won": "Feb 2026",
+        "status": "closed"
+      },
+      {
+        "client": "Trevis Dawidowicz",
+        "address": "9208 Timbers Edge Ct, Glen Allen",
+        "side": "Seller",
+        "commission": 11040.3,
+        "won": "Apr 2026",
+        "status": "closed"
+      },
+      {
+        "client": "Veronica Liebig",
+        "address": "12605 Mill Lock Ter, Midlothian",
+        "side": "Seller",
+        "commission": 10456.56,
+        "won": "Apr 2026",
+        "status": "closed"
+      },
+      {
+        "client": "551 Marlborough Point",
+        "address": "Marlborough Point Rd, Stafford",
+        "side": "Seller",
+        "commission": 9614.0,
+        "won": "Apr 2026",
+        "status": "closed"
+      },
+      {
+        "client": "Natalie Seymour",
+        "address": "2401 Warwick Ave, Richmond",
+        "side": "Seller",
+        "commission": 9225.0,
+        "won": "Jun 2026",
+        "status": "closed"
+      },
+      {
+        "client": "Walker Griffea",
+        "address": "817 Pleasant St, Henrico",
+        "side": "Seller",
+        "commission": 5370.0,
+        "won": "Jun 2026",
+        "status": "closed"
+      },
+      {
+        "client": "Madeline Alexander",
+        "address": "209 Quest Ct, Yorktown",
+        "side": "Seller",
+        "commission": 10500.0,
+        "won": "Jun 2026",
+        "status": "closed"
+      }
+    ],
+    "depositProof": {
+      "label": "Every one matches a deposit and a Closing Disclosure",
+      "text": "These are not estimates. Each commission comes off a signed Closing Disclosure (Kane Jeffries, Caplan Law, Rocket Close) and lands as a deposit in the business account, from Long & Foster earlier in the year and Samson Properties now. A couple of additional closings are still being matched on top of these.",
+      "brokerageAch": 96697.87
+    }
+  },
+  "live": {
+    "eyebrow": "What is live right now",
+    "title": "The engine is still running.",
+    "subtitle": "Closed deals are the proof of what happened. Here is what is on the market and under contract today, so you can see it is not slowing down.",
+    "activeListings": [
+      {
+        "address": "97 McCormick Drive, Reedville",
+        "status": "On the market"
+      },
+      {
+        "address": "2374 Hilton Rd, Gate City",
+        "status": "On the market"
+      }
+    ],
+    "underContract": [
+      {
+        "label": "Buyer, Richmond (Broad Rock / Near West)",
+        "detail": "Under contract, closing target end of July"
+      }
+    ],
+    "momentum": "On top of that, more listings are being prepped to hit the market and several buyers are preapproved and actively shopping right now. The weighted pipeline across both businesses:"
+  },
+  "pipeline": {
+    "ag": {
+      "weighted": 103100,
+      "deals": 43
+    },
+    "mams": {
+      "weighted": 76494,
+      "deals": 40
+    }
+  },
+  "engines": {
+    "note": "Two separate businesses. Never mixed. One is proven and closing homes now. One is the fast, repeatable play the next $9,000 funds.",
+    "mams": {
+      "name": "MAMS",
+      "tag": "The proven engine",
+      "oneLiner": "Licensed real estate, driven by content. This is what closes the homes above.",
+      "headlineStat": {
+        "label": "Commission closed",
+        "value": 96697.87,
+        "sub": "9 deals on a Closing Disclosure"
+      },
+      "content": {
+        "followers": 9405,
+        "followersGained": 7198,
+        "views": 1800000,
+        "shares": 21090,
+        "topReel": {
+          "label": "Richmond 2025 = Austin 1995",
+          "reach": 117620,
+          "shares": 8608
+        }
+      },
+      "ads": {
+        "channel": "Meta",
+        "spend": 3010,
+        "leads": 28
+      }
+    },
+    "ag": {
+      "name": "AG Home Buyers",
+      "tag": "The engine to fund",
+      "oneLiner": "Facilitation for homeowners. Money goes to Google Ads, ads make leads, leads make deals. Fast and repeatable. Miles is a facilitator, never a buyer.",
+      "headlineStat": {
+        "label": "Weighted pipeline",
+        "value": 103100,
+        "sub": "43 deals in motion"
+      },
+      "ads": {
+        "channel": "Google",
+        "impressions": 39456,
+        "clicks": 1612,
+        "conversions": 36,
+        "leads": 42
+      },
+      "feePerDeal": "10,000 to 30,000 per closed facilitation"
+    }
+  },
+  "spend": {
+    "note": "Full transparency. Business reinvestment first, then how I have been living. Nothing hidden, including the fun.",
+    "reinvestment": {
+      "ag": {
+        "total": 23998.63,
+        "items": [
+          {
+            "label": "Retail Max mentorship (Jarvela)",
+            "amount": 12371.86
+          },
+          {
+            "label": "Google Ads",
+            "amount": 6277.81
+          },
+          {
+            "label": "Travel to deals",
+            "amount": 2594.72
+          },
+          {
+            "label": "Legal / entity setup",
+            "amount": 1693.0
+          },
+          {
+            "label": "Lead data",
+            "amount": 695.0
+          },
+          {
+            "label": "Software",
+            "amount": 366.24
+          }
+        ]
+      },
+      "mams": {
+        "total": 6630.96,
+        "items": [
+          {
+            "label": "Meta Ads",
+            "amount": 3576.07
+          },
+          {
+            "label": "Licensing / MLS / dues",
+            "amount": 1219.0
+          },
+          {
+            "label": "Signs / marketing",
+            "amount": 767.13
+          },
+          {
+            "label": "Content gear",
+            "amount": 551.71
+          },
+          {
+            "label": "Client gifts",
+            "amount": 504.46
+          },
+          {
+            "label": "Software",
+            "amount": 114.95
+          }
+        ]
+      }
+    },
+    "lifestyle": {
+      "note": "The honest part. This is where the draws went. I am showing you all of it.",
+      "items": [
+        {
+          "label": "The 4Runner build",
+          "amount": 8194.72,
+          "detail": "Ironwood Automotive, Tire Rack, I T Automotive"
+        },
+        {
+          "label": "Shopping (household, apparel)",
+          "amount": 7511.83
+        },
+        {
+          "label": "Gas",
+          "amount": 5860.81
+        },
+        {
+          "label": "Eating out",
+          "amount": 5713.03
+        },
+        {
+          "label": "Apple (gear + services)",
+          "amount": 4662.94
+        },
+        {
+          "label": "Wellness / recovery",
+          "amount": 4129.7
+        },
+        {
+          "label": "Travel (incl. the Phoenix conference)",
+          "amount": 3295.5
+        },
+        {
+          "label": "Going out / nightlife",
+          "amount": 562.78
+        }
+      ],
+      "honestClose": "The car, the food, the nights out, they are all here. I am not hiding how I live. I am showing you the engines are real so the living can slow down and the building can speed up."
+    }
+  },
+  "forward": {
+    "headline": "The next $9,000 goes to one place. AG lead generation.",
+    "note": "Walled off from personal spending. A business allocation, tracked and reported back to you the same way this page is.",
+    "allocation": [
+      {
+        "label": "Google Ads, AG lead-gen",
+        "amount": 9000,
+        "detail": "About $100 a day across the National and Fan / City campaigns for 90 days"
+      },
+      {
+        "label": "Retail Max mentorship (Jarvela), quarterly",
+        "amount": 5500,
+        "detail": "The coaching that makes each AG deal repeatable. A proven line item already.",
+        "separate": true
+      }
+    ],
+    "budgetStructure": "Mirrors the original three-month budget: income and cash, tax reserve, fixed, business, discretionary. The $9,000 sits inside Business, AG line, and does not move."
+  },
+  "ask": {
+    "headline": "One more $9,000, earmarked for AG ads.",
+    "roiLogic": [
+      "AG ad spend so far: about $4,750 produced 42 leads and $103,100 of weighted pipeline.",
+      "That is roughly $113 a lead and about $21 of pipeline for every $1 of ad spend.",
+      "A single AG facilitation pays $10,000 to $30,000. One deal covers the $9,000 several times over.",
+      "The MAMS side already proves I execute. Nine closings on signed disclosures this year is the evidence, not a promise."
+    ],
+    "close": "This is not a rescue. It is fuel for the fastest, most repeatable lane, from someone who has already shown the model works."
+  }
+}
