@@ -282,11 +282,10 @@
     /* HERO */
     var s = D.snapshot;
     h += '<section class="hero">';
-    h += '<div class="eyebrow-top">The next $9,000</div>';
-    h += '<h1>Here is exactly where <em>the money</em> stands.</h1>';
-    h += '<p class="hero-sub">What came in, what it returned, where it went, and where the next $9,000 goes. Nothing rounded away.</p>';
-    h += '<div class="chip"><span class="chip-label">Cash on hand today</span><span class="chip-value">' + esc(s.currentLiquidLabel) + '</span><span class="chip-sub">as of ' + esc(D.meta.asOf) + ', by design</span></div>';
-    h += '<div class="personal-note"><p>' + esc(s.loanContext) + '</p><p>' + esc(s.honestLine) + '</p></div>';
+    h += '<div class="eyebrow-top">' + esc(s.eyebrowTop) + '</div>';
+    h += '<h1>' + s.heroHeadline + '</h1>';
+    h += '<p class="hero-sub">' + esc(s.heroSub) + '</p>';
+    h += '<div class="personal-note"><p>' + esc(s.openingNote) + '</p></div>';
     h += '</section>';
 
     /* CLOSINGS LEDGER */
@@ -369,7 +368,7 @@
     h += '<div class="metric"><span class="metric-label">Conversions</span><span class="metric-value">' + a.ads.conversions + '</span></div>';
     h += '<div class="metric"><span class="metric-label">New leads</span><span class="metric-value">' + a.ads.leads + '</span></div>';
     h += '</div>';
-    h += '<p class="engine-foot">Every closed facilitation pays ' + esc(a.feePerDeal) + '. This is the lane the next $9,000 feeds.</p>';
+    h += '<p class="engine-foot">' + esc(a.foot || ('Every closed facilitation pays ' + a.feePerDeal + '. This is the lane the next $9,000 feeds.')) + '</p>';
     h += '</div>';
 
     h += '</div></section>';
