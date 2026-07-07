@@ -9,7 +9,7 @@
     "eyebrowTop": "The full accounting, summer 2026",
     "heroHeadline": "Nine homes closed. <em>$96,697.87</em> earned, every dollar verified.",
     "heroSub": "This page shows your first $9,000 at work, receipt by receipt.",
-    "openingNote": "Mom, Dad, your first $9,000 helped build a real engine. Nine closings since February, every figure pulled off signed documents. This page shows you the full accounting, then exactly where the next $9,000 goes."
+    "openingNote": "Mom, Dad, your first $9,000 helped build a real engine. Nine closings since February, every figure pulled off signed documents. This page is the full accounting, the next step, and exactly how you get every dollar back."
   },
   "closings": {
     "eyebrow": "The returns, matched to a closing",
@@ -282,31 +282,42 @@
     }
   },
   "forward": {
-    "headline": "The next $9,000 goes to one place. AG lead generation.",
-    "note": "Walled off from personal spending. A business allocation, tracked and reported back to you the same way this page is.",
-    "allocation": [
-      {
-        "label": "Google Ads, AG lead-gen",
-        "amount": 9000,
-        "detail": "About $100 a day across the National and Fan / City campaigns for 90 days"
-      },
-      {
-        "label": "Retail Max mentorship (Jarvela), quarterly",
-        "amount": 5500,
-        "detail": "The coaching that makes each AG deal repeatable. A proven line item already.",
-        "separate": true
-      }
-    ],
-    "budgetStructure": "The 9,000 goes into the AG business account only. It does not touch personal spending. I report it back to you the same way this page reports everything else."
+    "eyebrow": "The plan, continued",
+    "title": "The deal we started, finished a step at a time.",
+    "deal": {
+      "inTotal": 27000,
+      "inStructure": "$9,000 a month, three months",
+      "backTotal": 32000,
+      "backSub": "your return included",
+      "backExplain": "The extra $5,000 covers your tax and the cost of moving the money out and back. That is your return, not just your money returned.",
+      "done": 9000,
+      "remaining": 18000,
+      "nextStep": "the next $9,000, month two"
+    },
+    "useOfFunds": {
+      "headline": "Every dollar goes to one place. AG Google ads.",
+      "detail": "Not personal. Not my mentorship dues, I cover those myself. Straight into AG Google ads that make facilitation leads. That is the entire ask, nothing else built into it."
+    }
   },
   "ask": {
-    "headline": "One more $9,000, earmarked for AG ads.",
-    "roiLogic": [
-      "AG has not closed a deal yet. The 103,100 is weighted pipeline, not cash in the bank.",
-      "So far about 4,750 in AG ads produced 42 leads and that 103,100 of pipeline.",
-      "A closed facilitation targets 10,000 to 30,000. One close covers the 9,000 several times.",
-      "The MAMS side already proves I execute. Nine closings on signed disclosures is the evidence, not a promise."
+    "eyebrow": "The return, defined",
+    "headline": "$32,000 back, and here is exactly how.",
+    "repayment": {
+      "perClose": 4000,
+      "rule": "$4,000 from every closing routes straight to you, until the full $32,000 is paid.",
+      "paceNote": "That is eight closings. At my current pace of close to two a month, roughly four to five months, paid in full by late 2026.",
+      "startsNote": "It starts now, not someday. MAMS is already closing, so the money comes back before AG even lands its first deal."
+    },
+    "month3": {
+      "headline": "The third $9,000",
+      "rule": "The third month is not automatic. It releases when the month-two spend produces 40 or more qualified AG leads.",
+      "note": "You check the number before you send the next one. It lives on this page and it updates."
+    },
+    "proof": [
+      "Nine closings, $96,697.87, every dollar off a signed document.",
+      "So the return is not waiting on any one thing to go right.",
+      "It is not whether I can make it. It is how we focus and finish it."
     ],
-    "close": "This is not a rescue. It is fuel for the fastest, most repeatable lane, from someone who has already shown the model works."
+    "close": "You backed the start. This is me finishing it, on the record, with a date attached."
   }
 }
