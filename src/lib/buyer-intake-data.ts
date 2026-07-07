@@ -105,6 +105,17 @@ export const CONTACTS: Record<string, BuyerIntakeContact> = {
     firstName: "Cece",
     establishedChannel: "mams-line-established",
   },
+  // Lashena (Lashenia Irvin), Miles's aunt, +1-321-330-7921. Purchasing up in
+  // NoVa per 2026-06-23 iMessage thread. Created in MAMS GHL 2026-07-07 via
+  // buyer-intake-bootstrap.js. NOTE: intake neighborhood chips are Richmond-only
+  // at v1 (geography mismatch flagged to Miles); budget/beds/baths/timeline
+  // still capture cleanly.
+  "2tk3tSONPVI7kGrSWHsl": {
+    contactId: "2tk3tSONPVI7kGrSWHsl",
+    shareToken: "R0-nRPtG_uxR",
+    firstName: "Lashena",
+    establishedChannel: "personal-cell-imessage",
+  },
 };
 
 export function getBuyerIntakeByToken(
