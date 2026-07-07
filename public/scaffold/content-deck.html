@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>MAMS Content Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep-teal:#003F3F; --teal:#005F5F; --gold:#D4AF37; --gold-soft:#F1E4BC;
+    --paper:#FAF7F1; --line:rgba(0,63,63,0.14); --ok:#1f7a4d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{
+    font-family:'Inter',system-ui,sans-serif; color:var(--deep-teal);
+    background:radial-gradient(900px 500px at 90% -8%,rgba(212,175,55,0.12),transparent 60%),var(--paper);
+    line-height:1.5; padding-bottom:60px;
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 16px;}
+
+  /* Header */
+  header{padding:22px 4px 10px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:20px;letter-spacing:0.3px;}
+  .brand span{color:var(--gold);}
+  .hint{font-size:11px;color:var(--teal);font-weight:600;text-align:right;line-height:1.35;}
+
+  /* Batch */
+  .batch{margin-top:12px;}
+  .batch-head{
+    background:linear-gradient(150deg,var(--deep-teal),#01302F);color:var(--paper);
+    border-radius:18px;padding:16px 18px;margin-bottom:16px;position:relative;overflow:hidden;
+  }
+  .batch-head::before{content:"";position:absolute;inset:0;background:radial-gradient(260px 160px at 100% 0,rgba(212,175,55,0.22),transparent 60%);}
+  .batch-head .chip{display:inline-block;background:var(--gold);color:var(--deep-teal);font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 9px;border-radius:5px;position:relative;}
+  .batch-head h1{font-family:'Fraunces',serif;font-weight:400;font-size:23px;margin-top:9px;position:relative;}
+  .batch-head .meta{font-size:12px;color:rgba(250,247,241,0.75);margin-top:5px;position:relative;}
+
+  /* Post card */
+  .post{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 15px;margin-bottom:16px;box-shadow:0 14px 30px -24px rgba(0,63,63,0.5);}
+  .post-top{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap;}
+  .num{font-family:'Fraunces',serif;font-size:22px;color:var(--gold);line-height:1;}
+  .post-top h2{font-family:'Fraunces',serif;font-weight:600;font-size:17px;flex:1;min-width:0;}
+  .tags-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+  .pill{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--teal);background:rgba(0,95,95,0.08);padding:3px 8px;border-radius:20px;}
+
+  /* Field block */
+  .field{border:1px solid var(--line);border-radius:12px;margin-bottom:11px;overflow:hidden;background:var(--paper);}
+  .field-head{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:rgba(0,95,95,0.05);border-bottom:1px solid var(--line);}
+  .field-head .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);}
+  .copytext{padding:12px;font-size:15px;color:var(--deep-teal);white-space:pre-wrap;word-wrap:break-word;}
+  .copytext.mono{font-size:14px;}
+
+  /* Copy button */
+  .copybtn{
+    font-family:'Inter';font-size:12px;font-weight:700;color:#fff;background:var(--teal);
+    border:none;border-radius:20px;padding:7px 15px;cursor:pointer;
+    transition:transform .12s cubic-bezier(.34,1.56,.64,1),background .12s ease;
+  }
+  .copybtn:active{transform:scale(0.94);}
+  .copybtn.ok{background:var(--ok);}
+
+  /* On-screen chips (each tap = copy) */
+  .chips{display:flex;flex-wrap:wrap;gap:7px;padding:12px;}
+  .chip-copy{
+    font-size:13.5px;font-weight:600;color:var(--deep-teal);background:#fff;
+    border:1.5px solid var(--line);border-radius:10px;padding:8px 11px;cursor:pointer;
+    transition:transform .12s cubic-bezier(.34,1.56,.64,1),background .12s,border-color .12s;
+  }
+  .chip-copy:active{transform:scale(0.95);}
+  .chip-copy.ok{background:var(--gold-soft);border-color:var(--gold);}
+
+  .foot{text-align:center;font-size:11px;color:var(--teal);margin-top:8px;padding:0 10px;line-height:1.6;}
+
+  /* Toast */
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--deep-teal);color:var(--paper);font-size:13px;font-weight:600;padding:10px 20px;border-radius:30px;box-shadow:0 10px 26px -10px rgba(0,63,63,0.6);transition:opacity .18s ease,transform .18s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:99;}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">MAMS <span>Content Deck</span></div>
+    <div class="hint">Tap any block to copy.<br>On-screen chips copy one at a time.</div>
+  </header>
+
+  <div class="batch">
+    <div class="batch-head">
+      <span class="chip">Things You Should Know Before Moving to Richmond</span>
+      <h1>Where the Puck Is Going</h1>
+      <div class="meta">Batch 2026-07-07 · 3 posts · premium relocator ($600-700K)</div>
+    </div>
+
+    <!-- ============ POST 1 ============ -->
+    <div class="post">
+      <div class="post-top"><span class="num">1</span><h2>If you make $150K</h2></div>
+      <div class="tags-row"><span class="pill">Income breakdown</span><span class="pill">Talking head</span><span class="pill">45-60s</span></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Script (spoken)</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">You make $150K and you're moving to Richmond. Here's where your money is early.
+
+$150K, twenty percent down, at today's rates. Your comfortable number is around $550,000.
+
+In DC that's a condo. Here that's a house with room to grow.
+
+But here's the move. Don't buy where the market already is. Buy where it's going.
+
+$550K puts you in Manchester and the Church Hill edge. Those two just appreciated the fastest in the city. Manchester up eight percent this year. Church Hill up seven.
+
+A new stadium opens right nearby this April. Two hotels approved. Stella's already put a grocery in Manchester. They're smart. They saw it first. Now you can too.
+
+Same money, in the Fan, buys you late. In Manchester it buys you early.
+
+Want this run for your income and your list? Follow, then hit the bio. We build you the actual map. Where the puck's going for you.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">On-screen text</span><span class="lbl" style="color:var(--gold)">tap each</span></div>
+        <div class="chips">
+          <button class="chip-copy" onclick="copyChip(this)">$150K income</button>
+          <button class="chip-copy" onclick="copyChip(this)">&rarr; ~$550K budget</button>
+          <button class="chip-copy" onclick="copyChip(this)">In DC: a condo</button>
+          <button class="chip-copy" onclick="copyChip(this)">In RVA: a whole house</button>
+          <button class="chip-copy" onclick="copyChip(this)">Manchester +8.1% / yr</button>
+          <button class="chip-copy" onclick="copyChip(this)">Church Hill +7.2% / yr</button>
+          <button class="chip-copy" onclick="copyChip(this)">New stadium: April 2026</button>
+          <button class="chip-copy" onclick="copyChip(this)">You buy EARLY</button>
+          <button class="chip-copy" onclick="copyChip(this)">Map's in the bio</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Caption</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">If you make $150K and you're moving to Richmond, your money is early in the right pockets. $550K buys a house here that grows, not a condo that sits. Manchester and the Church Hill edge just appreciated the fastest in the city. Follow for the map. It's in the bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Hashtags</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext mono">#RichmondVA #MovingToRichmond #RVA #RichmondRealEstate #Relocation #FirstTimeHomeBuyer</div>
+      </div>
+    </div>
+
+    <!-- ============ POST 2 ============ -->
+    <div class="post">
+      <div class="post-top"><span class="num">2</span><h2>Richmond is early</h2></div>
+      <div class="tags-row"><span class="pill">Macro thesis</span><span class="pill">Talking head</span><span class="pill">45-60s</span></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Script (spoken)</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Everybody who's moving to Richmond asks me the same thing. Is it too late? It's not. Here's the data.
+
+The money leaving DC, New York, and California is looking here for a reason.
+
+$700K here buys a renovated house in the Fan. That same $700K in DC buys you a lot less.
+
+And the city isn't sitting still. It's building.
+
+CoStar's putting half a billion into a waterfront headquarters. Two thousand jobs.
+
+A $2.4 billion sports and entertainment district is going up around the new stadium.
+
+Downtown's getting torn down and rebuilt. That vote's this fall.
+
+When capital moves in first, prices follow. That's not a guess. That's the pattern.
+
+Richmond's early. Early doesn't stay early.
+
+Want to see where the money's actually moving, mapped to your budget? Follow, hit the bio. We'll show you the board.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">On-screen text</span><span class="lbl" style="color:var(--gold)">tap each</span></div>
+        <div class="chips">
+          <button class="chip-copy" onclick="copyChip(this)">"Too late?" No.</button>
+          <button class="chip-copy" onclick="copyChip(this)">$700K in DC: not much</button>
+          <button class="chip-copy" onclick="copyChip(this)">$700K in RVA: a Fan rowhome</button>
+          <button class="chip-copy" onclick="copyChip(this)">CoStar: $500M downtown</button>
+          <button class="chip-copy" onclick="copyChip(this)">2,000 jobs</button>
+          <button class="chip-copy" onclick="copyChip(this)">Diamond District: $2.4B</button>
+          <button class="chip-copy" onclick="copyChip(this)">Capital moves first. Prices follow.</button>
+          <button class="chip-copy" onclick="copyChip(this)">Richmond's early</button>
+          <button class="chip-copy" onclick="copyChip(this)">The board's in the bio</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Caption</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Is Richmond too late? The data says no. CoStar is putting half a billion downtown. A $2.4B district is going up around the new stadium. When capital moves first, prices follow. Your $700K goes further here than anywhere you're leaving. Follow, the map's in the bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Hashtags</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext mono">#RichmondVA #MovingToRichmond #RVA #RichmondRealEstate #Relocation #RVAdev</div>
+      </div>
+    </div>
+
+    <!-- ============ POST 3 ============ -->
+    <div class="post">
+      <div class="post-top"><span class="num">3</span><h2>The kind of pocket we find</h2></div>
+      <div class="tags-row"><span class="pill">Insider edge</span><span class="pill">Talking head</span><span class="pill">50-60s</span></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Script (spoken)</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Most agents show you what's for sale. I show you what's mispriced. Let me show you how.
+
+There's a street in the Fan where houses trade for less than the block around them.
+
+Not because they're worse. Because of what the street does, not what the houses are.
+
+We ran the numbers to prove it. Same house, same size, fifteen to eighteen percent cheaper.
+
+Here's the method. You never compare a house to the whole neighborhood.
+
+You bench it three ways. The block, the premium avenue, the side streets.
+
+Then you check price per foot against the building price. When one holds and the other drops, you found a gap.
+
+On this street the rental math is fine. The owner-occupant just hasn't caught up yet.
+
+That gap is opportunity. That's where early money lives.
+
+This is what we run before you ever make an offer. On any pocket in the city.
+
+Want it run on your list? Follow, then hit the bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">On-screen text</span><span class="lbl" style="color:var(--gold)">tap each</span></div>
+        <div class="chips">
+          <button class="chip-copy" onclick="copyChip(this)">Most agents: what's for sale</button>
+          <button class="chip-copy" onclick="copyChip(this)">Us: what's mispriced</button>
+          <button class="chip-copy" onclick="copyChip(this)">Same house. 15-18% cheaper.</button>
+          <button class="chip-copy" onclick="copyChip(this)">Bench it 3 ways</button>
+          <button class="chip-copy" onclick="copyChip(this)">Per-foot vs building price</button>
+          <button class="chip-copy" onclick="copyChip(this)">That gap = opportunity</button>
+          <button class="chip-copy" onclick="copyChip(this)">Run it before you offer</button>
+          <button class="chip-copy" onclick="copyChip(this)">Follow + bio</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Caption</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Most agents show you what's for sale. I show you what's mispriced. There's a street in the Fan trading 15 to 18 percent under the block around it, and we ran the numbers to prove why. This is what we run before you ever make an offer. Follow for the read. Bio's got the rest.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Hashtags</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext mono">#RichmondVA #RVARealEstate #MovingToRichmond #TheFan #RVA #HomeBuyingTips</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    Numbers are directional until MLS-confirmed. Refresh the rate the day you shoot.<br>
+    New batches drop in above this one.
+  </div>
+
+</div>
+
+<div id="toast">Copied</div>
+
+<script>
+  var toastT;
+  function toast(){
+    var t=document.getElementById('toast');
+    t.classList.add('show');
+    clearTimeout(toastT);
+    toastT=setTimeout(function(){t.classList.remove('show');},1100);
+  }
+  function flash(btn){
+    btn.classList.add('ok');
+    var isChip=btn.classList.contains('chip-copy');
+    var orig=btn.textContent;
+    if(!isChip){btn.textContent='Copied';}
+    setTimeout(function(){btn.classList.remove('ok'); if(!isChip){btn.textContent=orig;}},1200);
+  }
+  function doCopy(text,btn){
+    var ok=function(){flash(btn);toast();};
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(ok).catch(function(){fallback(text,ok);});
+    } else { fallback(text,ok); }
+  }
+  function fallback(text,ok){
+    var ta=document.createElement('textarea');
+    ta.value=text; ta.setAttribute('readonly','');
+    ta.style.position='fixed'; ta.style.top='0'; ta.style.left='0'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    ta.setSelectionRange(0,ta.value.length);
+    try{ document.execCommand('copy'); ok(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  function copyField(btn){
+    var text=btn.closest('.field').querySelector('.copytext').innerText;
+    doCopy(text,btn);
+  }
+  function copyChip(btn){
+    doCopy(btn.innerText,btn);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Where the Puck Is Going · Richmond appreciation map</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --gold: #D4AF37;
+    --gold-soft: #E8D28A;
+    --paper: #FAF7F1;
+    --ink: #12312F;
+    --line: rgba(0,63,63,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--deep-teal);
+    background:
+      radial-gradient(1200px 700px at 80% -10%, rgba(212,175,55,0.16), transparent 60%),
+      radial-gradient(900px 600px at -10% 15%, rgba(0,95,95,0.14), transparent 55%),
+      var(--paper);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 460px; margin: 0 auto; padding: 0 20px 64px; }
+
+  /* Top chrome */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 4px 14px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand img { height: 40px; width: auto; mix-blend-mode: multiply; }
+  .brand .name {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 18px;
+    letter-spacing: 0.5px; color: var(--deep-teal);
+  }
+  .noindex-tag {
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--teal); background: rgba(0,95,95,0.08); padding: 5px 9px; border-radius: 20px;
+  }
+
+  /* Hero */
+  .hero {
+    position: relative; margin-top: 8px;
+    background: linear-gradient(160deg, var(--deep-teal), #01302F 70%);
+    border-radius: 26px; padding: 30px 26px 28px; color: var(--paper);
+    box-shadow: 0 24px 50px -20px rgba(0,63,63,0.55), 0 4px 14px -6px rgba(0,63,63,0.4);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(420px 300px at 100% 0%, rgba(212,175,55,0.22), transparent 60%);
+    pointer-events: none;
+  }
+  .kicker {
+    display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.6px; color: var(--deep-teal); background: var(--gold);
+    padding: 6px 11px; border-radius: 6px; margin-bottom: 16px; position: relative;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif; font-weight: 400; font-size: 34px; line-height: 1.08;
+    letter-spacing: -0.02em; position: relative;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero p {
+    margin-top: 14px; font-size: 15px; color: rgba(250,247,241,0.82);
+    max-width: 34ch; position: relative;
+  }
+  .hero .metrow { display: flex; gap: 22px; margin-top: 22px; position: relative; }
+  .hero .met .n { font-family: 'Fraunces', serif; font-size: 26px; color: var(--gold); line-height: 1; }
+  .hero .met .l { font-size: 11px; color: rgba(250,247,241,0.7); margin-top: 5px; letter-spacing: 0.3px; }
+
+  /* Section */
+  section { margin-top: 30px; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; padding: 0 2px; }
+  .sec-head h2 {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 21px; letter-spacing: -0.01em;
+  }
+  .sec-head .tag { font-size: 11px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.8px; }
+
+  /* Income cards */
+  .income {
+    background: #fff; border: 1px solid var(--line); border-radius: 20px;
+    padding: 20px 20px 18px; margin-bottom: 14px;
+    box-shadow: 0 14px 30px -22px rgba(0,63,63,0.5);
+  }
+  .income .flowline { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .income .inc { font-family: 'Fraunces', serif; font-size: 30px; color: var(--deep-teal); }
+  .income .inc small { font-family: 'Inter'; font-size: 13px; font-weight: 600; color: var(--teal); }
+  .income .arw { color: var(--gold); font-weight: 800; font-size: 20px; }
+  .income .bud { font-family: 'Fraunces', serif; font-size: 26px; color: var(--teal); }
+  .income .bud small { font-family: 'Inter'; font-size: 12px; font-weight: 600; color: var(--deep-teal); }
+  .income .plabel { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; color: var(--teal); margin: 16px 0 9px; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    display: flex; flex-direction: column; gap: 2px;
+    border: 1.5px solid var(--line); border-radius: 12px; padding: 9px 13px; background: var(--paper);
+  }
+  .chip b { font-size: 15px; color: var(--deep-teal); }
+  .chip span { font-size: 12px; color: var(--teal); font-weight: 600; }
+  .verdict-tag {
+    margin-top: 15px; font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--deep-teal);
+  }
+  .verdict-tag b { font-style: normal; color: var(--gold); font-weight: 600; }
+
+  /* Appreciation leaderboard */
+  .board { background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: 0 14px 30px -22px rgba(0,63,63,0.5); }
+  .row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 15px 18px; border-bottom: 1px solid var(--line); }
+  .row:last-child { border-bottom: none; }
+  .row .place { font-weight: 600; font-size: 15px; color: var(--deep-teal); }
+  .row .place small { display: block; font-weight: 500; font-size: 12px; color: var(--teal); margin-top: 2px; }
+  .bar-wrap { display: flex; align-items: center; gap: 10px; }
+  .bar { width: 90px; height: 8px; border-radius: 6px; background: rgba(0,95,95,0.12); overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--teal), var(--gold)); }
+  .pct { font-family: 'Fraunces', serif; font-size: 17px; color: var(--deep-teal); min-width: 46px; text-align: right; }
+
+  /* Signals */
+  .signals { display: grid; gap: 11px; }
+  .sig {
+    background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--gold);
+    border-radius: 14px; padding: 14px 16px; box-shadow: 0 10px 24px -20px rgba(0,63,63,0.5);
+  }
+  .sig h3 { font-size: 14.5px; font-weight: 700; color: var(--deep-teal); }
+  .sig p { font-size: 13px; color: var(--teal); margin-top: 3px; }
+
+  /* Money compare */
+  .compare { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+  .cc { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px 12px; text-align: center; box-shadow: 0 12px 26px -22px rgba(0,63,63,0.5); }
+  .cc.here { background: var(--deep-teal); border-color: var(--deep-teal); }
+  .cc .city { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--teal); }
+  .cc.here .city { color: var(--gold); }
+  .cc .buys { font-family: 'Fraunces', serif; font-size: 15px; color: var(--deep-teal); margin-top: 8px; line-height: 1.25; }
+  .cc.here .buys { color: var(--paper); }
+
+  /* CTA */
+  .cta {
+    margin-top: 34px; background: linear-gradient(160deg, #01302F, var(--deep-teal));
+    border-radius: 24px; padding: 30px 26px; color: var(--paper); text-align: center;
+    box-shadow: 0 24px 50px -22px rgba(0,63,63,0.55); position: relative; overflow: hidden;
+  }
+  .cta::before { content:""; position:absolute; inset:0; background: radial-gradient(300px 200px at 50% 0, rgba(212,175,55,0.2), transparent 65%); }
+  .cta h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 25px; line-height: 1.15; position: relative; }
+  .cta h2 em { font-style: italic; color: var(--gold); }
+  .cta p { font-size: 14px; color: rgba(250,247,241,0.8); margin-top: 12px; position: relative; }
+  .cta .btn {
+    display: inline-block; margin-top: 20px; background: var(--gold); color: var(--deep-teal);
+    font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 40px; text-decoration: none;
+    position: relative; box-shadow: 0 10px 24px -10px rgba(212,175,55,0.7);
+  }
+  .foot { text-align: center; font-size: 11px; color: var(--teal); margin-top: 24px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">
+      <img src="mams-logo.png" onerror="this.style.display='none'" alt="MAMS">
+      <span class="name">MAMS</span>
+    </div>
+    <span class="noindex-tag">Example · macro view</span>
+  </div>
+
+  <div class="hero">
+    <span class="kicker">Where the Puck Is Going</span>
+    <h1>Your money is <em>early</em> in Richmond. Here's the board.</h1>
+    <p>Not where the market already is. Where it's skating next, mapped to what you earn.</p>
+    <div class="metrow">
+      <div class="met"><div class="n">$500K-800K</div><div class="l">Target band</div></div>
+      <div class="met"><div class="n">+8.1%</div><div class="l">Top pocket, 1 yr</div></div>
+      <div class="met"><div class="n">$2.4B</div><div class="l">Going in the ground</div></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><h2>What your income buys</h2><span class="tag">Income &rarr; pocket</span></div>
+
+    <div class="income">
+      <div class="flowline">
+        <span class="inc">$150K<small> income</small></span>
+        <span class="arw">&rarr;</span>
+        <span class="bud">~$550K<small> budget</small></span>
+      </div>
+      <div class="plabel">Where the puck's going</div>
+      <div class="chips">
+        <div class="chip"><b>Manchester</b><span>+8.1% / yr</span></div>
+        <div class="chip"><b>Church Hill edge</b><span>+7.2% / yr</span></div>
+      </div>
+      <div class="verdict-tag">You buy <b>early.</b></div>
+    </div>
+
+    <div class="income">
+      <div class="flowline">
+        <span class="inc">$200K<small> income</small></span>
+        <span class="arw">&rarr;</span>
+        <span class="bud">~$700K<small> budget</small></span>
+      </div>
+      <div class="plabel">Where the puck already is</div>
+      <div class="chips">
+        <div class="chip"><b>The Fan</b><span>established core</span></div>
+        <div class="chip"><b>Museum District</b><span>walkable, proven</span></div>
+      </div>
+      <div class="verdict-tag">You buy <b>proven.</b></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Appreciation, last 12 months</h2><span class="tag">Fastest first</span></div>
+    <div class="board">
+      <div class="row"><div class="place">Manchester<small>Southside riverfront</small></div><div class="bar-wrap"><span class="bar"><i style="width:100%"></i></span><span class="pct">+8.1%</span></div></div>
+      <div class="row"><div class="place">Church Hill<small>East End, block by block</small></div><div class="bar-wrap"><span class="bar"><i style="width:89%"></i></span><span class="pct">+7.2%</span></div></div>
+      <div class="row"><div class="place">Scott's Addition<small>condos + townhomes</small></div><div class="bar-wrap"><span class="bar"><i style="width:70%"></i></span><span class="pct">~+5.7%</span></div></div>
+      <div class="row"><div class="place">The Fan<small>the established set</small></div><div class="bar-wrap"><span class="bar"><i style="width:56%"></i></span><span class="pct">~+4.5%</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Why the puck's moving</h2><span class="tag">Capital first</span></div>
+    <div class="signals">
+      <div class="sig"><h3>CoStar: half a billion downtown</h3><p>New waterfront HQ, roughly 2,000 jobs following it in.</p></div>
+      <div class="sig"><h3>Diamond District: $2.4B</h3><p>Sports and entertainment district. New stadium opens April 2026.</p></div>
+      <div class="sig"><h3>City Center: the Coliseum rebuild</h3><p>9.4 acres downtown. Council development vote lands this fall.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What $700K buys</h2><span class="tag">Same money, 3 cities</span></div>
+    <div class="compare">
+      <div class="cc"><div class="city">DC</div><div class="buys">A condo, if that</div></div>
+      <div class="cc"><div class="city">NYC</div><div class="buys">Entry-level, outer</div></div>
+      <div class="cc here"><div class="city">Richmond</div><div class="buys">A renovated Fan rowhome</div></div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>This is the macro. <em>Yours is personal.</em></h2>
+    <p>Give us your income and your list. We build the board for you. Where the puck's going, block by block, in your budget.</p>
+    <a class="btn" href="#">Get your map</a>
+  </div>
+
+  <div class="foot">
+    Example surface. Estimates at ~6.5% 30-yr, 20% down, 28% ratio. Not a pre-approval.<br>
+    MAMS &middot; Miles Agee &middot; OneSouth Realty &middot; Samson Properties
+  </div>
+
+</div>
+</body>
+</html>
