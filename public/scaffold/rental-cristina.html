@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Six Richmond rentals, hand-checked for you | MAMS</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    --warn: #B85C2C;
+    --warn-bg: rgba(184, 92, 44, 0.10);
+    --green: #2F7D5B;
+  }
+
+  html, body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--deep-teal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { max-width: 920px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  /* HERO */
+  .hero { padding: 48px 0 36px; border-bottom: 1px solid var(--line); }
+  .hero__brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .hero__brand img { height: 72px; width: auto; mix-blend-mode: multiply; margin-left: -10px; }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+  .hero__greeting { font-family: var(--serif); font-size: 14px; color: var(--teal); font-style: italic; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(38px, 6vw, 54px); line-height: 1.02; letter-spacing: -0.025em; color: var(--deep-teal); margin-bottom: 18px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 16px; color: var(--deep-teal); opacity: 0.80; max-width: 60ch; line-height: 1.62; }
+
+  /* SECTION ANATOMY */
+  section.block { padding: 44px 0; border-bottom: 1px solid var(--line); position: relative; z-index: 1; }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.section__title { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34px); line-height: 1.1; letter-spacing: -0.02em; color: var(--deep-teal); margin-bottom: 8px; }
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+  .section__lede { font-size: 15px; color: var(--deep-teal); opacity: 0.80; max-width: 64ch; line-height: 1.62; margin-bottom: 28px; }
+
+  /* OPPORTUNITY FRAME */
+  .opportunity { background: var(--deep-teal); color: var(--ivory); padding: 30px 36px; border-radius: 6px; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+  .opportunity::after { content: ''; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .opportunity::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border: 1px solid var(--teal-light); border-radius: 50%; opacity: 0.22; }
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+  .opportunity p { font-family: var(--serif); font-size: 22px; line-height: 1.36; font-weight: 300; letter-spacing: -0.005em; position: relative; z-index: 1; }
+  .opportunity p em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .opportunity__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 22px; position: relative; z-index: 1; }
+  .opportunity__list div { background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.22); border-radius: 4px; padding: 12px 14px; font-size: 12px; color: var(--ivory); line-height: 1.45; }
+  .opportunity__list div strong { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 4px; font-weight: 700; }
+
+  /* ZONE HEADING */
+  .zone { display: flex; align-items: baseline; gap: 10px; margin: 30px 0 14px; }
+  .zone:first-of-type { margin-top: 4px; }
+  .zone__name { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--deep-teal); letter-spacing: -0.01em; }
+  .zone__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); }
+  .zone__rule { flex: 1; height: 1px; background: var(--line); }
+
+  /* PROPERTY CARDS (expandable) */
+  .prop-list { display: flex; flex-direction: column; gap: 12px; }
+  .prop { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 6px; padding: 18px 22px; cursor: pointer; transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s, border-color 0.18s; box-shadow: var(--shadow-sm); }
+  .prop:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .prop.open { box-shadow: var(--shadow-md); border-left-color: var(--gold); }
+  .prop__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+  .prop__name { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--deep-teal); letter-spacing: -0.012em; line-height: 1.15; }
+  .prop__addr { font-size: 12px; color: var(--teal); margin-top: 3px; }
+  .prop__price { text-align: right; flex-shrink: 0; }
+  .prop__price b { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--deep-teal); display: block; line-height: 1; letter-spacing: -0.01em; }
+  .prop__price small { font-size: 10.5px; color: var(--teal); display: block; margin-top: 4px; letter-spacing: 0.01em; }
+
+  .prop__thesis { font-size: 13.5px; color: var(--deep-teal); opacity: 0.9; line-height: 1.6; margin-top: 12px; }
+  .prop__thesis em { color: var(--gold-dark); font-style: italic; font-weight: 500; }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+  .pill { font-size: 10.5px; font-weight: 600; letter-spacing: 0.02em; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--teal); background: var(--paper-soft); }
+  .pill--good { color: var(--green); border-color: rgba(47,125,91,0.35); background: rgba(47,125,91,0.08); }
+  .pill--warn { color: var(--warn); border-color: rgba(184,92,44,0.35); background: var(--warn-bg); }
+  .pill--rating { color: var(--gold-dark); border-color: rgba(177,146,46,0.4); background: rgba(212,175,55,0.10); font-weight: 700; }
+
+  .prop__more { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dark); margin-top: 14px; display: flex; align-items: center; gap: 6px; }
+  .prop__more .chev { transition: transform 0.2s; }
+  .prop.open .prop__more .chev { transform: rotate(90deg); }
+  .prop.open .prop__more .label-closed { display: none; }
+  .prop__more .label-open { display: none; }
+  .prop.open .prop__more .label-open { display: inline; }
+
+  .prop__detail { display: none; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line); }
+  .prop.open .prop__detail { display: block; }
+  .prop__detail h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold-dark); font-weight: 700; margin: 14px 0 5px; }
+  .prop__detail h4:first-child { margin-top: 0; }
+  .prop__detail p { font-size: 13.5px; color: var(--deep-teal); line-height: 1.62; opacity: 0.92; }
+  .prop__detail p em { color: var(--gold-dark); font-style: italic; font-weight: 500; }
+
+  /* HONEST TRUTHS */
+  .truths { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 24px 28px; box-shadow: var(--shadow-sm); }
+  .truths p { font-size: 14.5px; color: var(--deep-teal); line-height: 1.7; margin-bottom: 14px; }
+  .truths p:last-child { margin-bottom: 0; }
+  .truths p strong { color: var(--gold-dark); font-weight: 600; }
+
+  /* NEXT STEPS */
+  .steps { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 26px 30px; box-shadow: var(--shadow-sm); }
+  .steps ol { list-style: none; counter-reset: step; padding: 0; margin: 0; }
+  .steps li { counter-increment: step; position: relative; padding: 0 0 18px 44px; font-size: 14.5px; color: var(--deep-teal); line-height: 1.6; }
+  .steps li:last-child { padding-bottom: 0; }
+  .steps li::before { content: counter(step); position: absolute; left: 0; top: -2px; width: 28px; height: 28px; background: var(--deep-teal); color: var(--gold); border-radius: 50%; font-family: var(--serif); font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+  .steps li strong { color: var(--gold-dark); font-weight: 600; }
+
+  /* ASK */
+  .ask { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 28px 32px; box-shadow: var(--shadow-md); }
+  .ask__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .ask__head { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ivory); margin-bottom: 8px; letter-spacing: -0.012em; }
+  .ask__sub { font-size: 13.5px; color: var(--ivory); opacity: 0.80; margin-bottom: 16px; line-height: 1.55; }
+  .ask__textarea { width: 100%; min-height: 110px; background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.32); border-radius: 5px; padding: 12px 14px; color: var(--ivory); font-family: var(--sans); font-size: 14px; line-height: 1.55; resize: vertical; outline: none; transition: border-color 0.18s; }
+  .ask__textarea:focus { border-color: var(--gold); }
+  .ask__textarea::placeholder { color: rgba(255,255,255,0.45); font-style: italic; }
+  .ask__submit { margin-top: 14px; background: var(--gold); color: var(--deep-teal); border: 0; padding: 12px 26px; font-family: var(--sans); font-weight: 700; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 999px; cursor: pointer; transition: background 0.18s, transform 0.18s; }
+  .ask__submit:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .ask__submit:active { transform: translateY(0); }
+  .ask__status { font-size: 12px; color: var(--gold); margin-top: 10px; min-height: 16px; font-family: var(--serif); font-style: italic; }
+
+  /* FOOTER */
+  .foot { padding: 36px 0 56px; text-align: center; font-size: 11.5px; color: var(--deep-teal); opacity: 0.62; line-height: 1.6; }
+  .foot__logo { height: 32px; width: auto; margin: 0 auto 12px; opacity: 0.62; mix-blend-mode: multiply; }
+  .foot a { color: var(--gold-dark); text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 18px; }
+    .opportunity { padding: 24px 22px; }
+    .opportunity p { font-size: 18px; }
+    .prop { padding: 16px 18px; }
+    .prop__name { font-size: 18px; }
+    .prop__price b { font-size: 19px; }
+    .steps { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand">
+      <img src="/scaffold/mams-logo.png" alt="MAMS LLC"/>
+    </div>
+    <div class="hero__eyebrow">Your Richmond rental search</div>
+    <div class="hero__greeting">Cristina,</div>
+    <h1 class="hero__title">Six places, <em>checked before you tour</em>.</h1>
+    <p class="hero__sub">You told me the real list: around $1,200 to $1,300, looking in Old Town Manchester, open to Chesterfield and Forest Hill. So instead of a Zillow dump, here are six I would actually stand behind, each one run against the things the listing sites quietly leave out. The rent numbers are real and current. The warnings are real too. Keep all of it either way.</p>
+  </header>
+
+  <!-- POSTURE -->
+  <section class="block">
+    <div class="eyebrow">Why this is different</div>
+    <h2 class="section__title">Most agents send you a link. <em>I read the building first.</em></h2>
+    <p class="section__lede">Anyone can forward you listings. What you cannot see on a listing page is which five-star reviews are fake, which buildings hide a fee stack that turns $1,260 into $1,400, and which management company actually answers a maintenance call. I ran every one of these through that filter. The ones with a problem are still here. I just told you the problem.</p>
+
+    <div class="opportunity">
+      <div class="eyebrow">What I screened for you</div>
+      <p>Every option below is a real 1-bedroom with rent <em>at or near your number</em>, in a zone you named, with the true monthly cost and the review integrity checked so the price on the listing is not a surprise on move-in day.</p>
+      <div class="opportunity__list">
+        <div><strong>Your budget</strong>Every pick has a 1-bed at or near $1,200 to $1,300.</div>
+        <div><strong>Your zones</strong>Weighted to Old Town Manchester, with a Chesterfield option too.</div>
+        <div><strong>The fine print</strong>Real fees, real pet policies, real availability, all verified today.</div>
+        <div><strong>The honest read</strong>Where a building has a flaw, it is flagged, not hidden.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SIX -->
+  <section class="block">
+    <div class="eyebrow">The six</div>
+    <h2 class="section__title">Tap any one to open <em>what the listing hides</em>.</h2>
+    <p class="section__lede">Ranked the way I would tour them. The top of Manchester is your strongest ground at this budget. Tap a card for the true monthly cost, the review-integrity read, and the one thing I would ask before you sign.</p>
+
+    <!-- ZONE: MANCHESTER -->
+    <div class="zone">
+      <span class="zone__name">Old Town Manchester</span>
+      <span class="zone__tag">Your primary zone</span>
+      <span class="zone__rule"></span>
+    </div>
+
+    <div class="prop-list">
+
+      <!-- 1. CITY HARDWARE LOFTS -->
+      <div class="prop" data-prop>
+        <div class="prop__head">
+          <div>
+            <div class="prop__name">City Hardware Lofts</div>
+            <div class="prop__addr">1317 Hull St, Richmond 23224</div>
+          </div>
+          <div class="prop__price"><b>$1,279</b><small>1 BR · 600 sq ft</small></div>
+        </div>
+        <p class="prop__thesis">My top pick on pure value. It is the <em>only one on this list where utilities and internet are included in the rent</em>, so $1,279 is your real number, not your starting number. Granite and hardwood, high ceilings, and a Walk Score of 80, which for Richmond means you can leave the car home.</p>
+        <div class="pills">
+          <span class="pill pill--rating">Insider 3.9</span>
+          <span class="pill pill--good">Utilities + internet included</span>
+          <span class="pill pill--good">Reviews clean</span>
+          <span class="pill">Pet friendly, no monthly pet rent</span>
+          <span class="pill pill--warn">1 unit at this price</span>
+        </div>
+        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="prop__detail">
+          <h4>The true monthly cost</h4>
+          <p>$1,279 covers rent, utilities, and internet. Everywhere else on this list you add roughly $150 to $200 a month for power, water, and wifi on top of rent, so this unit is effectively the cheapest of the six once you do the real math. Only recurring add-on is renters insurance.</p>
+          <h4>What the listing hides</h4>
+          <p>There is exactly one 1-bed open at this price right now. Utilities-included units in Manchester move fast, so this is a tour-this-week situation, not a think-about-it-for-a-month one.</p>
+          <h4>The honest read</h4>
+          <p>The review sample here is thin, so I would let the tour do the confirming. What is there is <em>very positive</em>: modern finishes, strong natural light, responsive management. Run by Legend Property Group. One-time app fee is $50.</p>
+        </div>
+      </div>
+
+      <!-- 2. SPUR LINE LOFTS -->
+      <div class="prop" data-prop>
+        <div class="prop__head">
+          <div>
+            <div class="prop__name">Spur Line Lofts</div>
+            <div class="prop__addr">1021 E 4th St, Richmond 23224</div>
+          </div>
+          <div class="prop__price"><b>$1,215</b><small>1 BR · 587 sq ft</small></div>
+        </div>
+        <p class="prop__thesis">The easiest one to actually get into. Most buildings at this price have one unit open and a line for it. This one has <em>several 1-beds open at $1,215</em>, so you are choosing a unit, not fighting for one. Pet friendly and a clean, flat price with no fee games.</p>
+        <div class="pills">
+          <span class="pill pill--rating">Insider 3.9</span>
+          <span class="pill pill--good">Wide availability</span>
+          <span class="pill">Pets ok, $45/mo</span>
+          <span class="pill">12-month lease</span>
+        </div>
+        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="prop__detail">
+          <h4>The true monthly cost</h4>
+          <p>$1,215 rent, $45 a month pet rent if you have a pet, $200 pet deposit. No trash or admin fee stack listed, which is rare and good. Budget the usual $150 to $200 for utilities on top.</p>
+          <h4>What the listing hides</h4>
+          <p>It sits on a quieter, more car-oriented corner of Manchester, so the Walk Score is lower than the riverfront buildings. It is close to an active rail spur, which is where the name comes from. I would ask which units face away from the line before you pick one.</p>
+          <h4>The honest read</h4>
+          <p>Newer building with few resident reviews on record yet, so there is less to read than at an older property. The flip side of few reviews is <em>zero flagged or fake ones</em>. Managed by Gates Hudson.</p>
+        </div>
+      </div>
+
+      <!-- 3. THE PAPER COMPANY -->
+      <div class="prop" data-prop>
+        <div class="prop__head">
+          <div>
+            <div class="prop__name">The Paper Company</div>
+            <div class="prop__addr">203 Hull St, Richmond 23224</div>
+          </div>
+          <div class="prop__price"><b>$1,295</b><small>1 BR loft · studios from $1,175</small></div>
+        </div>
+        <p class="prop__thesis">The design pick. <em>Exposed brick, high ceilings, true loft feel</em>, with free internet built in, at the top edge of your budget. If you want the unit that does not feel like a beige box, this is it. Studios here run $1,175 to $1,195 if you want to buy back some budget.</p>
+        <div class="pills">
+          <span class="pill pill--rating">Insider 4.0</span>
+          <span class="pill pill--good">Free internet</span>
+          <span class="pill pill--warn">No pets</span>
+          <span class="pill pill--warn">Train noise on some units</span>
+        </div>
+        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="prop__detail">
+          <h4>The true monthly cost</h4>
+          <p>$1,295 for the loft 1-bed, internet included. Signing costs are a $50 application fee, a $100 admin fee, and a $500 security deposit. Utilities beyond internet are on you.</p>
+          <h4>What the listing hides</h4>
+          <p>The building backs an active freight line, and a few residents flag train noise and the occasional ceiling leak. The in-budget floorplans are between turns right now, so I would put you on the alert list and ask for a <em>unit on the side away from the tracks</em> the moment one opens.</p>
+          <h4>The honest read</h4>
+          <p>Reviews are mostly genuine and lean positive: responsive maintenance, flexible management, and that loft look people actually stay for. No pets allowed, so if you have one, this drops off. Managed by University Property Richmond.</p>
+        </div>
+      </div>
+
+      <!-- 4. THE HUB -->
+      <div class="prop" data-prop>
+        <div class="prop__head">
+          <div>
+            <div class="prop__name">The Hub</div>
+            <div class="prop__addr">500 Maury St, Richmond 23224</div>
+          </div>
+          <div class="prop__price"><b>$1,199</b><small>Studio · 5 available now</small></div>
+        </div>
+        <p class="prop__thesis">The available-now, bottom-of-budget option in the <em>highest-rated building on this list</em>. Residents rave about the space and the leasing staff. The catch is honest: this price is the studio, not a 1-bed, and the 1-beds here jump to $1,450.</p>
+        <div class="pills">
+          <span class="pill pill--rating">Insider 4.0</span>
+          <span class="pill pill--good">Available now</span>
+          <span class="pill pill--warn">Studio only at this price</span>
+          <span class="pill pill--warn">No pets</span>
+        </div>
+        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="prop__detail">
+          <h4>The true monthly cost</h4>
+          <p>$1,199 for a studio, no fee stack listed. If you need a true 1-bed, the next tier here is $1,450, which is over your number, so this only works if a well-run studio fits how you live.</p>
+          <h4>What the listing hides</h4>
+          <p>A handful of the five-star reviews look staged, the same staff name shows up over and over, which is a tell. And residents note the <em>surrounding blocks can feel uneven at night</em>. Worth weighing if you would be walking in late.</p>
+          <h4>The honest read</h4>
+          <p>The genuine reviews are strong: spacious, well-designed units, a smooth move-in, and staff who go the extra step. No pets. Managed by Atrium.</p>
+        </div>
+      </div>
+
+      <!-- 5. CITY VIEW LOFTS -->
+      <div class="prop" data-prop>
+        <div class="prop__head">
+          <div>
+            <div class="prop__name">City View Lofts</div>
+            <div class="prop__addr">411 Bainbridge St, Richmond 23224</div>
+          </div>
+          <div class="prop__price"><b>$1,260</b><small>1 BR · 2 available</small></div>
+        </div>
+        <p class="prop__thesis">The most amenities for the money: pool, gyms, and a real concession of <em>up to $150 off on a 13-month lease</em>. It is also the one I would walk through most skeptically, and I will tell you exactly why below. Great location, mixed track record.</p>
+        <div class="pills">
+          <span class="pill pill--rating">Insider 4.0</span>
+          <span class="pill pill--good">$150/mo concession</span>
+          <span class="pill">Pool + gym</span>
+          <span class="pill">Pets ok, $35/mo</span>
+          <span class="pill pill--warn">Read reviews carefully</span>
+        </div>
+        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="prop__detail">
+          <h4>The true monthly cost</h4>
+          <p>$1,260 for the entry 1-bed, minus up to $150 a month if you sign 13 months, which can pull your real rent near $1,110. Add a $25 monthly trash fee, $35 pet rent, and $100 for a garage spot if you want covered parking. Surface parking is free.</p>
+          <h4>What the listing hides</h4>
+          <p>This is the transparency part. About a third of the five-star reviews read as likely fake, and the genuine ones raise <em>recurring pest reports, water damage, thin walls, and car break-ins</em>. The amenities and location are real. The building quality is a question mark.</p>
+          <h4>The honest read</h4>
+          <p>I am not ruling it out, the concession is genuinely strong, but I would ask hard on the tour about pest treatment history and which side of the building your unit faces, and I would ask for it in writing. Managed by Thalhimer Multifamily.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ZONE: CHESTERFIELD -->
+    <div class="zone">
+      <span class="zone__name">Chesterfield</span>
+      <span class="zone__tag">Your open zone</span>
+      <span class="zone__rule"></span>
+    </div>
+
+    <div class="prop-list">
+
+      <!-- 6. LIBERTY GARDENS -->
+      <div class="prop" data-prop>
+        <div class="prop__head">
+          <div>
+            <div class="prop__name">Liberty Gardens</div>
+            <div class="prop__addr">2260 Golden Garden Cir, Chester 23836</div>
+          </div>
+          <div class="prop__price"><b>$1,224</b><small>1 BR · 603 sq ft · 9 available</small></div>
+        </div>
+        <p class="prop__thesis">Your Chesterfield lane, and the one with the <em>most flexibility on this whole list</em>. It offers a 6-month lease option and the lowest fees of any pick here. Right choice if you want to land in Richmond without locking into a full year in one spot.</p>
+        <div class="pills">
+          <span class="pill pill--rating">Insider 3.9</span>
+          <span class="pill pill--good">6-month lease option</span>
+          <span class="pill pill--good">$25 app fee, low fees</span>
+          <span class="pill">Pets ok, $25/mo</span>
+          <span class="pill pill--warn">Car-dependent</span>
+        </div>
+        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="prop__detail">
+          <h4>The true monthly cost</h4>
+          <p>1-bed runs $1,224 to $1,284. Fees are refreshingly light: a $25 application fee, $0 admin fee, a $7 monthly trash fee, and a deposit that can start at $200. Pet rent is $25 a month. Utilities on you.</p>
+          <h4>What the listing hides</h4>
+          <p>This is in Chester, roughly 20 minutes further south than Manchester, and it is <em>fully car-dependent</em> with a Walk Score near the floor. If you pictured walking to coffee, this is not that. If you pictured a quiet, low-cost landing pad, it is.</p>
+          <h4>The honest read</h4>
+          <p>Newer to the review record, nothing flagged. The real draw is the lease flexibility and the fee structure, which are the friendliest here. Managed by Partnership Property Management.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HONEST TRUTHS -->
+  <section class="block">
+    <div class="eyebrow">Straight talk</div>
+    <h2 class="section__title">A few things <em>worth saying out loud</em>.</h2>
+    <p class="section__lede">The notes I would give you over coffee, not in a brochure.</p>
+
+    <div class="truths">
+      <p><strong>Forest Hill is over your number right now.</strong> You said you were open to it, so I checked. The 1-beds on the Forest Hill and Westover Hills stretch, like The Westover on Forest Hill Ave, are running $1,379 to $1,499 today, above your $1,300 target. If you want that specific pocket of Southside badly enough to stretch, I will pull the current move-in specials, The Westover is doing $500 off the first month. Otherwise the six above hit your number cleanly.</p>
+      <p><strong>I built these as 1-bedrooms.</strong> You gave me budget and area but not beds, pets, or a move-in date. Tell me three things and I sharpen this same day: how many bedrooms you actually want, whether you have a pet, and roughly when you need to be in. That last one matters because Manchester units at this price turn over fast.</p>
+      <p><strong>Manchester is your strongest ground at this budget.</strong> It is not close. The top of your budget buys a genuinely good, walkable, loft-style 1-bed in Old Town Manchester, and the same money buys less almost anywhere else you named. That is why five of the six are there.</p>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section class="block">
+    <div class="eyebrow">From here</div>
+    <h2 class="section__title">If one of these is a yes.</h2>
+    <p class="section__lede">No pressure either way. Everything above is yours to keep. But if you want to walk one, here is the path.</p>
+
+    <div class="steps">
+      <ol>
+        <li>Reply and tell me which one caught your eye. One word is plenty, or tell me the beds, pet, and timing and I will re-cut the whole list.</li>
+        <li><strong>I line up the tours</strong> and ask the management-company questions for you, the deposit range, the pest history, the parking rules, so you walk in already knowing the answers.</li>
+        <li>If you want me to run the whole thing, tours booked, application filed, lease read line by line, and keys in hand, that is the <strong>Move-In Concierge</strong>. It comes in tiers depending on how much you want me carrying, and we set that on a quick call. If you would rather take it from here with this in hand, that works too. Either way you are not doing this blind.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ASK -->
+  <section class="block">
+    <div class="ask">
+      <div class="ask__tag">Tell me what I missed</div>
+      <h3 class="ask__head">Anything I should factor in?</h3>
+      <p class="ask__sub">Bedrooms, a pet, a move-in date, a neighborhood you want ruled in or out, a hard no on stairs, a must-have on parking. The more you tell me, the sharper the next round gets.</p>
+      <textarea class="ask__textarea" id="askText" placeholder="Type freely. I read every word."></textarea>
+      <button class="ask__submit" id="askSubmit">Send to Miles</button>
+      <div class="ask__status" id="askStatus"></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <img src="/scaffold/mams-logo.png" alt="MAMS LLC" class="foot__logo"/>
+    <div>Built for you, Cristina. Not a template.</div>
+    <div style="margin-top:8px;">Reach me directly: <a href="mailto:miles@mamsnow.com">miles@mamsnow.com</a></div>
+    <div style="margin-top:8px;">MAMS LLC · Richmond, Virginia · Miles Agee, Realtor, OneSouth Realty Team powered by Samson Properties</div>
+  </footer>
+
+</div>
+
+<script>
+  // Property cards expand
+  document.querySelectorAll('[data-prop]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      card.classList.toggle('open');
+    });
+  });
+
+  // Ask submit: open mailto pre-filled so the note actually delivers
+  document.getElementById('askSubmit').addEventListener('click', function(e) {
+    e.stopPropagation();
+    var txt = document.getElementById('askText').value.trim();
+    var status = document.getElementById('askStatus');
+    if (!txt) {
+      status.textContent = 'Type something first.';
+      return;
+    }
+    var subject = encodeURIComponent('Cristina, note on the Richmond rentals');
+    var body = encodeURIComponent(txt + '\n\n--\nSent from my MAMS rental shortlist');
+    window.location.href = 'mailto:miles@mamsnow.com?subject=' + subject + '&body=' + body;
+    status.textContent = 'Opening your email so you can hit send.';
+  });
+</script>
+
+</body>
+</html>
