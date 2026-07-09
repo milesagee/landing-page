@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex,nofollow"/>
-<title>Six Richmond rentals, hand-checked for you | MAMS</title>
+<title>Your Richmond rentals, hand-checked and clickable | MAMS</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
 
@@ -14,7 +14,6 @@
     --deep-teal: #003F3F;
     --teal: #005F5F;
     --teal-light: #80AFAF;
-    --teal-deep-bg: #002a2a;
     --gold: #D4AF37;
     --gold-soft: #E2CA7A;
     --gold-dark: #B1922E;
@@ -84,17 +83,19 @@
   .opportunity__list div strong { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 4px; font-weight: 700; }
 
   /* ZONE HEADING */
-  .zone { display: flex; align-items: baseline; gap: 10px; margin: 30px 0 14px; }
-  .zone:first-of-type { margin-top: 4px; }
-  .zone__name { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--deep-teal); letter-spacing: -0.01em; }
+  .zone { margin: 34px 0 8px; }
+  .zone:first-of-type { margin-top: 6px; }
+  .zone__row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .zone__name { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--deep-teal); letter-spacing: -0.01em; white-space: nowrap; }
   .zone__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); }
-  .zone__rule { flex: 1; height: 1px; background: var(--line); }
+  .zone__rule { flex: 1; min-width: 30px; height: 1px; background: var(--line); align-self: center; }
+  .zone__note { font-size: 12.5px; color: var(--teal); opacity: 0.9; margin-top: 6px; font-style: italic; font-family: var(--serif); line-height: 1.5; }
 
   /* PROPERTY CARDS (expandable) */
-  .prop-list { display: flex; flex-direction: column; gap: 12px; }
-  .prop { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 6px; padding: 18px 22px; cursor: pointer; transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s, border-color 0.18s; box-shadow: var(--shadow-sm); }
+  .prop-list { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+  .prop { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 6px; padding: 18px 22px; transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s; box-shadow: var(--shadow-sm); }
   .prop:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
-  .prop.open { box-shadow: var(--shadow-md); border-left-color: var(--gold); }
+  .prop.open { box-shadow: var(--shadow-md); }
   .prop__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
   .prop__name { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--deep-teal); letter-spacing: -0.012em; line-height: 1.15; }
   .prop__addr { font-size: 12px; color: var(--teal); margin-top: 3px; }
@@ -111,14 +112,23 @@
   .pill--warn { color: var(--warn); border-color: rgba(184,92,44,0.35); background: var(--warn-bg); }
   .pill--rating { color: var(--gold-dark); border-color: rgba(177,146,46,0.4); background: rgba(212,175,55,0.10); font-weight: 700; }
 
-  .prop__more { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dark); margin-top: 14px; display: flex; align-items: center; gap: 6px; }
-  .prop__more .chev { transition: transform 0.2s; }
-  .prop.open .prop__more .chev { transform: rotate(90deg); }
-  .prop.open .prop__more .label-closed { display: none; }
-  .prop__more .label-open { display: none; }
-  .prop.open .prop__more .label-open { display: inline; }
+  /* CTA LINKS */
+  .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .cta__btn { display: inline-flex; align-items: center; background: var(--gold); color: var(--deep-teal); padding: 11px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; border-radius: 999px; text-decoration: none; transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s, background 0.18s; border: 1.5px solid var(--gold); }
+  .cta__btn:hover { transform: translateY(-1px); background: var(--gold-soft); border-color: var(--gold-soft); box-shadow: 0 7px 18px rgba(212,175,55,0.30); }
+  .cta__btn:active { transform: translateY(0); }
+  .cta__btn:focus-visible { outline: 2px solid var(--deep-teal); outline-offset: 2px; }
+  .cta__btn--ghost { background: transparent; color: var(--gold-dark); border: 1.5px solid var(--gold-dark); }
+  .cta__btn--ghost:hover { background: rgba(212,175,55,0.10); border-color: var(--gold-dark); box-shadow: none; }
 
-  .prop__detail { display: none; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line); }
+  .prop__toggle { background: transparent; border: 0; padding: 0; margin-top: 15px; font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dark); cursor: pointer; display: flex; align-items: center; gap: 6px; }
+  .prop__toggle .chev { transition: transform 0.2s; display: inline-block; }
+  .prop.open .prop__toggle .chev { transform: rotate(90deg); }
+  .prop.open .prop__toggle .label-closed { display: none; }
+  .prop__toggle .label-open { display: none; }
+  .prop.open .prop__toggle .label-open { display: inline; }
+
+  .prop__detail { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); }
   .prop.open .prop__detail { display: block; }
   .prop__detail h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold-dark); font-weight: 700; margin: 14px 0 5px; }
   .prop__detail h4:first-child { margin-top: 0; }
@@ -165,6 +175,7 @@
     .prop__name { font-size: 18px; }
     .prop__price b { font-size: 19px; }
     .steps { padding: 22px 20px; }
+    .cta__btn { padding: 10px 16px; font-size: 11px; }
   }
 </style>
 </head>
@@ -179,39 +190,42 @@
     </div>
     <div class="hero__eyebrow">Your Richmond rental search</div>
     <div class="hero__greeting">Cristina,</div>
-    <h1 class="hero__title">Six places, <em>checked before you tour</em>.</h1>
-    <p class="hero__sub">You told me the real list: around $1,200 to $1,300, looking in Old Town Manchester, open to Chesterfield and Forest Hill. So instead of a Zillow dump, here are six I would actually stand behind, each one run against the things the listing sites quietly leave out. The rent numbers are real and current. The warnings are real too. Keep all of it either way.</p>
+    <h1 class="hero__title">Real rents, <em>real links</em>, no guessing.</h1>
+    <p class="hero__sub">You told me around $1,200 to $1,300, looking in Old Town Manchester, open to Chesterfield and Forest Hill. Every price below is the live number from the leasing office, checked today, and every card has a button that takes you straight to their availability page. No Zillow scavenger hunt. Two lanes: a 1-bedroom at your exact budget in Manchester, or a real 2-bedroom so your son gets his own room, which means a short move just past it.</p>
   </header>
 
   <!-- POSTURE -->
   <section class="block">
     <div class="eyebrow">Why this is different</div>
-    <h2 class="section__title">Most agents send you a link. <em>I read the building first.</em></h2>
-    <p class="section__lede">Anyone can forward you listings. What you cannot see on a listing page is which five-star reviews are fake, which buildings hide a fee stack that turns $1,260 into $1,400, and which management company actually answers a maintenance call. I ran every one of these through that filter. The ones with a problem are still here. I just told you the problem.</p>
+    <h2 class="section__title">Most agents send a link and dip. <em>I checked the fine print first.</em></h2>
+    <p class="section__lede">Anyone can forward you listings. What you cannot see on a listing page is which five-star reviews are fake, which buildings hide a fee stack, and where the rent actually includes utilities. I ran every one of these through that filter, and I kept the price honest even where the building has a flaw. Where a place has a catch, I tell you the catch.</p>
 
     <div class="opportunity">
-      <div class="eyebrow">What I screened for you</div>
-      <p>Every option below is a real 1-bedroom with rent <em>at or near your number</em>, in a zone you named, with the true monthly cost and the review integrity checked so the price on the listing is not a surprise on move-in day.</p>
+      <div class="eyebrow">The straight version of your budget</div>
+      <p>At $1,200 to $1,300, a 1-bedroom in Old Town Manchester is <em>your strong ground</em>. A real 2-bedroom at that number does not exist inside Manchester, but it does exist a short move out, so I built you both lanes.</p>
       <div class="opportunity__list">
-        <div><strong>Your budget</strong>Every pick has a 1-bed at or near $1,200 to $1,300.</div>
-        <div><strong>Your zones</strong>Weighted to Old Town Manchester, with a Chesterfield option too.</div>
-        <div><strong>The fine print</strong>Real fees, real pet policies, real availability, all verified today.</div>
-        <div><strong>The honest read</strong>Where a building has a flaw, it is flagged, not hidden.</div>
+        <div><strong>Live pricing</strong>Every number verified at the leasing office today, not last quarter.</div>
+        <div><strong>Clickable</strong>Every card has a Check Availability button straight to the source.</div>
+        <div><strong>The fine print</strong>Real fees, real pet policies, real availability, flagged where it matters.</div>
+        <div><strong>Two lanes</strong>1-bed at budget in Manchester, or 2-bed for your son just past it.</div>
       </div>
     </div>
   </section>
 
-  <!-- THE SIX -->
+  <!-- THE OPTIONS -->
   <section class="block">
-    <div class="eyebrow">The six</div>
-    <h2 class="section__title">Tap any one to open <em>what the listing hides</em>.</h2>
-    <p class="section__lede">Ranked the way I would tour them. The top of Manchester is your strongest ground at this budget. Tap a card for the true monthly cost, the review-integrity read, and the one thing I would ask before you sign.</p>
+    <div class="eyebrow">The shortlist</div>
+    <h2 class="section__title">Tap Check Availability to go straight to the source. <em>Tap the card for what the listing hides.</em></h2>
+    <p class="section__lede">Ranked the way I would tour them. Prices are live starting rents. On several of these the number is negotiable with a longer lease or an early application, and I will push on that for you before you sign anything.</p>
 
-    <!-- ZONE: MANCHESTER -->
+    <!-- LANE A -->
     <div class="zone">
-      <span class="zone__name">Old Town Manchester</span>
-      <span class="zone__tag">Your primary zone</span>
-      <span class="zone__rule"></span>
+      <div class="zone__row">
+        <span class="zone__name">Lane A</span>
+        <span class="zone__tag">1-Bed, Old Town Manchester, at your budget</span>
+        <span class="zone__rule"></span>
+      </div>
+      <div class="zone__note">Exactly where you asked to be, exactly at your number.</div>
     </div>
 
     <div class="prop-list">
@@ -223,24 +237,27 @@
             <div class="prop__name">City Hardware Lofts</div>
             <div class="prop__addr">1317 Hull St, Richmond 23224</div>
           </div>
-          <div class="prop__price"><b>$1,279</b><small>1 BR · 600 sq ft</small></div>
+          <div class="prop__price"><b>$1,279</b><small>1 BR · everything included</small></div>
         </div>
-        <p class="prop__thesis">My top pick on pure value. It is the <em>only one on this list where utilities and internet are included in the rent</em>, so $1,279 is your real number, not your starting number. Granite and hardwood, high ceilings, and a Walk Score of 80, which for Richmond means you can leave the car home.</p>
+        <p class="prop__thesis">My top pick. The rent is <em>all-inclusive: internet, electricity, water, sewer, and trash are all in the $1,279</em>. That is your real number, not your starting number. Polished concrete or refinished hardwood, stainless kitchen, in-unit washer and dryer. A boutique building, only nine units, so it moves quiet and fast.</p>
         <div class="pills">
           <span class="pill pill--rating">Insider 3.9</span>
-          <span class="pill pill--good">Utilities + internet included</span>
-          <span class="pill pill--good">Reviews clean</span>
-          <span class="pill">Pet friendly, no monthly pet rent</span>
-          <span class="pill pill--warn">1 unit at this price</span>
+          <span class="pill pill--good">All utilities + internet included</span>
+          <span class="pill pill--good">Pets, no monthly pet rent</span>
+          <span class="pill pill--warn">Only 9 units, tour by appt</span>
         </div>
-        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="cta-row">
+          <a class="cta__btn" href="https://www.cityhardwarelofts.com/" target="_blank" rel="noopener" data-link>Check availability</a>
+          <a class="cta__btn cta__btn--ghost" href="https://www.apartments.com/city-hardware-lofts-richmond-va/smb7gp5/" target="_blank" rel="noopener" data-link>Photos + floor plans</a>
+        </div>
+        <button class="prop__toggle" data-toggle><span class="chev">&#9656;</span><span class="label-closed">The honest read</span><span class="label-open">Close</span></button>
         <div class="prop__detail">
           <h4>The true monthly cost</h4>
-          <p>$1,279 covers rent, utilities, and internet. Everywhere else on this list you add roughly $150 to $200 a month for power, water, and wifi on top of rent, so this unit is effectively the cheapest of the six once you do the real math. Only recurring add-on is renters insurance.</p>
+          <p>$1,279 covers rent, internet, electricity, water, sewer, and trash. Everywhere else on this list you add roughly $150 to $200 a month for those, so once you do the real math this is effectively the cheapest 1-bed here. Only add-on is renters insurance, and a one-time pet fee if you have a pet.</p>
           <h4>What the listing hides</h4>
-          <p>There is exactly one 1-bed open at this price right now. Utilities-included units in Manchester move fast, so this is a tour-this-week situation, not a think-about-it-for-a-month one.</p>
+          <p>It is a nine-unit building, so when a unit is gone it is gone. This is a <em>tour-this-week</em> place, not a think-about-it-for-a-month one. Tours are by appointment through the site.</p>
           <h4>The honest read</h4>
-          <p>The review sample here is thin, so I would let the tour do the confirming. What is there is <em>very positive</em>: modern finishes, strong natural light, responsive management. Run by Legend Property Group. One-time app fee is $50.</p>
+          <p>Small review sample, so let the tour confirm it, but what is there is very positive: modern finishes, strong natural light, responsive management. Run by Legend Property Group.</p>
         </div>
       </div>
 
@@ -251,23 +268,27 @@
             <div class="prop__name">Spur Line Lofts</div>
             <div class="prop__addr">1021 E 4th St, Richmond 23224</div>
           </div>
-          <div class="prop__price"><b>$1,215</b><small>1 BR · 587 sq ft</small></div>
+          <div class="prop__price"><b>$1,215</b><small>1 BR · wide availability</small></div>
         </div>
-        <p class="prop__thesis">The easiest one to actually get into. Most buildings at this price have one unit open and a line for it. This one has <em>several 1-beds open at $1,215</em>, so you are choosing a unit, not fighting for one. Pet friendly and a clean, flat price with no fee games.</p>
+        <p class="prop__thesis">The easiest one to actually get into. Most buildings at this price have one unit and a line for it. This one has <em>many 1-beds open</em>, verified within the hour, plus a resort-style pool, two bark parks, and a fitness center. You choose a unit here, you do not fight for one.</p>
         <div class="pills">
           <span class="pill pill--rating">Insider 3.9</span>
-          <span class="pill pill--good">Wide availability</span>
-          <span class="pill">Pets ok, $45/mo</span>
-          <span class="pill">12-month lease</span>
+          <span class="pill pill--good">Many units open now</span>
+          <span class="pill">Pool + bark parks + gym</span>
+          <span class="pill pill--warn">Some units income-qualified, confirm</span>
         </div>
-        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="cta-row">
+          <a class="cta__btn" href="https://www.spurlinelofts.com/" target="_blank" rel="noopener" data-link>Check availability</a>
+          <a class="cta__btn cta__btn--ghost" href="https://www.zillow.com/apartments/richmond-va/spur-line-lofts/9Pg3jV/" target="_blank" rel="noopener" data-link>Photos + floor plans</a>
+        </div>
+        <button class="prop__toggle" data-toggle><span class="chev">&#9656;</span><span class="label-closed">The honest read</span><span class="label-open">Close</span></button>
         <div class="prop__detail">
           <h4>The true monthly cost</h4>
-          <p>$1,215 rent, $45 a month pet rent if you have a pet, $200 pet deposit. No trash or admin fee stack listed, which is rare and good. Budget the usual $150 to $200 for utilities on top.</p>
+          <p>1-beds start at $1,215, running to about $1,449 for the larger and upper floorplans. Utilities are on top, budget the usual $150 to $200. Pet-friendly. Move-in specials come and go here, so ask what is running the week you tour.</p>
           <h4>What the listing hides</h4>
-          <p>It sits on a quieter, more car-oriented corner of Manchester, so the Walk Score is lower than the riverfront buildings. It is close to an active rail spur, which is where the name comes from. I would ask which units face away from the line before you pick one.</p>
+          <p>Part of the building operates as income-qualified affordable housing, so the $1,215 rate may depend on meeting an income limit. <em>Confirm which units and which rate apply to you</em> before you fall for a floorplan. I can get that answer for you in one call.</p>
           <h4>The honest read</h4>
-          <p>Newer building with few resident reviews on record yet, so there is less to read than at an older property. The flip side of few reviews is <em>zero flagged or fake ones</em>. Managed by Gates Hudson.</p>
+          <p>Newer building in the new Spur Line District, so fewer resident reviews on record, but nothing flagged as fake either. Managed by Gates Hudson.</p>
         </div>
       </div>
 
@@ -278,117 +299,134 @@
             <div class="prop__name">The Paper Company</div>
             <div class="prop__addr">203 Hull St, Richmond 23224</div>
           </div>
-          <div class="prop__price"><b>$1,295</b><small>1 BR loft · studios from $1,175</small></div>
+          <div class="prop__price"><b>$1,295</b><small>1 BR loft · 4 ready now</small></div>
         </div>
-        <p class="prop__thesis">The design pick. <em>Exposed brick, high ceilings, true loft feel</em>, with free internet built in, at the top edge of your budget. If you want the unit that does not feel like a beige box, this is it. Studios here run $1,175 to $1,195 if you want to buy back some budget.</p>
+        <p class="prop__thesis">The character pick. <em>Exposed brick, high ceilings, a real loft feel</em>, and the rent includes water, sewer, trash, off-street parking, and internet. Seven units available, four move-in ready. If you want the place that does not feel like a beige box, this is it.</p>
         <div class="pills">
           <span class="pill pill--rating">Insider 4.0</span>
-          <span class="pill pill--good">Free internet</span>
-          <span class="pill pill--warn">No pets</span>
-          <span class="pill pill--warn">Train noise on some units</span>
+          <span class="pill pill--good">Water, trash, parking, internet included</span>
+          <span class="pill pill--warn">Backs a rail line, ask for a quiet side</span>
+          <span class="pill pill--warn">Book through Apartments.com</span>
         </div>
-        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="cta-row">
+          <a class="cta__btn" href="https://www.apartments.com/the-paper-company-apartments-richmond-va/52ypbvn/" target="_blank" rel="noopener" data-link>Check availability</a>
+          <a class="cta__btn cta__btn--ghost" href="https://www.zillow.com/apartments/richmond-va/the-paper-company-llc/" target="_blank" rel="noopener" data-link>Photos + floor plans</a>
+        </div>
+        <button class="prop__toggle" data-toggle><span class="chev">&#9656;</span><span class="label-closed">The honest read</span><span class="label-open">Close</span></button>
         <div class="prop__detail">
           <h4>The true monthly cost</h4>
-          <p>$1,295 for the loft 1-bed, internet included. Signing costs are a $50 application fee, a $100 admin fee, and a $500 security deposit. Utilities beyond internet are on you.</p>
+          <p>The loft 1-bed is $1,295 with water, sewer, trash, parking, and internet included. Smaller 1-beds start as low as $1,095 if you want to buy back budget. You mostly just add electric on top.</p>
           <h4>What the listing hides</h4>
-          <p>The building backs an active freight line, and a few residents flag train noise and the occasional ceiling leak. The in-budget floorplans are between turns right now, so I would put you on the alert list and ask for a <em>unit on the side away from the tracks</em> the moment one opens.</p>
+          <p>It has no leasing website of its own, which is exactly why searching it sends you to random third-party sites. The button above goes to the real listing. The building also backs an active freight line, so <em>ask for a unit on the side away from the tracks</em>.</p>
           <h4>The honest read</h4>
-          <p>Reviews are mostly genuine and lean positive: responsive maintenance, flexible management, and that loft look people actually stay for. No pets allowed, so if you have one, this drops off. Managed by University Property Richmond.</p>
+          <p>Reviews lean genuine and positive: responsive maintenance, flexible management, that loft look people stay for. Confirm the current pet policy on your tour, since sources disagree. Managed by University Property Richmond.</p>
         </div>
       </div>
 
-      <!-- 4. THE HUB -->
-      <div class="prop" data-prop>
-        <div class="prop__head">
-          <div>
-            <div class="prop__name">The Hub</div>
-            <div class="prop__addr">500 Maury St, Richmond 23224</div>
-          </div>
-          <div class="prop__price"><b>$1,199</b><small>Studio · 5 available now</small></div>
-        </div>
-        <p class="prop__thesis">The available-now, bottom-of-budget option in the <em>highest-rated building on this list</em>. Residents rave about the space and the leasing staff. The catch is honest: this price is the studio, not a 1-bed, and the 1-beds here jump to $1,450.</p>
-        <div class="pills">
-          <span class="pill pill--rating">Insider 4.0</span>
-          <span class="pill pill--good">Available now</span>
-          <span class="pill pill--warn">Studio only at this price</span>
-          <span class="pill pill--warn">No pets</span>
-        </div>
-        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
-        <div class="prop__detail">
-          <h4>The true monthly cost</h4>
-          <p>$1,199 for a studio, no fee stack listed. If you need a true 1-bed, the next tier here is $1,450, which is over your number, so this only works if a well-run studio fits how you live.</p>
-          <h4>What the listing hides</h4>
-          <p>A handful of the five-star reviews look staged, the same staff name shows up over and over, which is a tell. And residents note the <em>surrounding blocks can feel uneven at night</em>. Worth weighing if you would be walking in late.</p>
-          <h4>The honest read</h4>
-          <p>The genuine reviews are strong: spacious, well-designed units, a smooth move-in, and staff who go the extra step. No pets. Managed by Atrium.</p>
-        </div>
-      </div>
-
-      <!-- 5. CITY VIEW LOFTS -->
+      <!-- 4. CITY VIEW LOFTS -->
       <div class="prop" data-prop>
         <div class="prop__head">
           <div>
             <div class="prop__name">City View Lofts</div>
             <div class="prop__addr">411 Bainbridge St, Richmond 23224</div>
           </div>
-          <div class="prop__price"><b>$1,260</b><small>1 BR · 2 available</small></div>
+          <div class="prop__price"><b>$1,325</b><small>1 BR · about $1,175 after concession</small></div>
         </div>
-        <p class="prop__thesis">The most amenities for the money: pool, gyms, and a real concession of <em>up to $150 off on a 13-month lease</em>. It is also the one I would walk through most skeptically, and I will tell you exactly why below. Great location, mixed track record.</p>
+        <p class="prop__thesis">The most amenities for the money, with a catch on each side. The list rent is <em>just over your number at $1,325, but a current concession of up to $150 a month on a 13-month lease pulls it to about $1,175</em>, under budget. Pool, gyms, riverfront. I would still walk this one in with eyes open, and I will tell you why.</p>
         <div class="pills">
           <span class="pill pill--rating">Insider 4.0</span>
-          <span class="pill pill--good">$150/mo concession</span>
-          <span class="pill">Pool + gym</span>
-          <span class="pill">Pets ok, $35/mo</span>
-          <span class="pill pill--warn">Read reviews carefully</span>
+          <span class="pill pill--good">Concession drops it under budget</span>
+          <span class="pill">Pool + gyms + riverfront</span>
+          <span class="pill pill--warn">Mixed reviews, verify unit history</span>
         </div>
-        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="cta-row">
+          <a class="cta__btn" href="https://cityviewloftsrva.com/" target="_blank" rel="noopener" data-link>Check availability</a>
+          <a class="cta__btn cta__btn--ghost" href="https://www.apartments.com/city-view-lofts-richmond-va/mmrkb7l/" target="_blank" rel="noopener" data-link>Photos + floor plans</a>
+        </div>
+        <button class="prop__toggle" data-toggle><span class="chev">&#9656;</span><span class="label-closed">The honest read</span><span class="label-open">Close</span></button>
         <div class="prop__detail">
           <h4>The true monthly cost</h4>
-          <p>$1,260 for the entry 1-bed, minus up to $150 a month if you sign 13 months, which can pull your real rent near $1,110. Add a $25 monthly trash fee, $35 pet rent, and $100 for a garage spot if you want covered parking. Surface parking is free.</p>
+          <p>List is $1,325 to $1,370 for the entry 1-beds, minus up to $150 a month if you sign 13 months, which can land you near $1,175. Add a $25 monthly trash fee and $35 pet rent. Surface parking is free, a garage spot is $100.</p>
           <h4>What the listing hides</h4>
-          <p>This is the transparency part. About a third of the five-star reviews read as likely fake, and the genuine ones raise <em>recurring pest reports, water damage, thin walls, and car break-ins</em>. The amenities and location are real. The building quality is a question mark.</p>
+          <p>This is the transparency part. About a third of the five-star reviews read as likely fake, and the genuine ones raise <em>recurring pest reports, water damage, thin walls, and car break-ins</em>. The amenities and the concession are real. The building quality is the question mark.</p>
           <h4>The honest read</h4>
-          <p>I am not ruling it out, the concession is genuinely strong, but I would ask hard on the tour about pest treatment history and which side of the building your unit faces, and I would ask for it in writing. Managed by Thalhimer Multifamily.</p>
+          <p>Not ruling it out, the effective price is genuinely strong, but I would ask hard on the tour about pest treatment history and which side your unit faces, and get it in writing. Managed by Thalhimer Multifamily.</p>
         </div>
       </div>
 
     </div>
 
-    <!-- ZONE: CHESTERFIELD -->
+    <!-- LANE B -->
     <div class="zone">
-      <span class="zone__name">Chesterfield</span>
-      <span class="zone__tag">Your open zone</span>
-      <span class="zone__rule"></span>
+      <div class="zone__row">
+        <span class="zone__name">Lane B</span>
+        <span class="zone__tag">2-Bed for your son, a short move past Manchester</span>
+        <span class="zone__rule"></span>
+      </div>
+      <div class="zone__note">A 2-bed in Old Town Manchester runs $1,700 and up. These are real 2-beds near your number, just outside it.</div>
     </div>
 
     <div class="prop-list">
 
-      <!-- 6. LIBERTY GARDENS -->
+      <!-- 5. POINTE AT RIVER CITY -->
       <div class="prop" data-prop>
         <div class="prop__head">
           <div>
-            <div class="prop__name">Liberty Gardens</div>
-            <div class="prop__addr">2260 Golden Garden Cir, Chester 23836</div>
+            <div class="prop__name">Pointe at River City</div>
+            <div class="prop__addr">11 N Laburnum Ave, Richmond 23223 · East End</div>
           </div>
-          <div class="prop__price"><b>$1,224</b><small>1 BR · 603 sq ft · 9 available</small></div>
+          <div class="prop__price"><b>$1,204</b><small>2 BR · to $1,429</small></div>
         </div>
-        <p class="prop__thesis">Your Chesterfield lane, and the one with the <em>most flexibility on this whole list</em>. It offers a 6-month lease option and the lowest fees of any pick here. Right choice if you want to land in Richmond without locking into a full year in one spot.</p>
+        <p class="prop__thesis">This is the one that <em>actually gets you a two-bedroom at your budget</em>. Two-beds run $1,204 to $1,429, with in-unit washer and dryer and free parking. About 15 minutes from Manchester on the East End. If your son having his own room is the priority, start here.</p>
         <div class="pills">
-          <span class="pill pill--rating">Insider 3.9</span>
-          <span class="pill pill--good">6-month lease option</span>
-          <span class="pill pill--good">$25 app fee, low fees</span>
-          <span class="pill">Pets ok, $25/mo</span>
-          <span class="pill pill--warn">Car-dependent</span>
+          <span class="pill pill--rating">Insider 4.2</span>
+          <span class="pill pill--good">2-bed at your number</span>
+          <span class="pill pill--good">In-unit W/D, free parking</span>
+          <span class="pill">4 units available</span>
         </div>
-        <div class="prop__more"><span class="chev">&#9656;</span><span class="label-closed">Open the honest read</span><span class="label-open">Close</span></div>
+        <div class="cta-row">
+          <a class="cta__btn" href="https://www.pointeatrivercity.com/" target="_blank" rel="noopener" data-link>Check availability</a>
+          <a class="cta__btn cta__btn--ghost" href="https://www.apartments.com/pointe-at-river-city-richmond-va/kzlg488/" target="_blank" rel="noopener" data-link>Photos + floor plans</a>
+        </div>
+        <button class="prop__toggle" data-toggle><span class="chev">&#9656;</span><span class="label-closed">The honest read</span><span class="label-open">Close</span></button>
         <div class="prop__detail">
           <h4>The true monthly cost</h4>
-          <p>1-bed runs $1,224 to $1,284. Fees are refreshingly light: a $25 application fee, $0 admin fee, a $7 monthly trash fee, and a deposit that can start at $200. Pet rent is $25 a month. Utilities on you.</p>
+          <p>Two-beds from $1,204, with several floorplans under $1,300. Utilities are not included, so add the usual $150 to $200. In-unit laundry and free parking take two common extra costs off the table.</p>
           <h4>What the listing hides</h4>
-          <p>This is in Chester, roughly 20 minutes further south than Manchester, and it is <em>fully car-dependent</em> with a Walk Score near the floor. If you pictured walking to coffee, this is not that. If you pictured a quiet, low-cost landing pad, it is.</p>
+          <p>It sits on Laburnum on the East End, a different side of the river than Manchester, so factor the commute to wherever you spend your days. It is popular with VCU renters, so <em>the good 2-bed floorplans move fast</em>.</p>
           <h4>The honest read</h4>
-          <p>Newer to the review record, nothing flagged. The real draw is the lease flexibility and the fee structure, which are the friendliest here. Managed by Partnership Property Management.</p>
+          <p>Solid rating with only a few flagged reviews. This is the cleanest path to a real second bedroom without blowing past your budget. Managed by AION.</p>
+        </div>
+      </div>
+
+      <!-- 6. THE WARWICK AT FOUNDRY CREEK -->
+      <div class="prop" data-prop>
+        <div class="prop__head">
+          <div>
+            <div class="prop__name">The Warwick at Foundry Creek</div>
+            <div class="prop__addr">4830 Walmsley Blvd, Richmond 23224 · Southside</div>
+          </div>
+          <div class="prop__price"><b>$1,449</b><small>2 BR · income-qualified</small></div>
+        </div>
+        <p class="prop__thesis">The closest 2-bed to Manchester, same 23224 zip, about 10 minutes south. Two-beds are around $1,449 with a resort-style pool, fitness center, and in-unit laundry. It is an <em>income-qualified community, which can make a nice 2-bed genuinely affordable if you fall in the range</em>. Worth a five-minute eligibility check.</p>
+        <div class="pills">
+          <span class="pill pill--rating">Insider 4.2</span>
+          <span class="pill pill--good">Closest 2-bed to Manchester</span>
+          <span class="pill pill--good">Reviews clean</span>
+          <span class="pill pill--warn">Income limits apply, confirm eligibility</span>
+        </div>
+        <div class="cta-row">
+          <a class="cta__btn" href="https://www.thewarwickrva.com/" target="_blank" rel="noopener" data-link>Check availability</a>
+          <a class="cta__btn cta__btn--ghost" href="https://www.zillow.com/apartments/richmond-va/the-warwick-at-foundry-creek/99fBZX/" target="_blank" rel="noopener" data-link>Photos + floor plans</a>
+        </div>
+        <button class="prop__toggle" data-toggle><span class="chev">&#9656;</span><span class="label-closed">The honest read</span><span class="label-open">Close</span></button>
+        <div class="prop__detail">
+          <h4>The true monthly cost</h4>
+          <p>Two-beds around $1,449 before utilities. Because it is income-qualified, the rent you actually get can depend on household income, so the real number is set once you apply. In-unit laundry and the pool and gym are included in the community.</p>
+          <h4>What the listing hides</h4>
+          <p>The income requirement is a gate, not a downside. It means the building screens for a rent-to-income fit, which can work strongly in your favor. <em>The only way to know your number is to run the quick eligibility check</em>, which I can walk you through.</p>
+          <h4>The honest read</h4>
+          <p>Strong rating with clean reviews and modern finishes, and it keeps you closest to Manchester of any 2-bed here. Managed by SteelHead Management.</p>
         </div>
       </div>
 
@@ -402,9 +440,9 @@
     <p class="section__lede">The notes I would give you over coffee, not in a brochure.</p>
 
     <div class="truths">
-      <p><strong>Forest Hill is over your number right now.</strong> You said you were open to it, so I checked. The 1-beds on the Forest Hill and Westover Hills stretch, like The Westover on Forest Hill Ave, are running $1,379 to $1,499 today, above your $1,300 target. If you want that specific pocket of Southside badly enough to stretch, I will pull the current move-in specials, The Westover is doing $500 off the first month. Otherwise the six above hit your number cleanly.</p>
-      <p><strong>I built these as 1-bedrooms.</strong> You gave me budget and area but not beds, pets, or a move-in date. Tell me three things and I sharpen this same day: how many bedrooms you actually want, whether you have a pet, and roughly when you need to be in. That last one matters because Manchester units at this price turn over fast.</p>
-      <p><strong>Manchester is your strongest ground at this budget.</strong> It is not close. The top of your budget buys a genuinely good, walkable, loft-style 1-bed in Old Town Manchester, and the same money buys less almost anywhere else you named. That is why five of the six are there.</p>
+      <p><strong>The 2-bedroom math is the real decision.</strong> You have a son, so I am guessing you would want him to have his own room. Here is the truth: a 2-bed in Old Town Manchester runs $1,700 and up, not close to your number. A 2-bed at $1,200 to $1,450 does exist, but it means a short move just past Manchester, into the East End or the near Southside. That is Lane B. If a 1-bed as a landing pad works for now, Lane A keeps you exactly where you asked at your exact budget. Tell me which tradeoff you would rather make and I go deep on that lane.</p>
+      <p><strong>The price is often negotiable.</strong> Rent is not always the sticker. On several of these a 13-month lease or an early application knocks the number down, and City View is already running a concession that beats your budget. I will push on price and terms for you before you sign anything.</p>
+      <p><strong>I built this for a 1 or 2 bedroom.</strong> You gave me budget and area but not beds, a pet, or a move-in date. Confirm those three and I re-cut this same day, because the Manchester 1-beds at this price turn over fast and I want you looking at what is actually open the week you are ready.</p>
     </div>
   </section>
 
@@ -412,13 +450,13 @@
   <section class="block">
     <div class="eyebrow">From here</div>
     <h2 class="section__title">If one of these is a yes.</h2>
-    <p class="section__lede">No pressure either way. Everything above is yours to keep. But if you want to walk one, here is the path.</p>
+    <p class="section__lede">No pressure either way. Everything above is yours to keep, links and all. But if you want to walk one, here is the path.</p>
 
     <div class="steps">
       <ol>
-        <li>Reply and tell me which one caught your eye. One word is plenty, or tell me the beds, pet, and timing and I will re-cut the whole list.</li>
-        <li><strong>I line up the tours</strong> and ask the management-company questions for you, the deposit range, the pest history, the parking rules, so you walk in already knowing the answers.</li>
-        <li>If you want me to run the whole thing, tours booked, application filed, lease read line by line, and keys in hand, that is the <strong>Move-In Concierge</strong>. It comes in tiers depending on how much you want me carrying, and we set that on a quick call. If you would rather take it from here with this in hand, that works too. Either way you are not doing this blind.</li>
+        <li>Click Check Availability on any card to see live units yourself, then reply and tell me which one caught your eye, or just tell me beds, pet, and timing and I re-cut the whole list.</li>
+        <li><strong>I line up the tours</strong> and ask the leasing office the questions for you: the deposit range, the pest history, the income-qualification numbers, the parking rules, so you walk in already knowing the answers.</li>
+        <li>If you want me to run the whole thing, tours booked, application filed, lease read line by line, price negotiated, and keys in hand, that is the <strong>Move-In Concierge</strong>. It comes in tiers depending on how much you want me carrying, and we set that on a quick call. If you would rather take it from here with this in hand, that works too. Either way you are not doing this blind.</li>
       </ol>
     </div>
   </section>
@@ -427,8 +465,8 @@
   <section class="block">
     <div class="ask">
       <div class="ask__tag">Tell me what I missed</div>
-      <h3 class="ask__head">Anything I should factor in?</h3>
-      <p class="ask__sub">Bedrooms, a pet, a move-in date, a neighborhood you want ruled in or out, a hard no on stairs, a must-have on parking. The more you tell me, the sharper the next round gets.</p>
+      <h3 class="ask__head">Beds, pet, timing, or a curveball?</h3>
+      <p class="ask__sub">How many bedrooms you actually need, whether you have a pet, your move-in date, a neighborhood you want ruled in or out, a must-have on parking. The more you tell me, the sharper the next round gets.</p>
       <textarea class="ask__textarea" id="askText" placeholder="Type freely. I read every word."></textarea>
       <button class="ask__submit" id="askSubmit">Send to Miles</button>
       <div class="ask__status" id="askStatus"></div>
@@ -445,11 +483,17 @@
 </div>
 
 <script>
-  // Property cards expand
-  document.querySelectorAll('[data-prop]').forEach(function(card) {
-    card.addEventListener('click', function() {
-      card.classList.toggle('open');
+  // Card expand: toggle button only (so links stay clickable)
+  document.querySelectorAll('[data-toggle]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      btn.closest('[data-prop]').classList.toggle('open');
     });
+  });
+
+  // Let outbound links work without side effects
+  document.querySelectorAll('[data-link]').forEach(function(a) {
+    a.addEventListener('click', function(e) { e.stopPropagation(); });
   });
 
   // Ask submit: open mailto pre-filled so the note actually delivers
