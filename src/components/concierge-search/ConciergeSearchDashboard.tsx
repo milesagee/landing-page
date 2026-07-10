@@ -265,8 +265,8 @@ export function ConciergeSearchDashboard({
             {TIER_LABEL.watch}
           </p>
           <p className="text-xs text-deep-teal/55 mt-1">
-            Five homes that recently sold in your band. This is what multigenerational pricing
-            actually cleared at this season.
+            One layout I like but am still confirming is active, plus recent sold homes so you see
+            what these suites actually cleared at. Nothing here is confirmed available yet.
           </p>
         </div>
         <div className="divide-y divide-deep-teal/10">

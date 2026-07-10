@@ -11,7 +11,7 @@ export const revalidate = 0;
 // While true, the page shows a clean refresh notice instead of any stale listings,
 // so the link cannot embarrass anyone if opened or shared. Flip to false only after
 // the refreshed data lands with per-listing live-status confirmation and photos.
-const HOLD_FOR_REFRESH = true;
+const HOLD_FOR_REFRESH = false;
 
 type Params = Promise<{ contactId: string }>;
 type Search = Promise<{ t?: string }>;
@@ -119,9 +119,8 @@ export default async function ConciergeSearchPage({
         </h1>
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
           Most agents send a Zillow saved search and call it curation. This is what hand-built looks
-          like. Ten active candidates, five recent sold comps for pricing truth, and this round a
-          real energy read on every home: how it heats, whether it is all-electric, and the monthly
-          bill to expect.
+          like. Four homes I confirmed active against the live MLS today, each with a photo and the
+          source behind it, plus recent sold comps so you see what these suites actually trade for.
         </p>
       </section>
 
