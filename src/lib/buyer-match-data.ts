@@ -594,145 +594,130 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         ],
       },
       {
-        slug: "14719-clover-ridge-ln",
-        address: "14719 Clover Ridge Ln",
+        slug: "13524-mountcastle-rd",
+        address: "13524 Mountcastle Rd",
         city: "Chesterfield",
         state: "VA",
         zip: "23832",
-        listPrice: 510000,
-        priceLabel: "$510,000",
-        beds: 3,
-        baths: 2,
-        sqft: 2348,
-        mlsNumber: "2616393",
-        daysOnMarket: null,
-        sourceUrl: "https://www.redfin.com/VA/Chesterfield/14719-Clover-Ridge-Ln-23832/home/59584096",
-        photoUrl: "https://photos.prod.cirrussystem.net/1321/0c23c876c8951685d997d1d38bd88c55/975363467.jpeg",
+        listPrice: 545000,
+        priceLabel: "$545,000",
+        beds: 4,
+        baths: 2.5,
+        sqft: 2824,
+        mlsNumber: "2618001",
+        daysOnMarket: 9,
+        sourceUrl: "https://virginiacapitalrealty.com/listing-detail/1185143496/13524-Mountcastle-RD-Chesterfield-VA",
+        photoUrl: "https://listing-images.homejunction.com/cvrmls/1176343950/photo_1.jpg",
         gapFillReason:
-          "Included from the secondary Chesterfield area because active 23836 inventory in your box was sparse at research date.",
+          "New since your last list and verified active July 10; it carries the strongest recent SOL scores of any home here.",
         vibes:
-          "Built 2002, 2,348 sqft, 3 bedrooms and 2 baths at $510,000 per Redfin, with the listing marked recently added and updated May 27, 2026. Sits at the bedroom and bath minimum of your box. Zoned to Clover Hill Elementary, whose published math pass rate rose three consecutive years per the VDOE profile.",
+          "Built 2004, 2,824 sqft, 4 bedrooms and 2 full plus 1 half baths at $545,000 in Brandy Oaks on a 1.19-acre lot. Zoned to Grange Hall Elementary, whose published reading and math pass rates both climbed to about 90 percent in 2024-25. The trade is distance: it sits on the western Beach Road corridor, the longest run to base on the list.",
         anchors: [
           {
             name: "Fort Gregg-Adams",
             address: "",
-            distance: "~46 min drive (free-flow, OSRM)",
+            distance: "~45 min drive (free-flow, OSRM)",
             matches: "base commute",
           },
         ],
         whyThisOne:
-          "Second-highest published school pass rates on the shortlist at the second-lowest list price.",
+          "The zoned elementary posts the highest recent published SOL pass rates on your shortlist while the home stays under your cap.",
         tradeOff:
-          "The ~46-minute free-flow commute is the longest on the list, and 3 bed / 2 bath is your stated floor.",
+          "About a 45-minute free-flow commute to base, the longest on the list, and the westernmost location.",
         assignedElementary: {
-          name: "Clover Hill Elementary",
+          name: "Grange Hall Elementary",
           source: {
-            label: "Chesterfield elementary boundary layer (Virginia Open Data)",
-            url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
+            label: "Chesterfield County GIS elementary attendance boundary (point-in-polygon)",
+            url: "https://services3.arcgis.com/TsynfzBSE6sXfoLq/arcgis/rest/services/Administrative_ProdA/FeatureServer/1",
           },
         },
-        schoolRead: 7,
+        schoolRead: 8,
         schoolReadSummary:
-          "Clover Hill's published math pass rate rose 73% to 78% to 82% across three years with reading holding at 78%, Fully Accredited / On Track, Niche B, 15:1 ratio, not Title I. The Redfin listing displays a GreatSchools rating of 5 out of 10. Parent reviews on GreatSchools diverge sharply, from a July 2020 parent praising the principal and staff to a January 2024 parent alleging failures on disability support and bullying. The Read reflects the pass-rate trend and ratio against that split texture and the 5/10 displayed rating.",
+          "Grange Hall posts the strongest recent SOL numbers on your shortlist: reading 91% and math 90% for 2024-25, both trending up over three years. GreatSchools rates it 6 of 10, Niche grades it B, and SchoolDigger places it 316th of 1,114 Virginia elementary schools at 4 of 5 stars, with about 724 students at a 16:1 ratio. Public parent reviews are thin and mixed. The Read reflects the rising pass rates and the outside ratings against that limited review texture.",
         schoolEvidence: [
           {
-            point: "SOL All Students reading pass rate: 78% (2022-23), 80% (2023-24), 78% (2024-25); math 73%, 78%, 82%.",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/clover-hill-elementary" },
+            point: "SOL All Students reading pass rate: 82% (2022-23), 81% (2023-24), 91% (2024-25); math 81%, 83%, 90%.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/grange-hall-elementary" },
           },
           {
-            point: "Fully Accredited / On Track; enrollment 866 (2024-25).",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/clover-hill-elementary" },
+            point: "Enrollment 748 (2022-23), 748 (2023-24), 724 (2024-25); student-teacher ratio 16:1.",
+            source: { label: "VDOE School Quality Profile / Niche", url: "https://www.niche.com/k12/grange-hall-elementary-school-moseley-va/" },
           },
           {
-            point: "Niche grade B; student-teacher ratio 15:1.",
-            source: { label: "Niche", url: "https://www.niche.com/k12/clover-hill-elementary-school-midlothian-va/" },
+            point: "GreatSchools rating 6 of 10; Niche overall grade B.",
+            source: { label: "Niche", url: "https://www.niche.com/k12/grange-hall-elementary-school-moseley-va/" },
           },
           {
-            point: "GreatSchools rating 5 out of 10, as displayed on the Redfin listing.",
-            source: { label: "Redfin listing", url: "https://www.redfin.com/VA/Chesterfield/14719-Clover-Ridge-Ln-23832/home/59584096" },
+            point: "SchoolDigger 4 of 5 stars; ranked 316th of 1,114 Virginia elementary schools.",
+            source: { label: "SchoolDigger", url: "https://www.schooldigger.com/go/VA/schools/0084000330/school.aspx" },
           },
           {
-            point: "Not a Title I school.",
-            source: { label: "Chesterfield County Public Schools Title I list", url: "https://www.oneccps.org/page/title-i" },
-          },
-          {
-            point: "Parent, January 27, 2024: “This school does not support children with disabilities. They go out of their way to disqualify students with autism for an IEP. Students are relentlessly bullied with no support.”",
-            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/midlothian/378-Clover-Hill-Elementary-School/" },
-          },
-          {
-            point: "Parent, July 11, 2020: “Principal, teachers and staff are absolutely wonderful. Their dedication to the students is incredible as well as providing them with a positive self image.”",
-            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/midlothian/378-Clover-Hill-Elementary-School/" },
+            point: "Parent review: “It was a pretty good school except for some of the teachers ... Also the school had a really good playground.”",
+            source: { label: "Niche parent review", url: "https://www.niche.com/k12/grange-hall-elementary-school-moseley-va/" },
           },
         ],
       },
       {
-        slug: "518-greymont-ln",
-        address: "518 Greymont Ln",
+        slug: "10241-centralia-station-rd",
+        address: "10241 Centralia Station Rd",
         city: "Chester",
         state: "VA",
-        zip: "23836",
-        listPrice: 530000,
-        priceLabel: "$530,000",
-        beds: 4,
+        zip: "23831",
+        listPrice: 519950,
+        priceLabel: "$519,950",
+        beds: 5,
         baths: 3,
-        sqft: 2776,
-        mlsNumber: "2617048",
-        daysOnMarket: null,
-        sourceUrl: "https://mikechenaultgroup.com/idx/mls-2617048-518_greymont_lane_chester_va_23836",
-        photoUrl: "https://photos.prod.cirrussystem.net/1321/a0c3f1c1be782534fdc160f32f027215/4068396977.jpeg",
-        gapFillReason: "Direct hit on your primary ZIP 23836 with 4 bedrooms inside budget.",
+        sqft: 3039,
+        mlsNumber: "2618012",
+        daysOnMarket: 2,
+        sourceUrl: "https://www.trulia.com/home/10241-centralia-station-rd-chester-va-23831-12196160",
+        photoUrl: "https://listing-images.homejunction.com/cvrmls/1176351683/photo_1.jpg",
+        gapFillReason:
+          "New listing since your last set, verified active July 10, and the newest build on the list at a mid-band price.",
         vibes:
-          "Built 2003, 2,776 sqft, 4 bedrooms and 3 full baths at $530,000, inside your primary ZIP 23836. Free-flow routing puts Fort Gregg-Adams at about 16 minutes and 10.0 miles. Zoned to Elizabeth N. Scott Elementary, which operates a Dual Language Program referenced in parent reviews on GreatSchools.",
+          "Built 2022, 3,039 sqft, 5 bedrooms and 3 full baths at $519,950 in Centralia Station, listed July 2. Newest construction on your shortlist with a roughly 27-minute run to base. Zoned to Ecoff Elementary. The listing notes some conflicting lot-size figures, so confirm acreage against the MLS.",
         anchors: [
           {
             name: "Fort Gregg-Adams",
             address: "",
-            distance: "~16 min drive (free-flow, OSRM)",
+            distance: "~27 min drive (free-flow, OSRM)",
             matches: "base commute",
           },
         ],
         whyThisOne:
-          "Four bedrooms and three full baths inside your primary ZIP with the shortest commute cluster on the list.",
+          "Newest build and most bedrooms on the list, with a mid-pack commute that balances the school-versus-drive trade.",
         tradeOff:
-          "The zoned school's published reading pass rate dropped 13 points over three years and the most recent parent reviews on GreatSchools run negative.",
+          "The zoned elementary posts mid-range published pass rates, and the record shows minor build-year and lot-size discrepancies to verify.",
         assignedElementary: {
-          name: "Elizabeth N. Scott Elementary",
+          name: "Ecoff Elementary",
           source: {
-            label: "Chesterfield elementary boundary layer (Virginia Open Data)",
-            url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
+            label: "Chesterfield County GIS elementary attendance boundary (point-in-polygon)",
+            url: "https://services3.arcgis.com/TsynfzBSE6sXfoLq/arcgis/rest/services/Administrative_ProdA/FeatureServer/1",
           },
         },
         schoolRead: 6,
         schoolReadSummary:
-          "Elizabeth N. Scott's published reading pass rate fell 84% to 74% to 71% across three years while math rose to 83%. GreatSchools sub-ratings are Student Progress 7 and Test Score 6, Niche B minus, 15:1 ratio, Title I, Fully Accredited / On Track. The school operates a Dual Language Program per parent references. Parent reviews from 2024 to 2026 on GreatSchools cite communication and staffing concerns; a January 2025 community member reviewed positively. The Read balances the sub-ratings and math trend against the reading decline and recent parent texture.",
+          "Ecoff's published SOL pass rates sit at 72% reading and 73% math for 2024-25, with reading up from 68% over three years. GreatSchools rates it 6 of 10 and Niche grades it B minus, with about 764 students at a 14 to 15:1 ratio. Reviews run mixed, from teachers praised for preparing students to a specific complaint about how an autistic family member was treated. The Read reflects those published figures and that split texture.",
         schoolEvidence: [
           {
-            point: "SOL All Students reading pass rate: 84% (2022-23), 74% (2023-24), 71% (2024-25); math 79%, 82%, 83%.",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/elizabeth-scott-elementary" },
+            point: "SOL All Students reading pass rate: 68% (2022-23), 67% (2023-24), 72% (2024-25); math 68%, 74%, 73%.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/ecoff-elementary" },
           },
           {
-            point: "Fully Accredited / On Track; enrollment 729 (2024-25).",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/elizabeth-scott-elementary" },
+            point: "Enrollment 730 (2022-23), 757 (2023-24), 764 (2024-25); student-teacher ratio 14 to 15:1.",
+            source: { label: "VDOE School Quality Profile / Niche", url: "https://www.niche.com/k12/ecoff-elementary-school-chester-va/" },
           },
           {
-            point: "GreatSchools sub-ratings: Student Progress 7, Test Score 6.",
-            source: { label: "GreatSchools", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
+            point: "GreatSchools rating 6 of 10; Niche overall grade B minus (Niche proficiency reading 62%, math 37%).",
+            source: { label: "Niche", url: "https://www.niche.com/k12/ecoff-elementary-school-chester-va/" },
           },
           {
-            point: "Niche grade B minus; student-teacher ratio 15:1.",
-            source: { label: "Niche", url: "https://www.niche.com/k12/elizabeth-scott-elementary-school-chester-va/" },
+            point: "Student review: “Very well school. The teachers are wonderful and really try their best to prepare the students for middle and high school. The only thing wrong with this school is that they mistreated a family member of mine since he was autistic. Other than this, good school for a child.”",
+            source: { label: "Niche student review", url: "https://www.niche.com/k12/ecoff-elementary-school-chester-va/" },
           },
           {
-            point: "Title I school (yes).",
-            source: { label: "Chesterfield County Public Schools Title I list", url: "https://www.oneccps.org/page/title-i" },
-          },
-          {
-            point: "Community member, January 30, 2025: “I love the discipline and of course the Dual Language Program.”",
-            source: { label: "GreatSchools review", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
-          },
-          {
-            point: "Parent, July 1, 2026: “We have grown increasingly disappointed in the lack of meaningful communication and academic partnership between this school and its families. What began as minor frustrations has worsened each year.”",
-            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
+            point: "Student review: “When I went to Ecoff, it was a very welcoming, fun, safe place to be at. Nowadays, they've taken away a lot of the fun and welcoming aspect to it.”",
+            source: { label: "Niche student review", url: "https://www.niche.com/k12/ecoff-elementary-school-chester-va/" },
           },
         ],
       },
@@ -742,8 +727,8 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         city: "Chester",
         state: "VA",
         zip: "23836",
-        listPrice: 509995,
-        priceLabel: "$509,995",
+        listPrice: 515000,
+        priceLabel: "$515,000",
         beds: 5,
         baths: 3.5,
         sqft: 3100,
@@ -751,9 +736,9 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         daysOnMarket: null,
         sourceUrl: "https://mikechenaultgroup.com/idx/mls-2614222-13601_green_spire_circle_chester_va_23836",
         photoUrl: "https://photos.prod.cirrussystem.net/1321/62952ca5db0f3e3d5c99cc93578ee0ce/3290885997.jpeg",
-        gapFillReason: "Direct hit on your primary ZIP 23836; the lowest list price on the shortlist at the highest bedroom count.",
+        gapFillReason: "Direct hit on your primary ZIP 23836 at the highest bedroom count on the shortlist, and still active as of July 10.",
         vibes:
-          "Built 2009, approximately 3,100 sqft, 5 bedrooms and 3.5 baths at $509,995, the lowest list price on the shortlist. Inside your primary ZIP 23836 with a free-flow base estimate of about 16 minutes and 10.3 miles. Zoned to Elizabeth N. Scott Elementary, same assignment as 518 Greymont Ln, resolved from this exact address.",
+          "Built 2009, approximately 3,100 sqft, 5 bedrooms and 3.5 baths at $515,000, up about $5,000 since the last check. Inside your primary ZIP 23836 with a free-flow base estimate of about 16 minutes and 10.3 miles. Zoned to Elizabeth N. Scott Elementary, the same assignment as 1606 Astwood Cove Dr, resolved from this exact address.",
         anchors: [
           {
             name: "Fort Gregg-Adams",
@@ -763,9 +748,9 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
           },
         ],
         whyThisOne:
-          "Five bedrooms at the lowest price on the list inside your primary ZIP with the shortest commute cluster.",
+          "Five bedrooms inside your primary ZIP 23836 with the shortest commute on the shortlist, about 16 minutes to base.",
         tradeOff:
-          "Same zoning trade-off as Greymont: the school's published reading pass rate fell 13 points over three years while math rose.",
+          "The zoned school's published reading pass rate fell 13 points over three years while math rose, and the price ticked up about $5,000.",
         assignedElementary: {
           name: "Elizabeth N. Scott Elementary",
           source: {
@@ -775,7 +760,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         },
         schoolRead: 6,
         schoolReadSummary:
-          "Same assigned school as 518 Greymont Ln. Elizabeth N. Scott's published reading pass rate fell 84% to 74% to 71% over three years while math rose to 83%. GreatSchools sub-ratings are Student Progress 7 and Test Score 6, Niche B minus, 15:1, Title I, Fully Accredited / On Track, with a Dual Language Program referenced in parent reviews. Recent parent reviews on GreatSchools cite communication concerns; a 2025 community member reviewed positively. The Read matches Greymont's because the evidence is identical.",
+          "Same assigned school as 1606 Astwood Cove Dr. Elizabeth N. Scott's published reading pass rate fell 84% to 74% to 71% over three years while math rose to 83%. GreatSchools sub-ratings are Student Progress 7 and Test Score 6, Niche B minus, 15:1, Title I, Fully Accredited / On Track, with a Dual Language Program referenced in parent reviews. Recent parent reviews on GreatSchools cite communication concerns; a 2025 community member reviewed positively. The Read matches Astwood's because the evidence is identical.",
         schoolEvidence: [
           {
             point: "SOL All Students reading pass rate: 84% (2022-23), 74% (2023-24), 71% (2024-25); math 79%, 82%, 83%.",
@@ -800,257 +785,66 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         ],
       },
       {
-        slug: "1813-james-overlook-dr",
-        address: "1813 James Overlook Dr",
+        slug: "1606-astwood-cove-dr",
+        address: "1606 Astwood Cove Dr",
         city: "Chester",
         state: "VA",
         zip: "23836",
-        listPrice: 570000,
-        priceLabel: "$570,000",
+        listPrice: 513950,
+        priceLabel: "$513,950 (Coming Soon, activates Aug 8)",
         beds: 4,
         baths: 2.5,
-        sqft: 3022,
-        mlsNumber: "2615479",
-        daysOnMarket: null,
-        sourceUrl: "https://mikechenaultgroup.com/idx/mls-2615479-1813_james_overlook_drive_chester_va_23836",
-        photoUrl: "https://photos.prod.cirrussystem.net/1321/fabd87d5ce715fd5c884d43fbff9c80c/489442888.jpeg",
-        gapFillReason: "Direct hit on your primary ZIP 23836; the second-newest build on the shortlist.",
+        sqft: 2964,
+        mlsNumber: "2617567",
+        daysOnMarket: 10,
+        sourceUrl: "https://www.redfin.com/VA/Chester/1606-Astwood-Cove-Dr-23836/home/59486894",
+        photoUrl: "https://images-listings.coldwellbanker.com/RV/26/17/56/7/_P/2617567_P00.jpg",
+        gapFillReason:
+          "New Coming Soon listing in your primary ZIP with the shortest commute of the whole list; it activates August 8.",
         vibes:
-          "Built 2018, approximately 3,022 sqft, 4 bedrooms and 2.5 baths at $570,000. Second-newest build year on the shortlist and inside your primary ZIP 23836. Free-flow routing to Fort Gregg-Adams is about 17 minutes and 10.9 miles. Zoned to Enon Elementary, whose published pass rates rose three consecutive years per the VDOE profile.",
+          "Built 2009, 2,964 sqft, 4 bedrooms and 2 full plus 1 half baths at $513,950 in your primary ZIP 23836, the shortest run to base on the list at about 19 minutes. Listed by BHG Base Camp as Coming Soon with a confirmed activation date of August 8, so it cannot be toured or put under contract until then. Zoned to Elizabeth N. Scott Elementary, the same school as 13601 Green Spire Cir.",
         anchors: [
           {
             name: "Fort Gregg-Adams",
             address: "",
-            distance: "~17 min drive (free-flow, OSRM)",
+            distance: "~19 min drive (free-flow, OSRM)",
             matches: "base commute",
           },
         ],
         whyThisOne:
-          "A 2018 build at 3,000-plus sqft inside your primary ZIP, zoned to a school with three consecutive years of rising published pass rates.",
+          "Shortest commute to base on the list inside your primary ZIP, and it lands before your September move-in window.",
         tradeOff:
-          "Enon's current pass rates (71% reading, 72% math) sit below the two Chesterfield 23832 options, and its parent reviews are positive but dated, 2018 to 2023.",
+          "Coming Soon, so no tour or offer until it activates August 8, and the zoned school's reading pass rate has been declining while math rose.",
         assignedElementary: {
-          name: "Enon Elementary",
+          name: "Elizabeth N. Scott Elementary",
           source: {
-            label: "Chesterfield elementary boundary layer (Virginia Open Data)",
-            url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
+            label: "Chesterfield County GIS elementary attendance boundary (point-in-polygon)",
+            url: "https://services3.arcgis.com/TsynfzBSE6sXfoLq/arcgis/rest/services/Administrative_ProdA/FeatureServer/1",
           },
         },
         schoolRead: 6,
         schoolReadSummary:
-          "Enon's published pass rates rose three straight years: reading 68% to 69% to 71%, math 66% to 70% to 72%. Niche B, 16:1 ratio, not Title I, On Track accreditation, GreatSchools sub-ratings of Student Progress 6 and Test Score 5. Parent reviews on GreatSchools are consistently positive but the most recent is April 2023 and the rest date to 2018-2019, which limits how much current texture the pack carries. The Read reflects the rising trend and ratio against the lower absolute pass rates and dated reviews.",
+          "Same assigned school as 13601 Green Spire Cir. Elizabeth N. Scott's published reading pass rate fell 84% to 74% to 71% over three years while math rose to 83%. GreatSchools sub-ratings are Student Progress 7 and Test Score 6, Niche B minus, 15:1, Title I, Fully Accredited / On Track, with a Dual Language Program referenced in parent reviews. Recent parent reviews on GreatSchools cite communication concerns; a 2025 community member reviewed positively. The Read matches Green Spire's because the evidence is identical.",
         schoolEvidence: [
           {
-            point: "SOL All Students reading pass rate: 68% (2022-23), 69% (2023-24), 71% (2024-25); math 66%, 70%, 72%.",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/enon-elementary" },
+            point: "SOL All Students reading pass rate: 84% (2022-23), 74% (2023-24), 71% (2024-25); math 79%, 82%, 83%.",
+            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/elizabeth-scott-elementary" },
           },
           {
-            point: "Accreditation: On Track; enrollment 691 (2024-25).",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/enon-elementary" },
+            point: "GreatSchools sub-ratings: Student Progress 7, Test Score 6.",
+            source: { label: "GreatSchools", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
           },
           {
-            point: "Niche grade B; student-teacher ratio 16:1.",
-            source: { label: "Niche", url: "https://www.niche.com/k12/enon-elementary-school-chester-va/" },
+            point: "Niche grade B minus; student-teacher ratio 15:1; Title I school (yes).",
+            source: { label: "Niche", url: "https://www.niche.com/k12/elizabeth-scott-elementary-school-chester-va/" },
           },
           {
-            point: "GreatSchools sub-ratings: Student Progress 6, Test Score 5; not a Title I school.",
-            source: { label: "GreatSchools", url: "https://www.greatschools.org/virginia/chester/341-Enon-Elementary-School/" },
+            point: "Parent, May 15, 2026: “I made multiple requests for a parent-teacher conference to discuss my son's academics and ways to help him finish the school year strong. Unfortunately, those requests went unanswered for an extended period of time, which left me feeling ignored and concerned as a parent.”",
+            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
           },
           {
-            point: "Parent, April 13, 2023: “Enon is always engaging parents to be more involved with the students. The teachers keep us up to date and my child loves going to school.”",
-            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/chester/341-Enon-Elementary-School/" },
-          },
-        ],
-      },
-      {
-        slug: "305-redbird-dr",
-        address: "305 Redbird Dr",
-        city: "Chester",
-        state: "VA",
-        zip: "23836",
-        listPrice: 579000,
-        priceLabel: "$579,000",
-        beds: 5,
-        baths: 3.5,
-        sqft: 2892,
-        mlsNumber: "2605443",
-        daysOnMarket: null,
-        sourceUrl: "https://teamhensley.com/home-search/listings/2674117165362614697-305-Redbird-Dr",
-        photoUrl: null,
-        gapFillReason:
-          "Direct hit on your primary ZIP 23836, included with a flag: sources conflicted on the MLS number and days-on-market, so reconfirm both with the listing agent before acting.",
-        vibes:
-          "Built 1995, 2,892 sqft, 5 bedrooms and 3.5 baths at $579,000, the highest list price on the shortlist. Inside your primary ZIP 23836 with a free-flow base estimate of about 17 minutes and 9.8 miles. Zoned to Enon Elementary, the same assignment as 1813 James Overlook Dr, resolved from this exact address.",
-        anchors: [
-          {
-            name: "Fort Gregg-Adams",
-            address: "",
-            distance: "~17 min drive (free-flow, OSRM)",
-            matches: "base commute",
-          },
-        ],
-        whyThisOne:
-          "Five bedrooms and 3.5 baths inside your primary ZIP, zoned to the same rising-trend school as James Overlook.",
-        tradeOff:
-          "Sources conflicted on the MLS number and days-on-market, so reconfirm both with the listing agent before acting, and it is the highest list price on the shortlist.",
-        assignedElementary: {
-          name: "Enon Elementary",
-          source: {
-            label: "Chesterfield elementary boundary layer (Virginia Open Data)",
-            url: "https://data.virginia.gov/dataset/elementaryschoolboundary-layer",
-          },
-        },
-        schoolRead: 6,
-        schoolReadSummary:
-          "Same assigned school as 1813 James Overlook Dr. Enon's published pass rates rose three straight years: reading 68% to 69% to 71%, math 66% to 70% to 72%. Niche B, 16:1 ratio, not Title I, On Track accreditation, GreatSchools sub-ratings of Student Progress 6 and Test Score 5. Parent reviews on GreatSchools are positive but dated, 2018 to 2023. The Read reflects the rising trend and ratio against the lower absolute pass rates and dated reviews.",
-        schoolEvidence: [
-          {
-            point: "SOL All Students reading pass rate: 68% (2022-23), 69% (2023-24), 71% (2024-25); math 66%, 70%, 72%.",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/enon-elementary" },
-          },
-          {
-            point: "Accreditation: On Track; enrollment 691 (2024-25); not a Title I school.",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/enon-elementary" },
-          },
-          {
-            point: "Niche grade B; student-teacher ratio 16:1; GreatSchools Student Progress 6, Test Score 5.",
-            source: { label: "GreatSchools", url: "https://www.greatschools.org/virginia/chester/341-Enon-Elementary-School/" },
-          },
-          {
-            point: "Parent, February 23, 2019: “This is a great school. My son loves it! The teachers are amazing and always willing to help.”",
-            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/chester/341-Enon-Elementary-School/" },
-          },
-        ],
-      },
-      {
-        slug: "5305-wellington-ridge-rd",
-        address: "5305 Wellington Ridge Rd",
-        city: "Richmond",
-        state: "VA",
-        zip: "23231",
-        listPrice: 530000,
-        priceLabel: "$530,000",
-        beds: 4,
-        baths: 3,
-        sqft: 2602,
-        mlsNumber: "2615289",
-        daysOnMarket: null,
-        sourceUrl: "https://midatlantic.penfedrealty.com/listing/cvrmls/2615289/Richmond/5305-Wellington-Ridge-Road/",
-        photoUrl: "https://listing-images.homejunction.com/cvrmls/1173085244/photo_1.jpg",
-        gapFillReason:
-          "An eastern Henrico option at 4 bed / 3 bath inside budget, previously listed at $520,000 per PenFed, in the more-space lane you flagged as your trade.",
-        vibes:
-          "Built 2006, 2,602 sqft, 4 bedrooms and 3 full baths at $530,000, up from a prior $520,000 list per PenFed. Eastern Henrico, with a free-flow base estimate of about 38 minutes and 23.0 miles. Zoned to Henry D. Ward Elementary.",
-        anchors: [
-          {
-            name: "Fort Gregg-Adams",
-            address: "",
-            distance: "~38 min drive (free-flow, OSRM)",
-            matches: "base commute",
-          },
-        ],
-        whyThisOne:
-          "Four bedrooms and three full baths at $530K in the eastern Henrico lane you flagged as your trade for more space.",
-        tradeOff:
-          "The zoned school's published indicators sit well below the Chesterfield options and the base commute runs about 38 minutes free-flow.",
-        assignedElementary: {
-          name: "Henry D. Ward Elementary",
-          source: {
-            label: "Henrico County school locator",
-            url: "https://www.henricoschools.us/school-locator/",
-          },
-        },
-        schoolRead: 3,
-        schoolReadSummary:
-          "Ward's most recent published pass rates are reading 56% and math 52% (2023-24), Niche C plus, 17:1 ratio, Title I, and the school is identified for ESSA Targeted Support and Improvement. Parent reviews on GreatSchools run both directions, from a 2023 parent calling it a disappointment on communication to a 2018 parent citing strong teachers. The 2024-25 SOL year was not yet posted at research date, so reconfirm. The Read reflects the lower published pass rates and the ESSA identification against the mixed parent texture.",
-        schoolEvidence: [
-          {
-            point: "SOL All Students reading pass rate: 58% (2021-22), 55% (2022-23), 56% (2023-24); math 46%, 52%, 52%. 2024-25 not posted at research date.",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/henry-d-ward-elementary" },
-          },
-          {
-            point: "Accredited; identified for ESSA Targeted Support and Improvement; enrollment 526 (2024-25).",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/henry-d-ward-elementary" },
-          },
-          {
-            point: "Niche grade C plus; student-teacher ratio 17:1.",
-            source: { label: "Niche", url: "https://www.niche.com/k12/henry-d-ward-elementary-school-richmond-va/" },
-          },
-          {
-            point: "Title I school (yes).",
-            source: { label: "ZIPDataMaps Henrico Title I map", url: "https://www.zipdatamaps.com/schools/virginia/county/map-of-henrico-county-va-elementary-school-title-1-status" },
-          },
-          {
-            point: "Parent, April 26, 2023: “This school is a major disappointment. The admins and other staff will wait until literally the last minute to contact the parent about an issue involving your child.”",
-            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/richmond/895-Ward-Elementary-School/" },
-          },
-          {
-            point: "Parent, September 6, 2018: “From personal experience this school has been a place for my son to grow and challenge himself in the guidance of very strong and loving teachers!”",
-            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/richmond/895-Ward-Elementary-School/" },
-          },
-        ],
-      },
-      {
-        slug: "1590-cardinal-woods-ln",
-        address: "1590 Cardinal Woods Ln",
-        city: "Henrico",
-        state: "VA",
-        zip: "23231",
-        listPrice: 525000,
-        priceLabel: "$525,000",
-        beds: 4,
-        baths: 2,
-        sqft: null,
-        mlsNumber: "2616395",
-        daysOnMarket: null,
-        sourceUrl: "https://midatlantic.penfedrealty.com/listing/cvrmls/2616395/Henrico/1590-Cardinal-Woods-Lane/",
-        photoUrl: "https://listing-images.homejunction.com/cvrmls/1174746985/photo_1.jpg",
-        gapFillReason:
-          "An eastern Henrico option near Varina, flagged because this address splits across two elementary schools with a transition after grade 2.",
-        vibes:
-          "Built 1983, 4 bedrooms and 2 baths at $525,000; square footage was not listed. Eastern Henrico near Varina, with a free-flow base estimate of about 30 minutes and 19.5 miles, the shortest Henrico commute on the shortlist.",
-        anchors: [
-          {
-            name: "Fort Gregg-Adams",
-            address: "",
-            distance: "~30 min drive (free-flow, OSRM)",
-            matches: "base commute",
-          },
-        ],
-        whyThisOne:
-          "The shortest eastern-Henrico base commute on the list at 4 bed / 2 bath inside budget.",
-        tradeOff:
-          "The address splits across Mehfoud (PK-2) and Varina (3-5), a school transition after grade 2, and both schools' published indicators sit at the low end of the list.",
-        assignedElementary: {
-          name: "Mehfoud (PK-2) and Varina (3-5)",
-          source: {
-            label: "Henrico County school locator",
-            url: "https://www.henricoschools.us/school-locator/",
-          },
-        },
-        schoolRead: 3,
-        schoolReadSummary:
-          "This address splits across two schools. Mehfoud posts ESSA current pass rates of reading 55% and math 53% with a GreatSchools Student Progress of 1; Varina posts SOL reading 55% and math 52% (2024-25), Niche C, GreatSchools Progress 1 and Test Score 2; both are identified for ESSA Targeted Support. Mehfoud's public review pack is thin, a single 2011 parent review, which caps the Read. The split assignment means a school transition after grade 2. The Read reflects the low published indicators and the thin recent texture.",
-        schoolEvidence: [
-          {
-            point: "Mehfoud (grades PK-2): ESSA All Students current pass rate reading 55%, math 53%; identified for ESSA Targeted Support; GreatSchools Student Progress 1.",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/anthony-p-mehfoud-elementary" },
-          },
-          {
-            point: "Varina (grades 3-5): SOL reading 58% (2022-23), 56% (2023-24), 55% (2024-25); math 48%, 44%, 52%; identified for ESSA Targeted Support.",
-            source: { label: "VDOE School Quality Profile", url: "https://schoolquality.virginia.gov/schools/varina-elementary" },
-          },
-          {
-            point: "Varina Niche grade C; GreatSchools Student Progress 1, Test Score 2; student-teacher ratio around 12:1 to 15:1.",
-            source: { label: "GreatSchools", url: "https://www.greatschools.org/virginia/richmond/892-Varina-Elementary-School/" },
-          },
-          {
-            point: "Parent (Varina), September 13, 2025: “My child has continually reported a lack of social engagements, excessive foul language without any correction, violence, bullying, and not engaging class learning and material. Do not recommend.”",
-            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/richmond/892-Varina-Elementary-School/" },
-          },
-          {
-            point: "Parent (Mehfoud), August 10, 2011 (only public review available at research date): “This school is absolutely wonderful! The principal is very hands on and involved with all of the students. Reading is a priority and stressed at every level.”",
-            source: { label: "GreatSchools parent review", url: "https://www.greatschools.org/virginia/richmond/903-Mehfoud-Elementary-School/" },
+            point: "Community member, January 30, 2025: “The school is amazing, a wonderful place to work and I like that they embrace different cultures and the work environment is friendly and supportive. I love the discipline and of course the Dual Language Program.”",
+            source: { label: "GreatSchools review", url: "https://www.greatschools.org/virginia/chester/4966-Elizabeth-Scott-Elementary-School/" },
           },
         ],
       },
@@ -1109,7 +903,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         description: "OSRM public routing engine. Free-flow (no-traffic) drive-time and distance to Fort Gregg-Adams; peak-hour times run higher.",
       },
     ],
-    completedAt: "2026-07-06T17:10:00-04:00",
+    completedAt: "2026-07-10T15:40:00-04:00",
   },
 };
 
