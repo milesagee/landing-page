@@ -265,7 +265,8 @@ export function ConciergeSearchDashboard({
             {TIER_LABEL.watch}
           </p>
           <p className="text-xs text-deep-teal/55 mt-1">
-            What we ruled out, why, and the one comp that sets the Henrico price pressure.
+            Five homes that recently sold in your band. This is what multigenerational pricing
+            actually cleared at this season.
           </p>
         </div>
         <div className="divide-y divide-deep-teal/10">
@@ -305,9 +306,9 @@ export function ConciergeSearchDashboard({
         </div>
         <div className="p-6 sm:p-8">
           <p className="text-sm text-deep-teal/80 leading-relaxed mb-4">
-            The listing platforms do not surface the energy-readiness data you asked for. That is a
-            platform gap, not a research gap. We verify these on tour day at the panel, the roof,
-            and the meter:
+            You now have an energy read on every active home above: how it heats, whether it is
+            all-electric, and a monthly utility band. These last fields still are not published
+            anywhere, so we confirm them on tour day at the panel, the roof, and the meter:
           </p>
           <ul className="space-y-2 text-sm text-deep-teal/75 leading-relaxed list-disc pl-5">
             {data.fieldsNotDisclosed.map((f, i) => (

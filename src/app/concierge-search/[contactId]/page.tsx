@@ -68,8 +68,9 @@ export default async function ConciergeSearchPage({
         </h1>
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
           Most agents send a Zillow saved search and call it curation. This is what hand-built looks
-          like. Eight active candidates, three watches, one comp, and the honest gap report on the
-          energy fields the listing data did not disclose.
+          like. Ten active candidates, five recent sold comps for pricing truth, and this round a
+          real energy read on every home: how it heats, whether it is all-electric, and the monthly
+          bill to expect.
         </p>
       </section>
 
