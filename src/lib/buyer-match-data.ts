@@ -851,36 +851,24 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
     ],
     sources: [
       {
-        url: "https://www.redfin.com/VA/Chester/518-Greymont-Ln-23836/home/59587756",
-        description: "518 Greymont Ln, Chester 23836. Active listing, 2003 build, MLS 2617048.",
+        url: "https://www.compass.com/homedetails/15667-Henningford-Dr-Chesterfield-VA-23832/KS2NK_pid/",
+        description: "15667 Henningford Dr, Chesterfield 23832. Active as of July 10, 2026, 2022 build, MLS 2610493.",
       },
       {
-        url: "https://mikechenaultgroup.com/idx/mls-2615479-1813_james_overlook_drive_chester_va_23836",
-        description: "1813 James Overlook Dr, Chester 23836. Active listing, 2018 build, MLS 2615479.",
+        url: "https://virginiacapitalrealty.com/listing-detail/1185143496/13524-Mountcastle-RD-Chesterfield-VA",
+        description: "13524 Mountcastle Rd, Chesterfield 23832. Active as of July 10, 2026, 2004 build, MLS 2618001.",
+      },
+      {
+        url: "https://www.trulia.com/home/10241-centralia-station-rd-chester-va-23831-12196160",
+        description: "10241 Centralia Station Rd, Chester 23831. Active as of July 10, 2026, 2022 build, MLS 2618012.",
       },
       {
         url: "https://mikechenaultgroup.com/idx/mls-2614222-13601_green_spire_circle_chester_va_23836",
-        description: "13601 Green Spire Cir, Chester 23836. Active listing, 2009 build, MLS 2614222.",
+        description: "13601 Green Spire Cir, Chester 23836. Active as of July 10, 2026 at $515,000, 2009 build, MLS 2614222.",
       },
       {
-        url: "https://teamhensley.com/home-search/listings/2674117165362614697-305-Redbird-Dr",
-        description: "305 Redbird Dr, Chester 23836. Active listing, 1995 build; MLS and days-on-market conflicted across sources, reconfirm.",
-      },
-      {
-        url: "https://www.compass.com/homedetails/15667-Henningford-Dr-Chesterfield-VA-23832/KS2NK_pid/",
-        description: "15667 Henningford Dr, Chesterfield 23832. Active listing, 2022 build, MLS 2610493.",
-      },
-      {
-        url: "https://www.redfin.com/VA/Chesterfield/14719-Clover-Ridge-Ln-23832/home/59584096",
-        description: "14719 Clover Ridge Ln, Chesterfield 23832. Active listing, 2002 build, MLS 2616393.",
-      },
-      {
-        url: "https://midatlantic.penfedrealty.com/listing/cvrmls/2615289/Richmond/5305-Wellington-Ridge-Road/",
-        description: "5305 Wellington Ridge Rd, Henrico 23231. Active listing, 2006 build, MLS 2615289.",
-      },
-      {
-        url: "https://midatlantic.penfedrealty.com/listing/cvrmls/2616395/Henrico/1590-Cardinal-Woods-Lane/",
-        description: "1590 Cardinal Woods Ln, Henrico 23231. Active listing, 1983 build, MLS 2616395.",
+        url: "https://www.redfin.com/VA/Chester/1606-Astwood-Cove-Dr-23836/home/59486894",
+        description: "1606 Astwood Cove Dr, Chester 23836. Coming Soon, activates Aug 8, 2026, 2009 build, MLS 2617567.",
       },
       {
         url: "https://schoolquality.virginia.gov/",
