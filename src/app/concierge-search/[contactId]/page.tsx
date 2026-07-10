@@ -7,6 +7,12 @@ import { ConciergeSearchDashboard } from "@/components/concierge-search/Concierg
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+// HOLD GATE: listing data is being re-verified against live MLS status + photos.
+// While true, the page shows a clean refresh notice instead of any stale listings,
+// so the link cannot embarrass anyone if opened or shared. Flip to false only after
+// the refreshed data lands with per-listing live-status confirmation and photos.
+const HOLD_FOR_REFRESH = true;
+
 type Params = Promise<{ contactId: string }>;
 type Search = Promise<{ t?: string }>;
 
@@ -31,6 +37,51 @@ export default async function ConciergeSearchPage({
 
   const { viewer, data } = result;
   const firstName = viewer.firstName;
+
+  if (HOLD_FOR_REFRESH) {
+    return (
+      <main className="min-h-screen bg-paper text-deep-teal flex flex-col">
+        <header className="bg-deep-teal text-ivory">
+          <div className="max-w-3xl mx-auto px-6 py-6 flex items-center gap-3">
+            <Image
+              src="/images/mams-logo.png"
+              alt="MAMS"
+              width={48}
+              height={48}
+              className="h-10 w-10 rounded-full border border-gold/30 object-cover"
+              priority
+            />
+            <div>
+              <div className="font-display text-ivory text-lg leading-none">MAMS</div>
+              <div className="text-[10px] uppercase tracking-[0.15em] text-gold-dark mt-0.5">
+                Curated for you
+              </div>
+            </div>
+          </div>
+        </header>
+        <section className="max-w-2xl mx-auto px-6 py-20 flex-1">
+          <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold mb-3">
+            Refreshing your search
+          </p>
+          <h1 className="font-display text-3xl sm:text-4xl text-deep-teal leading-tight">
+            {firstName}, I&rsquo;m re-verifying every home right now.
+          </h1>
+          <p className="mt-4 text-base text-deep-teal/75 leading-relaxed">
+            I pulled this page down for a live check so nothing on it is stale. Every property is
+            being confirmed active against the MLS today, with current photos, before it goes back
+            up. You&rsquo;ll have the clean version shortly.
+          </p>
+          <p className="mt-4 text-sm text-deep-teal/60 leading-relaxed">
+            Anything you need in the meantime, I&rsquo;m at{" "}
+            <a href="mailto:miles@mamsnow.com" className="underline hover:text-gold-dark">
+              miles@mamsnow.com
+            </a>
+            .
+          </p>
+        </section>
+      </main>
+    );
+  }
 
   const tagline = viewer.viewerType === "primary" ? "Curated for you" : "Shared with you";
   const heroEyebrow =

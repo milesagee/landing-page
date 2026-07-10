@@ -38,6 +38,14 @@ export type Property = {
   county: string;
   zip: string;
   price: number;
+  // Primary listing photo (broker/MLS source). Required on any listing that ships;
+  // parity with the buyer-match dashboard. Optional at the type level only so the
+  // hold state compiles before the re-verified data lands.
+  photoUrl?: string;
+  // Live-status verification. When the listing shipped, this records that active
+  // status was confirmed against a live MLS-backed source, with the date and source.
+  statusVerifiedOn?: string;
+  statusSource?: string;
   // The hand-prepared "why this is on your list" line. Plain, specific, sourced.
   whyItMatters: string;
   // The honest gap or thing to verify on tour. Empty if no caveat.

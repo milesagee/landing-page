@@ -531,6 +531,18 @@ function PropertyCard({
         isHidden ? "opacity-50 border-deep-teal/10" : "border-deep-teal/15"
       }`}
     >
+      {property.photoUrl && (
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-deep-teal/5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={property.photoUrl}
+            alt={`${property.address}, ${property.city}`}
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-deep-teal/25 to-transparent" />
+        </div>
+      )}
       <div className="p-5 sm:p-6">
         <div className="flex items-start justify-between gap-3 flex-wrap mb-3">
           <div className="min-w-0">
