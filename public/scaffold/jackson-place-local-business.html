@@ -45,7 +45,11 @@
   .stat b{font-family:'Fraunces',serif;color:var(--teal);font-size:19px;display:block;line-height:1.15}
   .stat span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 
-  .band{margin:32px 0 0;background:linear-gradient(135deg,var(--teal),var(--teal-2));color:#eef4f2;
+  .mv{font-family:'Fraunces',serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;
+    margin:52px 0 8px;display:flex;align-items:center;gap:12px}
+  .mv::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .band{margin:22px 0 0;background:linear-gradient(135deg,var(--teal),var(--teal-2));color:#eef4f2;
     border-radius:20px;padding:30px;box-shadow:var(--sh-lift);position:relative;overflow:hidden}
   .band::after{content:"";position:absolute;right:-50px;top:-50px;width:230px;height:230px;border-radius:50%;
     background:radial-gradient(circle,rgba(212,175,55,.22),transparent 65%)}
@@ -55,9 +59,12 @@
   .band p + p{margin-top:12px}
   .band b{color:#fff}
   .band .gold{color:var(--gold);font-weight:600}
+  .band .quote{margin-top:16px;padding:14px 18px;border-left:3px solid var(--gold);background:rgba(212,175,55,.10);
+    border-radius:0 12px 12px 0;font-size:15.5px;color:#fff;font-style:italic;position:relative;z-index:1}
+  .band .quote span{display:block;font-style:normal;font-size:12px;color:#b9d0cb;margin-top:8px;letter-spacing:.04em}
 
-  h3.sec{font-family:'Fraunces',serif;font-weight:600;color:var(--teal);font-size:23px;letter-spacing:-.015em;margin:44px 0 6px}
-  p.sub{font-size:14px;color:var(--muted);margin-bottom:18px;max-width:72ch}
+  h3.sec{font-family:'Fraunces',serif;font-weight:600;color:var(--teal);font-size:23px;letter-spacing:-.015em;margin:38px 0 6px}
+  p.sub{font-size:14px;color:var(--muted);margin-bottom:18px;max-width:74ch}
 
   .cards{display:grid;grid-template-columns:1fr;gap:14px}
   @media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
@@ -86,9 +93,9 @@
   .b:hover{transform:translateY(-2px)}
   .b .bn{font-family:'Fraunces',serif;font-weight:600;color:var(--teal);font-size:14px;line-height:1.2}
   .b .bm{font-size:11px;color:var(--muted);margin-top:4px}
+  .b .bown{font-size:10.5px;color:var(--gold-deep);font-weight:600;margin-top:6px;letter-spacing:.03em}
   .b.anchor{border-color:rgba(212,175,55,.65);box-shadow:0 0 0 1px rgba(212,175,55,.3),var(--sh)}
-  .b.anchor .bn::after{content:" ·";color:var(--gold-deep)}
-  .legend{font-size:12px;color:var(--muted);margin-top:12px}
+  .legend{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.6}
   .legend b{color:var(--gold-deep)}
 
   .split{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
@@ -101,6 +108,18 @@
 
   .note{background:rgba(212,175,55,.10);border:1px solid rgba(212,175,55,.42);border-radius:14px;padding:17px 19px;margin-top:20px;font-size:13.5px;color:var(--ink)}
   .note b{color:var(--gold-deep)}
+
+  .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:6px}
+  @media(min-width:720px){.metrics{grid-template-columns:repeat(4,1fr)}}
+  .m{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:13px;padding:15px;box-shadow:var(--sh);text-align:center}
+  .m b{font-family:'Fraunces',serif;color:var(--teal);font-size:22px;display:block;line-height:1.1}
+  .m span{font-size:11px;color:var(--muted);letter-spacing:.04em;display:block;margin-top:5px}
+
+  .geo{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+  .g{background:rgba(0,63,63,.07);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;color:var(--ink)}
+  .g b{color:var(--teal);font-weight:600}
+  .g.hot{background:rgba(212,175,55,.18);border-color:rgba(212,175,55,.5)}
+  .g.hot b{color:var(--gold-deep)}
 
   .cta{margin-top:34px;background:linear-gradient(135deg,var(--teal),var(--teal-2));color:#eef4f2;border-radius:20px;padding:32px;box-shadow:var(--sh-lift);text-align:center;position:relative;overflow:hidden}
   .cta::after{content:"";position:absolute;left:-50px;bottom:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.20),transparent 65%)}
@@ -124,19 +143,22 @@
   <section class="hero">
     <div class="eyebrow">Jackson Place &middot; 41 townhomes &middot; 723 N. 2nd Street</div>
     <h1>You are asking ten percent more than the river. <em>Here is what earns it.</em></h1>
-    <p class="lede">Manchester Square closed ten homes at $280 a foot with rooftop terraces and a riverfront address. Jackson Place models at roughly $307. Our own analysis says that premium is defensible on the address, the story and the spec, not on location. So location stops being the argument. The neighborhood becomes the argument.</p>
+    <p class="lede">Manchester Square closed ten homes at $280 a foot with rooftop terraces and a riverfront address. Jackson Place models at roughly $307. Our own analysis says that premium is defensible on the address, the story and the spec, not on location. So location stops being the argument. The neighborhood becomes the argument, and the neighborhood is the one thing nobody can build across the water.</p>
     <div class="stats">
       <div class="stat"><b>$5,000</b><span>Per home, buyer value</span></div>
-      <div class="stat"><b>$205,000</b><span>Across all 41 homes</span></div>
-      <div class="stat"><b>20</b><span>Businesses, half a mile</span></div>
-      <div class="stat"><b>6</b><span>On N. 2nd Street itself</span></div>
+      <div class="stat"><b>$205,000</b><span>Into Jackson Ward registers</span></div>
+      <div class="stat"><b>21</b><span>Businesses, half a mile</span></div>
+      <div class="stat"><b>26.5%</b><span>Of our audience is Richmond</span></div>
     </div>
   </section>
+
+  <!-- MOVEMENT 1 -->
+  <div class="mv">One &middot; The package</div>
 
   <section class="band">
     <div class="k">The move</div>
     <h2>A competitor can hand a buyer a furniture credit. Nobody can hand them Jackson Ward.</h2>
-    <p>Every Jackson Place buyer closes with <b>The 2nd Street Welcome</b>: roughly $5,000 in credit at the independent businesses within a five minute walk of their front door. Sunday dinner at Mama J's. Breakfast at Salt and Forge. Lunch at Big Herm's. Coffee at Urban Hang Suite. <b>Six of these businesses sit on N. 2nd Street, the same street your ten flagship homes face.</b></p>
+    <p>Every Jackson Place buyer closes with <b>The 2nd Street Welcome</b>: roughly $5,000 in credit at the independent businesses within a five minute walk of their front door. Sunday dinner at Mama J's. Lunch at Big Herm's. A bottle from Penny's. <b>Six of these businesses sit on N. 2nd Street, the same street your ten flagship homes face.</b></p>
     <p>The merchants fund most of it in kind, because a $100 dinner credit costs a kitchen about $30, and because <span class="gold">41 new households arriving one block away is the cheapest customer acquisition they will ever see.</span></p>
   </section>
 
@@ -147,7 +169,7 @@
     <div class="card">
       <div class="n">Option A</div>
       <h4>Cut the price $5,000</h4>
-      <p>Costs you <b>$205,000</b> off an $18.51M sellout. Invisible to the buyer at 0.9% of price. Differentiates you from nothing, and sets a comp that follows you into every appraisal.</p>
+      <p>Costs you <b>$205,000</b> off an $18.51M sellout. Invisible at 0.9% of price. Differentiates you from nothing, and sets a comp that follows you into every appraisal.</p>
     </div>
     <div class="card">
       <div class="n">Option B</div>
@@ -157,12 +179,12 @@
     <div class="card" style="border-color:rgba(212,175,55,.6);box-shadow:0 0 0 1px rgba(212,175,55,.34),var(--sh)">
       <div class="n" style="color:var(--good)">Option C &middot; The move</div>
       <h4>Give them the neighborhood</h4>
-      <p>The same <b>$5,000</b> of felt value for roughly <b>half the cost</b>, and every dollar you do spend lands as revenue in a Jackson Ward register instead of vanishing off your price sheet. Cannot be copied from across the river.</p>
+      <p>The same <b>$5,000</b> of felt value for roughly <b>half the cost</b>, and every dollar you do spend lands as revenue in a Jackson Ward register instead of vanishing off your price sheet.</p>
     </div>
   </div>
 
   <h3 class="sec">The economics, modeled honestly</h3>
-  <p class="sub">Two ways to structure it. We recommend the second, because a credit a buyer cannot actually redeem is worth nothing and would embarrass all of us.</p>
+  <p class="sub">Two structures. We recommend the second, because a credit a buyer cannot actually redeem is worth nothing and would embarrass all of us.</p>
 
   <div class="wide">
   <table class="t">
@@ -179,33 +201,34 @@
     </tr>
     <tr class="cut">
       <td><b>A $5,000 price cut</b></td>
-      <td>Invisible. Uncopyable by nobody. Compresses your comps.</td>
+      <td>Invisible. Copyable by everyone. Compresses your comps.</td>
       <td><b>$205,000</b></td>
     </tr>
-    <tr class="total"><td><b>What you save</b></td><td>Same $5,000 of buyer value, delivered as a reason instead of a discount</td><td><b>~$100,000 to $135,000</b></td></tr>
+    <tr class="total"><td><b>What you save</b></td><td>The same $5,000 of buyer value, delivered as a reason instead of a discount</td><td><b>~$100,000 to $135,000</b></td></tr>
   </table>
   </div>
 
   <div class="note">
-    <b>What the merchants actually spend.</b> The in kind portion costs them their margin, not their menu. Restaurants run roughly 30% food cost, so a $100 credit costs about $30. An unsold seat in a fitness class costs near zero. Blended, the merchants carry roughly $850 to $950 of real cost per home, which spreads to about $1,600 to $1,800 per business across an eighteen month sellout. That is what they pay to reach 41 new households on their block. Every figure on this page is modeled from published category margins. None of it is quoted by a merchant, because no merchant has been contacted.
+    <b>What the merchants actually spend.</b> The in kind portion costs them their margin, not their menu. Restaurants run roughly 30% food cost, so a $100 credit costs about $30. An unsold seat in a class costs near zero. Blended, the merchants carry roughly $850 to $950 of real cost per home, which spreads to about $1,600 to $1,800 per business across an eighteen month sellout. That is what they pay to reach 41 new households on their block. <b>Every figure here is modeled from published category margins. None of it is quoted by a merchant, because no merchant has been contacted.</b>
   </div>
 
   <h3 class="sec">The cluster</h3>
-  <p class="sub">Sourced from the Historic Jackson Ward Association's own published directory. Not a list we assembled. Theirs. We then independently confirmed each one is still trading, and we split them accordingly, because a package built on a closed restaurant is worse than no package.</p>
+  <p class="sub">Sourced from the Historic Jackson Ward Association's own published directory. Not a list we assembled. Theirs. We then independently confirmed which ones are still trading, and split them accordingly, because a package built on a closed restaurant is worse than no package.</p>
 
   <h4 style="font-family:'Fraunces',serif;color:var(--teal);font-size:15px;margin:0 0 10px">Confirmed currently operating</h4>
   <div class="biz">
+    <div class="b anchor"><div class="bn">Big Herm's Kitchen</div><div class="bm">315 N. 2nd St</div><div class="bown">Black owned &middot; Herman Baskerville</div></div>
     <div class="b anchor"><div class="bn">Salt and Forge</div><div class="bm">312 N. 2nd St</div></div>
-    <div class="b anchor"><div class="bn">Big Herm's Kitchen</div><div class="bm">315 N. 2nd St</div></div>
-    <div class="b anchor"><div class="bn">Thai Studio Restaurant</div><div class="bm">516 N. 2nd St</div></div>
-    <div class="b"><div class="bn">Mama J's</div><div class="bm">415 N. 1st St</div></div>
+    <div class="b anchor"><div class="bn">Thai Studio</div><div class="bm">516 N. 2nd St</div></div>
+    <div class="b"><div class="bn">Mama J's</div><div class="bm">415 N. 1st St</div><div class="bown">Black owned &middot; Velma &amp; Lester Johnson</div></div>
+    <div class="b"><div class="bn">Penny's Wine Shop</div><div class="bm">405 Brook Rd</div><div class="bown">Black owned &middot; Beal &amp; Lemon</div></div>
     <div class="b"><div class="bn">Ray's Dog House</div><div class="bm">401 N. 1st St</div></div>
     <div class="b"><div class="bn">Sahara Cafe and Grill</div><div class="bm">114 E. Clay St</div></div>
     <div class="b"><div class="bn">Max's on Broad</div><div class="bm">305 Brook Rd</div></div>
     <div class="b"><div class="bn">Urban Hang Suite</div><div class="bm">304 E. Broad St</div></div>
   </div>
 
-  <h4 style="font-family:'Fraunces',serif;color:var(--teal);font-size:15px;margin:22px 0 10px">Listed in the Association directory, status reconfirmed at signing</h4>
+  <h4 style="font-family:'Fraunces',serif;color:var(--teal);font-size:15px;margin:22px 0 10px">In the Association directory, status reconfirmed at signing</h4>
   <div class="biz">
     <div class="b anchor"><div class="bn">J KOGI</div><div class="bm">325 N. 2nd St</div></div>
     <div class="b anchor"><div class="bn">Lucy's</div><div class="bm">404 N. 2nd St</div></div>
@@ -221,68 +244,121 @@
     <div class="b"><div class="bn">Twenty Seven</div><div class="bm">27 W. Broad St</div></div>
   </div>
 
-  <p class="legend"><b>Gold</b> = on N. 2nd Street, your flagship frontage. Source: Historic Jackson Ward Association business directory, hjwa.org. <b>We removed two names that appear on the Association's list but appear to have turned over to new tenants.</b> We would rather hand you a shorter list that is right. <b>Nobody has been contacted and nobody has committed.</b> The ask is authorization to go sign them.</p>
+  <p class="legend">
+    <b>Gold</b> = on N. 2nd Street, your flagship frontage. Ownership is labeled only where we have a citable source, and nowhere else. Source: Historic Jackson Ward Association directory (hjwa.org), plus independent verification.<br>
+    <b>We removed two names that appear on the Association's own list but appear to have turned over to new tenants.</b> We would rather hand you a shorter list that is right. <b>Nobody has been contacted and nobody has committed.</b> The ask is authorization to go sign them.
+  </p>
 
-  <h3 class="sec">Why the merchants say yes</h3>
-  <p class="sub">This is not charity and it is not sponsorship. It is the cheapest customer acquisition on their block.</p>
+  <!-- MOVEMENT 2 -->
+  <div class="mv">Two &middot; The question you are actually going to get asked</div>
 
-  <div class="split">
-    <div class="side">
-      <h4>The buyer</h4>
-      <div class="role">Gives nothing</div>
-      <div class="lab">Gets</div>
-      <p>$5,000 to spend on their own street, and a reason to choose Jackson Ward that a rooftop across the river cannot answer. They move in already belonging somewhere.</p>
+  <section class="band">
+    <div class="k">The objection</div>
+    <h2>Somebody is going to call this gentrification. You should have the answer before they ask.</h2>
+    <p>Jackson Ward has been cleared once already. When the highway went through in the 1950s it took <b>roughly 1,000 homes and displaced more than a thousand Jackson Ward residents and business owners</b>. Citywide the interstate program displaced around <b>2,200 Black families, about ten percent of Richmond's Black population.</b></p>
+    <p>And it did not stop. <span class="gold">Between 2010 and 2020, Jackson Ward's Black population fell another ten percent.</span> Wave one was the highway. Wave two was gentrification. <b>New for sale product on RRHA land will be read as wave three unless somebody puts money back on the block.</b></p>
+    <div class="quote">
+      "Jackson Place, working in close partnership with the Historic Jackson Ward Association, aims to restore and revitalize an area impacted by I 95 construction. A catalyst for the community's Place Making initiative."
+      <span>Emerge Construction Group, your own words</span>
     </div>
-    <div class="side">
-      <h4>The merchant</h4>
-      <div class="role">Gives margin, not cash</div>
-      <div class="lab">Gets</div>
-      <p>41 new households, roughly 80 to 100 new residents, arriving one block away holding a credit with their name on it. Plus a feature story and sales center traffic. Real cost to them is roughly $1,600 to $1,800 across the whole sellout.</p>
+    <p style="margin-top:16px"><b>This is that sentence with a dollar sign attached.</b> $205,000 of buyer spending routed into the independent businesses of this neighborhood, sourced from the Association's own directory, with the Black owned institutions of Jackson Ward named and paid. Not a statement. A ledger.</p>
+  </section>
+
+  <div class="cards" style="margin-top:20px">
+    <div class="card">
+      <div class="n">The frame</div>
+      <h4>Revitalization, not replacement</h4>
+      <p>Jackson Ward was the <b>Harlem of the South</b>, the address where <b>Maggie L. Walker chartered the first bank ever led by a Black woman in America, in 1903, on these blocks</b>. The story is not that we are bringing something. It is that we are helping something come back.</p>
     </div>
-    <div class="side">
-      <h4>You</h4>
-      <div class="role">Funds the flexible credit</div>
-      <div class="lab">Gets</div>
-      <p>The premium defended, a differentiator no competitor can copy from across the water, and the Place Making commitment you already made, delivered in dollars instead of language.</p>
+    <div class="card">
+      <div class="n">The partner</div>
+      <h4>The 2nd Street Festival</h4>
+      <p>Jackson Ward's flagship heritage festival, run by Venture Richmond with the City. <b>38th annual, October 3 and 4, 2026.</b> Its own materials call 2nd Street the heart and soul of Richmond's African American community. Jackson Place should be on that street that weekend, as a sponsor and a neighbor.</p>
+    </div>
+    <div class="card">
+      <div class="n">The receipt</div>
+      <h4>A number you can publish</h4>
+      <p>We report the redemption ledger quarterly: <b>exactly how many dollars landed in Jackson Ward businesses.</b> That is a figure you can take to RRHA, to the city, and to anyone who asks whether this project gave or took.</p>
     </div>
   </div>
 
-  <section class="band" style="margin-top:36px">
-    <div class="k">Your words, not ours</div>
-    <h2>"A catalyst for the community's Place Making initiative."</h2>
-    <p>That is how Emerge describes Jackson Place, working in close partnership with the Historic Jackson Ward Association. <b>This is that sentence with a dollar sign attached.</b> Buyer spending routed directly into the independent businesses of a neighborhood that I 95 cut in half once already, sourced from the Association's own directory.</p>
-    <p>You built the Black History Museum of Virginia. You know the difference between a project that arrives in a neighborhood and a project that arrives with it. <span class="gold">On RRHA land, in this neighborhood, this is the cheapest proof you will ever buy that Jackson Place is the second kind.</span></p>
-  </section>
+  <div class="note">
+    <b>The line we hold.</b> The homes are marketed to everyone, on identical terms, and every buyer receives the same package. Equal Housing Opportunity, without exception. What changes is <b>where the money goes.</b> That is a vendor decision, and it is the honest answer to the displacement question.
+  </div>
 
-  <h3 class="sec">What One South actually does</h3>
-  <p class="sub">The idea is the easy part. Signing the cluster, administering the credit and turning it into a demand engine is the work. That is the engagement.</p>
+  <!-- MOVEMENT 3 -->
+  <div class="mv">Three &middot; The machine that sells the 41</div>
+
+  <h3 class="sec">The audience is already built, and it is Richmond</h3>
+  <p class="sub">Verified from the Metricool export, June 2025 through June 2026. These are the real numbers, not the rounded ones.</p>
+
+  <div class="metrics">
+    <div class="m"><b>9,405</b><span>Followers, up 7,198 in the period</span></div>
+    <div class="m"><b>1.8M</b><span>Views across 285 reels</span></div>
+    <div class="m"><b>21,090</b><span>Shares, the number that matters</span></div>
+    <div class="m"><b>6.94%</b><span>Engagement rate</span></div>
+  </div>
+
+  <p class="sub" style="margin-top:20px"><b>But the follower count is not the asset. The map is.</b> Where this audience actually lives:</p>
+  <div class="geo">
+    <div class="g hot"><b>Richmond 26.5%</b></div>
+    <div class="g"><b>Midlothian</b> 5.9%</div>
+    <div class="g"><b>Lakeside</b> 4.9%</div>
+    <div class="g"><b>Chesterfield</b> 3.3%</div>
+    <div class="g"><b>Short Pump</b> 3.2%</div>
+    <div class="g"><b>Tuckahoe</b> 3.0%</div>
+    <div class="g"><b>Glen Allen</b> 2.8%</div>
+    <div class="g"><b>Varina</b> 2.7%</div>
+    <div class="g hot"><b>98.9% United States</b></div>
+    <div class="g hot"><b>65.1% age 25 to 44</b></div>
+  </div>
+  <p class="legend" style="margin-top:14px">A Richmond metro audience, two thirds of it aged 25 to 44. That is not a general following. <b>That is your first time and move up buyer, already assembled, before the sales center opens.</b></p>
+
+  <h3 class="sec">And we know why it works</h3>
+  <p class="sub">This is a system, not a person who posts. The hook archetype is the variable, and it is measured.</p>
 
   <div class="cards">
     <div class="card">
-      <div class="n">Days 1 to 30</div>
-      <h4>Sign the cluster</h4>
-      <p>Loop in the Historic Jackson Ward Association first, so the package arrives co curated through the partnership you already have. Then sign block by block, starting with the eight on N. 2nd Street. One page in kind agreements. Target 15 signed of 22. The floor covers the gap.</p>
+      <div class="n">The breakout</div>
+      <h4>Authority and comparison hooks</h4>
+      <p>Median reach roughly <b>6x</b> the median reel. The top performer, "Richmond 2025 is Austin 1995," did <b>162,480 views and 8,608 shares at 14% engagement.</b> Shares, not likes. Shares are what put a listing in front of a stranger.</p>
     </div>
     <div class="card">
-      <div class="n">Days 31 to 60</div>
-      <h4>Build the engine</h4>
-      <p>Unique buyer codes, a simple ledger, One South administers and reconciles monthly. Every signed merchant becomes a filmed feature. The Jackson Ward story is the marketing, and the marketing is free. The Welcome book sits in every model home conversation.</p>
+      <div class="n">The workhorse</div>
+      <h4>Things You Should Know</h4>
+      <p>The numbered Richmond series. Reliable reach, week after week, and it is the engine that built the Richmond audience above. Jackson Place becomes episodes, not ads.</p>
     </div>
     <div class="card">
-      <div class="n">Days 61 to 90</div>
-      <h4>Sell against the river</h4>
-      <p>Launch on 2nd Street with the merchants, co hosted with the Association, timed ahead of the Q3 construction start. Then a monthly cadence through sellout, with a redemption report showing you exactly how many dollars landed in the corridor.</p>
+      <div class="n">The amplifier</div>
+      <h4>Paid, on proven winners only</h4>
+      <p>We boost what already worked organically. Verified cost to a profile visit: <b>$0.20 to $0.24.</b> We never pay to find out if a creative works. We pay after it already did.</p>
     </div>
+  </div>
+
+  <section class="band" style="margin-top:26px">
+    <div class="k">The part that matters</div>
+    <h2>The Jackson Ward piece was written before this deal existed.</h2>
+    <p>Episode two of the Richmond Courage Series is called <b>Black Richmond: The Past and The Proof.</b> It is written, scouted and shot listed. The hero shot is Jackson Ward rowhouses at evening light, Broad and 1st and Clay. It names Mama J's. <b>It was on the board months before Rick called about this project.</b></p>
+    <div class="quote">
+      "I don't wanna point at a statue and call it a day. I wanna point at what's open right now. Mama J's. Mosaic. That's not history. That's Tuesday."
+      <span>From the script, written before Jackson Place was on the table</span>
+    </div>
+    <p style="margin-top:16px">That is the entire thesis of The 2nd Street Welcome, and it was already the thesis. <span class="gold">You cannot fake having cared about a neighborhood first.</span></p>
+  </section>
+
+  <div class="note">
+    <b>Straight about what content does and does not prove.</b> The episode above is a written and scouted script, not a video that has run. And our content builds audience and distribution. It is not attributed to closings, and we will not claim it is. What we can prove is that the right people, in the right zip codes, are already watching.
   </div>
 
   <section class="cta">
     <h2>Authorize us to go sign them.</h2>
-    <p>Not a discount. Not a gimmick. <b>$5,000 of real value in your buyers' hands and your neighbors' registers, for roughly half what the same number costs as a price cut.</b> One South builds it, runs it, and sells the 41 homes it was designed to move.</p>
+    <p>Not a discount. Not a gimmick. <b>$5,000 of real value in your buyers' hands and your neighbors' registers, for roughly half what the same number costs as a price cut.</b> One South builds it, runs it, reports the ledger, and sells the 41 homes it was designed to move.</p>
   </section>
 
   <footer>
-    <p><b>Sourcing and honest limits.</b> Business names and addresses are taken verbatim from the Historic Jackson Ward Association business directory at hjwa.org. <b>No business named here has been contacted and none has committed.</b> This is a proposed cluster. All credit amounts, merchant costs and builder exposure are modeled from published category gross margins, not quoted by any merchant, and actual figures will move once the cluster is signed. Pricing, sellout and competitive figures are drawn from the One South Jackson Place analysis. We could not verify a published buyer incentive at Manchester Square, Belle Heights or Chestnut Flats in public records, so none is characterized here. Redemption mechanics, credit administration, and any lender or appraisal disclosure requirement are open items for counsel before launch.</p>
-    <p style="margin-top:10px">Equal Housing Opportunity. This package describes a neighborhood and its businesses and would be offered to every buyer on identical terms.</p>
+    <p><b>Sourcing and honest limits.</b> Business names and addresses are taken from the Historic Jackson Ward Association directory (hjwa.org) and independently reconfirmed. Ownership is labeled only where a citable source exists: Mama J's (Southern Foodways Alliance oral history, Richmond BizSense), Big Herm's Kitchen (Richmond BizSense, Richmond Magazine), Penny's Wine Shop (Richmond Magazine, visitrichmondva.com). <b>No business named here has been contacted and none has committed.</b> This is a proposed cluster. All credit amounts, merchant costs and builder exposure are modeled from published category gross margins, not quoted by any merchant. Pricing, sellout and competitive figures come from the One South Jackson Place analysis. We could not verify a published buyer incentive at Manchester Square, Belle Heights or Chestnut Flats, so none is characterized here.</p>
+    <p style="margin-top:10px"><b>History and figures.</b> Maggie L. Walker chartered the St. Luke Penny Savings Bank in 1903 (Library of Congress, National Park Service). Interstate displacement figures from Encyclopedia Virginia, the Library of Virginia "House to Highway" exhibition, and the Virginia Center for Investigative Journalism. Jackson Ward's 2010 to 2020 Black population decline from Encyclopedia Virginia. 2nd Street Festival details from Venture Richmond. Content metrics are from the Metricool export for June 2025 to June 2026 and are reproducible on request.</p>
+    <p style="margin-top:10px"><b>Equal Housing Opportunity.</b> Every home at Jackson Place is marketed to all buyers on identical terms, and the package described here would be offered to every buyer identically. This document describes a neighborhood, its history and its businesses.</p>
     <p style="margin-top:10px"><b>Miles Agee</b>, Realtor, One South Realty Group, Samson Properties. Lic # 0225249973.</p>
   </footer>
 
