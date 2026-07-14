@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Private</title>
+<meta name="apple-mobile-web-app-title" content="The Flame">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #003F3F; text-decoration: none; }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .header {
+    padding: 24px 28px; display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(0,63,63,0.06);
+  }
+  .logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px; flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.08);
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1; color: #003F3F; letter-spacing: -0.005em;
+  }
+  .role-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; margin-top: 6px; font-weight: 700;
+  }
+
+  .container { max-width: 660px; margin: 0 auto; padding: 0 28px; }
+
+  .whatsnew {
+    max-width: 660px; margin: 20px auto 0; padding: 14px 18px;
+    background: rgba(212,175,55,0.08);
+    border: 1px solid rgba(212,175,55,0.32); border-radius: 10px;
+  }
+  .whatsnew .wn-label {
+    font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 8px;
+  }
+  .whatsnew ul { list-style: none; padding: 0; margin: 0; }
+  .whatsnew li { font-size: 13.5px; line-height: 1.5; color: rgba(0,63,63,0.8); padding: 3px 0; }
+  .whatsnew li .wn-date { font-weight: 700; color: #003F3F; margin-right: 8px; font-variant-numeric: tabular-nums; }
+
+  .hero { padding: 64px 0 44px; }
+  .hero-kicker {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 46px; line-height: 1.04; color: #003F3F;
+    margin: 0 0 28px; letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: #B1922E; }
+  .hero p { font-size: 19px; color: rgba(0,63,63,0.78); margin: 0 0 14px; line-height: 1.55; }
+  .hero p:last-child { margin-bottom: 0; }
+  .hero p strong { color: #003F3F; font-weight: 600; }
+
+  .personal-note {
+    margin: 36px 0 0; padding: 20px 22px;
+    background: rgba(212,175,55,0.06);
+    border-left: 2px solid #D4AF37; border-radius: 2px;
+  }
+  .personal-note p {
+    font-size: 16px; color: rgba(0,63,63,0.82);
+    margin: 0 0 10px; line-height: 1.6; font-style: italic;
+  }
+  .personal-note p:last-child { margin-bottom: 0; }
+  .personal-note p strong { font-style: normal; color: #003F3F; font-weight: 600; }
+
+  .section { padding: 68px 0 24px; border-top: 1px solid rgba(0,63,63,0.06); }
+  .section-header { margin-bottom: 36px; }
+  .section-index {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 13px; letter-spacing: 0.05em; color: #D4AF37; margin-bottom: 16px;
+  }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 14px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 32px; line-height: 1.14; color: #003F3F;
+    margin: 0 0 16px; letter-spacing: -0.015em;
+  }
+  .section h2 em { font-style: italic; color: #B1922E; }
+  .section-lede { font-size: 17px; color: rgba(0,63,63,0.78); margin: 0; line-height: 1.6; max-width: 560px; }
+  .section > p { font-size: 17px; color: rgba(0,63,63,0.82); line-height: 1.6; margin: 0 0 16px; }
+  .section > p:last-child { margin-bottom: 0; }
+  .section > p strong { color: #003F3F; font-weight: 600; }
+
+  .verdict {
+    margin: 24px 0 0; padding: 22px 24px;
+    border-left: 2px solid #003F3F; background: rgba(0,63,63,0.04); border-radius: 2px;
+  }
+  .verdict p { font-size: 16.5px; color: rgba(0,63,63,0.88); margin: 0 0 10px; line-height: 1.6; }
+  .verdict p:last-child { margin-bottom: 0; }
+  .verdict p strong { color: #003F3F; font-weight: 700; }
+
+  .dark {
+    margin: 28px 0 0; padding: 24px 24px;
+    background: #002E2E; color: #E8E1D0;
+    border-radius: 12px; box-shadow: 0 10px 28px rgba(0,63,63,0.18);
+  }
+  .dark .d-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #D4AF37; font-weight: 700; margin-bottom: 14px;
+  }
+  .dark h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 22px; color: #FAF7F1; margin: 0 0 12px; letter-spacing: -0.012em;
+  }
+  .dark p { font-size: 15px; line-height: 1.6; margin: 0 0 10px; color: rgba(232,225,208,0.86); }
+  .dark p:last-child { margin-bottom: 0; }
+  .dark strong { color: #D4AF37; font-weight: 600; }
+  .dark .cw { color: #D4AF37; font-weight: 700; font-style: italic; }
+
+  /* copy cards: he may actually paste or rehearse these */
+  .copy-card {
+    margin: 16px 0 0; padding: 18px 20px;
+    background: #fff; border: 1px solid rgba(212,175,55,0.45);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(212,175,55,0.08);
+  }
+  .cc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .cc-label {
+    font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700;
+  }
+  .cc-btn {
+    -webkit-appearance: none; appearance: none;
+    background: rgba(0,63,63,0.05); border: 1px solid rgba(0,63,63,0.14);
+    color: #003F3F; cursor: pointer; flex-shrink: 0;
+    padding: 9px 14px; min-height: 44px; border-radius: 999px;
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.02em;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease, border-color 0.2s ease;
+  }
+  .cc-btn:hover { background: rgba(0,63,63,0.09); transform: translateY(-1px); }
+  .cc-btn:active { transform: translateY(0); }
+  .cc-btn:focus-visible { outline: 2px solid #D4AF37; outline-offset: 2px; }
+  .cc-btn.done { background: rgba(212,175,55,0.18); border-color: #D4AF37; color: #8a7220; }
+  .cc-text {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px; line-height: 1.4; color: #003F3F; letter-spacing: -0.005em;
+  }
+
+  .credit-note {
+    margin: 18px 0 0; padding: 16px 18px;
+    background: rgba(212,175,55,0.07);
+    border-left: 2px solid #D4AF37; border-radius: 2px;
+    font-size: 15px; line-height: 1.6; color: rgba(0,63,63,0.82);
+  }
+  .credit-note strong { color: #003F3F; font-weight: 700; }
+
+  /* pre-flight: finite, completable, NO progress bar */
+  .preflight { margin: 24px 0 0; }
+  .pf-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 14px;
+  }
+  .pf-item {
+    display: flex; align-items: flex-start; gap: 13px;
+    padding: 15px 16px; margin-bottom: 10px;
+    background: #fff; border: 1px solid rgba(0,63,63,0.10);
+    border-radius: 10px; cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .pf-item:hover { border-color: rgba(212,175,55,0.5); }
+  .pf-item input {
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px; flex-shrink: 0; margin: 1px 0 0;
+    border: 2px solid rgba(0,63,63,0.25); border-radius: 6px;
+    cursor: pointer; position: relative;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .pf-item input:checked { background: #D4AF37; border-color: #D4AF37; }
+  .pf-item input:checked::after {
+    content: ''; position: absolute; left: 6px; top: 2px;
+    width: 5px; height: 10px;
+    border: solid #002E2E; border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+  .pf-item input:focus-visible { outline: 2px solid #D4AF37; outline-offset: 2px; }
+  .pf-item span { font-size: 15.5px; line-height: 1.5; color: rgba(0,63,63,0.85); }
+  .pf-item input:checked ~ span { color: rgba(0,63,63,0.45); }
+  .pf-stamp {
+    margin-top: 12px; font-size: 13px; color: rgba(0,63,63,0.55);
+    font-style: italic; min-height: 18px;
+  }
+
+  /* what she needs, cross-rendered from the shared page */
+  .cross {
+    margin: 28px 0 0; padding: 22px 24px;
+    border: 1px solid rgba(0,63,63,0.12); border-radius: 12px;
+    background: #fff; box-shadow: 0 2px 10px rgba(0,63,63,0.04);
+  }
+  .cross .x-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 12px;
+  }
+  .cross .x-body {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px; line-height: 1.45; color: #003F3F; white-space: pre-wrap;
+  }
+  .cross .x-empty { font-size: 15px; color: rgba(0,63,63,0.5); line-height: 1.55; font-style: italic; }
+
+  /* private log */
+  .log-box {
+    margin: 28px 0 0; padding: 24px;
+    background: #fff; border: 1px solid rgba(0,63,63,0.12);
+    border-radius: 14px; box-shadow: 0 4px 16px rgba(0,63,63,0.05);
+  }
+  .log-box h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 20px; color: #003F3F; margin: 0 0 6px; letter-spacing: -0.01em;
+  }
+  .log-box .lb-sub { font-size: 14px; color: rgba(0,63,63,0.6); margin: 0 0 16px; line-height: 1.55; }
+  .ta {
+    width: 100%; padding: 14px; border: 1px solid rgba(0,63,63,0.16);
+    border-radius: 10px; font-family: 'Inter', sans-serif;
+    font-size: 15.5px; line-height: 1.6; color: #003F3F;
+    background: #FAF7F1; resize: vertical;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .ta::placeholder { color: rgba(0,63,63,0.35); }
+  .ta:focus { outline: none; border-color: #D4AF37; background: #fff; }
+  .ta:focus-visible { outline: 2px solid #D4AF37; outline-offset: 1px; }
+  .save-ind {
+    display: block; text-align: right; margin-top: 6px; min-height: 14px;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #6a9c7a; font-weight: 700; opacity: 0; transition: opacity 0.3s ease;
+  }
+  .save-ind.visible { opacity: 1; }
+  .log-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .lbtn {
+    -webkit-appearance: none; appearance: none;
+    background: #003F3F; color: #FAF7F1; border: none; cursor: pointer;
+    padding: 13px 22px; min-height: 44px; border-radius: 999px;
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease;
+  }
+  .lbtn:hover { background: #0a5050; transform: translateY(-1px); }
+  .lbtn:active { transform: translateY(0); }
+  .lbtn:focus-visible { outline: 3px solid #D4AF37; outline-offset: 2px; }
+  .lbtn.ghost { background: transparent; color: rgba(0,63,63,0.7); border: 1px solid rgba(0,63,63,0.18); }
+  .lbtn.ghost:hover { background: rgba(0,63,63,0.05); }
+  .lbtn.danger { background: transparent; color: rgba(160,60,50,0.85); border: 1px solid rgba(160,60,50,0.3); }
+  .lbtn.danger:hover { background: rgba(160,60,50,0.06); }
+  .log-note { font-size: 12.5px; color: rgba(0,63,63,0.5); margin-top: 14px; line-height: 1.55; }
+
+  .cta-wrap { padding: 56px 0 40px; text-align: center; }
+  .cta {
+    display: inline-block; background: #003F3F; color: #FAF7F1;
+    padding: 17px 36px; min-height: 44px; border-radius: 999px;
+    font-size: 15px; font-weight: 600; letter-spacing: 0.02em;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease;
+    box-shadow: 0 2px 12px rgba(0,63,63,0.12);
+  }
+  .cta:hover { background: #0a5050; transform: translateY(-1px); }
+  .cta:active { transform: translateY(0); }
+  .cta:focus-visible { outline: 3px solid #D4AF37; outline-offset: 3px; }
+  .cta-note { font-size: 13px; color: rgba(0,63,63,0.5); margin-top: 20px; }
+
+  .footer { padding: 40px 28px 64px; text-align: center; border-top: 1px solid rgba(0,63,63,0.06); }
+  .signature { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 19px; color: #003F3F; }
+  .footer .fine { font-size: 11px; color: rgba(0,63,63,0.4); margin-top: 14px; }
+
+  @media (min-width: 700px) {
+    .hero { padding: 96px 0 60px; }
+    .hero h1 { font-size: 62px; }
+    .hero p { font-size: 21px; }
+    .section { padding: 92px 0 32px; }
+    .section h2 { font-size: 40px; }
+    .section-lede, .section > p { font-size: 18px; }
+    .cc-text { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">M</div>
+  <div>
+    <div class="brand">Monique</div>
+    <div class="role-label">Joseph · Private · The flame</div>
+  </div>
+</header>
+
+<div class="whatsnew">
+  <div class="wn-label">What's new here</div>
+  <ul>
+    <li><span class="wn-date">Jul 14</span>Built the night you named it. Every word here is yours or Gina's.</li>
+    <li><span class="wn-date">This week</span>The research pass lands. Anything that does not hold up gets pulled.</li>
+  </ul>
+</div>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-kicker">Yours. Not shared.</div>
+    <h1>Your temper is not <em>a flaw</em>.<br>It is an <em>alarm</em>, and it works.</h1>
+    <p>It fires when you have given everything you have and get handled like the boy you spent your whole life outgrowing. That is not a malfunction. <strong>That is the alarm doing its job.</strong></p>
+    <p>The problem was never that it goes off. The problem is that it goes off at a volume you set thirty years ago, before you had anything to protect.</p>
+
+    <div class="personal-note">
+      <p>Joseph. You gave me two problems in thirty seconds and I want to give you one back.</p>
+      <p>You said it was your temper, and you said it was learning to live with how differently Gina communicates. Then you talked for twenty minutes and told me the truth without meaning to: <strong>it starts when your mother is in your house.</strong> You even closed it yourself. "That's the temper part I talked about earlier."</p>
+      <p>So that is what this page is about. Not anger management. <strong>A boundary you have been trying to hold alone, with the wrong tool.</strong></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">01</div>
+      <div class="eyebrow">What the alarm is reading</div>
+      <h2>The perception is right. <em>The volume is inherited.</em></h2>
+      <p class="section-lede">This is the distinction the whole page turns on, so sit with it for a second before you move.</p>
+    </div>
+
+    <p>When your mother overrides you in your own house, in front of your wife and your son, <strong>you are not imagining the disrespect.</strong> It is really happening. Gina sees it too. She said so out loud. Your read on the room is accurate.</p>
+
+    <p>But here is the part worth knowing. The <em>size</em> of what fires in you is not sized to what actually happened. A woman contradicting you in your kitchen does not threaten your household. It threatens something a lot older than your household, and you named it yourself: being corrected at 49 for something you already spent your whole life correcting.</p>
+
+    <div class="verdict">
+      <p><strong>Your instinct is reading the room correctly and reporting the wrong stakes.</strong></p>
+      <p>That is genuinely good news, and here is why. If the alarm were wrong, you would have to learn not to trust yourself. It is not wrong. So you do not have to change what you see. <strong>You only have to change what you do in the first four seconds.</strong></p>
+    </div>
+
+    <p style="margin-top:24px;">And you already know it is four seconds. Your words: it happens "in the very beginning," before you can breathe, catch yourself, speak intelligently. You have already diagnosed this. You just did not have a tool.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">02</div>
+      <div class="eyebrow">The tool</div>
+      <h2>The man who built this house <em>does not have to raise his voice in it</em>.</h2>
+      <p class="section-lede">Read that again. This is not about restraint, and it is not about being nicer. Restraint is effortful and it fails under load. This is about what your authority actually looks like from the outside.</p>
+    </div>
+
+    <p>When you get loud with her, here is what everyone in the room sees, and it is the opposite of what you intend. They do not see the head of the household enforcing his house. <strong>They see two people fighting.</strong> Which makes you her equal in that moment, not her son with a boundary. The volume does not defend the position. It vacates it.</p>
+
+    <p>Calm is not you holding back. <strong>Calm is the flex.</strong> The person who does not have to raise his voice is the person who already has the authority and knows it.</p>
+
+    <div class="copy-card">
+      <div class="cc-head">
+        <div class="cc-label">Strike one · say it once, evenly</div>
+        <button class="cc-btn" type="button" data-copy="Mom, this is my house. I want you to respect me. Let's leave it at that.">Copy</button>
+      </div>
+      <div class="cc-text">"Mom, this is my house. I want you to respect me. Let's leave it at that."</div>
+    </div>
+
+    <div class="copy-card">
+      <div class="cc-head">
+        <div class="cc-label">Strike two · same tone, no heat added</div>
+        <button class="cc-btn" type="button" data-copy="Mom, I asked you to stop.">Copy</button>
+      </div>
+      <div class="cc-text">"Mom, I asked you to stop."</div>
+    </div>
+
+    <div class="copy-card">
+      <div class="cc-head">
+        <div class="cc-label">Then</div>
+      </div>
+      <div class="cc-text">Take it outside, away from the kids. Or you walk out of the room.</div>
+    </div>
+
+    <div class="credit-note">
+      <strong>Gina wrote those.</strong> Word for word, out loud, without being asked, while you were sitting right there. She was not telling you what you do wrong. She was handing you the exit you cannot find when you are inside it. Take it. It is a gift, and it cost her something to give it in front of people.
+    </div>
+
+    <div class="dark">
+      <div class="d-label">Now the part nobody tells you</div>
+      <h4>She might not stop. And you still win.</h4>
+      <p>She may blow straight through strike two. Every time. For the rest of her life. She is 80, and people do not usually rebuild at 80.</p>
+      <p><strong>So the protocol is built to work anyway.</strong> Walking out after strike two is not you losing the argument. It is you resting your case.</p>
+      <p>A good attorney does not out shout the witness. He makes his record, he stops, and he lets everyone in the room draw the obvious conclusion. The loud guy never looks like the guy who is right. <strong>He just looks loud.</strong></p>
+      <p>You were never going to win by making her stop. That was never available. <strong>You win by staying steady, and that one is entirely yours.</strong></p>
+    </div>
+
+    <p style="margin-top:24px;">One rule on the humor, and it matters. The wit points at <strong>the situation</strong>, or at yourself. Never at her. A clever line aimed at your mother is still a weapon. It is just wearing a better suit.</p>
+
+    <div class="preflight">
+      <div class="pf-label">Before she comes over. Not a workout plan. Just a walk around the car.</div>
+      <label class="pf-item"><input type="checkbox" data-pf="j-pf-1"><span>I have eaten and I am not running on empty.</span></label>
+      <label class="pf-item"><input type="checkbox" data-pf="j-pf-2"><span>Gina knows the signal, and she knows I might need it tonight.</span></label>
+      <label class="pf-item"><input type="checkbox" data-pf="j-pf-3"><span>I know my exit line, and I know which room I am walking to.</span></label>
+      <label class="pf-item"><input type="checkbox" data-pf="j-pf-4"><span>I have said strike one in my head once, in the voice I want to use.</span></label>
+      <div class="pf-stamp" id="pf-stamp"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">03</div>
+      <div class="eyebrow">Your son</div>
+      <h2>He was not <em>disrespecting</em> you.</h2>
+      <p class="section-lede">This is the one that hurt the most when you said it, so I want to be careful and I want to be exact.</p>
+    </div>
+
+    <p>He looked at you and said stop talking to your mom like that. And what you heard was: my son thinks he can talk to me that way. That is what has been sitting on your chest.</p>
+
+    <p>Now look at what he actually did. <strong>He saw the most vulnerable person in the room and he stepped in front of her.</strong> At real cost. Against the biggest man in the house. Against his own father.</p>
+
+    <div class="verdict">
+      <p>Joseph. <strong>That is your program. He is running your code.</strong></p>
+      <p>Protect the one who cannot protect herself, even when it costs you, even when the person you are standing up to could flatten you. Nobody taught him that in school. He has been watching you do it his whole life.</p>
+      <p><strong>You raised a protector, and the proof of it hurt.</strong> That is the whole thing. That is all that happened.</p>
+    </div>
+
+    <p style="margin-top:24px;">Challenging your volume is not challenging you. He was not coming for your authority. He was doing exactly what you built him to do, and the only reason it landed wrong is that this one time, you were on the other side of it.</p>
+
+    <div class="dark">
+      <div class="d-label">The move</div>
+      <h4>Go say this to him. Not a speech. One conversation.</h4>
+      <p>You do not need a study and you do not need a technique. You need three sentences, and he needs to hear them from you.</p>
+      <p><strong>"I know what you saw."</strong></p>
+      <p><strong>"You were right to speak up."</strong></p>
+      <p><strong>"Here is what I'm doing about it."</strong></p>
+      <p style="margin-top:14px;">That is it. That turns the scariest thing he has seen in that house into the proof that his family fixes itself. He does not need you to have never lost it. <strong>He needs to see you come back.</strong></p>
+    </div>
+
+    <p style="margin-top:24px;">And be honest with yourself about the order, because this only works one way. <strong>Fewer flames first.</strong> The repair is the net under the wire. It is not the act.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">04</div>
+      <div class="eyebrow">The quieter one</div>
+      <h2>You give, and then you <em>wait to be seen</em>.</h2>
+      <p class="section-lede">This one is not urgent and I am not going to push on it. But you said something worth writing down, and you said it twice without noticing.</p>
+    </div>
+
+    <p>"Every ounce of minutes that I have, I give to you." And then the dinner. You paid for everyone, and the thing that actually cut was that nobody picked up a phone afterward.</p>
+
+    <p>Look at what those have in common. It is not disrespect. In the dinner story, <strong>nobody disrespected you at all.</strong> They just did not notice. And it landed in the same place and lit the same fire.</p>
+
+    <div class="verdict">
+      <p>So there are two triggers, not one. Disrespect is the spark. <strong>Being unseen is the fuel that was already in the room.</strong></p>
+      <p>Which means some of the anger you have been aiming at your mother was already loaded before she walked in.</p>
+    </div>
+
+    <p style="margin-top:24px;">Here is the honest version, and then I will leave it alone. Every time you give, you write an invoice, and the person you gave to never saw it, never signed it, and does not know they owe you. <strong>You are carrying a ledger that only exists in your handwriting.</strong></p>
+
+    <p>The intention you put out is yours. It is real and it is why people love you and you should never dim it. <strong>The acknowledgment coming back was never yours to control, and it never was going to be.</strong></p>
+
+    <p>That is a long piece of work and it is not tonight's. But now it has a name, and named things get smaller.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">05</div>
+      <div class="eyebrow">From her, in her words</div>
+      <h2>What Gina needs <em>when she's lit</em>.</h2>
+      <p class="section-lede">She wrote this on the shared page, while she was calm, for the version of her that will not be able to explain it in the moment.</p>
+    </div>
+
+    <div class="cross">
+      <div class="x-label">Gina wrote</div>
+      <div class="x-body" id="x-gina"></div>
+    </div>
+
+    <div class="dark">
+      <div class="d-label">And your word is</div>
+      <h4><span class="cw" data-codeword>the word</span></h4>
+      <p>Either one of you can call it. It means "I love you and we are flooded." It never means "I win."</p>
+      <p>When it lands, you stop mid sentence. <strong>No last word.</strong> Then twenty minutes, then you come back and say "docket" if it is not finished.</p>
+      <p>You do not lose the topic by stopping. That is the entire deal, and it is the one you needed.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">06</div>
+      <div class="eyebrow">Yours alone</div>
+      <h2>Write it down <em>when it happens</em>.</h2>
+      <p class="section-lede">Not a journal. A log. What set it off, what you did, what worked. Patterns show up fast once they are on paper, and you cannot see a pattern from inside one instance of it.</p>
+    </div>
+
+    <div class="log-box">
+      <h4>The log</h4>
+      <p class="lb-sub">Saved on this device only. Nobody sees it unless you send it.</p>
+      <textarea class="ta" rows="8" data-key="j-log" placeholder="What set it off. What I did. What I'd do again."></textarea>
+      <span class="save-ind" data-target="j-log">Saved</span>
+      <div class="log-actions">
+        <button class="lbtn" id="send-btn" type="button">Send this to Monique</button>
+        <button class="lbtn ghost" id="copy-log" type="button">Copy it</button>
+        <button class="lbtn danger" id="wipe" type="button">Clear this device</button>
+      </div>
+      <p class="log-note">Send goes to Miles's inbox. He cues Monique, this page gets updated, and he texts you what changed. If the email opens up mangled, use Copy and paste it in yourself.</p>
+    </div>
+  </section>
+
+  <div class="cta-wrap">
+    <a class="cta" href="mailto:miles@milesagee.com?subject=Joseph%20%E2%86%92%20Monique%3A%20">Come back to Monique</a>
+    <div class="cta-note">Anything. A win, a blowup, a question. It updates this page.</div>
+  </div>
+
+  <div class="footer">
+    <div class="signature">Built for you. - Miles</div>
+    <div class="fine">Private page. Not indexed, not linked, not searchable.</div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var LS = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+
+  /* ---------- Code word, written on the shared page, read here ---------- */
+  var cw = (LS.get('jg-codeword') || '').trim();
+  var cwNodes = document.querySelectorAll('[data-codeword]');
+  for (var c = 0; c < cwNodes.length; c++) {
+    cwNodes[c].textContent = cw || 'not set yet';
+  }
+
+  /* ---------- Cross-render: what Gina needs, from the shared page ---------- */
+  var gNeed = (LS.get('jg-need-gina') || '').trim();
+  var xg = document.getElementById('x-gina');
+  if (gNeed) {
+    xg.textContent = gNeed;
+  } else {
+    xg.className = 'x-empty';
+    xg.textContent = 'She has not filled this in yet. It lives on the protocol page you both signed, and it shows up here the moment she writes it.';
+  }
+
+  /* ---------- Copy cards ---------- */
+  function copyText(text, btn) {
+    function done() {
+      var old = btn.textContent;
+      btn.textContent = 'Copied';
+      btn.classList.add('done');
+      setTimeout(function () { btn.textContent = old; btn.classList.remove('done'); }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallback(text, done); });
+    } else {
+      fallback(text, done);
+    }
+  }
+  function fallback(text, done) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+  var ccs = document.querySelectorAll('.cc-btn[data-copy]');
+  for (var i = 0; i < ccs.length; i++) {
+    (function (b) {
+      b.addEventListener('click', function () { copyText(b.getAttribute('data-copy'), b); });
+    })(ccs[i]);
+  }
+
+  /* ---------- Pre-flight: finite list, date stamp, NO progress bar ---------- */
+  var PF_STAMP = 'j-pf-stamp';
+  var boxes = document.querySelectorAll('input[data-pf]');
+  var stamp = document.getElementById('pf-stamp');
+
+  function paintStamp() {
+    var s = LS.get(PF_STAMP);
+    stamp.textContent = s ? ('Last run through: ' + s) : '';
+  }
+  function allChecked() {
+    for (var k = 0; k < boxes.length; k++) { if (!boxes[k].checked) return false; }
+    return boxes.length > 0;
+  }
+  for (var b = 0; b < boxes.length; b++) {
+    (function (box) {
+      var key = box.getAttribute('data-pf');
+      if (LS.get(key) === '1') box.checked = true;
+      box.addEventListener('change', function () {
+        LS.set(key, box.checked ? '1' : '0');
+        if (allChecked()) {
+          LS.set(PF_STAMP, new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric' }));
+          paintStamp();
+        }
+      });
+    })(boxes[b]);
+  }
+  paintStamp();
+
+  /* ---------- Log autosave ---------- */
+  var log = document.querySelector('.ta[data-key="j-log"]');
+  var LOG_KEY = 'j-log';
+  var saved = LS.get(LOG_KEY);
+  if (saved) log.value = saved;
+  var lt;
+  log.addEventListener('input', function () {
+    clearTimeout(lt);
+    lt = setTimeout(function () {
+      LS.set(LOG_KEY, log.value);
+      var ind = document.querySelector('.save-ind[data-target="' + LOG_KEY + '"]');
+      if (ind) {
+        ind.classList.add('visible');
+        setTimeout(function () { ind.classList.remove('visible'); }, 1600);
+      }
+    }, 400);
+  });
+
+  /* ---------- Send: mailto, capped so the compose window does not choke ---------- */
+  var MAILTO_CAP = 1500;
+  document.getElementById('send-btn').addEventListener('click', function () {
+    var v = log.value.trim();
+    if (!v) { alert('Write a line first, then send it.'); return; }
+    var body = v;
+    var truncated = false;
+    if (body.length > MAILTO_CAP) {
+      body = body.slice(0, MAILTO_CAP);
+      truncated = true;
+    }
+    body += '\n\n--\nJoseph';
+    if (truncated) {
+      body += '\n\n[This got cut short by the email app. Hit Copy on the page and paste the rest.]';
+    }
+    window.location.href = 'mailto:miles@milesagee.com'
+      + '?subject=' + encodeURIComponent('Joseph → Monique: ')
+      + '&body=' + encodeURIComponent(body);
+  });
+
+  document.getElementById('copy-log').addEventListener('click', function () {
+    var v = log.value.trim();
+    if (!v) { alert('Nothing to copy yet.'); return; }
+    copyText(v, document.getElementById('copy-log'));
+  });
+
+  /* ---------- Wipe this device ---------- */
+  document.getElementById('wipe').addEventListener('click', function () {
+    if (!confirm('This erases your log and your checkboxes from this device. It cannot be undone. Go ahead?')) return;
+    LS.del(LOG_KEY);
+    LS.del(PF_STAMP);
+    for (var k = 0; k < boxes.length; k++) {
+      LS.del(boxes[k].getAttribute('data-pf'));
+      boxes[k].checked = false;
+    }
+    log.value = '';
+    paintStamp();
+    alert('Cleared.');
+  });
+})();
+</script>
+
+</body>
+</html>

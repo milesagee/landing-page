@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>The Protocol</title>
+<meta name="apple-mobile-web-app-title" content="The Protocol">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #003F3F; text-decoration: none; }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .header {
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(0,63,63,0.06);
+  }
+  .logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px; flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.08);
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1; color: #003F3F; letter-spacing: -0.005em;
+  }
+  .role-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; margin-top: 6px; font-weight: 700;
+  }
+
+  .container { max-width: 660px; margin: 0 auto; padding: 0 28px; }
+
+  /* What's new ribbon */
+  .whatsnew {
+    max-width: 660px; margin: 20px auto 0; padding: 14px 18px;
+    background: rgba(212,175,55,0.08);
+    border: 1px solid rgba(212,175,55,0.32);
+    border-radius: 10px;
+  }
+  .whatsnew .wn-label {
+    font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 8px;
+  }
+  .whatsnew ul { list-style: none; padding: 0; margin: 0; }
+  .whatsnew li {
+    font-size: 13.5px; line-height: 1.5; color: rgba(0,63,63,0.8);
+    padding: 3px 0;
+  }
+  .whatsnew li .wn-date {
+    font-weight: 700; color: #003F3F; margin-right: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hero { padding: 64px 0 44px; }
+  .hero-kicker {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 46px; line-height: 1.04; color: #003F3F;
+    margin: 0 0 28px; letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: #B1922E; }
+  .hero p { font-size: 19px; color: rgba(0,63,63,0.78); margin: 0 0 14px; line-height: 1.55; }
+  .hero p:last-child { margin-bottom: 0; }
+  .hero p strong { color: #003F3F; font-weight: 600; }
+
+  .flooded-jump {
+    display: block; margin: 32px 0 0;
+    padding: 16px 20px; text-align: center;
+    background: #003F3F; color: #FAF7F1;
+    border-radius: 12px;
+    font-size: 15px; font-weight: 600; letter-spacing: 0.01em;
+    box-shadow: 0 6px 20px rgba(0,63,63,0.16);
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease;
+  }
+  .flooded-jump:hover { background: #0a5050; transform: translateY(-1px); }
+  .flooded-jump:active { transform: translateY(0); }
+  .flooded-jump:focus-visible { outline: 3px solid #D4AF37; outline-offset: 3px; }
+  .flooded-jump .fj-sub {
+    display: block; margin-top: 4px;
+    font-size: 12px; font-weight: 400; color: rgba(250,247,241,0.6); letter-spacing: 0.02em;
+  }
+
+  /* THE CARD: the three steps, one screen, runnable while flooded */
+  .card {
+    margin: 0 auto; max-width: 660px;
+    scroll-margin-top: 16px;
+  }
+  .card-inner {
+    background: #002E2E; color: #E8E1D0;
+    border-radius: 16px; padding: 28px 24px 26px;
+    box-shadow: 0 14px 40px rgba(0,63,63,0.22);
+  }
+  .card-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #D4AF37; font-weight: 700; margin-bottom: 6px;
+  }
+  .card-inner h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 28px; line-height: 1.14; color: #FAF7F1;
+    margin: 0 0 6px; letter-spacing: -0.015em;
+  }
+  .card-sub { font-size: 14px; color: rgba(232,225,208,0.6); margin: 0 0 24px; }
+
+  .step { display: grid; grid-template-columns: 34px 1fr; gap: 14px; padding: 18px 0; border-top: 1px solid rgba(232,225,208,0.12); }
+  .step:first-of-type { border-top: none; padding-top: 4px; }
+  .step-n {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 15px; color: #D4AF37; letter-spacing: 0.04em; padding-top: 2px;
+  }
+  .step h3 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 20px; color: #FAF7F1; margin: 0 0 6px; letter-spacing: -0.01em;
+  }
+  .step p { font-size: 14.5px; line-height: 1.55; color: rgba(232,225,208,0.82); margin: 0 0 8px; }
+  .step p:last-child { margin-bottom: 0; }
+  .step p strong { color: #D4AF37; font-weight: 600; }
+  .step .hard {
+    display: block; margin-top: 10px; padding: 10px 12px;
+    background: rgba(212,175,55,0.10);
+    border-left: 2px solid #D4AF37; border-radius: 2px;
+    font-size: 13.5px; line-height: 1.5; color: rgba(232,225,208,0.92);
+  }
+
+  /* code word field */
+  .cw-wrap { margin-top: 10px; }
+  .cw-input {
+    width: 100%; padding: 13px 14px;
+    background: rgba(250,247,241,0.06);
+    border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 8px;
+    color: #FAF7F1; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .cw-input::placeholder { color: rgba(232,225,208,0.35); font-weight: 400; }
+  .cw-input:focus {
+    outline: none; border-color: #D4AF37; background: rgba(250,247,241,0.10);
+  }
+  .cw-input:focus-visible { outline: 2px solid #D4AF37; outline-offset: 2px; }
+  .cw-hint { font-size: 12.5px; color: rgba(232,225,208,0.5); margin-top: 8px; line-height: 1.5; }
+  .cw-saved {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #6ee7a0; font-weight: 700; margin-top: 8px;
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .cw-saved.visible { opacity: 1; }
+
+  /* the timer */
+  .timer-box {
+    margin-top: 12px; padding: 18px;
+    background: rgba(250,247,241,0.05);
+    border: 1px solid rgba(232,225,208,0.14);
+    border-radius: 12px; text-align: center;
+  }
+  .timer-clock {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 52px; line-height: 1; color: #FAF7F1;
+    letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+    margin-bottom: 4px;
+  }
+  .timer-state {
+    font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(232,225,208,0.5); font-weight: 700; margin-bottom: 16px; min-height: 14px;
+  }
+  .timer-btns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .tbtn {
+    -webkit-appearance: none; appearance: none;
+    background: rgba(212,175,55,0.14);
+    border: 1px solid rgba(212,175,55,0.45);
+    color: #D4AF37;
+    padding: 12px 18px; min-height: 44px;
+    border-radius: 999px; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 600; letter-spacing: 0.01em;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease;
+  }
+  .tbtn:hover { background: rgba(212,175,55,0.24); transform: translateY(-1px); }
+  .tbtn:active { transform: translateY(0); }
+  .tbtn:focus-visible { outline: 2px solid #D4AF37; outline-offset: 2px; }
+  .tbtn.ghost { background: transparent; border-color: rgba(232,225,208,0.22); color: rgba(232,225,208,0.65); }
+  .tbtn.ghost:hover { background: rgba(232,225,208,0.06); }
+
+  /* re-entry card, the thing the timer terminates INTO */
+  .reentry {
+    margin-top: 14px; padding: 20px;
+    background: rgba(212,175,55,0.12);
+    border: 1px solid #D4AF37;
+    border-radius: 12px;
+    display: none;
+  }
+  .reentry.show { display: block; animation: rise 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .reentry .re-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #D4AF37; font-weight: 700; margin-bottom: 10px;
+  }
+  .reentry h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 21px; color: #FAF7F1; margin: 0 0 10px; letter-spacing: -0.01em;
+  }
+  .reentry p { font-size: 14.5px; line-height: 1.55; color: rgba(232,225,208,0.88); margin: 0 0 12px; }
+  .reentry p:last-child { margin-bottom: 0; }
+  .reentry .re-say {
+    display: block; padding: 12px 14px; margin: 12px 0;
+    background: rgba(0,46,46,0.6); border-radius: 8px;
+    font-style: italic; font-size: 15px; color: #FAF7F1; line-height: 1.5;
+  }
+
+  .section { padding: 68px 0 24px; border-top: 1px solid rgba(0,63,63,0.06); }
+  .section-header { margin-bottom: 36px; }
+  .section-index {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 13px; letter-spacing: 0.05em; color: #D4AF37; margin-bottom: 16px;
+  }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 14px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 32px; line-height: 1.14; color: #003F3F;
+    margin: 0 0 16px; letter-spacing: -0.015em;
+  }
+  .section h2 em { font-style: italic; color: #B1922E; }
+  .section-lede { font-size: 17px; color: rgba(0,63,63,0.78); margin: 0; line-height: 1.6; max-width: 560px; }
+  .section > p { font-size: 17px; color: rgba(0,63,63,0.82); line-height: 1.6; margin: 0 0 16px; }
+  .section > p:last-child { margin-bottom: 0; }
+  .section > p strong { color: #003F3F; font-weight: 600; }
+
+  /* the collision: two columns, perfectly symmetric, no villain */
+  .collide { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 28px 0 8px; }
+  .col-card {
+    padding: 22px 22px; border-radius: 12px;
+    border: 1px solid rgba(0,63,63,0.10); background: #fff;
+    box-shadow: 0 2px 10px rgba(0,63,63,0.04);
+  }
+  .col-who {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 10px;
+  }
+  .col-card h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 21px; color: #003F3F; margin: 0 0 10px; letter-spacing: -0.01em;
+  }
+  .col-card h4 em { font-style: italic; color: #B1922E; }
+  .col-card p { font-size: 15px; color: rgba(0,63,63,0.78); margin: 0 0 10px; line-height: 1.55; }
+  .col-card p:last-child { margin-bottom: 0; }
+  .col-card .quote {
+    font-style: italic; color: rgba(0,63,63,0.62);
+    border-left: 2px solid rgba(212,175,55,0.5); padding-left: 12px;
+    font-size: 14.5px;
+  }
+  .col-card .strength {
+    display: block; margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid rgba(0,63,63,0.08);
+    font-size: 14px; color: rgba(0,63,63,0.75);
+  }
+  .col-card .strength b {
+    display: block; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 5px;
+  }
+  .verdict {
+    margin: 24px 0 0; padding: 22px 24px;
+    border-left: 2px solid #003F3F; background: rgba(0,63,63,0.04); border-radius: 2px;
+  }
+  .verdict p { font-size: 16.5px; color: rgba(0,63,63,0.88); margin: 0 0 10px; line-height: 1.6; }
+  .verdict p:last-child { margin-bottom: 0; }
+  .verdict p strong { color: #003F3F; font-weight: 700; }
+
+  /* script cards, tap to reveal (not copy: you say these, you don't paste them) */
+  .reveal {
+    margin: 20px 0 0; border-radius: 12px;
+    border: 1px solid rgba(212,175,55,0.42);
+    background: rgba(212,175,55,0.06);
+    overflow: hidden;
+  }
+  .reveal-head {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; text-align: left; cursor: pointer;
+    background: transparent; border: none;
+    padding: 18px 20px; min-height: 44px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s ease;
+  }
+  .reveal-head:hover { background: rgba(212,175,55,0.06); }
+  .reveal-head:focus-visible { outline: 2px solid #D4AF37; outline-offset: -2px; }
+  .reveal-cue {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700;
+  }
+  .reveal-chev {
+    color: #B1922E; font-size: 18px; flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .reveal.open .reveal-chev { transform: rotate(180deg); }
+  .reveal-body { display: none; padding: 0 20px 20px; }
+  .reveal.open .reveal-body { display: block; }
+  .reveal-body .line {
+    display: block; padding: 14px 16px; margin-bottom: 10px;
+    background: #fff; border-radius: 8px;
+    border: 1px solid rgba(0,63,63,0.08);
+    font-size: 16px; line-height: 1.5; color: #003F3F; font-style: italic;
+  }
+  .reveal-body .line:last-of-type { margin-bottom: 0; }
+  .reveal-body .line .strike-n {
+    display: block; font-style: normal; font-weight: 700;
+    font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #B1922E; margin-bottom: 6px;
+  }
+  .reveal-body .credit {
+    margin: 14px 0 0; font-size: 13.5px; color: rgba(0,63,63,0.6);
+    font-style: italic; line-height: 1.5;
+  }
+  .reveal-body .credit b { font-style: normal; color: #003F3F; font-weight: 600; }
+
+  /* activated cards */
+  .need-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 28px 0 0; }
+  .need-card {
+    padding: 22px; border-radius: 12px; background: #fff;
+    border: 1px solid rgba(0,63,63,0.10);
+    box-shadow: 0 2px 10px rgba(0,63,63,0.04);
+  }
+  .need-card h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 19px; color: #003F3F; margin: 0 0 4px; letter-spacing: -0.005em;
+  }
+  .need-card .need-sub { font-size: 13.5px; color: rgba(0,63,63,0.6); margin: 0 0 14px; line-height: 1.5; }
+  .ta {
+    width: 100%; padding: 13px 14px;
+    border: 1px solid rgba(0,63,63,0.16); border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 15.5px; line-height: 1.55;
+    color: #003F3F; background: #FAF7F1; resize: vertical;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .ta::placeholder { color: rgba(0,63,63,0.35); }
+  .ta:focus { outline: none; border-color: #D4AF37; background: #fff; }
+  .ta:focus-visible { outline: 2px solid #D4AF37; outline-offset: 1px; }
+  .save-ind {
+    display: block; text-align: right; margin-top: 6px; min-height: 14px;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #6a9c7a; font-weight: 700;
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .save-ind.visible { opacity: 1; }
+
+  /* the room commitment */
+  .room-box {
+    margin: 28px 0 0; padding: 26px 24px;
+    background: linear-gradient(180deg, rgba(212,175,55,0.10), rgba(255,255,255,0.6));
+    border: 1px solid rgba(212,175,55,0.5);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(212,175,55,0.12);
+  }
+  .room-box .rb-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 12px;
+  }
+  .room-box h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 24px; color: #003F3F; margin: 0 0 12px; letter-spacing: -0.015em;
+  }
+  .room-box p { font-size: 15.5px; color: rgba(0,63,63,0.82); margin: 0 0 12px; line-height: 1.6; }
+  .room-box p:last-child { margin-bottom: 0; }
+  .room-box p strong { color: #003F3F; font-weight: 600; }
+  .room-credit {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-top: 16px; padding-top: 16px;
+    border-top: 1px solid rgba(212,175,55,0.35);
+  }
+  .rc-pill {
+    font-size: 12.5px; padding: 7px 14px; border-radius: 999px;
+    background: rgba(0,63,63,0.06); color: rgba(0,63,63,0.8);
+    font-weight: 500;
+  }
+  .rc-pill b { color: #003F3F; font-weight: 700; }
+
+  /* the open question */
+  .openq {
+    margin: 28px 0 0; padding: 22px 24px;
+    border: 1px dashed rgba(0,63,63,0.24);
+    border-radius: 12px; background: rgba(0,63,63,0.025);
+  }
+  .openq .oq-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(0,63,63,0.5); font-weight: 700; margin-bottom: 10px;
+  }
+  .openq h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 20px; color: #003F3F; margin: 0 0 10px; letter-spacing: -0.01em;
+  }
+  .openq p { font-size: 15px; color: rgba(0,63,63,0.78); margin: 0 0 10px; line-height: 1.55; }
+  .openq p:last-child { margin-bottom: 0; }
+
+  /* the plain note */
+  .plain-note {
+    margin: 48px 0 0; padding: 20px 22px;
+    background: rgba(0,63,63,0.04);
+    border-left: 2px solid rgba(0,63,63,0.3);
+    border-radius: 2px;
+  }
+  .plain-note p { font-size: 15px; color: rgba(0,63,63,0.75); margin: 0; line-height: 1.6; }
+
+  /* co-sign */
+  .cosign {
+    margin: 36px 0 0; padding: 30px 26px;
+    background: #002E2E; color: #E8E1D0;
+    border-radius: 16px;
+    box-shadow: 0 14px 40px rgba(0,63,63,0.22);
+  }
+  .cosign .cs-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #D4AF37; font-weight: 700; margin-bottom: 12px;
+  }
+  .cosign h3 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 26px; color: #FAF7F1; margin: 0 0 14px; letter-spacing: -0.015em;
+  }
+  .cosign > p { font-size: 15px; line-height: 1.6; color: rgba(232,225,208,0.82); margin: 0 0 12px; }
+  .cosign .oath {
+    display: block; margin: 18px 0; padding: 16px 18px;
+    background: rgba(212,175,55,0.12);
+    border-left: 2px solid #D4AF37; border-radius: 2px;
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 18px; line-height: 1.4; color: #FAF7F1;
+  }
+  .sig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+  .sig-field label {
+    display: block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(232,225,208,0.55); font-weight: 700; margin-bottom: 8px;
+  }
+  .sig-input {
+    width: 100%; padding: 12px 14px; min-height: 44px;
+    background: rgba(250,247,241,0.06);
+    border: none; border-bottom: 2px solid rgba(212,175,55,0.4);
+    border-radius: 4px 4px 0 0;
+    color: #FAF7F1; font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 18px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .sig-input::placeholder { color: rgba(232,225,208,0.28); font-style: normal; font-size: 15px; }
+  .sig-input:focus { outline: none; border-bottom-color: #D4AF37; background: rgba(250,247,241,0.1); }
+  .sig-input:focus-visible { outline: 2px solid #D4AF37; outline-offset: 2px; }
+  .cs-btn {
+    -webkit-appearance: none; appearance: none;
+    display: block; width: 100%; margin-top: 20px;
+    padding: 16px; min-height: 44px;
+    background: #D4AF37; color: #002E2E;
+    border: none; border-radius: 999px; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.02em;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease;
+  }
+  .cs-btn:hover { background: #e0be4a; transform: translateY(-1px); }
+  .cs-btn:active { transform: translateY(0); }
+  .cs-btn:focus-visible { outline: 3px solid #FAF7F1; outline-offset: 2px; }
+  .cs-signed { display: none; }
+  .cosign.signed .cs-form { display: none; }
+  .cosign.signed .cs-signed { display: block; }
+  .signed-card {
+    margin-top: 18px; padding: 22px;
+    background: rgba(212,175,55,0.12);
+    border: 1px solid #D4AF37; border-radius: 12px; text-align: center;
+  }
+  .signed-names {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 24px; color: #FAF7F1; line-height: 1.3; margin-bottom: 10px;
+  }
+  .signed-date {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(232,225,208,0.6); font-weight: 600;
+  }
+  .revise-btn {
+    -webkit-appearance: none; appearance: none;
+    margin-top: 16px; padding: 11px 20px; min-height: 44px;
+    background: transparent; border: 1px solid rgba(232,225,208,0.25);
+    color: rgba(232,225,208,0.7); border-radius: 999px; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .revise-btn:hover { background: rgba(232,225,208,0.07); transform: translateY(-1px); }
+  .revise-btn:focus-visible { outline: 2px solid #D4AF37; outline-offset: 2px; }
+  .cs-note { font-size: 12.5px; color: rgba(232,225,208,0.5); margin-top: 14px; line-height: 1.5; text-align: center; }
+
+  .cta-wrap { padding: 56px 0 40px; text-align: center; }
+  .cta {
+    display: inline-block; background: #003F3F; color: #FAF7F1;
+    padding: 17px 36px; min-height: 44px; border-radius: 999px;
+    font-size: 15px; font-weight: 600; letter-spacing: 0.02em;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease;
+    box-shadow: 0 2px 12px rgba(0,63,63,0.12);
+  }
+  .cta:hover { background: #0a5050; transform: translateY(-1px); }
+  .cta:active { transform: translateY(0); }
+  .cta:focus-visible { outline: 3px solid #D4AF37; outline-offset: 3px; }
+  .cta-note { font-size: 13px; color: rgba(0,63,63,0.5); margin-top: 20px; }
+
+  .rooms-link {
+    display: block; margin: 0 auto 40px; max-width: 660px;
+    padding: 18px 22px;
+    border: 1px solid rgba(0,63,63,0.12); border-radius: 12px;
+    background: rgba(0,63,63,0.02);
+    font-size: 14.5px; color: rgba(0,63,63,0.7); line-height: 1.55; text-align: center;
+  }
+  .rooms-link b { color: #003F3F; font-weight: 600; }
+
+  .footer { padding: 40px 28px 64px; text-align: center; border-top: 1px solid rgba(0,63,63,0.06); }
+  .signature { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 19px; color: #003F3F; }
+  .footer .fine { font-size: 11px; color: rgba(0,63,63,0.4); margin-top: 14px; }
+
+  @media (min-width: 700px) {
+    .hero { padding: 96px 0 60px; }
+    .hero h1 { font-size: 64px; }
+    .hero p { font-size: 21px; }
+    .section { padding: 92px 0 32px; }
+    .section h2 { font-size: 40px; }
+    .section-lede, .section > p { font-size: 18px; }
+    .collide { grid-template-columns: 1fr 1fr; }
+    .need-grid { grid-template-columns: 1fr 1fr; }
+    .card-inner { padding: 36px 34px 32px; }
+    .card-inner h2 { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">M</div>
+  <div>
+    <div class="brand">Monique</div>
+    <div class="role-label">Joseph + Gina · The protocol</div>
+  </div>
+</header>
+
+<div class="whatsnew">
+  <div class="wn-label">What's new here</div>
+  <ul>
+    <li><span class="wn-date">Jul 14</span>Built live, from your own words, the night you named it.</li>
+    <li><span class="wn-date">This week</span>The research pass lands. If any technique here does not hold up, it gets pulled, not defended.</li>
+  </ul>
+</div>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-kicker">Built in one sitting. Yours to keep.</div>
+    <h1>You are not fighting <em>each other</em>.<br>You are pulling the <em>same door</em> in opposite directions.</h1>
+    <p>Joseph ends a fight when he is understood. Gina ends a fight when it stops. Both of those are correct. They just cannot both happen at the same moment, and that collision is what the yelling actually is.</p>
+    <p><strong>So this page does not ask either of you to be less of who you are.</strong> It gives you a way to both get what you need, in an order that works.</p>
+  </section>
+
+  <a class="flooded-jump" href="#the-card">
+    Flooded right now? Start here.
+    <span class="fj-sub">Three steps. Nothing to decide. Nothing to read.</span>
+  </a>
+
+</div>
+
+<div class="card" id="the-card" style="margin-top:44px;">
+  <div class="container" style="padding:0 28px;">
+    <div class="card-inner">
+      <div class="card-label">In the moment</div>
+      <h2>The three steps.</h2>
+      <p class="card-sub">This is the whole thing. Everything below this card is just the reasoning.</p>
+
+      <div class="step">
+        <div class="step-n">01</div>
+        <div>
+          <h3>Say the word.</h3>
+          <p>Either one of you can call it. Calling it means <strong>"I love you and we are flooded."</strong> It never means "I win."</p>
+          <p>When it gets said, you both stop mid sentence.</p>
+          <span class="hard"><strong>No last word.</strong> Not one. The last word is where every single fight restarts. Whoever is still talking after the word is breaking the agreement, and that is the only rule here with no exceptions.</span>
+
+          <div class="cw-wrap">
+            <input class="cw-input" id="codeword" type="text" maxlength="60" placeholder="Type your word or phrase here" autocomplete="off" spellcheck="false" aria-label="Your code word">
+            <div class="cw-hint">Make it ridiculous. It is supposed to be hard to say angrily. It saves here and shows up everywhere else on this page and on both of your own pages.</div>
+            <div class="cw-saved" id="cw-saved">Saved</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">02</div>
+        <div>
+          <h3>Twenty minutes. Apart.</h3>
+          <p>Joseph goes to the garage or downstairs. <strong>Gina goes to her room</strong> (see below, it is being built).</p>
+          <p>Hands busy. Do not rehearse the argument in your head. Rehearsing it is the same as having it.</p>
+          <span class="hard">Twenty minutes is not a mood. It is roughly how long a body actually takes to come back down once it is flooded. Coming back at minute four is coming back still lit.</span>
+
+          <div class="timer-box">
+            <div class="timer-clock" id="clock">20:00</div>
+            <div class="timer-state" id="tstate">Not running</div>
+            <div class="timer-btns">
+              <button class="tbtn" id="start20" type="button">Start 20 minutes</button>
+              <button class="tbtn ghost" id="start90" type="button">First wave, 90s</button>
+              <button class="tbtn ghost" id="treset" type="button">Reset</button>
+            </div>
+
+            <div class="reentry" id="reentry">
+              <div class="re-label">Now come back</div>
+              <h4>The pause is over. It does not end here.</h4>
+              <p>A break that just ends is not a break. It is walking away, and walking away is the thing that actually breaks a marriage. So you come back. You do not have to fix it. You just have to show up.</p>
+              <span class="re-say">"I'm back. Do you want to docket this, or are we good?"</span>
+              <p>That is the entire re entry. Two options, and both of them are allowed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">03</div>
+        <div>
+          <h3>Say "docket."</h3>
+          <p>Either one of you says the word <strong>docket</strong> and the topic gets a real time slot. Within 48 hours, or the standing weekly one.</p>
+          <p>Saying it is the whole transaction. No preview. No summary. No "let me just say one thing."</p>
+          <span class="hard"><strong>A docket is not a shelf.</strong> A shelf is where a thing goes to be forgotten and then leak out three weeks later. A docket has a court date. That difference is the entire agreement, and it is what lets Joseph stop without losing the topic.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">01</div>
+      <div class="eyebrow">What is actually happening</div>
+      <h2>Two right answers, <em>colliding</em>.</h2>
+      <p class="section-lede">Neither of you is doing this wrong. You are each running a strategy that works, and the strategies happen to cancel each other out. Once you can see it, it stops being a character flaw and starts being a logistics problem.</p>
+    </div>
+
+    <div class="collide">
+      <div class="col-card">
+        <div class="col-who">Joseph closes on</div>
+        <h4>Being <em>understood</em>.</h4>
+        <p class="quote">"If you snip it and put it on the shelf, that bottle is gonna reopen and we're gonna have to reread that chapter. Let's fix that."</p>
+        <p>It is not over when it goes quiet. It is over when he knows you actually got it. So when the conversation ends before that, it does not land as peace. It lands as being left mid sentence.</p>
+        <span class="strength"><b>Which is why</b>Nothing important in this house gets buried. He is the reason things get finished instead of rotting.</span>
+      </div>
+
+      <div class="col-card">
+        <div class="col-who">Gina closes on</div>
+        <h4>It being <em>over</em>.</h4>
+        <p class="quote">"No more yelling."</p>
+        <p>It is over when it stops. Snip it, cork it, move. So when it keeps going past the point of usefulness, it does not land as devotion. It lands as this is never going to end.</p>
+        <span class="strength"><b>Which is why</b>Nothing frivolous in this house gets litigated for three hours. She is the reason small things stay small.</span>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <p>Now put those next to each other. <strong>She stops in order to end it. He keeps going in order to end it.</strong> You are both reaching for the exact same door and pulling it opposite ways.</p>
+      <p>That is not a marriage problem. That is a <strong>sequencing</strong> problem, and sequencing problems have solutions.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">02</div>
+      <div class="eyebrow">The trade</div>
+      <h2>The fight ends now. <em>And nothing gets buried.</em></h2>
+      <p class="section-lede">Here is the deal, and it only works because each of you is protected by the other one's need. That is what makes it hold.</p>
+    </div>
+
+    <p><strong>Gina gets the end.</strong> When the word is said, it is over. Immediately. Not negotiated, not "one more thing." Over.</p>
+    <p><strong>Joseph gets the guarantee.</strong> The topic is not gone. It has a time. It gets finished, all the way, with him being heard, and it is not going to reopen six weeks later because it never actually closed.</p>
+
+    <div class="verdict">
+      <p>Gina, you can only ask him to stop because you are promising it comes back. <strong>Joseph, you can only stop because she is promising it comes back.</strong></p>
+      <p>Take either promise away and the whole thing collapses. That is why you both sign it.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">03</div>
+      <div class="eyebrow">The hearing</div>
+      <h2>Understanding is not <em>agreeing</em>.</h2>
+      <p class="section-lede">This is where the docketed thing actually gets closed. 25 minutes, on the clock. The clock protects Gina. The fact that it happens at all protects Joseph.</p>
+    </div>
+
+    <p>One of you talks. The other one says it back in their own words. Then you ask: <strong>did I get it?</strong></p>
+    <p>And you keep going until the person who was talking says the two words that end it: <strong>"that's it."</strong></p>
+    <p>Then you swap.</p>
+
+    <div class="verdict">
+      <p><strong>Saying it back is not agreeing.</strong> You can restate his whole point perfectly and still think he is completely wrong. That is allowed. That is the point.</p>
+      <p>Being understood is the finish line. <strong>Winning is not.</strong> If either of you is still trying to win at minute 24, the hearing is not working and you need to say so out loud.</p>
+    </div>
+
+    <p style="margin-top:24px;">Close it one of two ways. Either there is one concrete thing that changes, or the honest outcome is <strong>"nothing changes, I just needed you to know."</strong> That second one is a complete result. It is not a consolation prize.</p>
+
+    <p><strong>And then it is closed.</strong> Joseph, in your words: the chapter got read to the end. It does not get reopened without something new. That is Gina's protection, and you owe it to her because she gave you the hearing.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">04</div>
+      <div class="eyebrow">When your mother is here</div>
+      <h2>The man who built this house <em>does not have to raise his voice in it</em>.</h2>
+      <p class="section-lede">Joseph, this one is yours, and Gina named the fix before I did. The volume is not what makes you the head of this house. It is the thing that costs you the room.</p>
+    </div>
+
+    <p>You said it yourself: it starts at the very beginning, before you can catch it. So the work is not staying calm for an hour. It is <strong>one breath</strong>, before the first sentence. One beat. Then you already know what to say, because your wife wrote it for you.</p>
+
+    <div class="reveal" id="rev-mom">
+      <button class="reveal-head" type="button" aria-expanded="false" aria-controls="rev-mom-body">
+        <span class="reveal-cue">The two strikes · tap to open</span>
+        <span class="reveal-chev" aria-hidden="true">⌄</span>
+      </button>
+      <div class="reveal-body" id="rev-mom-body">
+        <span class="line">
+          <span class="strike-n">Strike one</span>
+          "Mom, this is my house. I want you to respect me. Let's leave it at that."
+        </span>
+        <span class="line">
+          <span class="strike-n">Strike two</span>
+          "Mom, I asked you to stop."
+        </span>
+        <span class="line">
+          <span class="strike-n">Then</span>
+          Take it outside, away from the kids. Or you leave the room.
+        </span>
+        <p class="credit"><b>Gina wrote this.</b> Out loud, in one take, without being asked. She was not telling you what you did wrong. She was handing you the exit you could not find while you were in it.</p>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <p><strong>She may not stop.</strong> She may go right past strike two, every time, for the rest of her life. That is a real possibility and this protocol is built to survive it.</p>
+      <p>So hear the important part: <strong>walking out after strike two is not losing. It is the win.</strong> A good attorney does not out shout the witness. He rests his case and lets the record speak.</p>
+      <p>The goal was never to make her stop. <strong>The goal is that you stay steady.</strong> That is entirely yours, and nobody can take it.</p>
+    </div>
+
+    <p style="margin-top:24px;">One guardrail, and it matters. The wit is aimed at <strong>the situation</strong>, or at yourself. Never at her. A clever line aimed at your mother is still a weapon, it is just a better dressed one.</p>
+
+    <div class="openq">
+      <div class="oq-label">Gina, this one is optional. It is a gift, not a duty.</div>
+      <h4>The signal.</h4>
+      <p>When it starts, he is fighting on two fronts and he is doing it alone. A touch. A look. The code word said soft. Anything that means <em>I see it, I'm with you.</em></p>
+      <p>A piece of that volume is loneliness. One signal takes it out of the room.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">05</div>
+      <div class="eyebrow">Write this while you are calm</div>
+      <h2>What I need <em>when I'm activated</em>.</h2>
+      <p class="section-lede">Do this part together, right now, in one sitting. You are each writing instructions for the other one, for a version of you that will not be able to explain itself when the time comes.</p>
+    </div>
+
+    <p>Be concrete. "Do not follow me." "Say the word and walk away." "Touch my shoulder, do not talk." "Do not apologize yet, I am not ready to hear it." Whatever is actually true.</p>
+
+    <div class="need-grid">
+      <div class="need-card">
+        <h4>Joseph</h4>
+        <p class="need-sub">When I am flooded, here is what I need you to do.</p>
+        <textarea class="ta" rows="5" data-key="jg-need-joseph" placeholder="Gina, when I'm lit, what actually helps is..." aria-label="What Joseph needs when activated"></textarea>
+        <span class="save-ind" data-target="jg-need-joseph">Saved</span>
+      </div>
+      <div class="need-card">
+        <h4>Gina</h4>
+        <p class="need-sub">When I am flooded, here is what I need you to do.</p>
+        <textarea class="ta" rows="5" data-key="jg-need-gina" placeholder="Joseph, when I'm lit, what actually helps is..." aria-label="What Gina needs when activated"></textarea>
+        <span class="save-ind" data-target="jg-need-gina">Saved</span>
+      </div>
+    </div>
+
+    <p style="margin-top:24px;">These show up on each other's private pages. So neither of you has to guess, and neither of you has to be told twice.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">06</div>
+      <div class="eyebrow">The one thing that has to get built</div>
+      <h2>Gina needs <em>somewhere to go</em>.</h2>
+      <p class="section-lede">Step two of the protocol says go be by yourself for twenty minutes. Read that again and notice something: for one of you, that instruction is currently impossible.</p>
+    </div>
+
+    <p>Joseph has downstairs. Joseph has the garage. Gina has, in her own words, nowhere. Not even the bathroom.</p>
+    <p><strong>Which means the protocol does not actually work yet.</strong> Not because either of you failed it. Because the building it runs in is missing a room.</p>
+
+    <div class="room-box">
+      <div class="rb-label">Named commitment</div>
+      <h4>Joseph is building Gina a room.</h4>
+      <p>It does not have to be big. It has to be <strong>hers</strong>, and it has to have a door.</p>
+      <p>Joseph, here is why this one is different from everything else you give. You give constantly, and then you wait to see if anybody noticed, and when they do not, it costs you something. <strong>This one was asked for.</strong> Out loud. By name. There is no invoice on it and nobody to be let down by, because she told you what she needed and you built it.</p>
+      <p>You built this whole house. This is a room in it. This is the most inside your wheelhouse anything on this page will ever be.</p>
+      <div class="room-credit">
+        <span class="rc-pill"><b>Gina</b> named it</span>
+        <span class="rc-pill"><b>Joseph</b> builds it</span>
+        <span class="rc-pill">Both of you signed it</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">07</div>
+      <div class="eyebrow">Your call, not mine</div>
+      <h2>Can the kids <em>call the word</em>?</h2>
+      <p class="section-lede">There is a real argument for yes, and it is not a small one. But this changes their role in the house, so it is yours to decide, together, at the table.</p>
+    </div>
+
+    <p>Right now, when it gets loud, your son has one option: <strong>step in and referee.</strong> He has already done it. And it put him in a position no kid should have, standing between his father and his grandmother, trying to hold the line by himself.</p>
+
+    <p>If he can call the code word, that changes. He is not a cop anymore. He is a person in the family with a sanctioned, slightly ridiculous flag he is allowed to throw. <strong>And the grown ups have to stop, because they agreed to.</strong></p>
+
+    <div class="openq">
+      <div class="oq-label">The case against</div>
+      <h4>It gives a kid power over adult conflict.</h4>
+      <p>It could get used to dodge things he does not want to hear. It could make him feel responsible for regulating the house, which is not his job.</p>
+      <p>Both of those are real. Which is exactly why this is a decision you two make out loud, and not one I make for you.</p>
+    </div>
+  </section>
+
+  <div class="plain-note">
+    <p>One plain thing, said once. This is a tool that two people who love each other agreed to try. It is not therapy and it does not pretend to be. If the anger ever starts to feel bigger than a tool, that is a different conversation, and it is a worthy one.</p>
+  </div>
+
+  <div class="cosign" id="cosign">
+    <div class="cs-label">The agreement</div>
+    <h3>Sign it while you are calm.</h3>
+    <p>Not because a signature is binding. Because you cannot negotiate the rules in the middle of a fight, and the whole point is that these already exist before the next one starts.</p>
+
+    <span class="oath">Understanding is not agreeing. Being understood is the finish line. Winning is not.</span>
+
+    <div class="cs-form">
+      <div class="sig-row">
+        <div class="sig-field">
+          <label for="sig-j">Joseph</label>
+          <input class="sig-input" id="sig-j" type="text" maxlength="40" placeholder="Sign here" autocomplete="off">
+        </div>
+        <div class="sig-field">
+          <label for="sig-g">Gina</label>
+          <input class="sig-input" id="sig-g" type="text" maxlength="40" placeholder="Sign here" autocomplete="off">
+        </div>
+      </div>
+      <button class="cs-btn" id="cs-btn" type="button">We agree to this</button>
+      <p class="cs-note">Both names, or it does not count.</p>
+    </div>
+
+    <div class="cs-signed">
+      <div class="signed-card">
+        <div class="signed-names" id="signed-names"></div>
+        <div class="signed-date" id="signed-date"></div>
+      </div>
+      <button class="revise-btn" id="revise-btn" type="button">Change it together</button>
+      <p class="cs-note">You can revise this any time. It takes both of you, same as it did the first time. That is on purpose. <strong>Renegotiate together, never break it alone.</strong></p>
+    </div>
+  </div>
+
+  <div class="cta-wrap">
+    <a class="cta" href="mailto:miles@milesagee.com?subject=Joseph%20%2B%20Gina%20%E2%86%92%20Monique%3A%20">Come back to Monique</a>
+    <div class="cta-note">Hits Miles's inbox. He cues Monique. This page updates and he texts you what changed.</div>
+  </div>
+
+  <div class="rooms-link">
+    You each have your own private page too, and they are not this one. <b>What is on yours is yours.</b> Miles has both links.
+  </div>
+
+  <div class="footer">
+    <div class="signature">Built for you both. - Miles</div>
+    <div class="fine">Private page. Not indexed, not linked, not searchable.</div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var LS = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+
+  /* ---------- Code word: the shared write. Renders on both private pages. ---------- */
+  var CW_KEY = 'jg-codeword';
+  var cwInput = document.getElementById('codeword');
+  var cwSaved = document.getElementById('cw-saved');
+
+  function paintCodeword() {
+    var v = (LS.get(CW_KEY) || '').trim();
+    var nodes = document.querySelectorAll('[data-codeword]');
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].textContent = v || 'the word';
+    }
+  }
+
+  var cwTimer;
+  cwInput.value = LS.get(CW_KEY) || '';
+  cwInput.addEventListener('input', function () {
+    clearTimeout(cwTimer);
+    cwTimer = setTimeout(function () {
+      LS.set(CW_KEY, cwInput.value);
+      paintCodeword();
+      cwSaved.classList.add('visible');
+      setTimeout(function () { cwSaved.classList.remove('visible'); }, 1600);
+    }, 400);
+  });
+  paintCodeword();
+
+  /* ---------- The pause timer ----------
+     Timestamp-delta math, never a decrementing counter. Mobile Safari suspends
+     background timers, and a background tab is exactly where this runs. */
+  var T_START = 'jg-pause-start';
+  var T_DUR = 'jg-pause-dur';
+  var clock = document.getElementById('clock');
+  var tstate = document.getElementById('tstate');
+  var reentry = document.getElementById('reentry');
+  var tick = null;
+
+  function fmt(ms) {
+    if (ms < 0) ms = 0;
+    var s = Math.ceil(ms / 1000);
+    var m = Math.floor(s / 60);
+    var r = s % 60;
+    return m + ':' + (r < 10 ? '0' : '') + r;
+  }
+
+  function render() {
+    var start = parseInt(LS.get(T_START) || '0', 10);
+    var dur = parseInt(LS.get(T_DUR) || '0', 10);
+    if (!start || !dur) {
+      clock.textContent = '20:00';
+      tstate.textContent = 'Not running';
+      reentry.classList.remove('show');
+      return false;
+    }
+    var remaining = dur - (Date.now() - start);
+    if (remaining <= 0) {
+      clock.textContent = '0:00';
+      tstate.textContent = 'Time is up';
+      reentry.classList.add('show');
+      stop();
+      return false;
+    }
+    clock.textContent = fmt(remaining);
+    tstate.textContent = 'Running. Put the phone down.';
+    reentry.classList.remove('show');
+    return true;
+  }
+
+  function stop() { if (tick) { clearInterval(tick); tick = null; } }
+  function run() { stop(); if (render()) { tick = setInterval(render, 1000); } }
+
+  function begin(ms) {
+    LS.set(T_START, String(Date.now()));
+    LS.set(T_DUR, String(ms));
+    reentry.classList.remove('show');
+    run();
+  }
+
+  document.getElementById('start20').addEventListener('click', function () { begin(20 * 60 * 1000); });
+  document.getElementById('start90').addEventListener('click', function () { begin(90 * 1000); });
+  document.getElementById('treset').addEventListener('click', function () {
+    LS.del(T_START); LS.del(T_DUR); stop(); render();
+  });
+
+  /* Recompute the instant we come back to the tab. This is the whole reason
+     for timestamp math instead of a counter. */
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) run();
+  });
+  window.addEventListener('pageshow', run);
+  run();
+
+  /* ---------- Tap to reveal (you SAY these lines, you don't paste them) ---------- */
+  var reveals = document.querySelectorAll('.reveal');
+  for (var r = 0; r < reveals.length; r++) {
+    (function (box) {
+      var head = box.querySelector('.reveal-head');
+      head.addEventListener('click', function () {
+        var open = box.classList.toggle('open');
+        head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })(reveals[r]);
+  }
+
+  /* ---------- Autosave: what I need when I'm activated ---------- */
+  var tas = document.querySelectorAll('.ta[data-key]');
+  for (var t = 0; t < tas.length; t++) {
+    (function (el) {
+      var key = el.getAttribute('data-key');
+      var saved = LS.get(key);
+      if (saved) el.value = saved;
+      var timer;
+      el.addEventListener('input', function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          LS.set(key, el.value);
+          var ind = document.querySelector('.save-ind[data-target="' + key + '"]');
+          if (ind) {
+            ind.classList.add('visible');
+            setTimeout(function () { ind.classList.remove('visible'); }, 1600);
+          }
+        }, 400);
+      });
+    })(tas[t]);
+  }
+
+  /* ---------- Co-sign: ceremony, not contract. Revisable, by both. ---------- */
+  var CS_KEY = 'jg-cosign';
+  var cosign = document.getElementById('cosign');
+  var sigJ = document.getElementById('sig-j');
+  var sigG = document.getElementById('sig-g');
+  var signedNames = document.getElementById('signed-names');
+  var signedDate = document.getElementById('signed-date');
+
+  function paintSigned() {
+    var raw = LS.get(CS_KEY);
+    if (!raw) { cosign.classList.remove('signed'); return; }
+    var data;
+    try { data = JSON.parse(raw); } catch (e) { LS.del(CS_KEY); return; }
+    if (!data || !data.j || !data.g) { LS.del(CS_KEY); return; }
+    signedNames.textContent = data.j + '  and  ' + data.g;
+    var label = data.revised ? 'Revised together ' : 'Agreed ';
+    signedDate.textContent = label + (data.date || '');
+    cosign.classList.add('signed');
+  }
+
+  document.getElementById('cs-btn').addEventListener('click', function () {
+    var j = sigJ.value.trim();
+    var g = sigG.value.trim();
+    if (!j || !g) {
+      alert('Both names. It is not an agreement with one signature on it.');
+      return;
+    }
+    var prior = LS.get(CS_KEY);
+    LS.set(CS_KEY, JSON.stringify({
+      j: j, g: g,
+      date: new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }),
+      revised: !!prior
+    }));
+    paintSigned();
+  });
+
+  document.getElementById('revise-btn').addEventListener('click', function () {
+    var raw = LS.get(CS_KEY);
+    if (raw) {
+      try {
+        var d = JSON.parse(raw);
+        sigJ.value = d.j || '';
+        sigG.value = d.g || '';
+      } catch (e) {}
+    }
+    cosign.classList.remove('signed');
+    sigJ.focus();
+  });
+
+  paintSigned();
+})();
+</script>
+
+</body>
+</html>
