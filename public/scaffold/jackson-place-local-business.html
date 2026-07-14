@@ -32,111 +32,105 @@
   .noise{position:fixed;inset:0;pointer-events:none;z-index:3;opacity:.03;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 
-  /* ---------- screen scaffold: one idea owns one viewport ---------- */
-  .screen{position:relative;display:flex;align-items:center;padding:96px var(--pad);}
-  @media(min-width:760px){.screen{min-height:92vh;padding:120px var(--pad)}}
+  .screen{position:relative;display:flex;align-items:center;padding:100px var(--pad)}
+  @media(min-width:760px){.screen{min-height:94vh;padding:130px var(--pad)}}
   .inner{width:100%;max-width:940px;margin:0 auto;position:relative;z-index:1}
 
-  .screen.dark{
-    background:linear-gradient(150deg,var(--teal),var(--teal-2));color:#e9f1ef;overflow:hidden;
-  }
+  .screen.dark{background:linear-gradient(150deg,var(--teal),var(--teal-2));color:#e9f1ef;overflow:hidden}
   .screen.dark::after{content:"";position:absolute;right:-140px;top:-120px;width:520px;height:520px;border-radius:50%;
     background:radial-gradient(circle,rgba(212,175,55,.17),transparent 62%);pointer-events:none}
   .screen.deepest{background:var(--teal-deep);text-align:center}
   .screen.deepest::after{right:auto;left:50%;top:50%;transform:translate(-50%,-50%);width:900px;height:900px;
     background:radial-gradient(circle,rgba(212,175,55,.10),transparent 60%)}
 
-  /* ---------- type ---------- */
   .eyebrow{font-size:11px;letter-spacing:.19em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);margin-bottom:22px}
   .dark .eyebrow{color:var(--gold)}
   h1,h2{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.032em;line-height:1.03;color:var(--teal)}
-  h1{font-size:clamp(38px,7.4vw,74px)}
+  h1{font-size:clamp(38px,7.2vw,72px)}
   h2{font-size:clamp(31px,5.6vw,56px);line-height:1.06}
   .dark h1,.dark h2{color:#fff}
   h1 em,h2 em{font-style:italic;color:var(--gold-deep);font-weight:500}
   .dark h1 em,.dark h2 em{color:var(--gold)}
-  .say{margin-top:26px;max-width:60ch;font-size:clamp(16px,1.9vw,19px);color:var(--muted)}
+  .say{margin-top:28px;max-width:56ch;font-size:clamp(16px,1.9vw,19px);color:var(--muted)}
   .dark .say{color:#b8ccc8}
   .say b{color:var(--ink);font-weight:600}
   .dark .say b{color:#fff}
+  .fine{margin-top:22px;font-size:13.5px;color:var(--muted);max-width:62ch;line-height:1.75}
+  .dark .fine{color:#94aeaa}
+  .fine b{color:var(--ink)} .dark .fine b{color:#e9f1ef}
 
-  /* ---------- reveal ---------- */
   .r{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .75s var(--spring)}
   .r.in{opacity:1;transform:none}
-  .r2{transition-delay:.10s} .r3{transition-delay:.20s} .r4{transition-delay:.30s}
+  .r2{transition-delay:.10s} .r3{transition-delay:.20s} .r4{transition-delay:.32s}
   @media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}}
 
-  /* ---------- header ---------- */
   header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
     padding:30px var(--pad) 0;max-width:1028px;margin:0 auto}
   header img{height:56px;width:auto;mix-blend-mode:multiply}
   .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
     border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:rgba(255,255,255,.6)}
 
-  /* ---------- hero ---------- */
-  #hero{padding-top:44px;min-height:auto}
-  @media(min-width:760px){#hero{min-height:84vh;padding-top:56px}}
-
-  /* ---------- the two numbers ---------- */
-  .versus{display:grid;grid-template-columns:1fr;gap:16px;margin-top:44px}
-  @media(min-width:720px){.versus{grid-template-columns:1fr 1fr;gap:22px}}
-  .fig{border-radius:20px;padding:30px 28px;background:rgba(255,255,255,.7);border:1px solid var(--line);box-shadow:var(--sh)}
-  .fig .num{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.035em;line-height:1;
-    font-size:clamp(40px,6.6vw,62px);color:var(--bad)}
-  .fig .cap{margin-top:12px;font-size:14.5px;color:var(--muted);max-width:30ch}
-  .fig.win{background:linear-gradient(150deg,rgba(212,175,55,.13),rgba(212,175,55,.05));
-    border-color:rgba(212,175,55,.55);box-shadow:0 0 0 1px rgba(212,175,55,.28),var(--sh-lift)}
-  .fig.win .num{color:var(--gold-deep)}
-  .fig.win .cap{color:var(--ink)}
-  .payoff{margin-top:26px;font-family:'Fraunces',serif;font-size:clamp(19px,2.7vw,27px);line-height:1.35;
-    color:var(--teal);max-width:34ch;letter-spacing:-.015em}
-  .payoff b{color:var(--gold-deep)}
-  .fine{margin-top:22px;font-size:13.5px;color:var(--muted);max-width:62ch;line-height:1.75}
-
-  /* ---------- stat row ---------- */
-  .row{display:grid;grid-template-columns:1fr;gap:14px;margin-top:40px}
-  @media(min-width:720px){.row{grid-template-columns:repeat(3,1fr);gap:20px}
-    .row.two{grid-template-columns:repeat(2,1fr);gap:28px}}
-  .st .n.sm{font-size:clamp(26px,3.2vw,32px)}
-  .st .n{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(34px,4.6vw,46px);line-height:1;letter-spacing:-.03em;color:var(--gold)}
+  .row{display:grid;grid-template-columns:1fr;gap:22px;margin-top:44px}
+  @media(min-width:720px){.row{grid-template-columns:repeat(3,1fr);gap:24px}
+    .row.two{grid-template-columns:repeat(2,1fr);gap:30px}}
+  .st .n{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(36px,5vw,50px);line-height:1;letter-spacing:-.03em;color:var(--gold)}
+  .st .n.sm{font-size:clamp(24px,3vw,30px)}
   .st .l{margin-top:10px;font-size:14px;color:#b8ccc8;max-width:26ch;line-height:1.55}
   .st.light .n{color:var(--gold-deep)} .st.light .l{color:var(--muted)}
 
-  /* ---------- cluster ---------- */
-  .list{margin-top:38px;display:grid;grid-template-columns:1fr;gap:0}
+  /* the ledger of what left */
+  .gone{margin-top:40px;border-top:1px solid rgba(255,255,255,.16)}
+  .gr{display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:baseline;
+    padding:15px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+  .gr .who{font-family:'Fraunces',serif;font-weight:600;font-size:17.5px;color:#fff;line-height:1.25}
+  .gr .who span{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:12.5px;color:#8fa9a5;margin-top:3px;letter-spacing:.02em}
+  .gr .what{font-size:12px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;color:#e0917c;white-space:nowrap}
+
+  /* the math */
+  .math{margin-top:44px;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh-lift);background:rgba(255,255,255,.72)}
+  .mrow{display:grid;grid-template-columns:minmax(92px,1fr) 1fr 1.15fr;align-items:center}
+  .mrow + .mrow{border-top:1px solid var(--line)}
+  .mrow > div{padding:20px 13px}
+  @media(min-width:640px){.mrow > div{padding:24px 22px}}
+  .mhead > div{padding-top:15px;padding-bottom:15px;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+    font-weight:600;color:var(--muted);background:rgba(0,63,63,.055)}
+  .mhead .hb{color:var(--gold-deep);background:rgba(212,175,55,.14)}
+  .mlab{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--muted);line-height:1.35}
+  .mval{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.03em;line-height:1;font-size:clamp(23px,4.2vw,40px);color:var(--muted)}
+  .mb{background:rgba(212,175,55,.09);box-shadow:inset 1px 0 0 rgba(212,175,55,.35)}
+  .msub{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:12px;letter-spacing:0;color:var(--muted);margin-top:7px;line-height:1.5}
+  .mtxt{font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;letter-spacing:0;line-height:1.55;color:var(--muted)}
+  .verdict{margin-top:26px;font-family:'Fraunces',serif;font-size:clamp(21px,3vw,30px);line-height:1.3;color:var(--teal);letter-spacing:-.02em;max-width:30ch}
+  .verdict b{color:var(--gold-deep)}
+
+  /* the survivors */
+  .list{margin-top:30px;display:grid;grid-template-columns:1fr;gap:0}
   @media(min-width:640px){.list{grid-template-columns:1fr 1fr;column-gap:44px}}
-  .li{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
-    padding:13px 0;border-bottom:1px solid var(--line)}
+  .li{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
   .li .nm{font-family:'Fraunces',serif;font-weight:600;font-size:17px;color:var(--teal);line-height:1.25}
   .li .ad{font-size:12px;color:var(--muted);white-space:nowrap;letter-spacing:.02em}
   .li.gold .nm{color:var(--gold-deep)}
-  .li .own{display:block;font-family:'Inter',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.05em;
-    text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .li .own{display:block;font-weight:600;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .subhead{font-family:'Fraunces',serif;font-weight:600;color:var(--teal);font-size:15px;margin:30px 0 0;
+    letter-spacing:.02em}
+  .subhead.g{color:var(--gold-deep)}
 
-  /* ---------- quote ---------- */
-  .quote{margin-top:34px;padding:22px 26px;border-left:3px solid var(--gold);
-    background:rgba(212,175,55,.10);border-radius:0 14px 14px 0;
-    font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.2vw,22px);line-height:1.45;color:#fff}
-  .quote .src{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:12px;
-    color:#a8c2bd;margin-top:12px;letter-spacing:.05em}
-  .quote.light{color:var(--ink)}
-  .quote.light .src{color:var(--muted)}
+  .quote{margin-top:32px;padding:24px 28px;border-left:3px solid var(--gold);background:rgba(212,175,55,.10);
+    border-radius:0 14px 14px 0;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.3vw,23px);line-height:1.45;color:#fff}
+  .quote .src{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:12px;color:#a8c2bd;margin-top:13px;letter-spacing:.04em}
+  .quote.light{color:var(--ink)} .quote.light .src{color:var(--muted)}
 
-  .land{margin-top:32px;font-family:'Fraunces',serif;font-size:clamp(21px,3vw,32px);line-height:1.3;
-    color:#fff;letter-spacing:-.02em;max-width:26ch}
+  .land{margin-top:34px;font-family:'Fraunces',serif;font-size:clamp(23px,3.4vw,36px);line-height:1.28;color:#fff;letter-spacing:-.025em;max-width:24ch}
   .land b{color:var(--gold)}
 
-  /* ---------- the line ---------- */
   .creed{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.03em;line-height:1.12;
-    font-size:clamp(32px,5.6vw,60px);color:#fff;max-width:20ch;margin:0 auto}
+    font-size:clamp(34px,5.8vw,62px);color:#fff;max-width:20ch;margin:0 auto}
   .creed span{display:block;color:var(--gold)}
-  .under{margin:38px auto 0;max-width:56ch;font-size:15px;color:#9fb9b4;line-height:1.75}
+  .under{margin:38px auto 0;max-width:52ch;font-size:15px;color:#9fb9b4;line-height:1.75}
   .under b{color:#e9f1ef;font-weight:600}
 
-  /* ---------- ask ---------- */
   .ask h2{max-width:16ch}
 
-  /* ---------- footer ---------- */
   footer{padding:0 var(--pad) 90px;max-width:1028px;margin:0 auto}
   .rule{height:1px;background:var(--line);margin-bottom:26px}
   footer p{font-size:11.5px;color:var(--muted);line-height:1.75;max-width:96ch}
@@ -152,75 +146,40 @@
   <div class="tag">Prepared for Michael Hopkins &middot; Emerge Construction Group</div>
 </header>
 
-<!-- 01 ................................................. THE PROBLEM -->
-<section class="screen" id="hero">
+<!-- 01 ............................................. BIG HERM'S -->
+<section class="screen">
   <div class="inner">
     <div class="eyebrow r">Jackson Place &middot; 41 townhomes &middot; 723 N. 2nd Street</div>
-    <h1 class="r r2">You are asking ten percent more than the river.<br><em>Here is what earns it.</em></h1>
-    <p class="say r r3">Manchester Square closed ten homes at $280 a foot, with rooftop terraces and a riverfront address. Jackson Place models at roughly $307. <b>Our own analysis says that premium holds on the address, the story and the spec, not on location.</b> So location stops being the argument.</p>
+    <h1 class="r r2">Big Herm's spent a decade on 2nd Street. <em>Then the rent went up 35 percent.</em></h1>
+    <p class="say r r3">March 2024. A Black owned Jackson Ward institution, priced off the block. The room he moved to shuttered before the year was out. <b>Big Herm's is a catering company now. There is no storefront.</b></p>
+    <p class="say r r4">You are about to sell <b>41 homes on that street.</b></p>
   </div>
 </section>
 
-<!-- 02 ................................................. THE MOVE -->
+<!-- 02 ............................................. WHAT LEFT -->
 <section class="screen dark">
   <div class="inner">
-    <div class="eyebrow r">The move</div>
-    <h2 class="r r2">A competitor can hand a buyer a furniture credit. <em>Nobody can hand them Jackson Ward.</em></h2>
-    <p class="say r r3">Every buyer closes with <b>The 2nd Street Welcome</b>. Roughly <b>$5,000 in credit</b> at the independent businesses within a five minute walk of their front door. Sunday dinner at Mama J's. Lunch at Big Herm's. A bottle from Penny's. <b>Six of them sit on N. 2nd Street, the same frontage as your ten flagship homes.</b></p>
-    <p class="say r r4">You already named a street for Maggie Walker, who chartered the first bank ever led by a Black woman in America, in 1903, on these blocks. <b>This is what it looks like to mean it.</b></p>
-  </div>
-</section>
+    <div class="eyebrow r">N. 2nd Street, since 2022</div>
+    <h2 class="r r2">Six independents have left <em>your frontage.</em></h2>
 
-<!-- 03 ................................................. THE MATH -->
-<section class="screen">
-  <div class="inner">
-    <div class="eyebrow r">The same $5,000, two ways</div>
-    <h2 class="r r2">One disappears into a closing statement. <em>One lands in a register.</em></h2>
-
-    <div class="versus">
-      <div class="fig r r3">
-        <div class="num">$205,000</div>
-        <div class="cap">As a price cut, across 41 homes. Invisible at nine tenths of one percent, and it compresses your own comps.</div>
-      </div>
-      <div class="fig win r r4">
-        <div class="num">~$102,500</div>
-        <div class="cap">As the neighborhood. Your ceiling. We expect $70,000 to $90,000, because redemption never runs at 100%.</div>
-      </div>
+    <div class="gone r r3">
+      <div class="gr"><div class="who">Big Herm's Kitchen<span>315 N. 2nd &middot; ten years on the street</span></div><div class="what">35% rent hike, 2024</div></div>
+      <div class="gr"><div class="who">Salt &amp; Forge<span>312 N. 2nd &middot; the space is listed for lease</span></div><div class="what">Closed 2022</div></div>
+      <div class="gr"><div class="who">Saadia's Juicebox<span>402&frac12; N. 2nd</span></div><div class="what">Closed 2022</div></div>
+      <div class="gr"><div class="who">Lucy's<span>404 N. 2nd</span></div><div class="what">Closed 2023</div></div>
+      <div class="gr"><div class="who">Sincero<span>404 N. 2nd &middot; Lucy's successor, lasted a year</span></div><div class="what">Closed 2024</div></div>
+      <div class="gr"><div class="who">Southern Kitchen<span>541 N. 2nd &middot; now at Stony Point</span></div><div class="what">Moved out, 2024</div></div>
     </div>
 
-    <p class="payoff r r4">You save <b>$100,000 to $135,000</b>, and the money you do spend becomes revenue on your own block.</p>
-    <p class="fine r r4">Roughly $3,000 in kind from the merchants, plus a $2,000 flexible credit you fund so the $5,000 is real. They carry the rest because a $100 dinner credit costs a kitchen about $30, and 41 new households one block away is the cheapest customer they will ever get.</p>
+    <p class="say r r4">The 300 block, <b>the exact frontage your ten flagship homes will face,</b> has one business still trading on it today.</p>
   </div>
 </section>
 
-<!-- 04 ................................................. THE CLUSTER -->
-<section class="screen">
-  <div class="inner">
-    <div class="eyebrow r">The cluster</div>
-    <h2 class="r r2">Twenty one businesses. <em>Six on your street.</em></h2>
-    <p class="say r r3">Sourced from the Historic Jackson Ward Association's own directory, then independently reconfirmed. These nine are confirmed trading today.</p>
-
-    <div class="list r r3">
-      <div class="li gold"><div><span class="nm">Big Herm's Kitchen</span><span class="own">Black owned &middot; Herman Baskerville</span></div><span class="ad">315 N. 2nd</span></div>
-      <div class="li"><div><span class="nm">Mama J's</span><span class="own">Black owned &middot; Velma &amp; Lester Johnson</span></div><span class="ad">415 N. 1st</span></div>
-      <div class="li gold"><div><span class="nm">Salt and Forge</span></div><span class="ad">312 N. 2nd</span></div>
-      <div class="li"><div><span class="nm">Penny's Wine Shop</span><span class="own">Black owned &middot; Beal &amp; Lemon</span></div><span class="ad">405 Brook</span></div>
-      <div class="li gold"><div><span class="nm">Thai Studio</span></div><span class="ad">516 N. 2nd</span></div>
-      <div class="li"><div><span class="nm">Ray's Dog House</span></div><span class="ad">401 N. 1st</span></div>
-      <div class="li"><div><span class="nm">Sahara Cafe and Grill</span></div><span class="ad">114 E. Clay</span></div>
-      <div class="li"><div><span class="nm">Max's on Broad</span></div><span class="ad">305 Brook</span></div>
-      <div class="li"><div><span class="nm">Urban Hang Suite</span></div><span class="ad">304 E. Broad</span></div>
-    </div>
-
-    <p class="fine r r4">Twelve more sit in the Association's directory, reconfirmed at signing: <b style="color:var(--gold-deep)">J KOGI</b>, <b style="color:var(--gold-deep)">Lucy's</b> and <b style="color:var(--gold-deep)">Southern Kitchen</b> on N. 2nd, plus Adarra, Reachmonde, Gwar Bar, Stumps Pig and Pint, Lift, Choong Man Chicken, Jamaica House, Tarrant's Cafe and Twenty Seven. <b>Nobody has been contacted. Nobody has committed.</b></p>
-  </div>
-</section>
-
-<!-- 05 ................................................. THE OBJECTION -->
+<!-- 03 ............................................. THE PATTERN -->
 <section class="screen dark">
   <div class="inner">
-    <div class="eyebrow r">The question you are going to get asked</div>
-    <h2 class="r r2">Somebody will call this gentrification. <em>Have the answer before they ask.</em></h2>
+    <div class="eyebrow r">Why that number is not a coincidence</div>
+    <h2 class="r r2">Wave one was the highway. <em>Wave two is the rent.</em></h2>
 
     <div class="row">
       <div class="st r r3"><div class="n">~1,000</div><div class="l">Jackson Ward homes demolished for the interstate in the 1950s</div></div>
@@ -228,16 +187,68 @@
       <div class="st r r4"><div class="n">10% more</div><div class="l">Of Jackson Ward's Black population lost between 2010 and 2020</div></div>
     </div>
 
-    <div class="quote r r4">
-      "Jackson Place, working in close partnership with the Historic Jackson Ward Association, aims to restore and revitalize an area impacted by I 95 construction. A catalyst for the community's Place Making initiative."
-      <span class="src">Emerge Construction Group. Your own words.</span>
-    </div>
-
-    <p class="land r r4">This is that sentence with a dollar sign attached. <b>Not a statement. A ledger.</b></p>
+    <p class="land r r4">Jackson Place is read as wave three <b>unless somebody puts money back on the block.</b></p>
   </div>
 </section>
 
-<!-- 06 ................................................. THE LINE -->
+<!-- 04 ............................................. THEIR OWN WORDS -->
+<section class="screen dark deepest">
+  <div class="inner">
+    <div class="eyebrow r">You already said the right thing</div>
+    <div class="quote r r2" style="text-align:left">
+      "Jackson Place, working in close partnership with the Historic Jackson Ward Association, aims to restore and revitalize an area impacted by I 95 construction. A catalyst for the community's Place Making initiative."
+      <span class="src">Emerge Construction Group. Your own words.</span>
+    </div>
+    <p class="creed r r3" style="margin-top:44px;font-size:clamp(26px,4.4vw,46px);max-width:24ch">Here is that sentence <span>with a dollar sign attached.</span></p>
+  </div>
+</section>
+
+<!-- 05 ............................................. THE ANSWER -->
+<section class="screen">
+  <div class="inner">
+    <div class="eyebrow r">The answer</div>
+    <h2 class="r r2">A competitor can hand a buyer a furniture credit. <em>Nobody can hand them Jackson Ward.</em></h2>
+    <p class="say r r3">Every Jackson Place buyer closes with <b>The 2nd Street Welcome</b>. Roughly <b>$5,000 in credit</b>, spendable at one place on earth: the independent businesses still standing in this neighborhood. Sunday dinner at Mama J's. A bottle from Penny's. A seat at the Hippodrome.</p>
+    <p class="say r r4">You already named a street for Maggie Walker, who chartered the first bank ever led by a Black woman in America, in 1903, on these blocks. <b>This is what it looks like to mean it.</b></p>
+    <p class="fine r r4">It also earns the premium. At roughly $307 a foot, Jackson Place sits about 10% over Manchester Square's realized $280, and our own analysis says that spread holds on the address, the story and the spec, <b>not on location</b>. They have a rooftop and a river. So we stop selling location, and we sell the one thing they cannot build across the water.</p>
+  </div>
+</section>
+
+<!-- 06 ............................................. THE MATH -->
+<section class="screen">
+  <div class="inner">
+    <div class="eyebrow r">The math</div>
+    <h2 class="r r2">Same $5,000 to the buyer. <em>Half the cost to you.</em></h2>
+
+    <div class="math r r3">
+      <div class="mrow mhead">
+        <div></div>
+        <div>A $5,000 price cut</div>
+        <div class="hb">The 2nd Street Welcome</div>
+      </div>
+      <div class="mrow">
+        <div class="mlab">What your buyer gets</div>
+        <div class="mval">$5,000</div>
+        <div class="mval mb" style="color:var(--gold-deep)">$5,000</div>
+      </div>
+      <div class="mrow">
+        <div class="mlab">What you pay</div>
+        <div class="mval" style="color:var(--bad)">$205,000<span class="msub">All 41 homes. You fund every dollar of it.</span></div>
+        <div class="mval mb" style="color:var(--gold-deep)">~$102,500<span class="msub">Your ceiling. The merchants carry the rest in kind. Expect $70,000 to $90,000.</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mlab">Where it lands</div>
+        <div class="mtxt">A closing statement. Invisible at nine tenths of one percent, and it compresses your own comps.</div>
+        <div class="mtxt mb" style="color:var(--ink);font-weight:600">A Jackson Ward cash register. On your own block, with your name on it.</div>
+      </div>
+    </div>
+
+    <p class="verdict r r4">You keep roughly <b>$100,000</b>, and you buy the answer to the hardest question in the room.</p>
+    <p class="fine r r4">About $3,000 in kind from the merchants plus a $2,000 flexible credit you fund, so the $5,000 is real and guaranteed. They carry the rest because a $100 dinner credit costs a kitchen about $30, and 41 new households one block away is the cheapest customer they will ever get.</p>
+  </div>
+</section>
+
+<!-- 07 ............................................. THE LINE -->
 <section class="screen dark deepest">
   <div class="inner">
     <p class="creed r">The homes are for everyone.<span>The money is for Jackson Ward.</span></p>
@@ -245,7 +256,40 @@
   </div>
 </section>
 
-<!-- 07 ................................................. THE MACHINE -->
+<!-- 08 ............................................. WHO IS LEFT -->
+<section class="screen">
+  <div class="inner">
+    <div class="eyebrow r">Who is still standing</div>
+    <h2 class="r r2">Fourteen businesses. <em>Six on your street.</em></h2>
+    <p class="say r r3">Every name below was verified open in July 2026 against the operator's own site or a live listing. <b>Not against the Association's directory, which is out of date and still lists four businesses that have closed or moved.</b></p>
+
+    <p class="subhead g r r3">On N. 2nd Street</p>
+    <div class="list r r3">
+      <div class="li gold"><div><span class="nm">The Hippodrome Theater</span></div><span class="ad">528 N. 2nd</span></div>
+      <div class="li gold"><div><span class="nm">Pacq's Kitchen</span></div><span class="ad">541 N. 2nd</span></div>
+      <div class="li gold"><div><span class="nm">Thai Studio</span></div><span class="ad">516 N. 2nd</span></div>
+      <div class="li gold"><div><span class="nm">Cheddar Jackson</span></div><span class="ad">522 N. 2nd</span></div>
+      <div class="li gold"><div><span class="nm">Liddy's Kitchen</span></div><span class="ad">400 N. 2nd</span></div>
+      <div class="li gold"><div><span class="nm">Shakoor's Merchandise</span></div><span class="ad">319 N. 2nd</span></div>
+    </div>
+
+    <p class="subhead r r4">Within a five minute walk</p>
+    <div class="list r r4">
+      <div class="li"><div><span class="nm">Mama J's</span><span class="own">Black owned &middot; Velma &amp; Lester Johnson</span></div><span class="ad">415 N. 1st</span></div>
+      <div class="li"><div><span class="nm">Penny's Wine Shop</span><span class="own">Black owned &middot; Beal &amp; Lemon</span></div><span class="ad">405 Brook</span></div>
+      <div class="li"><div><span class="nm">Urban Hang Suite</span></div><span class="ad">304 E. Broad</span></div>
+      <div class="li"><div><span class="nm">Ray's Dog House</span></div><span class="ad">401 N. 1st</span></div>
+      <div class="li"><div><span class="nm">Lift Coffee</span></div><span class="ad">218 W. Broad</span></div>
+      <div class="li"><div><span class="nm">Jamaica House</span></div><span class="ad">416 W. Broad</span></div>
+      <div class="li"><div><span class="nm">Tarrant's Downtown</span></div><span class="ad">One W. Broad</span></div>
+      <div class="li"><div><span class="nm">GWARbar</span></div><span class="ad">217 W. Clay</span></div>
+    </div>
+
+    <p class="fine r r4">Ownership is labeled only where a citable source exists, and nowhere else. <b>Nobody has been contacted. Nobody has committed.</b> The ask is authorization to go sign them.</p>
+  </div>
+</section>
+
+<!-- 09 ............................................. WHY US -->
 <section class="screen">
   <div class="inner">
     <div class="eyebrow r">Why us</div>
@@ -259,18 +303,16 @@
 
     <p class="fine r r4">The follower count is not the asset. The map is. That audience is assembled before the sales center opens.</p>
 
-    <p class="payoff r r4">And the Jackson Ward piece was <b>written before this deal existed.</b></p>
-
     <div class="quote light r r4">
       "I don't wanna point at a statue and call it a day. I wanna point at what's open right now. Mama J's. Mosaic. That's not history. That's Tuesday."
       <span class="src">Episode two of the Richmond Courage Series. Written, scouted and shot listed months before Rick called about this project.</span>
     </div>
 
-    <p class="fine r r4" style="font-family:'Fraunces',serif;font-size:19px;color:var(--teal);margin-top:22px">You cannot fake having cared about a neighborhood first.</p>
+    <p class="verdict r r4">You cannot fake having cared about a neighborhood first.</p>
   </div>
 </section>
 
-<!-- 08 ................................................. THE ASK -->
+<!-- 10 ............................................. THE ASK -->
 <section class="screen dark ask">
   <div class="inner">
     <div class="eyebrow r">The ask</div>
@@ -285,8 +327,8 @@
 
 <footer>
   <div class="rule"></div>
-  <p><b>Sourcing and honest limits.</b> Business names and addresses come from the Historic Jackson Ward Association directory (hjwa.org) and were independently reconfirmed. Gold marks the businesses on N. 2nd Street, the flagship frontage. Ownership is labeled only where a citable source exists, and nowhere else: Mama J's (Southern Foodways Alliance oral history, Richmond BizSense), Big Herm's Kitchen (Richmond BizSense, Richmond Magazine), Penny's Wine Shop (Richmond Magazine, visitrichmondva.com). No business named here has been contacted and none has committed. This is a proposed cluster. All credit amounts, merchant costs and builder exposure are modeled from published category gross margins, not quoted by any merchant. Pricing, sellout and competitive figures come from the One South Jackson Place analysis. We could not verify a published buyer incentive at Manchester Square, Belle Heights or Chestnut Flats, so none is characterized here.</p>
-  <p><b>History and figures.</b> Maggie L. Walker chartered the St. Luke Penny Savings Bank in 1903 (Library of Congress, National Park Service). Interstate displacement figures from Encyclopedia Virginia, the Library of Virginia "House to Highway" exhibition, and the Virginia Center for Investigative Journalism. Jackson Ward's 2010 to 2020 Black population decline from Encyclopedia Virginia. 2nd Street Festival details from Venture Richmond. Content metrics are from the Metricool export for June 2025 through June 2026 and are reproducible on request. Our content builds audience and distribution. It is not attributed to closings and we will not claim that it is. The Courage Series episode referenced above is a written and scouted script, not a video that has run.</p>
+  <p><b>Business verification, July 2026.</b> Every open business named here was confirmed against the operator's own website or a live listing dated inside the last 90 days. We did not rely on the Historic Jackson Ward Association directory, which is out of date: it still lists Salt &amp; Forge (closed 2022), Lucy's (closed 2023), Southern Kitchen (moved to Stony Point, 2024) and Adarra (moved to Oregon Hill, 2024) at Jackson Ward addresses. Closures and departures are sourced to Richmond BizSense, Richmond Magazine and WRIC. Big Herm's Kitchen: Richmond Magazine, March 2024, "After a decade on Second Street, Big Herm's Kitchen has left Jackson Ward. Citing a 35% rise in rent at his former building, owner Herman Baskerville has temporarily moved the business to Brookland Park Boulevard." The Brookland Park location subsequently closed and the business now operates as a caterer. Ownership is labeled only where a citable source exists: Mama J's (Southern Foodways Alliance oral history, Richmond BizSense), Penny's Wine Shop (Richmond Magazine, visitrichmondva.com), Big Herm's Kitchen (Richmond BizSense, Richmond Magazine). <b>No business named here has been contacted and none has committed.</b> This is a proposed cluster and the ask is authorization to go sign it.</p>
+  <p><b>Figures.</b> All credit amounts, merchant costs and builder exposure are modeled from published category gross margins, not quoted by any merchant. Pricing, sellout and competitive figures come from the One South Jackson Place analysis. We could not verify a published buyer incentive at Manchester Square, Belle Heights or Chestnut Flats, so none is characterized here. Maggie L. Walker chartered the St. Luke Penny Savings Bank in 1903 (Library of Congress, National Park Service). Interstate displacement figures from Encyclopedia Virginia, the Library of Virginia "House to Highway" exhibition, and the Virginia Center for Investigative Journalism. Jackson Ward's 2010 to 2020 Black population decline from Encyclopedia Virginia. 2nd Street Festival details from Venture Richmond. Content metrics are from the Metricool export for June 2025 through June 2026 and are reproducible on request. Our content builds audience and distribution. It is not attributed to closings and we will not claim that it is. The Courage Series episode is a written and scouted script, not a video that has run.</p>
   <p><b>Equal Housing Opportunity.</b> Every home at Jackson Place is marketed to all buyers on identical terms, and the package described here would be offered to every buyer identically. This document describes a neighborhood, its history and its businesses.</p>
   <p><b>Miles Agee</b>, Realtor, One South Realty Group, Samson Properties. Lic # 0225249973.</p>
 </footer>
@@ -294,7 +336,7 @@
 <script>
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: .15, rootMargin: '0px 0px -8% 0px' });
+  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.r').forEach(function(el){ io.observe(el); });
 </script>
 </body>
