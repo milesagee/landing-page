@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Terry, buyer workup, internal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep-teal:#003F3F;
+    --teal:#005F5F;
+    --teal-light:#80AFAF;
+    --gold:#D4AF37;
+    --gold-dark:#B1922E;
+    --paper:#FAF7F1;
+    --ivory:#FFFFFF;
+    --ink:#12201F;
+    --muted:#5C6B6A;
+    --flag:#8C3A2B;
+    --flag-bg:rgba(140,58,43,.07);
+    --ok:#2F6B4F;
+    --ok-bg:rgba(47,107,79,.07);
+    --display:'Fraunces','Times New Roman',serif;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+    --s1:8px; --s2:16px; --s3:24px; --s4:40px; --s5:64px; --s6:96px;
+    --shadow-base:0 1px 2px rgba(0,63,63,.06), 0 4px 12px rgba(0,63,63,.05);
+    --shadow-raised:0 2px 4px rgba(0,63,63,.07), 0 12px 32px rgba(0,63,63,.09);
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    line-height:1.7;
+    background:var(--paper);
+    background-image:
+      radial-gradient(900px 500px at 8% -8%, rgba(0,95,95,.10), transparent 60%),
+      radial-gradient(700px 420px at 105% 4%, rgba(212,175,55,.12), transparent 58%),
+      radial-gradient(800px 600px at 50% 108%, rgba(0,63,63,.06), transparent 62%);
+    background-repeat:no-repeat;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:'';position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:var(--s4) var(--s3) var(--s6)}
+
+  /* hero */
+  .eyebrow{
+    font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--teal);display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  }
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+  h1{
+    font-family:var(--display);font-weight:600;
+    font-size:clamp(34px,5.2vw,58px);line-height:1.06;letter-spacing:-.03em;
+    color:var(--deep-teal);margin:var(--s2) 0 var(--s2);
+  }
+  h1 em{font-style:italic;color:var(--gold-dark)}
+  .lede{font-size:clamp(16px,1.9vw,19px);color:var(--muted);max-width:66ch}
+  .lede strong{color:var(--ink);font-weight:600}
+
+  .verdict{
+    display:inline-flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+    margin-top:var(--s3);padding:14px 22px;border-radius:14px;
+    background:linear-gradient(135deg,rgba(140,58,43,.10),rgba(140,58,43,.04));
+    border:1px solid rgba(140,58,43,.28);
+    box-shadow:var(--shadow-base);
+  }
+  .verdict b{font-family:var(--display);font-size:19px;color:var(--flag);letter-spacing:-.01em}
+  .verdict span{font-size:13.5px;color:var(--muted)}
+
+  /* sections */
+  section{margin-top:var(--s6)}
+  h2{
+    font-family:var(--display);font-weight:600;font-size:clamp(24px,3vw,32px);
+    letter-spacing:-.02em;color:var(--deep-teal);line-height:1.2;
+  }
+  .sub{color:var(--muted);font-size:15px;margin-top:6px;max-width:70ch}
+  .rule{height:1px;background:linear-gradient(90deg,rgba(0,63,63,.22),rgba(0,63,63,0));margin:var(--s2) 0 var(--s3)}
+
+  /* lanes */
+  .lanes{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--s3)}
+  .lane{
+    background:var(--ivory);border:1px solid rgba(0,63,63,.10);border-radius:18px;
+    padding:var(--s3);box-shadow:var(--shadow-base);
+    transition:transform .5s var(--ease), box-shadow .5s var(--ease);
+  }
+  .lane:hover{transform:translateY(-3px);box-shadow:var(--shadow-raised)}
+  .lane-tag{
+    display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;background:var(--gold);color:var(--deep-teal);
+  }
+  .lane-tag.alt{background:rgba(0,95,95,.12);color:var(--teal)}
+  .price{
+    font-family:var(--display);font-size:36px;font-weight:600;letter-spacing:-.03em;
+    color:var(--deep-teal);margin:var(--s2) 0 2px;line-height:1.1;
+  }
+  .price small{font-size:14px;font-family:var(--body);color:var(--muted);font-weight:500;letter-spacing:0}
+  .hyp{font-size:14.5px;color:var(--muted);margin-bottom:var(--s2)}
+  .lane h3{
+    font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--teal);margin:var(--s2) 0 var(--s1);
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{
+    font-size:12.5px;padding:5px 11px;border-radius:8px;
+    background:rgba(0,95,95,.07);color:var(--deep-teal);border:1px solid rgba(0,95,95,.13);
+  }
+  .chip.inf{background:transparent;border-style:dashed;color:var(--muted)}
+  ul.tight{list-style:none;font-size:14.5px}
+  ul.tight li{padding-left:18px;position:relative;margin-bottom:5px}
+  ul.tight li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+  .kill{
+    margin-top:var(--s3);padding:14px 16px;border-radius:12px;
+    background:rgba(212,175,55,.09);border-left:3px solid var(--gold);
+  }
+  .kill b{display:block;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:5px}
+  .kill p{font-size:14.5px;color:var(--ink)}
+
+  /* flags */
+  .flags{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:var(--s3)}
+  .col{background:var(--ivory);border-radius:16px;padding:var(--s3);box-shadow:var(--shadow-base);border:1px solid rgba(0,63,63,.09)}
+  .col.green{border-top:3px solid var(--ok)}
+  .col.red{border-top:3px solid var(--flag)}
+  .col h3{font-family:var(--display);font-size:19px;font-weight:600;color:var(--deep-teal);margin-bottom:var(--s2)}
+  .col.green h3 span{color:var(--ok);font-size:13px;font-family:var(--body);font-weight:600}
+  .col.red h3 span{color:var(--flag);font-size:13px;font-family:var(--body);font-weight:600}
+  .col li{font-size:14.5px;margin-bottom:10px;padding-left:18px;position:relative;list-style:none}
+  .col.green li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--ok)}
+  .col.red li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--flag)}
+  q{font-style:italic;color:var(--muted)}
+
+  /* conduct */
+  .conduct{
+    background:linear-gradient(135deg,#0B2E2E,#003F3F 55%,#052424);
+    border-radius:20px;padding:var(--s4);color:#E8EFEE;
+    box-shadow:0 3px 8px rgba(0,63,63,.14), 0 22px 50px rgba(0,63,63,.20);
+  }
+  .conduct h2{color:var(--ivory)}
+  .conduct .sub{color:rgba(232,239,238,.66)}
+  .conduct .rule{background:linear-gradient(90deg,rgba(212,175,55,.55),transparent)}
+  .quotes{display:grid;gap:10px;margin:var(--s3) 0}
+  .quotes blockquote{
+    font-family:var(--display);font-size:17px;font-style:italic;line-height:1.5;
+    padding:12px 18px;border-left:2px solid var(--gold);color:#F2F6F5;background:rgba(255,255,255,.035);border-radius:0 10px 10px 0;
+  }
+  .conduct p.body{font-size:15px;color:rgba(232,239,238,.86);max-width:74ch}
+  .conduct p.body b{color:var(--gold);font-weight:600}
+  .protocol{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:var(--s3)}
+  .protocol div{background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.22);border-radius:12px;padding:14px 16px;font-size:13.5px;color:#EEF3F2}
+  .protocol b{display:block;color:var(--gold);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+
+  /* call script */
+  .script{background:var(--ivory);border-radius:18px;padding:var(--s3);box-shadow:var(--shadow-base);border:1px solid rgba(0,63,63,.09)}
+  .q{
+    display:flex;gap:14px;padding:15px 12px;border-radius:12px;cursor:pointer;
+    transition:background .35s var(--ease);border-bottom:1px solid rgba(0,63,63,.07);
+  }
+  .q:last-child{border-bottom:none}
+  .q:hover{background:rgba(0,95,95,.045)}
+  .q input{
+    appearance:none;flex:0 0 20px;width:20px;height:20px;margin-top:3px;border-radius:6px;
+    border:1.5px solid rgba(0,63,63,.30);background:var(--ivory);cursor:pointer;
+    transition:transform .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
+  }
+  .q input:hover{transform:scale(1.08);border-color:var(--teal)}
+  .q input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .q input:checked{
+    background:var(--deep-teal);border-color:var(--deep-teal);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23D4AF37' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8.5l3.2 3.2L13 5'/%3E%3C/svg%3E");
+    background-size:14px;background-position:center;background-repeat:no-repeat;
+  }
+  .q .txt{flex:1}
+  .q .txt b{display:block;font-size:15.5px;font-weight:600;color:var(--deep-teal);margin-bottom:2px;transition:opacity .3s var(--ease)}
+  .q .txt span{font-size:13.5px;color:var(--muted)}
+  .q input:checked ~ .txt b{opacity:.42;text-decoration:line-through}
+  .q input:checked ~ .txt span{opacity:.42}
+  .q.linch{background:rgba(212,175,55,.10);border-left:3px solid var(--gold)}
+  .q.linch:hover{background:rgba(212,175,55,.15)}
+  .pin{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark);margin-left:8px;vertical-align:1px}
+
+  /* status strip */
+  .status{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:var(--s2);margin-top:var(--s3)}
+  .stat{background:var(--ivory);border:1px solid rgba(0,63,63,.09);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-base)}
+  .stat b{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+  .stat .v{font-family:var(--display);font-size:22px;font-weight:600;color:var(--deep-teal);letter-spacing:-.02em;line-height:1.2}
+  .stat .n{font-size:12.5px;color:var(--muted);margin-top:4px}
+  .pending{color:var(--gold-dark)}
+
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(0,95,95,.10);color:var(--teal);border:1px solid rgba(0,95,95,.18)}
+
+  footer{margin-top:var(--s6);padding-top:var(--s3);border-top:1px solid rgba(0,63,63,.12);font-size:12.5px;color:var(--muted)}
+  @media(max-width:640px){.wrap{padding:var(--s3) var(--s2) var(--s5)}.conduct{padding:var(--s3)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">
+    <span>Internal only</span><span class="dot"></span>
+    <span>Buyer workup</span><span class="dot"></span>
+    <span>MAMS LLC</span><span class="dot"></span>
+    <span>13 July 2026</span>
+  </div>
+
+  <h1>Terry gave you two clean mandates.<br/>He has <em>not</em> given you a last name.</h1>
+
+  <p class="lede">Aaliyah cold-called him on the 2119 Pimmit lot. He passed on it at $625K and handed her a
+  <strong>$3M to $5M primary</strong> plus a <strong>$2M waterfront weekend place</strong>, unprompted. The buy-box is real and researchable.
+  Everything that would prove he can actually buy is missing.</p>
+
+  <div class="verdict">
+    <b>Proceed with verification</b>
+    <span>Fable 5 confidence in conversion: <strong>low</strong>. Take the call. Spend nothing on him until he clears one test.</span>
+  </div>
+
+  <div class="status">
+    <div class="stat"><b>Callback window</b><div class="v">Tomorrow, after 5:00am</div><div class="n">His ask. He wakes at 4:30.</div></div>
+    <div class="stat"><b>Hard deadline</b><div class="v">Partner lands next weekend</div><div class="n">Jul 18 or Jul 25. He did not specify. Pin it.</div></div>
+    <div class="stat"><b>Research brief</b><div class="v pending">Queued to Perplexity</div><div class="n">Two lanes, 10 properties. Runs overnight.</div></div>
+    <div class="stat"><b>Contact record</b><div class="v pending">Does not exist</div><div class="n">No GHL contact. No last name to make one.</div></div>
+  </div>
+
+  <section>
+    <h2>The two lanes</h2>
+    <p class="sub">His price point looked scattered because it was never one search. It is two. Averaging them produces a
+    list that fits neither.</p>
+    <div class="rule"></div>
+
+    <div class="lanes">
+      <div class="lane">
+        <span class="lane-tag">Lane 1, primary residence</span>
+        <div class="price">$3M to $5M<br/><small>New construction, done or nearly done</small></div>
+        <p class="hyp">He and his partner live here. It has to reach the Beltway, because he says he commutes into Washington.</p>
+
+        <h3>Geography, his words</h3>
+        <div class="chips">
+          <span class="chip">Falls Church City</span><span class="chip">McLean</span>
+          <span class="chip">Tysons Corner</span><span class="chip">parts of Vienna</span><span class="chip">close to the Beltway</span>
+        </div>
+
+        <h3>Stated</h3>
+        <ul class="tight">
+          <li><q>a new home that's already like almost done or done already</q></li>
+          <li>Commutable to D.C., near I-495</li>
+          <li>A home the two of them can live in</li>
+        </ul>
+
+        <h3>Inferred, not said</h3>
+        <div class="chips">
+          <span class="chip inf">turnkey / high finish</span><span class="chip inf">detached single family</span>
+        </div>
+        <p class="hyp" style="margin-top:10px;font-size:13.5px">Beds, baths, square footage, lot: he gave none. Do not invent them.</p>
+
+        <div class="kill">
+          <b>The question that settles this lane</b>
+          <p>Are the funds available now, with proof of funds or a lender letter, or does this depend on the California sale closing?</p>
+        </div>
+      </div>
+
+      <div class="lane">
+        <span class="lane-tag alt">Lane 2, weekend place</span>
+        <div class="price">Up to $2M<br/><small>On the water. That is the hard filter.</small></div>
+        <p class="hyp">A vacation property, explicitly tied in his mind to selling his Oceanside house. He wants to trade water for water.</p>
+
+        <h3>Geography, his words</h3>
+        <div class="chips">
+          <span class="chip">Potomac River</span><span class="chip">south of Old Town Alexandria</span>
+          <span class="chip">Mount Vernon</span><span class="chip">toward Quantico</span>
+        </div>
+
+        <h3>Stated</h3>
+        <ul class="tight">
+          <li><q>we don't want to spend more than $2 million, but we're hoping we can get something on the water</q></li>
+          <li>Weekend and vacation use, not primary</li>
+          <li>On the water is non-negotiable to him</li>
+        </ul>
+
+        <h3>Inferred, not said</h3>
+        <div class="chips">
+          <span class="chip inf">may be funded by the Oceanside sale</span>
+        </div>
+        <p class="hyp" style="margin-top:10px;font-size:13.5px">He never said it was contingent. He also never said it was not. Ask.</p>
+
+        <div class="kill">
+          <b>The question that settles this lane</b>
+          <p>Does this ride on the Oceanside sale closing, and does it come after the primary or alongside it?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What holds up, and what does not</h2>
+    <p class="sub">Both columns are true at once. That is exactly why the answer is verify, not chase and not dismiss.</p>
+    <div class="rule"></div>
+
+    <div class="flags">
+      <div class="col green">
+        <h3>Holds up <span>the buy-box is real</span></h3>
+        <ul>
+          <li>Specific, coherent bands. <q>three to five million</q> and <q>we don't want to spend more than $2 million</q>.</li>
+          <li>Named, researchable geography he volunteered without prompting.</li>
+          <li>A real condition requirement. <q>almost done or done already</q>.</li>
+          <li>A concrete deadline and a callback window he set himself.</li>
+          <li>Gave and confirmed an email and a number.</li>
+        </ul>
+      </div>
+      <div class="col red">
+        <h3>Does not hold up <span>nothing is proven</span></h3>
+        <ul>
+          <li><b>He dodged the one checkable question.</b> Asked for the Oceanside address, he changed the subject. That is the whole ballgame.</li>
+          <li>No last name. No proof of funds. No financing conversation at all.</li>
+          <li>Prestige claims stacked in nine minutes. <q>I do business with the White House</q>, <q>going into a meeting at the Pentagon right now</q>, <q>my government job</q>, <q>I own multifamily apartments around the country</q>. Any one is plausible. All four, on a cold call, is a pattern.</li>
+          <li>Possible unstated contingency on a California sale.</li>
+          <li>Co-buyer is abroad and undocumented to us. He answered the phone thinking we were her.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="conduct">
+      <div class="eyebrow" style="color:var(--gold)"><span>Read this before you assign anyone</span></div>
+      <h2 style="margin-top:12px">What he did to Aaliyah on the call</h2>
+      <p class="sub">Not a judgment about his intentions. Just what the transcript says.</p>
+      <div class="rule"></div>
+
+      <p class="body">He asked where she was from. She deflected. He asked again. She deflected again. He kept going.</p>
+
+      <div class="quotes">
+        <blockquote>Where are you calling from? You sound like you're not calling from the United States.</blockquote>
+        <blockquote>So where are you from? You have a very distinct accent. I'm trying to place it.</blockquote>
+        <blockquote>Where are you from? Where are you born?</blockquote>
+        <blockquote>Are you with a tribe somewhere in the western United States?</blockquote>
+      </div>
+
+      <p class="body">Then he closed with <q style="color:#F2F6F5">You're intriguing. You're very intriguing on the phone</q> and
+      <q style="color:#F2F6F5">Maybe one day we'll meet.</q> Separately, he required that his agent be a woman:
+      <q style="color:#F2F6F5">It's got to be a woman. It's not a man.</q> <b>Aaliyah offered Wendy on the call.</b>
+      That promise is now outstanding and it is yours to honor, revise, or withdraw.</p>
+
+      <p class="body" style="margin-top:var(--s2)">You can still work this lead. But whoever takes it should not walk into a
+      private showing with a man whose identity nobody has confirmed, on the strength of one cold call. That is not caution.
+      That is just the order you do things in.</p>
+
+      <div class="protocol">
+        <div><b>Before any meeting</b>Identity verified and buyer agreement signed. In that order.</div>
+        <div><b>First meeting</b>At the office. Not at a property.</div>
+        <div><b>Never</b>Alone. Not at a $4M vacant listing.</div>
+        <div><b>Aaliyah</b>She held a hard call together and kept it professional. Tell her.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tomorrow, after 5:00am</h2>
+    <p class="sub">In priority order. Tap to check them off while you are on the phone. Your progress saves in this browser.</p>
+    <div class="rule"></div>
+
+    <div class="script" id="script">
+      <label class="q"><input type="checkbox" data-k="q1"/><span class="txt"><b>Full legal name</b><span>Confirm spelling of the email and the complete phone number too. We have "6708" and nothing else.</span></span></label>
+
+      <label class="q linch"><input type="checkbox" data-k="q2"/><span class="txt"><b>The Oceanside address<span class="pin">the linchpin</span></b><span>"So we can coordinate timing with your sale, what's the address in Oceanside?" He dodged this once. If he dodges it twice, stop here. If he gives it, San Diego County records confirm ownership for free in about five minutes.</span></span></label>
+
+      <div class="q" style="cursor:default;background:rgba(0,95,95,.05)"><span style="flex:0 0 20px"></span><span class="txt"><b style="color:var(--teal)">Everything below only matters if he clears the two above</b><span>Do not compile, do not send, do not book a showing before then.</span></span></div>
+
+      <label class="q"><input type="checkbox" data-k="q3"/><span class="txt"><b>Cash or financed</b><span>At $3M to $5M. Is he prepared to provide proof of funds or a lender letter before showings?</span></span></label>
+      <label class="q"><input type="checkbox" data-k="q4"/><span class="txt"><b>Contingency</b><span>Does either Virginia purchase depend on the California sale closing?</span></span></label>
+      <label class="q"><input type="checkbox" data-k="q5"/><span class="txt"><b>Who actually decides</b><span>Is his partner a co-buyer? Exact arrival date? Can showings or the agreement happen before she lands?</span></span></label>
+      <label class="q"><input type="checkbox" data-k="q6"/><span class="txt"><b>Buyer representation agreement</b><span>Virginia requires it in writing before touring. Gauge willingness now, not at the curb.</span></span></label>
+      <label class="q"><input type="checkbox" data-k="q7"/><span class="txt"><b>Falls Church City, or greater Falls Church?</b><span>He said "Falls Church City" but also "as if Falls Church is kind of near Tyson." At this price the two are completely different inventories.</span></span></label>
+      <label class="q"><input type="checkbox" data-k="q8"/><span class="txt"><b>Lane 1 specifics</b><span>Beds, baths, size, builder or style preference.</span></span></label>
+      <label class="q"><input type="checkbox" data-k="q9"/><span class="txt"><b>What "on the water" has to mean</b><span>Frontage, a dock, or just a view? This one word swings Lane 2 by a factor of three.</span></span></label>
+      <label class="q"><input type="checkbox" data-k="q10"/><span class="txt"><b>Agent assignment</b><span>Tell him who is handling what, once you have decided. Aaliyah already put Wendy's name in the air.</span></span></label>
+    </div>
+  </section>
+
+  <section>
+    <h2>Oceanside, California</h2>
+    <p class="sub">Out of scope for MAMS, and it stays off every MAMS surface. Logged here so it does not get lost.</p>
+    <div class="rule"></div>
+    <div class="col" style="border-top:3px solid var(--gold)">
+      <h3>He is interviewing listing agents right now <span class="pill" style="margin-left:6px">referral lane</span></h3>
+      <ul>
+        <li><q>I'm interviewing agents right now for my property in Oceanside, California... on the beach.</q> He asked whether MAMS has California agents. Aaliyah said she would check with her supervisor, so an answer is owed.</li>
+        <li>This is a referral, not a MAMS listing. Outside the licensed market.</li>
+        <li><b>It is also the verification instrument.</b> The address you need for the referral is the same address that proves he is who he says he is. Ask for it once, for a reason he will accept.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Sources: <code>projects/terry-buyer/transcript.md</code> (raw call), <code>projects/terry-buyer/buy-box.md</code> (Fable 5 extraction),
+    <code>shared/outbox-to-pc/2026-07-13-2036-terry-nova-two-lane-buyer.yaml</code> (Perplexity brief, queued).<br/>
+    Every criterion above traces to something Terry said out loud. Nothing here is verified. Internal document, not for distribution.
+  </footer>
+</div>
+
+<script>
+  const boxes = document.querySelectorAll('#script input[type=checkbox]');
+  const KEY = 'terry-call-2026-07-14';
+  let state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { state = {}; }
+  boxes.forEach(b => {
+    if (state[b.dataset.k]) b.checked = true;
+    b.addEventListener('change', () => {
+      state[b.dataset.k] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    });
+  });
+</script>
+</body>
+</html>
