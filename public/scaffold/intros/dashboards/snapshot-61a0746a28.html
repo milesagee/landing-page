@@ -341,9 +341,10 @@
     h += '</div>';
     h += '<p class="kicker">' + esc(lv.momentum) + '</p>';
     h += '<div class="pair">';
-    h += '<div class="pair-card"><div class="pair-tag ag">AG pipeline ahead</div><div class="pair-value">' + money(D.pipeline.ag.weighted) + '</div><div class="pair-sub">' + D.pipeline.ag.deals + ' deals, weighted</div></div>';
+    h += '<div class="pair-card"><div class="pair-tag ag">AG pipeline ahead</div><div class="pair-value">' + money(D.pipeline.ag.weighted) + (D.pipeline.ag.asterisk ? '<span style="color:#D4AF37;font-weight:700">*</span>' : '') + '</div><div class="pair-sub">' + D.pipeline.ag.deals + ' deals, weighted</div></div>';
     h += '<div class="pair-card"><div class="pair-tag mams">MAMS pipeline ahead</div><div class="pair-value">' + money(D.pipeline.mams.weighted) + '</div><div class="pair-sub">' + D.pipeline.mams.deals + ' deals, weighted</div></div>';
     h += '</div>';
+    if (D.pipeline.caveat) { h += '<p class="kicker" style="font-size:13px;font-style:normal;color:rgba(0,63,63,0.6)">' + esc(D.pipeline.caveat) + '</p>'; }
     h += '</section>';
 
     /* ENGINES */

@@ -95,8 +95,12 @@
     ],
     "depositProof": {
       "label": "Every one matches a deposit and a Closing Disclosure",
-      "text": "These are not estimates. Each commission comes off a signed Closing Disclosure (Kane Jeffries, Caplan Law, Rocket Close) and lands as a deposit in the business account, from Long & Foster earlier in the year and Samson Properties now. A couple of additional closings are still being matched on top of these.",
+      "text": "These are not estimates. Each commission comes off a signed Closing Disclosure (Kane Jeffries, Caplan Law, Rocket Close) and lands as a deposit in the business account, from Long & Foster earlier in the year and Samson Properties now. One more sell-side closing — 2101 Summerhood Court, from the Long & Foster stretch — is being matched to its disclosure and deposit right now.",
       "brokerageAch": 96697.87
+    },
+    "decLandDeal": {
+      "label": "Harry Canaday",
+      "note": "2101 Summerhood Court · Seller · Long & Foster closing — commission being matched to the CD"
     }
   },
   "live": {
@@ -122,9 +126,11 @@
     "momentum": "On top of that, more listings are being prepped to hit the market and several buyers are preapproved and actively shopping right now. The weighted pipeline across both businesses:"
   },
   "pipeline": {
+    "caveat": "* The AG figure is a weighted projection across early-stage leads, not committed contracts. It is directional, not money in hand — the honest line is that none have closed yet.",
     "ag": {
       "weighted": 103100,
-      "deals": 43
+      "deals": 43,
+      "asterisk": true
     },
     "mams": {
       "weighted": 76494,
@@ -166,7 +172,7 @@
       "headlineStat": {
         "label": "Weighted pipeline",
         "value": 103100,
-        "sub": "43 in the pipeline, weighted, none closed yet"
+        "sub": "43 leads, weighted projection* — not committed contracts, none closed yet"
       },
       "ads": {
         "channel": "Google",
