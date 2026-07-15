@@ -108,6 +108,15 @@
     border-radius:0 14px 14px 0;font-size:clamp(15px,1.9vw,17px);color:var(--ink);line-height:1.6;max-width:60ch}
   .redirect b{color:var(--teal)}
 
+  /* schools data list */
+  .schgroup{margin-top:32px}
+  .schgroup .gh{font-family:'Inter',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:2px;border-top:1px solid var(--line);padding-top:18px}
+  .schrow{padding:15px 0;border-bottom:1px solid var(--line)}
+  .schrow .snm{font-family:'Fraunces',serif;font-weight:600;font-size:17px;color:var(--teal);line-height:1.28}
+  .schrow .sac{font-size:10.5px;color:var(--muted);font-weight:600;letter-spacing:.06em;margin-top:3px;text-transform:uppercase}
+  .schrow .sd{margin-top:9px;font-size:14px;color:var(--muted);font-weight:500;line-height:1.55}
+  .schrow .sd b{color:var(--gold-deep);font-weight:700}
+
   .quote{margin-top:32px;padding:24px 28px;border-left:3px solid var(--gold);background:rgba(212,175,55,.10);
     border-radius:0 14px 14px 0;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.3vw,23px);line-height:1.45;color:#fff}
   .quote .src{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:12px;color:#a8c2bd;margin-top:13px;letter-spacing:.04em}
@@ -192,30 +201,50 @@
   <div class="inner">
     <div class="eyebrow r">Question two &middot; the school in the room</div>
     <h2 class="r r2">The zoned school is where you start. <em>In Richmond, it is not where you are stuck.</em></h2>
-    <p class="say r r3">The site's zoned elementary is <a href="https://schoolquality.virginia.gov/schools/george-w-carver-elementary" target="_blank" rel="noopener"><b>George W. Carver Elementary</b></a>, and its full state report card is one tap away for any buyer to read. But Richmond runs open enrollment, so a Jackson Place family is <b>not assigned and done</b>. They choose.</p>
+    <p class="say r r3">The zoned elementary is <a href="https://schoolquality.virginia.gov/schools/george-w-carver-elementary" target="_blank" rel="noopener"><b>George W. Carver Elementary</b></a>, and its state scores have climbed three years running: reading from 20 to 34 percent, math from 8 to 30 percent (VDOE, 2022 to 2025). But Richmond runs open enrollment, so a Jackson Place family is <b>not assigned and done</b>. They rank up to three schools outside their zone, plus one more for K to 5, and a lottery places them.</p>
 
-    <div class="cards r r3">
-      <div class="card">
-        <div class="k">3</div>
-        <div class="kt">Out-of-zone schools</div>
-        <div class="kl">Every family ranks up to three RPS schools outside their zone in the Enroll RPS lottery.</div>
+    <div class="schgroup r r3">
+      <div class="gh">What a K to 5 family can rank &middot; 2024-25 pass rates</div>
+      <div class="schrow">
+        <div class="snm">Patrick Henry School of Science and Arts</div>
+        <div class="sac">Guaranteed 4th pick &middot; every K to 5 family</div>
+        <div class="sd">Reading <b>69%</b> &middot; Math <b>56%</b>, up from 16% and 9% in 2022 &middot; GreatSchools 8/10 &middot; Fully Accredited</div>
       </div>
-      <div class="card">
-        <div class="k">+1</div>
-        <div class="kt">Patrick Henry School of Science and Arts</div>
-        <div class="kl">Elementary families get this citywide science and arts school as a fourth pick, on top of the three.</div>
+      <div class="schrow">
+        <div class="snm">Mary Munford Elementary</div>
+        <div class="sac">Open-enrollment pick</div>
+        <div class="sd">Reading <b>91%</b> &middot; Math <b>91%</b> &middot; GreatSchools 10/10 &middot; Gifted and Talented program</div>
       </div>
-      <div class="card">
-        <div class="k">Then</div>
-        <div class="kt">Specialty and Governor's</div>
-        <div class="kl">Franklin Military Academy and the regional Governor's Schools open selective paths as kids move up.</div>
+      <div class="schrow">
+        <div class="snm">William Fox Elementary</div>
+        <div class="sac">Open-enrollment pick</div>
+        <div class="sd">Reading <b>75%</b> &middot; Math <b>74%</b> &middot; GreatSchools 7/10</div>
+      </div>
+      <div class="schrow">
+        <div class="snm">Linwood Holton Elementary</div>
+        <div class="sac">Open-enrollment pick</div>
+        <div class="sd">Reading <b>80%</b> &middot; Math <b>77%</b> &middot; GreatSchools 6/10</div>
+      </div>
+    </div>
+
+    <div class="schgroup r r4">
+      <div class="gh">And as the kids move up</div>
+      <div class="schrow">
+        <div class="snm">Franklin Military Academy</div>
+        <div class="sac">Grades 6 to 12 &middot; application</div>
+        <div class="sd">Reading <b>90%</b> &middot; Math <b>75%</b> &middot; GreatSchools 9/10</div>
+      </div>
+      <div class="schrow">
+        <div class="snm">Maggie L. Walker Governor's School</div>
+        <div class="sac">Grades 9 to 12 &middot; regional admission</div>
+        <div class="sd">Average SAT <b>1345</b> against a 1101 state average &middot; 97.58% of AP exams score 3 or higher</div>
       </div>
     </div>
 
     <div class="redirect r r4">
-      Every school here has a public record: the state test trend, the enrollment, the parent reviews. A buyer reads it and decides. The receipts live at <a href="https://www.niche.com" target="_blank" rel="noopener">Niche.com</a>, <a href="https://www.greatschools.org" target="_blank" rel="noopener">GreatSchools.org</a>, and the <a href="https://schoolquality.virginia.gov" target="_blank" rel="noopener">Virginia School Quality Profiles</a>. We are assembling the Jackson Place pack across these choice options now, so it becomes one tap on this page. <b>The data makes the case. We never have to.</b>
+      Every number here is public and one tap away for any buyer, at the <a href="https://schoolquality.virginia.gov" target="_blank" rel="noopener">Virginia School Quality Profiles</a>, <a href="https://www.greatschools.org" target="_blank" rel="noopener">GreatSchools</a>, and <a href="https://www.niche.com" target="_blank" rel="noopener">Niche</a>. <b>The data makes the case. We never have to.</b>
     </div>
-    <p class="fine r r4">Open enrollment runs annually through <a href="https://www.rvaschools.net/chief-of-staff/enrollrps" target="_blank" rel="noopener">Enroll RPS</a>. Placement is a randomized lottery and transportation is not provided for out-of-zone seats. This describes a public process open to every buyer on identical terms, and buyers should confirm the current zone for any exact address with RPS.</p>
+    <p class="fine r r4">Pass rates are VDOE, 2024-25. Open enrollment runs annually through <a href="https://www.rvaschools.net/chief-of-staff/enrollrps" target="_blank" rel="noopener">Enroll RPS</a>: three out-of-zone picks plus Patrick Henry for K to 5, placed by randomized lottery, no transportation for out-of-zone seats. Buyers should confirm the current zone and seat availability with RPS.</p>
   </div>
 </section>
 
@@ -252,7 +281,7 @@
 
 <footer>
   <div class="rule"></div>
-  <p><b>Schools.</b> The zoned elementary and the open enrollment structure are sourced to Richmond Public Schools: <a href="https://www.rvaschools.net/chief-of-staff/enrollrps/school-applications/openenrollment" target="_blank" rel="noopener">Enroll RPS Open Enrollment</a> ("students may apply to up to three out-of-zone schools" plus the Patrick Henry School of Science and Arts as a fourth elementary option; families are not restricted to their residential zone school; placement by randomized lottery; transportation not provided), <a href="https://www.rvaschools.net/chief-of-staff/enrollrps/school-applications/specialty-schools" target="_blank" rel="noopener">Selective Admission Schools and Programs</a>, and <a href="https://www.rvaschools.net/chief-of-staff/enrollrps/school-applications/governors-schools" target="_blank" rel="noopener">Governor's Schools</a>. Assigned school reference: the <a href="https://schoolquality.virginia.gov/schools/george-w-carver-elementary" target="_blank" rel="noopener">Virginia School Quality Profile for George W. Carver Elementary</a>. Attendance zones change and should be reconfirmed with RPS for any exact address. For school ratings, buyers are directed to Niche.com, GreatSchools.org and the Virginia School Quality Profiles. MAMS characterizes no school.</p>
+  <p><b>Schools, sourced.</b> Zoned assignment for 723 N. 2nd Street was resolved via the RPS School Locator: elementary <a href="https://schoolquality.virginia.gov/schools/george-w-carver-elementary" target="_blank" rel="noopener">George W. Carver</a> (VDOE SOL reading 20/28/34%, math 8/16/30% across 2022-23 to 2024-25), middle Albert Hill, high Thomas Jefferson. Choice-school pass rates are VDOE 2024-25 from the School Quality Profiles: <a href="https://schoolquality.virginia.gov/schools/patrick-henry-school-of-science-and-arts" target="_blank" rel="noopener">Patrick Henry School of Science and Arts</a> (reading 69%, math 56%; up from 16% and 9% in 2022-23), <a href="https://schoolquality.virginia.gov/schools/mary-munford-elementary" target="_blank" rel="noopener">Mary Munford</a> (91%/91%), <a href="https://schoolquality.virginia.gov/schools/william-fox-elementary" target="_blank" rel="noopener">William Fox</a> (75%/74%), <a href="https://schoolquality.virginia.gov/schools/linwood-holton-elementary" target="_blank" rel="noopener">Linwood Holton</a> (80%/77%), <a href="https://schoolquality.virginia.gov/schools/franklin-military-academy" target="_blank" rel="noopener">Franklin Military Academy</a> (90%/75%). Maggie L. Walker figures from the <a href="https://mlwgs.com/wp-content/uploads/2025/10/MLWGS-Profile-2025-2026.pdf" target="_blank" rel="noopener">MLWGS 2025-26 School Profile</a>. GreatSchools and Niche ratings accessed July 2026. Open enrollment mechanics from <a href="https://www.rvaschools.net/chief-of-staff/enrollrps/school-applications/openenrollment" target="_blank" rel="noopener">RPS Open Enrollment</a> and <a href="https://www.rvaschools.net/chief-of-staff/enrollrps/school-applications" target="_blank" rel="noopener">RPS School Applications</a>: up to three out-of-zone picks plus Patrick Henry for K to 5, randomized lottery, no transportation for out-of-zone seats, 2026-27 applications closed January 30, 2026. Attendance zones change and should be reconfirmed with RPS for any exact address. For current ratings, buyers are directed to Niche.com, GreatSchools.org and the Virginia School Quality Profiles. MAMS characterizes no school.</p>
   <p><b>Figures.</b> All credit amounts, merchant costs and builder exposure are modeled from published category gross margins, not quoted by any merchant. Pricing and competitive figures come from the One South Jackson Place analysis. Content metrics are from the Metricool export for June 2025 through June 2026 and are reproducible on request. No business named in the full external version has been contacted and none has committed. This is a proposed cluster and the ask is authorization to go sign it.</p>
   <p><b>Equal Housing Opportunity.</b> Every home at Jackson Place is marketed to all buyers on identical terms, and the package described here would be offered to every buyer identically. This document describes a neighborhood, its history, its businesses and a public school enrollment process available to all.</p>
   <p><b>Miles Agee</b>, Realtor, One South Realty Group, Samson Properties. Lic # 0225249973.</p>
