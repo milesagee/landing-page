@@ -7,16 +7,16 @@
   },
   "snapshot": {
     "eyebrowTop": "The full accounting, summer 2026",
-    "heroHeadline": "Nine homes closed. <em>$96,697.87</em> earned, every dollar verified.",
+    "heroHeadline": "Ten homes closed. <em>$102,472.87</em> earned, every dollar verified.",
     "heroSub": "This page shows your first $9,000 at work, receipt by receipt.",
-    "openingNote": "Mom, Dad, your first $9,000 helped build a real engine. Nine closings since February, every figure pulled off signed documents. This page is the full accounting, the next step, and exactly how you get every dollar back."
+    "openingNote": "Mom, Dad, your first $9,000 helped build a real engine. Ten closings since February, every figure pulled off signed documents. This page is the full accounting, the next step, and exactly how you get every dollar back."
   },
   "closings": {
     "eyebrow": "The returns, matched to a closing",
-    "title": "Nine homes closed, every dollar on a document.",
+    "title": "Ten homes closed, every dollar on a document.",
     "subtitle": "Not a round number. Each of these ties to a signed Closing Disclosure and a matching deposit in the business account. You can check any one of them.",
-    "confirmedTotal": 96697.87,
-    "confirmedCount": 9,
+    "confirmedTotal": 102472.87,
+    "confirmedCount": 10,
     "pendingCount": 0,
     "windowLabel": "Closed Feb to July 2026",
     "deals": [
@@ -91,16 +91,20 @@
         "commission": 10500.0,
         "won": "Jun 2026",
         "status": "closed"
+      },
+      {
+        "client": "Harry Canaday",
+        "address": "2101 Summerhook Court, Glen Allen",
+        "side": "Seller",
+        "commission": 5775,
+        "won": "2026",
+        "status": "closed"
       }
     ],
     "depositProof": {
       "label": "Every one matches a deposit and a Closing Disclosure",
-      "text": "These are not estimates. Each commission comes off a signed Closing Disclosure (Kane Jeffries, Caplan Law, Rocket Close) and lands as a deposit in the business account, from Long & Foster earlier in the year and Samson Properties now. One more sell-side closing — 2101 Summerhood Court, from the Long & Foster stretch — I'm matching it to its disclosure and deposit right now.",
-      "brokerageAch": 96697.87
-    },
-    "decLandDeal": {
-      "label": "Harry Canaday",
-      "note": "2101 Summerhood Court · Seller · Long & Foster closing — commission being matched to the CD"
+      "text": "These are not estimates. Each commission comes off a signed Closing Disclosure (Kane Jeffries, Caplan Law, Rocket Close) and lands as a deposit in the business account, from Long & Foster earlier in the year and Samson Properties now.",
+      "brokerageAch": 102472.87
     }
   },
   "live": {
@@ -115,13 +119,17 @@
       {
         "address": "2374 Hilton Rd, Gate City",
         "status": "On the market"
+      },
+      {
+        "address": "14772 Malloy Ct, Woodbridge",
+        "status": "On the market"
+      },
+      {
+        "address": "2119 Pimmit Dr, Falls Church",
+        "status": "Under contract"
       }
     ],
     "underContract": [
-      {
-        "label": "Buyer, Richmond (Broad Rock / Near West)",
-        "detail": "Under contract, closing target end of July"
-      },
       {
         "label": "Edith Oaks Way",
         "detail": "Buyer-side, 2.5% commission · ~$8,000 est. at close"
@@ -130,7 +138,7 @@
     "momentum": "On top of that, more listings are being prepped to hit the market and several buyers are preapproved and actively shopping right now. The weighted pipeline across both businesses:"
   },
   "pipeline": {
-    "caveat": "* The AG figure is a weighted projection across early-stage leads, not committed contracts. It's directional, not money in hand — none have closed yet.",
+    "caveat": "* The AG figure is a weighted projection across early-stage leads, not committed contracts. It's directional, not money in hand. None have closed yet.",
     "ag": {
       "weighted": 103100,
       "deals": 43,
@@ -146,11 +154,11 @@
     "mams": {
       "name": "MAMS",
       "tag": "The proven engine",
-      "oneLiner": "Licensed real estate, driven by content. This is how the nine closings above found me.",
+      "oneLiner": "Licensed real estate, driven by content. This is how the ten closings above found me.",
       "headlineStat": {
         "label": "Commission closed",
-        "value": 96697.87,
-        "sub": "9 deals on a Closing Disclosure"
+        "value": 102472.87,
+        "sub": "10 deals on a Closing Disclosure"
       },
       "content": {
         "followers": 9405,
@@ -176,7 +184,7 @@
       "headlineStat": {
         "label": "Weighted pipeline",
         "value": 103100,
-        "sub": "43 leads, weighted projection* — not committed contracts, none closed yet"
+        "sub": "43 leads, weighted projection*, not committed contracts, none closed yet"
       },
       "ads": {
         "channel": "Google",
@@ -326,7 +334,7 @@
       "note": "You check the number before you send the next one. It lives on this page and it updates."
     },
     "proof": [
-      "Nine closings, $96,697.87, every dollar off a signed document.",
+      "Ten closings, $102,472.87, every dollar off a signed document.",
       "So the return is not waiting on any one thing to go right.",
       "It is not whether I can make it. It is how we focus and finish it."
     ],
