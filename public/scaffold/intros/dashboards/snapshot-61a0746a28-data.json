@@ -95,7 +95,7 @@
     ],
     "depositProof": {
       "label": "Every one matches a deposit and a Closing Disclosure",
-      "text": "These are not estimates. Each commission comes off a signed Closing Disclosure (Kane Jeffries, Caplan Law, Rocket Close) and lands as a deposit in the business account, from Long & Foster earlier in the year and Samson Properties now. One more sell-side closing — 2101 Summerhood Court, from the Long & Foster stretch — is being matched to its disclosure and deposit right now.",
+      "text": "These are not estimates. Each commission comes off a signed Closing Disclosure (Kane Jeffries, Caplan Law, Rocket Close) and lands as a deposit in the business account, from Long & Foster earlier in the year and Samson Properties now. One more sell-side closing — 2101 Summerhood Court, from the Long & Foster stretch — I'm matching it to its disclosure and deposit right now.",
       "brokerageAch": 96697.87
     },
     "decLandDeal": {
@@ -121,12 +121,16 @@
       {
         "label": "Buyer, Richmond (Broad Rock / Near West)",
         "detail": "Under contract, closing target end of July"
+      },
+      {
+        "label": "Edith Oaks Way",
+        "detail": "Buyer-side, 2.5% commission · ~$8,000 est. at close"
       }
     ],
     "momentum": "On top of that, more listings are being prepped to hit the market and several buyers are preapproved and actively shopping right now. The weighted pipeline across both businesses:"
   },
   "pipeline": {
-    "caveat": "* The AG figure is a weighted projection across early-stage leads, not committed contracts. It is directional, not money in hand — the honest line is that none have closed yet.",
+    "caveat": "* The AG figure is a weighted projection across early-stage leads, not committed contracts. It's directional, not money in hand — none have closed yet.",
     "ag": {
       "weighted": 103100,
       "deals": 43,
@@ -161,7 +165,7 @@
       },
       "ads": {
         "channel": "Meta",
-        "spend": 3010,
+        "spend": 3576.07,
         "leads": 28
       }
     },
@@ -189,7 +193,7 @@
     "note": "Full transparency. Business reinvestment first, then how I have been living. Nothing hidden, including the fun.",
     "reinvestment": {
       "ag": {
-        "total": 23998.63,
+        "total": 24832.39,
         "items": [
           {
             "label": "Retail Max mentorship (Jarvela)",
@@ -212,8 +216,10 @@
             "amount": 695.0
           },
           {
-            "label": "Software",
-            "amount": 366.24
+            "label": "Software (Open Dispo CRM)",
+            "amount": 1200,
+            "approx": true,
+            "detail": "~$300/mo CRM x 4 months"
           }
         ]
       },
