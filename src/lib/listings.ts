@@ -39,6 +39,23 @@ export const listings: Listing[] = [
     angles: ["50 min to DC", "Walk to the VRE", "$166M county tax base"],
     breakdownUrl: "/scaffold/listing-14772-malloy-ct.html",
   },
+  {
+    slug: "2119-pimmit-dr",
+    status: "active",
+    address: "2119 Pimmit Dr",
+    city: "Falls Church",
+    state: "VA",
+    price: 624945,
+    beds: 0,
+    baths: 0,
+    sqft: 884,
+    year: 1953,
+    hero: "/scaffold/dispo-2119-pimmit-pics/pimmit-02.jpg",
+    badge: "Under Contract",
+    hook: "Two miles from Tysons, a quarter acre of Pimmit Hills, priced on the dirt.",
+    angles: ["0.26 acre lot", "Under 2 mi to Tysons", "Inner Fairfax County"],
+    breakdownUrl: "/scaffold/listing-2119-pimmit-dr.html",
+  },
 ];
 
 export const activeListings = () => listings.filter((l) => l.status === "active");
