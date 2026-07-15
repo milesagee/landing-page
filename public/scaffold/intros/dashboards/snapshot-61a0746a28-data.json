@@ -114,11 +114,13 @@
     "activeListings": [
       {
         "address": "97 McCormick Drive, Reedville",
-        "status": "On the market"
+        "status": "On the market",
+        "detail": "Sell-side, 2% commission · ~$4,750 est. at close"
       },
       {
         "address": "2374 Hilton Rd, Gate City",
-        "status": "On the market"
+        "status": "On the market",
+        "detail": "Sell-side, 2% commission · ~$2,090 est. at close"
       },
       {
         "address": "14772 Malloy Ct, Woodbridge",
