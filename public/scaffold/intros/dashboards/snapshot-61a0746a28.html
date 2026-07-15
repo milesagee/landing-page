@@ -333,7 +333,7 @@
     h += '<div class="section-header"><div class="eyebrow">' + esc(lv.eyebrow) + '</div><h2>' + esc(lv.title) + '</h2><p class="section-lede">' + esc(lv.subtitle) + '</p></div>';
     h += '<div class="rows">';
     lv.activeListings.forEach(function (al) {
-      h += '<div class="row"><div class="row-label">' + esc(al.address) + '<span class="deal-addr">MAMS listing</span></div><div class="row-value"><span class="deal-badge seller">' + esc(al.status) + '</span></div></div>';
+      h += '<div class="row"><div class="row-label">' + esc(al.address) + '<span class="deal-addr">' + esc(al.detail || 'MAMS listing') + '</span></div><div class="row-value"><span class="deal-badge seller">' + esc(al.status) + '</span></div></div>';
     });
     lv.underContract.forEach(function (uc) {
       h += '<div class="row"><div class="row-label">' + esc(uc.label) + '<span class="deal-addr">' + esc(uc.detail) + '</span></div><div class="row-value"><span class="deal-badge buyer">Under contract</span></div></div>';

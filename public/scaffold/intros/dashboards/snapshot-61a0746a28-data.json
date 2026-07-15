@@ -122,15 +122,18 @@
       },
       {
         "address": "14772 Malloy Ct, Woodbridge",
-        "status": "On the market"
+        "status": "On the market",
+        "detail": "Sell-side, 2% commission · ~$6,459 est. at close"
       },
       {
         "address": "2119 Pimmit Dr, Falls Church",
-        "status": "Under contract"
+        "status": "Under contract",
+        "detail": "Sell-side, 3% commission · ~$18,525 est. at close"
       },
       {
         "address": "450 Fishel Rd, Winchester",
-        "status": "Under contract"
+        "status": "Under contract",
+        "detail": "Sell-side, 2.5% commission · ~$12,184 est. at close"
       }
     ],
     "underContract": [
