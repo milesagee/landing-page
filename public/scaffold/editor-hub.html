@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>MAMS Editor Room</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --deep-teal: #003F3F; --teal: #005F5F; --teal-light: #80AFAF;
+    --gold: #D4AF37; --gold-soft: #E2CA7A; --gold-dark: #B1922E;
+    --paper: #FAF7F1; --paper-soft: #f3ede1; --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16); --line-strong: rgba(0, 63, 63, 0.30);
+    --green: #2f7d52; --red: #b1462e;
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212,175,55,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,95,95,0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  header.hero { padding: 44px 0 26px; border-bottom: 1px solid var(--line); }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(30px, 5vw, 46px); line-height: 1.04; letter-spacing: -0.025em; margin-bottom: 14px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 15.5px; opacity: 0.8; max-width: 60ch; }
+  .callout { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 20px 24px; margin-top: 22px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .callout::after { content: ''; position: absolute; top: -70px; right: -70px; width: 190px; height: 190px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .callout p { font-family: var(--serif); font-size: 18px; font-weight: 300; line-height: 1.4; position: relative; z-index: 1; }
+  .callout p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  section.block { padding: 34px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.title { font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 3.4vw, 30px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 6px; }
+  h2.title em { color: var(--gold-dark); font-style: italic; }
+  .lede { font-size: 14.5px; opacity: 0.8; max-width: 64ch; margin-bottom: 22px; }
+  .sub-h { font-family: var(--serif); font-size: 17px; font-weight: 500; margin: 22px 0 10px; }
+  .sub-h .k { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 3px; }
+
+  /* hub cards */
+  .hub { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .hub-card { display: flex; flex-direction: column; background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 8px; padding: 18px 18px 16px; box-shadow: var(--shadow-sm); text-decoration: none; color: var(--deep-teal); transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s cubic-bezier(0.16,1,0.3,1); }
+  .hub-card:nth-child(2) { border-top-color: var(--gold); }
+  .hub-card:nth-child(3) { border-top-color: var(--deep-teal); }
+  .hub-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .hub-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .hub-card__tag { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  .hub-card__name { font-family: var(--serif); font-size: 20px; font-weight: 500; margin-bottom: 6px; }
+  .hub-card__desc { font-size: 12.5px; opacity: 0.78; line-height: 1.45; flex: 1; }
+  .hub-card__go { margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-dark); }
+  .hub-card:hover .hub-card__go { color: var(--teal); }
+
+  /* open vs closed compare */
+  .cmp { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .cmp-row { display: grid; grid-template-columns: 1fr 1fr; }
+  .cmp-row.head > div { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 15px; }
+  .cmp-row.head .closed { background: rgba(177,70,46,0.10); color: var(--red); }
+  .cmp-row.head .open { background: rgba(47,125,82,0.12); color: var(--green); }
+  .cmp-row .closed, .cmp-row .open { padding: 12px 15px; font-size: 13px; border-top: 1px solid var(--line); }
+  .cmp-row .closed { background: var(--ivory); border-right: 1px solid var(--line); opacity: 0.72; }
+  .cmp-row .open { background: linear-gradient(180deg, var(--ivory), var(--paper-soft)); font-family: var(--serif); font-style: italic; }
+
+  /* the four beats */
+  .beats { list-style: none; counter-reset: beat; }
+  .beat { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 6px; padding: 13px 16px; margin-bottom: 8px; box-shadow: var(--shadow-sm); }
+  .beat:nth-child(2n) { border-left-color: var(--teal); }
+  .beat__k { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--deep-teal); }
+  .beat__k .t { color: var(--gold-dark); }
+  .beat__d { font-size: 13px; opacity: 0.82; margin-top: 3px; }
+
+  /* editor-owns list */
+  .owns { list-style: none; }
+  .owns li { position: relative; padding-left: 20px; font-size: 13.5px; margin-bottom: 9px; line-height: 1.5; }
+  .owns li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; }
+  .owns li b { color: var(--deep-teal); }
+
+  /* method steps */
+  .method { list-style: none; counter-reset: step; }
+  .method li { position: relative; padding-left: 40px; min-height: 30px; margin-bottom: 14px; font-size: 13.5px; line-height: 1.5; }
+  .method li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: -2px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: var(--deep-teal); color: var(--gold); font-family: var(--serif); font-size: 14px; border-radius: 50%; }
+  .method li b { color: var(--deep-teal); }
+
+  /* copy template block */
+  .tmpl { background: var(--deep-teal); border-radius: 8px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .tmpl::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212,175,55,0.10), transparent 70%); pointer-events: none; }
+  .tmpl__head { display: flex; align-items: center; justify-content: space-between; padding: 11px 16px; border-bottom: 1px solid rgba(212,175,55,0.22); position: relative; z-index: 1; }
+  .tmpl__lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-soft); }
+  .copybtn { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: var(--deep-teal); background: var(--gold); border: none; border-radius: 20px; padding: 6px 14px; cursor: pointer; transition: transform 0.14s cubic-bezier(0.34,1.56,0.64,1), background 0.14s ease; }
+  .copybtn:hover { background: var(--gold-soft); }
+  .copybtn:active { transform: scale(0.94); }
+  .copybtn.ok { background: var(--green); color: var(--ivory); }
+  .tmpl__body { padding: 15px 17px; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12.5px; line-height: 1.7; color: var(--gold-soft); white-space: pre-wrap; position: relative; z-index: 1; }
+  .tmpl__body .fill { color: var(--paper); }
+
+  /* worked examples */
+  .ex { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 8px; padding: 18px 20px; box-shadow: var(--shadow-sm); margin-bottom: 14px; }
+  .ex:nth-child(2n) { border-top-color: var(--gold); }
+  .ex__head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .ex__name { font-family: var(--serif); font-size: 18px; font-weight: 500; }
+  .ex__tag { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); }
+  .ex__row { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 12.5px; }
+  .ex__row:first-of-type { border-top: none; }
+  .ex__b { font-size: 9px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--gold-dark); padding-top: 2px; }
+  .ex__t { line-height: 1.5; }
+  .ex__t b { color: var(--deep-teal); }
+
+  .doc { background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; box-shadow: var(--shadow-sm); font-size: 13.5px; }
+  .doc b { color: var(--deep-teal); }
+  .note { background: rgba(212,175,55,0.10); border: 1px dashed rgba(212,175,55,0.5); border-radius: 8px; padding: 14px 16px; font-size: 13px; margin-top: 14px; }
+  .note b { color: var(--gold-dark); }
+
+  .foot { padding: 30px 0 56px; text-align: center; font-size: 11px; opacity: 0.5; letter-spacing: 0.04em; }
+  .foot em { font-family: var(--serif); font-style: italic; color: var(--gold-dark); }
+
+  /* the machine loop */
+  .machine { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; margin-top: 6px; }
+  .mstep { flex: 1 1 130px; background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 12px 13px; box-shadow: var(--shadow-sm); }
+  .mstep:nth-child(odd) { border-top: 3px solid var(--teal); }
+  .mstep:nth-child(even) { border-top: 3px solid var(--gold); }
+  .mstep__n { font-family: var(--serif); font-size: 12px; color: var(--gold-dark); font-weight: 600; }
+  .mstep__t { font-family: var(--serif); font-size: 15px; font-weight: 500; margin: 3px 0 2px; }
+  .mstep__d { font-size: 11.5px; opacity: 0.72; line-height: 1.4; }
+  .mstep__who { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-top: 6px; }
+
+  /* engagement chips */
+  .chips { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+  .chip-copy { text-align: left; font-family: var(--serif); font-style: italic; font-size: 13.5px; color: var(--deep-teal); background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 6px; padding: 10px 14px; cursor: pointer; box-shadow: var(--shadow-sm); transition: transform 0.14s cubic-bezier(0.34,1.56,0.64,1), border-color 0.14s ease; }
+  .chip-copy:hover { border-color: var(--gold); }
+  .chip-copy:active { transform: scale(0.98); }
+  .chip-copy:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .chip-copy.ok { border-left-color: var(--green); }
+
+  /* end-of-video structure */
+  .struct { display: grid; grid-template-columns: 78px 1fr; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .struct__t { background: var(--deep-teal); color: var(--gold); font-family: var(--serif); font-size: 13px; font-weight: 500; padding: 12px; display: flex; align-items: center; border-top: 1px solid rgba(212,175,55,0.2); }
+  .struct__d { background: var(--ivory); padding: 12px 15px; font-size: 13px; border-top: 1px solid var(--line); line-height: 1.5; }
+  .struct > .struct__t:first-child, .struct > .struct__d:nth-child(2) { border-top: none; }
+  .struct__d b { color: var(--deep-teal); }
+
+  /* knowledge bank */
+  .brain-h { display: flex; align-items: baseline; gap: 10px; margin: 22px 0 4px; flex-wrap: wrap; }
+  .brain-h .n { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--deep-teal); }
+  .brain-h .c { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); }
+  .brain-sub { font-size: 13px; opacity: 0.78; margin-bottom: 12px; max-width: 64ch; }
+  .kb { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .kb-card { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 8px; padding: 14px 15px; box-shadow: var(--shadow-sm); }
+  .kb-card:nth-child(even) { border-top-color: var(--gold); }
+  .kb-card__t { font-family: var(--serif); font-size: 15.5px; font-weight: 500; line-height: 1.2; margin-bottom: 5px; }
+  .kb-card__th { font-size: 12.5px; opacity: 0.82; line-height: 1.5; margin-bottom: 8px; }
+  .kb-card__tac { list-style: none; margin-bottom: 8px; }
+  .kb-card__tac li { position: relative; padding-left: 15px; font-size: 12px; line-height: 1.45; margin-bottom: 4px; }
+  .kb-card__tac li::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+  .kb-card__src { font-size: 9.5px; letter-spacing: 0.03em; color: var(--teal); opacity: 0.8; font-style: italic; }
+
+  /* metrics snapshot */
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+  .stat { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 14px 15px; box-shadow: var(--shadow-sm); text-align: center; }
+  .stat__v { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--deep-teal); line-height: 1; }
+  .stat__v em { color: var(--gold-dark); font-style: normal; }
+  .stat__l { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-dark); margin-top: 7px; }
+  .stat__s { font-size: 11px; opacity: 0.7; margin-top: 3px; line-height: 1.35; }
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0 16px; }
+  .tier { border: 1px solid var(--line); border-radius: 8px; padding: 12px 13px; box-shadow: var(--shadow-sm); background: var(--ivory); }
+  .tier__r { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--deep-teal); }
+  .tier__l { font-size: 11px; opacity: 0.75; margin-top: 2px; line-height: 1.4; }
+  .tier.gold { border-top: 3px solid var(--gold); }
+  .tier.teal { border-top: 3px solid var(--teal); }
+  .tier.deep { border-top: 3px solid var(--deep-teal); }
+  .proof { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .proof__row { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 10px 14px; border-top: 1px solid var(--line); font-size: 12.5px; align-items: center; background: var(--ivory); }
+  .proof__row:first-child { border-top: none; background: var(--paper-soft); font-weight: 600; }
+  .proof__t { line-height: 1.4; }
+  .proof__t b { color: var(--deep-teal); }
+  .proof__m { font-family: var(--serif); font-size: 14px; font-weight: 600; color: var(--gold-dark); white-space: nowrap; }
+
+  /* pay / incentive */
+  .ramp { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0 14px; }
+  .rung { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 13px; text-align: center; box-shadow: var(--shadow-sm); }
+  .rung__w { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+  .rung__v { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--deep-teal); margin-top: 4px; }
+  .rung.now { border-top: 3px solid var(--gold); }
+
+  /* link button */
+  .linkbtn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--deep-teal); font-weight: 700; font-size: 13px; text-decoration: none; padding: 11px 20px; border-radius: 24px; box-shadow: var(--shadow-md); transition: transform 0.16s cubic-bezier(0.34,1.56,0.64,1), background 0.16s ease; margin-top: 6px; }
+  .linkbtn:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .linkbtn:active { transform: scale(0.97); }
+  .linkbtn:focus-visible { outline: 2px solid var(--deep-teal); outline-offset: 3px; }
+
+  /* toast */
+  #toast { position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(20px); opacity: 0; background: var(--deep-teal); color: var(--paper); font-size: 13px; font-weight: 600; padding: 10px 20px; border-radius: 30px; box-shadow: 0 10px 26px -10px rgba(0,63,63,0.6); transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1); pointer-events: none; z-index: 99; }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 18px; }
+    .hub { grid-template-columns: 1fr; }
+    .ex__row { grid-template-columns: 78px 1fr; gap: 10px; }
+    .machine { flex-direction: column; }
+    .kb { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: 1fr; }
+    .tiers { grid-template-columns: 1fr; }
+    .ramp { grid-template-columns: 1fr; }
+    .struct { grid-template-columns: 64px 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <div class="hero__eyebrow">MAMS &middot; Content Machine</div>
+    <h1 class="hero__title">Everything you need to <em>cut like Miles.</em></h1>
+    <p class="hero__sub">One place for the two of you. Your rules, your assignment, and the live idea deck. The philosophy the brand runs on, the knowledge bank behind the hooks, the numbers your cuts actually hit, and what all of it pays.</p>
+    <div class="callout">
+      <p>Anyone can stack pretty shots. The edit that keeps a thumb off the scroll opens a question and makes them wait for it. <em>That is the whole job.</em></p>
+    </div>
+  </header>
+
+  <!-- THE MACHINE -->
+  <section class="block">
+    <div class="eyebrow">Why Any Of This Matters</div>
+    <h2 class="title">You are one link in <em>a machine.</em></h2>
+    <p class="lede">This is not "make some videos." It is a loop, and every turn of it feeds the next. The tighter you cut, the harder the loop spins, and the loop is what pays everybody. Here is the whole thing on one line.</p>
+    <div class="machine">
+      <div class="mstep"><div class="mstep__n">01</div><div class="mstep__t">Miles shoots</div><div class="mstep__d">Raw footage lands in the shared Drive folder.</div><div class="mstep__who">Miles</div></div>
+      <div class="mstep"><div class="mstep__n">02</div><div class="mstep__t">You cut</div><div class="mstep__d">Loop-structured edits, clean captions, beat-locked pacing.</div><div class="mstep__who">You</div></div>
+      <div class="mstep"><div class="mstep__n">03</div><div class="mstep__t">It posts</div><div class="mstep__d">Short-form daily, long-form YouTube for depth.</div><div class="mstep__who">Machine</div></div>
+      <div class="mstep"><div class="mstep__n">04</div><div class="mstep__t">It performs</div><div class="mstep__d">Reach, shares, saves. You watch it live on Metricool.</div><div class="mstep__who">Metricool</div></div>
+      <div class="mstep"><div class="mstep__n">05</div><div class="mstep__t">It converts</div><div class="mstep__d">Attention becomes guide leads, buyers, and closings.</div><div class="mstep__who">Funnel</div></div>
+      <div class="mstep"><div class="mstep__n">06</div><div class="mstep__t">Everyone eats</div><div class="mstep__d">More output, more quality, more shoots, more for you.</div><div class="mstep__who">All of us</div></div>
+    </div>
+    <div class="note"><b>The flywheel we said out loud.</b> The better your cuts perform, the more Miles shoots, which gives you more to cut, which means more for you. That is the deal. See how it pays at the bottom of this page.</div>
+  </section>
+
+  <!-- HUB -->
+  <section class="block">
+    <div class="eyebrow">Your Three Rooms</div>
+    <h2 class="title">Start here, <em>every time.</em></h2>
+    <p class="lede">Three pages, one purpose each. Keep the Playbook open while you cut, work the assignment from Draft Week, and pull live angles from the Content Deck.</p>
+    <div class="hub">
+      <a class="hub-card" href="editor-playbook.html">
+        <div class="hub-card__tag">Reference</div>
+        <div class="hub-card__name">Playbook</div>
+        <div class="hub-card__desc">Voice and the hard rules. On-screen text bank, the four hooks, the Richmond cheat sheet. Keep it open while you cut.</div>
+        <div class="hub-card__go">Open the rules &rarr;</div>
+      </a>
+      <a class="hub-card" href="editor-draftweek.html">
+        <div class="hub-card__tag">Assignment</div>
+        <div class="hub-card__name">Draft Week</div>
+        <div class="hub-card__desc">Six pieces in seven days. The footage folder, exactly how you are scored, and where to send the drafts.</div>
+        <div class="hub-card__go">See the brief &rarr;</div>
+      </a>
+      <a class="hub-card" href="content-deck.html">
+        <div class="hub-card__tag">Ideas</div>
+        <div class="hub-card__name">Content Deck</div>
+        <div class="hub-card__desc">Live idea batches on your phone. Tap any block to copy. Every post shows a real loop map you can study.</div>
+        <div class="hub-card__go">Pull an angle &rarr;</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- OPEN LOOP -->
+  <section class="block">
+    <div class="eyebrow">The Open Loop</div>
+    <h2 class="title">How a hook <em>actually holds.</em></h2>
+    <p class="lede">This is the engine under every piece we make. Learn it once and you will see it in every cut. It is the difference between a video people finish and a video people scroll.</p>
+    <div class="callout">
+      <p>An open loop raises a question the viewer needs answered. A closed statement hands them a conclusion they can take and leave. <em>Open buys the watch. Closed loses it.</em></p>
+    </div>
+
+    <div class="sub-h"><span class="k">The test, run it on every hook</span>Open vs closed</div>
+    <p class="lede" style="margin-bottom:14px;">After the first line, does the viewer have a complete takeaway, or an unanswered question? Complete takeaway means it is closed. Rewrite it until they have to stay for the answer.</p>
+    <div class="cmp">
+      <div class="cmp-row head"><div class="closed">Closed &middot; they scroll</div><div class="open">Open &middot; they stay</div></div>
+      <div class="cmp-row"><div class="closed">This wallet sucks.</div><div class="open">You won't believe what this wallet did for me.</div></div>
+      <div class="cmp-row"><div class="closed">Richmond has a good food scene.</div><div class="open">You can't name three cities our size with a better food scene.</div></div>
+      <div class="cmp-row"><div class="closed">The James River is nice.</div><div class="open">The most wrong thing people believe about Richmond is this river.</div></div>
+    </div>
+
+    <div class="sub-h"><span class="k">The shape you will see in every loop map</span>The four beats</div>
+    <ol class="beats">
+      <li class="beat"><div class="beat__k"><span class="t">Hook loop</span> &middot; 0 to 2s</div><div class="beat__d">Open the core question. Topic still crystal clear in the first second. Withhold the payoff. If the hook is closed, nothing after it matters.</div></li>
+      <li class="beat"><div class="beat__k"><span class="t">Retention loop</span> &middot; ~15 to 20s</div><div class="beat__d">Open a second question before the first one closes. This is what buys the middle of the video and stops the sag.</div></li>
+      <li class="beat"><div class="beat__k"><span class="t">Payoff</span></div><div class="beat__d">Close the loops in the order you opened them. Land each one on a concrete number, name, or detail. An unpaid loop reads as bait and kills trust.</div></li>
+      <li class="beat"><div class="beat__k"><span class="t">Close</span></div><div class="beat__d">Guide in bio, plus one engagement question pointed at the comments. The question is its own tiny loop.</div></li>
+    </ol>
+
+    <div class="sub-h"><span class="k">The words are the script. The loop is the cut.</span>Where you own it</div>
+    <ul class="owns">
+      <li><b>The first frame is the hook loop.</b> Pick the frame that opens the question, not the prettiest one. You have 1.5 seconds.</li>
+      <li><b>Caption timing opens the question.</b> The burned-in line that raises Q1 goes up first, beat-timed. Never let it land after the answer.</li>
+      <li><b>Hold the reveal.</b> Do not cut to the payoff early. The number or the named spot lands when the voiceover says it, not before.</li>
+      <li><b>Sequence protects the middle.</b> The retention beat has to land before the hook pays off. Resolve the first question too fast and the middle sags.</li>
+      <li><b>Never drop a loop you opened.</b> If the footage teases something, the cut has to deliver it. That is the trust that keeps them on the next video.</li>
+    </ul>
+    <div class="doc" style="margin-top:18px;"><b>One name, a few aliases.</b> We call it the <b>open loop</b>. In the Content Deck you will see the same thing labeled <b>Loop map</b>, and you will hear <b>retention loop</b> or <b>open-loop practice</b>. Same mechanic every time. Do not let the different names confuse you.</div>
+  </section>
+
+  <!-- END OF EVERY VIDEO -->
+  <section class="block">
+    <div class="eyebrow">The Landing</div>
+    <h2 class="title">How every video <em>ends.</em></h2>
+    <p class="lede">Miles builds every piece toward the same close. This is the time structure that is working, and the exact question bank he pulls the ending from. Get the last few seconds right and the comments do the rest of the work.</p>
+
+    <div class="sub-h"><span class="k">The shape that is working right now</span>Synopsis, facts, then the ask</div>
+    <div class="struct">
+      <div class="struct__t">0 to 8s</div>
+      <div class="struct__d"><b>Quick synopsis.</b> Open the loop. Say what this is and raise the question in one breath. Topic crystal clear in the first second.</div>
+      <div class="struct__t">~30s</div>
+      <div class="struct__d"><b>The facts.</b> Deliver the value. Keep a second loop alive so the middle does not sag. Every claim lands on a real number or a named place.</div>
+      <div class="struct__t">Last 20 to 30s</div>
+      <div class="struct__d"><b>The call to action.</b> Close the loops in order. The guide is in the bio. Then one engagement question pointed straight at the comments.</div>
+    </div>
+
+    <div class="sub-h"><span class="k">Tap any one to copy it into the caption or the end card</span>The engagement-question bank</div>
+    <p class="lede" style="margin-bottom:12px;">This is the real bank Miles pulls from (from the Daily Post Bank). The close is a tiny loop of its own. Pick the one that fits the piece, drop it on screen at the end and in the caption.</p>
+    <div class="chips">
+      <button class="chip-copy" onclick="copyChip(this)">What's the most Richmond sentence you can say that would confuse everyone else?</button>
+      <button class="chip-copy" onclick="copyChip(this)">What's a Richmond opinion that has you fighting in the comments, but you know you're right?</button>
+      <button class="chip-copy" onclick="copyChip(this)">Finish this sentence: you know you're in Richmond when ______</button>
+      <button class="chip-copy" onclick="copyChip(this)">Richmond does ______ better than any city our size. Fill in the blank.</button>
+      <button class="chip-copy" onclick="copyChip(this)">What's the Richmond experience that made you fall in love with the city?</button>
+      <button class="chip-copy" onclick="copyChip(this)">Which Richmond neighborhood has the most main character energy, and why?</button>
+      <button class="chip-copy" onclick="copyChip(this)">What Richmond thing do people sleep on that's going to blow up in 5 years?</button>
+      <button class="chip-copy" onclick="copyChip(this)">If you could show someone ONE spot to explain Richmond's vibe, where?</button>
+    </div>
+  </section>
+
+  <!-- KNOWLEDGE BANK -->
+  <section class="block">
+    <div class="eyebrow">The Knowledge Bank</div>
+    <h2 class="title">The brain behind <em>the hooks.</em></h2>
+    <p class="lede">Everything the brand does traces back to a handful of ideas Miles studied and kept. This is that library, distilled. You do not have to read the transcripts. Read these cards, and you will understand why a cut is built the way it is.</p>
+
+    <div class="brain-h"><span class="n">Content and Storytelling Brain</span><span class="c">9 cards</span></div>
+    <p class="brain-sub">Hooks, retention, and why polarity works. This is the why under every edit you make.</p>
+    <div class="kb">
+      <div class="kb-card"><div class="kb-card__t">Content Is Science</div><div class="kb-card__th">A video is a stack of interchangeable chapters (hook, story, stat, steps). Judge the chapter, not the whole video. Keep winners, cut losers, rebuild one strong piece from proven parts.</div><ul class="kb-card__tac"><li>Name each chapter, then read comments to see which one hit.</li><li>Kill outright flops. Find the commonality across your winners.</li><li>Collapse three okay videos into one great one from the working parts.</li></ul><div class="kb-card__src">Briana Cochran, content is science</div></div>
+      <div class="kb-card"><div class="kb-card__t">The View Ladder</div><div class="kb-card__th">Each view tier is unlocked by a different skill, not more effort. The wall most creators die on is bad ideation, not bad hooks.</div><ul class="kb-card__tac"><li>Stuck under 2K: fix the idea first. It is the number one skill.</li><li>3K to 10K: find the exact subjects your audience wants from you.</li><li>Diagnose the real bottleneck before rewriting another hook.</li></ul><div class="kb-card__src">How to climb the view ladder</div></div>
+      <div class="kb-card"><div class="kb-card__t">The Negative Hook</div><div class="kb-card__th">Open with a bold, slightly negative statement that challenges the viewer, from a place of love. A confident pattern interrupt makes ears perk up where a pleasant opener gets scrolled.</div><ul class="kb-card__tac"><li>Swap "the easy way to X" for "you're not getting X because you skip this."</li><li>Lead with tension, not insults. No cursing needed.</li><li>Challenge a belief the viewer holds, then resolve it.</li></ul><div class="kb-card__src">The negative hook</div></div>
+      <div class="kb-card"><div class="kb-card__t">Three Hook Elements</div><div class="kb-card__th">A hook underperforms if it lacks tension, specificity, or pattern disruption. Tension earns the lean-in, specificity makes them feel seen, disruption makes it look different from the last 25 in the feed.</div><ul class="kb-card__tac"><li>Be concrete in the first line. A named place signals "this is for you."</li><li>Design a visual break: bold opening line, on-screen text, slow zoom.</li><li>Audit every hook against all three before you cut.</li></ul><div class="kb-card__src">A great hook is non-negotiable</div></div>
+      <div class="kb-card"><div class="kb-card__t">Cult Brand: The Common Enemy</div><div class="kb-card__th">Every cult following forms around a common enemy. Tell people what to stand against, not just what you stand for. That polarity is the movement.</div><ul class="kb-card__tac"><li>The enemy here is mediocrity: agents who do not know Richmond.</li><li>Say the thing most believe but are afraid to voice.</li><li>Accept being disliked by some to be loved by the right ones.</li></ul><div class="kb-card__src">Dark psychology for a cult following</div></div>
+      <div class="kb-card"><div class="kb-card__t">Five Levels of Counter-Positioning</div><div class="kb-card__th">Differentiation is survival. Counter-position across five independent levers, and stack them to dominate a niche instead of blending in.</div><ul class="kb-card__tac"><li>Pillars: real estate plus technology and the arts plus Richmond culture.</li><li>Format and delivery: do what the niche is not doing.</li><li>Credibility: lead with a unique angle, never a title.</li></ul><div class="kb-card__src">5 levels of differentiation</div></div>
+      <div class="kb-card"><div class="kb-card__t">Hooks Masterclass: Four Horsemen</div><div class="kb-card__th">A hook needs topic clarity and on-target curiosity. It flops from four fixable mistakes: delay, confusion, irrelevance, and disinterest.</div><ul class="kb-card__tac"><li>Delay: lead with the topic in 1 to 2 seconds. Speed to value.</li><li>Irrelevance: frame with "you/your," not "I/me."</li><li>Disinterest: open a curiosity loop with contrast, A versus B.</li></ul><div class="kb-card__src">Kallaway hooks masterclass</div></div>
+      <div class="kb-card"><div class="kb-card__t">Elite Communicators: 4 Beats</div><div class="kb-card__th">Hook, Explain, Illustrate, Apply. The backbone that turns rambling into content that lands. This is the exact rhythm the MAMS brand runs on.</div><ul class="kb-card__tac"><li>Hook (3s), Explain like a fifth grader (5 to 8s).</li><li>Illustrate (20 to 30s) with a story or stat. This is the sauce.</li><li>Apply: a step, an acronym, or a ratio they can use now.</li></ul><div class="kb-card__src">Framework of elite communicators</div></div>
+      <div class="kb-card"><div class="kb-card__t">Storytelling: First-Person Spiral</div><div class="kb-card__th">Viral story videos run a repeatable shape: mundane sensory open, a reckless yes, escalating complications, a snap twist. A self-aware everyman narrator keeps the loop open the whole way.</div><ul class="kb-card__tac"><li>Open in an ordinary moment with concrete sensory detail.</li><li>Use real dialogue and named details, not summary.</li><li>Plant a detail early, pay it off as the twist. This is the cinematic lane.</li></ul><div class="kb-card__src">Storytelling masterclass</div></div>
+    </div>
+
+    <div class="brain-h"><span class="n">Advertising Brain</span><span class="c">3 cards</span></div>
+    <p class="brain-sub">How the paid layer works as Miles turns Meta ads back on. The through-line: consolidate, do not split. This is context, the ad build is Miles's lane, not yours.</p>
+    <div class="kb">
+      <div class="kb-card"><div class="kb-card__t">Death of the Multi-Campaign Funnel</div><div class="kb-card__th">The old top, middle, bottom funnel is obsolete. Collapse it into one campaign, one adset, cold plus warm together, loaded with diverse ads. Meta sequences the awareness stages itself.</div><ul class="kb-card__tac"><li>Stock one adset with problem, solution, and product-aware creatives.</li><li>Do not kill the low-ROAS ad Meta keeps funding. It is the top funnel.</li><li>Turn off ads Meta is NOT spending on, not the worst-ROAS ones.</li></ul><div class="kb-card__src">A better way to advertise in 2026</div></div>
+      <div class="kb-card"><div class="kb-card__t">Consolidate Into One Adset</div><div class="kb-card__th">Custom audiences are only suggestions now, so warm and cold overlap. Consolidate to the fewest campaigns and adsets so conversion data concentrates and Meta exits learning fast.</div><ul class="kb-card__tac"><li>One campaign, one adset. 70 conversions beats 7 each across ten.</li><li>Test locations only. Never test interests or lookalikes.</li><li>Run 20-plus varied ads per adset. Meta handles it.</li></ul><div class="kb-card__src">Best ad structure for 2026</div></div>
+      <div class="kb-card"><div class="kb-card__t">Realtor Lead Machine</div><div class="kb-card__th">Instant-form lead ads with conditional-logic qualification train Meta to deliver only qualified leads, backed by aggressive speed-to-lead and omnipresent retargeting. Most agents skip qualification and drown in junk.</div><ul class="kb-card__tac"><li>Optimize for Leads, Special Housing Category ON, 15-mile radius.</li><li>Qualify in the form. Mark "just browsing" as disqualify.</li><li>Speed to lead: text first, then double-dial within 5 minutes.</li></ul><div class="kb-card__src">Facebook ads for real estate agents</div></div>
+    </div>
+    <div class="note"><b>Want the full version?</b> Every card here is the short read. The complete distilled bank, with all the tactics, lives in the repo at <b>references/mams-content-philosophy/knowledge-bank-index.md</b>. Ask Miles if you want a deeper cut.</div>
+  </section>
+
+  <!-- GIVE-BACK -->
+  <section class="block">
+    <div class="eyebrow">Turn Source Into An Idea</div>
+    <h2 class="title">How to hand an idea <em>back to me.</em></h2>
+    <p class="lede">When you spot a great angle in the footage or a transcript, do not just say "here is an idea." Run it through these four questions, then fill the template so I can see the loop at a glance.</p>
+    <ol class="method">
+      <li><b>Find the claim or moment.</b> One line a viewer would argue with or want proof of. The rest of the piece hangs off it.</li>
+      <li><b>What question does it raise?</b> If there is no question, it is closed. Rewrite it until a viewer has to stay for the answer.</li>
+      <li><b>What is the payoff, and can you hold it?</b> Name the number, spot, or reveal that closes it. If you can't hold it 15 seconds, it is not a loop yet.</li>
+      <li><b>Name the archetype.</b> Contrast, smart-operator proof, Courage Arc, origin story, or problem to curiosity. One per idea. It decides where the loops go.</li>
+    </ol>
+    <div class="tmpl">
+      <div class="tmpl__head"><span class="tmpl__lbl">Hand-back template</span><button class="copybtn" onclick="copyTmpl(this)">Copy</button></div>
+      <div class="tmpl__body" id="tmpl-text">ANGLE: <span class="fill">one line</span>
+ARCHETYPE: <span class="fill">contrast / smart-operator / courage arc / origin / problem to curiosity</span>
+HOOK LOOP (0-2s): <span class="fill">opens Q1</span>
+RETENTION LOOP (~15s): <span class="fill">opens Q2 before Q1 closes</span>
+PAYOFF: <span class="fill">closes both, in the order opened</span>
+CLOSE: <span class="fill">guide in bio + one engagement question</span>
+WHY IT HITS: <span class="fill">which proven pattern it echoes</span></div>
+    </div>
+  </section>
+
+  <!-- WORKED EXAMPLES -->
+  <section class="block">
+    <div class="eyebrow">Worked Examples</div>
+    <h2 class="title">Two real ones, <em>beat by beat.</em></h2>
+    <p class="lede">Both of these already shipped from the Content Deck. Read how each beat maps to the cut, then go find the same shape in the footage you are given.</p>
+
+    <div class="ex">
+      <div class="ex__head"><span class="ex__name">The James River myth</span><span class="ex__tag">Contrast &middot; myth-bust</span></div>
+      <div class="ex__row"><div class="ex__b">Hook</div><div class="ex__t"><b>"The most wrong thing people believe about Richmond is behind me, and one number proves them wrong."</b> Two loops at once: what is the belief, and what is the number.</div></div>
+      <div class="ex__row"><div class="ex__b">Retention</div><div class="ex__t">"Where do you go first? Depends what you want." A second question opens before the first closes.</div></div>
+      <div class="ex__row"><div class="ex__b">Payoff</div><div class="ex__t">Drop the number first (5ft safe line, 3.5ft now, 83 degrees), then resolve the second loop (Pony Pasture vs Belle Isle).</div></div>
+      <div class="ex__row"><div class="ex__b">Your cut</div><div class="ex__t">Do not show the river gauge until he says the number. Hold that reveal. The "you can't get in the James" caption goes up in the first 1.5 seconds.</div></div>
+    </div>
+
+    <div class="ex">
+      <div class="ex__head"><span class="ex__name">The 93-acre tell</span><span class="ex__tag">Smart-operator proof</span></div>
+      <div class="ex__row"><div class="ex__b">Hook</div><div class="ex__t"><b>"There's a 93-acre hole getting dug next to 95 and it should change where you buy."</b> Raises: what hole, and why does it matter to me.</div></div>
+      <div class="ex__row"><div class="ex__b">Retention</div><div class="ex__t">"The pattern that doesn't miss" is teased before it is named. Keeps them for the mechanism.</div></div>
+      <div class="ex__row"><div class="ex__b">Payoff</div><div class="ex__t">Name the site (old Best Products HQ), then reveal the pattern (capital first, cranes, then prices) with the Scott's Addition proof.</div></div>
+      <div class="ex__row"><div class="ex__b">Your cut</div><div class="ex__t">Save the site reveal for the payoff. If you cut to the rendering early, the hook loop closes and the middle has nothing to hold.</div></div>
+    </div>
+
+    <div class="note"><b>The source transcripts landed.</b> The thinking behind every one of these cuts is now in the Knowledge Bank above. Read a card, then come back here and watch how the beat maps to the edit. Raw words to a loop-structured pitch, both in one place.</div>
+  </section>
+
+  <!-- METRICOOL -->
+  <section class="block">
+    <div class="eyebrow">See Your Cuts Perform</div>
+    <h2 class="title">The scoreboard is <em>live.</em></h2>
+    <p class="lede">You do not cut into a void. Every piece you make gets measured, and you get to watch it happen. Miles is giving you both access to his Metricool, the same dashboard he reads. Your job is distribution: reach and shares. Here is the bar.</p>
+
+    <a class="linkbtn" href="https://app.metricool.com/evolution/youtube?blogId=4535882&userId=3546254" target="_blank" rel="noopener">Open the Metricool dashboard &rarr;</a>
+    <div class="note" style="margin-top:14px;"><b>Getting you added.</b> Miles adds each of you as a user on his Metricool brand so you see reach, shares, and saves per post without a password swap. Ask him to send the invite to the email you use for the shared Drive.</div>
+
+    <div class="sub-h"><span class="k">This is the median reel. Beat it.</span>Your baseline bar</div>
+    <div class="metrics">
+      <div class="stat"><div class="stat__v">2,639</div><div class="stat__l">Reach</div><div class="stat__s">median reel, the bar to clear</div></div>
+      <div class="stat"><div class="stat__v">14</div><div class="stat__l">Shares</div><div class="stat__s">distribution, the number that matters most</div></div>
+      <div class="stat"><div class="stat__v">8</div><div class="stat__l">Saves</div><div class="stat__s">intent, someone planning a move</div></div>
+    </div>
+
+    <div class="sub-h"><span class="k">A breakout is 25K plus reach. That is the target.</span>The tiers</div>
+    <div class="tiers">
+      <div class="tier teal"><div class="tier__r">Base load</div><div class="tier__l">TYSK series, 2 to 3K reach. Daily consistency, keeps the brand in front of people.</div></div>
+      <div class="tier gold"><div class="tier__r">Breakout</div><div class="tier__l">Authority and Comparison, 16K median reach. Six times the median. This is the leverage.</div></div>
+      <div class="tier deep"><div class="tier__r">Intent</div><div class="tier__l">Lifestyle, highest saves. The planning-a-move signal that drives the bio click.</div></div>
+    </div>
+
+    <div class="sub-h"><span class="k">Real ceilings, from real posts</span>What a great cut can do</div>
+    <div class="proof">
+      <div class="proof__row"><div class="proof__t">The proof, top reels by distribution</div><div class="proof__m">Reach / Shares</div></div>
+      <div class="proof__row"><div class="proof__t"><b>"Richmond 2025 = Austin 1995"</b><br>Authority / Comparison</div><div class="proof__m">117,620 / 8,608</div></div>
+      <div class="proof__row"><div class="proof__t"><b>"People are going to be upset about this"</b><br>Polarity</div><div class="proof__m">128,460 / 4,660</div></div>
+      <div class="proof__row"><div class="proof__t"><b>"Things you should know before moving to Richmond"</b><br>TYSK series</div><div class="proof__m">91,260 / 1,603</div></div>
+    </div>
+    <div class="note" style="margin-top:14px;"><b>What you are scored on.</b> Distribution and consistency, the levers you control. Not closings. A great cut of an Authority hook is worth dozens of safe ones. Chase the share.</div>
+  </section>
+
+  <!-- WHAT THIS PAYS -->
+  <section class="block">
+    <div class="eyebrow">What This Pays</div>
+    <h2 class="title">The deal, <em>in the open.</em></h2>
+    <p class="lede">No mystery here. There is a base that ramps as you prove the bar, a bonus for the cuts that break out, and a north star we are building toward together. The better the machine runs, the bigger every piece of this gets.</p>
+
+    <div class="sub-h"><span class="k">Clear the bar, step up. It is bar cleared, not time served.</span>The base ramp</div>
+    <div class="ramp">
+      <div class="rung"><div class="rung__w">Weeks 1 to 4</div><div class="rung__v">$500</div></div>
+      <div class="rung"><div class="rung__w">Weeks 5 to 8</div><div class="rung__v">$750</div></div>
+      <div class="rung now"><div class="rung__w">Week 9 plus</div><div class="rung__v">$1,000</div></div>
+    </div>
+
+    <ul class="owns">
+      <li><b>Breakout bonus.</b> Every reel that clears 25,000 reach earns 25 to 50 dollars, up to about 300 a month. You control this by chasing the share, not the like.</li>
+      <li><b>The gate is the scorecard.</b> Stepping up a tier means hitting the KPI bar: cadence at quality, median reach at or above baseline and trending up, at least two breakouts a month.</li>
+    </ul>
+
+    <div class="callout" style="margin-top:20px;">
+      <p>The north star we said out loud: as this grows into a real revenue engine, there is room for <em>a share of the deals the content drives.</em> That is where we are headed. The base and the bonus are what pays now. The share is what we build toward, together.</p>
+    </div>
+    <div class="note"><b>Straight talk on the share.</b> Content to a closing is a long, multi-factor chain, and today only a sliver of leads are even tagged to it. So the pay you can count on is the base plus the breakout bonus. The deal share is a real goal, not a promise on this page. We plug the funnel first, then it becomes something we can put a number on.</div>
+  </section>
+
+  <footer class="foot">
+    Built for the MAMS editor room &middot; <em>Miles Agee</em> &middot; MAMS LLC
+  </footer>
+
+</div>
+
+<div id="toast">Copied</div>
+
+<script>
+  function toast() {
+    var t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); }, 1100);
+  }
+  function doCopy(text) {
+    if (window.isSecureContext && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  }
+  function copyTmpl(btn) {
+    var body = document.getElementById('tmpl-text');
+    doCopy(body.innerText);
+    btn.classList.add('ok'); btn.textContent = 'Copied';
+    toast();
+    setTimeout(function () { btn.classList.remove('ok'); btn.textContent = 'Copy'; }, 1200);
+  }
+  function copyChip(btn) {
+    doCopy(btn.innerText);
+    btn.classList.add('ok');
+    toast();
+    setTimeout(function () { btn.classList.remove('ok'); }, 1000);
+  }
+</script>
+</body>
+</html>
