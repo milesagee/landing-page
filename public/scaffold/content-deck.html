@@ -50,6 +50,16 @@
   .field-head .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);}
   .copytext{padding:12px;font-size:15px;color:var(--deep-teal);white-space:pre-wrap;word-wrap:break-word;}
   .copytext.mono{font-size:14px;}
+  /* Action beats: read at a glance, on a phone, standing at the property. Monospace
+     makes the MARK/FRAME/MOVE/CUE gutter a real column. Each line is its own block
+     so text-indent gives a TRUE hanging indent (text-indent only ever applies to the
+     first line of a block, so a single pre-wrap blob cannot hang every line).
+     Wrapped text lands under the content, never back in the token column.
+     The container drops back to white-space:normal: it inherits pre-wrap from
+     .copytext, which would otherwise render the markup indentation between the
+     child divs as real text. Only the lines themselves keep pre-wrap. */
+  .copytext.beats{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.55;white-space:normal;}
+  .copytext.beats .bl{white-space:pre-wrap;padding-left:7ch;text-indent:-7ch;}
 
   /* Copy button */
   .copybtn{
@@ -85,6 +95,466 @@
     <div class="hint">Tap any block to copy.<br>On-screen chips copy one at a time.</div>
   </header>
 
+  <div class="batch" id="batch-coming-soon-2026-07-16">
+    <div class="batch-head">
+      <span class="chip">Coming Soon · Authority</span>
+      <h1>Two Listings, One Afternoon</h1>
+      <div class="meta">Batch 2026-07-16 · 6 posts · Authority / Comparison · relocator lens · exteriors only · 2407 Farrand + 3901 Cedar Grove</div>
+    </div>
+
+    <!-- ============ POST 1 ============ -->
+    <div class="post">
+      <div class="post-top"><span class="num">1</span><h2>The Fan Lot Option</h2></div>
+      <div class="tags-row"><span class="pill">Authority / Comparison</span><span class="pill">2407 Farrand Dr, Henrico</span><span class="pill">~55s</span><span class="pill">shoot at the lot, street edge into the rear</span></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Loop map</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">LOOP 1 opens at 0:02: what will you misread about this 1.3 acres from the street?
+LOOP 2 opens at 0:18: can this lot work with Henrico's public split rules?
+LOOP 1 closes at 0:34: the lot is a fan, 73 ft up front and 244 ft in back, and the narrow front hides the wide back.
+LOOP 2 closes at 0:44: the fan against the by-right gates equals a potential two-lot administrative subdivision, subject to buyer verification.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Yellow bar</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">This lot is a fan. Look again.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Action beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext beats">
+          <div class="bl">HOOK · 3-5s</div>
+          <div class="bl">MARK   Street edge, narrow end. Lot opening out behind you.</div>
+          <div class="bl">FRAME  Selfie, arm's length, chest-up. Fan visible over right shoulder.</div>
+          <div class="bl">MOVE   Plant. Say the whole hook before you move.</div>
+          <div class="bl">CUE    in "You're seeing 1.3" / out "everyone does"</div>
+          <div class="bl"> </div>
+          <div class="bl">EXPLAIN · 10-15s</div>
+          <div class="bl">MOVE   Count the three gates on your fingers.</div>
+          <div class="bl">CUE    in "Start with Henrico's" / out "with me"</div>
+          <div class="bl"> </div>
+          <div class="bl">ILLUSTRATE · 10-20s</div>
+          <div class="bl">MARK   Mid lot walking line, side boundaries spreading behind you.</div>
+          <div class="bl">FRAME  Selfie, chest-up. Both side lines stay visible.</div>
+          <div class="bl">MOVE   Walk backward into the lot as it widens.</div>
+          <div class="bl">CUE    in "This lot is" / out "a wide back"</div>
+          <div class="bl"> </div>
+          <div class="bl">APPLY · 5-10s</div>
+          <div class="bl">MARK   Deep in the lot, wide rear spread behind you.</div>
+          <div class="bl">FRAME  Selfie, arm's length. Full rear width in frame.</div>
+          <div class="bl">MOVE   Plant for the close.</div>
+          <div class="bl">CUE    in "Put the fan" / out "in my bio"</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Script (spoken)</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">You're seeing 1.3 acres under $325,000. And from the street, you'll misread it. Almost everyone does. Start with Henrico's split rules. They're public. Each lot needs 50 feet of street frontage. 65 feet of width at the setback line. And 8,000 square feet outside the flood zone. Plat review is ministerial. 45 days. So can this lot work with that? You can't answer from the road. Walk it with me. This lot is a fan. 73 feet wide at the street. 138 feet at the setback line. 200 feet back, it's 244 feet across. That's the misread. The narrow front hides a wide back. Put the fan against those gates. Potential two-lot administrative subdivision, subject to buyer verification. An option, not a promise. Most agents write 1.31 acres and stop. I pulled the county GIS before this listed. 2407 Farrand Drive, coming soon in Henrico. The relocation guide is in my bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">On-screen text</span><span class="lbl" style="color:var(--gold)">tap each</span></div>
+        <div class="chips">
+          <button class="chip-copy" onclick="copyChip(this)">73 ft wide at the street</button>
+          <button class="chip-copy" onclick="copyChip(this)">138 ft wide at the setback line</button>
+          <button class="chip-copy" onclick="copyChip(this)">244 ft across, 200 ft back</button>
+          <button class="chip-copy" onclick="copyChip(this)">Gate 1: 50 ft frontage per lot</button>
+          <button class="chip-copy" onclick="copyChip(this)">Gate 2: 65 ft at the setback</button>
+          <button class="chip-copy" onclick="copyChip(this)">Gate 3: 8,000 sf outside flood zone</button>
+          <button class="chip-copy" onclick="copyChip(this)">Plat review is ministerial, 45 days</button>
+          <button class="chip-copy" onclick="copyChip(this)">Option, not a promise. Verify everything.</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">IG caption</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">You'd scroll past 1.3 acres under $325K assuming there's a catch. There's a shape instead. 73 ft at the street. 138 ft at the setback line. 244 ft across in the back. Henrico's by-right split gates are public: 50 ft of frontage per lot, 65 ft of width at the setback, 8,000 sf outside the flood zone, and plat review is ministerial at 45 days. That combination is why I pulled the county GIS before this ever listed. Most agents write the acreage and stop. Potential two-lot administrative subdivision, subject to buyer verification. An option, not a promise. Moving to Richmond and want land rules explained like this before you tour anything? The guide is in my bio. Miles Agee, licensed VA Realtor, OneSouth Realty team, brokered by Samson Properties. 2407 Farrand Dr, Henrico. Coming soon.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Hashtags</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">#RichmondVA #MovingToRichmond #HenricoCounty #RVArealestate #LandUse #ComingSoon</div>
+      </div>
+    </div>
+
+    <!-- ============ POST 2 ============ -->
+    <div class="post">
+      <div class="post-top"><span class="num">2</span><h2>A Third of It Floods</h2></div>
+      <div class="tags-row"><span class="pill">Authority / Comparison</span><span class="pill">2407 Farrand Dr, Henrico</span><span class="pill">~50s</span><span class="pill">shoot at the rear usable line, creek behind</span></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Loop map</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">LOOP 1 opens at 0:02: why is the listing side telling you the flaw first?
+LOOP 2 opens at 0:19: how much of the 1.3 acres can you actually use?
+LOOP 1 closes at 0:34: he knew from county GIS before it listed, and a tradeoff named up front is proof of homework.
+LOOP 2 closes at 0:48: the front 137 ft, roughly 20,000 sq ft, with the 1,251 sq ft Cape Cod on it.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Yellow bar</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">A third of this lot floods</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Action beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext beats">
+          <div class="bl">HOOK · 3-5s</div>
+          <div class="bl">MARK   Rear of the usable ground, creek tree line behind you.</div>
+          <div class="bl">FRAME  Selfie, arm's length, chest-up. Tree line stays in frame.</div>
+          <div class="bl">MOVE   Plant. Say the whole hook before you move.</div>
+          <div class="bl">CUE    in "A third of" / out "On purpose"</div>
+          <div class="bl"> </div>
+          <div class="bl">EXPLAIN · 10-15s</div>
+          <div class="bl">MOVE   Point back at the creek on "running the rear."</div>
+          <div class="bl">CUE    in "Here are the" / out "Hold that question"</div>
+          <div class="bl"> </div>
+          <div class="bl">ILLUSTRATE · 10-20s</div>
+          <div class="bl">MARK   Walking line from the creek buffer toward the house.</div>
+          <div class="bl">FRAME  Selfie, chest-up. House growing over your shoulder.</div>
+          <div class="bl">MOVE   Walk toward the street while you talk.</div>
+          <div class="bl">CUE    in "First, why say" / out "proof of homework"</div>
+          <div class="bl"> </div>
+          <div class="bl">APPLY · 5-10s</div>
+          <div class="bl">MARK   Front usable ground, Cape Cod square behind you.</div>
+          <div class="bl">FRAME  Selfie, arm's length. New siding in frame.</div>
+          <div class="bl">MOVE   Plant for the answer and the close.</div>
+          <div class="bl">CUE    in "Now the answer" / out "in my bio"</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Script (spoken)</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">A third of this lot floods. And you're hearing that from the listing side. On purpose. Here are the real numbers. The parcel is 1.309 acres. 30.6 percent is floodplain. 17,428 square feet. There's a creek running the rear. Virginia adds a buffer around that creek. A 100 foot Resource Protection Area. It reaches about 137 feet back from the street. So how much can you actually use? Hold that question. First, why say the flaw out loud? Because I knew it before this listed. It's on the county GIS for anyone who looks. A tradeoff named up front is proof of homework. Now the answer. The usable land is the front 137 feet. Roughly 20,000 square feet. Nearly half an acre of workable ground. With a 1,251 square foot Cape Cod on it. $324,945, coming soon. 2407 Farrand Drive, Henrico. The relocation guide is in my bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">On-screen text</span><span class="lbl" style="color:var(--gold)">tap each</span></div>
+        <div class="chips">
+          <button class="chip-copy" onclick="copyChip(this)">30.6% floodplain, 17,428 sq ft</button>
+          <button class="chip-copy" onclick="copyChip(this)">A creek runs the rear</button>
+          <button class="chip-copy" onclick="copyChip(this)">100 ft Resource Protection Area buffer</button>
+          <button class="chip-copy" onclick="copyChip(this)">Buffer reaches about 137 ft back</button>
+          <button class="chip-copy" onclick="copyChip(this)">Usable: front 137 ft, about 20,000 sf</button>
+          <button class="chip-copy" onclick="copyChip(this)">1,251 sq ft Cape Cod, new siding</button>
+          <button class="chip-copy" onclick="copyChip(this)">Pulled from Henrico GIS before listing</button>
+          <button class="chip-copy" onclick="copyChip(this)">List price $324,945, coming soon</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">IG caption</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">You've been trained to expect the listing side to hide the bad part. So here's the bad part first. 30.6% of this 1.309 acre parcel is floodplain, 17,428 sq ft, with a creek across the rear and a 100 ft Resource Protection Area buffer reaching about 137 ft back from the street. All of it was sitting on Henrico GIS before this listed, and I checked. What's left is the front 137 ft, roughly 20,000 sq ft of workable ground, with a 1,251 sq ft Cape Cod on it at $324,945. A tradeoff named out loud is proof of homework, not a red flag. If you want Richmond explained with the uncomfortable parts included, the guide is in my bio. Miles Agee, licensed VA Realtor, OneSouth Realty team, brokered by Samson Properties. 2407 Farrand Dr, Henrico. Coming soon.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Hashtags</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">#RichmondVA #MovingToRichmond #HenricoCounty #RVArealestate #Floodplain #ComingSoon</div>
+      </div>
+    </div>
+
+    <!-- ============ POST 3 ============ -->
+    <div class="post">
+      <div class="post-top"><span class="num">3</span><h2>Is This Price Real</h2></div>
+      <div class="tags-row"><span class="pill">Authority / Comparison</span><span class="pill">2407 Farrand Dr, Henrico</span><span class="pill">~55s</span><span class="pill">shoot at the curb, street view down Farrand</span></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Loop map</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">LOOP 1 opens at 0:02: what does $325K actually buy here compared to the metro you're leaving?
+LOOP 2 opens at 0:16: is $324,945 a real price or a trap?
+LOOP 1 closes at 0:35: a 1942 Cape Cod on 1.3 acres, with the floodplain tradeoff named out loud.
+LOOP 2 closes at 0:50: three sold comps on the same street, a raw-lot sale, and the county assessment ground the number.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Yellow bar</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">1.3 acres. Is the price real?</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Action beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext beats">
+          <div class="bl">HOOK · 3-5s</div>
+          <div class="bl">MARK   Curb at the front lot line, house over shoulder.</div>
+          <div class="bl">FRAME  Selfie, arm's length, chest-up. Cape Cod in frame.</div>
+          <div class="bl">MOVE   Plant. Deliver the whole hook first.</div>
+          <div class="bl">CUE    in "In the metro" / out "on 1.3 acres"</div>
+          <div class="bl"> </div>
+          <div class="bl">EXPLAIN · 10-15s</div>
+          <div class="bl">MOVE   Turn toward the house on "1942 Cape Cod."</div>
+          <div class="bl">CUE    in "And that gap" / out "Chef's kitchen"</div>
+          <div class="bl"> </div>
+          <div class="bl">ILLUSTRATE · 10-20s</div>
+          <div class="bl">MARK   Angled to face down Farrand, street running behind you.</div>
+          <div class="bl">FRAME  Selfie, wider arm. Long street stays in frame.</div>
+          <div class="bl">MOVE   Point down the street at each sold address.</div>
+          <div class="bl">CUE    in "And one honest" / out "for 2026"</div>
+          <div class="bl"> </div>
+          <div class="bl">APPLY · 5-10s</div>
+          <div class="bl">MARK   Square back to the house.</div>
+          <div class="bl">FRAME  Selfie, chest-up.</div>
+          <div class="bl">MOVE   Plant for the close.</div>
+          <div class="bl">CUE    in "The price is" / out "in my bio"</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Script (spoken)</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">In the metro you're leaving, $325,000 might not buy a driveway. In Henrico, that's the coming soon price on 1.3 acres. And that gap breaks a newcomer's instincts. You'll either trust it too fast or doubt it too hard. So let's do both jobs. What do you actually get? And is $324,945 real or a trap? Hold the second one. First, what you get. A 1942 Cape Cod. 1,251 square feet. New siding. Chef's kitchen. And one honest note. 30.6 percent of the lot is floodplain. I said that before you asked. That's the full picture. Now the price. Check the street, not my word. 2323 Farrand sold for $366,000. 2317 sold for $330,000. 2406 sold for $315,000. And 2707 sold for $200,000 on 0.4 acres. That one's the land signal. The county assessed this at $311,300 for 2026. The price is grounded. 2407 Farrand Drive, Henrico. Coming soon. The relocation guide is in my bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">On-screen text</span><span class="lbl" style="color:var(--gold)">tap each</span></div>
+        <div class="chips">
+          <button class="chip-copy" onclick="copyChip(this)">List price $324,945 on 1.309 acres</button>
+          <button class="chip-copy" onclick="copyChip(this)">2323 Farrand sold for $366,000</button>
+          <button class="chip-copy" onclick="copyChip(this)">2317 Farrand sold for $330,000</button>
+          <button class="chip-copy" onclick="copyChip(this)">2406 Farrand sold for $315,000</button>
+          <button class="chip-copy" onclick="copyChip(this)">2707 Farrand: $200,000 on 0.4 acres</button>
+          <button class="chip-copy" onclick="copyChip(this)">County assessed $311,300 for 2026</button>
+          <button class="chip-copy" onclick="copyChip(this)">30.6% floodplain, named up front</button>
+          <button class="chip-copy" onclick="copyChip(this)">Coming soon, not on the MLS yet</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">IG caption</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Where you're coming from, $325K might not cover a lot line. In Henrico it's the coming soon price on 1.309 acres with a 1942 Cape Cod, new siding, and a chef's kitchen. Don't take the number from me. Take it from the street. 2323 Farrand sold for $366K, 2317 for $330K, 2406 for $315K, and 2707 went for $200K on just 0.4 acres. The county's 2026 assessment sits at $311,300. And yes, 30.6% of the lot is floodplain. You heard that from the listing side first, which is the whole point. Relocating and want your price instincts recalibrated before you tour anything? The guide is in my bio. Miles Agee, licensed VA Realtor, OneSouth Realty team, brokered by Samson Properties. 2407 Farrand Dr, Henrico. Coming soon.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Hashtags</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">#RichmondVA #MovingToRichmond #HenricoCounty #RVArealestate #HousingMarket #RelocationTips</div>
+      </div>
+    </div>
+
+    <!-- ============ POST 4 ============ -->
+    <div class="post">
+      <div class="post-top"><span class="num">4</span><h2>Canopy Eats Your Paint</h2></div>
+      <div class="tags-row"><span class="pill">Authority / Comparison</span><span class="pill">3901 Cedar Grove Rd, Huguenot</span><span class="pill">~55s</span><span class="pill">shoot under the front yard canopy</span></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Loop map</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">LOOP 1 opens at 0:02: Why will Richmond's tree canopy eat your paint?
+LOOP 2 opens at 0:20: What color actually survives a lot like this?
+LOOP 1 closes at 0:35: Filtered canopy light strips the warmth out of color, so the rule is LRV 64 or higher. Under 64, the canopy wins.
+LOOP 2 closes at 0:48: Shoji White, LRV 74. The visual reveal stays open on purpose and pays off in the interior clip.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Yellow bar</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Richmond trees decide your paint color</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Action beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext beats">
+          <div class="bl">HOOK · 3-5s</div>
+          <div class="bl">MARK   Front yard, under the canopy. House behind you.</div>
+          <div class="bl">FRAME  Selfie, arm's length, chest-up. Leaf shade dappling your face.</div>
+          <div class="bl">MOVE   Plant. Whole hook before you move.</div>
+          <div class="bl">CUE    in "Richmond's tree canopy" / out "Not a metaphor"</div>
+          <div class="bl"> </div>
+          <div class="bl">EXPLAIN · 10-15s</div>
+          <div class="bl">MARK   Same spot. Tree trunks over your left shoulder.</div>
+          <div class="bl">FRAME  Selfie, chest-up. Keep the trunks in frame.</div>
+          <div class="bl">MOVE   Point straight up on "Those leaves filter."</div>
+          <div class="bl">CUE    in "I'm at a" / out "hits the wall"</div>
+          <div class="bl"> </div>
+          <div class="bl">ILLUSTRATE · 10-20s</div>
+          <div class="bl">MARK   Front walk. Siding and shade line at your back.</div>
+          <div class="bl">FRAME  Rear cam, low and level. Siding and shade in frame.</div>
+          <div class="bl">MOVE   Walk the shade line slow, phone steady.</div>
+          <div class="bl">CUE    in "Filtered light strips" / out "the canopy wins"</div>
+          <div class="bl"> </div>
+          <div class="bl">APPLY · 5-10s</div>
+          <div class="bl">MARK   Front steps. Closed front door behind you.</div>
+          <div class="bl">FRAME  Selfie, chest-up. Door fills the background.</div>
+          <div class="bl">MOVE   Thumb over your shoulder on "inside."</div>
+          <div class="bl">CUE    in "So the paint" / out "in my bio"</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Script (spoken)</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Richmond's tree canopy will eat your paint. Not a metaphor. I'm at a house I'm putting up in Huguenot. Coming soon, not on the market yet. The lot is almost half an acre. Covered in mature trees. Those leaves filter sunlight before it ever hits the wall. Filtered light strips the warmth out of color. The gray you loved in your last house reads blue here. Cold blue. So what survives a lot like this? I spec paint by a number. LRV. Light Reflectance Value. Zero is black. A hundred is pure white. On this lot, whole house color stays at LRV 64 or higher. Under 64, the canopy wins. So the paint inside this house isn't gray. It's Shoji White, LRV 74. You'll see why when I take you inside. That clip is coming. Moving to Richmond? The guide is in my bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">On-screen text</span><span class="lbl" style="color:var(--gold)">tap each</span></div>
+        <div class="chips">
+          <button class="chip-copy" onclick="copyChip(this)">Tree canopy filters light before it lands</button>
+          <button class="chip-copy" onclick="copyChip(this)">Filtered light strips warmth from color</button>
+          <button class="chip-copy" onclick="copyChip(this)">Your old gray reads blue here</button>
+          <button class="chip-copy" onclick="copyChip(this)">LRV runs 0 black to 100 white</button>
+          <button class="chip-copy" onclick="copyChip(this)">This lot's rule: LRV 64 or higher</button>
+          <button class="chip-copy" onclick="copyChip(this)">Walls: Shoji White SW 7042, LRV 74</button>
+          <button class="chip-copy" onclick="copyChip(this)">Coming soon in Huguenot, not listed yet</button>
+          <button class="chip-copy" onclick="copyChip(this)">Interior reveal drops in the next clip</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">IG caption</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">You loved that gray in your last house. Richmond's tree canopy has other plans. This lot in Huguenot sits under mature trees, so sunlight gets filtered before it ever touches a wall. Filtered light strips the warmth out of color, which is why I spec paint by Light Reflectance Value before a house ever lists. On this lot the floor is LRV 64. The walls got Shoji White at 74. Most agents point a camera at a kitchen. I'd rather teach you how the light works here first. If Richmond is on your list, the relocation guide is in my bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Hashtags</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">#MovingToRichmond #RichmondVA #RVA #HuguenotRichmond #RichmondRealtor #RelocatingToVirginia</div>
+      </div>
+    </div>
+
+    <!-- ============ POST 5 ============ -->
+    <div class="post">
+      <div class="post-top"><span class="num">5</span><h2>Repose Gray Failed Here</h2></div>
+      <div class="tags-row"><span class="pill">Authority / Comparison</span><span class="pill">3901 Cedar Grove Rd, Huguenot</span><span class="pill">~58s</span><span class="pill">shoot under the biggest front yard tree</span></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Loop map</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">LOOP 1 opens at 0:02: Why did a favorite gray fail a test at this exact house?
+LOOP 2 opens at 0:20: How do you avoid the same trap at your own place?
+LOOP 1 closes at 0:36: The canopy filters sunlight, filtered light strips warm undertones, and Repose Gray turned blue and cold under these trees.
+LOOP 2 closes at 0:50: Test every sample outside under your own trees and keep LRV at 64 or higher on shaded lots.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Yellow bar</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">The gray that fails under Richmond trees</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Action beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext beats">
+          <div class="bl">HOOK · 3-5s</div>
+          <div class="bl">MARK   Street edge, front yard. House under trees behind you.</div>
+          <div class="bl">FRAME  Selfie, arm's length, chest-up. Trees framing both shoulders.</div>
+          <div class="bl">MOVE   Plant. Say the whole hook first.</div>
+          <div class="bl">CUE    in "Your favorite gray" / out "this exact house"</div>
+          <div class="bl"> </div>
+          <div class="bl">EXPLAIN · 10-15s, HOLD</div>
+          <div class="bl">CUE    in "I'm prepping a" / out "it got rejected"</div>
+          <div class="bl"> </div>
+          <div class="bl">ILLUSTRATE · 10-20s</div>
+          <div class="bl">MARK   Under the biggest tree, front yard.</div>
+          <div class="bl">FRAME  Selfie, arm high. Canopy visible above your head.</div>
+          <div class="bl">MOVE   Point straight up on "Look up."</div>
+          <div class="bl">CUE    in "And if you're" / out "under open sky"</div>
+          <div class="bl"> </div>
+          <div class="bl">APPLY · 5-10s</div>
+          <div class="bl">MARK   Front corner of the house. Siding behind you.</div>
+          <div class="bl">FRAME  Selfie, chest-up. Siding fills the background.</div>
+          <div class="bl">MOVE   Press a flat palm to the siding on "sample."</div>
+          <div class="bl">CUE    in "Here's the fix" / out "in my bio"</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Script (spoken)</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Your favorite gray just failed a test in Richmond. At this exact house. I'm prepping a house in Huguenot. Coming soon, targeting late July. Median list price here is 550 thousand. Median days on market, 33. For this house, I tested Repose Gray. People love that color in brighter metros. Here, it got rejected. And if you're moving here, you'll face the same trap. So how do you paint anything in this city? First, the why. Look up. This canopy filters sunlight before it lands. Filtered light strips warm undertones. Repose Gray turned blue and cold under these trees. Same paint that reads soft and warm under open sky. Here's the fix. Never trust the chip indoors. Hold every sample outside, under your actual trees. Then check the LRV on the label. On shaded lots like this one, I keep it at 64 or higher. That's the floor. Moving to Richmond? The guide is in my bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">On-screen text</span><span class="lbl" style="color:var(--gold)">tap each</span></div>
+        <div class="chips">
+          <button class="chip-copy" onclick="copyChip(this)">Huguenot median list price is $550,000</button>
+          <button class="chip-copy" onclick="copyChip(this)">Median days on market here: 33</button>
+          <button class="chip-copy" onclick="copyChip(this)">Repose Gray SW 7015: tested, rejected</button>
+          <button class="chip-copy" onclick="copyChip(this)">Reads blue and cold under canopy light</button>
+          <button class="chip-copy" onclick="copyChip(this)">Warm under open sky, cold under trees</button>
+          <button class="chip-copy" onclick="copyChip(this)">Test every sample under your own trees</button>
+          <button class="chip-copy" onclick="copyChip(this)">Keep LRV at 64 or higher here</button>
+          <button class="chip-copy" onclick="copyChip(this)">Coming soon, targeting late July</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">IG caption</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Your favorite gray might not survive a Richmond lot. I tested Repose Gray at a house I'm prepping in Huguenot, where the median list price is $550,000 and homes sit a median of 33 days. Under this canopy it read blue and cold, so it got cut. The same paint reads soft and warm under open sky. That's the trap for anyone moving here from a brighter metro. Plenty of agents will hand you a paint chip. I'll hand you the light math instead. If Richmond is on your list, the guide is in my bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Hashtags</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">#MovingToRichmond #RichmondVA #RVArealestate #PaintColors #HuguenotRichmond #RichmondRealtor</div>
+      </div>
+    </div>
+
+    <!-- ============ POST 6 ============ -->
+    <div class="post">
+      <div class="post-top"><span class="num">6</span><h2>Champagne Bronze Wins the Shade</h2></div>
+      <div class="tags-row"><span class="pill">Authority / Comparison</span><span class="pill">3901 Cedar Grove Rd, Huguenot</span><span class="pill">~58s</span><span class="pill">shoot at the driveway shade line</span></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Loop map</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">LOOP 1 opens at 0:02: Why does dark bronze hardware die in Richmond shade?
+LOOP 2 opens at 0:18: The finish that won also saved real money. How much?
+LOOP 1 closes at 0:33: Filtered canopy light swallows dark finishes. Champagne bronze bounces the light back, shown live with the pull in hand.
+LOOP 2 closes at 0:48: Specced at $688.57, shopped down to about $507.86.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Yellow bar</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Hardware finish follows the light here</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Action beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext beats">
+          <div class="bl">HOOK · 3-5s</div>
+          <div class="bl">MARK   Driveway, deep shade. Canopy and house behind you.</div>
+          <div class="bl">FRAME  Selfie, arm's length, chest-up. Shade across your face.</div>
+          <div class="bl">MOVE   Plant. Full hook before anything moves.</div>
+          <div class="bl">CUE    in "Your dark bronze" / out "in dollars"</div>
+          <div class="bl"> </div>
+          <div class="bl">EXPLAIN · 10-15s</div>
+          <div class="bl">MARK   Walk line, driveway toward the front door.</div>
+          <div class="bl">FRAME  Selfie, chest-up. House rising over your shoulder.</div>
+          <div class="bl">MOVE   Walk slow toward the house while listing cuts.</div>
+          <div class="bl">CUE    in "I'm prepping a" / out "Stay with me"</div>
+          <div class="bl"> </div>
+          <div class="bl">ILLUSTRATE · 10-20s</div>
+          <div class="bl">MARK   Edge of the shade line. Sun patch beside you.</div>
+          <div class="bl">FRAME  Selfie, tight. Room to raise the pull beside your face.</div>
+          <div class="bl">MOVE   Raise the champagne pull into the light on "Watch."</div>
+          <div class="bl">CUE    in "First, the why" / out "about 507.86"</div>
+          <div class="bl"> </div>
+          <div class="bl">APPLY · 5-10s</div>
+          <div class="bl">MARK   Front door. Hardware side of the door behind you.</div>
+          <div class="bl">FRAME  Selfie, chest-up. Door fills the background.</div>
+          <div class="bl">MOVE   Tap the door once on "inside."</div>
+          <div class="bl">CUE    in "No corners cut" / out "in my bio"</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Script (spoken)</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Your dark bronze hardware dies in Richmond shade. Here's the proof, in dollars. I'm prepping a house in Huguenot. Coming soon, not on the market yet. Oil rubbed bronze got cut from this house. Venetian bronze, cut. Antique bronze, dark bronze, cut. The finish that won also saved real money. How much? Stay with me. First, the why. This lot sits under mature trees. The canopy filters light before it reaches the house. Low, filtered light swallows dark finishes. They read like shadows on the wall. Champagne bronze bounces that light back. I brought a pull with me. Watch it catch even this shade. Now the money. Pulls, 6.52 each. Knobs, 2.44. Sixteen pulls, twelve knobs, one fixture per room. Specced at 688.57. Shopped down to about 507.86. No corners cut. Just patience and light math. You'll see it all when I take you inside. Moving to Richmond? The guide is in my bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">On-screen text</span><span class="lbl" style="color:var(--gold)">tap each</span></div>
+        <div class="chips">
+          <button class="chip-copy" onclick="copyChip(this)">Oil rubbed bronze: cut from this house</button>
+          <button class="chip-copy" onclick="copyChip(this)">Venetian, antique, dark bronze: all cut</button>
+          <button class="chip-copy" onclick="copyChip(this)">Filtered light swallows dark hardware finishes</button>
+          <button class="chip-copy" onclick="copyChip(this)">Champagne bronze bounces the light back</button>
+          <button class="chip-copy" onclick="copyChip(this)">Pulls $6.52 each, knobs $2.44 each</button>
+          <button class="chip-copy" onclick="copyChip(this)">Sixteen pulls, twelve knobs, one fixture each</button>
+          <button class="chip-copy" onclick="copyChip(this)">Specced at $688.57, shopped to $507.86</button>
+          <button class="chip-copy" onclick="copyChip(this)">Full hardware reveal when we go inside</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">IG caption</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">You're pricing hardware for your next place. Here's what Richmond shade does to that list. On a tree shaded lot in Huguenot, filtered light swallows dark finishes, so oil rubbed bronze, Venetian bronze, antique bronze, and dark bronze all got cut from a house I'm putting up. Champagne bronze bounces that light back. Pulls at $6.52, knobs at $2.44, a full spec at $688.57 shopped down to about $507.86. Most agents never think about finish and light in the same sentence. If Richmond is on your list, the guide is in my bio.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Hashtags</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">#MovingToRichmond #RichmondVA #RVAhomes #HomePrep #HuguenotRichmond #RichmondRealtor</div>
+      </div>
+    </div>
+  </div>
   <div class="batch">
     <div class="batch-head">
       <span class="chip">Things You Should Know Before Moving to Richmond</span>
