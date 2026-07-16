@@ -19,7 +19,7 @@
     --serif: 'Fraunces', 'Times New Roman', serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   }
-  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
   body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212,175,55,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,95,95,0.08), transparent 60%); pointer-events: none; z-index: 0; }
   .container { max-width: 860px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
@@ -117,6 +117,16 @@
   .foot { padding: 30px 0 56px; text-align: center; font-size: 11px; opacity: 0.5; letter-spacing: 0.04em; }
   .foot em { font-family: var(--serif); font-style: italic; color: var(--gold-dark); }
 
+  /* sticky section nav */
+  html { scroll-behavior: smooth; }
+  .nav { position: sticky; top: 0; z-index: 50; width: 100vw; margin-left: calc(50% - 50vw); background: rgba(0,63,63,0.97); box-shadow: 0 4px 18px rgba(0,63,63,0.18); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .nav__in { max-width: 860px; margin: 0 auto; display: flex; gap: 2px; padding: 0 12px; overflow-x: auto; scrollbar-width: none; }
+  .nav__in::-webkit-scrollbar { display: none; }
+  .nav a { flex: 0 0 auto; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper); text-decoration: none; padding: 13px 13px; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.16s ease, border-color 0.16s ease; }
+  .nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .nav a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+  section.block[id] { scroll-margin-top: 54px; }
+
   /* the machine loop */
   .machine { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; margin-top: 6px; }
   .mstep { flex: 1 1 130px; background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 12px 13px; box-shadow: var(--shadow-sm); }
@@ -212,35 +222,46 @@
 <div class="container">
 
   <header class="hero">
-    <div class="hero__eyebrow">MAMS &middot; Content Machine</div>
-    <h1 class="hero__title">Everything you need to <em>cut like Miles.</em></h1>
-    <p class="hero__sub">One place for the two of you. Your rules, your assignment, and the live idea deck. The philosophy the brand runs on, the knowledge bank behind the hooks, the numbers your cuts actually hit, and what all of it pays.</p>
+    <div class="hero__eyebrow">MAMS &middot; The Content Machine</div>
+    <h1 class="hero__title">I shoot it. You run <em>the rest.</em></h1>
+    <p class="hero__sub">The whole machine in one place. I shoot. From there it is yours. You cut, you post, you watch the numbers, you learn the ads. Not just the edit. The performance. When it performs, everyone eats.</p>
     <div class="callout">
-      <p>Anyone can stack pretty shots. The edit that keeps a thumb off the scroll opens a question and makes them wait for it. <em>That is the whole job.</em></p>
+      <p>Cutting is where it starts, not where it ends. You run the whole loop now: the cut, the post, the numbers, the ads. <em>The better it performs, the more we all make.</em></p>
     </div>
   </header>
 
+  <nav class="nav" aria-label="Jump to section">
+    <div class="nav__in">
+      <a href="#machine">Machine</a>
+      <a href="#loop">Loop</a>
+      <a href="#close">Close</a>
+      <a href="#knowledge">Knowledge</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#pay">Pay</a>
+    </div>
+  </nav>
+
   <!-- THE MACHINE -->
-  <section class="block">
+  <section class="block" id="machine">
     <div class="eyebrow">Why Any Of This Matters</div>
     <h2 class="title">You are one link in <em>a machine.</em></h2>
-    <p class="lede">This is not "make some videos." It is a loop, and every turn of it feeds the next. The tighter you cut, the harder the loop spins, and the loop is what pays everybody. Here is the whole thing on one line.</p>
+    <p class="lede">This is not just "make some videos." It is a loop, and every turn feeds the next. I shoot, and you run the rest of it: the cut, the post, the numbers, the ads. The better the whole thing performs, the harder the loop spins, and the loop is what pays everybody. Here it is on one line.</p>
     <div class="machine">
       <div class="mstep"><div class="mstep__n">01</div><div class="mstep__t">Miles shoots</div><div class="mstep__d">Raw footage lands in the shared Drive folder.</div><div class="mstep__who">Miles</div></div>
       <div class="mstep"><div class="mstep__n">02</div><div class="mstep__t">You cut</div><div class="mstep__d">Loop-structured edits, clean captions, beat-locked pacing.</div><div class="mstep__who">You</div></div>
-      <div class="mstep"><div class="mstep__n">03</div><div class="mstep__t">It posts</div><div class="mstep__d">Short-form daily, long-form YouTube for depth.</div><div class="mstep__who">Machine</div></div>
-      <div class="mstep"><div class="mstep__n">04</div><div class="mstep__t">It performs</div><div class="mstep__d">Reach, shares, saves. You watch it live on Metricool.</div><div class="mstep__who">Metricool</div></div>
+      <div class="mstep"><div class="mstep__n">03</div><div class="mstep__t">You post</div><div class="mstep__d">Short-form daily, long-form YouTube for depth. You own the schedule.</div><div class="mstep__who">You, soon</div></div>
+      <div class="mstep"><div class="mstep__n">04</div><div class="mstep__t">You track</div><div class="mstep__d">Reach, shares, saves, and ad spend. Watched live on Metricool.</div><div class="mstep__who">You</div></div>
       <div class="mstep"><div class="mstep__n">05</div><div class="mstep__t">It converts</div><div class="mstep__d">Attention becomes guide leads, buyers, and closings.</div><div class="mstep__who">Funnel</div></div>
       <div class="mstep"><div class="mstep__n">06</div><div class="mstep__t">Everyone eats</div><div class="mstep__d">More output, more quality, more shoots, more for you.</div><div class="mstep__who">All of us</div></div>
     </div>
-    <div class="note"><b>The flywheel we said out loud.</b> The better your cuts perform, the more Miles shoots, which gives you more to cut, which means more for you. That is the deal. See how it pays at the bottom of this page.</div>
+    <div class="note"><b>The flywheel we said out loud.</b> The better it all performs, the more Miles shoots, which gives you more to run, which means more for you. That is the deal. See how it pays at the bottom of this page.</div>
   </section>
 
   <!-- HUB -->
   <section class="block">
-    <div class="eyebrow">Your Three Rooms</div>
-    <h2 class="title">Start here, <em>every time.</em></h2>
-    <p class="lede">Three pages, one purpose each. Keep the Playbook open while you cut, work the assignment from Draft Week, and pull live angles from the Content Deck.</p>
+    <div class="eyebrow">Where You Work</div>
+    <h2 class="title">Three places, <em>every day.</em></h2>
+    <p class="lede">Keep the Playbook open while you cut, pull live angles from the Content Deck, and watch the numbers on Metricool. Everything you touch lives in one of these three.</p>
     <div class="hub">
       <a class="hub-card" href="editor-playbook.html">
         <div class="hub-card__tag">Reference</div>
@@ -248,23 +269,23 @@
         <div class="hub-card__desc">Voice and the hard rules. On-screen text bank, the four hooks, the Richmond cheat sheet. Keep it open while you cut.</div>
         <div class="hub-card__go">Open the rules &rarr;</div>
       </a>
-      <a class="hub-card" href="editor-draftweek.html">
-        <div class="hub-card__tag">Assignment</div>
-        <div class="hub-card__name">Draft Week</div>
-        <div class="hub-card__desc">Six pieces in seven days. The footage folder, exactly how you are scored, and where to send the drafts.</div>
-        <div class="hub-card__go">See the brief &rarr;</div>
-      </a>
       <a class="hub-card" href="content-deck.html">
         <div class="hub-card__tag">Ideas</div>
         <div class="hub-card__name">Content Deck</div>
         <div class="hub-card__desc">Live idea batches on your phone. Tap any block to copy. Every post shows a real loop map you can study.</div>
         <div class="hub-card__go">Pull an angle &rarr;</div>
       </a>
+      <a class="hub-card" href="#numbers">
+        <div class="hub-card__tag">Tracking</div>
+        <div class="hub-card__name">The Numbers</div>
+        <div class="hub-card__desc">Reach, shares, saves, and ad spend. The scoreboard you monitor. Watch how the work performs on Metricool.</div>
+        <div class="hub-card__go">See the numbers &rarr;</div>
+      </a>
     </div>
   </section>
 
   <!-- OPEN LOOP -->
-  <section class="block">
+  <section class="block" id="loop">
     <div class="eyebrow">The Open Loop</div>
     <h2 class="title">How a hook <em>actually holds.</em></h2>
     <p class="lede">This is the engine under every piece we make. Learn it once and you will see it in every cut. It is the difference between a video people finish and a video people scroll.</p>
@@ -301,7 +322,7 @@
   </section>
 
   <!-- END OF EVERY VIDEO -->
-  <section class="block">
+  <section class="block" id="close">
     <div class="eyebrow">The Landing</div>
     <h2 class="title">How every video <em>ends.</em></h2>
     <p class="lede">Miles builds every piece toward the same close. This is the time structure that is working, and the exact question bank he pulls the ending from. Get the last few seconds right and the comments do the rest of the work.</p>
@@ -331,7 +352,7 @@
   </section>
 
   <!-- KNOWLEDGE BANK -->
-  <section class="block">
+  <section class="block" id="knowledge">
     <div class="eyebrow">The Knowledge Bank</div>
     <h2 class="title">The brain behind <em>the hooks.</em></h2>
     <p class="lede">Everything the brand does traces back to a handful of ideas Miles studied and kept. This is that library, distilled. You do not have to read the transcripts. Read these cards, and you will understand why a cut is built the way it is.</p>
@@ -351,7 +372,7 @@
     </div>
 
     <div class="brain-h"><span class="n">Advertising Brain</span><span class="c">3 cards</span></div>
-    <p class="brain-sub">How the paid layer works as Miles turns Meta ads back on. The through-line: consolidate, do not split. This is context, the ad build is Miles's lane, not yours.</p>
+    <p class="brain-sub">How the paid layer works as Miles turns Meta ads back on. The through-line: consolidate, do not split. This is your skill set now. We are investing in teaching you ads so you monitor the spend, and in time run the paid side too.</p>
     <div class="kb">
       <div class="kb-card"><div class="kb-card__t">Death of the Multi-Campaign Funnel</div><div class="kb-card__th">The old top, middle, bottom funnel is obsolete. Collapse it into one campaign, one adset, cold plus warm together, loaded with diverse ads. Meta sequences the awareness stages itself.</div><ul class="kb-card__tac"><li>Stock one adset with problem, solution, and product-aware creatives.</li><li>Do not kill the low-ROAS ad Meta keeps funding. It is the top funnel.</li><li>Turn off ads Meta is NOT spending on, not the worst-ROAS ones.</li></ul><div class="kb-card__src">A better way to advertise in 2026</div></div>
       <div class="kb-card"><div class="kb-card__t">Consolidate Into One Adset</div><div class="kb-card__th">Custom audiences are only suggestions now, so warm and cold overlap. Consolidate to the fewest campaigns and adsets so conversion data concentrates and Meta exits learning fast.</div><ul class="kb-card__tac"><li>One campaign, one adset. 70 conversions beats 7 each across ten.</li><li>Test locations only. Never test interests or lookalikes.</li><li>Run 20-plus varied ads per adset. Meta handles it.</li></ul><div class="kb-card__src">Best ad structure for 2026</div></div>
@@ -409,13 +430,13 @@ WHY IT HITS: <span class="fill">which proven pattern it echoes</span></div>
   </section>
 
   <!-- METRICOOL -->
-  <section class="block">
-    <div class="eyebrow">See Your Cuts Perform</div>
-    <h2 class="title">The scoreboard is <em>live.</em></h2>
-    <p class="lede">You do not cut into a void. Every piece you make gets measured, and you get to watch it happen. Miles is giving you both access to his Metricool, the same dashboard he reads. Your job is distribution: reach and shares. Here is the bar.</p>
+  <section class="block" id="numbers">
+    <div class="eyebrow">Monitor The Numbers</div>
+    <h2 class="title">The scoreboard is <em>yours.</em></h2>
+    <p class="lede">You do not cut into a void. Watching the numbers is part of the job now, all of them: reach, shares, and saves on every post, plus the ad spend and what it brings back. Same Metricool dashboard Miles reads. Your first lever is distribution, reach and shares. Here is the bar.</p>
 
     <a class="linkbtn" href="https://app.metricool.com/evolution/youtube?blogId=4535882&userId=3546254" target="_blank" rel="noopener">Open the Metricool dashboard &rarr;</a>
-    <div class="note" style="margin-top:14px;"><b>Getting you added.</b> Miles adds each of you as a user on his Metricool brand so you see reach, shares, and saves per post without a password swap. Ask him to send the invite to the email you use for the shared Drive.</div>
+    <div class="note" style="margin-top:14px;"><b>Getting you in.</b> Access is being set up. Ask Miles for the login, he is sorting the seats now. Once you are in, you read reach, shares, saves, and ad spend the same way he does.</div>
 
     <div class="sub-h"><span class="k">This is the median reel. Beat it.</span>Your baseline bar</div>
     <div class="metrics">
@@ -442,7 +463,7 @@ WHY IT HITS: <span class="fill">which proven pattern it echoes</span></div>
   </section>
 
   <!-- WHAT THIS PAYS -->
-  <section class="block">
+  <section class="block" id="pay">
     <div class="eyebrow">What This Pays</div>
     <h2 class="title">The deal, <em>in the open.</em></h2>
     <p class="lede">No mystery here. There is a base that ramps as you prove the bar, a bonus for the cuts that break out, and a north star we are building toward together. The better the machine runs, the bigger every piece of this gets.</p>
@@ -455,14 +476,14 @@ WHY IT HITS: <span class="fill">which proven pattern it echoes</span></div>
     </div>
 
     <ul class="owns">
-      <li><b>Breakout bonus.</b> Every reel that clears 25,000 reach earns 25 to 50 dollars, up to about 300 a month. You control this by chasing the share, not the like.</li>
+      <li><b>Breakout bonus.</b> Every reel that clears 25,000 reach pays 50 dollars into the team pool, up to 1,000 dollars a month, about 500 each at the cap. Chase the share, not the like. This is where the extra money is.</li>
       <li><b>The gate is the scorecard.</b> Stepping up a tier means hitting the KPI bar: cadence at quality, median reach at or above baseline and trending up, at least two breakouts a month.</li>
     </ul>
 
     <div class="callout" style="margin-top:20px;">
-      <p>The north star we said out loud: as this grows into a real revenue engine, there is room for <em>a share of the deals the content drives.</em> That is where we are headed. The base and the bonus are what pays now. The share is what we build toward, together.</p>
+      <p>The north star: after week 9, once you have proven you can hit breakouts, the team earns <em>15 percent of the commission on the deals the content sources.</em> It stacks on top of the base and the bonus. Prove the breakouts first. The share comes after.</p>
     </div>
-    <div class="note"><b>Straight talk on the share.</b> Content to a closing is a long, multi-factor chain, and today only a sliver of leads are even tagged to it. So the pay you can count on is the base plus the breakout bonus. The deal share is a real goal, not a promise on this page. We plug the funnel first, then it becomes something we can put a number on.</div>
+    <div class="note"><b>Straight talk on the 15 percent.</b> It is real and it is earned, not automatic. You cannot touch it before week 9, and only after you have shown you can drive breakouts. It grows as we tag which deals the content actually sourced, that funnel is the work in progress. Until then, base plus the breakout pool is the pay you can count on.</div>
   </section>
 
   <footer class="foot">
