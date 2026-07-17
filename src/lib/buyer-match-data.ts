@@ -135,6 +135,33 @@ export type BuyerMatchData = {
   // state instead of a thin placeholder.
   shortlistEta?: string;
 
+  // Optional: the insider differentiator. A sourced home-based-childcare zoning
+  // + licensing pathway rendered as a prominent standalone section (NOT buried
+  // in the market-read accordion). Every claim is framed as "verify this," never
+  // "you can do this here" -- sourced, never asserted in MAMS's own voice. This
+  // is the "most agents let you fall for a house first" polarity move.
+  zoningPathway?: {
+    heading: string; // section title
+    intro: string; // Miles-voice framing, you-frame, the polarity move
+    tiers: { label: string; detail: string; source?: { label: string; url: string } }[];
+    checklist: string[]; // pre-offer verification steps, buyer-facing
+    note: string; // the "this is what to verify, not a guarantee" disclaimer
+  };
+
+  // Optional: homes Miles personally controls (his own coming-soon listings),
+  // shown as honest EARLY ACCESS, not verified-active shoppable matches. Exterior
+  // -only, no invented interior/layout claims. Rendered with a visual treatment
+  // distinct from the verified shortlist so the two never blur.
+  earlyAccess?: {
+    address: string;
+    cityLine: string; // e.g. "Richmond 23235 (Huguenot)"
+    priceLabel: string; // e.g. "Listing late July, target mid-$500s"
+    facts: string; // the verified exterior/lot facts only
+    photoUrl: string | null;
+    pitch: string; // honest "why I'm showing you this first" -- no layout fabrication
+    status: string; // e.g. "Coming soon -- interiors not yet shot"
+  }[];
+
   // The shortlist
   properties: BuyerMatchProperty[];
 
@@ -150,6 +177,165 @@ export type BuyerMatchData = {
 // inline (mirroring the offer-data.ts pattern) and migrate to GHL-backed
 // reads in v2.
 export const CONTACTS: Record<string, BuyerMatchData> = {
+  // Amanda Riley -- reached out 2026-07-16 (re 4800 Southmoor Rd, her own words
+  // "for funsies," it's pending). ~2yr MAMS relationship + raving-fan referral
+  // source. Real search: a multi-purpose home that hosts her NEW preschool
+  // (sold the old one) AND houses her two sons; mom/sister as an alt. Qualified.
+  // Verified-active shortlist added after Miles's CVR MLS pull (2026-07-16 PM).
+  s7WO5bcd3GeKBHaFrHTv: {
+    contactId: "s7WO5bcd3GeKBHaFrHTv",
+    firstName: "Amanda",
+    shareToken: "VhWq0tWGxZ7S",
+    marketCommentary:
+      "Amanda, the search finally has a real shape. You are not just buying a house. You are buying the room to run the new preschool and a place the boys can actually live. That one fact rules out most of what the public sites will ever show you. It also puts zoning ahead of the granite countertops, which no app is going to tell you. So I built this around the two questions that decide it. Can the layout hold a sectioned program, and will the county let you run it there.",
+    strategyHeading: "What the search is really about",
+    strategy:
+      "You told me three things and they pull in different directions. The preschool needs a sectioned space with its own flow. The boys need to actually live there. Your mom and your sister are a maybe, and that maybe changes the whole floor plan.\n\nHere is how I am reading it. If the preschool plus the boys is the plan, we hunt homes with a finished walk-out basement, an in-law wing, or a bonus suite over the garage. One roof, two clean zones. If it tilts toward your mom and your sister instead, we are really after a second set of living quarters or a home that can take a small addition. Different house, different search.\n\nYou do not have to lock this tonight. I just need to know which version is real, because that is the lever the whole search turns on.",
+    zoningPathway: {
+      heading: "Before you fall for any house: the preschool question",
+      intro:
+        "Most agents will let you tour ten homes, pick a favorite, and write the offer. Then you find out the county will not let you run a preschool there. I check this first. It is the one thing that decides which houses even count for you, and it is different in every county you are looking in.",
+      tiers: [
+        {
+          label: "1 to 4 children, anywhere",
+          detail:
+            "By-right in every residential district in Chesterfield, Henrico, and Richmond. No permit, no hearing. This is the version that just works if you keep it small.",
+        },
+        {
+          label: "Chesterfield, 5 or more children",
+          detail:
+            "This is a Conditional Use Permit. A public hearing in front of the Planning Commission and the Board of Supervisors, roughly a four month process, and it is not a rubber stamp. We plan for it, we do not assume it.",
+          source: {
+            label: "Chesterfield zoning ordinance (ZOMod, 2026)",
+            url: "https://online.encodeplus.com/regs/chesterfieldcounty-va-zomod/",
+          },
+        },
+        {
+          label: "Henrico, 6 to 12 children",
+          detail:
+            "By-right up to 5 children, then a Conditional Use Permit from 6 to 12. A standalone childcare center is not allowed in standard single-family districts at all. Note the cutoff is 5, not 4 like Chesterfield.",
+          source: {
+            label: "Henrico County zoning, Chapter 24",
+            url: "https://henrico.gov/pdfs/planning/Ch24.2025-02-11.pdf",
+          },
+        },
+        {
+          label: "City of Richmond, 5 or more (a Cedar Grove factor)",
+          detail:
+            "The city has no fast track on the books. Anything above 4 children likely runs through a Special Use Permit, city council, a public hearing, and a higher fee. We confirm the exact block with Planning before anything.",
+        },
+      ],
+      checklist: [
+        "Confirm the exact zoning district on the specific parcel before assuming anything. It changes block to block.",
+        "Get the county to state in writing how many children they will allow at that exact address.",
+        "If a permit is required, we write it into the contract as a contingency. Never assume approval.",
+        "Check the HOA and the deed covenants separately. A county yes does not beat a neighborhood no.",
+        "Start the state license conversation with VDOE in parallel. One to four is exempt, five to twelve is a licensed home, thirteen and up is a center.",
+      ],
+      note:
+        "None of this is a promise that a given home will work. It is the checklist we run before you ever write an offer, so a house you love never turns into a problem you cannot fix.",
+    },
+    earlyAccess: [
+      {
+        address: "3901 Cedar Grove Rd",
+        cityLine: "Richmond 23235 (Huguenot)",
+        priceLabel: "Listing late July, target mid-$500s",
+        facts:
+          "Four bedrooms, two and a half baths, about 2,317 square feet, on a near half-acre lot at 0.46 acre under mature Huguenot tree canopy. Built 1967.",
+        photoUrl: null,
+        status: "Coming soon. I am the listing agent. Exteriors are shot, interiors drop this week.",
+        pitch:
+          "This one is mine to give you first, before it hits the market. It sits above your core number, so it only earns a look if the inside backs it up, and I will walk you through it the moment the photos are ready. One honest flag: in Richmond city the preschool question runs through a Special Use Permit, so we would check that early. You get the first look either way.",
+      },
+      {
+        address: "2407 Farrand Dr",
+        cityLine: "Henrico 23231 (East End)",
+        priceLabel: "Coming soon, $324,945",
+        facts:
+          "A 1942 Cape Cod on 1.3 acres, zoned R-4. The house itself is small at about 1,251 square feet. The land is the story: roughly 20,000 square feet of usable ground up front, with a potential two-lot administrative subdivision, subject to county verification.",
+        photoUrl: null,
+        status: "Coming soon. I am the listing agent. Exteriors are shot.",
+        pitch:
+          "This is a wildcard and I am giving it to you straight. It is in Henrico, east of your usual area, and the house is small. The reason I am even showing it is the 1.3 acres. If your long game is a separate structure for your mom and your sister, or just room to grow, land like this rarely comes cheap. The subdivision is a maybe, not a promise, and the math only works if you keep the existing house. Worth a look only if the land angle speaks to you.",
+      },
+    ],
+    shortlistEta: "by tomorrow morning, before we meet",
+    properties: [
+      {
+        slug: "1633-elmart-ln",
+        address: "1633 Elmart Ln",
+        city: "North Chesterfield",
+        state: "VA",
+        zip: "23235",
+        listPrice: 459999,
+        priceLabel: "$459,999",
+        beds: 4,
+        baths: 3.5,
+        sqft: 2416,
+        mlsNumber: "2611487",
+        daysOnMarket: 60,
+        sourceUrl:
+          "https://www.joynerfineproperties.com/p/1633-Elmart-Lane-Chesterfield-VA-23235/dmgid_186607068",
+        photoUrl:
+          "https://cdn02.deltamediagroup.com/listing_photos/active/18661/186607068/1.jpg?hash=a00df31a6c34f600cc3825e314cd51d2",
+        gapFillReason:
+          "The filters treat an in-law suite as a checkbox, so a home built around a full second living quarters with its own entrance and HVAC never surfaces when you sort by beds and price alone.",
+        vibes:
+          "This is the cleanest preschool-and-family fit on the list. The listing names a rare in-law suite with its own separate entrance, a full bathroom, a kitchen area, and its own heating and air. That is a genuine second zone under one roof, not a converted bedroom. Built 1975 in Surreywood, 2,416 square feet, and the neighborhood carries a pool, a lake, and tennis through the HOA.",
+        anchors: [],
+        whyThisOne:
+          "The suite with its own entrance and HVAC gives you a sectioned program space or a place for the boys, without anyone walking through anyone else's day.",
+        tradeOff:
+          "It sits in an HOA, so before you count on the preschool we confirm the covenants allow a home business, not just the county.",
+      },
+      {
+        slug: "4512-wraywood-ave",
+        address: "4512 Wraywood Ave",
+        city: "Chester",
+        state: "VA",
+        zip: "23831",
+        listPrice: 435900,
+        priceLabel: "$435,900",
+        beds: 4,
+        baths: 3,
+        sqft: 2733,
+        mlsNumber: "2614462",
+        daysOnMarket: 50,
+        sourceUrl: "https://www.homerva.com/property/CVR-2614462/",
+        photoUrl:
+          "https://property-images.realgeeks.com/vacentral/659b8e23b8bd7363cc8ab63f4278e52d.jpg",
+        gapFillReason:
+          "A walkout basement with its own no-step outside door reads as square footage to the public sites, so they never flag that it is really a private ground-floor entrance built for separation.",
+        vibes:
+          "The separation here is the basement. The listing calls it full, finished, and walkout, with a private no-step exterior entrance, ideal for an in-law suite or guest quarters. With the lower level counted it runs close to 3,900 finished square feet. It sits on a fenced 0.44-acre lot in Chester, built 1967, so the yard and the private entry both work for a program with its own coming and going.",
+        anchors: [],
+        whyThisOne:
+          "The step-free private basement entrance lets a preschool or the boys run their own front door, which is the exact separation the main-floor bedrooms cannot give you.",
+        tradeOff:
+          "It sits in Chester, a little south and east of your usual pocket, so the drive is the thing to weigh against the space.",
+      },
+    ],
+    sources: [
+      {
+        url: "https://law.lis.virginia.gov/vacode/title22.1/chapter14.1/section22.1-289.02/",
+        description: "Virginia child care licensing thresholds (Code of Virginia 22.1-289.02)",
+      },
+      {
+        url: "https://online.encodeplus.com/regs/chesterfieldcounty-va-zomod/",
+        description: "Chesterfield County zoning ordinance (ZOMod, effective Jan 1 2026)",
+      },
+      {
+        url: "https://henrico.gov/pdfs/planning/Ch24.2025-02-11.pdf",
+        description: "Henrico County zoning ordinance, Chapter 24",
+      },
+      {
+        url: "https://www.childcare.virginia.gov/providers/program-types/licensed-family-day-home",
+        description: "Virginia (VDOE) licensed family day home, program types and thresholds",
+      },
+    ],
+    completedAt: "2026-07-16T22:30:00-04:00",
+  },
+
   // Cece Bach -- intake submitted 2026-05-31. Shortlist populated 2026-06-07
   // from the refreshed PC brief (5 verified properties; the 6/1 set lost
   // Nicolet + 3 others to pending/sold during the 6-day refresh window).

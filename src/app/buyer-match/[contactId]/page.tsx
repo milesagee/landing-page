@@ -125,6 +125,100 @@ export default async function BuyerMatchPage({
         )}
       </section>
 
+      {data.zoningPathway && (
+        <section className="max-w-3xl mx-auto px-6 pb-10">
+          <div className="bg-white rounded-lg border border-gold/30 overflow-hidden shadow-[0_2px_28px_-10px_rgba(212,175,55,0.4)]">
+            <div className="px-6 sm:px-8 py-4 bg-gold/10 border-b border-gold/20">
+              <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold">
+                The part no app will tell you
+              </p>
+              <h2 className="font-display text-2xl text-deep-teal leading-tight mt-1">
+                {data.zoningPathway.heading}
+              </h2>
+            </div>
+            <div className="px-6 sm:px-8 py-6 space-y-6">
+              <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">
+                {data.zoningPathway.intro}
+              </p>
+              <ul className="space-y-3">
+                {data.zoningPathway.tiers.map((t) => (
+                  <li key={t.label} className="border-l-2 border-gold/40 pl-4">
+                    <p className="font-display text-base text-deep-teal leading-tight">{t.label}</p>
+                    <p className="text-sm text-deep-teal/75 mt-1 leading-relaxed">{t.detail}</p>
+                    {t.source && (
+                      <a
+                        href={t.source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[11px] text-deep-teal/55 underline hover:text-gold-dark mt-1 inline-block"
+                      >
+                        {t.source.label}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <div className="bg-deep-teal/[0.04] rounded-md px-5 py-4 border border-deep-teal/10">
+                <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold mb-2">
+                  What we verify before you write an offer
+                </p>
+                <ol className="space-y-2 list-decimal pl-5">
+                  {data.zoningPathway.checklist.map((c, i) => (
+                    <li key={i} className="text-sm text-deep-teal/80 leading-relaxed">
+                      {c}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+              <p className="text-xs text-deep-teal/60 leading-relaxed italic">
+                {data.zoningPathway.note}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {data.earlyAccess && data.earlyAccess.length > 0 && (
+        <section className="max-w-3xl mx-auto px-6 pb-10 space-y-4">
+          <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold">
+            Two more, before anyone else
+          </p>
+          <p className="text-sm text-deep-teal/70 leading-relaxed">
+            These are mine. They are not on the market yet, so you are seeing them first. Straight talk on each.
+          </p>
+          {data.earlyAccess.map((e) => (
+            <div
+              key={e.address}
+              className="bg-white rounded-lg border border-deep-teal/10 overflow-hidden"
+            >
+              <div className="px-6 sm:px-8 py-4 bg-deep-teal/[0.04] border-b border-deep-teal/10 flex items-baseline justify-between gap-4 flex-wrap">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.14em] text-gold-dark font-semibold mb-1">
+                    Early access
+                  </p>
+                  <h3 className="font-display text-xl sm:text-2xl text-deep-teal leading-tight">
+                    {e.address}
+                  </h3>
+                  <p className="text-sm text-deep-teal/70 mt-0.5">{e.cityLine}</p>
+                </div>
+                <p className="font-display text-lg text-deep-teal leading-none text-right">
+                  {e.priceLabel}
+                </p>
+              </div>
+              <div className="px-6 sm:px-8 py-5 space-y-3">
+                <p className="text-[11px] uppercase tracking-[0.12em] text-deep-teal/55 font-semibold">
+                  {e.status}
+                </p>
+                <p className="text-sm text-deep-teal/80 leading-relaxed">{e.facts}</p>
+                <div className="border-l-2 border-gold/40 pl-4">
+                  <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">{e.pitch}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+
       {(data.marketCommentary ||
         data.strategy ||
         (data.neighborhoodReads && data.neighborhoodReads.length > 0)) && (
