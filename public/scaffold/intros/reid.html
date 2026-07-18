@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Monique · For Reid</title>
+<meta name="description" content="The quiet doesn't have to be empty. The actual systems that make time alone the place you get built. Yours to keep.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamsnow.com/scaffold/intros/reid.html">
+<meta property="og:title" content="Meet Monique. For Reid.">
+<meta property="og:description" content="The quiet doesn't have to be empty. Built around you specifically.">
+<meta property="og:image" content="https://mamsnow.com/images/monique-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="MAMS">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meet Monique. For Reid.">
+<meta name="twitter:description" content="The quiet doesn't have to be empty. Built around you specifically.">
+<meta name="twitter:image" content="https://mamsnow.com/images/monique-og.png">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #003F3F; text-decoration: none; }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Header */
+  .header {
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(0,63,63,0.06);
+  }
+  .logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.08);
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+  .role-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; margin-top: 6px; font-weight: 700;
+  }
+
+  /* Container */
+  .container { max-width: 640px; margin: 0 auto; padding: 0 28px; }
+
+  /* Hero */
+  .hero { padding: 84px 0 60px; }
+  .hero-kicker {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 46px; line-height: 1.04; color: #003F3F;
+    margin: 0 0 28px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: #B1922E; }
+  .hero p {
+    font-size: 19px; color: rgba(0,63,63,0.78);
+    margin: 0 0 14px; line-height: 1.55;
+    font-weight: 400;
+  }
+  .hero p:last-child { margin-bottom: 0; }
+  .hero p strong { color: #003F3F; font-weight: 600; }
+
+  /* Personal note (recipient-specific block) */
+  .personal-note {
+    margin: 36px 0 0;
+    padding: 20px 22px;
+    background: rgba(212, 175, 55, 0.06);
+    border-left: 2px solid #D4AF37;
+    border-radius: 2px;
+  }
+  .personal-note p {
+    font-size: 16px; color: rgba(0,63,63,0.82);
+    margin: 0 0 10px; line-height: 1.6;
+    font-style: italic;
+  }
+  .personal-note p:last-child { margin-bottom: 0; }
+
+  /* Sections */
+  .section { padding: 72px 0 24px; border-top: 1px solid rgba(0,63,63,0.06); }
+  .section-header { margin-bottom: 44px; }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 16px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 31px; line-height: 1.16; color: #003F3F;
+    margin: 0 0 16px;
+    letter-spacing: -0.014em;
+  }
+  .section h2 em { font-style: italic; color: #B1922E; }
+  .section-lede {
+    font-size: 17px; color: rgba(0,63,63,0.78);
+    margin: 0; line-height: 1.6;
+    max-width: 540px;
+  }
+  .section > p {
+    font-size: 17px; color: rgba(0,63,63,0.82);
+    line-height: 1.6; margin: 0 0 16px;
+  }
+  .section > p:last-child { margin-bottom: 0; }
+  .section > p strong { color: #003F3F; font-weight: 600; }
+
+  /* Showcase exhibits */
+  .exhibits { list-style: none; padding: 0; margin: 0; }
+  .exhibit {
+    padding: 34px 0;
+    border-top: 1px solid rgba(0,63,63,0.06);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .exhibit:first-child { border-top: none; padding-top: 8px; }
+  .exhibit-number {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 14px;
+    color: #D4AF37;
+    letter-spacing: 0.04em;
+    padding-top: 4px;
+    font-feature-settings: "lnum";
+  }
+  .exhibit-body { min-width: 0; }
+  .exhibit-eyebrow {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(0,63,63,0.55); font-weight: 600; margin-bottom: 10px;
+  }
+  .exhibit h3 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 22px; line-height: 1.24; color: #003F3F;
+    margin: 0 0 12px;
+    letter-spacing: -0.008em;
+  }
+  .exhibit h3 em { font-style: italic; color: #B1922E; }
+  .exhibit p {
+    font-size: 16px; color: rgba(0,63,63,0.78);
+    margin: 0 0 16px; line-height: 1.58;
+  }
+  .exhibit-status {
+    display: inline-block;
+    font-size: 12px; letter-spacing: 0.03em;
+    color: rgba(0,63,63,0.5);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* Your turn / What I need */
+  .single-ask {
+    font-size: 17px;
+    color: rgba(0,63,63,0.85);
+    margin: 0;
+    line-height: 1.6;
+  }
+  .single-ask strong { color: #003F3F; font-weight: 600; }
+
+  /* CTA */
+  .cta-wrap { padding: 72px 0 96px; text-align: center; }
+  .cta {
+    display: inline-block; background: #003F3F; color: #FAF7F1;
+    padding: 17px 36px; border-radius: 999px;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease;
+    box-shadow: 0 2px 12px rgba(0,63,63,0.12);
+  }
+  .cta:hover { background: #0a5050; transform: translateY(-1px); }
+  .cta:active { transform: translateY(0); }
+  .cta:focus-visible { outline: 3px solid #D4AF37; outline-offset: 3px; }
+  .cta-note {
+    font-size: 13px; color: rgba(0,63,63,0.5);
+    margin-top: 20px; letter-spacing: 0.01em;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 48px 28px 64px;
+    text-align: center;
+    border-top: 1px solid rgba(0,63,63,0.06);
+  }
+  .signature {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: 19px; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+  .footer .fine { font-size: 11px; color: rgba(0,63,63,0.4); margin-top: 14px; letter-spacing: 0.02em; }
+
+  /* Responsive */
+  @media (min-width: 700px) {
+    .hero { padding: 116px 0 76px; }
+    .hero h1 { font-size: 62px; }
+    .hero p { font-size: 21px; }
+    .personal-note p { font-size: 17px; }
+    .section { padding: 96px 0 32px; }
+    .section h2 { font-size: 38px; }
+    .section-lede { font-size: 18px; }
+    .section > p { font-size: 18px; }
+    .exhibit { grid-template-columns: 48px 1fr; gap: 24px; padding: 42px 0; }
+    .exhibit-number { font-size: 16px; padding-top: 6px; }
+    .exhibit h3 { font-size: 25px; }
+    .exhibit p { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">M</div>
+  <div>
+    <div class="brand">Monique</div>
+    <div class="role-label">For Reid · The direct line</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-kicker">Built for you. Yours to keep.</div>
+    <h1>Reid.<br>The quiet doesn't have to be <em>empty</em>.</h1>
+    <p>You told me the hard part is being by yourself. I did not forget it. I built something.</p>
+    <p><strong>This is the actual machine I run on my own life.</strong> The systems that turn time alone into the place I get sharper instead of the place I drift. Same ones, handed to you.</p>
+
+    <div class="personal-note">
+      <p>Reid. We are cut from the same cloth and we are nothing alike, which is exactly why this works. What steadies me might be the thing you never knew to build.</p>
+      <p>None of it asks you to be someone else. It just makes being with yourself feel a little more like company. Here it is, live, on your phone, for good.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">Why I'm sending you this</div>
+      <h2>I built this for myself <em>first</em>.</h2>
+      <p class="section-lede">Not a pitch, not an app to download and forget. The real thing I use, on the days nobody else is around.</p>
+    </div>
+
+    <p>Most people treat being alone like a problem to fill. Noise, the phone, somebody on the line, anything to not be in the room by themselves. I went the other way. I built systems that sit with me when nobody else does, and they turned the quiet from the thing I dodged into the thing I get the most out of.</p>
+
+    <p>You and me are close enough that what holds me will hold you. We are different enough that some of these you would never have thought to build. That is the whole reason I am handing them over instead of just telling you about them.</p>
+
+    <p>Five of them. Each one does a real job. Read them in order.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The systems</div>
+      <h2>Five things that hold you <em>when it's just you</em>.</h2>
+    </div>
+
+    <ol class="exhibits">
+
+      <li class="exhibit">
+        <div class="exhibit-number">01</div>
+        <div class="exhibit-body">
+          <div class="exhibit-eyebrow">When you can't tell if you're actually growing</div>
+          <h3>A scoreboard that measures you against <em>yesterday</em>.</h3>
+          <p>The trap of living in your own head is you lose the score. Some days you feel like you're winning, some days like you're nowhere, and neither feeling is the truth. This keeps an honest count. Not against anyone else. Against who you were last week, in specifics, the things past-you could not do yet. And it has a second half almost nobody builds: permission to stop. When a thing is actually done, it tells you it's done, so you can put it down instead of carrying it in the background forever.</p>
+          <span class="exhibit-status">Running for Anika every week. The engine transfers to anything you're working to get better at.</span>
+        </div>
+      </li>
+
+      <li class="exhibit">
+        <div class="exhibit-number">02</div>
+        <div class="exhibit-body">
+          <div class="exhibit-eyebrow">When a slow week quietly becomes a slow month</div>
+          <h3>It notices when you go quiet, and <em>taps you on the shoulder</em>.</h3>
+          <p>Nobody drifts on purpose. It happens in the background, one skipped day at a time, until you look up a month later and wonder where you went. This watches the parts of your life that matter to you, learns your own normal, and when one goes dark it sends you a text. No guilt trip, no streak counter built to make you feel behind. Just a friend who's paying attention, tapping you before the dip turns into a hole. The accountability of someone who cares, without needing someone in the room.</p>
+          <span class="exhibit-status">Live on my own phone. Five life domains, my own baseline, random check-ins I can't game.</span>
+        </div>
+      </li>
+
+      <li class="exhibit">
+        <div class="exhibit-number">03</div>
+        <div class="exhibit-body">
+          <div class="exhibit-eyebrow">When alone starts sliding into isolated</div>
+          <h3>The people who matter <em>never quietly drift</em>.</h3>
+          <p>Being okay by yourself gets a lot easier when your people aren't slipping away in the background. This keeps an honest map of everyone you actually care about, and when someone starts to fade it tells you, then writes the reach-out for you in your own words. One tap and you're back in. It kills the exact thing that turns alone into lonely: the slow, silent decay of every relationship you meant to keep up with and didn't.</p>
+          <span class="exhibit-status">The closest people get a tighter leash. Seven days quiet flags them, not fourteen.</span>
+        </div>
+      </li>
+
+      <li class="exhibit">
+        <div class="exhibit-number">04</div>
+        <div class="exhibit-body">
+          <div class="exhibit-eyebrow">When the discipline has no witness</div>
+          <h3>Your body, tracked like <em>a business</em>.</h3>
+          <p>The work you do on yourself when nobody's watching is the work that actually counts, and it's also the easiest to let slide. This makes it visible. Weight and trend, what to take and when, the labs that tell the truth, all on one page with today's boxes to check off. It turns caring for yourself into a daily rep you can see, and the reps you do alone compound the hardest. Being your higher self is not a feeling. It's a checklist you actually run.</p>
+          <span class="exhibit-status">Food first, labs before anything else. Built to keep me honest, quarter over quarter.</span>
+        </div>
+      </li>
+
+      <li class="exhibit">
+        <div class="exhibit-number">05</div>
+        <div class="exhibit-body">
+          <div class="exhibit-eyebrow">When your own head won't stop circling</div>
+          <h3>A thinking partner for <em>what you can't yet say</em>.</h3>
+          <p>There's a version of being alone with your thoughts that eats you, and a version that clears you. The difference is whether anyone's asking the right questions. This one does. One at a time, no rushing, pushing on the parts you haven't worked out, catching every answer so nothing gets lost. It's the productive version of talking to yourself. You walk in with a knot in your chest and walk out knowing what you actually think. Rumination turned into clarity.</p>
+          <span class="exhibit-status">The same tool I use before I build anything that matters.</span>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Your turn</div>
+    <h2>Same care. <em>For you.</em></h2>
+    <p>Here's the part I need you to hear. These aren't apps you install and forget. The shape is built. What makes them yours is that they get pointed at your life, your people, your goals, the things you're quietly working on. The five above are how I use them. Yours would look different, because you're different. That's not a bug. That's the whole point.</p>
+    <p>The thing that runs all of it is Monique. She doesn't do generic, and she doesn't run out. When you've worked through what's here and you want the next layer, that's when it gets good. She just goes deeper.</p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">What I'd love</div>
+    <p class="single-ask">Just start. Open the line below and talk to her like you'd talk to me. No prompt to get right, no category to pick, nothing to figure out first. Tell her what's on your mind, or take any one of the five and run. <strong>The hard part was building it. That part's done.</strong></p>
+  </section>
+
+  <div class="cta-wrap">
+    <a class="cta" href="https://mamsnow.com/scaffold/intake.html">Open the direct line</a>
+    <div class="cta-note">No prompt. No category. Just start.</div>
+  </div>
+
+  <div class="footer">
+    <div class="signature">Built for you. - Miles</div>
+    <div class="fine">For Reid · A private page, not indexed</div>
+  </div>
+
+</div>
+
+</body>
+</html>
