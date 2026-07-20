@@ -116,6 +116,15 @@ export const CONTACTS: Record<string, BuyerIntakeContact> = {
     firstName: "Lashena",
     establishedChannel: "personal-cell-imessage",
   },
+  // Tish, +1-301-655-9559. Buying for her family (husband + two young boys).
+  // Texted Miles 2026-07-20 15:50. Not previously in Open Dispo. Created in
+  // MAMS GHL 2026-07-20 via buyer-intake-bootstrap.js. Last name not yet known.
+  "FhmBLQA9J7pjlo45xGlM": {
+    contactId: "FhmBLQA9J7pjlo45xGlM",
+    shareToken: "OnH0Xxh3kzca",
+    firstName: "Tish",
+    establishedChannel: "personal-cell-imessage",
+  },
 };
 
 export function getBuyerIntakeByToken(
