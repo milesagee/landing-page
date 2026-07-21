@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>The final pieces for Wes | 3901 Cedar Grove</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+
+    /* Their locked palette, as the backdrop every piece sits against */
+    --shoji: #E5DFCE;        /* SW Shoji White walls */
+    --shaker: #F5F2EC;       /* white shaker cabinet face */
+    --shaker-inset: #ECE7DC;
+    --pure-white: #F6F4EE;   /* SW Pure White ceiling */
+    --quartz: #FBFAF6;       /* Carrara white quartz top */
+
+    /* Warm-metal + stainless */
+    --champagne: linear-gradient(145deg, #E9D8AC 0%, #CBAA6C 46%, #A9863E 100%);
+    --champagne-solid: #C6A667;
+    --brass-solid: #C4A863;
+    --steel: linear-gradient(160deg, #DEE3E6 0%, #C3CBCF 52%, #A7B0B5 100%);
+    --steel-edge: #9AA4A9;
+  }
+
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--line); }
+  .hero__brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .hero__brand img { height: 72px; width: auto; mix-blend-mode: multiply; margin-left: -10px; }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+  .hero__greeting { font-family: var(--serif); font-size: 13px; color: var(--teal); font-style: italic; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(38px, 6vw, 54px); line-height: 1.02; letter-spacing: -0.025em; color: var(--deep-teal); margin-bottom: 18px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 16px; color: var(--deep-teal); opacity: 0.74; max-width: 56ch; line-height: 1.55; }
+
+  section.block { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.section__title { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34px); line-height: 1.1; letter-spacing: -0.02em; color: var(--deep-teal); margin-bottom: 8px; }
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+  .section__lede { font-size: 15px; color: var(--deep-teal); opacity: 0.82; max-width: 60ch; line-height: 1.6; margin-bottom: 28px; }
+
+  .frame { background: var(--deep-teal); color: var(--ivory); padding: 30px 36px; border-radius: 6px; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+  .frame::after { content: ''; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .frame::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border: 1px solid var(--teal-light); border-radius: 50%; opacity: 0.22; }
+  .frame .eyebrow { color: var(--gold); margin-bottom: 6px; }
+  .frame p { font-family: var(--serif); font-size: 22px; line-height: 1.32; font-weight: 300; letter-spacing: -0.005em; position: relative; z-index: 1; }
+  .frame p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  .read { background: var(--ivory); border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 6px; padding: 22px 26px; box-shadow: var(--shadow-sm); }
+  .read p { font-size: 14.5px; line-height: 1.65; color: var(--deep-teal); opacity: 0.88; margin-bottom: 10px; }
+  .read p:last-child { margin-bottom: 0; }
+  .read strong { color: var(--gold-dark); font-weight: 700; letter-spacing: 0.01em; }
+
+  /* Caution callout, one per fit-critical item */
+  .warn { background: linear-gradient(180deg, #fffdf6, var(--ivory)); border: 1px solid var(--line); border-left: 4px solid var(--gold-dark); border-radius: 6px; padding: 20px 24px; box-shadow: var(--shadow-sm); margin-top: 20px; }
+  .warn__tag { font-size: 9.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 9px; }
+  .warn p { font-size: 13.5px; line-height: 1.6; color: var(--deep-teal); opacity: 0.9; }
+  .warn strong { color: var(--gold-dark); font-weight: 700; }
+
+  .picks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .pick { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s; }
+  .pick:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .pick--flag { border-color: var(--gold); box-shadow: 0 2px 14px rgba(212, 175, 55, 0.18); }
+  .pick--wide { grid-column: 1 / -1; }
+
+  /* ---- Shared visual stage ---- */
+  .fin { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--shoji); }
+  .fin--wide { aspect-ratio: 16 / 7; }
+
+  /* ---- Vanity: white shaker base, quartz top, RIGHT-offset sink, drawers left, brass faucet ---- */
+  .van__top { position: absolute; left: 12%; right: 12%; top: 30%; height: 7%; background: var(--quartz); border-radius: 3px 3px 0 0; box-shadow: 0 3px 8px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.7); z-index: 3; }
+  .van__body { position: absolute; left: 12%; right: 12%; top: 37%; bottom: 12%; background: var(--shaker); border-radius: 0 0 4px 4px; box-shadow: 0 8px 18px rgba(0,0,0,0.10), inset 0 0 0 1px rgba(0,0,0,0.05); z-index: 2; }
+  .van__drawers { position: absolute; left: 15%; width: 30%; top: 42%; bottom: 16%; z-index: 3; display: flex; flex-direction: column; gap: 6px; }
+  .van__drawers span { flex: 1; background: var(--shaker-inset); border-radius: 2px; box-shadow: inset 0 0 0 1.4px rgba(0,0,0,0.07); position: relative; }
+  .van__drawers span::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 34%; height: 3px; border-radius: 3px; background: var(--champagne); box-shadow: 0 1px 2px rgba(80,55,10,0.3); }
+  .van__door { position: absolute; right: 15%; width: 30%; top: 42%; bottom: 16%; background: var(--shaker-inset); border-radius: 2px; box-shadow: inset 0 0 0 1.4px rgba(0,0,0,0.07); z-index: 3; }
+  .van__sink { position: absolute; right: 20%; width: 22%; top: 27%; height: 8%; background: radial-gradient(ellipse at 50% 40%, #EDE9DF 0%, #DAD4C6 100%); border-radius: 50%; z-index: 4; box-shadow: inset 0 2px 5px rgba(0,0,0,0.18); }
+  .van__faucet { position: absolute; right: 29%; top: 15%; width: 5px; height: 15%; background: linear-gradient(180deg, #D8C083, #B8975A); border-radius: 3px 3px 0 0; z-index: 4; box-shadow: 0 1px 3px rgba(80,55,10,0.3); }
+  .van__faucet::after { content: ''; position: absolute; top: 0; left: 0; width: 34px; height: 5px; background: linear-gradient(90deg, #D8C083, #B8975A); border-radius: 3px; transform-origin: left; box-shadow: 0 1px 3px rgba(80,55,10,0.3); }
+
+  /* ---- Pantry: tall white shaker column ---- */
+  .pan__col { position: absolute; left: 34%; right: 34%; top: 8%; bottom: 6%; background: var(--shaker); border-radius: 4px; box-shadow: 0 8px 18px rgba(0,0,0,0.10), inset 0 0 0 1px rgba(0,0,0,0.05); z-index: 2; }
+  .pan__col::before { content: ''; position: absolute; inset: 8% 12%; border-radius: 2px; box-shadow: inset 0 0 0 1.5px rgba(0,0,0,0.06); background: var(--shaker-inset); }
+  .pan__split { position: absolute; left: 34%; right: 34%; top: 46%; height: 2px; background: rgba(0,0,0,0.10); z-index: 3; }
+  .pan__knob { position: absolute; z-index: 4; width: 8px; height: 8px; border-radius: 50%; right: 39%; background: radial-gradient(circle at 36% 30%, #EFE0B6, #A0803A); box-shadow: 0 1px 2px rgba(80,55,10,0.4); }
+  .pan__knob--u { top: 40%; }
+  .pan__knob--l { top: 52%; }
+  .pan__linen { position: absolute; right: 12%; top: 8%; bottom: 6%; width: 14%; background: var(--shaker); opacity: 0.5; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06); z-index: 1; }
+  .pan__tag { position: absolute; left: 8%; top: 46%; transform: translateY(-50%); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: var(--gold-dark); z-index: 4; }
+
+  /* ---- Appliance suite: stainless row ---- */
+  .fin--suite { background: linear-gradient(180deg, var(--pure-white) 0%, var(--shoji) 100%); }
+  .suite__row { position: absolute; inset: 20% 8% 14%; display: flex; align-items: flex-end; gap: 5%; z-index: 2; }
+  .app { background: var(--steel); border-radius: 3px; box-shadow: 0 6px 14px rgba(0,0,0,0.14), inset 0 0 0 1px var(--steel-edge); position: relative; }
+  .app--fridge { width: 22%; height: 100%; }
+  .app--fridge::after { content: ''; position: absolute; left: 50%; top: 8%; bottom: 8%; width: 1.5px; background: rgba(0,0,0,0.12); }
+  .app--range { width: 26%; height: 74%; }
+  .app--range::before { content: ''; position: absolute; top: 8%; left: 12%; right: 12%; height: 16%; background: rgba(0,0,0,0.14); border-radius: 2px; }
+  .app--range::after { content: ''; position: absolute; top: 34%; left: 14%; right: 14%; height: 42%; background: rgba(255,255,255,0.25); border-radius: 2px; box-shadow: inset 0 0 0 1px var(--steel-edge); }
+  .app--dish { width: 22%; height: 74%; }
+  .app--micro { width: 20%; height: 40%; }
+
+  .pick__body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .pick__sku { font-family: var(--serif); font-size: 18px; font-weight: 500; line-height: 1.18; letter-spacing: -0.012em; color: var(--deep-teal); }
+  .pick__code { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); }
+  .pick__code--warn { color: #8a5a2b; }
+  .pick__chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+  .chip { font-size: 10.5px; font-weight: 600; color: var(--teal); background: rgba(0, 95, 95, 0.07); padding: 4px 9px; border-radius: 999px; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px; }
+  .chip__swatch { width: 9px; height: 9px; border-radius: 2px; border: 1px solid rgba(0,0,0,0.12); }
+  .chip--price { color: var(--gold-dark); background: rgba(212,175,55,0.12); font-weight: 700; }
+  .chip--save { color: #2e6b4f; background: rgba(46,107,79,0.12); font-weight: 700; }
+  .pick__why { font-size: 13.5px; line-height: 1.55; color: var(--deep-teal); opacity: 0.85; border-left: 2px solid var(--gold); padding-left: 11px; margin-top: 4px; }
+  .pick__spec { list-style: none; margin: 6px 0 2px; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+  .pick__spec li { font-size: 12.5px; line-height: 1.4; color: var(--deep-teal); opacity: 0.86; padding-left: 15px; position: relative; }
+  .pick__spec li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 2px; background: var(--champagne-solid); }
+  .pick__spec li.steel::before { background: var(--steel-edge); }
+  .pick__link { margin-top: 12px; align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); text-decoration: none; border: 1px solid var(--line-strong); border-radius: 999px; padding: 7px 14px; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+  .pick__link:hover { background: var(--deep-teal); color: var(--ivory); border-color: var(--deep-teal); }
+  .pick__link:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  /* ---- Price-tier strip ---- */
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+  .tier { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 14px 15px; }
+  .tier--pick { border-color: var(--gold); background: linear-gradient(180deg, #fffdf6, var(--ivory)); }
+  .tier--no { border-color: rgba(138,90,43,0.4); }
+  .tier__lab { font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 5px; }
+  .tier--no .tier__lab { color: #8a5a2b; }
+  .tier__name { font-family: var(--serif); font-size: 14px; font-weight: 500; color: var(--deep-teal); line-height: 1.2; margin-bottom: 4px; }
+  .tier__price { font-size: 12.5px; font-weight: 700; color: var(--teal); }
+  .tier__note { font-size: 11.5px; color: var(--deep-teal); opacity: 0.7; line-height: 1.4; margin-top: 3px; }
+
+  /* ---- Budget rollup ---- */
+  .rollup { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .rollup table { width: 100%; border-collapse: collapse; }
+  .rollup th, .rollup td { text-align: left; padding: 12px 16px; font-size: 13px; border-bottom: 1px solid var(--line); }
+  .rollup th { font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); background: var(--paper-soft); }
+  .rollup td.num, .rollup th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .rollup td .item { font-weight: 600; color: var(--deep-teal); }
+  .rollup td .prod { font-size: 11.5px; color: var(--deep-teal); opacity: 0.66; display: block; margin-top: 2px; line-height: 1.35; }
+  .rollup tr.total td { border-bottom: none; font-weight: 800; color: var(--deep-teal); background: var(--paper-soft); font-size: 14px; }
+  .rollup__levers { padding: 14px 16px 16px; font-size: 13px; line-height: 1.6; color: var(--deep-teal); opacity: 0.86; background: linear-gradient(180deg, #fffdf6, var(--ivory)); border-top: 1px solid var(--line); }
+  .rollup__levers strong { color: var(--gold-dark); }
+
+  .closing { background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 8px; padding: 28px 30px; box-shadow: var(--shadow-md); }
+  .closing__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+  .closing__title { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--deep-teal); letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 14px; }
+  .closing__title em { color: var(--gold-dark); font-style: italic; }
+  .closing__body { font-size: 15px; line-height: 1.7; color: var(--deep-teal); }
+  .closing__body p { margin-bottom: 10px; }
+  .closing__body p:last-child { margin-bottom: 0; }
+  .closing__signoff { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--gold-dark); margin-top: 14px; letter-spacing: 0.01em; }
+
+  footer.foot { padding: 38px 0 60px; text-align: center; font-size: 11px; color: var(--deep-teal); opacity: 0.55; letter-spacing: 0.06em; line-height: 1.6; }
+  footer.foot .why { font-family: var(--serif); font-size: 13px; font-style: italic; opacity: 0.8; margin-bottom: 8px; letter-spacing: 0; }
+  footer.foot .why em { color: var(--gold-dark); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 34px; }
+    section.block { padding: 32px 0; }
+    .picks { grid-template-columns: 1fr; gap: 16px; }
+    .tiers { grid-template-columns: 1fr; }
+    .frame { padding: 22px 24px; }
+    .frame p { font-size: 18px; }
+    .read { padding: 18px 20px; }
+    .rollup th, .rollup td { padding: 10px 12px; font-size: 12px; }
+    .closing { padding: 22px 22px; }
+    .closing__title { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand"><img src="mams-logo.png" alt="MAMS LLC"/></div>
+    <div class="hero__eyebrow">For Wes &middot; 3901 Cedar Grove &middot; The Final Pieces</div>
+    <div class="hero__greeting">Hey Wes,</div>
+    <h1 class="hero__title">The last three pieces <em>before the sign goes up.</em></h1>
+    <p class="hero__sub">Paint, hardware, lighting are done. What is left is the vanity, the pantry, and the appliances. All three are things a buyer photographs first, so all three are sourced to the exact spec, in the finishes your house is already committed to.</p>
+  </header>
+
+  <!-- THE FRAME -->
+  <section class="block">
+    <div class="frame">
+      <div class="eyebrow">The Frame</div>
+      <p>Three purchases stand between you and listed. Each one has a spec that has to be right, and two of them have a fit detail that sinks the buy if it is missed. Here is the <em>exact</em> pick, and the two things to watch.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 01 - VANITY -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; The Vanity</div>
+    <h2 class="section__title">Drawers left, sink right. <em>That is the whole spec.</em></h2>
+    <p class="section__lede">Your rough-in puts the drain on the right, so the vanity has to put the sink on the right and the drawers on the left. That is a right-offset vanity, and it is a narrow slice of the 36-inch market. The pick below is a true right-offset in white shaker, so it repeats the kitchen cabinets on the same plumbing you already have.</p>
+
+    <div class="picks">
+
+      <!-- Vanity -->
+      <div class="pick pick--flag">
+        <div class="fin">
+          <div class="van__faucet"></div>
+          <div class="van__sink"></div>
+          <div class="van__top"></div>
+          <div class="van__body"></div>
+          <div class="van__drawers"><span></span><span></span><span></span></div>
+          <div class="van__door"></div>
+        </div>
+        <div class="pick__body">
+          <div class="pick__code">The Pick &middot; Right-Offset</div>
+          <div class="pick__sku">Ariel Cambridge 36 in. Vanity Set</div>
+          <div class="pick__chips">
+            <span class="chip"><span class="chip__swatch" style="background:#F5F2EC;"></span>White Shaker</span>
+            <span class="chip">Drawers L / Sink R</span>
+            <span class="chip chip--price">$1,061</span>
+          </div>
+          <div class="pick__why">A true right-offset layout with a Carrara white quartz top and 8-inch widespread drilling. The white shaker doors match the kitchen cabinets, so the bathroom reads like the same house. 280 in stock. Model A036SRCQOVOWHT.</div>
+          <a class="pick__link" href="https://www.build.com/ariel-a036srcqovowht/s1981848" target="_blank" rel="noopener">View at Build.com</a>
+        </div>
+      </div>
+
+      <!-- Faucet -->
+      <div class="pick pick--flag">
+        <div class="fin">
+          <div class="van__faucet" style="right:44%;top:22%;height:34%;"></div>
+          <div class="van__top" style="top:58%;left:24%;right:24%;"></div>
+          <div class="van__body" style="top:65%;left:24%;right:24%;bottom:14%;"></div>
+        </div>
+        <div class="pick__body">
+          <div class="pick__code">Paired Faucet &middot; Warm Metal</div>
+          <div class="pick__sku">Delta Chamberlain Widespread</div>
+          <div class="pick__chips">
+            <span class="chip"><span class="chip__swatch" style="background:#C6A667;"></span>Champagne Bronze</span>
+            <span class="chip">8 in widespread</span>
+            <span class="chip chip--price">$179</span>
+          </div>
+          <div class="pick__why">Drops straight into the Cambridge's pre-drilled 8-inch holes and includes the matching drain. Keeps the visible metal in the same warm-brass family as the hardware and lighting you already bought. Model 35747LF-CZ.</div>
+          <a class="pick__link" href="https://www.homedepot.com/p/Delta-Chamberlain-Gold-8-in-Widespread-Double-Handle-Bathroom-Faucet-in-Champagne-Bronze-35747LF-CZ/323399670" target="_blank" rel="noopener">View at Home Depot</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Vanity tiers -->
+    <div class="tiers">
+      <div class="tier tier--no">
+        <div class="tier__lab">Skip &middot; Wrong Layout</div>
+        <div class="tier__name">HDC Doveton 36 in.</div>
+        <div class="tier__price">$499</div>
+        <div class="tier__note">Cheaper, but center-sink. It looks identical in a thumbnail and will not line up with your right-side drain. Does not qualify.</div>
+      </div>
+      <div class="tier tier--pick">
+        <div class="tier__lab">The Pick</div>
+        <div class="tier__name">Ariel Cambridge 36 in.</div>
+        <div class="tier__price">$1,061</div>
+        <div class="tier__note">True right-offset, white shaker, quartz top. The clean answer for the plumbing you have.</div>
+      </div>
+      <div class="tier">
+        <div class="tier__lab">Spend Up</div>
+        <div class="tier__name">Ariel Hepburn 36 in.</div>
+        <div class="tier__price">confirm in cart</div>
+        <div class="tier__note">Also right-offset, rectangle sink. Ships with black pulls, so budget a quick swap to brass to stay on palette.</div>
+      </div>
+    </div>
+
+    <div class="warn">
+      <div class="warn__tag">Watch out &middot; 1 of 2</div>
+      <p>Most prep buys the vanity that is in stock and finds out about the plumbing later. <strong>Right-offset means the sink sits right and the drawers sit left.</strong> Center-sink 36-inch vanities are 90 percent of the market and look nearly identical in a photo. Before any checkout, confirm the words "right offset" are on the product page.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 02 - PANTRY -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; The Pantry</div>
+    <h2 class="section__title">24 wide, 94 tall. <em>To the left of the linen closet.</em></h2>
+    <p class="section__lede">Nobody manufactures a cabinet at exactly 94 inches, so the number only exists through the install. The pick is a 24-inch white shaker tall cabinet that continues the same door profile as the kitchen, brought down to 94 inches by the installer, not by cutting the box.</p>
+
+    <div class="picks">
+
+      <!-- Pantry pick -->
+      <div class="pick pick--flag">
+        <div class="fin">
+          <div class="pan__linen"></div>
+          <div class="pan__col"></div>
+          <div class="pan__split"></div>
+          <div class="pan__knob pan__knob--u"></div>
+          <div class="pan__knob pan__knob--l"></div>
+          <div class="pan__tag">24 x 94</div>
+        </div>
+        <div class="pick__body">
+          <div class="pick__code">The Pick &middot; White Shaker</div>
+          <div class="pick__sku">Hampton Bay Melvern Tall Pantry</div>
+          <div class="pick__chips">
+            <span class="chip"><span class="chip__swatch" style="background:#F5F2EC;"></span>White Shaker</span>
+            <span class="chip">24 x 24 x 96</span>
+            <span class="chip chip--price">confirm in cart</span>
+          </div>
+          <div class="pick__why">The only 24-inch-wide candidate in true white shaker, so it continues the kitchen instead of introducing a third door style. Starts at 96 inches and comes down to 94 at the toe-kick or a top filler. Model T2496-MLWH.</div>
+          <a class="pick__link" href="https://www.homedepot.com/p/Hampton-Bay-Designer-Series-Melvern-24-in-W-x-24-in-D-x-96-in-H-Assembled-Shaker-Tall-Pantry-Kitchen-Cabinet-in-White-T2496-MLWH/305844294" target="_blank" rel="noopener">View at Home Depot</a>
+        </div>
+      </div>
+
+      <!-- Pantry confirmed-price alt -->
+      <div class="pick">
+        <div class="fin">
+          <div class="pan__linen"></div>
+          <div class="pan__col" style="background:#F3F0EA;"></div>
+          <div class="pan__split"></div>
+          <div class="pan__knob pan__knob--u"></div>
+          <div class="pan__knob pan__knob--l"></div>
+          <div class="pan__tag">4 roll-outs</div>
+        </div>
+        <div class="pick__body">
+          <div class="pick__code">Confirmed Price &middot; Loaded</div>
+          <div class="pick__sku">HDC Newport Pantry, Soft-Close</div>
+          <div class="pick__chips">
+            <span class="chip"><span class="chip__swatch" style="background:#F3F0EA;"></span>Pacific White</span>
+            <span class="chip">24 x 24 x 96</span>
+            <span class="chip chip--price">$2,147.94</span>
+          </div>
+          <div class="pick__why">Plywood box with four soft-close roll-out trays and a locked-in price. Same 96-to-94 install method. A premium spend, worth it only if the pantry is a selling feature you want to show off.</div>
+          <a class="pick__link" href="https://www.homedepot.com/p/Home-Decorators-Collection-Newport-24-in-W-x-24-in-D-x-96-in-H-Assembled-Plywood-Pantry-Kitchen-Cabinet-in-Pacific-White-with-4ROT-Soft-Close-U242496-4T-NPW/204137007" target="_blank" rel="noopener">View at Home Depot</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="warn">
+      <div class="warn__tag">Watch out &middot; 2 of 2</div>
+      <p>94 inches is an installer decision, not a saw cut. <strong>The 2 inches come out of the toe-kick recess or a top filler, never the finished box or the door openings.</strong> Have the installer confirm which method works in that spot before the cabinet is ordered. If the box cannot absorb the 2 inches, the fallback is a shorter cabinet built up on a base, not a modified Melvern.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 03 - APPLIANCES -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; The Appliances</div>
+    <h2 class="section__title">A name buyers know. <em>At a number that is not crazy.</em></h2>
+    <p class="section__lede">Against a $550K target, this is not the place for a pro line, and it is not the place for a no-name suite either. The move is one coordinated Samsung package in stainless, so all four pieces share a handle and a finish and photograph as one renovated kitchen instead of four separate purchases.</p>
+
+    <div class="picks">
+      <div class="pick pick--flag pick--wide">
+        <div class="fin fin--suite fin--wide">
+          <div class="suite__row">
+            <div class="app app--fridge"></div>
+            <div class="app app--range"></div>
+            <div class="app app--dish"></div>
+            <div class="app app--micro"></div>
+          </div>
+        </div>
+        <div class="pick__body">
+          <div class="pick__code">The Pick &middot; Electric 4-Piece</div>
+          <div class="pick__sku">Samsung Stainless Suite &middot; Home Depot Package</div>
+          <div class="pick__chips">
+            <span class="chip"><span class="chip__swatch" style="background:#C3CBCF;"></span>Fingerprint-Resistant Stainless</span>
+            <span class="chip chip--price">$2,676 package</span>
+            <span class="chip chip--save">Save $720</span>
+          </div>
+          <ul class="pick__spec">
+            <li class="steel"><strong>Refrigerator</strong> &middot; 36 in, 27.4 cu ft side-by-side &middot; RS27T5200SR &middot; $1,299</li>
+            <li class="steel"><strong>Electric range</strong> &middot; 30 in, smart freestanding, steam clean &middot; NE63A6111SS &middot; $699</li>
+            <li class="steel"><strong>Over-the-range microwave</strong> &middot; 1.6 cu ft &middot; ME16A4021AS &middot; $249</li>
+            <li class="steel"><strong>Dishwasher</strong> &middot; 24 in tall tub, 53 dBA &middot; DW80CG4021SR &middot; $429</li>
+          </ul>
+          <div class="pick__why">Package total $2,676 at Home Depot, a confirmed $720 off the $3,396 regular price. One brand, one handle family, one finish story across every listing photo. If Samsung is out at delivery, the Whirlpool 4-piece electric package is the coherent backup at about $3,398.</div>
+          <a class="pick__link" href="https://www.homedepot.com/p/sets/Samsung-27-4-cu-ft-Standard-Depth-Side-by-Side-Refrigerator-with-4-Element-Smart-Freestanding-Range-and-Dishwasher/336694674" target="_blank" rel="noopener">View the package</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn">
+      <div class="warn__tag">Fuel note &middot; Electric is the plan</div>
+      <p>The suite is built electric because the range location reads as electric. <strong>If it turns out there is a live gas line there, swap only the range</strong> to the Samsung NX60A6511SS gas range at $899 and keep the other three pieces. The suite stays coherent either way. A gas range with no existing line means separate plumbing work, so electric stays the recommendation until the hookup is confirmed.</p>
+    </div>
+  </section>
+
+  <!-- THE NUMBER -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; The Number</div>
+    <h2 class="section__title">All in, product only. <em>About 1.1 percent of the target.</em></h2>
+    <p class="section__lede">The representative all-in for the recommended set, at the prices confirmed on July 20. The pantry line uses the confirmed-price Newport so the total is provable; once the Melvern quote lands in cart, swap it in and the number moves with it.</p>
+
+    <div class="rollup">
+      <table>
+        <thead>
+          <tr>
+            <th>Line item</th>
+            <th class="num">Product-only</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="item">Bathroom vanity</span><span class="prod">Ariel Cambridge 36 in, white right-offset, quartz top</span></td>
+            <td class="num">$1,061.00</td>
+          </tr>
+          <tr>
+            <td><span class="item">Vanity faucet</span><span class="prod">Delta Chamberlain 8 in, champagne bronze</span></td>
+            <td class="num">$179.00</td>
+          </tr>
+          <tr>
+            <td><span class="item">Pantry cabinet</span><span class="prod">HDC Newport 24x24x96, soft-close (confirmed-price line)</span></td>
+            <td class="num">$2,147.94</td>
+          </tr>
+          <tr>
+            <td><span class="item">Appliance suite</span><span class="prod">Samsung 4-piece electric package, Home Depot</span></td>
+            <td class="num">$2,676.00</td>
+          </tr>
+          <tr class="total">
+            <td>Representative total</td>
+            <td class="num">$6,063.94</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="rollup__levers">
+        A leaner build lands near <strong>$3,538</strong> by using an IKEA SEKTION frame for the pantry and the same Samsung suite. Note the spend-less vanity in that math is center-sink and does not meet your plumbing, so for the bathroom the Cambridge stays the floor. Both figures are product only. They do not include tax, delivery, install, or the trim work to bring the pantry to 94 inches. Against a $550,000 target, roughly $6,100 for a corrected bathroom, a built-in pantry, and a matched appliance suite is a disciplined spend on the three things buyers photograph first.
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="block">
+    <div class="closing">
+      <div class="closing__tag">Where I land</div>
+      <div class="closing__title">Your house already made the hard calls. <em>These three just agree with them.</em></div>
+      <div class="closing__body">
+        <p>The palette is locked, the metals are locked, and each of these picks refuses to argue with either one, Wes. The vanity repeats the kitchen, the faucet repeats the brass, and the suite reads as one renovated kitchen in every photo.</p>
+        <p>The only two things between you and ordering are the installer's confirmation on the pantry method and the Melvern price in cart. Everything else is settled.</p>
+        <p>Text me whichever pick is sitting right, or the one you want to talk through, and we will lock the order list from there.</p>
+      </div>
+      <div class="closing__signoff">Miles</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Built for <em>Wes</em> &middot; 3901 Cedar Grove Rd &middot; MAMS LLC &middot; Richmond, Virginia</div>
+    <div>miles@milesagee.com &middot; mamsnow.com &middot; Prices as shown July 20, 2026. Single-recipient page. Not indexed.</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
