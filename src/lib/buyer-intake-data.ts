@@ -56,10 +56,24 @@ export type Stage1Response = {
   nextStepPromise: string;
 };
 
+// Which metro the intake geography renders for. Default is Richmond (every
+// contact created before 2026-07-21). Set "nova" for a buyer searching Northern
+// Virginia so Step 2 shows THEIR counties instead of Greater Richmond.
+export type BuyerRegion = "richmond" | "nova";
+
+export type RegionMeta = { label: string; short: string };
+
+export const REGION_META: Record<BuyerRegion, RegionMeta> = {
+  richmond: { label: "Greater Richmond", short: "Richmond" },
+  nova: { label: "Northern Virginia", short: "Northern Virginia" },
+};
+
 export type BuyerIntakeContact = {
   contactId: string;
   shareToken: string;
   firstName: string;
+  // Metro the Step-2 geography + hero copy render for. Omit => "richmond".
+  region?: BuyerRegion;
   // Established-channel flag drives the Monique-line SMS routing.
   // "personal-cell-imessage" => post-submit SMS includes the Monique intro context
   // "mams-line-established"  => Monique already known, skip intro framing
@@ -106,14 +120,16 @@ export const CONTACTS: Record<string, BuyerIntakeContact> = {
     establishedChannel: "mams-line-established",
   },
   // Lashena (Lashenia Irvin), Miles's aunt, +1-321-330-7921. Purchasing up in
-  // NoVa per 2026-06-23 iMessage thread. Created in MAMS GHL 2026-07-07 via
-  // buyer-intake-bootstrap.js. NOTE: intake neighborhood chips are Richmond-only
-  // at v1 (geography mismatch flagged to Miles); budget/beds/baths/timeline
-  // still capture cleanly.
+  // NoVa (Woodbridge area) per 2026-06-23 iMessage thread; her husband is the
+  // financing party and will fill out the intake. Created in MAMS GHL 2026-07-07
+  // via buyer-intake-bootstrap.js. region:"nova" so Step 2 shows her actual
+  // counties (Prince William / Fairfax / Loudoun) instead of Greater Richmond
+  // -- fixed 2026-07-21 (was Richmond-only at v1).
   "2tk3tSONPVI7kGrSWHsl": {
     contactId: "2tk3tSONPVI7kGrSWHsl",
     shareToken: "R0-nRPtG_uxR",
     firstName: "Lashena",
+    region: "nova",
     establishedChannel: "personal-cell-imessage",
   },
   // Tish, +1-301-655-9559. Buying for her family (husband + two young boys).
@@ -213,9 +229,68 @@ export const SUBURB_NEIGHBORHOOD_CHIPS_NEARBY: string[] = [
   "Colonial Heights",
 ];
 
-// Ordered render groups for Step 2 (city first, then by county). The wizard maps
-// over this; validation maps over the flattened NEIGHBORHOOD_CHIPS below.
-export const NEIGHBORHOOD_GROUPS: { label: string; chips: string[] }[] = [
+// ----- Northern Virginia chip sets (added 2026-07-21 for region:"nova" buyers) -----
+// Grouped by jurisdiction, buyer's home county first. Plain geography only --
+// never labeled, ranked, or grouped by demographics, same rule as Richmond.
+
+export const NOVA_NEIGHBORHOOD_CHIPS_PRINCE_WILLIAM: string[] = [
+  "Woodbridge",
+  "Lake Ridge",
+  "Dale City",
+  "Montclair",
+  "Manassas",
+  "Manassas Park",
+  "Gainesville",
+  "Bristow",
+  "Haymarket",
+  "Occoquan",
+  "Dumfries",
+  "Triangle",
+];
+
+export const NOVA_NEIGHBORHOOD_CHIPS_FAIRFAX: string[] = [
+  "Fairfax",
+  "Vienna",
+  "Reston",
+  "Herndon",
+  "Springfield",
+  "Burke",
+  "Centreville",
+  "Chantilly",
+  "Annandale",
+  "McLean",
+  "Falls Church",
+  "Lorton",
+  "Clifton",
+];
+
+export const NOVA_NEIGHBORHOOD_CHIPS_LOUDOUN: string[] = [
+  "Leesburg",
+  "Ashburn",
+  "Sterling",
+  "South Riding",
+  "Brambleton",
+  "Purcellville",
+];
+
+export const NOVA_NEIGHBORHOOD_CHIPS_ARLINGTON_ALEX: string[] = [
+  "Arlington",
+  "Alexandria",
+  "Old Town",
+  "Del Ray",
+];
+
+export const NOVA_NEIGHBORHOOD_CHIPS_NEARBY: string[] = [
+  "Stafford",
+  "Fredericksburg",
+  "Spotsylvania",
+];
+
+// Ordered render groups for Step 2. The wizard maps over the group set for the
+// contact's region; validation maps over the flattened union of ALL regions.
+export type NeighborhoodGroup = { label: string; chips: string[] };
+
+export const NEIGHBORHOOD_GROUPS_RICHMOND: NeighborhoodGroup[] = [
   { label: "In the city", chips: CITY_NEIGHBORHOOD_CHIPS },
   { label: "Henrico County", chips: SUBURB_NEIGHBORHOOD_CHIPS_HENRICO },
   { label: "Chesterfield County", chips: SUBURB_NEIGHBORHOOD_CHIPS_CHESTERFIELD },
@@ -223,8 +298,32 @@ export const NEIGHBORHOOD_GROUPS: { label: string; chips: string[] }[] = [
   { label: "Nearby counties", chips: SUBURB_NEIGHBORHOOD_CHIPS_NEARBY },
 ];
 
-// Union set. This is the validation gate: every topNeighborhoods entry must be in here.
-export const NEIGHBORHOOD_CHIPS: string[] = NEIGHBORHOOD_GROUPS.flatMap((g) => g.chips);
+export const NEIGHBORHOOD_GROUPS_NOVA: NeighborhoodGroup[] = [
+  { label: "Prince William County", chips: NOVA_NEIGHBORHOOD_CHIPS_PRINCE_WILLIAM },
+  { label: "Fairfax County", chips: NOVA_NEIGHBORHOOD_CHIPS_FAIRFAX },
+  { label: "Loudoun County", chips: NOVA_NEIGHBORHOOD_CHIPS_LOUDOUN },
+  { label: "Arlington & Alexandria", chips: NOVA_NEIGHBORHOOD_CHIPS_ARLINGTON_ALEX },
+  { label: "Nearby", chips: NOVA_NEIGHBORHOOD_CHIPS_NEARBY },
+];
+
+// Back-compat alias (Richmond is the default region).
+export const NEIGHBORHOOD_GROUPS: NeighborhoodGroup[] = NEIGHBORHOOD_GROUPS_RICHMOND;
+
+// Region -> render groups. The wizard calls this with contact.region.
+export function neighborhoodGroupsForRegion(
+  region: BuyerRegion = "richmond",
+): NeighborhoodGroup[] {
+  return region === "nova" ? NEIGHBORHOOD_GROUPS_NOVA : NEIGHBORHOOD_GROUPS_RICHMOND;
+}
+
+// Union set across every region. This is the validation gate: every
+// topNeighborhoods entry must be in here. The wizard only ever renders one
+// region's chips, so a Richmond buyer can't select a NoVa area, but the gate
+// accepts any known chip regardless of region.
+export const NEIGHBORHOOD_CHIPS: string[] = [
+  ...NEIGHBORHOOD_GROUPS_RICHMOND,
+  ...NEIGHBORHOOD_GROUPS_NOVA,
+].flatMap((g) => g.chips);
 
 export type MustHaveChip = {
   slug: string;

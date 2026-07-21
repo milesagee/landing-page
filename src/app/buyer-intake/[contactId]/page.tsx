@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { getBuyerIntakeByToken } from "@/lib/buyer-intake-data";
+import { getBuyerIntakeByToken, REGION_META } from "@/lib/buyer-intake-data";
 import { BuyerIntakeWizard } from "@/components/buyer-intake/BuyerIntakeWizard";
 
 export const dynamic = "force-dynamic";
@@ -28,6 +28,8 @@ export default async function BuyerIntakePage({
   if (!t) notFound();
   const contact = getBuyerIntakeByToken(contactId, t);
   if (!contact) notFound();
+
+  const regionShort = REGION_META[contact.region ?? "richmond"].short;
 
   return (
     <main className="min-h-screen bg-paper text-deep-teal">
@@ -58,9 +60,9 @@ export default async function BuyerIntakePage({
           {contact.firstName}, reset your search the way it should have been built.
         </h1>
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
-          Five quick steps. By the time you finish I&rsquo;ll already be working on a curated list of
-          Richmond inventory the public sites aren&rsquo;t surfacing for you. Your full breakdown lands
-          tonight.
+          Five quick steps. By the time you finish I&rsquo;ll already be working on a curated list of{" "}
+          {regionShort}{" "}inventory the public sites aren&rsquo;t surfacing for you. Your full breakdown
+          lands tonight.
         </p>
       </section>
 

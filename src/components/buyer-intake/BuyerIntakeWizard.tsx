@@ -7,8 +7,10 @@ import {
   type IntakeCurrentSituation,
   type IntakeTimeline,
   type Stage1Response,
+  type NeighborhoodGroup,
   validateIntake,
-  NEIGHBORHOOD_GROUPS,
+  neighborhoodGroupsForRegion,
+  REGION_META,
   MUST_HAVE_CHIPS,
   TIMELINE_OPTIONS,
   SITUATION_OPTIONS,
@@ -30,6 +32,11 @@ export function BuyerIntakeWizard({
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [stage1, setStage1] = useState<Stage1Response | null>(null);
   const [eta, setEta] = useState<string>("");
+
+  // Region drives which metro's geography Step 2 renders. Omit => Richmond.
+  const region = contact.region ?? "richmond";
+  const neighborhoodGroups = useMemo(() => neighborhoodGroupsForRegion(region), [region]);
+  const regionLabel = REGION_META[region].label;
 
   // Step 1: budget + footprint
   const [budgetMin, setBudgetMin] = useState<number>(contact.prefill?.budgetMin ?? 250000);
@@ -176,6 +183,8 @@ export function BuyerIntakeWizard({
       {state === "step2" && (
         <Step2
           selected={topNeighborhoods}
+          groups={neighborhoodGroups}
+          regionLabel={regionLabel}
           onChange={setTopNeighborhoods}
           onBack={() => setState("step1")}
           onNext={() => setState("step3")}
@@ -383,11 +392,15 @@ function ChipGroup({
 
 function Step2({
   selected,
+  groups,
+  regionLabel,
   onChange,
   onBack,
   onNext,
 }: {
   selected: string[];
+  groups: NeighborhoodGroup[];
+  regionLabel: string;
   onChange: (v: string[]) => void;
   onBack: () => void;
   onNext: () => void;
@@ -403,7 +416,7 @@ function Step2({
   return (
     <StepShell
       eyebrow="Step 2 - Neighborhoods"
-      headline="Which Greater Richmond areas are on your shortlist?"
+      headline={`Which ${regionLabel} areas are on your shortlist?`}
       footer={
         <>
           <button
@@ -426,10 +439,10 @@ function Step2({
     >
       <div className="space-y-5">
         <p className="text-sm text-deep-teal/75 leading-relaxed">
-          Tap up to 5, in the city or out in the counties. Order matters: your first tap is your first
-          choice. Adjacent areas worth a look will show up in the curated dashboard tonight.
+          Tap up to 5. Order matters: your first tap is your first choice. Adjacent areas worth a
+          look will show up in the curated dashboard tonight.
         </p>
-        {NEIGHBORHOOD_GROUPS.map((g) => (
+        {groups.map((g) => (
           <ChipGroup
             key={g.label}
             label={g.label}
