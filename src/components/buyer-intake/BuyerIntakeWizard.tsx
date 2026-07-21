@@ -8,7 +8,8 @@ import {
   type IntakeTimeline,
   type Stage1Response,
   validateIntake,
-  NEIGHBORHOOD_CHIPS,
+  CITY_NEIGHBORHOOD_CHIPS,
+  SUBURB_NEIGHBORHOOD_CHIPS,
   MUST_HAVE_CHIPS,
   TIMELINE_OPTIONS,
   SITUATION_OPTIONS,
@@ -341,6 +342,46 @@ function Step1({
   );
 }
 
+function ChipGroup({
+  label,
+  chips,
+  selected,
+  onToggle,
+}: {
+  label: string;
+  chips: string[];
+  selected: string[];
+  onToggle: (n: string) => void;
+}) {
+  return (
+    <div className="space-y-2">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-deep-teal/50">
+        {label}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {chips.map((n) => {
+          const isSelected = selected.includes(n);
+          const order = isSelected ? selected.indexOf(n) + 1 : null;
+          return (
+            <button
+              key={n}
+              type="button"
+              onClick={() => onToggle(n)}
+              className={`text-sm font-medium rounded-full px-4 py-2 border transition-colors ${
+                isSelected
+                  ? "bg-deep-teal text-ivory border-deep-teal"
+                  : "bg-white text-deep-teal/70 border-deep-teal/15 hover:border-deep-teal/40"
+              }`}
+            >
+              {order ? `${order}. ${n}` : n}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function Step2({
   selected,
   onChange,
@@ -363,7 +404,7 @@ function Step2({
   return (
     <StepShell
       eyebrow="Step 2 - Neighborhoods"
-      headline="Which Richmond pockets are on your shortlist?"
+      headline="Which Greater Richmond areas are on your shortlist?"
       footer={
         <>
           <button
@@ -384,31 +425,23 @@ function Step2({
         </>
       }
     >
-      <div className="space-y-4">
+      <div className="space-y-5">
         <p className="text-sm text-deep-teal/75 leading-relaxed">
-          Tap up to 5. Order matters: your first tap is your first choice. Adjacent neighborhoods
-          worth a look will show up in the curated dashboard tonight.
+          Tap up to 5, in the city or out in the suburbs. Order matters: your first tap is your first
+          choice. Adjacent areas worth a look will show up in the curated dashboard tonight.
         </p>
-        <div className="flex flex-wrap gap-2">
-          {NEIGHBORHOOD_CHIPS.map((n) => {
-            const isSelected = selected.includes(n);
-            const order = isSelected ? selected.indexOf(n) + 1 : null;
-            return (
-              <button
-                key={n}
-                type="button"
-                onClick={() => toggle(n)}
-                className={`text-sm font-medium rounded-full px-4 py-2 border transition-colors ${
-                  isSelected
-                    ? "bg-deep-teal text-ivory border-deep-teal"
-                    : "bg-white text-deep-teal/70 border-deep-teal/15 hover:border-deep-teal/40"
-                }`}
-              >
-                {order ? `${order}. ${n}` : n}
-              </button>
-            );
-          })}
-        </div>
+        <ChipGroup
+          label="In the city"
+          chips={CITY_NEIGHBORHOOD_CHIPS}
+          selected={selected}
+          onToggle={toggle}
+        />
+        <ChipGroup
+          label="Suburbs and counties"
+          chips={SUBURB_NEIGHBORHOOD_CHIPS}
+          selected={selected}
+          onToggle={toggle}
+        />
         <p className="text-[11px] text-deep-teal/55 leading-relaxed">
           {selected.length} of 5 selected.
         </p>

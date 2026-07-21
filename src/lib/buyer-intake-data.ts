@@ -139,7 +139,7 @@ export function getBuyerIntakeByToken(
 
 // ----- Chip sets (mirrored from intake-shape.md, locked at v1) -----
 
-export const NEIGHBORHOOD_CHIPS: string[] = [
+export const CITY_NEIGHBORHOOD_CHIPS: string[] = [
   "Scott's Addition",
   "The Fan",
   "Museum District",
@@ -168,6 +168,29 @@ export const NEIGHBORHOOD_CHIPS: string[] = [
   "Southside",
   "Downtown",
   "Broad Rock",
+];
+
+// Suburban / county areas outside the city line. Added 2026-07-21 so family and
+// relocation buyers looking past the urban core can pick their areas and advance.
+// Plain geographic options only -- never labeled or grouped by demographics.
+export const SUBURB_NEIGHBORHOOD_CHIPS: string[] = [
+  // Henrico
+  "Glen Allen",
+  "Short Pump",
+  "Laurel",
+  // Chesterfield
+  "Midlothian",
+  "Bon Air",
+  "Chester",
+  // Hanover
+  "Mechanicsville",
+  "Ashland",
+];
+
+// Union set. This is the validation gate: every topNeighborhoods entry must be in here.
+export const NEIGHBORHOOD_CHIPS: string[] = [
+  ...CITY_NEIGHBORHOOD_CHIPS,
+  ...SUBURB_NEIGHBORHOOD_CHIPS,
 ];
 
 export type MustHaveChip = {
