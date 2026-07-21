@@ -8,8 +8,7 @@ import {
   type IntakeTimeline,
   type Stage1Response,
   validateIntake,
-  CITY_NEIGHBORHOOD_CHIPS,
-  SUBURB_NEIGHBORHOOD_CHIPS,
+  NEIGHBORHOOD_GROUPS,
   MUST_HAVE_CHIPS,
   TIMELINE_OPTIONS,
   SITUATION_OPTIONS,
@@ -427,21 +426,18 @@ function Step2({
     >
       <div className="space-y-5">
         <p className="text-sm text-deep-teal/75 leading-relaxed">
-          Tap up to 5, in the city or out in the suburbs. Order matters: your first tap is your first
+          Tap up to 5, in the city or out in the counties. Order matters: your first tap is your first
           choice. Adjacent areas worth a look will show up in the curated dashboard tonight.
         </p>
-        <ChipGroup
-          label="In the city"
-          chips={CITY_NEIGHBORHOOD_CHIPS}
-          selected={selected}
-          onToggle={toggle}
-        />
-        <ChipGroup
-          label="Suburbs and counties"
-          chips={SUBURB_NEIGHBORHOOD_CHIPS}
-          selected={selected}
-          onToggle={toggle}
-        />
+        {NEIGHBORHOOD_GROUPS.map((g) => (
+          <ChipGroup
+            key={g.label}
+            label={g.label}
+            chips={g.chips}
+            selected={selected}
+            onToggle={toggle}
+          />
+        ))}
         <p className="text-[11px] text-deep-teal/55 leading-relaxed">
           {selected.length} of 5 selected.
         </p>

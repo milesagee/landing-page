@@ -170,28 +170,61 @@ export const CITY_NEIGHBORHOOD_CHIPS: string[] = [
   "Broad Rock",
 ];
 
-// Suburban / county areas outside the city line. Added 2026-07-21 so family and
-// relocation buyers looking past the urban core can pick their areas and advance.
-// Plain geographic options only -- never labeled or grouped by demographics.
-export const SUBURB_NEIGHBORHOOD_CHIPS: string[] = [
-  // Henrico
-  "Glen Allen",
+// Suburban / county areas outside the city line, grouped by county so every buyer
+// gets a complete map of Greater Richmond and can find their area fast. Recognized
+// suburban communities across the metro. Plain geographic options only -- never
+// labeled, ranked, or grouped by demographics. School fit is surfaced later, per
+// buyer, by the school-quality-lens (sourced, never claimed). Expanded 2026-07-21.
+export const SUBURB_NEIGHBORHOOD_CHIPS_HENRICO: string[] = [
   "Short Pump",
+  "Glen Allen",
+  "Wyndham",
+  "Innsbrook",
+  "Tuckahoe",
+  "Lakeside",
   "Laurel",
-  // Chesterfield
+  "Sandston",
+  "Varina",
+];
+
+export const SUBURB_NEIGHBORHOOD_CHIPS_CHESTERFIELD: string[] = [
   "Midlothian",
   "Bon Air",
   "Chester",
-  // Hanover
+  "Moseley",
+  "Brandermill",
+  "Woodlake",
+  "Salisbury",
+  "Matoaca",
+];
+
+export const SUBURB_NEIGHBORHOOD_CHIPS_HANOVER: string[] = [
   "Mechanicsville",
   "Ashland",
+  "Atlee",
+  "Montpelier",
+];
+
+export const SUBURB_NEIGHBORHOOD_CHIPS_NEARBY: string[] = [
+  "Goochland",
+  "Manakin-Sabot",
+  "Powhatan",
+  "New Kent",
+  "Colonial Heights",
+];
+
+// Ordered render groups for Step 2 (city first, then by county). The wizard maps
+// over this; validation maps over the flattened NEIGHBORHOOD_CHIPS below.
+export const NEIGHBORHOOD_GROUPS: { label: string; chips: string[] }[] = [
+  { label: "In the city", chips: CITY_NEIGHBORHOOD_CHIPS },
+  { label: "Henrico County", chips: SUBURB_NEIGHBORHOOD_CHIPS_HENRICO },
+  { label: "Chesterfield County", chips: SUBURB_NEIGHBORHOOD_CHIPS_CHESTERFIELD },
+  { label: "Hanover County", chips: SUBURB_NEIGHBORHOOD_CHIPS_HANOVER },
+  { label: "Nearby counties", chips: SUBURB_NEIGHBORHOOD_CHIPS_NEARBY },
 ];
 
 // Union set. This is the validation gate: every topNeighborhoods entry must be in here.
-export const NEIGHBORHOOD_CHIPS: string[] = [
-  ...CITY_NEIGHBORHOOD_CHIPS,
-  ...SUBURB_NEIGHBORHOOD_CHIPS,
-];
+export const NEIGHBORHOOD_CHIPS: string[] = NEIGHBORHOOD_GROUPS.flatMap((g) => g.chips);
 
 export type MustHaveChip = {
   slug: string;
