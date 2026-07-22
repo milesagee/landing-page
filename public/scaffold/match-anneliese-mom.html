@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Your Richmond home search | For Anneliese &amp; her mom</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --teal-deep-bg: #002a2a;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  .hero { padding: 48px 0 34px; border-bottom: 1px solid var(--line); }
+  .hero__brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .hero__brand img { height: 72px; width: auto; mix-blend-mode: multiply; margin-left: -10px; }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 16px; }
+  .hero__greeting { font-family: var(--serif); font-size: 13px; color: var(--teal); font-style: italic; margin-bottom: 8px; letter-spacing: 0.02em; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(38px, 6vw, 54px); line-height: 1.02; letter-spacing: -0.025em; color: var(--deep-teal); margin-bottom: 20px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 16px; color: var(--deep-teal); opacity: 0.78; max-width: 58ch; line-height: 1.6; }
+
+  section.block { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.section__title { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34px); line-height: 1.12; letter-spacing: -0.02em; color: var(--deep-teal); margin-bottom: 10px; }
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+  .section__lede { font-size: 15px; color: var(--deep-teal); opacity: 0.82; max-width: 62ch; line-height: 1.62; margin-bottom: 28px; }
+
+  .frame { background: var(--deep-teal); color: var(--ivory); padding: 30px 36px; border-radius: 6px; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+  .frame::after { content: ''; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .frame::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border: 1px solid var(--teal-light); border-radius: 50%; opacity: 0.22; }
+  .frame .eyebrow { color: var(--gold); margin-bottom: 6px; }
+  .frame p { font-family: var(--serif); font-size: 22px; line-height: 1.34; font-weight: 300; letter-spacing: -0.005em; position: relative; z-index: 1; }
+  .frame p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  /* ---- Criteria grid ---- */
+  .crit { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .crit__cell { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; box-shadow: var(--shadow-sm); position: relative; }
+  .crit__cell--wide { grid-column: 1 / -1; }
+  .crit__lab { font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 7px; }
+  .crit__val { font-family: var(--serif); font-size: 21px; font-weight: 500; color: var(--deep-teal); line-height: 1.14; letter-spacing: -0.012em; }
+  .crit__val small { font-family: var(--sans); font-size: 12.5px; font-weight: 500; color: var(--teal); opacity: 0.8; letter-spacing: 0; display: block; margin-top: 6px; line-height: 1.5; }
+  .crit__note { display: inline-block; margin-top: 9px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.02em; color: var(--teal); background: rgba(0, 95, 95, 0.08); padding: 4px 10px; border-radius: 999px; }
+  .crit__body { font-size: 14px; line-height: 1.62; color: var(--deep-teal); opacity: 0.86; }
+  .crit__body strong { color: var(--gold-dark); font-weight: 700; }
+
+  .singlelevel { margin-top: 16px; background: linear-gradient(180deg, #fffdf6, var(--ivory)); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 6px; padding: 18px 22px; box-shadow: var(--shadow-sm); }
+  .singlelevel .tag { font-size: 9.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 8px; }
+  .singlelevel p { font-size: 14.5px; line-height: 1.6; color: var(--deep-teal); opacity: 0.9; }
+  .singlelevel strong { color: var(--gold-dark); font-weight: 700; }
+
+  /* ---- Polarity read ---- */
+  .polar { display: flex; flex-direction: column; gap: 14px; }
+  .polar__row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 0; background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .polar__most { padding: 18px 20px; background: var(--paper-soft); border-right: 1px solid var(--line); }
+  .polar__we { padding: 18px 20px; border-left: 4px solid var(--teal); }
+  .polar__k { font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+  .polar__most .polar__k { color: #8a5a2b; }
+  .polar__we .polar__k { color: var(--gold-dark); }
+  .polar__most p { font-size: 13.5px; line-height: 1.55; color: var(--deep-teal); opacity: 0.72; }
+  .polar__we p { font-size: 14px; line-height: 1.58; color: var(--deep-teal); opacity: 0.92; }
+  .polar__we strong { color: var(--gold-dark); font-weight: 700; }
+
+  /* ---- Matches ---- */
+  .matches__banner { display: flex; align-items: center; gap: 12px; background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 16px 22px; margin-bottom: 22px; box-shadow: var(--shadow-md); }
+  .matches__pulse { flex-shrink: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(212,175,55,0.6); animation: pulse 2.4s cubic-bezier(0.16,1,0.3,1) infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212,175,55,0.55); } 70% { box-shadow: 0 0 0 12px rgba(212,175,55,0); } 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); } }
+  .matches__banner p { font-size: 13.5px; line-height: 1.5; }
+  .matches__banner strong { color: var(--gold-soft); font-weight: 700; }
+
+  .skel { display: flex; flex-direction: column; gap: 16px; }
+  .skel__card { background: var(--ivory); border: 1px dashed var(--line-strong); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: 150px 1fr; }
+  .skel__photo { position: relative; background: linear-gradient(135deg, var(--paper-soft) 0%, #e8e1d2 100%); min-height: 148px; display: flex; align-items: center; justify-content: center; border-right: 1px dashed var(--line); }
+  .skel__photo span { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); opacity: 0.7; }
+  .skel__score { position: absolute; top: 12px; left: 12px; width: 46px; height: 46px; border-radius: 50%; background: var(--deep-teal); color: var(--gold-soft); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md); }
+  .skel__score b { font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1; }
+  .skel__score i { font-style: normal; font-size: 7px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.75; margin-top: 2px; }
+  .skel__body { padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+  .skel__lab { font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); }
+  .skel__lines { display: flex; flex-direction: column; gap: 8px; }
+  .skel__bar { height: 11px; border-radius: 5px; background: linear-gradient(90deg, var(--paper-soft) 0%, #ece5d6 50%, var(--paper-soft) 100%); }
+  .skel__bar.w70 { width: 70%; } .skel__bar.w90 { width: 90%; } .skel__bar.w50 { width: 50%; }
+  .skel__meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+  .skel__chip { font-size: 10px; font-weight: 600; color: var(--teal); background: rgba(0,95,95,0.07); padding: 4px 9px; border-radius: 999px; letter-spacing: 0.02em; }
+  .skel__chip.active { color: #2e6b4f; background: rgba(46,107,79,0.12); font-weight: 700; }
+  .skel__chip.drawback { color: #8a5a2b; background: rgba(138,90,43,0.10); font-weight: 700; }
+  .skel__chip.level { color: var(--gold-dark); background: rgba(212,175,55,0.16); font-weight: 700; }
+
+  /* ---- Real match cards ---- */
+  .match { background: var(--ivory); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: 168px 1fr; }
+  .match__photo { position: relative; min-height: 158px; background: var(--paper-soft); overflow: hidden; }
+  .match__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .match__score { position: absolute; top: 12px; left: 12px; width: 46px; height: 46px; border-radius: 50%; background: var(--deep-teal); color: var(--gold-soft); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md); }
+  .match__score b { font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1; }
+  .match__score i { font-style: normal; font-size: 7px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.78; margin-top: 2px; }
+  .match__body { padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .match__addr { font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--deep-teal); line-height: 1.16; letter-spacing: -0.01em; }
+  .match__loc { font-size: 11px; font-weight: 600; letter-spacing: 0.03em; color: var(--teal); opacity: 0.85; }
+  .match__specs { font-size: 13px; font-weight: 700; color: var(--deep-teal); }
+  .match__specs span { font-weight: 500; opacity: 0.5; padding: 0 3px; }
+  .match__why { font-size: 13px; line-height: 1.52; color: var(--deep-teal); opacity: 0.9; }
+  .match__catch { font-size: 12.5px; line-height: 1.5; color: #8a5a2b; }
+  .match__catch b { font-weight: 700; }
+  .match__meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 2px; }
+  .match__link { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; transition: color 0.2s; }
+  .match__link:hover { color: var(--gold-dark); border-color: var(--gold-dark); }
+  .match__link:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .match__more { margin-top: 16px; font-size: 13px; line-height: 1.6; color: var(--deep-teal); opacity: 0.8; text-align: center; font-style: italic; font-family: var(--serif); }
+
+  .method { margin-top: 22px; background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .method__item { display: flex; gap: 14px; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+  .method__item:last-child { border-bottom: none; }
+  .method__num { flex-shrink: 0; font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--gold); line-height: 1; width: 26px; }
+  .method__t { font-size: 14px; font-weight: 700; color: var(--deep-teal); margin-bottom: 3px; }
+  .method__d { font-size: 13.5px; line-height: 1.55; color: var(--deep-teal); opacity: 0.82; }
+
+  /* ---- Neighborhood reads ---- */
+  .hoods { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .hood { background: var(--ivory); border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 8px; padding: 22px 24px; box-shadow: var(--shadow-sm); }
+  .hood--wide { grid-column: 1 / -1; }
+  .hood__name { font-family: var(--serif); font-size: 21px; font-weight: 500; color: var(--deep-teal); letter-spacing: -0.012em; margin-bottom: 3px; }
+  .hood__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+  .hood__body { font-size: 13.5px; line-height: 1.62; color: var(--deep-teal); opacity: 0.86; }
+  .hood__facts { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .hood__facts li { font-size: 12.5px; line-height: 1.45; color: var(--deep-teal); opacity: 0.88; padding-left: 16px; position: relative; }
+  .hood__facts li::before { content: ''; position: absolute; left: 0; top: 6px; width: 6px; height: 6px; border-radius: 2px; background: var(--gold); }
+
+  /* ---- Timeline ---- */
+  .timeline { position: relative; padding-left: 8px; }
+  .tl { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .tl:last-child { border-bottom: none; }
+  .tl__when { font-family: var(--serif); font-size: 15px; font-weight: 500; color: var(--gold-dark); font-style: italic; line-height: 1.3; }
+  .tl__what h3 { font-size: 14.5px; font-weight: 700; color: var(--deep-teal); margin-bottom: 4px; }
+  .tl__what p { font-size: 13.5px; line-height: 1.58; color: var(--deep-teal); opacity: 0.84; }
+
+  /* ---- Closing ---- */
+  .closing { background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 8px; padding: 30px 32px; box-shadow: var(--shadow-md); }
+  .closing__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+  .closing__title { font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--deep-teal); letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 16px; }
+  .closing__title em { color: var(--gold-dark); font-style: italic; }
+  .closing__body { font-size: 15px; line-height: 1.7; color: var(--deep-teal); }
+  .closing__body p { margin-bottom: 12px; }
+  .closing__body p:last-child { margin-bottom: 0; }
+  .closing__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+  .btn { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 999px; padding: 13px 22px; transition: transform 0.22s cubic-bezier(0.16,1,0.3,1), background 0.2s, color 0.2s, box-shadow 0.2s; }
+  .btn--primary { background: var(--deep-teal); color: var(--ivory); box-shadow: 0 6px 18px rgba(0,63,63,0.22); }
+  .btn--primary:hover { transform: translateY(-2px); background: var(--teal); }
+  .btn--primary:active { transform: translateY(0); }
+  .btn--primary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .btn--ghost { background: transparent; color: var(--teal); border: 1px solid var(--line-strong); }
+  .btn--ghost:hover { transform: translateY(-2px); background: var(--ivory); border-color: var(--teal); }
+  .btn--ghost:active { transform: translateY(0); }
+  .btn--ghost:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .closing__signoff { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--gold-dark); margin-top: 20px; letter-spacing: 0.01em; }
+  .closing__role { font-size: 11px; color: var(--deep-teal); opacity: 0.6; margin-top: 4px; letter-spacing: 0.04em; }
+
+  footer.foot { padding: 38px 0 60px; text-align: center; font-size: 11px; color: var(--deep-teal); opacity: 0.55; letter-spacing: 0.06em; line-height: 1.6; }
+  footer.foot .why { font-family: var(--serif); font-size: 13px; font-style: italic; opacity: 0.8; margin-bottom: 8px; letter-spacing: 0; }
+  footer.foot .why em { color: var(--gold-dark); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 26px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 34px; }
+    section.block { padding: 32px 0; }
+    .crit { grid-template-columns: 1fr; }
+    .polar__row { grid-template-columns: 1fr; }
+    .polar__most { border-right: none; border-bottom: 1px solid var(--line); }
+    .polar__we { border-left: 4px solid var(--teal); }
+    .skel__card { grid-template-columns: 1fr; }
+    .skel__photo { min-height: 96px; border-right: none; border-bottom: 1px dashed var(--line); }
+    .match { grid-template-columns: 1fr; }
+    .match__photo { min-height: 200px; }
+    .hoods { grid-template-columns: 1fr; }
+    .tl { grid-template-columns: 1fr; gap: 4px; }
+    .frame { padding: 22px 24px; }
+    .frame p { font-size: 18px; }
+    .closing { padding: 24px 22px; }
+    .closing__title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand"><img src="mams-logo.png" alt="MAMS LLC"/></div>
+    <div class="hero__eyebrow">For Anneliese &amp; Her Mom &middot; Greater Richmond &middot; The Home Search</div>
+    <div class="hero__greeting">Hey Anneliese,</div>
+    <h1 class="hero__title">Your mom's Richmond chapter deserves <em>a search built around her.</em></h1>
+    <p class="hero__sub">She is trading Asheville for Greater Richmond, and you are the one making it real for her. This page is built for you and your mom together. It shows exactly what a fresh start looks like when the search is run on purpose, around the home she actually wants, not around whatever a portal spits out this week.</p>
+  </header>
+
+  <!-- THE FRAME -->
+  <section class="block">
+    <div class="frame">
+      <div class="eyebrow">Where this starts</div>
+      <p>A good move is not about seeing more houses. It is about seeing <em>the right ones</em>, with someone who already knows which corner of Richmond fits the life she is moving toward.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 01 - CRITERIA -->
+  <section class="block">
+    <div class="eyebrow">Section 01 &middot; What We Heard</div>
+    <h2 class="section__title">Here is exactly what you told me. <em>Written down, so nothing drifts.</em></h2>
+    <p class="section__lede">Before a single listing goes on the table, this is the shape of the search in your own words. If any line is off, that is the first thing we fix. A search that is even slightly wrong sends the wrong homes for weeks.</p>
+
+    <div class="crit">
+      <div class="crit__cell">
+        <div class="crit__lab">The Home</div>
+        <div class="crit__val">3 bed &middot; 2 bath<small>The floor plan we filter to first.</small></div>
+        <div class="crit__note">Confirming this with you</div>
+      </div>
+      <div class="crit__cell">
+        <div class="crit__lab">The Space</div>
+        <div class="crit__val">1,600+ sq ft<small>Room to settle in, not just squeeze in.</small></div>
+      </div>
+      <div class="crit__cell">
+        <div class="crit__lab">The Number</div>
+        <div class="crit__val">$325K target<small>Room to move up to about $350K for the right one.</small></div>
+      </div>
+      <div class="crit__cell">
+        <div class="crit__lab">The Feel</div>
+        <div class="crit__val">Not too rural<small>Suburban-convenient, close to the city preferred.</small></div>
+      </div>
+      <div class="crit__cell crit__cell--wide">
+        <div class="crit__lab">The Map</div>
+        <div class="crit__body">Midlothian, Brandermill, and Glen Allen, plus staying near you in Henrico, and select Richmond city pockets. <strong>Open to a little west, Oilville or Manakin-Sabot, only if it buys the right home.</strong> All else equal, closer to the city wins.</div>
+      </div>
+      <div class="crit__cell crit__cell--wide">
+        <div class="crit__lab">The Daily Life</div>
+        <div class="crit__body">A grocery run and a good restaurant inside about a five-minute drive. Walkability is a nice-to-have, not a requirement, so a quiet street with a five-minute drive to everything counts as a win.</div>
+      </div>
+    </div>
+
+    <div class="singlelevel">
+      <div class="tag">One more thing I am tracking</div>
+      <p><strong>One thing I will be watching for you: easy single-level living.</strong> When two homes tie on everything else, the one that lives comfortably on one floor moves up the list. That is search craft, and it is the kind of detail that separates a real search from a filtered list.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 02 - POLARITY -->
+  <section class="block">
+    <div class="eyebrow">Section 02 &middot; How I Actually Work</div>
+    <h2 class="section__title">The part most people never get. <em>The honest version of an agent.</em></h2>
+    <p class="section__lede">You asked me to help because you wanted someone who would treat this the way it deserves. Here is what that looks like in practice, line by line, against how it usually goes.</p>
+
+    <div class="polar">
+      <div class="polar__row">
+        <div class="polar__most">
+          <div class="polar__k">How it usually goes</div>
+          <p>You get a portal link and a "let me know if anything catches your eye," then radio silence until you chase them.</p>
+        </div>
+        <div class="polar__we">
+          <div class="polar__k">How I work</div>
+          <p>I run the search. You get a <strong>hand-checked shortlist</strong> with the reasons attached, and I bring you the ones worth your time so you are not scrolling at 11pm.</p>
+        </div>
+      </div>
+      <div class="polar__row">
+        <div class="polar__most">
+          <div class="polar__k">How it usually goes</div>
+          <p>Every house is "great," every neighborhood is "wonderful," and nobody tells you the catch until you are already attached.</p>
+        </div>
+        <div class="polar__we">
+          <div class="polar__k">How I work</div>
+          <p>I tell you the hard truth early. <strong>"This HOA will eat you alive." "That layout fights the way she lives."</strong> The drawback is named on the same card as the home.</p>
+        </div>
+      </div>
+      <div class="polar__row">
+        <div class="polar__most">
+          <div class="polar__k">How it usually goes</div>
+          <p>They write the offer you hand them and hope it works, then shrug when it does not win.</p>
+        </div>
+        <div class="polar__we">
+          <div class="polar__k">How I work</div>
+          <p>I fight the offer. <strong>"That number will not win, go higher." "Hold firm here, they will move."</strong> You get the read, then you decide with real information.</p>
+        </div>
+      </div>
+      <div class="polar__row">
+        <div class="polar__most">
+          <div class="polar__k">How it usually goes</div>
+          <p>One busy agent juggling forty things, and your closing details are one of them.</p>
+        </div>
+        <div class="polar__we">
+          <div class="polar__k">How I work</div>
+          <p>A whole team behind the transaction. <strong>A coordinator owns the paperwork and deadlines</strong> from contract to keys, so nothing quietly falls through while she is packing a house in Asheville.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03 - MATCHES -->
+  <section class="block">
+    <div class="eyebrow">Section 03 &middot; Your Curated Matches</div>
+    <h2 class="section__title">Six homes that earned the spot. <em>Real ones, not a portal dump.</em></h2>
+    <p class="section__lede">I ran your search against everything above and pulled the ones that actually fit. Rather than flood you with twenty tabs, here are six worth her time, each scored on the whole picture and verified active today. The two marked single-level sit up top on purpose.</p>
+
+    <div class="matches__banner">
+      <span class="matches__pulse"></span>
+      <p><strong>Verified active July 22.</strong> Every home below was cross-checked across Redfin, Homes.com, Compass, and the CVR MLS feed the same day. If one goes under contract before she reaches it, I will tell you and swap it.</p>
+    </div>
+
+    <div class="skel">
+
+      <div class="match">
+        <div class="match__photo">
+          <div class="match__score"><b>9</b><i>Fit</i></div>
+          <img src="match-anneliese-pics/parker.jpg" alt="12311 Parker Ln, Chester"/>
+        </div>
+        <div class="match__body">
+          <div class="match__addr">12311 Parker Ln</div>
+          <div class="match__loc">Chester &middot; 23831</div>
+          <div class="match__specs">$349,950<span>&middot;</span>3 bd<span>&middot;</span>2 ba<span>&middot;</span>1,792 sqft<span>&middot;</span>No HOA</div>
+          <p class="match__why">A one-level brick ranch, three and two straight through, with a Kroger four minutes out. The cleanest single-floor fit on the whole list.</p>
+          <p class="match__catch"><b>The catch:</b> Chester sits south of the Midlothian core, so the drive up toward Short Pump runs longer.</p>
+          <div class="match__meta">
+            <span class="skel__chip level">Single-level</span>
+            <span class="skel__chip active">Verified active</span>
+            <a class="match__link" href="https://www.redfin.com/VA/Chester/12311-Parker-Ln-23831/home/59575743" target="_blank" rel="noopener">View listing</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="match">
+        <div class="match__photo">
+          <div class="match__score"><b>9</b><i>Fit</i></div>
+          <img src="match-anneliese-pics/farmcrest.jpg" alt="13315 Farm Crest Ct, Midlothian"/>
+        </div>
+        <div class="match__body">
+          <div class="match__addr">13315 Farm Crest Ct</div>
+          <div class="match__loc">Midlothian &middot; Brandermill &middot; 23112</div>
+          <div class="match__specs">$354,000<span>&middot;</span>3 bd<span>&middot;</span>3 ba<span>&middot;</span>1,860 sqft<span>&middot;</span>HOA $77/mo</div>
+          <p class="match__why">Right inside Brandermill, the top of your map, at 1,860 square feet. The $77 HOA opens the lake, the marina, and the pools.</p>
+          <p class="match__catch"><b>The catch:</b> Two stories, so the primary is upstairs, and it sits at the very top of your number.</p>
+          <div class="match__meta">
+            <span class="skel__chip active">Verified active</span>
+            <a class="match__link" href="https://www.redfin.com/VA/Midlothian/13315-Farm-Crest-Ct-23112/home/59506588" target="_blank" rel="noopener">View listing</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="match">
+        <div class="match__photo">
+          <div class="match__score"><b>8</b><i>Fit</i></div>
+          <img src="match-anneliese-pics/remora.jpg" alt="10107 Remora Dr, North Chesterfield"/>
+        </div>
+        <div class="match__body">
+          <div class="match__addr">10107 Remora Dr</div>
+          <div class="match__loc">North Chesterfield &middot; 23237</div>
+          <div class="match__specs">$325,000<span>&middot;</span>3 bd<span>&middot;</span>2.5 ba<span>&middot;</span>1,728 sqft<span>&middot;</span>HOA $14/mo</div>
+          <p class="match__why">Right at your $325K target with a token $14 HOA, and grocery, Indian, and Latin food all inside five minutes.</p>
+          <p class="match__catch"><b>The catch:</b> Two stories, and the listing lists the bath count two different ways, so we confirm 2.5 on the walkthrough.</p>
+          <div class="match__meta">
+            <span class="skel__chip active">Verified active</span>
+            <a class="match__link" href="https://www.redfin.com/VA/North-Chesterfield/10107-Remora-Dr-23237/home/59558388" target="_blank" rel="noopener">View listing</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="match">
+        <div class="match__photo">
+          <div class="match__score"><b>8</b><i>Fit</i></div>
+          <img src="match-anneliese-pics/greenfield.jpg" alt="1930 Greenfield Dr, North Chesterfield"/>
+        </div>
+        <div class="match__body">
+          <div class="match__addr">1930 Greenfield Dr</div>
+          <div class="match__loc">North Chesterfield &middot; Bon Air / Huguenot &middot; 23235</div>
+          <div class="match__specs">$350,000<span>&middot;</span>3 bd<span>&middot;</span>2.5 ba<span>&middot;</span>1,724 sqft<span>&middot;</span>HOA $38/mo</div>
+          <p class="match__why">The Bon Air and Huguenot corridor at $350K, with a Publix five minutes out, which is rare on this side of the river.</p>
+          <p class="match__catch"><b>The catch:</b> The listing calls it one-story, but the photos read like a split level, so single-floor living is a confirm-on-tour.</p>
+          <div class="match__meta">
+            <span class="skel__chip active">Verified active</span>
+            <a class="match__link" href="https://www.redfin.com/VA/North-Chesterfield/1930-Greenfield-Dr-23235/home/59522317" target="_blank" rel="noopener">View listing</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="match">
+        <div class="match__photo">
+          <div class="match__score"><b>8</b><i>Fit</i></div>
+          <img src="match-anneliese-pics/lamar.jpg" alt="6230 Lamar Dr, Richmond"/>
+        </div>
+        <div class="match__body">
+          <div class="match__addr">6230 Lamar Dr</div>
+          <div class="match__loc">Richmond &middot; 23225</div>
+          <div class="match__specs">$324,500<span>&middot;</span>3 bd<span>&middot;</span>2.5 ba<span>&middot;</span>1,788 sqft<span>&middot;</span>No HOA</div>
+          <p class="match__why">The newest build on the list, 2002, no HOA, and a city zip that jumps straight onto the Powhite toward everything.</p>
+          <p class="match__catch"><b>The catch:</b> Grocery is about seven minutes out, just past your five-minute mark, and the primary is upstairs.</p>
+          <div class="match__meta">
+            <span class="skel__chip active">Verified active</span>
+            <a class="match__link" href="https://www.redfin.com/VA/Richmond/6230-Lamar-Dr-23225/home/55452871" target="_blank" rel="noopener">View listing</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="match">
+        <div class="match__photo">
+          <div class="match__score"><b>7</b><i>Fit</i></div>
+          <img src="match-anneliese-pics/proctors.jpg" alt="9913 Proctors Rd, North Chesterfield"/>
+        </div>
+        <div class="match__body">
+          <div class="match__addr">9913 Proctors Rd</div>
+          <div class="match__loc">North Chesterfield &middot; 23237</div>
+          <div class="match__specs">$350,000<span>&middot;</span>4 bd<span>&middot;</span>2 ba<span>&middot;</span>2,028 sqft<span>&middot;</span>No HOA</div>
+          <p class="match__why">The other true single-level, and the roomiest at 2,028 square feet. Freshest on the list at eight days on market.</p>
+          <p class="match__catch"><b>The catch:</b> The nearest full supermarket is a real 13 to 14 minutes, so this one trades daily-life convenience for the one-floor layout.</p>
+          <div class="match__meta">
+            <span class="skel__chip level">Single-level</span>
+            <span class="skel__chip active">Verified active</span>
+            <a class="match__link" href="https://www.coldwellbanker.com/va/bellwood/9913-proctors-rd/lid-P00800000HE5Z5dlPLVkw8DlNtHeLxCMdO6xipXo" target="_blank" rel="noopener">View listing</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="match__more">Four more in your range cleared the check too. I ranked them lower on the five-minute-daily-life test, and they are yours the moment you want them.</p>
+
+    <div class="method">
+      <div class="method__item">
+        <div class="method__num">1</div>
+        <div>
+          <div class="method__t">A fit score from 1 to 10, not a checkbox</div>
+          <div class="method__d">Bedrooms and price are the easy part. The score weighs the whole picture: the drive to a grocery run, how the home lives on one floor, the street it sits on, the ceiling for resale. A home can check every box and still score a 6.</div>
+        </div>
+      </div>
+      <div class="method__item">
+        <div class="method__num">2</div>
+        <div>
+          <div class="method__t">Verified active the day it reaches you</div>
+          <div class="method__d">No stale listings that sold three weeks ago and still float around online. If it is on your page, it is live and available when you open it.</div>
+        </div>
+      </div>
+      <div class="method__item">
+        <div class="method__num">3</div>
+        <div>
+          <div class="method__t">The honest drawback, in writing</div>
+          <div class="method__d">Every home has one. A busy road, a dated kitchen, an HOA to read closely. It goes on the card so you are deciding with the full picture, never a surprise on the walkthrough.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 04 - NEIGHBORHOODS -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; The Areas, Plainly</div>
+    <h2 class="section__title">Two reads to start. <em>Suburban-convenient, close to the city.</em></h2>
+    <p class="section__lede">A quick, factual picture of the top areas on your map, framed for someone moving in fresh. These are starting points, and we sharpen them the moment we know which homes she reacts to.</p>
+
+    <div class="hoods">
+      <div class="hood">
+        <div class="hood__name">Midlothian</div>
+        <div class="hood__tag">Chesterfield County &middot; 23112 / 23113</div>
+        <div class="hood__body">A wide suburban corridor southwest of the city, roughly 20 to 30 minutes to downtown Richmond. Known for established subdivisions and a deep run of everyday retail along Midlothian Turnpike and Route 288.</div>
+        <ul class="hood__facts">
+          <li>Grocery within a five-minute drive across most of the area (Kroger, Publix, Wegmans nearby).</li>
+          <li>Dining clusters at Westchester Commons and Village of Midlothian.</li>
+          <li>Broad mix of price points, so $325K to $350K is workable here.</li>
+        </ul>
+      </div>
+
+      <div class="hood">
+        <div class="hood__name">Brandermill</div>
+        <div class="hood__tag">Chesterfield County &middot; 23112</div>
+        <div class="hood__body">A planned community wrapped around Swift Creek Reservoir, inside the Midlothian area. Mature tree cover, walking and cycling paths, and a community-association structure, so the HOA is worth reading closely before an offer.</div>
+        <ul class="hood__facts">
+          <li>Sundial Market and Commons at Brandermill put groceries and restaurants a few minutes out.</li>
+          <li>Miles of connected paths, so walkability is real inside the community.</li>
+          <li>An HOA that funds the amenities, one of the details I will translate line by line.</li>
+        </ul>
+      </div>
+
+      <div class="hood hood--wide">
+        <div class="hood__name">Glen Allen</div>
+        <div class="hood__tag">Henrico County &middot; 23059 / 23060 &middot; Near you</div>
+        <div class="hood__body">North of the city in Henrico, and the one that keeps her closest to you. Here is the straight talk: at a $350K ceiling, active inventory that also hits three-bed, two-bath, 1,600-plus is essentially nonexistent in Glen Allen right now, which is why the homes above came from Chesterfield and closer-in Henrico instead. If the number can flex up, Glen Allen opens up fast, and I will pull it the day it does.</div>
+        <ul class="hood__facts">
+          <li>Short Pump Town Center and West Broad Street put a large concentration of dining and grocery within a five-minute drive of much of the area.</li>
+          <li>Highway access on two sides, I-64 and I-295, keeps the rest of Richmond close.</li>
+          <li>If schools ever come up, I will point you to Niche and GreatSchools for the current data rather than characterize them myself.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05 - TIMELINE -->
+  <section class="block">
+    <div class="eyebrow">Section 05 &middot; What Happens Next</div>
+    <h2 class="section__title">Moving at her pace. <em>Settled in about sixty days.</em></h2>
+    <p class="section__lede">You want her settled inside roughly two months, ideally under contract in about a month. That is a comfortable window for a search run well. Here is the calm version of how it goes.</p>
+
+    <div class="timeline">
+      <div class="tl">
+        <div class="tl__when">This week</div>
+        <div class="tl__what">
+          <h3>Confirm the search</h3>
+          <p>You reply with anything off in Section 01, and the six homes above sharpen while new ones drop onto this same page as they hit the market. Nothing on your end but a read and a reaction.</p>
+        </div>
+      </div>
+      <div class="tl">
+        <div class="tl__when">First tours</div>
+        <div class="tl__what">
+          <h3>See the ones that earned it</h3>
+          <p>We walk the homes that scored, in person or on video for anything she cannot get to yet. Every visit sharpens what the next shortlist looks like.</p>
+        </div>
+      </div>
+      <div class="tl">
+        <div class="tl__when">Around 30 days</div>
+        <div class="tl__what">
+          <h3>Write the right offer</h3>
+          <p>When the home shows up, I bring the honest read on the number and the terms, we structure an offer built to win, and I negotiate it for her.</p>
+        </div>
+      </div>
+      <div class="tl">
+        <div class="tl__when">To the keys</div>
+        <div class="tl__what">
+          <h3>Contract to close, handled</h3>
+          <p>The team carries inspections, paperwork, and deadlines from under contract to closing, so her focus stays on the move, not the file. Roughly the sixty-day mark, settled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="block">
+    <div class="closing">
+      <div class="closing__tag">Where I land</div>
+      <div class="closing__title">Send me the wishlist. <em>I will turn it into the right homes.</em></div>
+      <div class="closing__body">
+        <p>You did the legwork getting this started, Anneliese. From here, the search is mine to run. Reply with anything I got wrong in Section 01, plus anything else that matters to her that we have not named yet, and the real matches sharpen around it.</p>
+        <p>And text me anytime. A question at 9pm, a listing she saw and loved, a street she is curious about. That is exactly the kind of thing I want coming to me, not a portal.</p>
+      </div>
+      <div class="closing__cta">
+        <a class="btn btn--primary" href="mailto:miles@milesagee.com?subject=Our%20Richmond%20wishlist">Reply with the wishlist</a>
+        <a class="btn btn--ghost" href="sms:+18040000000">Text Miles anytime</a>
+      </div>
+      <div class="closing__signoff">Miles</div>
+      <div class="closing__role">Realtor &middot; OneSouth Realty &middot; Samson Properties</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="why">Built for <em>Anneliese</em> and her mom &middot; Greater Richmond &middot; MAMS LLC</div>
+    <div>miles@milesagee.com &middot; mamsnow.com &middot; Single-recipient page. Not indexed.</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
