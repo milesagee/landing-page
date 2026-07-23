@@ -30,6 +30,7 @@ export default async function BuyerIntakePage({
   if (!contact) notFound();
 
   const regionShort = REGION_META[contact.region ?? "richmond"].short;
+  const isGeneric = !!contact.generic;
 
   return (
     <main className="min-h-screen bg-paper text-deep-teal">
@@ -54,13 +55,15 @@ export default async function BuyerIntakePage({
 
       <section className="max-w-3xl mx-auto px-6 pt-12 pb-6">
         <p className="text-xs uppercase tracking-[0.18em] text-gold-dark font-semibold mb-3">
-          Hand-prepared for {contact.firstName}
+          {isGeneric ? "Your buyer concierge" : `Hand-prepared for ${contact.firstName}`}
         </p>
         <h1 className="font-display text-3xl sm:text-4xl text-deep-teal leading-tight">
-          {contact.firstName}, reset your search the way it should have been built.
+          {isGeneric
+            ? "Reset your home search the way it should have been built."
+            : `${contact.firstName}, reset your search the way it should have been built.`}
         </h1>
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
-          Five quick steps. By the time you finish I&rsquo;ll already be working on a curated list of{" "}
+          A few quick steps. By the time you finish I&rsquo;ll already be working on a curated list of{" "}
           {regionShort}{" "}inventory the public sites aren&rsquo;t surfacing for you. Your full breakdown
           lands tonight.
         </p>
@@ -73,7 +76,9 @@ export default async function BuyerIntakePage({
       <footer className="border-t border-deep-teal/10 bg-paper">
         <div className="max-w-3xl mx-auto px-6 py-8 text-xs text-deep-teal/60 leading-relaxed">
           <p className="mb-2">
-            Built for {contact.firstName}. The link is tied to you, so please keep it to yourself.
+            {isGeneric
+              ? "This builds your search profile and sends it straight to me. Take two minutes and I take it from there."
+              : `Built for ${contact.firstName}. The link is tied to you, so please keep it to yourself.`}
           </p>
           <p>
             Miles direct:{" "}

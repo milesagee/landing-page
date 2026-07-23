@@ -41,6 +41,10 @@ export type BuyerIntakePayload = {
   notes: string;
   submittedAt: string;
   userAgent: string;
+  // Only sent by the generic (name-agnostic) intake link. A per-person contact
+  // already carries this in GHL, so these stay undefined there.
+  buyerName?: string;
+  buyerContact?: string;
 };
 
 export type Stage1Insight = {
@@ -79,6 +83,12 @@ export type BuyerIntakeContact = {
   // "mams-line-established"  => Monique already known, skip intro framing
   // "cold"                   => first contact ever, full Monique intro
   establishedChannel: "personal-cell-imessage" | "mams-line-established" | "cold";
+  // True for the ONE permanent name-agnostic link Miles can send to anybody.
+  // Renders name-free hero copy, adds a "who are you" step to the wizard, and
+  // routes every submit to the shared holding contact with the buyer's typed
+  // identity in the note + Miles email. No Monique SMS, no PC brief -- those need
+  // a per-person contact. Provision a dedicated dashboard for the deep treatment.
+  generic?: boolean;
   // True when this contact has already received the Monique intro on a prior
   // submit and we're rendering a resubmit. The submit route skips the
   // Monique-line SMS when this is set so the contact doesn't get a duplicate
@@ -94,6 +104,19 @@ export type BuyerIntakeContact = {
 // personal cell, iMessage. Created in MAMS GHL on 2026-05-18 via
 // scripts/insiderrva/buyer-intake-bootstrap.js.
 export const CONTACTS: Record<string, BuyerIntakeContact> = {
+  // GENERIC / REGULAR intake link. Permanent, name-agnostic, send to anybody.
+  // URL: https://mamsnow.com/buyer-intake/3gkYFfSgdDmMdAdCyWCT?t=v52qW7TCWSpr
+  // Backed by the "Buyer Intake (General)" holding contact in MAMS GHL
+  // (created 2026-07-23) so the submit note + Miles email fire on Vercel. The
+  // wizard captures name + best contact up front so Miles always knows who
+  // came back. This is the one Miles reaches for by default.
+  "3gkYFfSgdDmMdAdCyWCT": {
+    contactId: "3gkYFfSgdDmMdAdCyWCT",
+    shareToken: "v52qW7TCWSpr",
+    firstName: "",
+    generic: true,
+    establishedChannel: "cold",
+  },
   "bVWiepmFuABEHLmbxTwF": {
     contactId: "bVWiepmFuABEHLmbxTwF",
     shareToken: "Tr5lcc_049iW",

@@ -17,7 +17,7 @@ import {
 } from "@/lib/buyer-intake-data";
 import { Stage1InsightPanel } from "./Stage1InsightPanel";
 
-type WizardState = "step1" | "step2" | "step3" | "step4" | "step5" | "submitting" | "done" | "error";
+type WizardState = "identity" | "step1" | "step2" | "step3" | "step4" | "step5" | "submitting" | "done" | "error";
 
 export function BuyerIntakeWizard({
   contactId,
@@ -28,10 +28,18 @@ export function BuyerIntakeWizard({
   shareToken: string;
   contact: BuyerIntakeContact;
 }) {
-  const [state, setState] = useState<WizardState>("step1");
+  // The generic (name-agnostic) link opens with a "who are you" step so Miles
+  // knows who came back. A per-person contact already carries identity in GHL.
+  const generic = !!contact.generic;
+
+  const [state, setState] = useState<WizardState>(generic ? "identity" : "step1");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [stage1, setStage1] = useState<Stage1Response | null>(null);
   const [eta, setEta] = useState<string>("");
+
+  // Step 0 (generic only): who is this for.
+  const [buyerName, setBuyerName] = useState<string>("");
+  const [buyerContact, setBuyerContact] = useState<string>("");
 
   // Region drives which metro's geography Step 2 renders. Omit => Richmond.
   const region = contact.region ?? "richmond";
@@ -66,19 +74,14 @@ export function BuyerIntakeWizard({
   // Step 5: notes
   const [notes, setNotes] = useState<string>(contact.prefill?.notes ?? "");
 
+  // Generic adds the identity step, so the count runs 6 instead of 5.
+  const totalSteps = generic ? 6 : 5;
   const stepIdx = useMemo(() => {
-    const map: Record<WizardState, number> = {
-      step1: 0,
-      step2: 1,
-      step3: 2,
-      step4: 3,
-      step5: 4,
-      submitting: 4,
-      done: 5,
-      error: 4,
-    };
+    const map: Record<WizardState, number> = generic
+      ? { identity: 0, step1: 1, step2: 2, step3: 3, step4: 4, step5: 5, submitting: 5, done: 6, error: 5 }
+      : { identity: 0, step1: 0, step2: 1, step3: 2, step4: 3, step5: 4, submitting: 4, done: 5, error: 4 };
     return map[state];
-  }, [state]);
+  }, [state, generic]);
 
   const submit = async () => {
     const payload: BuyerIntakePayload = {
@@ -94,6 +97,9 @@ export function BuyerIntakeWizard({
       notes,
       submittedAt: new Date().toISOString(),
       userAgent: typeof navigator !== "undefined" ? navigator.userAgent : "",
+      ...(generic
+        ? { buyerName: buyerName.trim(), buyerContact: buyerContact.trim() }
+        : {}),
     };
 
     const err = validateIntake(payload);
@@ -151,11 +157,11 @@ export function BuyerIntakeWizard({
   if (state === "done") {
     return (
       <Stage1InsightPanel
-        firstName={contact.firstName}
+        firstName={generic ? buyerName.trim() : contact.firstName}
         stage1={stage1}
         eta={eta}
         onReset={() => {
-          setState("step1");
+          setState(generic ? "identity" : "step1");
           setStage1(null);
         }}
       />
@@ -164,7 +170,17 @@ export function BuyerIntakeWizard({
 
   return (
     <div className="space-y-6">
-      <ProgressBar current={stepIdx} total={5} />
+      <ProgressBar current={stepIdx} total={totalSteps} />
+
+      {state === "identity" && (
+        <IdentityStep
+          name={buyerName}
+          contactInfo={buyerContact}
+          onName={setBuyerName}
+          onContact={setBuyerContact}
+          onNext={() => setState("step1")}
+        />
+      )}
 
       {state === "step1" && (
         <Step1
@@ -176,6 +192,7 @@ export function BuyerIntakeWizard({
           onBudgetMax={setBudgetMax}
           onMinBeds={setMinBeds}
           onMinBaths={setMinBaths}
+          onBack={generic ? () => setState("identity") : undefined}
           onNext={() => setState("step2")}
         />
       )}
@@ -294,6 +311,73 @@ function StepShell({ eyebrow, headline, children, footer }: {
   );
 }
 
+function IdentityStep({
+  name,
+  contactInfo,
+  onName,
+  onContact,
+  onNext,
+}: {
+  name: string;
+  contactInfo: string;
+  onName: (v: string) => void;
+  onContact: (v: string) => void;
+  onNext: () => void;
+}) {
+  const ready = name.trim().length > 1 && contactInfo.trim().length > 4;
+  return (
+    <StepShell
+      eyebrow="First things first"
+      headline="Who am I building this for?"
+      footer={
+        <>
+          <span />
+          <button
+            type="button"
+            onClick={onNext}
+            disabled={!ready}
+            className="bg-gold hover:bg-gold-dark text-deep-teal font-semibold text-sm px-6 py-2.5 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Next
+          </button>
+        </>
+      }
+    >
+      <div className="space-y-5">
+        <div>
+          <label className="text-[11px] uppercase tracking-[0.14em] text-deep-teal/60 font-semibold block mb-1.5">
+            Your name
+          </label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => onName(e.target.value.slice(0, 80))}
+            placeholder="First and last"
+            autoComplete="name"
+            className="w-full bg-paper border border-deep-teal/15 rounded-md py-2.5 px-3 text-sm text-deep-teal focus:outline-none focus:border-deep-teal/40"
+          />
+        </div>
+        <div>
+          <label className="text-[11px] uppercase tracking-[0.14em] text-deep-teal/60 font-semibold block mb-1.5">
+            Best number or email
+          </label>
+          <input
+            type="text"
+            value={contactInfo}
+            onChange={(e) => onContact(e.target.value.slice(0, 120))}
+            placeholder="So I can send your breakdown"
+            autoComplete="email"
+            className="w-full bg-paper border border-deep-teal/15 rounded-md py-2.5 px-3 text-sm text-deep-teal focus:outline-none focus:border-deep-teal/40"
+          />
+        </div>
+        <p className="text-xs text-deep-teal/55 leading-relaxed border-l-2 border-gold/40 pl-3">
+          This is where your curated dashboard lands tonight. It goes straight to Miles, nobody else.
+        </p>
+      </div>
+    </StepShell>
+  );
+}
+
 function Step1({
   budgetMin,
   budgetMax,
@@ -303,6 +387,7 @@ function Step1({
   onBudgetMax,
   onMinBeds,
   onMinBaths,
+  onBack,
   onNext,
 }: {
   budgetMin: number;
@@ -313,15 +398,26 @@ function Step1({
   onBudgetMax: (v: number) => void;
   onMinBeds: (v: number) => void;
   onMinBaths: (v: number) => void;
+  onBack?: () => void;
   onNext: () => void;
 }) {
   return (
     <StepShell
-      eyebrow="Step 1 - Money and footprint"
+      eyebrow="Money and footprint"
       headline="What does your search shape look like?"
       footer={
         <>
-          <span />
+          {onBack ? (
+            <button
+              type="button"
+              onClick={onBack}
+              className="text-sm text-deep-teal/70 underline hover:text-deep-teal"
+            >
+              Back
+            </button>
+          ) : (
+            <span />
+          )}
           <button
             type="button"
             onClick={onNext}
@@ -415,7 +511,7 @@ function Step2({
   };
   return (
     <StepShell
-      eyebrow="Step 2 - Neighborhoods"
+      eyebrow="Neighborhoods"
       headline={`Which ${regionLabel} areas are on your shortlist?`}
       footer={
         <>
@@ -480,7 +576,7 @@ function Step3({
   };
   return (
     <StepShell
-      eyebrow="Step 3 - Must-haves"
+      eyebrow="Must-haves"
       headline="Pick up to three. What can&rsquo;t the right home be missing?"
       footer={
         <>
@@ -550,7 +646,7 @@ function Step4({
 }) {
   return (
     <StepShell
-      eyebrow="Step 4 - Timeline and reality"
+      eyebrow="Timeline and reality"
       headline="When are you actually moving?"
       footer={
         <>
@@ -639,7 +735,7 @@ function Step5({
 }) {
   return (
     <StepShell
-      eyebrow="Step 5 - Anything else"
+      eyebrow="Anything else"
       headline="Anything I should know that the chips didn&rsquo;t capture?"
       footer={
         <>

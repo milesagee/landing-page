@@ -23,7 +23,7 @@ export function Stage1InsightPanel({
           Locked in
         </p>
         <p className="font-display text-2xl sm:text-3xl text-ivory leading-tight">
-          {firstName}, your intake landed.
+          {firstName ? `${firstName}, your intake landed.` : "Your intake landed."}
         </p>
         <p className="text-sm sm:text-base text-ivory/85 leading-relaxed">
           {stage1?.nextStepPromise ||

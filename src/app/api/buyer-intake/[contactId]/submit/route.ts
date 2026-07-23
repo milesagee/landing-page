@@ -239,10 +239,19 @@ function fireAndForgetImessagePing(requestId: string, firstName: string): void {
 }
 
 function buildNoteBody(firstName: string, payload: BuyerIntakePayload): string {
+  const identity =
+    payload.buyerName || payload.buyerContact
+      ? [
+          `Name: ${payload.buyerName || "(not given)"}`,
+          `Best contact: ${payload.buyerContact || "(not given)"}`,
+          ``,
+        ]
+      : [];
   return [
     `[BUYER INTAKE] ${firstName} submitted the intake wizard.`,
     `Submitted: ${payload.submittedAt}`,
     ``,
+    ...identity,
     `Budget: $${payload.budgetMin.toLocaleString()} - $${payload.budgetMax.toLocaleString()}`,
     `Prequal: $${payload.prequalAmount.toLocaleString()}`,
     `Footprint: ${payload.minBeds === 0 ? "Studio+" : `${payload.minBeds}+ bed`} / ${payload.minBaths}+ bath`,
@@ -270,7 +279,11 @@ function buildMilesEmailHtml(firstName: string, payload: BuyerIntakePayload, req
     <div style="font-size: 22px; font-weight: 700; margin-top: 8px; font-family: 'Fraunces', serif;">${firstName} just filled out the intake.</div>
   </div>
   <div style="background: white; border: 1px solid #003F3F1A; border-top: none; padding: 24px; border-radius: 0 0 8px 8px;">
-    <p style="margin: 0 0 16px 0;">Stage 1 insight panel rendered on their confirmation card. PC brief queued at <code>shared/outbox-to-pc/${requestId}.yaml</code>. Check iMessage for the paste-to-PC ping.</p>
+    ${
+      payload.buyerName || payload.buyerContact
+        ? `<div style="background: #FAF7F1; border-left: 3px solid #D4AF37; padding: 12px 16px; margin: 0 0 16px 0; font-size: 14px; line-height: 1.6;"><strong>Who:</strong> ${escapeHtml(payload.buyerName || "(not given)")}<br/><strong>Reach them:</strong> ${escapeHtml(payload.buyerContact || "(not given)")}</div>`
+        : `<p style="margin: 0 0 16px 0;">Stage 1 insight panel rendered on their confirmation card. PC brief queued at <code>shared/outbox-to-pc/${requestId}.yaml</code>. Check iMessage for the paste-to-PC ping.</p>`
+    }
     <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
       <tr><td style="padding: 4px 8px 4px 0; color: #003F3F99;">Budget</td><td style="padding: 4px 0;">$${payload.budgetMin.toLocaleString()} - $${payload.budgetMax.toLocaleString()}</td></tr>
       <tr><td style="padding: 4px 8px 4px 0; color: #003F3F99;">Prequal</td><td style="padding: 4px 0;">$${payload.prequalAmount.toLocaleString()}</td></tr>
@@ -348,15 +361,23 @@ async function handleSubmit(req: Request, { params }: { params: Params }) {
     return NextResponse.json({ ok: false, error: "validation_failed", details: validationErr }, { status: 422 });
   }
 
+  // Generic (name-agnostic) link: identity comes from the wizard, not GHL. Every
+  // submit lands on the shared holding contact, so name the person from what they
+  // typed and skip the per-person machinery (Monique SMS, PC brief) below.
+  const isGeneric = !!contact.generic;
+  const displayName = isGeneric
+    ? (body.buyerName && body.buyerName.trim()) || "A buyer"
+    : contact.firstName;
+
   const submittedAt = new Date(body.submittedAt || Date.now());
   const eta = computeEta(submittedAt);
-  const requestId = requestIdNow(contact.firstName);
+  const requestId = requestIdNow(displayName);
 
   const results: Record<string, string> = {};
 
   // 1-3. GHL writes (parallel) -- the note, tag, and miles-notification email
-  const noteBody = buildNoteBody(contact.firstName, body);
-  const emailHtml = buildMilesEmailHtml(contact.firstName, body, requestId);
+  const noteBody = buildNoteBody(displayName, body);
+  const emailHtml = buildMilesEmailHtml(displayName, body, requestId);
 
   const ghlWrites = await Promise.allSettled([
     ghlPost(`/contacts/${contactId}/notes`, { body: noteBody }),
@@ -364,11 +385,15 @@ async function handleSubmit(req: Request, { params }: { params: Params }) {
     (async () => {
       const locationId = process.env.GHL_MAMS_LOCATION_ID;
       if (!locationId) throw new Error("GHL_MAMS_LOCATION_ID missing");
+      // GHL Conversations requires emailTo to be one of the contact's own emails.
+      // The generic holding contact carries miles@mamsnow.com for exactly this;
+      // per-person contacts thread to miles@milesagee.com.
+      const emailTo = isGeneric ? "miles@mamsnow.com" : "miles@milesagee.com";
       return ghlPost(`/conversations/messages`, {
         type: "Email",
         contactId,
-        emailTo: "miles@milesagee.com",
-        subject: `[Buyer Intake] ${contact.firstName} submitted`,
+        emailTo,
+        subject: `[Buyer Intake] ${displayName} submitted`,
         html: emailHtml,
       });
     })(),
@@ -377,8 +402,12 @@ async function handleSubmit(req: Request, { params }: { params: Params }) {
   results.ghlTag = ghlWrites[1].status === "fulfilled" ? "ok" : `failed: ${(ghlWrites[1] as PromiseRejectedResult).reason}`;
   results.milesEmail = ghlWrites[2].status === "fulfilled" ? "ok" : `failed: ${(ghlWrites[2] as PromiseRejectedResult).reason}`;
 
-  // 4. PC YAML brief
-  if (!(testFlags.skipPcBrief && !isProd)) {
+  // 4. PC YAML brief -- per-person deep research. The generic link doesn't fire
+  // it (every submit shares one holding contact); Miles provisions a dedicated
+  // dashboard when a generic lead is worth the deep treatment.
+  if (isGeneric) {
+    results.pcBrief = "skipped (generic link)";
+  } else if (!(testFlags.skipPcBrief && !isProd)) {
     const contactContext = `Contact ID: ${contactId}\nEstablished channel: ${contact.establishedChannel}\nMAMS GHL custom fields available via API on demand.`;
     const briefResult = await writePcBrief({
       requestId,
@@ -394,16 +423,18 @@ async function handleSubmit(req: Request, { params }: { params: Params }) {
 
   // 5. iMessage ping to Miles (fire-and-forget)
   if (!(testFlags.skipImessagePing && !isProd)) {
-    fireAndForgetImessagePing(requestId, contact.firstName);
+    fireAndForgetImessagePing(requestId, displayName);
     results.imessagePing = "spawned";
   } else {
     results.imessagePing = "skipped (test flag)";
   }
 
-  // 6. Monique-line SMS -- skip on resubmits where the contact already heard
-  // from Monique (suppressMoniqueIntro flag in CONTACTS). Avoids duplicate
-  // first-touch intros that erode trust when a buyer hits the link twice.
-  if (contact.suppressMoniqueIntro) {
+  // 6. Monique-line SMS -- generic link has no per-person GHL cell to text (the
+  // holding contact isn't the buyer), so skip. Otherwise skip on resubmits where
+  // the contact already heard from Monique (suppressMoniqueIntro flag).
+  if (isGeneric) {
+    results.moniqueSms = "skipped (generic link)";
+  } else if (contact.suppressMoniqueIntro) {
     results.moniqueSms = "skipped: prior Monique intro on record";
   } else if (!(testFlags.skipMoniqueSms && !isProd)) {
     try {
@@ -421,9 +452,13 @@ async function handleSubmit(req: Request, { params }: { params: Params }) {
     results.moniqueSms = "skipped (test flag)";
   }
 
-  // 7. Stage 1 Claude call (this is the only synchronous wait the client perceives)
+  // 7. Stage 1 Claude call (this is the only synchronous wait the client perceives).
+  // The generic link skips it -- no per-person spend on a high-volume public link;
+  // the confirmation card still renders the "what happens next" promise.
   let stage1: Stage1Response | null = null;
-  if (!(testFlags.skipStage1 && !isProd)) {
+  if (isGeneric) {
+    results.stage1 = "skipped (generic link)";
+  } else if (!(testFlags.skipStage1 && !isProd)) {
     stage1 = await spawnStage1(body, contact.firstName);
     results.stage1 = stage1 ? "ok" : "failed (rendered empty insights)";
   } else {
