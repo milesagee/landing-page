@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>MAMS IG Reply Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep-teal:#003F3F; --teal:#005F5F; --gold:#D4AF37; --gold-soft:#F1E4BC;
+    --paper:#FAF7F1; --line:rgba(0,63,63,0.14); --ok:#1f7a4d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{
+    font-family:'Inter',system-ui,sans-serif; color:var(--deep-teal);
+    background:radial-gradient(900px 500px at 90% -8%,rgba(212,175,55,0.12),transparent 60%),var(--paper);
+    line-height:1.5; padding-bottom:60px;
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 16px;}
+
+  header{padding:22px 4px 10px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:20px;letter-spacing:0.3px;}
+  .brand span{color:var(--gold);}
+  .hint{font-size:11px;color:var(--teal);font-weight:600;text-align:right;line-height:1.35;}
+
+  .runbar{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 13px;
+    font-size:12px;color:var(--teal);line-height:1.6;margin-bottom:4px;
+    box-shadow:0 10px 24px -22px rgba(0,63,63,0.5);
+  }
+  .runbar b{color:var(--deep-teal);}
+
+  .group{margin-top:22px;}
+  .group-head{
+    background:linear-gradient(150deg,var(--deep-teal),#01302F);color:var(--paper);
+    border-radius:18px;padding:16px 18px;margin-bottom:16px;position:relative;overflow:hidden;
+  }
+  .group-head::before{content:"";position:absolute;inset:0;background:radial-gradient(260px 160px at 100% 0,rgba(212,175,55,0.22),transparent 60%);}
+  .group-head .chip{display:inline-block;background:var(--gold);color:var(--deep-teal);font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 9px;border-radius:5px;position:relative;}
+  .group-head h1{font-family:'Fraunces',serif;font-weight:400;font-size:23px;margin-top:9px;position:relative;}
+  .group-head .meta{font-size:12px;color:rgba(250,247,241,0.75);margin-top:5px;position:relative;}
+  .group-head--b,.group-head--c{background:linear-gradient(150deg,#0a4b4b,#01302F);}
+  .group-head--c .chip{background:var(--gold-soft);}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 15px;margin-bottom:16px;box-shadow:0 14px 30px -24px rgba(0,63,63,0.5);}
+  .card--a{border-color:rgba(212,175,55,0.55);box-shadow:0 14px 30px -22px rgba(212,175,55,0.55),0 14px 30px -26px rgba(0,63,63,0.5);}
+
+  .card-top{display:flex;align-items:flex-start;gap:9px;margin-bottom:9px;}
+  .num{font-family:'Fraunces',serif;font-size:22px;color:var(--gold);line-height:1.1;}
+  .who{flex:1;min-width:0;}
+  .who h2{font-family:'Fraunces',serif;font-weight:600;font-size:18px;word-break:break-all;}
+  .realname{font-size:12px;color:var(--teal);margin-top:1px;}
+  .age{font-size:10.5px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.5px;text-align:right;flex-shrink:0;padding-top:4px;}
+
+  .tags-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+  .pill{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--teal);background:rgba(0,95,95,0.08);padding:3px 8px;border-radius:20px;}
+
+  .field{border:1px solid var(--line);border-radius:12px;margin-bottom:11px;overflow:hidden;background:var(--paper);}
+  .field-head{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:rgba(0,95,95,0.05);border-bottom:1px solid var(--line);gap:8px;}
+  .field-head .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);}
+  .copytext{padding:12px;font-size:15px;color:var(--deep-teal);white-space:pre-wrap;word-wrap:break-word;}
+  .copytext.pending{color:rgba(0,95,95,0.6);font-style:italic;font-size:13.5px;}
+  .field--handle{border-color:rgba(212,175,55,0.5);background:#fffdf6;}
+  .copytext.handle{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:17px;font-weight:600;padding:14px 12px;word-break:break-all;}
+
+  .card--hold{border-color:rgba(176,94,26,0.5);}
+  .hold{background:#fff6ea;border:1px solid rgba(176,94,26,0.35);border-radius:12px;padding:11px 12px;margin-bottom:11px;}
+  .hold-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#a1560f;margin-bottom:4px;}
+  .hold-body{font-size:12.5px;line-height:1.6;color:#5a3608;}
+
+  .said{border-left:3px solid var(--gold);padding:2px 0 2px 11px;margin:0 0 11px 2px;}
+  .said-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);}
+  .said-body{font-size:14px;margin-top:3px;color:var(--deep-teal);white-space:pre-wrap;word-wrap:break-word;}
+
+  .evidence{list-style:none;margin:0 0 12px;display:flex;flex-direction:column;gap:5px;}
+  .evidence li{display:flex;gap:7px;align-items:baseline;font-size:11.5px;flex-wrap:wrap;}
+  .ev-lbl{font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.4px;font-size:10px;}
+  .ev-q{color:var(--deep-teal);font-style:italic;}
+  .ev-down .ev-lbl{color:#8a6d1f;}
+
+  .copybtn{
+    font-family:'Inter';font-size:12px;font-weight:700;color:#fff;background:var(--teal);
+    border:none;border-radius:20px;padding:7px 15px;cursor:pointer;flex-shrink:0;
+    transition:transform .12s cubic-bezier(.34,1.56,.64,1),background .12s ease;
+  }
+  .copybtn:hover{background:var(--deep-teal);}
+  .copybtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  .copybtn:active{transform:scale(0.94);}
+  .copybtn.ok{background:var(--ok);}
+
+  .iglink{
+    display:block;text-align:center;font-size:12px;font-weight:700;color:var(--teal);
+    text-decoration:none;padding:9px;border:1.5px solid var(--line);border-radius:10px;
+    transition:transform .12s cubic-bezier(.34,1.56,.64,1),border-color .12s,background .12s;
+  }
+  .iglink:hover{border-color:var(--gold);background:#fffdf6;}
+  .iglink:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  .iglink:active{transform:scale(0.98);}
+
+  .foot{text-align:center;font-size:11px;color:var(--teal);margin-top:8px;padding:0 10px;line-height:1.6;}
+
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--deep-teal);color:var(--paper);font-size:13px;font-weight:600;padding:10px 20px;border-radius:30px;box-shadow:0 10px 26px -10px rgba(0,63,63,0.6);transition:opacity .18s ease,transform .18s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:99;}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">MAMS <span>Reply Deck</span></div>
+    <div class="hint">Tap Copy, paste into<br>Instagram search.</div>
+  </header>
+
+  <div class="runbar">
+    <b>Batch 2026-07-26</b> · 10 in the deck out of 46 crawled.<br>
+    <b>0</b> moving now · <b>4</b> one question away · <b>6</b> general.<br>
+    36 never replied to the auto-DM and 0 were noise, so neither group is here.
+  </div>
+
+
+
+  <section class="group">
+    <div class="group-head group-head--b">
+      <span class="chip">One question away</span>
+      <h1>Real signal, missing an anchor</h1>
+      <div class="meta">4 people · They are engaged. One surgical question turns this into a next step.</div>
+    </div>
+    
+    <div class="card">
+      <div class="card-top">
+        <span class="num">1</span>
+        <div class="who">
+          <h2>@dcc_824</h2>
+          <div class="realname">Corie Diehl</div>
+        </div>
+        <span class="age">10w ago</span>
+      </div>
+
+      
+
+      <div class="field field--handle">
+        <div class="field-head"><span class="lbl">Handle · paste into IG search</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext handle">dcc_824</div>
+      </div>
+
+      
+      <div class="said">
+        <div class="said-lbl">What they said</div>
+        <div class="said-body">Yes, send it over!</div>
+      </div>
+
+      <ul class="evidence"><li><span class="ev-lbl">said yes and is still waiting</span><span class="ev-q">"yes, send it"</span></li></ul>
+
+      
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Reply</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Corie, you said yes back in May and I never sent it over. That one's on me.
+
+Here it is: https://mamsnow.com/buyer-intake/3gkYFfSgdDmMdAdCyWCT?t=v52qW7TCWSpr
+
+It's a few questions about what you're actually after. Buying, selling, or just watching the market. Answer them and I'll send back the parts of Richmond that matter to you instead of a generic list.</div>
+      </div>
+
+      <a class="iglink" href="https://ig.me/m/dcc_824" target="_blank" rel="noopener">Open the DM thread</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="num">2</span>
+        <div class="who">
+          <h2>@conniecjohnson</h2>
+          <div class="realname">Connie Collins Johnson</div>
+        </div>
+        <span class="age">10w ago</span>
+      </div>
+
+      
+
+      <div class="field field--handle">
+        <div class="field-head"><span class="lbl">Handle · paste into IG search</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext handle">conniecjohnson</div>
+      </div>
+
+      
+      <div class="said">
+        <div class="said-lbl">What they said</div>
+        <div class="said-body">Yes, send it over!</div>
+      </div>
+
+      <ul class="evidence"><li><span class="ev-lbl">said yes and is still waiting</span><span class="ev-q">"yes, send it"</span></li></ul>
+
+      
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Reply</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Connie, I dropped the ball here. You told me to send it over in May and it never came.
+
+Here's the link: https://mamsnow.com/buyer-intake/3gkYFfSgdDmMdAdCyWCT?t=v52qW7TCWSpr
+
+Straight question so I don't waste your time. Are you looking at Richmond for yourself, or keeping an eye out for somebody else? Changes what's worth sending you next.</div>
+      </div>
+
+      <a class="iglink" href="https://ig.me/m/conniecjohnson" target="_blank" rel="noopener">Open the DM thread</a>
+    </div>
+
+    <div class="card card--hold">
+      <div class="card-top">
+        <span class="num">3</span>
+        <div class="who">
+          <h2>@iameman</h2>
+          <div class="realname">Eman Massi</div>
+        </div>
+        <span class="age">2d ago</span>
+      </div>
+
+      <div class="tags-row"><span class="pill">Buyer signal</span><span class="pill">$8,000 to $30,000</span></div>
+
+      <div class="field field--handle">
+        <div class="field-head"><span class="lbl">Handle · paste into IG search</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext handle">iameman</div>
+      </div>
+
+      
+      <div class="said">
+        <div class="said-lbl">What they said</div>
+        <div class="said-body">Of course. Looking to buy in the RVA area and would love to have whatever assistance and information I can get.</div>
+      </div>
+
+      <ul class="evidence"><li><span class="ev-lbl">said what they want</span><span class="ev-q">"looking to buy"</span></li></ul>
+
+      <div class="hold"><div class="hold-lbl">Check this before you send</div><div class="hold-body">IDENTITY CHECK. &quot;Eman Massi&quot; here is GHL contact UgC6DuETIXqWPvH9dCpq (created from the May IG cohort). You also have an ACTIVE buyer &quot;Emmanuel Massi&quot; at GHL contact Oxa0NouzAdpfkwdGwhCe with a live buyer-match shortlist and the school-lens work. Eman is a common short form of Emmanuel. Same person or two people? Do not send until you confirm. Sending draft B to the wrong person would hand a stranger a token-gated dashboard built for a client.</div></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Reply</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">IF THIS IS A NEW PERSON (not your existing buyer Emmanuel), send this:
+
+Eman, you told me you were looking to buy in RVA and I left you sitting. That's on me.
+
+Still looking?
+
+If you are, start here: https://mamsnow.com/buyer-intake/3gkYFfSgdDmMdAdCyWCT?t=v52qW7TCWSpr
+
+And tell me which part of the area you're circling. The East End and the West End are two different markets right now, and the answer changes what I'd put in front of you.
+
+
+IF THIS IS YOUR EXISTING BUYER EMMANUEL, send this instead:
+
+Eman, I'm just catching this thread from May. I had two conversations with you running and never connected them. My fault.
+
+Your shortlist is already built. It's in the email I sent it on.
+
+Anything on it landing right, or do you want me to re-cut it?</div>
+      </div>
+
+      <a class="iglink" href="https://ig.me/m/iameman" target="_blank" rel="noopener">Open the DM thread</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="num">4</span>
+        <div class="who">
+          <h2>@poetica13</h2>
+          <div class="realname">✨ Sandy ✨</div>
+        </div>
+        <span class="age">1d ago</span>
+      </div>
+
+      
+
+      <div class="field field--handle">
+        <div class="field-head"><span class="lbl">Handle · paste into IG search</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext handle">poetica13</div>
+      </div>
+
+      
+      <div class="said">
+        <div class="said-lbl">What they said</div>
+        <div class="said-body">Hey there! I was just scrolling and saw your video greeting people on the streets of RVA and thought it was nice so I followed you. I'm not looking to move or anything. I just like following folks from Richmond and surrounding areas if they seem interesting. I'm in Hanover County. 😃</div>
+      </div>
+
+      <ul class="evidence"><li><span class="ev-lbl">named where</span><span class="ev-q">"hanover"</span></li></ul>
+
+      
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Reply</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Sandy, appreciate that! That street video was a fun one to shoot.
+
+No pitch here. You said you're not looking to move and I believe you.
+
+If you ever get curious about what's going up around Hanover, I'll tell you what I know. Otherwise I'll just keep making the videos.</div>
+      </div>
+
+      <a class="iglink" href="https://ig.me/m/poetica13" target="_blank" rel="noopener">Open the DM thread</a>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head group-head--c">
+      <span class="chip">General</span>
+      <h1>Answered, no transaction signal</h1>
+      <div class="meta">6 people · Worth a human reply so the door stays open. No pitch.</div>
+    </div>
+    
+    <div class="card">
+      <div class="card-top">
+        <span class="num">1</span>
+        <div class="who">
+          <h2>@fringeandfire</h2>
+          <div class="realname">Michelle</div>
+        </div>
+        <span class="age">1h ago</span>
+      </div>
+
+      
+
+      <div class="field field--handle">
+        <div class="field-head"><span class="lbl">Handle · paste into IG search</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext handle">fringeandfire</div>
+      </div>
+
+      
+      <div class="said">
+        <div class="said-lbl">What they said</div>
+        <div class="said-body">I just love your energy and excitement! I love in Chesapeake but love me some Richmond</div>
+      </div>
+
+      
+
+      
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Reply</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Michelle, that means a lot!
+
+Chesapeake to Richmond is a solid weekend drive. Next time you're up here, tell me and I'll send you where to actually eat and walk. Not the tourist list.</div>
+      </div>
+
+      <a class="iglink" href="https://ig.me/m/fringeandfire" target="_blank" rel="noopener">Open the DM thread</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="num">2</span>
+        <div class="who">
+          <h2>@octoberleahh</h2>
+          <div class="realname">Leah 🦋</div>
+        </div>
+        <span class="age">3h ago</span>
+      </div>
+
+      
+
+      <div class="field field--handle">
+        <div class="field-head"><span class="lbl">Handle · paste into IG search</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext handle">octoberleahh</div>
+      </div>
+
+      
+      <div class="said">
+        <div class="said-lbl">What they said</div>
+        <div class="said-body">[liked message with ❤️ reaction]</div>
+      </div>
+
+      
+
+      
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Reply</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Leah, thanks for the love!
+
+Quick one while you're here. Are you in Richmond, or watching from somewhere else? I send different stuff depending on the answer.</div>
+      </div>
+
+      <a class="iglink" href="https://ig.me/m/octoberleahh" target="_blank" rel="noopener">Open the DM thread</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="num">3</span>
+        <div class="who">
+          <h2>@madeleinejvega</h2>
+          
+        </div>
+        <span class="age">1d ago</span>
+      </div>
+
+      
+
+      <div class="field field--handle">
+        <div class="field-head"><span class="lbl">Handle · paste into IG search</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext handle">madeleinejvega</div>
+      </div>
+
+      
+      <div class="said">
+        <div class="said-lbl">What they said</div>
+        <div class="said-body">Learning the market, thank you!</div>
+      </div>
+
+      
+
+      
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Reply</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Learning the market is the best reason to be here!
+
+From what angle though? Buying at some point, curious what your own place is worth, or you just like watching the city change? All three get a different answer out of me.</div>
+      </div>
+
+      <a class="iglink" href="https://ig.me/m/madeleinejvega" target="_blank" rel="noopener">Open the DM thread</a>
+    </div>
+
+    <div class="card card--hold">
+      <div class="card-top">
+        <span class="num">4</span>
+        <div class="who">
+          <h2>@deluxeknits</h2>
+          <div class="realname">Marsena</div>
+        </div>
+        <span class="age">1d ago</span>
+      </div>
+
+      
+
+      <div class="field field--handle">
+        <div class="field-head"><span class="lbl">Handle · paste into IG search</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext handle">deluxeknits</div>
+      </div>
+
+      
+      <div class="said">
+        <div class="said-lbl">What they said</div>
+        <div class="said-body">[media]</div>
+      </div>
+
+      
+
+      <div class="hold"><div class="hold-lbl">Check this before you send</div><div class="hold-body">They replied with media only, so there is no text to anchor to and I cannot see what they sent. Open the thread first. If it is a property or a neighborhood, the draft below is wrong and you should answer the actual thing.</div></div>
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Reply</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Marsena, appreciate you sending that over!
+
+Tell me what you're working on and I'll tell you straight if I can help. If it's a Richmond question, I've probably got an answer.</div>
+      </div>
+
+      <a class="iglink" href="https://ig.me/m/deluxeknits" target="_blank" rel="noopener">Open the DM thread</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="num">5</span>
+        <div class="who">
+          <h2>@joshandcassiebuyrealestate</h2>
+          <div class="realname">Josh &amp; Cassie | Real Estate Investors</div>
+        </div>
+        <span class="age">2d ago</span>
+      </div>
+
+      
+
+      <div class="field field--handle">
+        <div class="field-head"><span class="lbl">Handle · paste into IG search</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext handle">joshandcassiebuyrealestate</div>
+      </div>
+
+      
+      <div class="said">
+        <div class="said-lbl">What they said</div>
+        <div class="said-body">Investors in the Richmond area liked the content wanted to follow to support. Let me know if you have any thing that's not looking too great. We do some flipping.</div>
+      </div>
+
+      
+
+      
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Reply</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Josh, Cassie, appreciate the follow!
+
+Straight answer on the flip question. I'm licensed here, so what I can do is get you in front of the stuff that needs work before it's cleaned up and priced for retail.
+
+What's your buy box? Price ceiling, which areas you'll go into, and how heavy a rehab you'll take. If something crossing my desk fits it, I'll send it your way.</div>
+      </div>
+
+      <a class="iglink" href="https://ig.me/m/joshandcassiebuyrealestate" target="_blank" rel="noopener">Open the DM thread</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="num">6</span>
+        <div class="who">
+          <h2>@ssg_locas_vaarng</h2>
+          <div class="realname">SSG Jake Locas</div>
+        </div>
+        <span class="age">2d ago</span>
+      </div>
+
+      <div class="tags-row"><span class="pill">Seller signal</span><span class="pill">said they are browsing</span></div>
+
+      <div class="field field--handle">
+        <div class="field-head"><span class="lbl">Handle · paste into IG search</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext handle">ssg_locas_vaarng</div>
+      </div>
+
+      
+      <div class="said">
+        <div class="said-lbl">What they said</div>
+        <div class="said-body">Just good informative content. I live in chesterfield. No interest in selling right now just here for the ride</div>
+      </div>
+
+      <ul class="evidence"><li><span class="ev-lbl">named where</span><span class="ev-q">"chesterfield"</span></li><li class="ev-down"><span class="ev-lbl">their words, not a pitch signal</span><span class="ev-q">"no interest in selling"</span></li></ul>
+
+      
+
+      <div class="field">
+        <div class="field-head"><span class="lbl">Reply</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+        <div class="copytext">Jake, appreciate that! And thank you for your service.
+
+Noted on not selling. I won't come at you about it.
+
+If you ever want to know what your block in Chesterfield is actually doing, say the word and I'll pull the numbers. No strings. Otherwise, enjoy the ride!</div>
+      </div>
+
+      <a class="iglink" href="https://ig.me/m/ssg_locas_vaarng" target="_blank" rel="noopener">Open the DM thread</a>
+    </div>
+  </section>
+
+  <div class="foot">
+    Every quoted line is lifted verbatim from the thread. Nothing here is inferred.<br>
+    Drafts are a starting point. Send them in your own hand.
+  </div>
+
+</div>
+
+<div id="toast">Copied</div>
+
+<script>
+  var toastT;
+  function toast(){
+    var t=document.getElementById('toast');
+    t.classList.add('show');
+    clearTimeout(toastT);
+    toastT=setTimeout(function(){t.classList.remove('show');},1100);
+  }
+  function flash(btn){
+    btn.classList.add('ok');
+    var orig=btn.textContent;
+    btn.textContent='Copied';
+    setTimeout(function(){btn.classList.remove('ok');btn.textContent=orig;},1200);
+  }
+  function doCopy(text,btn){
+    var ok=function(){flash(btn);toast();};
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(ok).catch(function(){fallback(text,ok);});
+    } else { fallback(text,ok); }
+  }
+  function fallback(text,ok){
+    var ta=document.createElement('textarea');
+    ta.value=text; ta.setAttribute('readonly','');
+    ta.style.position='fixed'; ta.style.top='0'; ta.style.left='0'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    ta.setSelectionRange(0,ta.value.length);
+    try{ document.execCommand('copy'); ok(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  function copyField(btn){
+    var text=btn.closest('.field').querySelector('.copytext').innerText;
+    doCopy(text,btn);
+  }
+</script>
+</body>
+</html>
