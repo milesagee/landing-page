@@ -84,6 +84,78 @@
   .chip-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 26px; color: #003F3F; line-height: 1.1; }
   .chip-sub { font-size: 12px; color: rgba(0,63,63,0.55); }
 
+  /* Two-tier hero scoreboard: verified money vs estimated money.
+     Deliberately different weights. Verified is solid teal, estimated is an
+     outlined card, so nobody can read the two as the same kind of number. */
+  .tier-pair { display: grid; gap: 12px; margin-bottom: 24px; }
+  .tier-card { border-radius: 8px; padding: 20px 22px; }
+  .tier-card.verified {
+    background: #003F3F; color: #FAF7F1;
+    box-shadow: 0 3px 20px rgba(0,63,63,0.14);
+  }
+  .tier-card.estimated {
+    background: #fff; border: 1px dashed rgba(212,175,55,0.55);
+    box-shadow: 0 2px 14px rgba(212,175,55,0.08);
+  }
+  .tier-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+  .tier-card.verified .tier-label { color: #D4AF37; }
+  .tier-card.estimated .tier-label { color: #B1922E; }
+  .tier-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 32px; line-height: 1; letter-spacing: -0.018em; }
+  .tier-card.verified .tier-value { color: #FAF7F1; }
+  .tier-card.estimated .tier-value { color: #003F3F; }
+  .tier-sub { font-size: 12px; margin-top: 8px; line-height: 1.45; }
+  .tier-card.verified .tier-sub { color: rgba(250,247,241,0.72); }
+  .tier-card.estimated .tier-sub { color: rgba(0,63,63,0.58); }
+  .tier-note { font-size: 13px; color: rgba(0,63,63,0.6); margin: 0 0 22px; line-height: 1.55; }
+
+  /* Reconciled-through disclosure. Small on purpose, but never hidden. */
+  .recon { background: rgba(0,63,63,0.03); border-radius: 8px; padding: 16px 18px; margin: 14px 0 0; }
+  .recon-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #B1922E; margin-bottom: 8px; }
+  .recon-detail { font-size: 13px; color: rgba(0,63,63,0.7); line-height: 1.55; margin: 0 0 12px; }
+  .recon-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 16px; }
+  .recon-item { font-size: 12px; color: rgba(0,63,63,0.62); display: flex; justify-content: space-between; gap: 10px; border-top: 1px solid rgba(0,63,63,0.06); padding-top: 6px; }
+  .recon-item b { color: #003F3F; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Status badge for contracted deals (longer text than the side badges) */
+  .status-badge { display: inline-block; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+  .status-badge.uc { color: #005F5F; background: rgba(0,95,95,0.1); }
+  .status-badge.closing { color: #B1922E; background: rgba(212,175,55,0.14); }
+  .status-badge.ratifying { color: #5B7B9A; background: rgba(91,123,154,0.12); }
+
+  /* Tier 3: real but unsigned. Lighter than the two ledgers by design. */
+  .qual { display: grid; gap: 10px; margin-bottom: 14px; }
+  .qual-item { background: rgba(0,63,63,0.025); border-left: 2px solid rgba(212,175,55,0.45); border-radius: 2px; padding: 14px 16px; }
+  .qual-top { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; }
+  .qual-label { font-size: 14px; font-weight: 600; color: #003F3F; }
+  .qual-kind { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: #B1922E; }
+  .qual-detail { font-size: 13px; color: rgba(0,63,63,0.65); margin: 6px 0 0; line-height: 1.5; }
+
+  /* Three-lane spend comparison */
+  .lanes { display: grid; gap: 14px; margin-bottom: 16px; }
+  .lane { background: #fff; border: 1px solid rgba(0,63,63,0.08); border-radius: 10px; padding: 20px; box-shadow: 0 1px 2px rgba(0,63,63,0.025); }
+  .lane.ag { border-top: 3px solid #5B7B9A; }
+  .lane.mams { border-top: 3px solid #005F5F; }
+  .lane.shared { border-top: 3px solid #D4AF37; }
+  .lane-name { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 18px; color: #003F3F; margin: 0; letter-spacing: -0.008em; }
+  .lane-total { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 26px; color: #003F3F; line-height: 1; margin: 8px 0 2px; }
+  .lane-total-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,63,63,0.5); font-weight: 700; }
+  .lane-note { font-size: 12px; color: rgba(0,63,63,0.6); line-height: 1.5; margin: 10px 0 0; font-style: italic; }
+  .lane-items { margin-top: 14px; }
+  .lane-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline; padding: 9px 0; border-top: 1px solid rgba(0,63,63,0.06); }
+  .lane-row-label { font-size: 13px; color: rgba(0,63,63,0.8); line-height: 1.4; }
+  .lane-row-label .sub { display: block; font-size: 11px; color: rgba(0,63,63,0.48); margin-top: 2px; }
+  .lane-row-val { font-size: 14px; font-weight: 700; color: #003F3F; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Milestone meter for the month-3 gate */
+  .meter { margin-top: 14px; }
+  .meter-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .meter-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: rgba(0,63,63,0.55); flex: 1; min-width: 0; }
+  .meter-count { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 20px; color: #003F3F; font-variant-numeric: tabular-nums; white-space: nowrap; flex-shrink: 0; }
+  .meter-count .of { font-size: 13px; color: rgba(0,63,63,0.5); }
+  .meter-track { height: 8px; background: rgba(0,63,63,0.08); border-radius: 999px; overflow: hidden; }
+  .meter-fill { height: 100%; background: linear-gradient(90deg, #D4AF37, #c19f2e); border-radius: 999px; transition: width 0.7s cubic-bezier(0.34,1.4,0.64,1); }
+  .meter-note { font-size: 12px; color: rgba(0,63,63,0.6); margin: 8px 0 0; line-height: 1.5; }
+
   .personal-note {
     margin: 0; padding: 20px 22px;
     background: rgba(212, 175, 55, 0.06);
@@ -247,6 +319,10 @@
     .engines { grid-template-columns: 1fr 1fr; align-items: start; }
     .feedback { padding: 48px 40px; }
     .feedback h2 { font-size: 30px; }
+    .tier-pair { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .tier-value { font-size: 36px; }
+    .lanes { grid-template-columns: repeat(3, 1fr); align-items: start; }
+    .recon-grid { grid-template-columns: repeat(4, 1fr); }
   }
 </style>
 </head>
@@ -296,6 +372,14 @@
     h += '<div class="eyebrow-top">' + esc(s.eyebrowTop) + '</div>';
     h += '<h1>' + s.heroHeadline + '</h1>';
     h += '<p class="hero-sub">' + esc(s.heroSub) + '</p>';
+    if (s.tiers) {
+      var tr = s.tiers;
+      h += '<div class="tier-pair">';
+      h += '<div class="tier-card verified"><div class="tier-label">' + esc(tr.verifiedLabel) + '</div><div class="tier-value">' + moneyExact(tr.verifiedValue) + '</div><div class="tier-sub">' + esc(tr.verifiedSub) + '</div></div>';
+      h += '<div class="tier-card estimated"><div class="tier-label">' + esc(tr.contractedLabel) + '</div><div class="tier-value">' + money(tr.contractedValue) + '</div><div class="tier-sub">' + esc(tr.contractedSub) + '</div></div>';
+      h += '</div>';
+      if (tr.note) { h += '<p class="tier-note">' + esc(tr.note) + '</p>'; }
+    }
     h += '<div class="personal-note"><p>' + esc(s.openingNote) + '</p></div>';
     h += '</section>';
 
@@ -327,25 +411,52 @@
     h += '<div class="proof-note"><strong>' + esc(c.depositProof.label) + '.</strong> ' + esc(c.depositProof.text) + '</div>';
     h += '</section>';
 
-    /* LIVE PIPELINE */
-    var lv = D.live;
-    h += '<section class="section">';
-    h += '<div class="section-header"><div class="eyebrow">' + esc(lv.eyebrow) + '</div><h2>' + esc(lv.title) + '</h2><p class="section-lede">' + esc(lv.subtitle) + '</p></div>';
-    h += '<div class="rows">';
-    lv.activeListings.forEach(function (al) {
-      h += '<div class="row"><div class="row-label">' + esc(al.address) + '<span class="deal-addr">' + esc(al.detail || 'MAMS listing') + '</span></div><div class="row-value"><span class="deal-badge seller">' + esc(al.status) + '</span></div></div>';
-    });
-    lv.underContract.forEach(function (uc) {
-      h += '<div class="row"><div class="row-label">' + esc(uc.label) + '<span class="deal-addr">' + esc(uc.detail) + '</span></div><div class="row-value"><span class="deal-badge buyer">Under contract</span></div></div>';
-    });
-    h += '</div>';
-    h += '<p class="kicker">' + esc(lv.momentum) + '</p>';
-    h += '<div class="pair">';
+    /* TIER 2: UNDER CONTRACT, ESTIMATED */
+    var ct = D.contracted;
+    if (ct) {
+      h += '<section class="section">';
+      h += '<div class="section-header"><div class="eyebrow">' + esc(ct.eyebrow) + '</div><h2>' + esc(ct.title) + '</h2><p class="section-lede">' + esc(ct.subtitle) + '</p></div>';
+      h += '<div class="bignum-card"><div class="bignum-label">Estimated at close · ' + ct.count + ' homes in contract</div><div class="bignum-value">' + money(ct.estimatedTotal) + '</div><div class="bignum-sub">' + esc(ct.estimateNote) + '</div></div>';
+      h += '<div class="rows">';
+      ct.deals.forEach(function (d) {
+        var st = String(d.status || '').toLowerCase();
+        var cls = st.indexOf('ratif') > -1 ? 'ratifying' : (st.indexOf('closing') > -1 ? 'closing' : 'uc');
+        var side = d.side === 'Buyer' ? '<span class="deal-badge buyer">Buyer</span>'
+          : (d.side === 'Both sides' ? '<span class="deal-badge pending">Both sides</span>'
+          : '<span class="deal-badge seller">Seller</span>');
+        var meta = [d.basis, d.status].filter(Boolean).join(' · ');
+        var extra = d.note ? '<span class="deal-addr">' + esc(d.note) + '</span>' : '';
+        var val = (d.estimate === null || d.estimate === undefined)
+          ? '<div class="row-value pending">confirming</div>'
+          : '<div class="row-value">~' + money(d.estimate) + '</div>';
+        h += '<div class="row"><div class="row-label">' + esc(d.address) + side
+          + '<span class="deal-addr">' + esc(meta) + '</span>' + extra + '</div>' + val + '</div>';
+      });
+      h += '<div class="row row-total"><div class="row-label">Estimated total</div><div class="row-value">~' + money(ct.estimatedTotal) + '</div></div>';
+      h += '</div>';
+      h += '</section>';
+    }
+
+    /* TIER 3: REAL, NOT SIGNED */
+    var q = D.qualified;
+    if (q) {
+      h += '<section class="section">';
+      h += '<div class="section-header"><div class="eyebrow">' + esc(q.eyebrow) + '</div><h2>' + esc(q.title) + '</h2><p class="section-lede">' + esc(q.subtitle) + '</p></div>';
+      h += '<div class="qual">';
+      q.items.forEach(function (it) {
+        h += '<div class="qual-item"><div class="qual-top"><span class="qual-label">' + esc(it.label) + '</span><span class="qual-kind">' + esc(it.kind) + '</span></div>';
+        if (it.detail) { h += '<p class="qual-detail">' + esc(it.detail) + '</p>'; }
+        h += '</div>';
+      });
+      h += '</div>';
+      h += '<div class="pair">';
     h += '<div class="pair-card"><div class="pair-tag ag">AG pipeline ahead</div><div class="pair-value">' + money(D.pipeline.ag.weighted) + (D.pipeline.ag.asterisk ? '<span style="color:#D4AF37;font-weight:700">*</span>' : '') + '</div><div class="pair-sub">' + D.pipeline.ag.deals + ' deals, weighted</div></div>';
-    h += '<div class="pair-card"><div class="pair-tag mams">MAMS pipeline ahead</div><div class="pair-value">' + money(D.pipeline.mams.weighted) + '</div><div class="pair-sub">' + D.pipeline.mams.deals + ' deals, weighted</div></div>';
-    h += '</div>';
-    if (D.pipeline.caveat) { h += '<p class="kicker" style="font-size:13px;font-style:normal;color:rgba(0,63,63,0.6)">' + esc(D.pipeline.caveat) + '</p>'; }
-    h += '</section>';
+      h += '<div class="pair-card"><div class="pair-tag mams">MAMS pipeline ahead</div><div class="pair-value">' + money(D.pipeline.mams.weighted) + '</div><div class="pair-sub">' + D.pipeline.mams.deals + ' deals, weighted</div></div>';
+      h += '</div>';
+      if (D.pipeline.asOfLabel) { h += '<p class="kicker" style="font-size:12px;font-style:normal;color:rgba(0,63,63,0.5)">' + esc(D.pipeline.asOfLabel) + '</p>'; }
+      if (D.pipeline.caveat) { h += '<p class="kicker" style="font-size:13px;font-style:normal;color:rgba(0,63,63,0.6)">' + esc(D.pipeline.caveat) + '</p>'; }
+      h += '</section>';
+    }
 
     /* ENGINES */
     var e = D.engines;
@@ -364,9 +475,12 @@
     h += '<div class="metric"><span class="metric-label">Video views</span><span class="metric-value">' + compact(m.content.views) + '</span></div>';
     h += '<div class="metric"><span class="metric-label">Shares</span><span class="metric-value">' + m.content.shares.toLocaleString() + '</span></div>';
     h += '<div class="metric"><span class="metric-label">Ad spend (Meta)</span><span class="metric-value">' + money(m.ads.spend) + '</span></div>';
-    h += '<div class="metric"><span class="metric-label">New leads</span><span class="metric-value">' + m.ads.leads + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">' + esc(m.ads.resultLabel || 'Results') + '</span><span class="metric-value">' + (m.ads.resultValue || 0).toLocaleString() + '</span></div>';
     h += '</div>';
-    h += '<p class="engine-foot">Top video, "' + esc(m.content.topReel.label) + '," reached ' + m.content.topReel.reach.toLocaleString() + ' people and was shared ' + m.content.topReel.shares.toLocaleString() + ' times.</p>';
+    var mFoot = 'Top video, "' + esc(m.content.topReel.label) + '," reached ' + m.content.topReel.reach.toLocaleString() + ' people and was shared ' + m.content.topReel.shares.toLocaleString() + ' times.';
+    if (m.content.windowLabel) { mFoot += ' Content figures cover ' + esc(m.content.windowLabel) + '.'; }
+    if (m.ads.resultNote) { mFoot += ' ' + esc(m.ads.resultNote); }
+    h += '<p class="engine-foot">' + mFoot + '</p>';
     h += '</div>';
 
     var a = e.ag;
@@ -375,12 +489,14 @@
     h += '<p class="engine-oneliner">' + esc(a.oneLiner) + '</p>';
     h += '<div class="engine-headline"><span class="engine-headline-label">' + esc(a.headlineStat.label) + '</span><span class="engine-headline-value">' + money(a.headlineStat.value) + '</span><span class="engine-headline-sub">' + esc(a.headlineStat.sub) + '</span></div>';
     h += '<div class="metrics">';
-    h += '<div class="metric"><span class="metric-label">Ad views</span><span class="metric-value">' + compact(a.ads.impressions) + '</span></div>';
-    h += '<div class="metric"><span class="metric-label">Clicks</span><span class="metric-value">' + a.ads.clicks.toLocaleString() + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">Ad spend (Google)</span><span class="metric-value">' + money(a.ads.spend) + '</span></div>';
     h += '<div class="metric"><span class="metric-label">Conversions</span><span class="metric-value">' + a.ads.conversions + '</span></div>';
-    h += '<div class="metric"><span class="metric-label">New leads</span><span class="metric-value">' + a.ads.leads + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">Cost per conversion</span><span class="metric-value">' + money(a.ads.costPerConversion) + '</span></div>';
+    h += '<div class="metric"><span class="metric-label">Pipeline deals</span><span class="metric-value">' + D.pipeline.ag.deals + '</span></div>';
     h += '</div>';
-    h += '<p class="engine-foot">' + esc(a.foot || ('Every closed facilitation pays ' + a.feePerDeal + '. This is the lane the next $9,000 feeds.')) + '</p>';
+    var aFoot = esc(a.foot || ('Every closed facilitation pays ' + a.feePerDeal + '. This is the lane the next $9,000 feeds.'));
+    if (a.ads.windowLabel) { aFoot += ' Ad figures are the ' + esc(a.ads.windowLabel) + '.'; }
+    h += '<p class="engine-foot">' + aFoot + '</p>';
     h += '</div>';
 
     h += '</div></section>';
@@ -403,10 +519,62 @@
       out += '</div>';
       return out;
     }
-    h += '<div class="eyebrow" style="margin-top:6px">AG Home Buyers, reinvested</div>' + spendBlock('AG reinvestment', sp.reinvestment.ag);
-    h += '<div class="eyebrow">MAMS, reinvested</div>' + spendBlock('MAMS reinvestment', sp.reinvestment.mams);
-    h += '<div class="eyebrow">How I have been living</div>' + spendBlock('', sp.lifestyle);
+    /* Three-lane comparison: AG vs MAMS vs the costs that served both. */
+    if (sp.comparison) {
+      var cmp = sp.comparison;
+      h += '<h3 class="lane-name" style="font-size:20px;margin:8px 0 6px">' + esc(cmp.title) + '</h3>';
+      h += '<p class="section-lede" style="margin-bottom:18px">' + esc(cmp.subtitle) + '</p>';
+      h += '<div class="lanes">';
+      cmp.lanes.forEach(function (ln) {
+        h += '<div class="lane ' + esc(ln.key) + '">';
+        h += '<h4 class="lane-name">' + esc(ln.name) + '</h4>';
+        h += '<div class="lane-total">' + money(ln.total) + '</div>';
+        h += '<div class="lane-total-label">Reinvested this year</div>';
+        if (ln.note) { h += '<p class="lane-note">' + esc(ln.note) + '</p>'; }
+        h += '<div class="lane-items">';
+        ln.items.forEach(function (it) {
+          var sub = it.detail ? '<span class="sub">' + esc(it.detail) + '</span>' : '';
+          h += '<div class="lane-row"><div class="lane-row-label">' + esc(it.label) + sub + '</div><div class="lane-row-val">' + money(it.amount) + '</div></div>';
+        });
+        h += '</div></div>';
+      });
+      h += '</div>';
+      h += '<div class="proof-note"><strong>' + esc(cmp.grandTotalLabel) + ': ' + money(cmp.grandTotal) + '.</strong> That is the two businesses added together, with the shared column counted once, not twice.</div>';
+    } else if (sp.reinvestment) {
+      h += '<div class="eyebrow" style="margin-top:6px">AG Home Buyers, reinvested</div>' + spendBlock('AG reinvestment', sp.reinvestment.ag);
+      h += '<div class="eyebrow">MAMS, reinvested</div>' + spendBlock('MAMS reinvestment', sp.reinvestment.mams);
+    }
+
+    /* Team cost, called out on its own because Miles asked to see it separately. */
+    if (sp.teamCost) {
+      var tc = sp.teamCost;
+      h += '<h3 class="lane-name" style="font-size:20px;margin:30px 0 6px">' + esc(tc.title) + '</h3>';
+      h += '<p class="section-lede" style="margin-bottom:16px">' + esc(tc.subtitle) + '</p>';
+      h += '<div class="rows">';
+      tc.rows.forEach(function (r) {
+        var who = r.business ? '<span class="deal-badge ' + (r.business === 'MAMS' ? 'seller' : (r.business === 'AG' ? 'buyer' : 'pending')) + '">' + esc(r.business) + '</span>' : '';
+        var sub = r.detail ? '<span class="deal-addr">' + esc(r.detail) + '</span>' : '';
+        h += '<div class="row"><div class="row-label">' + esc(r.label) + who + sub + '</div><div class="row-value">' + money(r.amount) + '</div></div>';
+      });
+      h += '<div class="row row-total"><div class="row-label">Team + hiring, ' + esc(tc.windowLabel) + '</div><div class="row-value">' + money(tc.total) + '</div></div>';
+      h += '</div>';
+      if (tc.honestNote) { h += '<p class="kicker">' + esc(tc.honestNote) + '</p>'; }
+    }
+
+    h += '<div class="eyebrow" style="margin-top:30px">How I have been living</div>' + spendBlock('Lifestyle total', sp.lifestyle);
     h += '<p class="kicker">' + esc(sp.lifestyle.honestClose) + '</p>';
+
+    /* Reconciled-through disclosure lives here, next to the money it qualifies. */
+    if (D.meta.reconciledThrough) {
+      var rc = D.meta.reconciledThrough;
+      h += '<div class="recon"><div class="recon-label">' + esc(rc.label) + '</div>';
+      h += '<p class="recon-detail">' + esc(rc.detail) + '</p>';
+      h += '<div class="recon-grid">';
+      (rc.accounts || []).forEach(function (ac) {
+        h += '<div class="recon-item"><span>' + esc(ac.account) + '</span><b>' + esc(ac.through) + '</b></div>';
+      });
+      h += '</div></div>';
+    }
     h += '</section>';
 
     /* FORWARD: the plan, continued (scoreboard) */
@@ -436,7 +604,16 @@
     h += '<p class="plan-detail">' + esc(rp.rule) + ' ' + esc(rp.paceNote) + '</p>';
     h += '<p class="plan-detail" style="color:#B1922E">' + esc(rp.startsNote) + '</p></div>';
     h += '<div class="plan separate"><div class="plan-top"><span class="plan-label">' + esc(k.month3.headline) + '</span><span class="plan-amt">on milestone</span></div>';
-    h += '<p class="plan-detail">' + esc(k.month3.rule) + ' ' + esc(k.month3.note) + '</p></div>';
+    h += '<p class="plan-detail">' + esc(k.month3.rule) + ' ' + esc(k.month3.note) + '</p>';
+    if (k.month3.currentValue !== undefined && k.month3.targetValue) {
+      var pct = Math.min(100, Math.round((k.month3.currentValue / k.month3.targetValue) * 100));
+      h += '<div class="meter"><div class="meter-top"><span class="meter-label">' + esc(k.month3.currentLabel) + '</span>';
+      h += '<span class="meter-count">' + k.month3.currentValue + '<span class="of"> / ' + k.month3.targetValue + '</span></span></div>';
+      h += '<div class="meter-track"><div class="meter-fill" style="width:' + pct + '%"></div></div>';
+      if (k.month3.currentNote) { h += '<p class="meter-note">' + esc(k.month3.currentNote) + '</p>'; }
+      h += '</div>';
+    }
+    h += '</div>';
     h += '<div class="honest-read"><div class="eyebrow">Not if. When.</div><ul class="ask-list">';
     k.proof.forEach(function (li) { h += '<li>' + esc(li) + '</li>'; });
     h += '</ul><p class="ask-close">' + esc(k.close) + '</p></div>';

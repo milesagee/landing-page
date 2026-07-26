@@ -1,15 +1,34 @@
 {
   "meta": {
-    "asOf": "2026-07-06",
-    "updatedLabel": "Updated 2026-07-06",
+    "asOf": "2026-07-26",
+    "updatedLabel": "Updated 2026-07-26",
     "refreshNote": "Live figures. This page refreshes as the numbers move, so you can reopen it anytime and see where things actually stand.",
-    "dashboardUrl": "https://mamsnow.com/scaffold/intros/dashboards/snapshot-61a0746a28.html"
+    "dashboardUrl": "https://mamsnow.com/scaffold/intros/dashboards/snapshot-61a0746a28.html",
+    "reconciledThrough": {
+      "label": "Where these numbers stop",
+      "detail": "Bank statements close on a different day for every account, so there is no single cutoff. Every account is complete through June 8. Most run through the end of June, and the Apple Cash lane through July 5. Anything spent after each account's date is simply not on this page yet. Nothing here is estimated forward to make the total look finished.",
+      "accounts": [
+        { "account": "Business checking", "through": "June 30" },
+        { "account": "Personal checking", "through": "June 24" },
+        { "account": "Personal savings", "through": "June 8" },
+        { "account": "Apple Cash", "through": "July 5" }
+      ]
+    }
   },
   "snapshot": {
     "eyebrowTop": "The full accounting, summer 2026",
     "heroHeadline": "Ten homes closed. <em>$102,472.87</em> earned, every dollar verified.",
-    "heroSub": "This page shows your first $9,000 at work, receipt by receipt.",
-    "openingNote": "Mom, Dad, your first $9,000 helped build a real engine. Ten closings since February, every figure pulled off signed documents. This page is the full accounting, the next step, and exactly how you get every dollar back."
+    "heroSub": "Six more are under contract or ratifying right now, an estimated $54,098 on top of what is already in.",
+    "openingNote": "Mom, Dad, your first $9,000 helped build a real engine. Ten closings since February, every figure pulled off signed documents. Six more homes are in contract as of today. This page is the full accounting, what is still in flight, and exactly how you get every dollar back.",
+    "tiers": {
+      "note": "Three separate columns on purpose. What is done, what is signed, and what is real but not signed yet. They never get added into one number.",
+      "verifiedLabel": "Closed and verified",
+      "verifiedValue": 102472.87,
+      "verifiedSub": "10 homes, each on a signed Closing Disclosure",
+      "contractedLabel": "Under contract, estimated at close",
+      "contractedValue": 54098,
+      "contractedSub": "6 homes, commission estimated from list price and the agreed rate"
+    }
   },
   "closings": {
     "eyebrow": "The returns, matched to a closing",
@@ -69,26 +88,18 @@
         "status": "closed"
       },
       {
-        "client": "Natalie Seymour",
-        "address": "2401 Warwick Ave, Richmond",
-        "side": "Seller",
-        "commission": 9225.0,
-        "won": "Jun 2026",
-        "status": "closed"
-      },
-      {
-        "client": "Walker Griffea",
-        "address": "817 Pleasant St, Henrico",
-        "side": "Seller",
-        "commission": 5370.0,
-        "won": "Jun 2026",
-        "status": "closed"
-      },
-      {
         "client": "Madeline Alexander",
         "address": "209 Quest Ct, Yorktown",
         "side": "Seller",
         "commission": 10500.0,
+        "won": "Jun 2026",
+        "status": "closed"
+      },
+      {
+        "client": "Natalie Seymour",
+        "address": "2401 Warwick Ave, Richmond",
+        "side": "Seller",
+        "commission": 9225.0,
         "won": "Jun 2026",
         "status": "closed"
       },
@@ -99,6 +110,14 @@
         "commission": 5775,
         "won": "2026",
         "status": "closed"
+      },
+      {
+        "client": "Walker Griffea",
+        "address": "817 Pleasant St, Henrico",
+        "side": "Seller",
+        "commission": 5370.0,
+        "won": "Jun 2026",
+        "status": "closed"
       }
     ],
     "depositProof": {
@@ -107,55 +126,105 @@
       "brokerageAch": 102472.87
     }
   },
-  "live": {
-    "eyebrow": "What is live right now",
-    "title": "The engine is still running.",
-    "subtitle": "Closed deals are the proof of what happened. Here is what is on the market and under contract today, so you can see it is not slowing down.",
-    "activeListings": [
-      {
-        "address": "97 McCormick Drive, Reedville",
-        "status": "On the market",
-        "detail": "Sell-side, 2% commission · ~$4,750 est. at close"
-      },
-      {
-        "address": "2374 Hilton Rd, Gate City",
-        "status": "On the market",
-        "detail": "Sell-side, 2% commission · ~$2,090 est. at close"
-      },
-      {
-        "address": "14772 Malloy Ct, Woodbridge",
-        "status": "On the market",
-        "detail": "Sell-side, 2% commission · ~$6,459 est. at close"
-      },
+  "contracted": {
+    "eyebrow": "Under contract right now",
+    "title": "Six more homes are already in contract.",
+    "subtitle": "This is the part that has not hit the bank yet. Each one has a signed contract or is being ratified in the next day. The dollar figures are estimates, calculated from the list price and the agreed rate, not off a settlement statement. That is why they sit in their own column and never get added to the verified total.",
+    "estimatedTotal": 54098,
+    "count": 6,
+    "estimateNote": "Estimated, not verified. A commission only moves to the column above when it settles and the deposit lands.",
+    "deals": [
       {
         "address": "2119 Pimmit Dr, Falls Church",
+        "side": "Seller",
         "status": "Under contract",
-        "detail": "Sell-side, 3% commission · ~$18,525 est. at close"
+        "basis": "Sell-side, 3%",
+        "estimate": 18525
       },
       {
         "address": "450 Fishel Rd, Winchester",
-        "status": "Under contract",
-        "detail": "Sell-side, 2.5% commission · ~$12,184 est. at close"
-      }
-    ],
-    "underContract": [
+        "side": "Seller",
+        "status": "Under contract, in negotiation",
+        "basis": "Sell-side, 2.5%",
+        "estimate": 12184,
+        "note": "Septic inspection and repair quote are being negotiated now, so the final number can move."
+      },
       {
-        "label": "Edith Oaks Way",
-        "detail": "Buyer-side, 2.5% commission · ~$8,000 est. at close"
+        "address": "6728 Edith Oaks Way",
+        "side": "Buyer",
+        "status": "Closing this week",
+        "basis": "Buy-side, 2.5%",
+        "estimate": 8000,
+        "note": "Closest to the finish line. This one becomes verified income first."
+      },
+      {
+        "address": "14772 Malloy Ct, Woodbridge",
+        "side": "Seller",
+        "status": "Ratifying, expected Monday",
+        "basis": "Sell-side, 2%",
+        "estimate": 6459,
+        "note": "Counters and addenda are done. Signatures expected Monday."
+      },
+      {
+        "address": "97 McCormick Dr, Reedville",
+        "side": "Seller",
+        "status": "Ratifying, expected within a day",
+        "basis": "Sell-side, 2%",
+        "estimate": 4750
+      },
+      {
+        "address": "2374 Hilton Rd, Gate City",
+        "side": "Both sides",
+        "status": "Under contract",
+        "basis": "Both sides, 2% plus 2%",
+        "estimate": 4180,
+        "note": "Representing buyer and seller on this one, so the commission counts twice on the same house."
       }
-    ],
-    "momentum": "On top of that, more listings are being prepped to hit the market and several buyers are preapproved and actively shopping right now. The weighted pipeline across both businesses:"
+    ]
+  },
+  "qualified": {
+    "eyebrow": "Real, but not signed",
+    "title": "And here is what is behind those.",
+    "subtitle": "No dollar figure on this column, on purpose. These are live people and real listings, but nothing is signed, so putting a number on them would be a guess dressed up as a forecast. They are here so you can see the engine is still loading, not just emptying.",
+    "items": [
+      {
+        "label": "3901 Cedar Grove Rd, Richmond",
+        "kind": "Listing coming to market",
+        "detail": "Huguenot area. Paint and finishes are done. Listing in late July, priced against a $550K neighborhood median."
+      },
+      {
+        "label": "2407 Farrand Dr, Henrico",
+        "kind": "Listing coming to market",
+        "detail": "Coming soon at $324,945. 1.3 acres with a potential two-lot split, verified off county GIS before it ever listed."
+      },
+      {
+        "label": "Active buyer, Sharon and William",
+        "kind": "Buyer under way",
+        "detail": "Six candidate homes ranked off the MLS this month and a re-hunt in progress."
+      },
+      {
+        "label": "Lease client",
+        "kind": "Showings Monday",
+        "detail": "Going out to tour Monday."
+      },
+      {
+        "label": "Preapproved buyers actively shopping",
+        "kind": "Buyers in motion",
+        "detail": "Financing already in hand, touring now."
+      }
+    ]
   },
   "pipeline": {
     "caveat": "* The AG figure is a weighted projection across early-stage leads, not committed contracts. It's directional, not money in hand. None have closed yet.",
+    "asOfLabel": "Pipeline pulled from the CRM on July 26, 2026, weighted over 90 days",
     "ag": {
-      "weighted": 103100,
-      "deals": 43,
+      "weighted": 69150,
+      "deals": 29,
       "asterisk": true
     },
     "mams": {
-      "weighted": 76494,
-      "deals": 40
+      "weighted": 116274,
+      "deals": 41
     }
   },
   "engines": {
@@ -174,6 +243,7 @@
         "followersGained": 7198,
         "views": 1800000,
         "shares": 21090,
+        "windowLabel": "June 2025 to June 2026",
         "topReel": {
           "label": "Richmond 2025 = Austin 1995",
           "reach": 117620,
@@ -182,8 +252,11 @@
       },
       "ads": {
         "channel": "Meta",
-        "spend": 3576.07,
-        "leads": 28
+        "spend": 4351.17,
+        "spendLabel": "spent on Meta ads this year",
+        "resultLabel": "Profile visits",
+        "resultValue": 13525,
+        "resultNote": "Meta reports profile visits on these campaigns, not leads. Calling them leads would overstate it, so the real metric is what is shown."
       }
     },
     "ag": {
@@ -192,120 +265,109 @@
       "oneLiner": "Facilitation for homeowners. Money goes to Google Ads, ads make leads, leads make deals. Fast and repeatable. Miles is a facilitator, never a buyer.",
       "headlineStat": {
         "label": "Weighted pipeline",
-        "value": 103100,
-        "sub": "43 leads, weighted projection*, not committed contracts, none closed yet"
+        "value": 69150,
+        "sub": "29 leads, weighted projection*, not committed contracts, none closed yet"
       },
       "ads": {
         "channel": "Google",
-        "impressions": 39456,
-        "clicks": 1612,
-        "conversions": 36,
-        "leads": 42
+        "spend": 9177.43,
+        "spendLabel": "spent on Google Ads this year",
+        "conversions": 18,
+        "costPerConversion": 198.27,
+        "windowLabel": "last 30 days on the platform"
       },
       "feePerDeal": "a target payout of 10,000 to 30,000 per facilitation",
       "foot": "Target payout is 10,000 to 30,000 a facilitation. None have closed yet. That is exactly what the next 9,000 is built to change."
     }
   },
   "spend": {
-    "note": "Full transparency. Business reinvestment first, then how I have been living. Nothing hidden, including the fun.",
-    "reinvestment": {
-      "ag": {
-        "total": 24832.39,
-        "items": [
-          {
-            "label": "Retail Max mentorship (Jarvela)",
-            "amount": 12371.86
-          },
-          {
-            "label": "Google Ads",
-            "amount": 6277.81
-          },
-          {
-            "label": "Travel to deals",
-            "amount": 2594.72
-          },
-          {
-            "label": "Legal / entity setup",
-            "amount": 1693.0
-          },
-          {
-            "label": "Lead data",
-            "amount": 695.0
-          },
-          {
-            "label": "Software (Open Dispo CRM)",
-            "amount": 1200,
-            "approx": true,
-            "detail": "~$300/mo CRM x 4 months"
-          }
-        ]
-      },
-      "mams": {
-        "total": 6630.96,
-        "items": [
-          {
-            "label": "Meta Ads",
-            "amount": 3576.07
-          },
-          {
-            "label": "Licensing / MLS / dues",
-            "amount": 1219.0
-          },
-          {
-            "label": "Signs / marketing",
-            "amount": 767.13
-          },
-          {
-            "label": "Content gear",
-            "amount": 551.71
-          },
-          {
-            "label": "Client gifts",
-            "amount": 504.46
-          },
-          {
-            "label": "Software",
-            "amount": 114.95
-          }
-        ]
-      }
+    "note": "Full transparency. Business reinvestment first, then the team, then how I have been living. Nothing hidden, including the fun.",
+    "comparison": {
+      "title": "Where it went, both businesses side by side.",
+      "subtitle": "Same period, same rules, no blending. AG and MAMS keep separate books. A third column holds the costs that genuinely serve both, because splitting those down the middle would be a guess.",
+      "lanes": [
+        {
+          "key": "ag",
+          "name": "AG Home Buyers",
+          "total": 28939.66,
+          "items": [
+            { "label": "Retail Max mentorship (Jarvela)", "amount": 12487.25 },
+            { "label": "Google Ads", "amount": 9177.43 },
+            { "label": "Travel to deals", "amount": 4321.74 },
+            { "label": "Legal / entity setup", "amount": 1693.0 },
+            { "label": "Lead data", "amount": 695.0 },
+            { "label": "Software (CRM + tools)", "amount": 565.24 }
+          ]
+        },
+        {
+          "key": "mams",
+          "name": "MAMS",
+          "total": 14778.99,
+          "items": [
+            { "label": "Content gear", "amount": 5214.65, "detail": "Camera and computer the content and the systems run on" },
+            { "label": "Meta Ads", "amount": 4351.17 },
+            { "label": "Team pay (office manager)", "amount": 2675.0 },
+            { "label": "Licensing / MLS / dues", "amount": 1219.0 },
+            { "label": "Signs / marketing", "amount": 767.13 },
+            { "label": "Client gifts", "amount": 422.09 },
+            { "label": "Software (CRM + tools)", "amount": 129.95 }
+          ]
+        },
+        {
+          "key": "shared",
+          "name": "Both businesses",
+          "total": 6281.44,
+          "note": "Hiring and overseas team pay served both sides at once. Rather than split it in half and call that a fact, it sits here.",
+          "items": [
+            { "label": "Team pay (overseas, by wire)", "amount": 4812.0 },
+            { "label": "Indeed job postings", "amount": 1469.44 }
+          ]
+        }
+      ],
+      "grandTotal": 50000.09,
+      "grandTotalLabel": "Put back into the two businesses this year"
+    },
+    "teamCost": {
+      "title": "What the team cost.",
+      "subtitle": "You asked to see this separately, so here it is on its own. Every dollar paid to a person, plus what it cost to find them.",
+      "total": 8956.44,
+      "windowLabel": "February to July 2026",
+      "rows": [
+        {
+          "label": "Office manager",
+          "business": "MAMS",
+          "amount": 2675.0,
+          "detail": "Weekly, February through May"
+        },
+        {
+          "label": "Overseas team, paid by wire",
+          "business": "Both",
+          "amount": 4812.0,
+          "detail": "Two people, weekly, April through July, including wire fees"
+        },
+        {
+          "label": "Indeed job postings",
+          "business": "Both",
+          "amount": 1469.44,
+          "detail": "Hiring for both sides, March and April"
+        }
+      ],
+      "honestNote": "Two of these seats have since closed. The overseas lead-manager roles ended in July, one of them replaced by automation that now does the first call. That is why this number stops climbing."
     },
     "lifestyle": {
       "note": "The honest part. This is where the draws went. I am showing you all of it.",
+      "total": 43051.34,
       "items": [
-        {
-          "label": "The 4Runner build",
-          "amount": 8194.72,
-          "detail": "Ironwood Automotive, Tire Rack, I T Automotive"
-        },
-        {
-          "label": "Shopping (household, apparel)",
-          "amount": 7511.83
-        },
-        {
-          "label": "Gas",
-          "amount": 5860.81
-        },
-        {
-          "label": "Eating out",
-          "amount": 5713.03
-        },
-        {
-          "label": "Apple (gear + services)",
-          "amount": 4662.94
-        },
-        {
-          "label": "Wellness / recovery",
-          "amount": 4129.7
-        },
-        {
-          "label": "Travel (incl. the Phoenix conference)",
-          "amount": 3295.5
-        },
-        {
-          "label": "Going out / nightlife",
-          "amount": 562.78
-        }
+        { "label": "Shopping (household, apparel)", "amount": 9736.93 },
+        { "label": "The 4Runner build", "amount": 8194.72, "detail": "Ironwood Automotive, Tire Rack, I T Automotive" },
+        { "label": "Gas", "amount": 6321.06 },
+        { "label": "Wellness / recovery", "amount": 4229.7 },
+        { "label": "Eating out", "amount": 4100.52 },
+        { "label": "Rides, tolls, car rental", "amount": 3989.31 },
+        { "label": "Groceries", "amount": 2916.11 },
+        { "label": "Auto insurance", "amount": 1625.67 },
+        { "label": "Phone", "amount": 1364.55 },
+        { "label": "Going out / nightlife", "amount": 572.77 }
       ],
       "honestClose": "The car, the food, the nights out, they are all here. I am not hiding how I live. I am showing you the engines are real so the living can slow down and the building can speed up."
     }
@@ -325,7 +387,7 @@
     },
     "useOfFunds": {
       "headline": "Every dollar goes to one place. AG Google ads.",
-      "detail": "Not personal. Not my mentorship dues, I cover those myself. Straight into AG Google ads that make facilitation leads. That is the entire ask, nothing else built into it."
+      "detail": "Not personal. Not my mentorship dues, I cover those myself. Not payroll, the team costs above came out of what MAMS already earned. Straight into AG Google ads that make facilitation leads. That is the entire ask, nothing else built into it."
     }
   },
   "ask": {
@@ -334,16 +396,21 @@
     "repayment": {
       "perClose": 4000,
       "rule": "$4,000 from every closing routes straight to you, until the full $32,000 is paid.",
-      "paceNote": "That is eight closings. At my current pace of close to two a month, roughly four to five months, paid in full by late 2026.",
+      "paceNote": "That is eight closings. Ten are already done and six more are in contract, so the closings that pay you back are not hypothetical.",
       "startsNote": "It starts now, not someday. MAMS is already closing, so the money comes back before AG even lands its first deal."
     },
     "month3": {
       "headline": "The third $9,000",
       "rule": "The third month is not automatic. It releases when the month-two spend produces 40 or more qualified AG leads.",
-      "note": "You check the number before you send the next one. It lives on this page and it updates."
+      "note": "You check the number before you send the next one. It lives on this page and it updates.",
+      "currentLabel": "New AG leads in the last 30 days",
+      "currentValue": 33,
+      "targetValue": 40,
+      "currentNote": "33 of 40 as of today, counting every source. Not there yet, and you would be right to hold until it is."
     },
     "proof": [
       "Ten closings, $102,472.87, every dollar off a signed document.",
+      "Six more homes under contract, an estimated $54,098 behind them.",
       "So the return is not waiting on any one thing to go right.",
       "It is not whether I can make it. It is how we focus and finish it."
     ],
