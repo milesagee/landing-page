@@ -539,7 +539,8 @@
         h += '</div></div>';
       });
       h += '</div>';
-      h += '<div class="proof-note"><strong>' + esc(cmp.grandTotalLabel) + ': ' + money(cmp.grandTotal) + '.</strong> That is the two businesses added together, with the shared column counted once, not twice.</div>';
+      h += '<div class="proof-note"><strong>' + esc(cmp.grandTotalLabel) + ': ' + money(cmp.grandTotal) + '.</strong> That is the two businesses added together, with the shared column counted once, not twice.'
+        + (cmp.methodNote ? ' ' + esc(cmp.methodNote) : '') + '</div>';
     } else if (sp.reinvestment) {
       h += '<div class="eyebrow" style="margin-top:6px">AG Home Buyers, reinvested</div>' + spendBlock('AG reinvestment', sp.reinvestment.ag);
       h += '<div class="eyebrow">MAMS, reinvested</div>' + spendBlock('MAMS reinvestment', sp.reinvestment.mams);

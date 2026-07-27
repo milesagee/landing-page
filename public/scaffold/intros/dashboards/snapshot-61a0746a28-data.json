@@ -6,12 +6,24 @@
     "dashboardUrl": "https://mamsnow.com/scaffold/intros/dashboards/snapshot-61a0746a28.html",
     "reconciledThrough": {
       "label": "Where these numbers stop",
-      "detail": "Bank statements close on a different day for every account, so there is no single cutoff. Every account is complete through June 8. Most run through the end of June, and the Apple Cash lane through July 5. Anything spent after each account's date is simply not on this page yet. Nothing here is estimated forward to make the total look finished.",
+      "detail": "Bank statements close on a different day for every account, so there is no single cutoff. Every account is complete through June 8, most run through the end of June, and the Apple Cash lane through July 5. The one exception is ad spend: that comes straight from the Google and Meta accounts rather than the bank, so the Google figure is current through July 26. Nothing on this page is estimated forward to make a total look finished.",
       "accounts": [
-        { "account": "Business checking", "through": "June 30" },
-        { "account": "Personal checking", "through": "June 24" },
-        { "account": "Personal savings", "through": "June 8" },
-        { "account": "Apple Cash", "through": "July 5" }
+        {
+          "account": "Business checking",
+          "through": "June 30"
+        },
+        {
+          "account": "Personal checking",
+          "through": "June 24"
+        },
+        {
+          "account": "Personal savings",
+          "through": "June 8"
+        },
+        {
+          "account": "Apple Cash",
+          "through": "July 5"
+        }
       ]
     }
   },
@@ -270,11 +282,11 @@
       },
       "ads": {
         "channel": "Google",
-        "spend": 9177.43,
-        "spendLabel": "spent on Google Ads this year",
-        "conversions": 18,
-        "costPerConversion": 198.27,
-        "windowLabel": "last 30 days on the platform"
+        "spend": 14014.22,
+        "spendLabel": "spent on Google Ads, March 1 to July 26",
+        "conversions": 86,
+        "costPerConversion": 162.96,
+        "windowLabel": "March 1 to July 26, straight from the Google Ads account"
       },
       "feePerDeal": "a target payout of 10,000 to 30,000 per facilitation",
       "foot": "Target payout is 10,000 to 30,000 a facilitation. None have closed yet. That is exactly what the next 9,000 is built to change."
@@ -289,14 +301,33 @@
         {
           "key": "ag",
           "name": "AG Home Buyers",
-          "total": 28939.66,
+          "total": 33776.45,
           "items": [
-            { "label": "Retail Max mentorship (Jarvela)", "amount": 12487.25 },
-            { "label": "Google Ads", "amount": 9177.43 },
-            { "label": "Travel to deals", "amount": 4321.74 },
-            { "label": "Legal / entity setup", "amount": 1693.0 },
-            { "label": "Lead data", "amount": 695.0 },
-            { "label": "Software (CRM + tools)", "amount": 565.24 }
+            {
+              "label": "Retail Max mentorship (Jarvela)",
+              "amount": 12487.25
+            },
+            {
+              "label": "Google Ads",
+              "amount": 14014.22,
+              "detail": "Straight from the Google Ads account, March 1 to July 26"
+            },
+            {
+              "label": "Travel to deals",
+              "amount": 4321.74
+            },
+            {
+              "label": "Legal / entity setup",
+              "amount": 1693.0
+            },
+            {
+              "label": "Lead data",
+              "amount": 695.0
+            },
+            {
+              "label": "Software (CRM + tools)",
+              "amount": 565.24
+            }
           ]
         },
         {
@@ -304,13 +335,36 @@
           "name": "MAMS",
           "total": 14778.99,
           "items": [
-            { "label": "Content gear", "amount": 5214.65, "detail": "Camera and computer the content and the systems run on" },
-            { "label": "Meta Ads", "amount": 4351.17 },
-            { "label": "Team pay (office manager)", "amount": 2675.0 },
-            { "label": "Licensing / MLS / dues", "amount": 1219.0 },
-            { "label": "Signs / marketing", "amount": 767.13 },
-            { "label": "Client gifts", "amount": 422.09 },
-            { "label": "Software (CRM + tools)", "amount": 129.95 }
+            {
+              "label": "Content gear",
+              "amount": 5214.65,
+              "detail": "Camera and computer the content and the systems run on"
+            },
+            {
+              "label": "Meta Ads",
+              "amount": 4351.17,
+              "detail": "Bank charges through June 8, so the true figure is higher"
+            },
+            {
+              "label": "Team pay (office manager)",
+              "amount": 2675.0
+            },
+            {
+              "label": "Licensing / MLS / dues",
+              "amount": 1219.0
+            },
+            {
+              "label": "Signs / marketing",
+              "amount": 767.13
+            },
+            {
+              "label": "Client gifts",
+              "amount": 422.09
+            },
+            {
+              "label": "Software (CRM + tools)",
+              "amount": 129.95
+            }
           ]
         },
         {
@@ -319,13 +373,20 @@
           "total": 6281.44,
           "note": "Hiring and overseas team pay served both sides at once. Rather than split it in half and call that a fact, it sits here.",
           "items": [
-            { "label": "Team pay (overseas, by wire)", "amount": 4812.0 },
-            { "label": "Indeed job postings", "amount": 1469.44 }
+            {
+              "label": "Team pay (overseas, by wire)",
+              "amount": 4812.0
+            },
+            {
+              "label": "Indeed job postings",
+              "amount": 1469.44
+            }
           ]
         }
       ],
-      "grandTotal": 50000.09,
-      "grandTotalLabel": "Put back into the two businesses this year"
+      "grandTotal": 54836.88,
+      "grandTotalLabel": "Put back into the two businesses this year",
+      "methodNote": "Ad spend comes straight from the ad accounts, because those platforms know the number to the day. Everything else is counted off bank statements. Where those two disagree, the ad account wins."
     },
     "teamCost": {
       "title": "What the team cost.",
@@ -358,16 +419,47 @@
       "note": "The honest part. This is where the draws went. I am showing you all of it.",
       "total": 43051.34,
       "items": [
-        { "label": "Shopping (household, apparel)", "amount": 9736.93 },
-        { "label": "The 4Runner build", "amount": 8194.72, "detail": "Ironwood Automotive, Tire Rack, I T Automotive" },
-        { "label": "Gas", "amount": 6321.06 },
-        { "label": "Wellness / recovery", "amount": 4229.7 },
-        { "label": "Eating out", "amount": 4100.52 },
-        { "label": "Rides, tolls, car rental", "amount": 3989.31 },
-        { "label": "Groceries", "amount": 2916.11 },
-        { "label": "Auto insurance", "amount": 1625.67 },
-        { "label": "Phone", "amount": 1364.55 },
-        { "label": "Going out / nightlife", "amount": 572.77 }
+        {
+          "label": "Shopping (household, apparel)",
+          "amount": 9736.93
+        },
+        {
+          "label": "The 4Runner build",
+          "amount": 8194.72,
+          "detail": "Ironwood Automotive, Tire Rack, I T Automotive"
+        },
+        {
+          "label": "Gas",
+          "amount": 6321.06
+        },
+        {
+          "label": "Wellness / recovery",
+          "amount": 4229.7
+        },
+        {
+          "label": "Eating out",
+          "amount": 4100.52
+        },
+        {
+          "label": "Rides, tolls, car rental",
+          "amount": 3989.31
+        },
+        {
+          "label": "Groceries",
+          "amount": 2916.11
+        },
+        {
+          "label": "Auto insurance",
+          "amount": 1625.67
+        },
+        {
+          "label": "Phone",
+          "amount": 1364.55
+        },
+        {
+          "label": "Going out / nightlife",
+          "amount": 572.77
+        }
       ],
       "honestClose": "The car, the food, the nights out, they are all here. I am not hiding how I live. I am showing you the engines are real so the living can slow down and the building can speed up."
     }
@@ -387,7 +479,7 @@
     },
     "useOfFunds": {
       "headline": "Every dollar goes to one place. AG Google ads.",
-      "detail": "Not personal. Not my mentorship dues, I cover those myself. Not payroll, the team costs above came out of what MAMS already earned. Straight into AG Google ads that make facilitation leads. That is the entire ask, nothing else built into it."
+      "detail": "Not personal. Not my mentorship dues, I cover those myself. Not payroll, the team costs above came out of what MAMS already earned. Straight into AG Google ads that make facilitation leads. You can verify it: $14,014.22 has gone into that ad account since March 1, and it has produced 86 conversions at $162.96 each."
     }
   },
   "ask": {
