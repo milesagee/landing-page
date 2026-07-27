@@ -23,12 +23,12 @@ export type AnchorMatch = {
   matches: string; // The intake must-have or lifestyle tag this anchor pairs to
 };
 
-// A single cited school datapoint. `point` is a neutral fact or a verbatim,
-// attributed parent quote. It ALWAYS carries a source. If a datapoint has no
-// source it does not exist on the page (fair-housing spine: every school
-// statement is a citation, never an assertion in MAMS's own voice).
-export type SchoolEvidenceItem = {
-  point: string; // factual datapoint OR verbatim quoted parent text
+// A single cited datapoint backing a Read. `point` is a neutral fact or a
+// verbatim, attributed quote. It ALWAYS carries a source. If a datapoint has no
+// source it does not exist on the page (the "sourced, never claimed" spine:
+// every statement is a citation, never an assertion in MAMS's own voice).
+export type EvidenceItem = {
+  point: string; // factual datapoint OR verbatim quoted text
   source: { label: string; url: string };
 };
 
@@ -36,10 +36,23 @@ export type SchoolEvidenceItem = {
 // shortlist (mirrors Mary's Natural Light Score method card in home-dna). It
 // names the sourced factors so the buyer sees the Read is a rollup of published
 // indicators, not MAMS opinion.
-export type SchoolReadFactor = {
-  name: string; // e.g. "Assigned elementary", "Published academic signal"
+export type ReadFactor = {
+  name: string; // e.g. "Assigned elementary", "Parcel terrain"
   sourceNote: string; // one line naming the sourced inputs behind this factor
 };
+
+// School lens (fair-housing spine: every school statement is a citation).
+export type SchoolEvidenceItem = EvidenceItem;
+export type SchoolReadFactor = ReadFactor;
+
+// Lot lens. Same discipline, different buyer priority: terrain flatness and
+// distance to neighboring structures. Built for buyers who state those as
+// priorities (Lashena, 2026-07-26: "more flat land and not so hilly / more room
+// around the house where the neighbors aren't so close"). No consumer portal
+// filters on either, which is exactly why it differentiates. MAMS never calls a
+// lot flat or a street spacious. The parcel and elevation data say it.
+export type LotEvidenceItem = EvidenceItem;
+export type LotReadFactor = ReadFactor;
 
 export type BuyerMatchProperty = {
   // Identity
@@ -94,6 +107,22 @@ export type BuyerMatchProperty = {
   // The cited evidence behind the Read: SOL data, ratings, ratios, programs,
   // and verbatim attributed parent quotes. Each item carries its source.
   schoolEvidence?: SchoolEvidenceItem[];
+
+  // ---- Lot lens (optional; buyer-stated priority) ----
+  // Renders together or not at all, same rule as the school lens. Populated
+  // only when parcel-level terrain or spacing data was actually sourced for
+  // this exact address. Empty beats invented.
+  lotSizeLabel?: string; // e.g. "0.34 acre", sourced from county parcel data
+  // 0-10 transparent rollup of the buyer's stated lot priorities (flatness,
+  // distance to neighboring structures) against published parcel and elevation
+  // data. Sourced signal, not a MAMS quality claim. Drives the re-rank.
+  lotRead?: number;
+  // One paragraph synthesizing the sourced evidence in the "sourced, never
+  // claimed" voice. Never characterizes ("private", "spacious", "quiet").
+  lotReadSummary?: string;
+  // The cited evidence behind the Read: elevation change across the parcel,
+  // lot dimensions, side setbacks, prevailing zoning district minimums.
+  lotEvidence?: LotEvidenceItem[];
 };
 
 // A per-neighborhood read. Renders as a card above the shortlist. Lets the
@@ -129,6 +158,30 @@ export type BuyerMatchData = {
   // page renders exactly as before (no school lens).
   schoolLensIntro?: string; // Miles-voice, you-frame, method not opinion
   schoolMethod?: SchoolReadFactor[];
+
+  // Optional: the lot lens intro + method card. Same contract as the school
+  // lens above. When present, the page renders a "How your Lot Read is built"
+  // section and the shortlist is ordered by lotRead. When absent, the page
+  // renders exactly as before (no lot lens).
+  lotLensIntro?: string; // Miles-voice, you-frame, method not opinion
+  lotMethod?: LotReadFactor[];
+
+  // Optional: the commute anchor the whole search is organized around, when the
+  // buyer has one that outranks their stated neighborhood order. Renders above
+  // the neighborhood reads because it is the thing that reorders them.
+  // (Lashena, 2026-07-26: husband commutes to Fort Belvoir.)
+  commuteAnchor?: {
+    heading: string; // e.g. "Everything here is built around the Belvoir drive"
+    intro: string; // Miles-voice framing, you-frame
+    destination: string; // e.g. "Fort Belvoir, Tulley Gate"
+    rows: {
+      area: string;
+      driveLabel: string; // e.g. "18 min peak AM"
+      note: string; // one line, honest
+    }[];
+    method: string; // how the times were derived + time-of-day assumption
+    source?: { label: string; url: string };
+  };
 
   // Optional: ETA copy for the shortlist-pending state ("by tomorrow morning").
   // When properties is empty, the page renders a substantive "being built"
@@ -177,6 +230,606 @@ export type BuyerMatchData = {
 // inline (mirroring the offer-data.ts pattern) and migrate to GHL-backed
 // reads in v2.
 export const CONTACTS: Record<string, BuyerMatchData> = {
+  // Lashena Irvin -- Miles's aunt. Intake submitted 2026-07-26 with Miles beside
+  // her. $490-600K, 3+/2+, basement + garage + yard, detached only. Her stated
+  // order was Woodbridge, Springfield, Alexandria, Lorton, Arlington. The fact
+  // the form could not hold: her husband commutes to FORT BELVOIR, and he is the
+  // financing party who will scrutinize this page.
+  //
+  // PC research 2026-07-26-2036 confirmed both working hypotheses:
+  //   1. Her ranked list is inverted against her own commute. Mt. Vernon (which
+  //      she never ranked, only wrote "we really love") and Lorton are closest
+  //      to Tulley Gate. Arlington, her #5, is farthest and unaffordable.
+  //   2. "Flat not hilly" and "neighbors not so close" are both real and
+  //      computable, and they point in DIFFERENT directions: Mt. Vernon is
+  //      flattest, Woodbridge gives the most room per dollar.
+  // The cruel part: the two areas that win on commute and terrain have ZERO
+  // active inventory at her budget. Woodbridge is the only one of her six areas
+  // where her spec exists today, so her instinct was right on inventory even
+  // though it was wrong on drive time.
+  //
+  // Shortlist is ordered COMMUTE FIRST (Lake Ridge 22-32 min before Dale City
+  // 37-47 min), with the Lot Read as the tiebreak, because the drive is the
+  // household's hard daily constraint. School lens deliberately unpopulated:
+  // schools are not a factor for her (Miles, 2026-07-26).
+  "2tk3tSONPVI7kGrSWHsl": {
+    contactId: "2tk3tSONPVI7kGrSWHsl",
+    firstName: "Lashena",
+    shareToken: "pVyvLLXpRQNY",
+
+    marketCommentary:
+      "Lashena, you ranked Woodbridge first and typed Mt. Vernon in the notes box like it was an afterthought. The drive to Belvoir says the afterthought is the best fit you named. Mt. Vernon sits 5.5 miles from Tulley Gate on flat Coastal Plain. Arlington, which you ranked last, is 17.7 miles out and starts around $900,000 for what you asked for. So this page does two things. It reorders your list around the gate, and it shows you the one area where a basement, a garage, and a real yard actually exist at your number right now.",
+
+    commuteAnchor: {
+      heading: "The drive to Tulley Gate reorders your whole list",
+      intro:
+        "You named five areas across roughly 30 miles of the I-95 corridor. Once the destination is Fort Belvoir, they stop being interchangeable. Here is every area you named, plus Mt. Vernon, measured to the Tulley Gate at 9500 Pohick Rd. Peak numbers are modeled and labeled soft, not stopwatch-verified, so treat them as the shape of the morning rather than a promise. Open the map links yourself and set arrival for a Tuesday at 8 AM.",
+      destination: "Tulley Gate",
+      rows: [
+        {
+          area: "Mt. Vernon corridor",
+          driveLabel: "18 to 28 min",
+          note: "5.5 mi. Closest of anything you named, and you never ranked it. The F1X bus runs to the Belvoir Commissary every 15 minutes in morning rush.",
+        },
+        {
+          area: "Lorton",
+          driveLabel: "20 to 30 min",
+          note: "6.0 mi. Your #4. Fairfax Connector 171 runs Lorton VRE to Belvoir along Pohick Rd.",
+        },
+        {
+          area: "Springfield 22150",
+          driveLabel: "19 to 29 min",
+          note: "7.6 mi. Your #2. Route 335 runs Franconia-Springfield Metro directly onto post, weekday rush only.",
+        },
+        {
+          area: "Woodbridge, Lake Ridge",
+          driveLabel: "22 to 32 min",
+          note: "About 8 mi. Your #1, and the only area with homes matching your spec at your number today.",
+        },
+        {
+          area: "Woodbridge, Dale City",
+          driveLabel: "37 to 47 min",
+          note: "13.9 mi. Same postal Woodbridge, roughly 15 minutes further each way than Lake Ridge. Different submarket.",
+        },
+        {
+          area: "Alexandria",
+          driveLabel: "28 to 45 min",
+          note: "11 to 12 mi. Your #3. Old Town is the slow end because US-1 is the whole route.",
+        },
+        {
+          area: "Arlington",
+          driveLabel: "40 to 55 min",
+          note: "17.7 mi. Your #5, and the farthest from the gate. No bus route connects Arlington to Belvoir at all.",
+        },
+      ],
+      method:
+        "Distances from OSRM road routing. Peak times are free-flow drive time multiplied by published VDOT and TTI corridor congestion factors, plus a 5 to 15 minute gate-queue allowance, assuming a Tuesday 7:30 to 8:30 AM arrival. One thing worth knowing before you shop: Pence, Walker and Telegraph Gates are all closed right now, which funnels traffic onto a single-lane Tulley. If your husband carries a CAC and works North Post or DLA, Kingman Gate off Fairfax County Parkway is materially faster on weekdays.",
+      source: {
+        label: "Fort Belvoir Gates FAQ",
+        url: "https://home.army.mil/belvoir/about/Garrison/public-affairs/digital-belvoir-eagle/fort-belvoir-gates-frequently-asked-questions",
+      },
+    },
+
+    strategyHeading: "The honest read on your five areas",
+    strategy:
+      "You asked for detached, three bedrooms, two baths, a basement, a garage, and a yard, between $490,000 and $600,000. Today that combination exists in exactly one of the six areas on the table above. Woodbridge, Lake Ridge and Dale City returned five verified homes. Lorton, Mt. Vernon, Springfield, Alexandria and Arlington each returned zero. Arlington is not a stretch, it is a different price tier. The county median sale is $729,500 and detached with a basement and garage generally starts north of $900,000, so it comes off the list rather than sitting at the bottom of it. Alexandria has an asterisk worth catching. The Mt. Vernon corridor you love carries Alexandria mailing addresses in 22306, 22307 and 22309, so the Alexandria you typed and the Mt. Vernon you love may be the same place. That matters, because the two homes closest to your spec in that corridor sold this year at $645,000. That is about $45,000 over your ceiling, and both moved quickly. So the real decision is not which area. It is whether that ceiling is worth the drive. Hold at $600,000 and Woodbridge is the answer, and it is not close. Flex toward the mid $600s specifically for the Route 1 corridor and you buy back roughly 15 minutes each way, every weekday, for as long as you own it. Neither answer is wrong. You two should make that call together, and you should make it on purpose.",
+
+    lotLensIntro:
+      "You wrote two things nobody has a filter for: more flat land and not so hilly, and more room around the house where the neighbors aren't so close. No search site lets you sort on either one. So I built the sort. Every home below carries a Lot Read from 0 to 10, rolled up from county parcel records, published zoning minimums, and elevation data for that exact address. I am not telling you a lot is flat or a street feels open. The county records say it and the source is on every line, so you can check me. One finding worth knowing up front: your two priorities pull in opposite directions. The Mt. Vernon corridor is the flattest ground of anything you named, while Woodbridge gives you the most room per dollar. Woodbridge is where the inventory is, so room per dollar is what these five deliver.",
+    lotMethod: [
+      {
+        name: "Lot size against the zoning baseline",
+        sourceNote:
+          "Recorded lot area from county parcel records, measured against the minimum lot size for the prevailing residential district. Prince William R-4 requires 10,000 sf and a 70 ft width, per County Code section 32-303.",
+      },
+      {
+        name: "Side setback and distance to the next structure",
+        sourceNote:
+          "Published minimum side yard for the governing district. Prince William R-4 sets 10 ft, Fairfax R-3 sets 12 ft, Arlington R-6 sets 8 ft. Wider lots on the same district put more air between buildings.",
+      },
+      {
+        name: "Terrain and elevation range",
+        sourceNote:
+          "Elevation range and average for the surrounding area from published topographic data, cross-referenced against the Fall Line boundary that separates flat Coastal Plain from rolling Piedmont in this region.",
+      },
+      {
+        name: "What the Read does not cover",
+        sourceNote:
+          "This is parcel-level and area-level data, not a survey and not a site visit. Slope on an individual yard, tree cover, and what the neighbor actually built can only be confirmed in person. Treat the Read as where to look, never as the last word.",
+      },
+    ],
+
+    neighborhoodReads: [
+      {
+        name: "Woodbridge: Lake Ridge",
+        rankLabel: "Your #1, and the part that works",
+        body: "Lake Ridge sits on Piedmont ground around 269 ft, moderately rolling rather than flat. Prince William R-4 zoning sets a 10,000 sf minimum lot and a 10 ft side setback, which is a more generous baseline than anything Fairfax or Arlington offers at this price. Housing stock is largely 1970s and 1980s split-levels and colonials. Two of your five homes are here, and they are the closest to the gate of anything on the list.",
+        budgetReality:
+          "Yes. Your full spec clears here. Verified active inventory in your band runs roughly $549,900 to $599,000, typically 1,600 to 2,600 sqft on 8,900 to 16,000 sf lots.",
+      },
+      {
+        name: "Woodbridge: Dale City",
+        rankLabel: "Same postal name, different submarket",
+        body: "Dale City sits on a plateau averaging around 266 ft, which reads flatter underfoot than the Lake Ridge street grid even though the elevation number is similar. Same Prince William R-4 baseline. The catch is the drive. Dale City runs 37 to 47 minutes to Tulley in the morning against 22 to 32 from Lake Ridge, so calling both of them Woodbridge hides about 15 minutes each way.",
+        budgetReality:
+          "Yes, and it is where your dollar stretches furthest. Three of your five homes are here, including the largest lot on the list and the lowest price per square foot.",
+      },
+      {
+        name: "Mt. Vernon and the Route 1 corridor",
+        rankLabel: "The one you wrote in the notes box",
+        body: "You never ranked it. You wrote that you really love it. It sits 5.5 miles from Tulley Gate on Coastal Plain ground between 10 and 80 ft, the flattest of anything you named, and it is the strongest area on the list for getting to base without a car. The F1X runs from King Street to the Belvoir Commissary every 15 minutes in morning rush. On your own words about flat land, this is the direct match.",
+        budgetReality:
+          "Not today at $600,000. Zero active homes matched your full spec. The two nearest matches, on Alcott St and Eaton Pl, both closed this year at $645,000 and both moved fast. Call it about $45,000 between you and the best-located ground you named.",
+      },
+      {
+        name: "Lorton",
+        rankLabel: "Your #4, second closest to the gate",
+        body: "Lorton is 6.0 miles from Tulley, transitional Fall Line ground between roughly 0 and 200 ft, which USGS describes as a gently undulating upland rather than sharply hilly. Fairfax R-3 zoning carries a 10,500 sf minimum lot and a 12 ft side setback, a genuinely generous baseline. Fairfax Connector 171 runs from the Lorton VRE station to the base.",
+        budgetReality:
+          "No. Effectively zero active homes matched your spec. The zip median list price is around $622,500 across all housing types, which puts the middle of the market above your ceiling before you even filter for a basement.",
+      },
+      {
+        name: "Springfield",
+        rankLabel: "Your #2",
+        body: "Springfield is 7.6 miles out and has the strongest weekday bus service of the six, with Route 335 running from Franconia-Springfield Metro directly onto post. Terrain is Piedmont-influenced and rolls more than Lorton or Mt. Vernon, with West Springfield running from 141 to 433 ft. Fairfax R-3 and R-4 govern most of it.",
+        budgetReality:
+          "No. Your $490,000 to $600,000 band here is dominated by townhomes, and you told me townhomes are off the table. The rare detached listing that surfaces at this price could not be confirmed on both a basement and a garage.",
+      },
+      {
+        name: "Alexandria",
+        rankLabel: "Your #3, with an asterisk",
+        body: "City Alexandria is Coastal Plain and generally flat outside Seminary Hill. Lots are tighter than anything in Prince William, with R-8 at an 8,000 sf minimum and R-5 at 5,000 sf. The asterisk is the one worth catching: 22306, 22307 and 22309 carry Alexandria mailing addresses but are the Mt. Vernon corridor you said you love. Your #3 and your afterthought may be pointing at the same ground.",
+        budgetReality:
+          "No. Zero active detached homes under $600,000 across 22301 to 22315 on your filter. What is listed detached runs $715,000 and up.",
+      },
+      {
+        name: "Arlington",
+        rankLabel: "Your #5, and I would take it off the list",
+        body: "Arlington is the farthest from Belvoir of anything you named at 17.7 miles, and the hilliest, running from sea level to 451 ft across a split Fall Zone. It also has the tightest lots of the six, with a median single-family lot around 7,214 sf. No bus route connects Arlington to Belvoir at all, so the theoretical transit chain runs 75 to 95 minutes each way.",
+        budgetReality:
+          "No, and not as a stretch either. County median sale is $729,500. Detached with a basement and garage generally starts above $900,000. Under $600,000 in Arlington is a condo and townhouse market.",
+      },
+    ],
+
+    properties: [
+      {
+        slug: "11858-mohican-rd",
+        address: "11858 Mohican Rd",
+        city: "Woodbridge",
+        state: "VA",
+        zip: "22192",
+        listPrice: 599000,
+        priceLabel: "$599,000",
+        beds: 4,
+        baths: 3,
+        sqft: 1751,
+        mlsNumber: "VAPW2120012",
+        daysOnMarket: 44,
+        sourceUrl: "https://www.redfin.com/VA/Woodbridge/11858-Mohican-Rd-22192/home/9221919",
+        photoUrl: "https://ssl.cdn-redfin.com/photo/235/bigphoto/012/VAPW2120012_0.jpg",
+        gapFillReason:
+          "The sites list this as a $599,000 house with a basement, which buries the thing that matters: a bedroom and a full bath on the finished lower level, giving you a real 4 bed and 3 full bath layout at the top of your range.",
+        vibes:
+          "It reads 1,751 sqft on paper, but the partially finished walkout basement with its own rear entrance and a bedroom down changes how the house lives. Three full baths is unusual at this price in Lake Ridge. The attached two-car garage is the piece a townhouse at this number simply cannot give you. Elevated lot, rolling street, wooded rear boundary.",
+        anchors: [
+          {
+            name: "Fort Belvoir, Tulley Gate",
+            address: "9500 Pohick Rd, Fort Belvoir, VA",
+            distance: "22 to 32 min drive, peak AM",
+            matches: "Your husband's commute",
+          },
+          {
+            name: "Old Bridge Rd retail corridor",
+            address: "Old Bridge Rd, Lake Ridge, VA 22192",
+            distance: "3 min drive",
+            matches: "Moving out of renting and into a settled routine",
+          },
+          {
+            name: "Lake Ridge Park",
+            address: "12350 Cotton Mill Dr, Woodbridge, VA 22192",
+            distance: "6 min drive",
+            matches: "Your yard and outdoor-space priority",
+          },
+        ],
+        whyThisOne:
+          "It is the only home on your list carrying four bedrooms, three full baths, a two-car garage, and better than a quarter acre, while still landing under your ceiling.",
+        tradeOff:
+          "At $599,000 with 44 days on the market, this seller has room to hold firm on price, so your leverage is in terms and inspection rather than the number. And the lower-level bedroom is a lower-level bedroom, not a primary suite.",
+        lotSizeLabel: "0.28 acre, about 12,197 sf",
+        lotRead: 7,
+        lotReadSummary:
+          "The lot runs about 2,200 sf larger than the Prince William R-4 minimum, which is where the extra room around the house comes from. Terrain is the softer part of the Read. Lake Ridge sits on Piedmont ground averaging around 269 ft and is described as moderately rolling, so this is more space than most, but it is not the flat ground you asked about.",
+        lotEvidence: [
+          {
+            point:
+              "Recorded lot area of 0.28 acre, roughly 12,197 sf, against a Prince William R-4 minimum lot size of 10,000 sf with a 70 ft minimum width and a 10 ft side setback.",
+            source: {
+              label: "Prince William County R-4 District, County Code 32-303",
+              url: "https://www.wright-realty.com/doc/upload/R-4%20Zoning%20Prince%20William%20County.pdf",
+            },
+          },
+          {
+            point:
+              "Lake Ridge sits at approximately 269 ft above sea level on Piedmont terrain, west of the Fall Line, characterized as moderately rolling rather than flat.",
+            source: {
+              label: "Elevation data, Lake Ridge VA",
+              url: "https://elevation.city/us/2urfd",
+            },
+          },
+        ],
+      },
+      {
+        slug: "11781-cotton-mill-dr",
+        address: "11781 Cotton Mill Dr",
+        city: "Woodbridge",
+        state: "VA",
+        zip: "22192",
+        listPrice: 575000,
+        priceLabel: "$575,000",
+        beds: 3,
+        baths: 2.5,
+        sqft: 2170,
+        mlsNumber: "VAPW2118802",
+        daysOnMarket: 59,
+        sourceUrl: "https://www.redfin.com/VA/Woodbridge/11781-Cotton-Mill-Dr-22192/home/9192601",
+        photoUrl: "https://ssl.cdn-redfin.com/photo/235/bigphoto/802/VAPW2118802_3.jpg",
+        gapFillReason:
+          "Search results bury this because a 3 bed reads smaller than the 4 bed listings at the same price, when in fact it carries more finished square footage than either of them.",
+        vibes:
+          "The largest finished footprint on your list at 2,170 sqft, with a full finished basement adding a second living zone on top of that. The attached garage opens directly into the house, which is the version of a garage that actually matters in February. Sidewalks and mature trees on the street.",
+        anchors: [
+          {
+            name: "Fort Belvoir, Tulley Gate",
+            address: "9500 Pohick Rd, Fort Belvoir, VA",
+            distance: "22 to 32 min drive, peak AM",
+            matches: "Your husband's commute",
+          },
+          {
+            name: "Tackett's Mill retail center",
+            address: "12483 Dillingham Sq, Lake Ridge, VA 22192",
+            distance: "5 min drive",
+            matches: "Moving out of renting and into a settled routine",
+          },
+          {
+            name: "Lake Ridge Park and boat launch",
+            address: "12350 Cotton Mill Dr, Woodbridge, VA 22192",
+            distance: "8 min drive",
+            matches: "Your yard and outdoor-space priority",
+          },
+        ],
+        whyThisOne:
+          "It gives you the most finished square footage per dollar on the list, on the short side of the commute, with a garage you can walk through into the kitchen.",
+        tradeOff:
+          "You get a half bath instead of a third full bath, and 59 days on the market says the buyer pool for a 3 bed at this size is thinner than the 4 bed pool, which is leverage for you and a resale question for later.",
+        lotSizeLabel: "8,990 sf, about 0.21 acre",
+        lotRead: 5,
+        lotReadSummary:
+          "This is the tightest lot on your list and the only one that sits below its own zoning baseline, about 1,000 sf under the Prince William R-4 minimum, which means the house sits closer to its neighbors than the others here. Terrain is the same moderately rolling Lake Ridge Piedmont. On your stated priority of room around the house, this is the weakest of the five, and the square footage inside is what it trades for.",
+        lotEvidence: [
+          {
+            point:
+              "Recorded lot area of 8,990 sf, roughly 1,010 sf below the Prince William R-4 minimum lot size of 10,000 sf. Side setback minimum in the district is 10 ft.",
+            source: {
+              label: "Prince William County R-4 District, County Code 32-303",
+              url: "https://www.wright-realty.com/doc/upload/R-4%20Zoning%20Prince%20William%20County.pdf",
+            },
+          },
+          {
+            point:
+              "Lake Ridge sits at approximately 269 ft above sea level on Piedmont terrain, characterized as moderately rolling.",
+            source: {
+              label: "Elevation data, Lake Ridge VA",
+              url: "https://elevation.city/us/2urfd",
+            },
+          },
+        ],
+      },
+      {
+        slug: "14810-edgewater-dr",
+        address: "14810 Edgewater Dr",
+        city: "Woodbridge",
+        state: "VA",
+        zip: "22193",
+        listPrice: 540000,
+        priceLabel: "$540,000",
+        beds: 4,
+        baths: 3,
+        sqft: 2062,
+        mlsNumber: "VAPW2115772",
+        daysOnMarket: 120,
+        sourceUrl: "https://www.redfin.com/VA/Woodbridge/14810-Edgewater-Dr-22193/home/9119731",
+        photoUrl: "https://ssl.cdn-redfin.com/photo/235/bigphoto/772/VAPW2115772_3.jpg",
+        gapFillReason:
+          "A detached garage does not filter cleanly on the consumer sites, so the one home on your list that most literally matches more room around the house is also the one their filters hide.",
+        vibes:
+          "The biggest lot on your list at 0.37 acre, and the only one with a detached garage rather than an attached one, which gives the property a homestead shape instead of a production-build shape. It is also the lowest price on the list. At 120 days on market, this is the phase where a clean offer with solid terms tends to move a seller.",
+        anchors: [
+          {
+            name: "Fort Belvoir, Tulley Gate",
+            address: "9500 Pohick Rd, Fort Belvoir, VA",
+            distance: "37 to 47 min drive, peak AM",
+            matches: "Your husband's commute, and the honest weak point here",
+          },
+          {
+            name: "Independent Hill retail cluster",
+            address: "Dumfries Rd, Manassas, VA 20112",
+            distance: "5 min drive",
+            matches: "Moving out of renting and into a settled routine",
+          },
+          {
+            name: "Prince William Forest Park",
+            address: "18100 Park Headquarters Rd, Triangle, VA 22172",
+            distance: "10 to 15 min drive",
+            matches: "Your yard and outdoor-space priority",
+          },
+        ],
+        whyThisOne:
+          "Of everything you have looked at, this is the closest literal match to the words you wrote about wanting room around the house where the neighbors are not so close, and it is the lowest price on the list.",
+        tradeOff:
+          "It is the longest drive on your list, roughly 15 minutes further each way than the Lake Ridge homes, which is real time your husband pays every weekday. And 120 days on market is telling you something the photographs are not, so this one earns a hard look in person before it earns an offer.",
+        lotSizeLabel: "0.37 acre, about 16,117 sf",
+        lotRead: 9,
+        lotReadSummary:
+          "The strongest Lot Read on your list. The parcel runs roughly 6,100 sf above the Prince William R-4 minimum, which is over half again the required lot, and that surplus is exactly where distance from the next structure comes from. Dale City also sits on a plateau averaging around 266 ft, which is more even ground than the Lake Ridge street grid despite a similar elevation number.",
+        lotEvidence: [
+          {
+            point:
+              "Recorded lot area of 0.37 acre, roughly 16,117 sf, against a Prince William R-4 minimum of 10,000 sf. That is about 61 percent more land than the district requires, on a 10 ft side setback minimum.",
+            source: {
+              label: "Prince William County R-4 District, County Code 32-303",
+              url: "https://www.wright-realty.com/doc/upload/R-4%20Zoning%20Prince%20William%20County.pdf",
+            },
+          },
+          {
+            point:
+              "Dale City sits on a plateau with an average elevation of approximately 266 ft, ranging 0 to 410 ft across the wider area.",
+            source: {
+              label: "Topographic data, Dale City VA",
+              url: "https://en-gb.topographic-map.com/map-4zhqnh/Dale-City/",
+            },
+          },
+        ],
+      },
+      {
+        slug: "13345-packard-dr",
+        address: "13345 Packard Dr",
+        city: "Woodbridge",
+        state: "VA",
+        zip: "22193",
+        listPrice: 549900,
+        priceLabel: "$549,900",
+        beds: 4,
+        baths: 3,
+        sqft: 2448,
+        mlsNumber: "VAPW2120164",
+        daysOnMarket: 66,
+        sourceUrl: "https://www.redfin.com/VA/Woodbridge/13345-Packard-Dr-22193/home/9201330",
+        photoUrl: "https://ssl.cdn-redfin.com/photo/235/bigphoto/164/VAPW2120164_1.jpg",
+        gapFillReason:
+          "This is the best price per square foot on your list at about $225, and no consumer site will show you that because they compare a home to its own zip code rather than to the six areas you are actually choosing between.",
+        vibes:
+          "2,448 sqft with a fully finished basement and a front-entry garage, on a cul-de-sac street of the kind Dale City subdivisions were laid out around. Sixty-six days on market means the seller has watched the active buyer pool thin out, which usually shows up at the negotiating table rather than in the list price.",
+        anchors: [
+          {
+            name: "Fort Belvoir, Tulley Gate",
+            address: "9500 Pohick Rd, Fort Belvoir, VA",
+            distance: "37 to 47 min drive, peak AM",
+            matches: "Your husband's commute, and the honest weak point here",
+          },
+          {
+            name: "Prince William Parkway at I-95",
+            address: "Prince William Pkwy, Woodbridge, VA 22193",
+            distance: "3 min drive",
+            matches: "Flexibility on how he routes the morning drive",
+          },
+          {
+            name: "Andrew Leitch Park",
+            address: "5300 Sanders Ln, Woodbridge, VA 22193",
+            distance: "5 min drive",
+            matches: "Your yard and outdoor-space priority",
+          },
+        ],
+        whyThisOne:
+          "It is the most finished house per dollar on your list, with the full basement and the garage you asked for, at $50,000 under your ceiling.",
+        tradeOff:
+          "Sixty-six days is a signal, not a discount. Buyers walked, and you will not know why until you are standing in it. It also carries the longer Dale City commute.",
+        lotSizeLabel: "8,877 sf, about 0.20 acre",
+        lotRead: 6,
+        lotReadSummary:
+          "The lot sits about 1,100 sf under the Prince William R-4 minimum, so spacing is average for the area rather than generous. What lifts the Read is the ground itself: the Dale City plateau is more even underfoot than the Lake Ridge grid, and a cul-de-sac position means fewer neighboring structures on the street side.",
+        lotEvidence: [
+          {
+            point:
+              "Recorded lot area of 8,877 sf against a Prince William R-4 minimum of 10,000 sf, with a 10 ft minimum side setback in the district.",
+            source: {
+              label: "Prince William County R-4 District, County Code 32-303",
+              url: "https://www.wright-realty.com/doc/upload/R-4%20Zoning%20Prince%20William%20County.pdf",
+            },
+          },
+          {
+            point:
+              "Dale City sits on a plateau with an average elevation of approximately 266 ft, ranging 0 to 410 ft across the wider area.",
+            source: {
+              label: "Topographic data, Dale City VA",
+              url: "https://en-gb.topographic-map.com/map-4zhqnh/Dale-City/",
+            },
+          },
+        ],
+      },
+      {
+        slug: "6109-plainville-ln",
+        address: "6109 Plainville Ln",
+        city: "Woodbridge",
+        state: "VA",
+        zip: "22193",
+        listPrice: 599900,
+        priceLabel: "$599,900",
+        beds: 4,
+        baths: 3.5,
+        sqft: 2628,
+        mlsNumber: "VAPW2125814",
+        daysOnMarket: 5,
+        sourceUrl: "https://www.redfin.com/VA/Woodbridge/6109-Plainville-Ln-22193/home/9201172",
+        photoUrl: "https://ssl.cdn-redfin.com/system_files/media/1235937_JPG/item_11.jpg",
+        gapFillReason:
+          "It is five days old, so it will show up in any raw search you run, but nothing on those sites will tell you it is the farthest home on your list from the gate your husband drives to every morning.",
+        vibes:
+          "The biggest house on your list at 2,628 sqft, laid out 4 bed and 3.5 bath with a fully finished walkout lower level carrying its own bedroom and full bath. Attached garage plus driveway. The Dale City street grid and plateau lot give it more open sight lines than either Lake Ridge property.",
+        anchors: [
+          {
+            name: "Fort Belvoir, Tulley Gate",
+            address: "9500 Pohick Rd, Fort Belvoir, VA",
+            distance: "37 to 47 min drive, peak AM",
+            matches: "Your husband's commute, and the honest weak point here",
+          },
+          {
+            name: "Potomac Mills",
+            address: "2700 Potomac Mills Cir, Woodbridge, VA 22192",
+            distance: "8 min drive",
+            matches: "Moving out of renting and into a settled routine",
+          },
+          {
+            name: "Hylton Performing Arts Center",
+            address: "10960 George Mason Cir, Manassas, VA 20109",
+            distance: "20 min drive",
+            matches: "Your yard and outdoor-space priority",
+          },
+        ],
+        whyThisOne:
+          "It is the largest floor plan on your list, and the walkout lower level with its own bedroom and full bath is the closest thing here to a second living space under one roof.",
+        tradeOff:
+          "It is the longest commute on your list at the highest price on your list, which is the least forgiving combination of the five. At five days on market you also have no seller fatigue working in your favor yet.",
+        lotSizeLabel: "9,748 sf, about 0.22 acre",
+        lotRead: 7,
+        lotReadSummary:
+          "The lot comes in just under the Prince William R-4 minimum at about 9,748 sf, so spacing is close to the district baseline rather than above it. The Read holds up on ground rather than acreage: Dale City's plateau is the more even terrain of the two Woodbridge submarkets on your list, which is the closer match to what you wrote about flat land.",
+        lotEvidence: [
+          {
+            point:
+              "Recorded lot area of 9,748 sf against a Prince William R-4 minimum of 10,000 sf, with a 10 ft minimum side setback in the district.",
+            source: {
+              label: "Prince William County R-4 District, County Code 32-303",
+              url: "https://www.wright-realty.com/doc/upload/R-4%20Zoning%20Prince%20William%20County.pdf",
+            },
+          },
+          {
+            point:
+              "Dale City sits on a plateau with an average elevation of approximately 266 ft, ranging 0 to 410 ft across the wider area.",
+            source: {
+              label: "Topographic data, Dale City VA",
+              url: "https://en-gb.topographic-map.com/map-4zhqnh/Dale-City/",
+            },
+          },
+        ],
+      },
+    ],
+
+    sources: [
+      {
+        url: "https://home.army.mil/belvoir/about/Garrison/public-affairs/digital-belvoir-eagle/fort-belvoir-gates-frequently-asked-questions",
+        description:
+          "Fort Belvoir Gates FAQ. Gate closures at Pence, Walker and Telegraph, Tulley single-lane status, and Kingman Gate hours and CAC requirement.",
+      },
+      {
+        url: "https://home.army.mil/belvoir/about/Garrison/DES/physical-security/installation-accessgates",
+        description:
+          "Fort Belvoir Directorate of Emergency Services installation access and gate list. Confirms Tulley as the 24/7 visitor gate.",
+      },
+      {
+        url: "https://belvoirhospital.tricare.mil/Getting-Care/Driving-Directions",
+        description:
+          "Alexander T. Augusta Military Medical Center directions. Source of the verified Tulley Gate address at 9500 Pohick Rd.",
+      },
+      {
+        url: "https://www.vdot.virginia.gov/media/vdotvirginiagov/projects/northern-virginia/richmond-highway-corridor/Revised-Environmental-Assessment---Richmond-Highway-Corridor-Improvements-July-2020_acc03072024_PM.pdf",
+        description:
+          "VDOT Richmond Highway Corridor Revised Environmental Assessment. AM peak Travel Time Index used to model the peak drive column.",
+      },
+      {
+        url: "https://router.project-osrm.org",
+        description:
+          "OSRM open routing engine. Free-flow driving distance and time for every area-to-Tulley pair in the commute table.",
+      },
+      {
+        url: "https://www.wmata.com/service/bus/route-profiles/upload/F1X.pdf",
+        description:
+          "WMATA F1X Richmond Highway Express route profile. King Street station to Fort Belvoir Commissary, 15 minute AM rush headway.",
+      },
+      {
+        url: "https://www.fairfaxcounty.gov/connector/schedules/171",
+        description: "Fairfax Connector Route 171. Lorton VRE to Belvoir Road along the Pohick Road corridor.",
+      },
+      {
+        url: "https://www.fairfaxcounty.gov/connector/schedules/335",
+        description:
+          "Fairfax Connector Route 335, The Eagle. Franconia-Springfield Metro and VRE onto Fort Belvoir, weekday rush only.",
+      },
+      {
+        url: "https://www.wright-realty.com/doc/upload/R-4%20Zoning%20Prince%20William%20County.pdf",
+        description:
+          "Prince William County R-4 Suburban Residential district, County Code section 32-303. The 10,000 sf minimum lot, 70 ft width and 10 ft side setback behind every Lot Read on this page.",
+      },
+      {
+        url: "https://www.fairfaxcounty.gov/housing/sites/housing/files/assets/documents/homeownership/art02.pdf",
+        description:
+          "Fairfax County Zoning Ordinance Article 2. R-2, R-3 and R-4 minimum lot sizes and side setbacks for Lorton, Mt. Vernon and Springfield.",
+      },
+      {
+        url: "https://www.alexandriava.gov/sites/default/files/2023-10/ARTICLE%20III%20-%20RESIDENTIAL%20ZONES.pdf",
+        description: "City of Alexandria Zoning Ordinance Article III. R-8 and R-5 minimum lot sizes and side yards.",
+      },
+      {
+        url: "https://www.arlingtonva.us/files/sharedassets/public/v/1/building/documents/aczo-effective-09-12-2020.pdf",
+        description: "Arlington County Zoning Ordinance. R-6 and R-8 minimum lot sizes and 8 ft side setbacks.",
+      },
+      {
+        url: "https://www.virginiaplaces.org/regions/fallshape.html",
+        description:
+          "Virginia Places, the Fall Line. The boundary separating flat Coastal Plain from rolling Piedmont across every area on this page.",
+      },
+      {
+        url: "https://elevation.city/us/2urfd",
+        description: "Elevation data for Lake Ridge, approximately 269 ft above sea level.",
+      },
+      {
+        url: "https://en-gb.topographic-map.com/map-4zhqnh/Dale-City/",
+        description: "Topographic data for Dale City. Plateau averaging approximately 266 ft, range 0 to 410 ft.",
+      },
+      {
+        url: "https://en-gb.topographic-map.com/map-m7s6nh/Lorton/",
+        description: "Topographic data for Lorton. Range roughly 0 to 200 ft, average approximately 135 ft.",
+      },
+      {
+        url: "https://www.alexandriava.gov/parks/geology",
+        description: "City of Alexandria geology. Elevation range -5 to 287 ft, average 97 ft.",
+      },
+      {
+        url: "https://arlgis.arlingtonva.us/web_files/maps/standard_maps/Geology.pdf",
+        description: "Arlington County geologic map. Elevation to 451 ft and the Fall Zone boundary through the county.",
+      },
+      {
+        url: "https://www.realtor.com/local/market/virginia/zipcode-22079",
+        description: "Realtor.com market data for Lorton 22079. Median list price approximately $622,500 across all types.",
+      },
+      {
+        url: "https://www.realtor.com/local/property-records/virginia/arlington-county/arlington",
+        description: "Realtor.com Arlington County property records. Median sale price $729,500.",
+      },
+      {
+        url: "https://www.redfin.com/VA/Alexandria/4217-Alcott-St-22309/home/9811164",
+        description:
+          "4217 Alcott St, 22309. Detached, 3 bed, basement and garage, sold March 2026 at $645,000. One of the two Mt. Vernon corridor comps above the ceiling.",
+      },
+      {
+        url: "https://www.redfin.com/VA/Alexandria/4809-Eaton-Pl-22310/home/9758107",
+        description:
+          "4809 Eaton Pl, 22310. Detached, 3 bed, basement and garage, closed 25 July 2026 at $645,000. The second Mt. Vernon corridor comp.",
+      },
+    ],
+
+    completedAt: "2026-07-27T01:45:00Z",
+  },
+
   // Amanda Riley -- reached out 2026-07-16 (re 4800 Southmoor Rd, her own words
   // "for funsies," it's pending). ~2yr MAMS relationship + raving-fan referral
   // source. Real search: a multi-purpose home that hosts her NEW preschool
@@ -1109,6 +1762,11 @@ export function parseBuyerMatchV2Json(raw: string | null | undefined): BuyerMatc
       strategyHeading: parsed.strategyHeading,
       strategy: parsed.strategy,
       neighborhoodReads: parsed.neighborhoodReads,
+      schoolLensIntro: parsed.schoolLensIntro,
+      schoolMethod: parsed.schoolMethod,
+      lotLensIntro: parsed.lotLensIntro,
+      lotMethod: parsed.lotMethod,
+      commuteAnchor: parsed.commuteAnchor,
       shortlistEta: parsed.shortlistEta,
       properties: parsed.properties as BuyerMatchProperty[],
       sources: parsed.sources || [],

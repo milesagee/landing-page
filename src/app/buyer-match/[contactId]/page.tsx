@@ -61,9 +61,92 @@ export default async function BuyerMatchPage({
         <p className="mt-3 text-base text-deep-teal/70 leading-relaxed max-w-2xl">
           {data.schoolMethod && data.schoolMethod.length > 0
             ? "Ranked by the Elementary School Read for the exact school each home is zoned to. Every number below comes with the source it came from, so you can check it yourself. The drive to base and the honest trade-off ride on each card."
-            : "Start with the homes. Each one fits what you told me, with the drive to base, the highway access, and the honest trade-off. The market read is underneath if you want it."}
+            : data.lotMethod && data.lotMethod.length > 0
+              ? "Ordered by the drive first, then by the Lot Read built from county parcel and elevation data for each exact address. Every number below comes with the source it came from, so you can check it yourself. The honest trade-off rides on each card."
+              : "Start with the homes. Each one fits what you told me, with the drive to base, the highway access, and the honest trade-off. The market read is underneath if you want it."}
         </p>
       </section>
+
+      {data.commuteAnchor && (
+        <section className="max-w-3xl mx-auto px-6 pb-4">
+          <div className="bg-white rounded-lg border border-gold/30 overflow-hidden shadow-[0_2px_28px_-10px_rgba(212,175,55,0.4)]">
+            <div className="px-6 sm:px-8 py-4 bg-gold/10 border-b border-gold/20">
+              <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold">
+                What actually reorders your list
+              </p>
+              <h2 className="font-display text-2xl text-deep-teal leading-tight mt-1">
+                {data.commuteAnchor.heading}
+              </h2>
+            </div>
+            <div className="px-6 sm:px-8 py-6 space-y-5">
+              <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">
+                {data.commuteAnchor.intro}
+              </p>
+              <ul className="divide-y divide-deep-teal/10 border-t border-deep-teal/15">
+                {data.commuteAnchor.rows.map((r) => (
+                  <li key={r.area} className="py-3">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <p className="font-display text-base text-deep-teal leading-tight">
+                        {r.area}
+                      </p>
+                      <p className="shrink-0 text-sm font-semibold text-deep-teal/90 tabular-nums whitespace-nowrap">
+                        {r.driveLabel}
+                      </p>
+                    </div>
+                    <p className="mt-1 text-sm text-deep-teal/70 leading-relaxed">{r.note}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-deep-teal/50 -mt-2">
+                Peak AM drive to {data.commuteAnchor.destination}
+              </p>
+              <p className="text-xs text-deep-teal/60 leading-relaxed border-l-2 border-gold/40 pl-4">
+                {data.commuteAnchor.method}
+                {data.commuteAnchor.source && (
+                  <>
+                    {" "}
+                    <a
+                      href={data.commuteAnchor.source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gold-dark underline underline-offset-2 hover:text-deep-teal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold transition-colors duration-200"
+                    >
+                      {data.commuteAnchor.source.label}
+                    </a>
+                  </>
+                )}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {data.lotMethod && data.lotMethod.length > 0 && (
+        <section className="max-w-3xl mx-auto px-6 pb-4">
+          <div className="bg-white rounded-lg border border-deep-teal/10 overflow-hidden">
+            <div className="px-6 sm:px-8 py-4 bg-deep-teal/[0.04] border-b border-deep-teal/10">
+              <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold">
+                How your Lot Read is built
+              </p>
+            </div>
+            <div className="px-6 sm:px-8 py-6 space-y-5">
+              {data.lotLensIntro && (
+                <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">
+                  {data.lotLensIntro}
+                </p>
+              )}
+              <ul className="space-y-3">
+                {data.lotMethod.map((factor) => (
+                  <li key={factor.name} className="border-l-2 border-gold/40 pl-4">
+                    <p className="font-display text-base text-deep-teal leading-tight">{factor.name}</p>
+                    <p className="text-xs text-deep-teal/65 mt-0.5 leading-relaxed">{factor.sourceNote}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       {data.schoolMethod && data.schoolMethod.length > 0 && (
         <section className="max-w-3xl mx-auto px-6 pb-4">

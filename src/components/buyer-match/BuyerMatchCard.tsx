@@ -178,6 +178,57 @@ export function BuyerMatchCard({
         </section>
       )}
 
+      {/* Lot Read (buyer-stated priority: terrain flatness + distance to
+          neighboring structures). Same contract as the school lens above. The
+          sourced parcel and elevation data makes the claim; MAMS never does.
+          Renders only when a Read was actually computed for this address. */}
+      {typeof property.lotRead === "number" && (
+        <section className="px-6 sm:px-8 py-6 border-b border-deep-teal/10 bg-deep-teal/[0.04] space-y-4">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.16em] text-gold-dark font-semibold mb-1">
+                Lot Read
+              </p>
+              <p className="font-display text-lg text-deep-teal leading-tight">
+                {property.lotSizeLabel ?? "Flatness and spacing"}
+              </p>
+            </div>
+            <div className="shrink-0 text-center rounded-md border border-gold/40 bg-gold/10 px-3 py-2">
+              <span className="font-display text-2xl text-deep-teal leading-none">
+                {property.lotRead}
+              </span>
+              <span className="block text-[10px] uppercase tracking-[0.12em] text-deep-teal/55 mt-0.5">
+                out of 10
+              </span>
+            </div>
+          </div>
+
+          {property.lotReadSummary && (
+            <p className="text-sm sm:text-base text-deep-teal/85 leading-relaxed">
+              {property.lotReadSummary}
+            </p>
+          )}
+
+          {property.lotEvidence && property.lotEvidence.length > 0 && (
+            <ul className="space-y-2 pt-1">
+              {property.lotEvidence.map((e, i) => (
+                <li key={i} className="border-l-2 border-gold/40 pl-4">
+                  <p className="text-sm text-deep-teal/80 leading-relaxed">{e.point}</p>
+                  <a
+                    href={e.source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] text-deep-teal/55 underline hover:text-gold-dark"
+                  >
+                    {e.source.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+
       {/* Vibes */}
       {property.vibes && (
         <section className="px-6 sm:px-8 py-6 border-b border-deep-teal/10">
