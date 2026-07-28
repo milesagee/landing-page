@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex,nofollow"/>
-<title>Your Richmond home search | For Anneliese &amp; her mom</title>
+<title>Your Richmond home search | For Annalese &amp; her mom</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
 
@@ -113,6 +113,8 @@
   .match { background: var(--ivory); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: 168px 1fr; }
   .match__photo { position: relative; min-height: 158px; background: var(--paper-soft); overflow: hidden; }
   .match__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .match__photo--pending { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--paper-soft) 0%, #e8e1d2 100%); text-align: center; padding: 10px; }
+  .match__photo--pending span { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); opacity: 0.8; line-height: 1.5; }
   .match__score { position: absolute; top: 12px; left: 12px; width: 46px; height: 46px; border-radius: 50%; background: var(--deep-teal); color: var(--gold-soft); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md); }
   .match__score b { font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1; }
   .match__score i { font-style: normal; font-size: 7px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.78; margin-top: 2px; }
@@ -129,6 +131,17 @@
   .match__link:hover { color: var(--gold-dark); border-color: var(--gold-dark); }
   .match__link:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   .match__more { margin-top: 16px; font-size: 13px; line-height: 1.6; color: var(--deep-teal); opacity: 0.8; text-align: center; font-style: italic; font-family: var(--serif); }
+
+  /* ---- This Week / itinerary ---- */
+  .itin { display: flex; flex-direction: column; gap: 16px; }
+  .itin__card { background: var(--ivory); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: 158px 1fr; }
+  .itin__card--go { border-left: 4px solid var(--teal); }
+  .itin__card--hold { border-left: 4px solid var(--gold); }
+  .itin__rail { background: var(--paper-soft); border-right: 1px solid var(--line); padding: 18px 18px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+  .itin__stage { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); }
+  .itin__stage--hold { color: var(--gold-dark); }
+  .itin__slot { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--deep-teal); opacity: 0.82; line-height: 1.28; }
+  .itin__body { padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
 
   .method { margin-top: 22px; background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
   .method__item { display: flex; gap: 14px; padding: 16px 20px; border-bottom: 1px solid var(--line); }
@@ -195,6 +208,8 @@
     .skel__photo { min-height: 96px; border-right: none; border-bottom: 1px dashed var(--line); }
     .match { grid-template-columns: 1fr; }
     .match__photo { min-height: 200px; }
+    .itin__card { grid-template-columns: 1fr; }
+    .itin__rail { border-right: none; border-bottom: 1px solid var(--line); flex-direction: row; justify-content: space-between; align-items: center; }
     .hoods { grid-template-columns: 1fr; }
     .tl { grid-template-columns: 1fr; gap: 4px; }
     .frame { padding: 22px 24px; }
@@ -211,8 +226,8 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero__brand"><img src="mams-logo.png" alt="MAMS LLC"/></div>
-    <div class="hero__eyebrow">For Anneliese &amp; Her Mom &middot; Greater Richmond &middot; The Home Search</div>
-    <div class="hero__greeting">Hey Anneliese,</div>
+    <div class="hero__eyebrow">For Annalese &amp; Her Mom &middot; Greater Richmond &middot; The Home Search</div>
+    <div class="hero__greeting">Hey Annalese,</div>
     <h1 class="hero__title">Your mom's Richmond chapter deserves <em>a search built around her.</em></h1>
     <p class="hero__sub">She is trading Asheville for Greater Richmond, and you are the one making it real for her. This page is built for you and your mom together. It shows exactly what a fresh start looks like when the search is run on purpose, around the home she actually wants, not around whatever a portal spits out this week.</p>
   </header>
@@ -315,15 +330,79 @@
     </div>
   </section>
 
-  <!-- SECTION 03 - MATCHES -->
+  <!-- SECTION 03 - THIS WEEK / ITINERARY -->
   <section class="block">
-    <div class="eyebrow">Section 03 &middot; Your Curated Matches</div>
-    <h2 class="section__title">Six homes that earned the spot. <em>Real ones, not a portal dump.</em></h2>
-    <p class="section__lede">I ran your search against everything above and pulled the ones that actually fit. Rather than flood you with twenty tabs, here are six worth her time, each scored on the whole picture and verified active today. The two marked single-level sit up top on purpose.</p>
+    <div class="eyebrow">Section 03 &middot; This Week</div>
+    <h2 class="section__title">The three you picked today. <em>Here is where each one really stands.</em></h2>
+    <p class="section__lede">After we walked homes this morning, you told me the three you want eyes on next. Before I built the plan, I pulled the live status on all three, because one of them is not what the listing makes it look like. Here is the honest version, in the order it makes sense to see them.</p>
+
+    <div class="itin">
+
+      <div class="itin__card itin__card--go">
+        <div class="itin__rail">
+          <span class="itin__stage">Touring this week</span>
+          <!-- MILES: after you schedule, replace the line below with the agreed time, e.g. "Tue &middot; 11:15 AM" -->
+          <span class="itin__slot">Time: confirming with you</span>
+        </div>
+        <div class="itin__body">
+          <div class="match__addr">12311 Parker Ln</div>
+          <div class="match__loc">Chester &middot; 23831</div>
+          <div class="match__specs">$349,950<span>&middot;</span>3 bd<span>&middot;</span>2 ba<span>&middot;</span>1,792 sqft<span>&middot;</span>No HOA</div>
+          <p class="match__why">Your cleanest single-floor fit, and I re-confirmed it active today. This is the one I want her standing inside first.</p>
+          <div class="match__meta">
+            <span class="skel__chip level">Single-level</span>
+            <span class="skel__chip active">Active &middot; re-confirmed Jul 27</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itin__card itin__card--go">
+        <div class="itin__rail">
+          <span class="itin__stage">Touring this week</span>
+          <!-- MILES: after you schedule, replace the line below with the agreed time, e.g. "Wed &middot; 2:00 PM" -->
+          <span class="itin__slot">Time: confirming with you</span>
+        </div>
+        <div class="itin__body">
+          <div class="match__addr">9913 Proctors Rd</div>
+          <div class="match__loc">North Chesterfield &middot; 23237</div>
+          <div class="match__specs">$350,000<span>&middot;</span>4 bd<span>&middot;</span>2 ba<span>&middot;</span>2,028 sqft<span>&middot;</span>No HOA</div>
+          <p class="match__why">The other true one-level, the roomiest on your list, and also re-confirmed active today. The trade is that a full supermarket runs a little farther out here, so it is worth feeling the drive in person.</p>
+          <div class="match__meta">
+            <span class="skel__chip level">Single-level</span>
+            <span class="skel__chip active">Active &middot; re-confirmed Jul 27</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itin__card itin__card--hold">
+        <div class="itin__rail">
+          <span class="itin__stage itin__stage--hold">Not live yet</span>
+          <span class="itin__slot">Lists August 5</span>
+        </div>
+        <div class="itin__body">
+          <div class="match__addr">3118 Barton Ave</div>
+          <div class="match__loc">Richmond &middot; Northside &middot; 23222</div>
+          <div class="match__specs">$325,000<span>&middot;</span>larger two-story<span>&middot;</span>built 1921</div>
+          <p class="match__why">Here is what the listing does not show yet: this one is not on the market. It goes live August 5, so nobody can tour it before then, us included. The day it activates, I will have us first through the door.</p>
+          <p class="match__catch"><b>Worth knowing:</b> this is a bigger, older two-story in Northside, a different animal from the single-floor homes we have been centering the search on. Happy to walk it the moment it lists so she can feel the difference in person before deciding it is in the running.</p>
+          <div class="match__meta">
+            <span class="skel__chip drawback">Coming Aug 5</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 04 - MATCHES -->
+  <section class="block">
+    <div class="eyebrow">Section 04 &middot; Your Curated Matches</div>
+    <h2 class="section__title">The homes that earned the spot. <em>Real ones, not a portal dump.</em></h2>
+    <p class="section__lede">I ran your search against everything above and pulled the ones that actually fit. Rather than flood you with twenty tabs, here are seven worth her time, including one that just hit the market this week, each scored on the whole picture and re-checked live today. The homes marked single-level sit up top on purpose.</p>
 
     <div class="matches__banner">
       <span class="matches__pulse"></span>
-      <p><strong>Verified active July 22.</strong> Every home below was cross-checked across Redfin, Homes.com, Compass, and the CVR MLS feed the same day. If one goes under contract before she reaches it, I will tell you and swap it.</p>
+      <p><strong>Re-verified active July 27.</strong> I re-checked every home below live this morning, the same day I sent this. All of them are still on the market. If one goes under contract before she reaches it, I will tell you and swap it.</p>
     </div>
 
     <div class="skel">
@@ -373,8 +452,8 @@
         <div class="match__body">
           <div class="match__addr">10107 Remora Dr</div>
           <div class="match__loc">North Chesterfield &middot; 23237</div>
-          <div class="match__specs">$325,000<span>&middot;</span>3 bd<span>&middot;</span>2.5 ba<span>&middot;</span>1,728 sqft<span>&middot;</span>HOA $14/mo</div>
-          <p class="match__why">Right at your $325K target with a token $14 HOA, and grocery, Indian, and Latin food all inside five minutes.</p>
+          <div class="match__specs">$323,000<span>&middot;</span>3 bd<span>&middot;</span>2.5 ba<span>&middot;</span>1,728 sqft<span>&middot;</span>HOA $14/mo</div>
+          <p class="match__why">Just under your $325K target, and it shaved $2,000 off the price this week, with a token $14 HOA and grocery, Indian, and Latin food all inside five minutes.</p>
           <p class="match__catch"><b>The catch:</b> Two stories, and the listing lists the bath count two different ways, so we confirm 2.5 on the walkthrough.</p>
           <div class="match__meta">
             <span class="skel__chip active">Verified active</span>
@@ -428,19 +507,38 @@
           <div class="match__addr">9913 Proctors Rd</div>
           <div class="match__loc">North Chesterfield &middot; 23237</div>
           <div class="match__specs">$350,000<span>&middot;</span>4 bd<span>&middot;</span>2 ba<span>&middot;</span>2,028 sqft<span>&middot;</span>No HOA</div>
-          <p class="match__why">The other true single-level, and the roomiest at 2,028 square feet. Freshest on the list at eight days on market.</p>
+          <p class="match__why">The other true single-level, a real ranch with a finished basement, and the roomiest at 2,028 square feet. The seller just cut it $25,000 on July 20, so there is real motivation on the other side of the table here.</p>
           <p class="match__catch"><b>The catch:</b> The nearest full supermarket is a real 13 to 14 minutes, so this one trades daily-life convenience for the one-floor layout.</p>
           <div class="match__meta">
             <span class="skel__chip level">Single-level</span>
-            <span class="skel__chip active">Verified active</span>
-            <a class="match__link" href="https://www.coldwellbanker.com/va/bellwood/9913-proctors-rd/lid-P00800000HE5Z5dlPLVkw8DlNtHeLxCMdO6xipXo" target="_blank" rel="noopener">View listing</a>
+            <span class="skel__chip active">Active &middot; re-confirmed Jul 27</span>
+            <a class="match__link" href="https://www.redfin.com/VA/North-Chesterfield/9913-Proctors-Rd-23237/home/59572135" target="_blank" rel="noopener">View listing</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="match">
+        <div class="match__photo match__photo--pending">
+          <div class="match__score"><b>6</b><i>Fit</i></div>
+          <span>New this week<br/>photos incoming</span>
+        </div>
+        <div class="match__body">
+          <div class="match__addr">2516 Lancers Blvd</div>
+          <div class="match__loc">North Chesterfield &middot; 23224</div>
+          <div class="match__specs">$319,500<span>&middot;</span>3 bd<span>&middot;</span>2.5 ba<span>&middot;</span>1,698 sqft<span>&middot;</span>No HOA</div>
+          <p class="match__why">This one just hit the market three days ago, and it is the only genuinely new single-floor ranch in your price band right now. All bedrooms and the primary bath live on the main level, and it comes in $30K under your ceiling.</p>
+          <p class="match__catch"><b>The catch:</b> The kitchen and baths are dated, so budget for updates, and the five-minute grocery test is one I want to confirm before we build a trip around it.</p>
+          <div class="match__meta">
+            <span class="skel__chip level">Single-level</span>
+            <span class="skel__chip active">New &middot; on market Jul 24</span>
+            <a class="match__link" href="https://www.redfin.com/VA/North-Chesterfield/2516-Lancers-Blvd-23224/home/59547184" target="_blank" rel="noopener">View listing</a>
           </div>
         </div>
       </div>
 
     </div>
 
-    <p class="match__more">Four more in your range cleared the check too. I ranked them lower on the five-minute-daily-life test, and they are yours the moment you want them.</p>
+    <p class="match__more">A couple more in your range cleared the check too. I ranked them lower on the five-minute-daily-life test, and they are yours the moment you want them.</p>
 
     <div class="method">
       <div class="method__item">
@@ -469,7 +567,7 @@
 
   <!-- SECTION 04 - NEIGHBORHOODS -->
   <section class="block">
-    <div class="eyebrow">Section 04 &middot; The Areas, Plainly</div>
+    <div class="eyebrow">Section 05 &middot; The Areas, Plainly</div>
     <h2 class="section__title">Two reads to start. <em>Suburban-convenient, close to the city.</em></h2>
     <p class="section__lede">A quick, factual picture of the top areas on your map, framed for someone moving in fresh. These are starting points, and we sharpen them the moment we know which homes she reacts to.</p>
 
@@ -511,7 +609,7 @@
 
   <!-- SECTION 05 - TIMELINE -->
   <section class="block">
-    <div class="eyebrow">Section 05 &middot; What Happens Next</div>
+    <div class="eyebrow">Section 06 &middot; What Happens Next</div>
     <h2 class="section__title">Moving at her pace. <em>Settled in about sixty days.</em></h2>
     <p class="section__lede">You want her settled inside roughly two months, ideally under contract in about a month. That is a comfortable window for a search run well. Here is the calm version of how it goes.</p>
 
@@ -520,7 +618,7 @@
         <div class="tl__when">This week</div>
         <div class="tl__what">
           <h3>Confirm the search</h3>
-          <p>You reply with anything off in Section 01, and the six homes above sharpen while new ones drop onto this same page as they hit the market. Nothing on your end but a read and a reaction.</p>
+          <p>You reply with anything off in Section 01, and the homes above sharpen while new ones drop onto this same page as they hit the market. Parker Ln and Proctors Rd are ready to walk now, so the moment one of them is the one, we are set up to write without scrambling.</p>
         </div>
       </div>
       <div class="tl">
@@ -553,12 +651,12 @@
       <div class="closing__tag">Where I land</div>
       <div class="closing__title">Send me the wishlist. <em>I will turn it into the right homes.</em></div>
       <div class="closing__body">
-        <p>You did the legwork getting this started, Anneliese. From here, the search is mine to run. Reply with anything I got wrong in Section 01, plus anything else that matters to her that we have not named yet, and the real matches sharpen around it.</p>
+        <p>You did the legwork getting this started, Annalese. From here, the search is mine to run. Reply with anything I got wrong in Section 01, plus anything else that matters to her that we have not named yet, and the real matches sharpen around it.</p>
         <p>And text me anytime. A question at 9pm, a listing she saw and loved, a street she is curious about. That is exactly the kind of thing I want coming to me, not a portal.</p>
       </div>
       <div class="closing__cta">
         <a class="btn btn--primary" href="mailto:miles@milesagee.com?subject=Our%20Richmond%20wishlist">Reply with the wishlist</a>
-        <a class="btn btn--ghost" href="sms:+18040000000">Text Miles anytime</a>
+        <a class="btn btn--ghost" href="sms:+18044189864">Text Miles anytime</a>
       </div>
       <div class="closing__signoff">Miles</div>
       <div class="closing__role">Realtor &middot; OneSouth Realty &middot; Samson Properties</div>
@@ -567,7 +665,7 @@
 
   <!-- FOOTER -->
   <footer class="foot">
-    <div class="why">Built for <em>Anneliese</em> and her mom &middot; Greater Richmond &middot; MAMS LLC</div>
+    <div class="why">Built for <em>Annalese</em> and her mom &middot; Greater Richmond &middot; MAMS LLC</div>
     <div>miles@milesagee.com &middot; mamsnow.com &middot; Single-recipient page. Not indexed.</div>
   </footer>
 
