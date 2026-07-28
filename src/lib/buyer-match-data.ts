@@ -840,7 +840,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
     firstName: "Amanda",
     shareToken: "VhWq0tWGxZ7S",
     marketCommentary:
-      "Amanda, the search finally has a real shape. You are not just buying a house. You are buying the room to run the new preschool and a place the boys can actually live. That one fact rules out most of what the public sites will ever show you. It also puts zoning ahead of the granite countertops, which no app is going to tell you. So I built this around the two questions that decide it. Can the layout hold a sectioned program, and will the county let you run it there.",
+      "Amanda, this is the live board for tomorrow, rebuilt from scratch today. Two homes you were circling are gone, so I threw them out and pulled only what is actually active right now. Here is the honest read. Across every four-bed, three-bath home under $550,000 in your Southside zips today, only a handful name a true separate-entrance suite. That scarcity is the whole game. Most homes hand you bedrooms. You need a second zone, and that is the one thing every home on this list has.",
     strategyHeading: "What the search is really about",
     strategy:
       "You told me three things and they pull in different directions. The preschool needs a sectioned space with its own flow. The boys need to actually live there. Your mom and your sister are a maybe, and that maybe changes the whole floor plan.\n\nHere is how I am reading it. If the preschool plus the boys is the plan, we hunt homes with a finished walk-out basement, an in-law wing, or a bonus suite over the garage. One roof, two clean zones. If it tilts toward your mom and your sister instead, we are really after a second set of living quarters or a home that can take a small addition. Different house, different search.\n\nYou do not have to lock this tonight. I just need to know which version is real, because that is the lever the whole search turns on.",
@@ -926,7 +926,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         baths: 3.5,
         sqft: 2416,
         mlsNumber: "2611487",
-        daysOnMarket: 60,
+        daysOnMarket: 85,
         sourceUrl:
           "https://www.joynerfineproperties.com/p/1633-Elmart-Lane-Chesterfield-VA-23235/dmgid_186607068",
         photoUrl:
@@ -934,7 +934,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         gapFillReason:
           "The filters treat an in-law suite as a checkbox, so a home built around a full second living quarters with its own entrance and HVAC never surfaces when you sort by beds and price alone.",
         vibes:
-          "This is the cleanest preschool-and-family fit on the list. The listing names a rare in-law suite with its own separate entrance, a full bathroom, a kitchen area, and its own heating and air. That is a genuine second zone under one roof, not a converted bedroom. Built 1975 in Surreywood, 2,416 square feet, and the neighborhood carries a pool, a lake, and tennis through the HOA.",
+          "This is still the cleanest second-quarters fit on the board, and I re-checked it today, it is active. The listing names a rare in-law suite with its own separate entrance, a full bathroom, a kitchen area, and its own heating and air. That is a genuine second zone under one roof, not a converted bedroom. Built 1975 in Surreywood, 2,416 square feet, and at 85 days out there is room to talk price.",
         anchors: [],
         whyThisOne:
           "The suite with its own entrance and HVAC gives you a sectioned program space or a place for the boys, without anyone walking through anyone else's day.",
@@ -947,25 +947,185 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         city: "Chester",
         state: "VA",
         zip: "23831",
-        listPrice: 435900,
-        priceLabel: "$435,900",
+        listPrice: 430900,
+        priceLabel: "$430,900",
         beds: 4,
         baths: 3,
         sqft: 2733,
         mlsNumber: "2614462",
-        daysOnMarket: 50,
+        daysOnMarket: 61,
         sourceUrl: "https://www.homerva.com/property/CVR-2614462/",
         photoUrl:
           "https://property-images.realgeeks.com/vacentral/659b8e23b8bd7363cc8ab63f4278e52d.jpg",
         gapFillReason:
           "A walkout basement with its own no-step outside door reads as square footage to the public sites, so they never flag that it is really a private ground-floor entrance built for separation.",
         vibes:
-          "The separation here is the basement. The listing calls it full, finished, and walkout, with a private no-step exterior entrance, ideal for an in-law suite or guest quarters. With the lower level counted it runs close to 3,900 finished square feet. It sits on a fenced 0.44-acre lot in Chester, built 1967, so the yard and the private entry both work for a program with its own coming and going.",
+          "The separation here is the basement, and I confirmed it active today. The listing calls it full, finished, and walkout, with a private no-step exterior entrance, ideal for an in-law suite or guest quarters. The step-free entry is the rare accessibility piece if your mom has any mobility limits. It sits on a fenced lot in Chester, built 1967, and the price came down to $430,900 since I first sent it.",
         anchors: [],
         whyThisOne:
           "The step-free private basement entrance lets a preschool or the boys run their own front door, which is the exact separation the main-floor bedrooms cannot give you.",
         tradeOff:
           "It sits in Chester, a little south and east of your usual pocket, so the drive is the thing to weigh against the space.",
+      },
+      {
+        slug: "10105-family-lane",
+        address: "10105 Family Lane",
+        city: "Chesterfield",
+        state: "VA",
+        zip: "23832",
+        listPrice: 415000,
+        priceLabel: "$415,000",
+        beds: 5,
+        baths: 3,
+        sqft: 2492,
+        mlsNumber: "2619620",
+        daysOnMarket: 11,
+        sourceUrl:
+          "https://www.compass.com/homedetails/10105-Family-Ln-Chesterfield-VA-23832/L3380_pid/",
+        photoUrl:
+          "https://www.compass.com/m/9046ce121f7a9e48426dfce763b37f19201f26ca2219d52bf2cfe75945963d9b/origin.webp",
+        gapFillReason:
+          "The portal counts the two basement rooms as ordinary bedrooms and never flags the separate outside entrance, so the real two-zone layout only shows up if you read the remarks line.",
+        vibes:
+          "This is the strongest separation on the fresh batch. The listing spells it out, a full basement with an extra-large bedroom, a second bedroom, a full bath, and its own separate entrance, called a great in-law suite. Five bedrooms sit above that. It is an as-is estate sale on 1.33 acres with a detached two-car garage, so build cosmetic updates and the bigger lot into your number. At $415,000 the price-per-separation math is the best on the list.",
+        anchors: [],
+        whyThisOne:
+          "The basement suite with its own outside door is a ready second living quarters for your mom and sister, or a walled-off preschool zone that never touches the five bedrooms upstairs.",
+        tradeOff:
+          "It is an as-is estate on 1.33 acres, so budget for updates, and a preschool of five or more children needs the Chesterfield conditional use permit, roughly a four month hearing.",
+      },
+      {
+        slug: "6905-sunset-oasis-ln",
+        address: "6905 Sunset Oasis Ln",
+        city: "Chesterfield",
+        state: "VA",
+        zip: "23832",
+        listPrice: 428125,
+        priceLabel: "$428,125",
+        beds: 4,
+        baths: 3.5,
+        sqft: 2292,
+        mlsNumber: "2620554",
+        daysOnMarket: 0,
+        sourceUrl:
+          "https://www.compass.com/homedetails/6905-Sunset-Oasis-Ln-Chesterfield-VA-23832/2E49QJ_pid/",
+        photoUrl:
+          "https://www.compass.com/m/2679c1ca3742038113c32e4bd9c126ff5c24142306e71259ffac96abf5b0ab6b/origin.webp",
+        gapFillReason:
+          "A main-level bedroom with its own private full bath reads as a plain four-bed on Zillow, so the ground-floor suite never surfaces in a bed-count search.",
+        vibes:
+          "Newer construction at the low end of your range, and it listed today, so you are seeing it first. The main level has a bedroom with a private full bath the listing calls a private retreat. At 2,292 square feet it is the smallest footprint on the list, so the separation here is one clean main-level suite rather than a whole second level. Move-in ready with no as-is baggage.",
+        anchors: [],
+        whyThisOne:
+          "The main-level bedroom and private bath give a self-contained ground-floor suite for the boys or your mom, and the newer build suits a home program.",
+        tradeOff:
+          "Smallest square footage on the list means one suite, not a full second level, and five or more preschool children still needs the Chesterfield permit.",
+      },
+      {
+        slug: "5215-lippingham-ln",
+        address: "5215 Lippingham Ln",
+        city: "Chester",
+        state: "VA",
+        zip: "23831",
+        listPrice: 535000,
+        priceLabel: "$535,000",
+        beds: 4,
+        baths: 3,
+        sqft: 2978,
+        mlsNumber: "2619485",
+        daysOnMarket: 12,
+        sourceUrl:
+          "https://www.compass.com/homedetails/5215-Lippingham-Ln-Chester-VA-23831/KCYOH_pid/",
+        photoUrl:
+          "https://www.compass.com/m/b48141e67453203ec9e8e8273ddb6d35c11ec499188baf55f81597b6ecda8491/origin.webp",
+        gapFillReason:
+          "The first-floor guest suite hides inside a four-bed count, and its flexibility is only stated in the remarks, never in a filterable field.",
+        vibes:
+          "Largest interior on the fresh batch at 2,978 square feet, with a two-story family room, a renovated kitchen, and a first-floor bedroom plus full bath the listing calls a guest suite. The catch is a 1.33-acre cul-de-sac lot, more land than a die-hard SuburbGirl usually wants, though it is a subdivision lot and not country. At $535,000 with 12 days out there is room to negotiate.",
+        anchors: [],
+        whyThisOne:
+          "The first-floor guest suite serves the mom-and-sister plan on the main level and keeps the three upstairs bedrooms for the rest of the house.",
+        tradeOff:
+          "The 1.33-acre lot is more yard than you asked for, and a five-plus preschool triggers the Chesterfield permit.",
+      },
+      {
+        slug: "13925-collington-mews",
+        address: "13925 Collington Mews",
+        city: "Midlothian",
+        state: "VA",
+        zip: "23112",
+        listPrice: 545000,
+        priceLabel: "$545,000",
+        beds: 4,
+        baths: 3,
+        sqft: 2661,
+        mlsNumber: "2618510",
+        daysOnMarket: 2,
+        sourceUrl:
+          "https://www.compass.com/homedetails/13925-Collington-Mews-Midlothian-VA-23112/L1SSL_pid/",
+        photoUrl: null,
+        gapFillReason:
+          "Search filters treat this as a four-bed and bury the first-floor bed-and-bath pairing, so the layout the listing itself calls multigenerational never surfaces.",
+        vibes:
+          "Newer build with luxury vinyl plank on the main level and a first-floor bedroom with an adjacent full bath the listing names as multigenerational living. An upstairs loft with built-in desks adds a flex zone. It is the top of your range at $545,000 and only two days on market, so expect competition and little give on price. Photos are still thin, I will pull them for you before we tour.",
+        anchors: [],
+        whyThisOne:
+          "The listing itself names multigenerational living on a first-floor bed-and-bath, which sets your mom and sister on the main level away from the upstairs bedrooms.",
+        tradeOff:
+          "Priciest on the list with almost no negotiating cushion, and a five-plus preschool needs the Chesterfield permit.",
+      },
+      {
+        slug: "5400-karma-rd",
+        address: "5400 Karma Rd",
+        city: "Chester",
+        state: "VA",
+        zip: "23831",
+        listPrice: 449999,
+        priceLabel: "$449,999",
+        beds: 5,
+        baths: 3,
+        sqft: 2844,
+        mlsNumber: "VACF2001584",
+        daysOnMarket: 6,
+        sourceUrl:
+          "https://www.compass.com/homedetails/5400-Karma-Rd-Chester-VA-23831/KP5PR_pid/",
+        photoUrl:
+          "https://www.compass.com/m/7f28c4be114141d6a1c910a9c5a98929a5ad4930d09ba369f9f60bdc643a0505/origin.webp",
+        gapFillReason:
+          "A main-level primary paired with a detached workshop building is split across two remark lines and never shows up as one separation filter on the public sites.",
+        vibes:
+          "Cottage-style on a half-acre cul-de-sac, five bedrooms, a main-level primary for one-level living, and a detached garage with a workshop and loft. The second zone here is a main-floor primary plus an outbuilding rather than a finished apartment, so it fits the sons-plus-preschool split better than a full mom-and-sister kitchenette. Updates are recent, 2024 appliances, 2025 fence, 2026 attic insulation.",
+        anchors: [],
+        whyThisOne:
+          "The main-level primary plus the detached workshop gives a sectioned ground-floor zone for the preschool while two adult sons take the upstairs bedrooms.",
+        tradeOff:
+          "The detached building is a workshop, not a finished suite, so a mom-and-sister quarters would need a build-out, and five-plus children needs the Chesterfield permit.",
+      },
+      {
+        slug: "4428-old-fox-trail",
+        address: "4428 Old Fox Trail",
+        city: "Midlothian",
+        state: "VA",
+        zip: "23112",
+        listPrice: 525000,
+        priceLabel: "$525,000",
+        beds: 4,
+        baths: 3,
+        sqft: 2766,
+        mlsNumber: "2619514",
+        daysOnMarket: 1,
+        sourceUrl:
+          "https://www.compass.com/homedetails/4428-Old-Fox-Trail-Midlothian-VA-23112/L71MJ_pid/",
+        photoUrl: null,
+        gapFillReason:
+          "A separate rear entrance and a detached garage-loft are lifestyle details buried in the remarks that no bed-bath filter can surface for a separation buyer.",
+        vibes:
+          "Character-heavy home on 0.37 acres near Swift Creek Reservoir, two fireplaces, and a newer 2024 roof. The separation play is a detached garage with a large workshop and an upstairs loft, plus a second back entrance and office. So the second zone is an outbuilding-plus-flex setup, not a finished suite. One day on market, so it is fresh. Photos are thin for now, I will pull them before we tour.",
+        anchors: [],
+        whyThisOne:
+          "The detached garage-loft and the extra back entrance give a physically separate structure you could finish for the preschool or for the boys, away from the main house.",
+        tradeOff:
+          "The loft and workshop are unfinished flex, not a turnkey in-law suite, so plan a build-out for either plan, and five-plus preschool children needs the Chesterfield permit.",
       },
     ],
     sources: [
@@ -986,7 +1146,7 @@ export const CONTACTS: Record<string, BuyerMatchData> = {
         description: "Virginia (VDOE) licensed family day home, program types and thresholds",
       },
     ],
-    completedAt: "2026-07-16T22:30:00-04:00",
+    completedAt: "2026-07-28T18:15:00-04:00",
   },
 
   // Cece Bach -- intake submitted 2026-05-31. Shortlist populated 2026-06-07
