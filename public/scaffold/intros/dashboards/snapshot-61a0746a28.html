@@ -308,6 +308,32 @@
 
   .loading { padding: 80px 28px; text-align: center; color: rgba(0,63,63,0.5); font-style: italic; }
 
+  /* Inside the machine: the live AG CRM window offered to Mom and Dad.
+     Slate accent matches the AG lane so the section reads as AG, not MAMS. */
+  .machine-polarity {
+    margin: 0 0 24px; padding: 18px 22px;
+    background: rgba(212,175,55,0.06);
+    border-left: 2px solid #D4AF37; border-radius: 2px;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: 18px; line-height: 1.45; color: #003F3F;
+  }
+  .caps { display: grid; gap: 12px; margin-bottom: 22px; }
+  .cap { background: #fff; border: 1px solid rgba(0,63,63,0.08); border-top: 3px solid #5B7B9A; border-radius: 10px; padding: 20px; box-shadow: 0 1px 2px rgba(0,63,63,0.025); }
+  .cap-title { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 17px; color: #003F3F; margin: 0 0 8px; letter-spacing: -0.008em; }
+  .cap-body { font-size: 13px; color: rgba(0,63,63,0.7); line-height: 1.55; margin: 0; }
+
+  /* Screenshot frame: white mat, layered teal-tinted shadow, caption strip */
+  .shot { background: #fff; border: 1px solid rgba(0,63,63,0.1); border-radius: 10px; padding: 8px; margin-bottom: 14px; box-shadow: 0 6px 24px rgba(0,63,63,0.1), 0 1px 3px rgba(0,63,63,0.06); overflow: hidden; }
+  .shot img { display: block; width: 100%; height: auto; border-radius: 6px; }
+  .shot-cap { font-size: 12px; color: rgba(0,63,63,0.6); line-height: 1.5; padding: 12px 10px 6px; }
+
+  /* Numbered machine flow */
+  .flow { display: grid; gap: 10px; margin: 6px 0 18px; }
+  .flow-step { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; background: rgba(0,63,63,0.025); border-left: 2px solid rgba(212,175,55,0.45); border-radius: 2px; padding: 14px 16px; }
+  .flow-num { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 20px; color: #B1922E; line-height: 1; }
+  .flow-label { font-size: 14px; font-weight: 600; color: #003F3F; }
+  .flow-detail { font-size: 13px; color: rgba(0,63,63,0.65); line-height: 1.5; margin: 4px 0 0; }
+
   @media (min-width: 700px) {
     .hero { padding: 88px 0 56px; }
     .hero h1 { font-size: 46px; }
@@ -323,6 +349,7 @@
     .tier-value { font-size: 36px; }
     .lanes { grid-template-columns: repeat(3, 1fr); align-items: start; }
     .recon-grid { grid-template-columns: repeat(4, 1fr); }
+    .caps { grid-template-columns: repeat(3, 1fr); align-items: start; }
   }
 </style>
 </head>
@@ -577,6 +604,41 @@
       h += '</div></div>';
     }
     h += '</section>';
+
+    /* INSIDE THE MACHINE: the live AG CRM seat offered to Mom and Dad */
+    var im = D.insideMachine;
+    if (im) {
+      h += '<section class="section">';
+      h += '<div class="section-header"><div class="eyebrow">' + esc(im.eyebrow) + '</div><h2>' + im.title + '</h2><p class="section-lede">' + esc(im.lede) + '</p></div>';
+      if (im.polarity) { h += '<div class="machine-polarity">' + esc(im.polarity) + '</div>'; }
+      if (im.capabilities) {
+        h += '<div class="caps">';
+        im.capabilities.forEach(function (cp) {
+          h += '<div class="cap"><h3 class="cap-title">' + esc(cp.title) + '</h3><p class="cap-body">' + esc(cp.body) + '</p></div>';
+        });
+        h += '</div>';
+      }
+      if (im.shots) {
+        im.shots.forEach(function (sh) {
+          h += '<div class="shot"><img src="' + esc(sh.src) + '" alt="' + esc(sh.caption) + '" loading="lazy"><div class="shot-cap">' + esc(sh.caption) + '</div></div>';
+        });
+      }
+      if (im.how) {
+        h += '<h3 class="lane-name" style="font-size:20px;margin:24px 0 10px">' + esc(im.howTitle || 'How the machine works') + '</h3>';
+        h += '<div class="flow">';
+        im.how.forEach(function (st, i) {
+          h += '<div class="flow-step"><div class="flow-num">' + (i + 1) + '</div><div><div class="flow-label">' + esc(st.label) + '</div><p class="flow-detail">' + esc(st.detail) + '</p></div></div>';
+        });
+        h += '</div>';
+      }
+      if (im.access) {
+        var ac = im.access;
+        h += '<div class="honest-read"><div class="eyebrow">' + esc(ac.eyebrow) + '</div><h3>' + esc(ac.headline) + '</h3><ul class="ask-list">';
+        (ac.lines || []).forEach(function (li) { h += '<li>' + esc(li) + '</li>'; });
+        h += '</ul><p class="ask-close">' + esc(ac.close) + '</p></div>';
+      }
+      h += '</section>';
+    }
 
     /* FORWARD: the plan, continued (scoreboard) */
     var f = D.forward;

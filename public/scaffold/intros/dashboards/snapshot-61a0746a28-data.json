@@ -464,6 +464,65 @@
       "honestClose": "The car, the food, the nights out, they are all here. I am not hiding how I live. I am showing you the engines are real so the living can slow down and the building can speed up."
     }
   },
+  "insideMachine": {
+    "eyebrow": "Your seat in the machine",
+    "title": "You don't just fund it. You get to <em>watch it work</em>.",
+    "lede": "Every dollar you put in goes to one place, AG Google ads. This is the room those dollars land in, the same kind of system that runs everything, pointed at the AG side. You get the login, admin access, and a live window into every lead the second it comes in.",
+    "polarity": "Most people who float a loan get a thank-you text and a quarterly update. You get the keys.",
+    "capabilities": [
+      {
+        "title": "See it live",
+        "body": "Open Dispo is the CRM where every AG lead lands. Open it any day you want and watch the real thing, every lead that came in, every text that went back, every deal moving down the board. Not a summary I wrote. The live board."
+      },
+      {
+        "title": "Flag anything",
+        "body": "Admin access, not view only. If a lead looks mishandled or a number looks off, you leave a note right on the record and it comes straight to me. A hand on the wheel, not a passenger seat."
+      },
+      {
+        "title": "Full accountability",
+        "body": "Nothing happens off screen. Take any claim on this page and check it against the actual lead in the system. The proof and the machine are the same place."
+      }
+    ],
+    "shots": [
+      {
+        "src": "./assets/opendispo-board.png",
+        "caption": "The live board. Every lead your ads bring in, moving through the stages in real time. Names blurred for privacy."
+      },
+      {
+        "src": "./assets/opendispo-conversation.png",
+        "caption": "The coordinator working a seller lead by text, in the AG voice, seconds after it comes in. Shown on a live test thread."
+      }
+    ],
+    "howTitle": "How the machine works",
+    "how": [
+      {
+        "label": "A lead comes in",
+        "detail": "Someone hits a Google ad your money funded and fills out the form. That is the moment the dollars turn into a real person."
+      },
+      {
+        "label": "Answered in seconds",
+        "detail": "The coordinator texts back before they cool off, usually inside a few seconds, qualifies them, and handles the back and forth. The same kind of system running the whole operation, working the AG side."
+      },
+      {
+        "label": "Booked to Miles",
+        "detail": "When a lead is real, it lands on my calendar as a seller call and I run the live conversation myself. I facilitate the sale, I never buy the house."
+      },
+      {
+        "label": "Closed and paid back",
+        "detail": "Every closing routes $4,000 straight back to you until the full $32,000 is done. The board you are watching is the same board that pays you."
+      }
+    ],
+    "access": {
+      "eyebrow": "Hands on, not hands full",
+      "headline": "The seat is yours whenever you want it.",
+      "lines": [
+        "No calls to make. No hours to keep. You are not on the hook for anything.",
+        "You open it when you feel like checking, flag what you want flagged, and close it back up.",
+        "Involved exactly as much as you choose, with a real say the entire way."
+      ],
+      "close": "You did not just lend me money. You bought a window into the thing it builds, and the right to speak up the second something looks wrong."
+    }
+  },
   "forward": {
     "eyebrow": "The plan, continued",
     "title": "The deal we started, finished a step at a time.",
@@ -503,6 +562,7 @@
     "proof": [
       "Ten closings, $102,472.87, every dollar off a signed document.",
       "Six more homes under contract, an estimated $54,098 behind them.",
+      "And now you can watch every dollar of it work, live, with the keys in your hand.",
       "So the return is not waiting on any one thing to go right.",
       "It is not whether I can make it. It is how we focus and finish it."
     ],
