@@ -141,6 +141,7 @@
   .sku__tag { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #9a3412; background: rgba(154,52,18,0.10); padding: 4px 10px; border-radius: 100px; }
   .sku__row { display: flex; align-items: center; gap: 8px; }
   .sku__price { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .sku__status { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #7c2d12; background: rgba(154,52,18,0.09); padding: 4px 10px; border-radius: 100px; }
   .sku__ok { font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #14532d; background: rgba(20,83,45,0.11); padding: 3px 8px; border-radius: 100px; }
   .sku__name { font-size: 12.5px; line-height: 1.4; font-weight: 600; opacity: 0.9; }
   .sku__meta { font-size: 11px; letter-spacing: 0.03em; opacity: 0.6; font-variant-numeric: tabular-nums; }
@@ -177,6 +178,11 @@
   .zbadge--dry { color: #7d6413; background: rgba(212,175,55,0.20); }
   .zbadge--special { color: #7c2d12; background: rgba(154,52,18,0.11); }
   .zbadge--neutral { color: var(--deep-teal); background: rgba(0,63,63,0.08); }
+  .zbadge--both { color: var(--deep-teal); background: linear-gradient(90deg, rgba(0,95,95,0.16), rgba(212,175,55,0.22)); }
+  .warn--info { border-color: rgba(0,95,95,0.4); border-left-color: var(--teal); }
+  .warn--info .warn__head { color: var(--teal); }
+  .warn--info .warn__do { background: rgba(0,95,95,0.06); }
+  .warn--info .warn__do span { color: var(--teal); }
   .scopeline { font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; color: var(--teal); background: var(--paper-soft); border-left: 3px solid var(--teal); border-radius: 0 5px 5px 0; padding: 10px 14px; margin-bottom: 22px; }
   .mchip__label em { display: block; font-style: normal; font-weight: 700; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dark); margin-top: 1px; }
 
@@ -549,6 +555,7 @@
       <p class="section__lede">Champagne bronze runs the house. That part is settled. The two bathrooms being renovated are the exception, and they are the exception for a specific reason. The quartz on both vanities is warm, white Calacatta with gold and taupe veining. The pebble shower floor, the accent band, the gray vanity, and the gray wood-look plank are all cool. A faucet sits on the warm thing. The shower trim sits on the cool thing. Put a warm faucet in there next to cool shower trim and you have built the one mix that reads unfinished at a showing, so the room has to pick a side.</p>
       <div class="cat__meta"><a class="meta__link" href="https://www.lowes.com/search?searchTerm=bathroom+faucet+brushed+nickel" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
       
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
@@ -616,6 +623,7 @@
       </div>
       <p class="section__lede">Semi-flush, because the ceiling will not take a drop. This fixture is in the frame of the first interior photo a buyer ever sees of this house.</p>
       <div class="cat__meta"><span class="meta__pill">$90 to $180</span><a class="meta__link" href="https://www.lowes.com/pl/ceiling-lights/flush-mount-lighting/foyers/4294566040-4153330819" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       
       <div class="opts">
       <article class="opt">
@@ -759,6 +767,7 @@
       </div>
       <p class="section__lede">This is the hero. It is the single line item where spending real money shows up directly in the listing photos, so it carries the biggest budget of the nine.</p>
       <div class="cat__meta"><span class="meta__pill">$160 to $300</span><a class="meta__link" href="https://www.lowes.com/pl/ceiling-lights/chandeliers/dining-rooms/4294687722-115568100" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       
       <div class="opts">
       <article class="opt">
@@ -921,6 +930,7 @@
       <p class="section__lede">The door is black and it currently wears a brass deadbolt next to a satin nickel lever. That gets replaced with one handleset either way. The only question is which metal wins against black.</p>
       <div class="cat__meta"><span class="meta__pill">$110 to $160</span><a class="meta__link" href="https://www.lowes.com/pl/door-hardware/handlesets/kwikset/3295584500-4294965566" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
       
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
@@ -1046,6 +1056,7 @@
       </div>
       <p class="section__lede">Multiply whatever wins by the door count. Satin nickel curved levers are on the doors today, so keeping this one is free and changing it is the largest per-unit line on the list.</p>
       <div class="cat__meta"><span class="meta__pill">$14 to $22 per door</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=interior+door+lever" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       
       <div class="opts">
       <article class="opt">
@@ -1175,10 +1186,160 @@
       <p class="cat__ask"><span>The question on the poll</span> Knobs or levers, and what shape?</p>
     </div>
   </section>
-  <section class="block" id="cat-faucet">
+  <section class="block" id="cat-cabinet">
     <div class="container">
       <div class="cat__head">
         <span class="cat__n">06</span>
+        <div>
+          <div class="eyebrow">Kitchen and both vanities<span class="zbadge zbadge--both">Both zones</span></div>
+          <h2 class="section__title">Cabinet hardware</h2>
+        </div>
+      </div>
+      <p class="section__lede">The only category that lives in both zones. Kitchen runs champagne bronze, that part is settled. The two bath vanities follow whatever the bathrooms land on, which also answers the black bar pulls sitting on one of those tops today. Shape is the question here, and shape carries across the whole house regardless of metal.</p>
+      <div class="cat__meta"><span class="meta__pill">$4 to $10 per piece</span><a class="meta__link" href="https://www.lowes.com/pl/cabinet-hardware/drawer-pulls/champagne/3088100347-1110041769476" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
+      
+      <div class="warn warn--info">
+        <div class="warn__head">One shape, two metals</div>
+        <p>This is the only category that lives in both zones. The kitchen runs champagne bronze on the Amerock BP40517CZ, which is the one cabinet SKU confirmed live. The two bath vanities take whatever metal the bathrooms land on, which is also the answer to the black bar pulls currently sitting on one of those tops.</p>
+        <p class="warn__do"><span>How to vote it</span>Vote the shape. Shape carries across the whole house. Metal splits by room and is already decided everywhere except the two bathrooms.</p>
+      </div>
+      <div class="opts">
+      <article class="opt">
+        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+    <rect x="0" y="0" width="200" height="150" fill="#E5DFCE"/>
+    <rect x="14" y="6" width="172" height="44" rx="3" fill="#F5F2EC" stroke="rgba(0,63,63,0.14)" stroke-width="1.5"/>
+    <rect x="26" y="14" width="148" height="28" rx="2" fill="#ECE7DC" stroke="rgba(0,63,63,0.07)"/>
+    <rect x="14" y="58" width="172" height="86" rx="3" fill="#F5F2EC" stroke="rgba(0,63,63,0.14)" stroke-width="1.5"/>
+    <rect x="26" y="70" width="148" height="62" rx="2" fill="#ECE7DC" stroke="rgba(0,63,63,0.07)"/>
+    <rect x="60" y="26" width="80" height="7" rx="3.5" fill="url(#cg-m-dyn)"/>
+    <rect x="65" y="33" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="129" y="33" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/>
+    <rect x="96" y="82" width="7" height="46" rx="3.5" fill="url(#cg-m-dyn)"/>
+    <rect x="90.5" y="79" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="90.5" y="125" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/></svg><span class="opt__num">1</span></div>
+        <div class="opt__body">
+          <h4 class="opt__label">Bar pulls throughout</h4>
+          <p class="opt__sub">One shape everywhere</p>
+          <p class="opt__why">Simplest to order and simplest to install, because every hole pattern is the same. This is what the earlier finishes page already picked. Reads clean and slightly commercial.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__status">price not read</span>
+            <span class="sku__ok">verified</span>
+          </div>
+          <div class="sku__name">Amerock Bar Pulls BP40517CZ, 5-1/16 in center to center</div>
+          
+          <div class="sku__finish sku__finish--good">Cross-finish family<em>Real champagne bronze</em></div>
+          
+          <div class="sku__stock">Listed at Lowe's, confirm price and count at the shelf</div>
+          <div class="sku__best">The one champagne bronze cabinet SKU confirmed live. Also the pull the earlier finishes page already chose.</div>
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Amerock-Bar-Pulls-5-1-16-in-Center-to-Center-Champagne-Bronze-Bar-Drawer-Pulls/5013300735" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
+        </div>
+      </article>
+      <article class="opt">
+        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+    <rect x="0" y="0" width="200" height="150" fill="#E5DFCE"/>
+    <rect x="14" y="6" width="172" height="44" rx="3" fill="#F5F2EC" stroke="rgba(0,63,63,0.14)" stroke-width="1.5"/>
+    <rect x="26" y="14" width="148" height="28" rx="2" fill="#ECE7DC" stroke="rgba(0,63,63,0.07)"/>
+    <rect x="14" y="58" width="172" height="86" rx="3" fill="#F5F2EC" stroke="rgba(0,63,63,0.14)" stroke-width="1.5"/>
+    <rect x="26" y="70" width="148" height="62" rx="2" fill="#ECE7DC" stroke="rgba(0,63,63,0.07)"/>
+    <rect x="66" y="26" width="68" height="7" rx="3.5" fill="url(#cg-m-dyn)"/>
+    <rect x="70" y="33" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="124" y="33" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/>
+    <circle cx="100" cy="104" r="11" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.16)"/>
+    <ellipse cx="96" cy="100" rx="4" ry="3" fill="rgba(255,255,255,0.45)" transform="rotate(-28 96 100)"/></svg><span class="opt__num">2</span></div>
+        <div class="opt__body">
+          <h4 class="opt__label">Knobs on doors, pulls on drawers</h4>
+          <p class="opt__sub">The designer convention</p>
+          <p class="opt__why">The standard for a reason. Your hand wants a knob on a swinging door and a pull on a sliding drawer. Costs the same and reads more considered than one shape everywhere.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__status">UNVERIFIED</span>
+            
+          </div>
+          <div class="sku__name">Liberty Fulton Round Knob</div>
+          
+          <div class="sku__finish">Some ballot finishes<em>Champagne bronze claimed</em></div>
+          
+          <div class="sku__stock">Not confirmed</div>
+          
+          <div class="sku__flag">This model came off the earlier finishes page and did NOT confirm on 15 Aug. The Fulton line and champagne bronze knobs both exist at Lowe's, but this exact number did not surface. Pick a knob at the shelf rather than ordering this blind.</div>
+          <a class="sku__link" href="https://www.lowes.com/pl/cabinet-hardware/cabinet-knobs/champagne/4294777204-1110041769476" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
+        </div>
+      </article>
+      <article class="opt">
+        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+    <rect x="0" y="0" width="200" height="150" fill="#E5DFCE"/>
+    <rect x="14" y="6" width="172" height="44" rx="3" fill="#F5F2EC" stroke="rgba(0,63,63,0.14)" stroke-width="1.5"/>
+    <rect x="26" y="14" width="148" height="28" rx="2" fill="#ECE7DC" stroke="rgba(0,63,63,0.07)"/>
+    <rect x="14" y="58" width="172" height="86" rx="3" fill="#F5F2EC" stroke="rgba(0,63,63,0.14)" stroke-width="1.5"/>
+    <rect x="26" y="70" width="148" height="62" rx="2" fill="#ECE7DC" stroke="rgba(0,63,63,0.07)"/>
+    <path d="M68 22 L132 22 L132 30 q0 12 -16 12 L84 34 q-16 0 -16 -12 Z" fill="url(#cg-m-dyn)"/>
+    <path d="M74 24 L126 24" stroke="rgba(255,255,255,0.30)" stroke-width="2.5"/>
+    <circle cx="100" cy="104" r="11" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.16)"/>
+    <ellipse cx="96" cy="100" rx="4" ry="3" fill="rgba(255,255,255,0.45)" transform="rotate(-28 96 100)"/></svg><span class="opt__num">3</span></div>
+        <div class="opt__body">
+          <h4 class="opt__label">Cup pulls on drawers, knobs on doors</h4>
+          <p class="opt__sub">Traditional, most character</p>
+          <p class="opt__why">The most characterful of the four and the most photographable. A cup pull in a warm metal is the detail people comment on. Slightly fussier to clean.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$6 to $10 per piece typical</span>
+            
+          </div>
+          <div class="sku__name">null Cup pull plus knob, champagne bronze</div>
+          
+          <div class="sku__finish">Some ballot finishes<em>Champagne bronze cup pulls exist at Lowe's</em></div>
+          
+          <div class="sku__stock">Browse the champagne bronze cabinet hardware aisle</div>
+          
+          <div class="sku__flag">No specific SKU researched for this shape. If the poll picks it, buy one of each and hold it against a door before ordering the full count.</div>
+          <a class="sku__link" href="https://www.lowes.com/pl/cabinet-hardware/bronze/champagne/4294777206-4294819915-1110041769476" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
+        </div>
+      </article>
+      <article class="opt">
+        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+    <rect x="0" y="0" width="200" height="150" fill="#E5DFCE"/>
+    <rect x="14" y="6" width="172" height="44" rx="3" fill="#F5F2EC" stroke="rgba(0,63,63,0.14)" stroke-width="1.5"/>
+    <rect x="26" y="14" width="148" height="28" rx="2" fill="#ECE7DC" stroke="rgba(0,63,63,0.07)"/>
+    <rect x="14" y="58" width="172" height="86" rx="3" fill="#F5F2EC" stroke="rgba(0,63,63,0.14)" stroke-width="1.5"/>
+    <rect x="26" y="70" width="148" height="62" rx="2" fill="#ECE7DC" stroke="rgba(0,63,63,0.07)"/>
+    <rect x="40" y="26" width="120" height="8" rx="4" fill="url(#cg-m-dyn)"/>
+    <rect x="47" y="34" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="147" y="34" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/>
+    <rect x="96" y="66" width="8" height="78" rx="4" fill="url(#cg-m-dyn)"/>
+    <rect x="91" y="63" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="91" y="141" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/></svg><span class="opt__num">4</span></div>
+        <div class="opt__body">
+          <h4 class="opt__label">Long pulls</h4>
+          <p class="opt__sub">Modern, statement</p>
+          <p class="opt__why">Oversized pulls read the most current and the most expensive. They also cost the most per piece and they fight a 1967 colonial harder than the other three.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$8 to $14 per piece typical</span>
+            
+          </div>
+          <div class="sku__name">null Oversized pulls, champagne bronze</div>
+          
+          <div class="sku__finish">Some ballot finishes<em>Available, priced per length</em></div>
+          
+          <div class="sku__stock">Browse the champagne bronze drawer pull aisle</div>
+          
+          <div class="sku__flag">Priciest per piece and the count multiplies hard. Measure drawer widths before picking a length.</div>
+          <a class="sku__link" href="https://www.lowes.com/pl/cabinet-hardware/drawer-pulls/champagne/3088100347-1110041769476" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
+        </div>
+      </article></div>
+      <p class="cat__ask"><span>The question on the poll</span> Pulls, knobs, or both?</p>
+    </div>
+  </section>
+  <section class="block" id="cat-faucet">
+    <div class="container">
+      <div class="cat__head">
+        <span class="cat__n">07</span>
         <div>
           <div class="eyebrow">Three holes, four ways to fill them<span class="zbadge zbadge--wet">Bathrooms</span></div>
           <h2 class="section__title">Vanity faucets</h2>
@@ -1186,6 +1347,7 @@
       </div>
       <p class="section__lede">Both vanity tops are drilled for three. Measure the outer two center to center before buying anything: 4 inches is a centerset, 8 inches is a widespread, and they do not substitute.</p>
       <div class="cat__meta"><span class="meta__pill">$90 to $130 each</span><span class="meta__pill meta__pill--gate">Measure the hole spread first</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=bathroom+sink+faucet+widespread" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       
       <div class="opts">
       <article class="opt">
@@ -1326,7 +1488,7 @@
   <section class="block" id="cat-shower">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">07</span>
+        <span class="cat__n">08</span>
         <div>
           <div class="eyebrow">Gated on the valve<span class="zbadge zbadge--wet">Bathrooms</span></div>
           <h2 class="section__title">Shower fixtures</h2>
@@ -1342,6 +1504,7 @@
         <p>The deeper problem only exists on one side of the zone vote. At $120 to $180, credible brand trim in champagne bronze does not exist, Delta Ashlyn in a warm finish runs $240 to $260, and it only fits at all if the valve in the wall happens to be a Delta. In satin nickel, trim is available from every brand at every price and the showerhead already in there stays. This category is the single strongest practical argument for putting the two bathrooms on nickel.</p>
         <p class="warn__do"><span>Do this</span>If the zone vote lands nickel, buy shower-only trim in brushed nickel to match the existing head and move on. If it lands champagne bronze, stop and go find the brand stamped on the valve first, then budget $240 to $260 per bath.</p>
       </div>
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
@@ -1427,7 +1590,7 @@
   <section class="block" id="cat-switches">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">08</span>
+        <span class="cat__n">09</span>
         <div>
           <div class="eyebrow">Nobody notices until they do<span class="zbadge zbadge--neutral">No metal</span></div>
           <h2 class="section__title">Switches and plates</h2>
@@ -1435,6 +1598,7 @@
       </div>
       <p class="section__lede">Two variables stacked: the paddle itself, and whether the plate shows screws. Flat plus screwless is the current-construction default. Toggle is correct for the age of the house. Whatever wins has to run everywhere.</p>
       <div class="cat__meta"><span class="meta__pill">$3 to $6 per device</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=decorator+rocker+light+switch+white" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       
       <div class="opts">
       <article class="opt">
@@ -1547,7 +1711,7 @@
   <section class="block" id="cat-fans">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">09</span>
+        <span class="cat__n">10</span>
         <div>
           <div class="eyebrow">The dated thing in every bedroom photo<span class="zbadge zbadge--dry">Champagne bronze</span></div>
           <h2 class="section__title">Ceiling fans</h2>
@@ -1555,6 +1719,7 @@
       </div>
       <p class="section__lede">The existing white fans, one of them a brass-trimmed four-blade with a schoolhouse globe, are the oldest visible object in the finished rooms. Richmond summers mean the fans stay, so they have to be the right ones.</p>
       <div class="cat__meta"><span class="meta__pill">$120 to $170 each</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=ceiling+fan+with+light+52+inch" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       
       <div class="opts">
       <article class="opt">
@@ -1701,6 +1866,11 @@
         <td>Interior door hardware</td>
         <td class="num">$14 to $22 per door</td>
         <td class="note">The volume decision</td>
+      </tr>
+      <tr>
+        <td>Cabinet hardware</td>
+        <td class="num">$4 to $10 per piece</td>
+        <td class="note">Kitchen and both vanities</td>
       </tr>
       <tr>
         <td>Vanity faucets</td>
@@ -1858,54 +2028,67 @@
         </div>
       </div>
       <div class="asset">
-        <a class="asset__thumb" href="vote-cedar-grove-cards/story-06-faucet.png" target="_blank" rel="noopener">
-          <img src="vote-cedar-grove-cards/story-06-faucet.png" alt="" loading="lazy"/>
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-06-cabinet.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-06-cabinet.png" alt="" loading="lazy"/>
         </a>
         <div class="asset__meta">
           <span class="asset__n">06</span>
-          <span class="asset__title">Vanity faucets</span>
+          <span class="asset__title">Cabinet hardware</span>
           <span class="asset__links">
-            <a href="vote-cedar-grove-cards/story-06-faucet.png" target="_blank" rel="noopener">Story</a>
-            <a href="vote-cedar-grove-cards/reel-06-faucet.png" target="_blank" rel="noopener">Reel</a>
+            <a href="vote-cedar-grove-cards/story-06-cabinet.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-06-cabinet.png" target="_blank" rel="noopener">Reel</a>
           </span>
         </div>
       </div>
       <div class="asset">
-        <a class="asset__thumb" href="vote-cedar-grove-cards/story-07-shower.png" target="_blank" rel="noopener">
-          <img src="vote-cedar-grove-cards/story-07-shower.png" alt="" loading="lazy"/>
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-07-faucet.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-07-faucet.png" alt="" loading="lazy"/>
         </a>
         <div class="asset__meta">
           <span class="asset__n">07</span>
-          <span class="asset__title">Shower fixtures</span>
+          <span class="asset__title">Vanity faucets</span>
           <span class="asset__links">
-            <a href="vote-cedar-grove-cards/story-07-shower.png" target="_blank" rel="noopener">Story</a>
-            <a href="vote-cedar-grove-cards/reel-07-shower.png" target="_blank" rel="noopener">Reel</a>
+            <a href="vote-cedar-grove-cards/story-07-faucet.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-07-faucet.png" target="_blank" rel="noopener">Reel</a>
           </span>
         </div>
       </div>
       <div class="asset">
-        <a class="asset__thumb" href="vote-cedar-grove-cards/story-08-switches.png" target="_blank" rel="noopener">
-          <img src="vote-cedar-grove-cards/story-08-switches.png" alt="" loading="lazy"/>
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-08-shower.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-08-shower.png" alt="" loading="lazy"/>
         </a>
         <div class="asset__meta">
           <span class="asset__n">08</span>
-          <span class="asset__title">Switches and plates</span>
+          <span class="asset__title">Shower fixtures</span>
           <span class="asset__links">
-            <a href="vote-cedar-grove-cards/story-08-switches.png" target="_blank" rel="noopener">Story</a>
-            <a href="vote-cedar-grove-cards/reel-08-switches.png" target="_blank" rel="noopener">Reel</a>
+            <a href="vote-cedar-grove-cards/story-08-shower.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-08-shower.png" target="_blank" rel="noopener">Reel</a>
           </span>
         </div>
       </div>
       <div class="asset">
-        <a class="asset__thumb" href="vote-cedar-grove-cards/story-09-fans.png" target="_blank" rel="noopener">
-          <img src="vote-cedar-grove-cards/story-09-fans.png" alt="" loading="lazy"/>
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-09-switches.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-09-switches.png" alt="" loading="lazy"/>
         </a>
         <div class="asset__meta">
           <span class="asset__n">09</span>
+          <span class="asset__title">Switches and plates</span>
+          <span class="asset__links">
+            <a href="vote-cedar-grove-cards/story-09-switches.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-09-switches.png" target="_blank" rel="noopener">Reel</a>
+          </span>
+        </div>
+      </div>
+      <div class="asset">
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-10-fans.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-10-fans.png" alt="" loading="lazy"/>
+        </a>
+        <div class="asset__meta">
+          <span class="asset__n">10</span>
           <span class="asset__title">Ceiling fans</span>
           <span class="asset__links">
-            <a href="vote-cedar-grove-cards/story-09-fans.png" target="_blank" rel="noopener">Story</a>
-            <a href="vote-cedar-grove-cards/reel-09-fans.png" target="_blank" rel="noopener">Reel</a>
+            <a href="vote-cedar-grove-cards/story-10-fans.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-10-fans.png" target="_blank" rel="noopener">Reel</a>
           </span>
         </div>
       </div></div>
