@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Richmond, When Your Boys Get Here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --teal:#003F3F; --teal-2:#00514f; --teal-deep:#002726;
+    --gold:#D4AF37; --gold-deep:#a8851f;
+    --paper:#FAF7F1; --ink:#1c2523; --muted:#5c6b67; --line:#e3ddcf;
+    --sh: 0 1px 2px rgba(0,63,63,.06), 0 10px 30px -10px rgba(0,63,63,.18);
+    --sh-lift: 0 2px 6px rgba(0,63,63,.10), 0 26px 60px -18px rgba(0,63,63,.28);
+    --spring: cubic-bezier(.2,.9,.3,1.2);
+    --pad: clamp(20px, 5vw, 44px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.65;
+    background:
+      radial-gradient(1200px 700px at 6% -10%, rgba(212,175,55,.13), transparent 60%),
+      radial-gradient(950px 600px at 108% 2%, rgba(0,63,63,.11), transparent 55%),
+      var(--paper);
+    overflow-x:hidden;
+  }
+  .noise{position:fixed;inset:0;pointer-events:none;z-index:3;opacity:.03;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  header{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    padding:26px var(--pad) 0;max-width:1060px;margin:0 auto}
+  header img{height:52px;width:auto;mix-blend-mode:multiply}
+  .tag{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:rgba(255,255,255,.6)}
+
+  .wrap{max-width:1060px;margin:0 auto;padding:0 var(--pad)}
+  .hero{padding:60px 0 8px}
+  @media(min-width:760px){.hero{padding:88px 0 12px}}
+  .eyebrow{font-size:11px;letter-spacing:.19em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);margin-bottom:20px}
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;letter-spacing:-.028em;color:var(--teal)}
+  h1{font-size:clamp(36px,7vw,66px);line-height:1.04}
+  h1 em{font-style:italic;color:var(--gold-deep);font-weight:600}
+  .say{margin-top:24px;max-width:54ch;font-size:clamp(16px,1.9vw,19px);color:var(--muted)}
+  .say b{color:var(--ink);font-weight:600}
+
+  /* vibe filter */
+  .filter{margin:38px 0 6px;position:sticky;top:0;z-index:4;
+    padding:14px 0 13px;background:linear-gradient(var(--paper) 72%, rgba(250,247,241,0));
+    backdrop-filter:blur(3px)}
+  .flab{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:11px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:.01em;
+    border:1px solid var(--line);background:rgba(255,255,255,.78);color:var(--muted);
+    border-radius:999px;padding:9px 17px;cursor:pointer;
+    transition:transform .3s var(--spring), background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease}
+  .chip:hover{transform:translateY(-2px);border-color:var(--gold);color:var(--teal);box-shadow:0 6px 16px -6px rgba(0,63,63,.28)}
+  .chip:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .chip:active{transform:translateY(0) scale(.97)}
+  .chip[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#fff;
+    box-shadow:0 3px 10px -3px rgba(0,63,63,.45), 0 12px 28px -12px rgba(0,63,63,.4)}
+  .chip[aria-pressed="true"]:hover{color:#fff;border-color:var(--gold)}
+
+  .count{margin-top:12px;font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+  .count b{color:var(--teal);font-weight:600}
+
+  /* cards */
+  .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:22px}
+  @media(min-width:660px){.grid{grid-template-columns:1fr 1fr;gap:20px}}
+  @media(min-width:1000px){.grid{grid-template-columns:1fr 1fr 1fr}}
+
+  .card{position:relative;background:rgba(255,255,255,.82);border:1px solid var(--line);
+    border-radius:18px;padding:22px 21px 19px;box-shadow:var(--sh);
+    transition:transform .4s var(--spring), box-shadow .35s ease, border-color .3s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-lift);border-color:rgba(212,175,55,.55)}
+  .card.hide{display:none}
+  .hood{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-deep)}
+  .card h3{font-size:22px;line-height:1.18;margin-top:9px}
+  .why{margin-top:11px;font-size:14.5px;color:var(--muted);line-height:1.62}
+  .why b{color:var(--ink);font-weight:600}
+  .meta{margin-top:15px;padding-top:13px;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:6px}
+  .m{display:flex;gap:9px;align-items:baseline;font-size:12.5px;color:var(--muted);line-height:1.5}
+  .m .k{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--teal);
+    min-width:52px;flex-shrink:0;padding-top:2px}
+  .card a.src{display:inline-block;margin-top:13px;font-size:12px;font-weight:600;letter-spacing:.03em;
+    color:var(--teal);text-decoration:none;border-bottom:1.5px solid rgba(212,175,55,.6);padding-bottom:2px;
+    transition:color .25s ease, border-color .25s ease, transform .3s var(--spring)}
+  .card a.src:hover{color:var(--gold-deep);border-color:var(--gold);transform:translateX(2px)}
+  .card a.src:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+  .flagline{margin-top:13px;font-size:12px;font-weight:600;letter-spacing:.02em;color:#a8551f;
+    background:rgba(212,175,55,.13);border-left:2.5px solid var(--gold);border-radius:0 8px 8px 0;padding:8px 12px;line-height:1.5}
+
+  /* dark band */
+  .band{margin:76px 0 0;padding:56px var(--pad) 60px;
+    background:linear-gradient(150deg,var(--teal),var(--teal-2));color:#e9f1ef;position:relative;overflow:hidden}
+  .band::after{content:"";position:absolute;right:-140px;top:-120px;width:500px;height:500px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,175,55,.17),transparent 62%);pointer-events:none}
+  .band .in{max-width:1060px;margin:0 auto;position:relative;z-index:1}
+  .band h2{color:#fff;font-size:clamp(27px,4.6vw,44px);line-height:1.1}
+  .band h2 em{font-style:italic;color:var(--gold)}
+  .band .eyebrow{color:var(--gold)}
+  .band .say{color:#b8ccc8}
+  .band .say b{color:#fff}
+
+  .dated{margin-top:32px;border-top:1px solid rgba(255,255,255,.16)}
+  .dr{display:grid;grid-template-columns:1fr auto;gap:8px 18px;align-items:baseline;
+    padding:15px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+  .dr .who{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:17.5px;color:#fff;line-height:1.28}
+  .dr .who span{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:12.5px;color:#8fa9a5;margin-top:4px;letter-spacing:.02em}
+  .dr .what{font-size:11px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;color:var(--gold);white-space:nowrap}
+  .dr .what.out{color:#e0917c}
+
+  .cut{margin-top:34px;padding:20px 22px;border-left:3px solid var(--gold);background:rgba(212,175,55,.10);border-radius:0 14px 14px 0}
+  .cut p{font-size:13.5px;color:#b8ccc8;line-height:1.7}
+  .cut p b{color:#fff;font-weight:600}
+
+  footer{padding:52px var(--pad) 84px;max-width:1060px;margin:0 auto}
+  .rule{height:1px;background:var(--line);margin-bottom:24px}
+  footer p{font-size:11.5px;color:var(--muted);line-height:1.75;max-width:92ch}
+  footer p + p{margin-top:9px}
+  footer b{color:var(--teal);font-weight:600}
+
+  .r{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .75s var(--spring)}
+  .r.in{opacity:1;transform:none}
+  .r2{transition-delay:.09s} .r3{transition-delay:.18s} .r4{transition-delay:.28s}
+  @media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}
+    .card,.chip,.card a.src{transition:none}}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<header>
+  <img src="mams-logo.png" alt="MAMS"/>
+  <div class="tag">Built for Jesse &middot; August 2026</div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow r">Richmond, Virginia</div>
+    <h1 class="r r2">Your boys are coming to town. <em>Pick any day. The list still works.</em></h1>
+    <p class="say r r3">You said you were still figuring out the day, so nothing here depends on you picking one. Every spot below is listed with the days it is actually open, pulled from the operator's own site this morning. <b>Tap a vibe to filter it down.</b></p>
+    <p class="say r r4">Scroll past the cards for what is dated to this weekend specifically.</p>
+  </section>
+
+  <section class="filter r">
+    <div class="flab">What kind of trip is this</div>
+    <div class="chips" id="chips">
+      <button class="chip" data-v="all" aria-pressed="true">Show everything</button>
+      <button class="chip" data-v="out" aria-pressed="false">Going out</button>
+      <button class="chip" data-v="chill" aria-pressed="false">Low key</button>
+      <button class="chip" data-v="outdoors" aria-pressed="false">Outdoors</button>
+      <button class="chip" data-v="food" aria-pressed="false">Food first</button>
+    </div>
+    <div class="count" id="count"></div>
+  </section>
+
+  <section class="grid" id="grid">
+
+    <article class="card r" data-v="food chill">
+      <div class="hood">Scott's Addition</div>
+      <h3>ZZQ Texas Craft Barbeque</h3>
+      <p class="why">If your boys only eat one thing here, make it this. Central Texas method, brisket by the pound, <b>and it sells out most days well before close.</b> Get there by noon or plan something else.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Open</span><span>Wednesday to Sunday, 11am to 6pm, unless sold out</span></div>
+        <div class="m"><span class="k">Where</span><span>3201 West Moore Street</span></div>
+      </div>
+      <div class="flagline">First come, first served. No reservations, and sold out means sold out.</div>
+      <a class="src" href="https://www.zzqrva.com/" target="_blank" rel="noopener">zzqrva.com</a>
+    </article>
+
+    <article class="card r r2" data-v="chill outdoors food">
+      <div class="hood">Scott's Addition</div>
+      <h3>Ardent Craft Ales</h3>
+      <p class="why">The beer garden is the move for a group. Open seven days, big outdoor space, and <b>they invite you to bring in food from neighbors like ZZQ.</b> That combination is the single easiest afternoon on this list.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Open</span><span>Mon to Wed 12 to 9pm, Thu and Fri 12 to 10pm, Sat 11am to 10pm, Sun 12 to 8pm</span></div>
+        <div class="m"><span class="k">Where</span><span>3200 West Leigh Street</span></div>
+      </div>
+      <a class="src" href="https://ardentcraftales.com/" target="_blank" rel="noopener">ardentcraftales.com</a>
+    </article>
+
+    <article class="card r r3" data-v="out chill">
+      <div class="hood">Scott's Addition</div>
+      <h3>Väsen Brewing</h3>
+      <p class="why">Big room, big patio, sours and farmhouse beers if anyone in the group is tired of IPAs. Two blocks from Ardent, so the whole afternoon stays walkable.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Open</span><span>Tue to Thu 3 to 10pm, Fri 2 to 10pm, Sat 12 to 10pm, Sun 12 to 8pm</span></div>
+        <div class="m"><span class="k">Closed</span><span>Mondays</span></div>
+        <div class="m"><span class="k">Where</span><span>3331 West Moore Street</span></div>
+      </div>
+      <a class="src" href="https://www.vasenbrewing.com/pages/scotts-addition" target="_blank" rel="noopener">vasenbrewing.com</a>
+    </article>
+
+    <article class="card r" data-v="out food">
+      <div class="hood">Scott's Addition</div>
+      <h3>Three Notch'd Brewing</h3>
+      <p class="why">The one on this list with an actual kitchen behind it, not a food truck out front. Latest close in the neighborhood on a Friday or Saturday, which makes it the natural last stop.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Open</span><span>Mon to Thu 12 to 10pm, Fri and Sat 12 to 11pm, Sun 12 to 8pm</span></div>
+        <div class="m"><span class="k">Where</span><span>2930 West Broad Street</span></div>
+      </div>
+      <a class="src" href="https://threenotchdbrewing.com/pages/rva" target="_blank" rel="noopener">threenotchdbrewing.com</a>
+    </article>
+
+    <article class="card r r2" data-v="chill">
+      <div class="hood">Scott's Addition</div>
+      <h3>Buskey Cider</h3>
+      <p class="why">For whoever in the group does not drink beer. Dry ciders, same walkable cluster, and nobody has to be the guy nursing a water all afternoon.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Open</span><span>Wed and Thu 3 to 9pm, Fri and Sat 12 to 10pm, Sun 12 to 7pm</span></div>
+        <div class="m"><span class="k">Closed</span><span>Mondays. Tuesdays only for Squirrels home games, 3 to 7pm</span></div>
+        <div class="m"><span class="k">Where</span><span>Scott's Addition</span></div>
+      </div>
+      <a class="src" href="https://www.buskeycider.com/" target="_blank" rel="noopener">buskeycider.com</a>
+    </article>
+
+    <article class="card r r3" data-v="food">
+      <div class="hood">Jackson Ward</div>
+      <h3>Mama J's</h3>
+      <p class="why">Richmond soul food, and the answer when somebody asks what the city actually tastes like. Fried catfish, candied yams, the whole thing. Expect a wait at peak and take it.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Open</span><span>Daily. Exact hours are not posted online, so call ahead at (804) 225-7449</span></div>
+        <div class="m"><span class="k">Where</span><span>415 North 1st Street</span></div>
+      </div>
+      <a class="src" href="https://mamajskitchen.com/" target="_blank" rel="noopener">mamajskitchen.com</a>
+    </article>
+
+    <article class="card r" data-v="food chill">
+      <div class="hood">Downtown</div>
+      <h3>Perly's</h3>
+      <p class="why">Jewish delicatessen downtown, and the right call for a group breakfast before anybody has made a decision about the day. <b>Kitchen closes at 3pm, so this is a morning play only.</b></p>
+      <div class="meta">
+        <div class="m"><span class="k">Open</span><span>9am to 3pm, daily</span></div>
+        <div class="m"><span class="k">Where</span><span>111 East Grace Street</span></div>
+      </div>
+      <a class="src" href="https://www.perlysrichmond.com/" target="_blank" rel="noopener">perlysrichmond.com</a>
+    </article>
+
+    <article class="card r r2" data-v="food chill">
+      <div class="hood">Church Hill</div>
+      <h3>Sub Rosa Bakery</h3>
+      <p class="why">This is the one that makes you look like you actually live here. Wood fired oven, grain milled on site, in Church Hill rather than the neighborhood every visitor gets pointed to. <b>Go early, the good stuff goes.</b></p>
+      <div class="meta">
+        <div class="m"><span class="k">Open</span><span>Tue to Fri 7am to 5pm, Sat and Sun 8am to 5pm</span></div>
+        <div class="m"><span class="k">Closed</span><span>Mondays</span></div>
+        <div class="m"><span class="k">Where</span><span>620 North 25th Street</span></div>
+      </div>
+      <a class="src" href="https://subrosabakery.com/" target="_blank" rel="noopener">subrosabakery.com</a>
+    </article>
+
+    <article class="card r r3" data-v="outdoors">
+      <div class="hood">James River Park System</div>
+      <h3>Belle Isle and the Pipeline</h3>
+      <p class="why">Class III rapids inside the city limits, which almost nowhere else in the country has. Belle Isle by the footbridge under the Lee Bridge, the Pipeline Overlook for the skyline shot your boys will actually post.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Water</span><span>4 to 5.5 feet is the good range. Above 6 feet the hazards go up sharply</span></div>
+        <div class="m"><span class="k">Safety</span><span>The park says life jackets are strongly recommended at every water level, swift currents and unknown depths</span></div>
+        <div class="m"><span class="k">Check</span><span>Westham gauge, the morning you go</span></div>
+      </div>
+      <div class="flagline">This one number decides whether it is a great day or a bad idea. Check it before you load the car.</div>
+      <a class="src" href="https://waterdata.usgs.gov/monitoring-location/02037500/" target="_blank" rel="noopener">Live river level, Westham gauge</a><br/>
+      <a class="src" href="https://jamesriverpark.org/" target="_blank" rel="noopener">jamesriverpark.org</a>
+    </article>
+
+    <article class="card r" data-v="out">
+      <div class="hood">Scott's Addition</div>
+      <h3>The Broadberry</h3>
+      <p class="why">Mid size room on West Broad, the venue most likely to have something worth walking into on a given night. Check the calendar once you lock your date.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Where</span><span>2729 West Broad Street</span></div>
+        <div class="m"><span class="k">Note</span><span>Same operator runs The National downtown and Richmond Music Hall, all on one calendar</span></div>
+      </div>
+      <a class="src" href="https://thebroadberry.com/events/" target="_blank" rel="noopener">thebroadberry.com</a>
+    </article>
+
+    <article class="card r r2" data-v="out">
+      <div class="hood">Oregon Hill</div>
+      <h3>The Camel</h3>
+      <p class="why">Small room, live music seven nights, the place locals go when they do not care who is playing. Worth checking for whichever night you land on.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Note</span><span>Both shows this weekend, Saturday and Sunday, are already sold out</span></div>
+      </div>
+      <div class="flagline">Check the calendar before you drive over. It sells out more than you would expect for the size.</div>
+      <a class="src" href="https://thecamel.org/" target="_blank" rel="noopener">thecamel.org</a>
+    </article>
+
+  </section>
+</div>
+
+<section class="band">
+  <div class="in">
+    <div class="eyebrow r">If the day turns out to be this weekend</div>
+    <h2 class="r r2">Here is what is <em>actually dated</em> to Saturday and Sunday.</h2>
+    <p class="say r r3">Everything above works any week. These three do not, so they are pulled out separately.</p>
+
+    <div class="dated r r3">
+      <div class="dr">
+        <div class="who">Jasiah and NASCAR Aloe, Capital Punishment Tour<span>Richmond Music Hall &middot; doors 7pm &middot; with Next April and Dirtybutt</span></div>
+        <div class="what">Sat Aug 15</div>
+      </div>
+      <div class="dr">
+        <div class="who">House Party featuring Shartchan and friends<span>The Broadberry &middot; doors 8:30pm &middot; 18 and over</span></div>
+        <div class="what">Sat Aug 15</div>
+      </div>
+      <div class="dr">
+        <div class="who">The Camel, both weekend shows<span>Justin Golden matinee Saturday, Which Side Are You On benefit Sunday</span></div>
+        <div class="what out">Sold out</div>
+      </div>
+    </div>
+
+    <div class="cut r r4">
+      <p><b>Six places got cut from this list this morning.</b> One brewery's website now redirects to a completely unrelated parked domain. Two more had dead or expired sites. If a spot could not be confirmed against the operator's own page today, it did not make the page. <b>Nothing here should send your boys to a locked door.</b></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="rule"></div>
+  <p><b>How this was verified, August 15, 2026.</b> Every business named here was confirmed against the operator's own website on the morning of August 15, 2026, and the hours shown are quoted from those pages. Aggregator listings, review sites and roundup articles were not treated as sufficient. Where a business publishes no hours, that is stated plainly rather than filled in from a third party. Dated events come from the venue operators' own calendars. Six candidate spots were removed for failing verification, including one whose domain now redirects to an unrelated site. River guidance is from the James River Park System, which states that ideal conditions are between 4 and 5.5 feet and that life jackets are strongly recommended at all water levels.</p>
+  <p><b>Hours change.</b> Kitchens close early, taprooms hold private events, and barbecue sells out. Call ahead for anything you are building the day around, especially Mama J's and ZZQ.</p>
+  <p>Put together by <b>Miles Agee</b> for Jesse. Not a listing, not a pitch, just the list.</p>
+</footer>
+
+<script>
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .1, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.r').forEach(function(el){ io.observe(el); });
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#grid .card'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('#chips .chip'));
+  var countEl = document.getElementById('count');
+
+  function apply(v){
+    var shown = 0;
+    cards.forEach(function(c){
+      var match = (v === 'all') || (' ' + c.getAttribute('data-v') + ' ').indexOf(' ' + v + ' ') > -1;
+      c.classList.toggle('hide', !match);
+      if (match) { shown++; c.classList.add('in'); }
+    });
+    chips.forEach(function(ch){ ch.setAttribute('aria-pressed', String(ch.getAttribute('data-v') === v)); });
+    countEl.innerHTML = '<b>' + shown + '</b> of ' + cards.length + ' spots showing';
+  }
+
+  chips.forEach(function(ch){
+    ch.addEventListener('click', function(){ apply(ch.getAttribute('data-v')); });
+  });
+
+  apply('all');
+</script>
+</body>
+</html>
