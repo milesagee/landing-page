@@ -134,6 +134,59 @@
   .frame p em { color: var(--gold); font-style: italic; font-weight: 400; }
   .frame p + p { margin-top: 12px; font-size: 15px; font-family: var(--sans); opacity: 0.82; line-height: 1.6; }
 
+
+  /* ---- SKU row under each archetype ---- */
+  .sku { margin-top: 12px; padding-top: 11px; border-top: 1px dashed var(--line); display: flex; flex-direction: column; gap: 4px; }
+  .sku--none { align-items: flex-start; }
+  .sku__tag { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #9a3412; background: rgba(154,52,18,0.10); padding: 4px 10px; border-radius: 100px; }
+  .sku__row { display: flex; align-items: center; gap: 8px; }
+  .sku__price { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .sku__ok { font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #14532d; background: rgba(20,83,45,0.11); padding: 3px 8px; border-radius: 100px; }
+  .sku__name { font-size: 12.5px; line-height: 1.4; font-weight: 600; opacity: 0.9; }
+  .sku__meta { font-size: 11px; letter-spacing: 0.03em; opacity: 0.6; font-variant-numeric: tabular-nums; }
+  .sku__meta--spread { font-weight: 700; opacity: 0.85; color: var(--teal); }
+  .sku__finish { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dark); margin-top: 2px; }
+  .sku__finish em { display: block; font-style: normal; font-weight: 500; font-size: 11px; letter-spacing: 0.01em; text-transform: none; opacity: 0.72; color: var(--deep-teal); margin-top: 2px; }
+  .sku__finish--good { color: #14532d; }
+  .sku__finish--bad { color: #9a3412; }
+  .sku__stock { font-size: 11.5px; line-height: 1.4; opacity: 0.68; }
+  .sku__best { font-size: 11.5px; line-height: 1.45; color: #14532d; background: rgba(20,83,45,0.07); border-left: 2px solid rgba(20,83,45,0.4); padding: 7px 9px; border-radius: 0 4px 4px 0; margin-top: 3px; }
+  .sku__flag { font-size: 11.5px; line-height: 1.45; color: #7c2d12; background: rgba(154,52,18,0.07); border-left: 2px solid rgba(154,52,18,0.45); padding: 7px 9px; border-radius: 0 4px 4px 0; margin-top: 3px; }
+  .sku__link { align-self: flex-start; margin-top: 6px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); text-decoration: none; border-bottom: 1.5px solid rgba(0,95,95,0.3); }
+  .sku__link:hover { color: var(--gold-dark); border-color: var(--gold); }
+  .sku__link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  /* ---- the finding ---- */
+  .block--alert { background: linear-gradient(180deg, rgba(154,52,18,0.055), rgba(154,52,18,0)); }
+  .block--alert .eyebrow { color: #9a3412; }
+  .fix { margin: 0 0 20px 0; padding-left: 22px; display: grid; gap: 9px; max-width: 66ch; }
+  .fix li { font-size: 14.5px; line-height: 1.55; opacity: 0.85; }
+  .rec { background: var(--deep-teal); color: var(--paper); border-radius: 8px; padding: 18px 22px; font-size: 15px; line-height: 1.55; box-shadow: var(--shadow-md); }
+  .rec span { display: block; font-size: 9.5px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+
+  /* ---- shower warning ---- */
+  .warn { background: var(--ivory); border: 1px solid rgba(154,52,18,0.4); border-left: 4px solid #9a3412; border-radius: 8px; padding: 20px 23px; margin-bottom: 22px; box-shadow: var(--shadow-sm); }
+  .warn__head { font-family: var(--serif); font-size: 21px; font-weight: 500; color: #7c2d12; margin-bottom: 10px; letter-spacing: -0.015em; }
+  .warn p { font-size: 14px; line-height: 1.58; opacity: 0.86; margin-bottom: 10px; }
+  .warn p:last-child { margin-bottom: 0; }
+  .warn__fix, .warn__do { background: rgba(154,52,18,0.06); border-radius: 5px; padding: 12px 14px; opacity: 1 !important; }
+  .warn__fix span, .warn__do span { display: block; font-size: 9.5px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: #9a3412; margin-bottom: 5px; }
+
+  /* ---- safe bets ---- */
+  .bets { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .bet { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid #14532d; border-radius: 8px; padding: 16px 18px; box-shadow: var(--shadow-sm); }
+  .bet__cat { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #14532d; margin-bottom: 6px; }
+  .bet__pick { font-family: var(--serif); font-size: 18px; font-weight: 500; line-height: 1.2; margin-bottom: 5px; letter-spacing: -0.015em; }
+  .bet__why { font-size: 13px; line-height: 1.5; opacity: 0.76; }
+
+  /* ---- taste read ---- */
+  .tastes { display: grid; gap: 13px; }
+  .taste { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 18px 21px; box-shadow: var(--shadow-sm); }
+  .taste__q { font-family: var(--serif); font-size: 19px; font-weight: 500; margin-bottom: 8px; letter-spacing: -0.015em; }
+  .taste__a { font-size: 14px; line-height: 1.58; opacity: 0.82; margin-bottom: 10px; }
+  .taste__so { font-size: 14px; line-height: 1.55; color: var(--deep-teal); background: var(--paper-soft); border-radius: 5px; padding: 11px 14px; }
+  .taste__so span { font-size: 9.5px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dark); margin-right: 8px; }
+
   /* poll card downloads */
   .assets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .asset { background: var(--ivory); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.26s var(--spring), box-shadow 0.26s var(--spring); }
@@ -157,6 +210,7 @@
     .opts { grid-template-columns: repeat(2, 1fr); }
     .states { grid-template-columns: 1fr; }
     .assets { grid-template-columns: repeat(2, 1fr); }
+    .bets { grid-template-columns: 1fr; }
   }
   @media (max-width: 520px) {
     .container { padding: 0 18px; }
@@ -315,6 +369,16 @@
     </div>
   </section>
 
+  <section class="block block--alert" id="finding">
+    <div class="container">
+      <div class="eyebrow">What the SKU research turned up</div>
+      <h2 class="section__title">The finish vote and the product vote are fighting each other</h2>
+      <p class="section__lede">None of the twelve lighting products and only one of the four faucets offer any ballot finish as an actual choice. At $90 to $180, nearly everything on the shelf is a marketplace brand locked to a single color, usually black or gold. So a vote that lands on aged brass cannot be executed in half these categories without spending more.</p>
+      <ol class="fix"><li>Reframe the vote as a finish FAMILY, where each winning product is the nearest available match rather than an exact color. Cheapest, slightly dishonest to the voter.</li><li>Raise the ceiling to about $170 on faucets and $220 on lighting, which is where Delta, Moen, and Kichler finish menus actually begin. Costs more, makes the vote real.</li></ol>
+      <div class="rec"><span>Recommendation</span>Raise the ceiling. A poll people voted in and then got overruled by the shelf is worse than no poll, and the whole point of this was that whatever wins gets bought.</div>
+    </div>
+  </section>
+
   <section class="block block--spine" id="cat-metal">
     <div class="container">
       <div class="cat__head">
@@ -326,6 +390,7 @@
       </div>
       <p class="section__lede">One metal, repeated everywhere, is what separates a finished house from a house that got finished in pieces. The quartz has gold in the veining. The floors are red oak. The tile is greige. Three warm votes already on the board. But satin nickel is what is hanging on the doors today, and nickel is never wrong.</p>
       <div class="cat__meta"><a class="meta__link" href="https://www.lowes.com/search?searchTerm=cabinet+hardware+finish" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
@@ -337,6 +402,7 @@
           <h4 class="opt__label">Champagne bronze</h4>
           <p class="opt__sub">Warm, soft, slightly pink gold</p>
           <p class="opt__why">Reads the most expensive against warm quartz. Delta and Amerock both carry deep lines, so matching across plumbing and hardware is easy.</p>
+          
         </div>
       </article>
       <article class="opt">
@@ -349,6 +415,7 @@
           <h4 class="opt__label">Satin nickel</h4>
           <p class="opt__sub">Cool, neutral, already installed</p>
           <p class="opt__why">Zero swap cost on the levers, vanity light, and showerhead. Never offends anyone. Also never excites anyone.</p>
+          
         </div>
       </article>
       <article class="opt">
@@ -361,6 +428,7 @@
           <h4 class="opt__label">Matte black</h4>
           <p class="opt__sub">High contrast, graphic</p>
           <p class="opt__why">Picks up the black front door and reads current. Highest contrast against white quartz, which cuts both ways.</p>
+          
         </div>
       </article>
       <article class="opt">
@@ -373,6 +441,7 @@
           <h4 class="opt__label">Aged brass</h4>
           <p class="opt__sub">Warmest, most editorial</p>
           <p class="opt__why">The strongest match to the gold veining and the only option with real personality. Also the one that dates fastest if it goes shiny.</p>
+          
         </div>
       </article></div>
       <p class="cat__ask"><span>The question on the poll</span> Which metal runs the whole house?</p>
@@ -389,6 +458,7 @@
       </div>
       <p class="section__lede">Semi-flush, because the ceiling will not take a drop. This fixture is in the frame of the first interior photo a buyer ever sees of this house.</p>
       <div class="cat__meta"><span class="meta__pill">$90 to $180</span><a class="meta__link" href="https://www.lowes.com/pl/ceiling-lights/flush-mount-lighting/foyers/4294566040-4153330819" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
@@ -406,6 +476,21 @@
           <h4 class="opt__label">Seeded glass lantern</h4>
           <p class="opt__sub">Transitional, a little Richmond</p>
           <p class="opt__why">The safest way to look expensive. Seeded glass hides bulbs and throws texture on the ceiling.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$119.98</span>
+            
+          </div>
+          <div class="sku__name">Quoizel Sentry 14-in Textured Glass Semi-flush</div>
+          <div class="sku__meta">Item 806086</div>
+          <div class="sku__finish">Locked to one finish<em>Black only</em></div>
+          
+          <div class="sku__stock">Out at Midlothian, 1 at South Richmond</div>
+          
+          <div class="sku__flag">PC substituted a Tiffany-style textured glass for seeded. Look at it in person before committing.</div>
+          <a class="sku__link" href="https://www.lowes.com/pd/Quoizel-Sentry-14-in-Black-Tiffany-Flush-Mount-Light/1000208417" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -421,6 +506,21 @@
           <h4 class="opt__label">Opal drum</h4>
           <p class="opt__sub">Clean, quiet, modern</p>
           <p class="opt__why">Disappears and lets the stair and the porthole window carry the room. Best even light of the four.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$114.98</span>
+            
+          </div>
+          <div class="sku__name">AOIZGMY Gold Opal Glass Semi-flush</div>
+          <div class="sku__meta">Item 9203339</div>
+          <div class="sku__finish sku__finish--bad">No ballot finish<em>Gold only</em></div>
+          
+          <div class="sku__stock">Ships to 23235, arrives Mon 24 Aug</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/AOIZGMY-Gold-Semi-Flush-Mount-Ceiling-Light-7-4-in-H-x-8-66-in-W-Opal-Glass-Shade-Modern-Farmhouse-Fixture-for-Hallway-Bedroom-1-Piece/9203339" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -437,6 +537,21 @@
           <h4 class="opt__label">Schoolhouse globe</h4>
           <p class="opt__sub">Period-correct for a 1967 house</p>
           <p class="opt__why">The house was built in 1967. This is the fixture that would have been there, done properly.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$124.28</span>
+            
+          </div>
+          <div class="sku__name">LLHZSY Traditional Schoolhouse White Glass Semi-flush</div>
+          <div class="sku__meta">Item 9768145</div>
+          <div class="sku__finish sku__finish--bad">No ballot finish<em>Polished brass only, nearest to aged brass</em></div>
+          
+          <div class="sku__stock">In stock Midlothian, 36 available</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/LLHZSY-1-Light-Traditional-Schoolhouse-White-Glass-Semi-Flush-Mount/5020656207" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -455,6 +570,21 @@
           <h4 class="opt__label">Open cage globe</h4>
           <p class="opt__sub">Modern farmhouse</p>
           <p class="opt__why">Most personality per dollar. Also the most likely to read dated in five years.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$105.99</span>
+            
+          </div>
+          <div class="sku__name">DORESshop 4-Light Industrial Black Cage Semi-flush</div>
+          <div class="sku__meta">Item 7198215</div>
+          <div class="sku__finish">Locked to one finish<em>Matte black only</em></div>
+          
+          <div class="sku__stock">Ships to 23235, arrives Mon 24 Aug</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/DORESshop-4-Light-Farmhouse-Semi-Flush-Mount-Ceiling-Light-Industrial-Black-Cage-Fixture-for-Entryway-Hallway-Bedroom/7198215" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article></div>
       <p class="cat__ask"><span>The question on the poll</span> What hangs in the foyer?</p>
@@ -471,6 +601,7 @@
       </div>
       <p class="section__lede">This is the hero. It is the single line item where spending real money shows up directly in the listing photos, so it carries the biggest budget of the nine.</p>
       <div class="cat__meta"><span class="meta__pill">$160 to $300</span><a class="meta__link" href="https://www.lowes.com/pl/ceiling-lights/chandeliers/dining-rooms/4294687722-115568100" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
@@ -486,6 +617,21 @@
           <h4 class="opt__label">Tiered drum</h4>
           <p class="opt__sub">Soft, classic, forgiving</p>
           <p class="opt__why">Fabric diffuses beautifully over a table. The most flattering light of the four on people and food.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$192.98</span>
+            
+          </div>
+          <div class="sku__name">GoYeel 5-Light Woven Tiered Drum Pendant</div>
+          <div class="sku__meta">Item 9807689</div>
+          <div class="sku__finish">Some ballot finishes<em>Black or gold</em></div>
+          
+          <div class="sku__stock">In stock Midlothian, 9 available</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/GoYeel-5-Light-Farmhouse-Woven-Tiered-Pendant-Light-Black-Drum-Chandlier-for-Kitchen-Island-Living-Room/5020739653" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -504,6 +650,21 @@
           <h4 class="opt__label">Open cage lantern</h4>
           <p class="opt__sub">Rectangular, architectural</p>
           <p class="opt__why">A rectangle over a rectangle table is the easiest way to look like someone made a decision.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$259.99</span>
+            
+          </div>
+          <div class="sku__name">ZEVNI Sedia 4-Light Seeded Glass Linear</div>
+          <div class="sku__meta">Item 5376072</div>
+          <div class="sku__finish">Locked to one finish<em>Black and brass together, not selectable</em></div>
+          
+          <div class="sku__stock">In stock Midlothian, 7 available</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/ZEVNI-Sedia-Modern-Farmhouse-4-Light-Matte-Black-Brass-Seeded-Glass-Rectangular-Modern-Contemporary-Seeded-Glass-Linear-LED-Kitchen-Island-Light/5014388627" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -515,6 +676,21 @@
           <h4 class="opt__label">Sputnik radial</h4>
           <p class="opt__sub">Mid-century, true to 1967</p>
           <p class="opt__why">The build year is 1967. This is the boldest, most on-period swing on the board.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$266.94</span>
+            
+          </div>
+          <div class="sku__name">Rennnsan Julian 15-Light Tinted Glass Chandelier</div>
+          <div class="sku__meta">Item 6250492</div>
+          <div class="sku__finish">Some ballot finishes<em>Black or gold</em></div>
+          
+          <div class="sku__stock">In stock Midlothian</div>
+          
+          <div class="sku__flag">Research says let this one lose. See the taste read below.</div>
+          <a class="sku__link" href="https://www.lowes.com/pd/Rennnsan-Julian-15-Light-Black-Modern-Contemporary-Led-Dry-rated-Chandelier/5015196221" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -555,6 +731,21 @@
           <h4 class="opt__label">Wood bead</h4>
           <p class="opt__sub">Warm, textural, organic</p>
           <p class="opt__why">Adds the one material the house does not have yet. Softens all the hard surfaces downstairs.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$178.47</span>
+            
+          </div>
+          <div class="sku__name">Parrot Uncle Bohemian 4-Light Distressed Beaded Chandelier</div>
+          <div class="sku__meta">Item 5097587</div>
+          <div class="sku__finish sku__finish--bad">No ballot finish<em>Off-white distressed only</em></div>
+          
+          <div class="sku__stock">In stock Midlothian, 126 available</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Parrot-Uncle-4-Light-Brown-Bohemian-Global-LED-Dry-rated-Chandelier/5013401879" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article></div>
       <p class="cat__ask"><span>The question on the poll</span> What goes over the dining table?</p>
@@ -571,6 +762,7 @@
       </div>
       <p class="section__lede">The door is black and it currently wears a brass deadbolt next to a satin nickel lever. That gets replaced with one handleset either way. The only question is which metal wins against black.</p>
       <div class="cat__meta"><span class="meta__pill">$110 to $160</span><a class="meta__link" href="https://www.lowes.com/pl/door-hardware/handlesets/kwikset/3295584500-4294965566" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
@@ -586,6 +778,21 @@
           <h4 class="opt__label">Matte black</h4>
           <p class="opt__sub">Tonal, disappears into the door</p>
           <p class="opt__why">Quietest and most current. Makes the door read as one deliberate object.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$139.00</span>
+            <span class="sku__ok">verified</span>
+          </div>
+          <div class="sku__name">Schlage Century Entry Handleset with Latitude Lever</div>
+          <div class="sku__meta">Item 1125411</div>
+          <div class="sku__finish sku__finish--good">Cross-finish family<em>Matte black and satin nickel on the same chassis</em></div>
+          
+          <div class="sku__stock">Pickup today, Aisle 16 Bay 16</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Schlage-FE285-Century-Matte-Black-Entry-Door-Handleset-Latitude/5000056651" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -602,6 +809,21 @@
           <h4 class="opt__label">Satin nickel</h4>
           <p class="opt__sub">Crisp contrast</p>
           <p class="opt__why">Clean and safe. Pops against black without shouting.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$139.00</span>
+            
+          </div>
+          <div class="sku__name">Schlage Camelot Satin Nickel Entry Handleset</div>
+          <div class="sku__meta">Item 1125415</div>
+          <div class="sku__finish">Some ballot finishes<em>Satin nickel or aged bronze</em></div>
+          
+          <div class="sku__stock">Pickup today, Aisle 16 Bay 14</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Schlage-FE285-Camelot-Satin-Nickel-Entry-Door-Handleset/5000056659" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -618,6 +840,21 @@
           <h4 class="opt__label">Aged brass</h4>
           <p class="opt__sub">Warm, expensive-looking</p>
           <p class="opt__why">Brass on a black door is the single highest expensive-per-dollar move on this whole list.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$139.00</span>
+            
+          </div>
+          <div class="sku__name">Schlage Camelot Aged Bronze Entry Handleset</div>
+          <div class="sku__meta">Item 1125414</div>
+          <div class="sku__finish">Some ballot finishes<em>Aged bronze, not true aged brass</em></div>
+          
+          <div class="sku__stock">Pickup today, Aisle 16 Bay 16</div>
+          
+          <div class="sku__flag">This is bronze standing in for brass. Bronze is browner and cooler. If aged brass wins the metal vote, this is not it.</div>
+          <a class="sku__link" href="https://www.lowes.com/pd/Schlage-FE285-Camelot-Aged-Bronze-Entry-Door-Handleset/5000056657" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -634,6 +871,7 @@
           <h4 class="opt__label">Black with brass accent</h4>
           <p class="opt__sub">Two-tone, deliberate</p>
           <p class="opt__why">Splits the difference on purpose instead of by accident, which is what the door does now.</p>
+          <div class="sku sku--none"><span class="sku__tag">Nothing found in band</span></div>
         </div>
       </article></div>
       <p class="cat__ask"><span>The question on the poll</span> What goes on the black front door?</p>
@@ -650,6 +888,7 @@
       </div>
       <p class="section__lede">Multiply whatever wins by the door count. Satin nickel curved levers are on the doors today, so keeping this one is free and changing it is the largest per-unit line on the list.</p>
       <div class="cat__meta"><span class="meta__pill">$14 to $22 per door</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=interior+door+lever" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
@@ -665,6 +904,21 @@
           <h4 class="opt__label">Curved lever</h4>
           <p class="opt__sub">What is installed now</p>
           <p class="opt__why">Free if the metal vote lands on nickel. Levers also read as an accessibility upgrade to older buyers.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$20.98</span>
+            
+          </div>
+          <div class="sku__name">ReliaBilt Olivia Satin Nickel Passage Lever</div>
+          <div class="sku__meta">Item 597127</div>
+          <div class="sku__finish">Some ballot finishes<em>Satin nickel plus two variants</em></div>
+          
+          <div class="sku__stock">Pickup today, 10 available</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/ReliaBilt-Reliabilt-Olivia-Hall-Closet-Lever-in-Satin-Nickel/1002545548" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -681,6 +935,21 @@
           <h4 class="opt__label">Round knob</h4>
           <p class="opt__sub">Traditional</p>
           <p class="opt__why">Cheapest per door and correct for a 1967 colonial. Harder on anyone carrying a laundry basket.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$14.98</span>
+            
+          </div>
+          <div class="sku__name">ReliaBilt Baron Passage Knob</div>
+          <div class="sku__meta">Item 40485</div>
+          <div class="sku__finish sku__finish--good">Cross-finish family<em>Satin nickel and matte black on one family</em></div>
+          
+          <div class="sku__stock">Pickup today, 12 available, Aisle 16 Bay 28</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/ReliaBilt-Reliabilt-Baron-Hall-Closet-Knob-in-Satin-Nickel/1002545516" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -697,6 +966,21 @@
           <h4 class="opt__label">Squared lever</h4>
           <p class="opt__sub">Angular, modern</p>
           <p class="opt__why">The most current-looking of the four and the biggest visual change for the money.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$21.98</span>
+            
+          </div>
+          <div class="sku__name">Kwikset Signature Halifax Matte Black Passage Lever</div>
+          <div class="sku__meta">Item 7388677</div>
+          <div class="sku__finish">Locked to one finish<em>Matte black on this listing only</em></div>
+          
+          <div class="sku__stock">374 available, pickup Thu 20 Aug</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Kwikset-Signature-Series-Halifax-LED-Matte-Black-Interior-or-Passage-Door-Handle/5016777251" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -713,6 +997,21 @@
           <h4 class="opt__label">Knob on square rosette</h4>
           <p class="opt__sub">Transitional detail</p>
           <p class="opt__why">A small architectural detail that costs almost nothing and gets noticed on tour.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$15.37</span>
+            
+          </div>
+          <div class="sku__name">Sure-Loc Durango-Square Flat Black Passage Knob</div>
+          <div class="sku__meta">Item 2673995</div>
+          <div class="sku__finish">Locked to one finish<em>Flat black only</em></div>
+          
+          <div class="sku__stock">760 available, pickup Mon 24 Aug</div>
+          
+          <div class="sku__flag">PC linked the DUMMY knob. A dummy does not latch. For a real door you need the passage version of this SKU.</div>
+          <a class="sku__link" href="https://www.lowes.com/pd/Sure-Loc-Hardware-Durango-Square-Dummy-Knob-Flat-Black/1002986798" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article></div>
       <p class="cat__ask"><span>The question on the poll</span> Knobs or levers, and what shape?</p>
@@ -729,6 +1028,7 @@
       </div>
       <p class="section__lede">Both vanity tops are drilled for three. Measure the outer two center to center before buying anything: 4 inches is a centerset, 8 inches is a widespread, and they do not substitute.</p>
       <div class="cat__meta"><span class="meta__pill">$90 to $130 each</span><span class="meta__pill meta__pill--gate">Measure the hole spread first</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=bathroom+sink+faucet+widespread" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
@@ -748,6 +1048,21 @@
           <h4 class="opt__label">Widespread, lever handles</h4>
           <p class="opt__sub">Transitional, the default</p>
           <p class="opt__why">Three separate pieces spread across the deck is the look that reads custom. Needs 8 inch spread.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$129.00</span>
+            
+          </div>
+          <div class="sku__name">allen + roth Harlow SimpleFit Widespread 2-Handle</div>
+          <div class="sku__meta">Item 6567286</div>
+          <div class="sku__finish sku__finish--good">Cross-finish family<em>Matte black, brushed gold, brushed nickel PVD, chrome</em></div>
+          <div class="sku__meta sku__meta--spread">8 inch widespread</div>
+          <div class="sku__stock">1,424 available Midlothian</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/allen-roth-allen-roth-Harlow-SimpleFit-2H-8in-WS-Matte-Black-FAUCET/5015675321" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -768,6 +1083,21 @@
           <h4 class="opt__label">Widespread, cross handles</h4>
           <p class="opt__sub">Classic, a little dressy</p>
           <p class="opt__why">Cross handles in a warm metal against Calacatta quartz is a hotel bathroom for under $130.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$97.64</span>
+            
+          </div>
+          <div class="sku__name">BYH Farmhouse Matte Black 2-Handle</div>
+          <div class="sku__meta">Item 6553706</div>
+          <div class="sku__finish">Locked to one finish<em>Matte black only</em></div>
+          <div class="sku__meta sku__meta--spread">CONTRADICTORY</div>
+          <div class="sku__stock">69 available Midlothian</div>
+          
+          <div class="sku__flag">PC listed this as 8 inch widespread but its own Lowe's page says 4 inch centerset. Do not buy this one without reading the box. Spread is the whole gate on this category.</div>
+          <a class="sku__link" href="https://www.lowes.com/pd/BYH-Matte-Black-4-in-centerset-2-Handle-WaterSense-Waterfall-Bathroom-Sink-Faucet-with-Drain/5015645627" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -784,6 +1114,21 @@
           <h4 class="opt__label">Single hole with deck plate</h4>
           <p class="opt__sub">Modern, and it hides the drilling</p>
           <p class="opt__why">The safe play. A deck plate covers all three holes regardless of spread, so this one cannot be bought wrong.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$109.00</span>
+            
+          </div>
+          <div class="sku__name">allen + roth Harlow SimpleFit Single-Hole 1-Handle</div>
+          <div class="sku__meta">Item 6567288</div>
+          <div class="sku__finish sku__finish--good">Cross-finish family<em>Matte black, brushed gold, brushed nickel PVD, chrome</em></div>
+          <div class="sku__meta sku__meta--spread">Single hole, deck plate included</div>
+          <div class="sku__stock">Only 2 available Midlothian</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/allen-roth-allen-roth-Harlow-SimpleFit-1H-Matte-Black-FAUCET/5015675307" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -800,6 +1145,21 @@
           <h4 class="opt__label">Centerset two-handle</h4>
           <p class="opt__sub">Compact, budget</p>
           <p class="opt__why">Cheapest and simplest. Only works if the spread is 4 inch, and it reads more builder-grade than the others.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$119.00</span>
+            
+          </div>
+          <div class="sku__name">Moen Lindor 2-Handle Centerset</div>
+          <div class="sku__meta">Item 986214</div>
+          <div class="sku__finish sku__finish--good">Cross-finish family<em>Spot Resist nickel, matte black, brushed gold, chrome</em></div>
+          <div class="sku__meta sku__meta--spread">4 inch centerset</div>
+          <div class="sku__stock">13 available Midlothian</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Moen-Lindor-Spot-Resist-Brushed-Nickel-2-handle-4-in-Centerset-WaterSense-Bathroom-Sink-Faucet-with-Drain/1000476789" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article></div>
       <p class="cat__ask"><span>The question on the poll</span> What sits on the quartz?</p>
@@ -815,7 +1175,15 @@
         </div>
       </div>
       <p class="section__lede">The greige tile and pebble accent are already in. Before anything gets bought, confirm the brand stamped on the rough-in valve, because trim kits do not cross brands without opening the wall.</p>
-      <div class="cat__meta"><span class="meta__pill">$120 to $180 each</span><span class="meta__pill meta__pill--gate">Confirm the valve brand first</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=shower+faucet+trim+kit" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      <div class="cat__meta"><span class="meta__pill">$120 to $180 each</span><span class="meta__pill meta__pill--gate">Hold this poll</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=shower+faucet+trim+kit" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
+      <div class="warn">
+        <div class="warn__head">This category is not ready to vote on</div>
+        <p>The research came back 2 of 16. Pfister and Kohler were never researched at all, and only one of four Moen archetypes was reached. Worse, the single Delta trim that did get verified is the wrong product for this bathroom.</p>
+        <p class="warn__fix"><span>The correction</span>PC returned Delta Ashlyn T14464, which is the TUB and shower trim and includes a tub spout. The photos show a walk-in shower with a pebble floor and no tub. The shower-only equivalent is T14264. Buying the T14464 puts a tub spout on a wall with no tub.</p>
+        <p>The deeper finding is that at $120 to $180, credible brand trim is chrome only. Delta Ashlyn in matte black, nickel, or gold runs $240 to $260. So this category needs the band raised to about $220 or it gets decided by what is cheap rather than by the vote.</p>
+        <p class="warn__do"><span>Do this</span>Find the brand stamped on the valve in the wall, then re-run this one category with the band at $220. Hold the shower poll until then.</p>
+      </div>
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
@@ -834,6 +1202,7 @@
           <h4 class="opt__label">Rain head</h4>
           <p class="opt__sub">Ceiling or high wall mount</p>
           <p class="opt__why">Photographs better than anything else on this list. Worst actual water pressure of the four.</p>
+          <div class="sku sku--none"><span class="sku__tag">Nothing found in band</span></div>
         </div>
       </article>
       <article class="opt">
@@ -853,6 +1222,7 @@
           <h4 class="opt__label">Head plus handheld</h4>
           <p class="opt__sub">The practical one</p>
           <p class="opt__why">What buyers with kids and dogs actually want. Adds a diverter and reads as a real upgrade.</p>
+          <div class="sku sku--none"><span class="sku__tag">Nothing found in band</span></div>
         </div>
       </article>
       <article class="opt">
@@ -872,6 +1242,7 @@
           <h4 class="opt__label">Handheld on a slide bar</h4>
           <p class="opt__sub">Flexible, ages well</p>
           <p class="opt__why">The accessibility-friendly option and the cheapest way to make the shower look considered.</p>
+          <div class="sku sku--none"><span class="sku__tag">Nothing found in band</span></div>
         </div>
       </article>
       <article class="opt">
@@ -889,6 +1260,7 @@
           <h4 class="opt__label">Single large wall head</h4>
           <p class="opt__sub">Simple, matched trim</p>
           <p class="opt__why">Cleanest wall. Nothing to go wrong, nothing to leak, nothing to photograph either.</p>
+          <div class="sku sku--none"><span class="sku__tag">Nothing found in band</span></div>
         </div>
       </article></div>
       <p class="cat__ask"><span>The question on the poll</span> What comes out of the shower wall?</p>
@@ -905,6 +1277,7 @@
       </div>
       <p class="section__lede">Two variables stacked: the paddle itself, and whether the plate shows screws. Flat plus screwless is the current-construction default. Toggle is correct for the age of the house. Whatever wins has to run everywhere.</p>
       <div class="cat__meta"><span class="meta__pill">$3 to $6 per device</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=decorator+rocker+light+switch+white" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#E5DFCE"/><rect x="60" y="26" width="80" height="100" rx="5" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="2"/><rect x="66" y="32" width="68" height="88" rx="3" fill="none" stroke="rgba(0,63,63,0.08)" stroke-width="1.6"/><rect x="76" y="48" width="48" height="56" rx="4" fill="#FFFFFF" stroke="rgba(0,63,63,0.20)" stroke-width="1.8"/>
@@ -914,6 +1287,21 @@
           <h4 class="opt__label">Flat, screwless plate</h4>
           <p class="opt__sub">New-construction standard</p>
           <p class="opt__why">The most expensive-looking wall plate for about a dollar more per device. This is the one buyers register as new.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$9.26 per opening</span>
+            
+          </div>
+          <div class="sku__name">Eaton 15A Rocker + Screwless Decorator Plate</div>
+          <div class="sku__meta">Item 67436 + 279489</div>
+          <div class="sku__finish">Locked to one finish<em>White</em></div>
+          
+          <div class="sku__stock">Pickup in 3 hours, Aisle 5</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Eaton-1-Gang-White-Single-Midsize-Wall-Plate/1001462374" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -927,6 +1315,21 @@
           <h4 class="opt__label">Flat, standard plate</h4>
           <p class="opt__sub">Modern, cheapest version</p>
           <p class="opt__why">Ninety percent of the look for less money. The two visible screws are the whole compromise.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$7.66 per opening</span>
+            
+          </div>
+          <div class="sku__name">Eaton 15A Rocker + Standard Decorator Plate</div>
+          <div class="sku__meta">Item 67436 + 209164</div>
+          <div class="sku__finish">Locked to one finish<em>White</em></div>
+          
+          <div class="sku__stock">Only 5 plates at Midlothian</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Eaton-1-Gang-White-Midsize-Wall-Plate/1001462326" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -936,6 +1339,21 @@
           <h4 class="opt__label">Toggle, screwless plate</h4>
           <p class="opt__sub">Period-correct, dressed up</p>
           <p class="opt__why">Honors a 1967 house without looking neglected. A quietly sophisticated choice.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$9.44 per opening</span>
+            
+          </div>
+          <div class="sku__name">Eaton 15A Toggle + Screwless Toggle Plate</div>
+          <div class="sku__meta">Item 2636323 + 211077</div>
+          <div class="sku__finish">Locked to one finish<em>White</em></div>
+          
+          <div class="sku__stock">15 plates, pickup in 3 hours</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Eaton-1-Gang-White-Single-Toggle-Screwless-Midsize-Wall-Plate/1002101602" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -948,6 +1366,21 @@
           <h4 class="opt__label">Toggle, standard plate</h4>
           <p class="opt__sub">What is there now</p>
           <p class="opt__why">Free. Also the one thing on this list that can make fresh paint and new floors read as a partial job.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$6.84 per opening</span>
+            
+          </div>
+          <div class="sku__name">Eaton 15A Toggle + Standard Toggle Plate</div>
+          <div class="sku__meta">Item 2636323 + 208438</div>
+          <div class="sku__finish">Locked to one finish<em>White</em></div>
+          
+          <div class="sku__stock">Only 1 plate at Midlothian</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Eaton-1-Gang-White-Toggle-Midsize-Wall-Plate/1001590964" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article></div>
       <p class="cat__ask"><span>The question on the poll</span> Flat or toggle, screws or screwless?</p>
@@ -964,6 +1397,7 @@
       </div>
       <p class="section__lede">The existing white fans, one of them a brass-trimmed four-blade with a schoolhouse globe, are the oldest visible object in the finished rooms. Richmond summers mean the fans stay, so they have to be the right ones.</p>
       <div class="cat__meta"><span class="meta__pill">$120 to $170 each</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=ceiling+fan+with+light+52+inch" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
@@ -976,6 +1410,21 @@
           <h4 class="opt__label">Three-blade modern</h4>
           <p class="opt__sub">Flush, integrated light</p>
           <p class="opt__why">Reads newest and takes up the least visual room on an eight foot ceiling.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$123.00</span>
+            
+          </div>
+          <div class="sku__name">Huluwat 42-in 3-Blade DC with Light and Remote</div>
+          <div class="sku__meta">Item 8271296</div>
+          <div class="sku__finish">Locked to one finish<em>Black only</em></div>
+          
+          <div class="sku__stock">Ships to 23235, arrives Mon 24 Aug</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Huluwat-42-Inch-Ceiling-Fans-with-Lights-and-Remote-Black-Ceiling-Fan-for-Patios-with-Light-3-Blades-Modern-Ceiling-Fan-Noiseless-Reversible-DC-Motor-Ceiling-Fan/8271296" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -989,6 +1438,21 @@
           <h4 class="opt__label">Five-blade traditional</h4>
           <p class="opt__sub">Familiar, moves the most air</p>
           <p class="opt__why">Actually the best performer and the least likely to get a negative reaction from anybody.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$159.98</span>
+            
+          </div>
+          <div class="sku__name">Harbor Breeze Calverton 52-in 5-Blade with Light and Remote</div>
+          <div class="sku__meta">Item 5497058</div>
+          <div class="sku__finish sku__finish--good">Cross-finish family<em>White, matte black, brushed nickel</em></div>
+          
+          <div class="sku__stock">Pickup in 3 hours, 14 available Midlothian</div>
+          <div class="sku__best">Best value in the whole list. The only fan carrying two ballot finishes as real choices.</div>
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Harbor-Breeze-Calverton-52-in-White-Indoor-Downrod-or-Flush-Mount-Ceiling-Fan-with-Light-Remote-5-Blade/5014528863" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -1002,6 +1466,21 @@
           <h4 class="opt__label">Wood blade transitional</h4>
           <p class="opt__sub">Warm, textural</p>
           <p class="opt__why">Ties to the red oak floors and is the only fan here that looks like a design choice.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$169.99</span>
+            
+          </div>
+          <div class="sku__name">Kviflon 52-in Gold and Wood 5-Blade DC</div>
+          <div class="sku__meta">Item 105166911</div>
+          <div class="sku__finish">Locked to one finish<em>Gold and brown wood only</em></div>
+          
+          <div class="sku__stock">Ships to 23235, arrives Mon 24 Aug</div>
+          
+          
+          <a class="sku__link" href="https://www.lowes.com/pd/Kviflon-52-in-Gold-and-Brown-Wood-Ceiling-Fan-with-Light-Luxury-Modern-Ceiling-Fan-5-Blade-Decorative-Ceiling-Fan-with-Premium-Wood-Grain-Blades-Quiet-DC-Motor-6-Speed-Remote-Control-3-Color-Temperature/105166911" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article>
       <article class="opt">
@@ -1015,6 +1494,21 @@
           <h4 class="opt__label">Low profile disc</h4>
           <p class="opt__sub">Minimal, nearly hidden</p>
           <p class="opt__why">Disappears into the ceiling, which is exactly right in a small bedroom and boring in a large one.</p>
+          
+        <div class="sku">
+          <div class="sku__row">
+            <span class="sku__price">$165.99</span>
+            
+          </div>
+          <div class="sku__name">Humhold 24-in Enclosed Flush Mount with Light</div>
+          <div class="sku__meta">Item 8950849</div>
+          <div class="sku__finish">Some ballot finishes<em>White or black</em></div>
+          
+          <div class="sku__stock">Ships to 23235, arrives Tue 25 Aug</div>
+          
+          <div class="sku__flag">Only 24 inches. That is a small-bedroom fan. Measure the room before this one goes on the ballot as a real option.</div>
+          <a class="sku__link" href="https://www.lowes.com/pd/Humhold-24-Inch-Ceiling-Fan-with-Light-and-Remote-Low-Profile-Ceiling-Fan-with-APP-and-Voice-Control-Enclosed-Flush-Mount-Ceiling-Fan-for-Bedroom-Living-Room-White/8950849" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
+        </div>
         </div>
       </article></div>
       <p class="cat__ask"><span>The question on the poll</span> What spins in the bedrooms?</p>
@@ -1025,7 +1519,7 @@
     <div class="container">
       <div class="eyebrow">Middle of the run, on purpose</div>
       <h2 class="section__title">What this <em>should</em> cost</h2>
-      <p class="section__lede">Bands, not quotes. Nothing here is a verified Lowe's price, because lowes.com blocks automated reads. Confirm at the shelf. The posture is simple: spend where a buyer photographs, save where they never look.</p>
+      <p class="section__lede">Bands set the posture, and every product above now carries a real price read at Midlothian Lowe's #0113, Richmond 23235 on 15 August 2026. Prices move, so confirm at the shelf anyway. The posture holds: spend where a buyer photographs and touches, save where they never look.</p>
       <div class="tablewrap">
         <table class="btable">
           <thead><tr><th>Category</th><th class="num">Band</th><th class="note">Why it sits there</th></tr></thead>
@@ -1073,6 +1567,64 @@
         </table>
       </div>
       <p class="fineprint">Per-door, per-bath, and per-device lines multiply by counts that still need a walkthrough. Treat the totals as a shape, not a number.</p>
+    </div>
+  </section>
+
+  <section class="block" id="safe">
+    <div class="container">
+      <div class="eyebrow">Buy these today, whatever the poll says</div>
+      <h2 class="section__title">Four products that <em>survive any metal</em></h2>
+      <p class="section__lede">Each of these carries at least two ballot finishes on the same product family, so the vote can land anywhere and the order still holds. If you want to leave the store with something in the cart, leave with these.</p>
+      <div class="bets">
+      <div class="bet">
+        <div class="bet__cat">Front door</div>
+        <div class="bet__pick">Schlage Century FE285, $139</div>
+        <div class="bet__why">Same chassis in matte black and satin nickel. Verified.</div>
+      </div>
+      <div class="bet">
+        <div class="bet__cat">Interior doors</div>
+        <div class="bet__pick">ReliaBilt Baron knob, $14.98</div>
+        <div class="bet__why">Satin nickel and matte black on one family.</div>
+      </div>
+      <div class="bet">
+        <div class="bet__cat">Faucets</div>
+        <div class="bet__pick">allen + roth Harlow, $109 to $129</div>
+        <div class="bet__why">Four finishes across single-hole and widespread bodies.</div>
+      </div>
+      <div class="bet">
+        <div class="bet__cat">Ceiling fans</div>
+        <div class="bet__pick">Harbor Breeze Calverton, $159.98</div>
+        <div class="bet__why">White, matte black, and brushed nickel.</div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="block" id="taste">
+    <div class="container">
+      <div class="eyebrow">The part the shelf cannot tell you</div>
+      <h2 class="section__title">What the <em>research says</em> about taste</h2>
+      <p class="section__lede">Four questions that decide more than price does. Sourced, not guessed.</p>
+      <div class="tastes">
+      <div class="taste">
+        <div class="taste__q">Which metal reads most expensive, and which ages out first</div>
+        <p class="taste__a">Champagne bronze reads the most current in 2026 and is also named as peaking, with the fade projected 2027 to 2029. Aged brass carries the same risk harder. Matte black already plateaued and is now safe rather than premium. Satin nickel is the one classified as timeless.</p>
+        <p class="taste__so"><span>So</span> Champagne bronze wins the showing. Satin nickel wins 2029. Aged brass is the highest ceiling and the shortest half-life.</p>
+      </div>
+      <div class="taste">
+        <div class="taste__q">Is mixed metal read as intentional or unfinished</div>
+        <p class="taste__a">Intentional, and the consensus flipped since 2023. Matching every metal now reads staged. The rule is one dominant finish at 70 to 80 percent, one accent, each repeated at least twice, and grouped by function rather than by proximity.</p>
+        <p class="taste__so"><span>So</span> Warm on lighting and plumbing with satin nickel on door hardware is a safe, current mix. What reads unfinished is a warm faucet next to cool shower trim in the same bathroom. Keep every wet-wall fixture on one finish.</p>
+      </div>
+      <div class="taste">
+        <div class="taste__q">Sputnik in a 1967 house</div>
+        <p class="taste__a">Dated risk, not period charm. The fixture became visual shorthand for 2015 to 2022 flip renovations, and a mass-market reproduction does not read as authentic mid-century to anyone who knows the real thing.</p>
+        <p class="taste__so"><span>So</span> Leave it on the ballot but do not build the campaign around it. Tiered drum and wood bead both age better with this buyer pool.</p>
+      </div>
+      <div class="taste">
+        <div class="taste__q">Where underspending shows</div>
+        <p class="taste__a">Front door handleset, vanity faucets, and shower trim are the three a buyer physically touches. Underspend there and it registers in seconds. Interior knobs, switches, and fans above $170 are invisible.</p>
+        <p class="taste__so"><span>So</span> The bands are right. Spend the top of them on the three touch points and the floor on everything else.</p>
+      </div></div>
     </div>
   </section>
 
