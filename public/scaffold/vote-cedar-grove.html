@@ -134,11 +134,29 @@
   .frame p em { color: var(--gold); font-style: italic; font-weight: 400; }
   .frame p + p { margin-top: 12px; font-size: 15px; font-family: var(--sans); opacity: 0.82; line-height: 1.6; }
 
+  /* poll card downloads */
+  .assets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .asset { background: var(--ivory); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.26s var(--spring), box-shadow 0.26s var(--spring); }
+  .asset:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  /* 4:5, not 9:16, so the thumbnail crops to the content and skips the empty
+     band the poll sticker is meant to occupy */
+  .asset__thumb { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--paper-soft); border-bottom: 1px solid var(--line); }
+  .asset__thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .asset__thumb:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+  .asset__meta { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 5px; }
+  .asset__n { font-size: 9.5px; font-weight: 800; letter-spacing: 0.18em; color: var(--gold-dark); }
+  .asset__title { font-family: var(--serif); font-size: 16px; font-weight: 500; line-height: 1.15; letter-spacing: -0.015em; }
+  .asset__links { display: flex; gap: 8px; margin-top: 4px; }
+  .asset__links a { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); text-decoration: none; border: 1px solid var(--line); border-radius: 100px; padding: 4px 11px; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+  .asset__links a:hover { background: var(--deep-teal); color: var(--paper); border-color: var(--deep-teal); }
+  .asset__links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
   footer { padding: 34px 0 52px; text-align: center; font-size: 11.5px; opacity: 0.5; letter-spacing: 0.04em; }
 
   @media (max-width: 860px) {
     .opts { grid-template-columns: repeat(2, 1fr); }
     .states { grid-template-columns: 1fr; }
+    .assets { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 520px) {
     .container { padding: 0 18px; }
@@ -1055,6 +1073,132 @@
         </table>
       </div>
       <p class="fineprint">Per-door, per-bath, and per-device lines multiply by counts that still need a walkthrough. Treat the totals as a shape, not a number.</p>
+    </div>
+  </section>
+
+  <section class="block" id="assets">
+    <div class="container">
+      <div class="eyebrow">Open this on the phone</div>
+      <h2 class="section__title">The nine <em>poll cards</em></h2>
+      <p class="section__lede">Two per question. The Story card leaves the lower band empty so a four-option poll sticker drops straight in. The Reel card is full-bleed and numbered for comment voting. Tap, hold, save to camera roll.</p>
+      <div class="assets">
+      <div class="asset">
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-01-metal.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-01-metal.png" alt="" loading="lazy"/>
+        </a>
+        <div class="asset__meta">
+          <span class="asset__n">01</span>
+          <span class="asset__title">The metal</span>
+          <span class="asset__links">
+            <a href="vote-cedar-grove-cards/story-01-metal.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-01-metal.png" target="_blank" rel="noopener">Reel</a>
+          </span>
+        </div>
+      </div>
+      <div class="asset">
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-02-foyer.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-02-foyer.png" alt="" loading="lazy"/>
+        </a>
+        <div class="asset__meta">
+          <span class="asset__n">02</span>
+          <span class="asset__title">Foyer light</span>
+          <span class="asset__links">
+            <a href="vote-cedar-grove-cards/story-02-foyer.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-02-foyer.png" target="_blank" rel="noopener">Reel</a>
+          </span>
+        </div>
+      </div>
+      <div class="asset">
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-03-chandelier.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-03-chandelier.png" alt="" loading="lazy"/>
+        </a>
+        <div class="asset__meta">
+          <span class="asset__n">03</span>
+          <span class="asset__title">Dining chandelier</span>
+          <span class="asset__links">
+            <a href="vote-cedar-grove-cards/story-03-chandelier.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-03-chandelier.png" target="_blank" rel="noopener">Reel</a>
+          </span>
+        </div>
+      </div>
+      <div class="asset">
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-04-frontdoor.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-04-frontdoor.png" alt="" loading="lazy"/>
+        </a>
+        <div class="asset__meta">
+          <span class="asset__n">04</span>
+          <span class="asset__title">Front door hardware</span>
+          <span class="asset__links">
+            <a href="vote-cedar-grove-cards/story-04-frontdoor.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-04-frontdoor.png" target="_blank" rel="noopener">Reel</a>
+          </span>
+        </div>
+      </div>
+      <div class="asset">
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-05-levers.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-05-levers.png" alt="" loading="lazy"/>
+        </a>
+        <div class="asset__meta">
+          <span class="asset__n">05</span>
+          <span class="asset__title">Interior door hardware</span>
+          <span class="asset__links">
+            <a href="vote-cedar-grove-cards/story-05-levers.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-05-levers.png" target="_blank" rel="noopener">Reel</a>
+          </span>
+        </div>
+      </div>
+      <div class="asset">
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-06-faucet.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-06-faucet.png" alt="" loading="lazy"/>
+        </a>
+        <div class="asset__meta">
+          <span class="asset__n">06</span>
+          <span class="asset__title">Vanity faucets</span>
+          <span class="asset__links">
+            <a href="vote-cedar-grove-cards/story-06-faucet.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-06-faucet.png" target="_blank" rel="noopener">Reel</a>
+          </span>
+        </div>
+      </div>
+      <div class="asset">
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-07-shower.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-07-shower.png" alt="" loading="lazy"/>
+        </a>
+        <div class="asset__meta">
+          <span class="asset__n">07</span>
+          <span class="asset__title">Shower fixtures</span>
+          <span class="asset__links">
+            <a href="vote-cedar-grove-cards/story-07-shower.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-07-shower.png" target="_blank" rel="noopener">Reel</a>
+          </span>
+        </div>
+      </div>
+      <div class="asset">
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-08-switches.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-08-switches.png" alt="" loading="lazy"/>
+        </a>
+        <div class="asset__meta">
+          <span class="asset__n">08</span>
+          <span class="asset__title">Switches and plates</span>
+          <span class="asset__links">
+            <a href="vote-cedar-grove-cards/story-08-switches.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-08-switches.png" target="_blank" rel="noopener">Reel</a>
+          </span>
+        </div>
+      </div>
+      <div class="asset">
+        <a class="asset__thumb" href="vote-cedar-grove-cards/story-09-fans.png" target="_blank" rel="noopener">
+          <img src="vote-cedar-grove-cards/story-09-fans.png" alt="" loading="lazy"/>
+        </a>
+        <div class="asset__meta">
+          <span class="asset__n">09</span>
+          <span class="asset__title">Ceiling fans</span>
+          <span class="asset__links">
+            <a href="vote-cedar-grove-cards/story-09-fans.png" target="_blank" rel="noopener">Story</a>
+            <a href="vote-cedar-grove-cards/reel-09-fans.png" target="_blank" rel="noopener">Reel</a>
+          </span>
+        </div>
+      </div></div>
     </div>
   </section>
 
