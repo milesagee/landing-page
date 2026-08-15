@@ -156,6 +156,25 @@
   .sku__link:hover { color: var(--gold-dark); border-color: var(--gold); }
   .sku__link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
+
+  /* ---- champagne bronze execution ---- */
+  .block--cb { background: linear-gradient(180deg, rgba(198,166,103,0.13), rgba(198,166,103,0)); }
+  .cb__head { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #14532d; margin: 26px 0 12px; padding-bottom: 7px; border-bottom: 1px solid rgba(20,83,45,0.25); }
+  .cb__head--warn { color: #9a3412; border-color: rgba(154,52,18,0.28); }
+  .cbs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .cb { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; box-shadow: var(--shadow-sm); }
+  .cb--yes { border-left: 3px solid #14532d; }
+  .cb--no { border-left: 3px solid #9a3412; }
+  .cb__cat { font-size: 10px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 6px; }
+  .cb__what { font-family: var(--serif); font-size: 16.5px; font-weight: 500; line-height: 1.24; margin-bottom: 7px; letter-spacing: -0.012em; }
+  .cb__note { font-size: 13px; line-height: 1.52; opacity: 0.78; }
+  .cb__note strong { color: var(--gold-dark); font-weight: 800; }
+  .rec--mix { margin-top: 14px; background: var(--ivory); color: var(--deep-teal); border: 1px solid var(--line); border-left: 4px solid var(--gold); box-shadow: var(--shadow-sm); }
+  .rec--mix span { color: var(--gold-dark); }
+  .rec { margin-top: 22px; }
+  .cat__n--locked { font-size: 20px; font-weight: 700; letter-spacing: 0.14em; color: #14532d; opacity: 0.85; padding-top: 6px; }
+  .metalbar__lead em { display: block; font-style: normal; font-weight: 600; letter-spacing: 0.06em; text-transform: none; font-size: 9.5px; opacity: 0.6; margin-top: 1px; }
+
   /* ---- the finding ---- */
   .block--alert { background: linear-gradient(180deg, rgba(154,52,18,0.055), rgba(154,52,18,0)); }
   .block--alert .eyebrow { color: #9a3412; }
@@ -211,6 +230,7 @@
     .states { grid-template-columns: 1fr; }
     .assets { grid-template-columns: repeat(2, 1fr); }
     .bets { grid-template-columns: 1fr; }
+    .cbs { grid-template-columns: 1fr; }
   }
   @media (max-width: 520px) {
     .container { padding: 0 18px; }
@@ -285,7 +305,7 @@
 
   <div class="metalbar" id="metalbar">
     <div class="container metalbar__inner">
-      <span class="metalbar__lead">Preview everything in</span>
+      <span class="metalbar__lead">Locked: champagne bronze<em>compare only</em></span>
       <div class="metalbar__chips">
       <button class="mchip is-on" data-metal="champagne" aria-pressed="true">
         <span class="mchip__dot" style="background:linear-gradient(145deg,#EBDCB4,#C6A667 46%,#9C7C3C)"></span>
@@ -369,26 +389,68 @@
     </div>
   </section>
 
-  <section class="block block--alert" id="finding">
+  <section class="block block--cb" id="champagne">
     <div class="container">
-      <div class="eyebrow">What the SKU research turned up</div>
-      <h2 class="section__title">The finish vote and the product vote are fighting each other</h2>
-      <p class="section__lede">None of the twelve lighting products and only one of the four faucets offer any ballot finish as an actual choice. At $90 to $180, nearly everything on the shelf is a marketplace brand locked to a single color, usually black or gold. So a vote that lands on aged brass cannot be executed in half these categories without spending more.</p>
-      <ol class="fix"><li>Reframe the vote as a finish FAMILY, where each winning product is the nearest available match rather than an exact color. Cheapest, slightly dishonest to the voter.</li><li>Raise the ceiling to about $170 on faucets and $220 on lighting, which is where Delta, Moen, and Kichler finish menus actually begin. Costs more, makes the vote real.</li></ol>
-      <div class="rec"><span>Recommendation</span>Raise the ceiling. A poll people voted in and then got overruled by the shelf is worse than no poll, and the whole point of this was that whatever wins gets bought.</div>
+      <div class="eyebrow">The metal is decided</div>
+      <h2 class="section__title">Champagne bronze is a brand name, not a color</h2>
+      <p class="section__lede">Delta, Amerock, and Kichler each own a champagne bronze finish. Where those brands play, it is on the shelf today. Where they do not, no amount of budget produces it, and the answer is a named substitute rather than a near miss nobody admits to.</p>
+
+      <div class="cb__head">Buyable in real champagne bronze</div>
+      <div class="cbs">
+      <div class="cb cb--yes">
+        <div class="cb__cat">Cabinet hardware</div>
+        <div class="cb__what">Amerock Bar Pulls BP40517CZ, 5-1/16 in center to center</div>
+        <p class="cb__note">Verified live at Lowe's. This is the exact pull the original finishes page chose, so that call now holds up.</p>
+      </div>
+      <div class="cb cb--yes">
+        <div class="cb__cat">Vanity faucets</div>
+        <div class="cb__what">Delta in Brilliance Champagne Bronze: Sparrow, Knoxville, or Eldren widespread; Trinsic or Linden centerset; Trinsic comes with a deck plate</div>
+        <p class="cb__note">Confirmed available. Delta widths differ, Sparrow fits 4 to 16 in, Knoxville and Eldren want 6 to 16 in, so the hole measurement decides which one.</p>
+      </div>
+      <div class="cb cb--yes">
+        <div class="cb__cat">Shower trim</div>
+        <div class="cb__what">Delta champagne bronze trim, if the valve in the wall is a Delta MultiChoice</div>
+        <p class="cb__note">This is now the strongest reason to go find that valve. A Delta valve makes the shower easy. Anything else makes it a compromise.</p>
+      </div>
+      <div class="cb cb--yes">
+        <div class="cb__cat">Foyer and dining lighting</div>
+        <div class="cb__what">Kichler champagne bronze, including the Cecil 4-light flush mount and the Brit and Malen semi-flush</div>
+        <p class="cb__note">Kichler is the one lighting brand at Lowe's carrying a real champagne bronze.</p>
+      </div></div>
+
+      <div class="cb__head cb__head--warn">No champagne bronze exists here</div>
+      <div class="cbs">
+      <div class="cb cb--no">
+        <div class="cb__cat">Front door handleset</div>
+        <div class="cb__what">Schlage does not make champagne bronze in any line.</div>
+        <p class="cb__note"><strong>Instead.</strong> Satin brass is the honest neighbor. Aged bronze is browner and cooler and will not match. Do not let a store associate tell you bronze is bronze.</p>
+      </div>
+      <div class="cb cb--no">
+        <div class="cb__cat">Interior door hardware</div>
+        <div class="cb__what">Nothing in the $14 to $22 tier offers it. ReliaBilt and Sure-Loc stop at nickel and black.</div>
+        <p class="cb__note"><strong>Instead.</strong> This is the category to let go. Per the taste read, mixing metals is read as intentional in 2026 as long as it is grouped by function, so door hardware becomes the accent metal and stays satin nickel. That also means the levers already on the doors can stay, at zero cost.</p>
+      </div>
+      <div class="cb cb--no">
+        <div class="cb__cat">Ceiling fans</div>
+        <div class="cb__what">Nothing in the $120 to $170 band carries it.</div>
+        <p class="cb__note"><strong>Instead.</strong> The Kviflon gold and wood fan at $169.99 is the nearest warm read. Otherwise step up to a Hunter or Kichler champagne bronze above band.</p>
+      </div></div>
+
+      <div class="rec"><span>What this decision costs</span>Delta champagne bronze bath faucets and Kichler champagne bronze fixtures both sit above the bands originally set, which is exactly the ceiling raise the research recommended. Expect faucets nearer $200 than $130, and foyer or dining lighting nearer $200 than $120. Cabinet hardware is unaffected. Door hardware and interior levers get cheaper, not dearer, because they stop chasing the finish.</div>
+      <div class="rec rec--mix"><span>The mix, stated out loud</span>Champagne bronze is the dominant finish and it carries every wet-wall fixture and all the lighting. Satin nickel is the accent and it carries door hardware only. That is one dominant metal, one accent, each repeated many times, grouped by function. It is the arrangement the 2026 design consensus calls intentional. What would read unfinished is a champagne bronze faucet beside chrome shower trim in the same bathroom, so every fixture on a wet wall stays champagne bronze without exception.</div>
     </div>
   </section>
 
   <section class="block block--spine" id="cat-metal">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">01</span>
+        <span class="cat__n cat__n--locked">SET</span>
         <div>
-          <div class="eyebrow">Every other vote hangs off this one</div>
+          <div class="eyebrow">Decided. Not on the ballot.</div>
           <h2 class="section__title">The metal</h2>
         </div>
       </div>
-      <p class="section__lede">One metal, repeated everywhere, is what separates a finished house from a house that got finished in pieces. The quartz has gold in the veining. The floors are red oak. The tile is greige. Three warm votes already on the board. But satin nickel is what is hanging on the doors today, and nickel is never wrong.</p>
+      <p class="section__lede">Champagne bronze runs the house. The quartz has gold in the veining, the floors are red oak, the tile is greige, and the research has champagne bronze reading the most current of the four to a buyer walking through in 2026. The house sells this year, so it gets optimized for the showing rather than for 2030. The other three stay below for comparison only.</p>
       <div class="cat__meta"><a class="meta__link" href="https://www.lowes.com/search?searchTerm=cabinet+hardware+finish" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
       
       <div class="opts">
@@ -444,13 +506,13 @@
           
         </div>
       </article></div>
-      <p class="cat__ask"><span>The question on the poll</span> Which metal runs the whole house?</p>
+      <p class="cat__ask"><span>The question on the poll</span> Champagne bronze. Locked.</p>
     </div>
   </section>
   <section class="block" id="cat-foyer">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">02</span>
+        <span class="cat__n">01</span>
         <div>
           <div class="eyebrow">The first thing they look up at</div>
           <h2 class="section__title">Foyer light</h2>
@@ -593,7 +655,7 @@
   <section class="block" id="cat-chandelier">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">03</span>
+        <span class="cat__n">02</span>
         <div>
           <div class="eyebrow">The one fixture that gets photographed</div>
           <h2 class="section__title">Dining chandelier</h2>
@@ -754,7 +816,7 @@
   <section class="block" id="cat-frontdoor">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">04</span>
+        <span class="cat__n">03</span>
         <div>
           <div class="eyebrow">The first thing they touch</div>
           <h2 class="section__title">Front door hardware</h2>
@@ -880,7 +942,7 @@
   <section class="block" id="cat-levers">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">05</span>
+        <span class="cat__n">04</span>
         <div>
           <div class="eyebrow">The volume decision</div>
           <h2 class="section__title">Interior door hardware</h2>
@@ -1020,7 +1082,7 @@
   <section class="block" id="cat-faucet">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">06</span>
+        <span class="cat__n">05</span>
         <div>
           <div class="eyebrow">Three holes, four ways to fill them</div>
           <h2 class="section__title">Vanity faucets</h2>
@@ -1168,7 +1230,7 @@
   <section class="block" id="cat-shower">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">07</span>
+        <span class="cat__n">06</span>
         <div>
           <div class="eyebrow">Gated on the valve</div>
           <h2 class="section__title">Shower fixtures</h2>
@@ -1269,7 +1331,7 @@
   <section class="block" id="cat-switches">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">08</span>
+        <span class="cat__n">07</span>
         <div>
           <div class="eyebrow">Nobody notices until they do</div>
           <h2 class="section__title">Switches and plates</h2>
@@ -1389,7 +1451,7 @@
   <section class="block" id="cat-fans">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">09</span>
+        <span class="cat__n">08</span>
         <div>
           <div class="eyebrow">The dated thing in every bedroom photo</div>
           <h2 class="section__title">Ceiling fans</h2>
@@ -1757,9 +1819,9 @@
 <section class="block" id="close">
   <div class="container">
     <div class="frame">
-      <div class="eyebrow">One housekeeping note</div>
-      <p>Two earlier pages for this house already call <em>champagne bronze</em> a settled decision. They are on hold until this vote closes.</p>
-      <p>The finish picks page and the final pieces page were built before the metal became a public question. Nothing goes to Wes from either one until the poll lands, and then all three pages get squared up so the house tells one story.</p>
+      <div class="eyebrow">Housekeeping</div>
+      <p>The two pages on hold can come off hold</p>
+      <p>The finish picks page and the final pieces page both assumed champagne bronze before it was a public question. That assumption is now the decision, so both are consistent with the house again. One thing to check before either goes to Wes. The final pieces page names a Delta Chamberlain champagne bronze faucet, and Chamberlain did not surface in the champagne bronze bath line at Lowe's on 15 August. The real champagne bronze options are Sparrow, Knoxville, Eldren, Trinsic, Linden, and Vero. Confirm the model name or swap it before that page is sent.</p>
     </div>
   </div>
 </section>
