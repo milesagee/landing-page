@@ -157,6 +157,29 @@
   .sku__link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 
+
+  /* ---- zone map ---- */
+  .block--zone { background: linear-gradient(180deg, rgba(0,95,95,0.07), rgba(0,95,95,0)); }
+  .zones { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 20px; }
+  .zone { background: var(--ivory); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
+  .zone--wet { border-color: rgba(0,95,95,0.45); box-shadow: 0 2px 14px rgba(0,95,95,0.14); }
+  .zone__swatch { height: 64px; box-shadow: inset 0 -1px 0 rgba(0,0,0,0.12); }
+  .zone__body { padding: 16px 18px 18px; }
+  .zone__label { font-family: var(--serif); font-size: 20px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 4px; }
+  .zone__metal { font-size: 10.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 9px; }
+  .zone__open { font-size: 9px; letter-spacing: 0.12em; color: #005F5F; background: rgba(0,95,95,0.13); padding: 3px 8px; border-radius: 100px; }
+  .zone__set { font-size: 9px; letter-spacing: 0.12em; color: #14532d; background: rgba(20,83,45,0.11); padding: 3px 8px; border-radius: 100px; }
+  .zone__rooms { font-size: 13px; line-height: 1.5; opacity: 0.78; margin-bottom: 7px; }
+  .zone__line { font-size: 12.5px; font-weight: 700; color: var(--teal); }
+  .rule { background: var(--deep-teal); color: var(--paper); border-radius: 8px; padding: 22px 26px; font-family: var(--serif); font-size: clamp(19px, 3.4vw, 26px); font-weight: 300; line-height: 1.3; letter-spacing: -0.02em; text-align: center; margin-bottom: 22px; box-shadow: var(--shadow-md); }
+  .zbadge { display: inline-block; margin-left: 9px; font-size: 8.5px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; padding: 3px 8px; border-radius: 100px; vertical-align: middle; }
+  .zbadge--wet { color: #005F5F; background: rgba(0,95,95,0.14); }
+  .zbadge--dry { color: #7d6413; background: rgba(212,175,55,0.20); }
+  .zbadge--special { color: #7c2d12; background: rgba(154,52,18,0.11); }
+  .zbadge--neutral { color: var(--deep-teal); background: rgba(0,63,63,0.08); }
+  .scopeline { font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; color: var(--teal); background: var(--paper-soft); border-left: 3px solid var(--teal); border-radius: 0 5px 5px 0; padding: 10px 14px; margin-bottom: 22px; }
+  .mchip__label em { display: block; font-style: normal; font-weight: 700; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dark); margin-top: 1px; }
+
   /* ---- champagne bronze execution ---- */
   .block--cb { background: linear-gradient(180deg, rgba(198,166,103,0.13), rgba(198,166,103,0)); }
   .cb__head { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #14532d; margin: 26px 0 12px; padding-bottom: 7px; border-bottom: 1px solid rgba(20,83,45,0.25); }
@@ -231,6 +254,7 @@
     .assets { grid-template-columns: repeat(2, 1fr); }
     .bets { grid-template-columns: 1fr; }
     .cbs { grid-template-columns: 1fr; }
+    .zones { grid-template-columns: 1fr; }
   }
   @media (max-width: 520px) {
     .container { padding: 0 18px; }
@@ -298,30 +322,22 @@
     <div class="hero__eyebrow">Finish vote, open now</div>
     <div class="hero__addr">3901 Cedar Grove Rd, Huguenot, Richmond 23235</div>
     <h1 class="hero__title">Nine decisions left.<br/><em>You pick them.</em></h1>
-    <p class="hero__sub">Paint is on the walls, the floors are refinished, the tile is set. What is left is the jewelry, and jewelry is where a house either reads finished or reads almost. Every option below is going on Instagram. Whatever wins gets bought.</p>
+    <p class="hero__sub">Paint is on the walls, the floors are refinished, the tile is set. What is left is the jewelry, and jewelry is where a house either reads finished or reads almost. Champagne bronze runs the house. The two bathrooms are the one thing still open, and that is question 01.</p>
   </div>
 </header>
 
 
   <div class="metalbar" id="metalbar">
     <div class="container metalbar__inner">
-      <span class="metalbar__lead">Locked: champagne bronze<em>compare only</em></span>
+      <span class="metalbar__lead">Previewing</span>
       <div class="metalbar__chips">
-      <button class="mchip is-on" data-metal="champagne" aria-pressed="true">
-        <span class="mchip__dot" style="background:linear-gradient(145deg,#EBDCB4,#C6A667 46%,#9C7C3C)"></span>
-        <span class="mchip__label">Champagne bronze</span>
-      </button>
-      <button class="mchip" data-metal="nickel" aria-pressed="false">
+      <button class="mchip is-on" data-zone="wet" data-metal="nickel" aria-pressed="true">
         <span class="mchip__dot" style="background:linear-gradient(145deg,#E8EBEC,#B9C0C4 46%,#8A9298)"></span>
-        <span class="mchip__label">Satin nickel</span>
+        <span class="mchip__label">The two bathrooms<em>Satin nickel</em></span>
       </button>
-      <button class="mchip" data-metal="black" aria-pressed="false">
-        <span class="mchip__dot" style="background:linear-gradient(145deg,#5A5A5C,#2E2E30 46%,#161617)"></span>
-        <span class="mchip__label">Matte black</span>
-      </button>
-      <button class="mchip" data-metal="brass" aria-pressed="false">
-        <span class="mchip__dot" style="background:linear-gradient(145deg,#E6CE8E,#B8963F 46%,#8A6E24)"></span>
-        <span class="mchip__label">Aged brass</span>
+      <button class="mchip" data-zone="dry" data-metal="champagne" aria-pressed="false">
+        <span class="mchip__dot" style="background:linear-gradient(145deg,#EBDCB4,#C6A667 46%,#9C7C3C)"></span>
+        <span class="mchip__label">Everywhere else<em>Champagne bronze</em></span>
       </button></div>
     </div>
   </div>
@@ -389,11 +405,91 @@
     </div>
   </section>
 
+  <section class="block block--zone" id="zones">
+    <div class="container">
+      <div class="eyebrow">The metal map</div>
+      <h2 class="section__title">Two zones, <em>one still open</em></h2>
+      <p class="section__lede">Champagne bronze runs the house. The two bathrooms being renovated are the exception, and one question decides them. Tap a zone in the bar above to preview every fixture on this page in that zone's metal.</p>
+      <div class="zones">
+      <div class="zone zone--wet">
+        <div class="zone__swatch" style="background:linear-gradient(145deg,#E8EBEC,#B9C0C4 46%,#8A9298)"></div>
+        <div class="zone__body">
+          <div class="zone__label">The two bathrooms</div>
+          <div class="zone__metal">Satin nickel<span class="zone__open">still open</span></div>
+          <p class="zone__rooms">Primary bath with the pebble shower and double vanity, plus the hall bath. Both get the same quartz top, so they move together.</p>
+          <p class="zone__line">Still open. This is question 01.</p>
+        </div>
+      </div>
+      <div class="zone zone--dry">
+        <div class="zone__swatch" style="background:linear-gradient(145deg,#EBDCB4,#C6A667 46%,#9C7C3C)"></div>
+        <div class="zone__body">
+          <div class="zone__label">Everywhere else</div>
+          <div class="zone__metal">Champagne bronze<span class="zone__set">settled</span></div>
+          <p class="zone__rooms">Foyer, dining, kitchen, bedrooms, interior doors, switches, fans.</p>
+          <p class="zone__line">Champagne bronze. Settled.</p>
+        </div>
+      </div></div>
+      <div class="rule">Everything you touch is nickel. Everything you look at is champagne bronze.</div>
+      <div class="states">
+      <div class="state">
+        <div class="state__k">Why the bathrooms are the exception</div>
+        <div class="state__v">The quartz on both vanities is warm, white Calacatta with gold and taupe veining. The pebble floor, the accent band, the gray vanity, and the gray plank are cool. The faucet sits on the warm surface and the shower trim sits on the cool one. Run a warm faucet beside cool trim in one bathroom and you have built the one mix that reads unfinished at a showing.</div>
+      </div>
+      <div class="state">
+        <div class="state__k">Why nickel should win it</div>
+        <div class="state__v">The tile and pebble are permanent and cover far more surface than a countertop. White quartz with light veining takes a cool metal easily. A pebble floor does not take a warm one. The showerhead and vanity light in there are already nickel, so it is also the cheapest answer by a wide margin.</div>
+      </div>
+      <div class="state">
+        <div class="state__k">The front door is deliberately its own thing</div>
+        <div class="state__v">Schlage makes no champagne bronze in any line, so the handleset cannot follow the dry zone even if it wanted to. It stays a real question and it stays the one place the accent metal gets to show off.</div>
+      </div>
+      <div class="state">
+        <div class="state__k">The lower bathroom is not in scope</div>
+        <div class="state__v">Three bathrooms in the house, two being renovated. The lower bath stays exactly as it is. Worth knowing because a buyer will open that door, and because its tone reportedly runs cool like the pebble bath, which is a third point in favor of nickel upstairs.</div>
+      </div>
+      <div class="state">
+        <div class="state__k">Bath vanity pulls follow the plumbing</div>
+        <div class="state__v">Not a separate vote, just a consequence. Whatever metal the bathrooms land on, the vanity pulls match it. That answers the black bar pulls currently on one of the tops. Kitchen pulls stay champagne bronze on the Amerock BP40517CZ that is already verified.</div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="block" id="nickel">
+    <div class="container">
+      <div class="eyebrow">If the bathrooms go nickel</div>
+      <h2 class="section__title">What nickel costs in those two rooms</h2>
+      <div class="cbs">
+      <div class="cb cb--yes">
+        <div class="cb__cat">Shower trim</div>
+        <div class="cb__what">Shower-only trim in brushed nickel, any brand, in band</div>
+        <p class="cb__note">Buy the shower-only version, not the tub and shower version. The existing head is already nickel and stays, so the match is free.</p>
+      </div>
+      <div class="cb cb--yes">
+        <div class="cb__cat">Vanity faucets</div>
+        <div class="cb__what">allen + roth Harlow SimpleFit in brushed nickel PVD, $109 to $129</div>
+        <p class="cb__note">Same family in single-hole and widespread, so the hole measurement picks the body and the finish stays constant across both baths.</p>
+      </div>
+      <div class="cb cb--yes">
+        <div class="cb__cat">Vanity light</div>
+        <div class="cb__what">Already satin nickel</div>
+        <p class="cb__note">The two-light bell-shade fixture reads dated and is worth replacing on looks alone, but the finish is right.</p>
+      </div>
+      <div class="cb cb--yes">
+        <div class="cb__cat">Vanity pulls</div>
+        <div class="cb__what">Brushed nickel, replacing the black bar pulls</div>
+        <p class="cb__note">Cheapest line on the list and the one that makes both bathrooms read as one deliberate pair.</p>
+      </div></div>
+      <div class="rec"><span>What it saves</span>Against the champagne bronze version of the same two rooms this saves roughly $180 to $260 in trim and about $140 in faucets, and it removes the valve-brand dependency completely.</div>
+      <div class="rec rec--mix"><span>Settle it at the shelf for about ten dollars</span>Phone photos misread undertone, especially under warm vanity bulbs. Do not decide this from a screen. Buy one Amerock BP40517CZ champagne bronze pull and one brushed nickel pull, take both to the house, and hold them against the pebble in daylight. Keep the winner, return the loser. That ends the question permanently and it costs less than lunch.</div>
+    </div>
+  </section>
+
   <section class="block block--cb" id="champagne">
     <div class="container">
       <div class="eyebrow">The metal is decided</div>
       <h2 class="section__title">Champagne bronze is a brand name, not a color</h2>
       <p class="section__lede">Delta, Amerock, and Kichler each own a champagne bronze finish. Where those brands play, it is on the shelf today. Where they do not, no amount of budget produces it, and the answer is a named substitute rather than a near miss nobody admits to.</p>
+      <div class="scopeline">Applies to the dry zone. The two bathrooms are a separate question.</div>
 
       <div class="cb__head">Buyable in real champagne bronze</div>
       <div class="cbs">
@@ -403,14 +499,14 @@
         <p class="cb__note">Verified live at Lowe's. This is the exact pull the original finishes page chose, so that call now holds up.</p>
       </div>
       <div class="cb cb--yes">
-        <div class="cb__cat">Vanity faucets</div>
+        <div class="cb__cat">Vanity faucets, only if the baths go warm</div>
         <div class="cb__what">Delta in Brilliance Champagne Bronze: Sparrow, Knoxville, or Eldren widespread; Trinsic or Linden centerset; Trinsic comes with a deck plate</div>
-        <p class="cb__note">Confirmed available. Delta widths differ, Sparrow fits 4 to 16 in, Knoxville and Eldren want 6 to 16 in, so the hole measurement decides which one.</p>
+        <p class="cb__note">Confirmed available, and nearer $200 than $130. Delta widths differ, Sparrow fits 4 to 16 in, Knoxville and Eldren want 6 to 16 in, so the hole measurement decides which one.</p>
       </div>
       <div class="cb cb--yes">
-        <div class="cb__cat">Shower trim</div>
-        <div class="cb__what">Delta champagne bronze trim, if the valve in the wall is a Delta MultiChoice</div>
-        <p class="cb__note">This is now the strongest reason to go find that valve. A Delta valve makes the shower easy. Anything else makes it a compromise.</p>
+        <div class="cb__cat">Shower trim, only if the baths go warm</div>
+        <div class="cb__what">Delta champagne bronze trim, and only if the valve in the wall is a Delta MultiChoice</div>
+        <p class="cb__note">Two conditions stacked on one unknown. This is the line item that argues loudest for nickel in the bathrooms.</p>
       </div>
       <div class="cb cb--yes">
         <div class="cb__cat">Foyer and dining lighting</div>
@@ -437,46 +533,46 @@
       </div></div>
 
       <div class="rec"><span>What this decision costs</span>Delta champagne bronze bath faucets and Kichler champagne bronze fixtures both sit above the bands originally set, which is exactly the ceiling raise the research recommended. Expect faucets nearer $200 than $130, and foyer or dining lighting nearer $200 than $120. Cabinet hardware is unaffected. Door hardware and interior levers get cheaper, not dearer, because they stop chasing the finish.</div>
-      <div class="rec rec--mix"><span>The mix, stated out loud</span>Champagne bronze is the dominant finish and it carries every wet-wall fixture and all the lighting. Satin nickel is the accent and it carries door hardware only. That is one dominant metal, one accent, each repeated many times, grouped by function. It is the arrangement the 2026 design consensus calls intentional. What would read unfinished is a champagne bronze faucet beside chrome shower trim in the same bathroom, so every fixture on a wet wall stays champagne bronze without exception.</div>
+      <div class="rec rec--mix"><span>The mix, stated out loud</span>Champagne bronze carries the lighting, the kitchen hardware, and everything a buyer looks at. Satin nickel carries the door hardware and, if the zone vote lands where it should, both renovated bathrooms. One dominant metal, one accent, each repeated many times, split by zone rather than scattered by accident. The 2026 consensus reads that as intentional. The version that reads unfinished is a warm faucet next to cool shower trim inside one bathroom, which is exactly what the zone rule prevents.</div>
     </div>
   </section>
 
   <section class="block block--spine" id="cat-metal">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n cat__n--locked">SET</span>
+        <span class="cat__n">01</span>
         <div>
-          <div class="eyebrow">Decided. Not on the ballot.</div>
-          <h2 class="section__title">The metal</h2>
+          <div class="eyebrow">The one still open<span class="zbadge zbadge--wet">Bathrooms</span></div>
+          <h2 class="section__title">The two bathrooms</h2>
         </div>
       </div>
-      <p class="section__lede">Champagne bronze runs the house. The quartz has gold in the veining, the floors are red oak, the tile is greige, and the research has champagne bronze reading the most current of the four to a buyer walking through in 2026. The house sells this year, so it gets optimized for the showing rather than for 2030. The other three stay below for comparison only.</p>
-      <div class="cat__meta"><a class="meta__link" href="https://www.lowes.com/search?searchTerm=cabinet+hardware+finish" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
+      <p class="section__lede">Champagne bronze runs the house. That part is settled. The two bathrooms being renovated are the exception, and they are the exception for a specific reason. The quartz on both vanities is warm, white Calacatta with gold and taupe veining. The pebble shower floor, the accent band, the gray vanity, and the gray wood-look plank are all cool. A faucet sits on the warm thing. The shower trim sits on the cool thing. Put a warm faucet in there next to cool shower trim and you have built the one mix that reads unfinished at a showing, so the room has to pick a side.</p>
+      <div class="cat__meta"><a class="meta__link" href="https://www.lowes.com/search?searchTerm=bathroom+faucet+brushed+nickel" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
       
       <div class="opts">
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
     <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <circle cx="100" cy="75" r="46" fill="url(#cg-m-champagne)" stroke="rgba(0,0,0,0.10)"/>
+    <circle cx="100" cy="75" r="46" fill="url(#cg-m-nickel)" stroke="rgba(0,0,0,0.10)"/>
     <ellipse cx="86" cy="58" rx="17" ry="11" fill="rgba(255,255,255,0.38)" transform="rotate(-24 86 58)"/>
     <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__num">1</span></div>
         <div class="opt__body">
-          <h4 class="opt__label">Champagne bronze</h4>
-          <p class="opt__sub">Warm, soft, slightly pink gold</p>
-          <p class="opt__why">Reads the most expensive against warm quartz. Delta and Amerock both carry deep lines, so matching across plumbing and hardware is easy.</p>
+          <h4 class="opt__label">Satin nickel</h4>
+          <p class="opt__sub">Side with the pebble</p>
+          <p class="opt__why">The tile and pebble are permanent and cover far more surface than the countertop. White quartz with light veining takes a cool metal easily. A pebble floor does not take a warm one. The showerhead and vanity light in there are already nickel, so this costs the least and removes the valve problem entirely.</p>
           
         </div>
       </article>
       <article class="opt">
         <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
     <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <circle cx="100" cy="75" r="46" fill="url(#cg-m-nickel)" stroke="rgba(0,0,0,0.10)"/>
+    <circle cx="100" cy="75" r="46" fill="url(#cg-m-champagne)" stroke="rgba(0,0,0,0.10)"/>
     <ellipse cx="86" cy="58" rx="17" ry="11" fill="rgba(255,255,255,0.38)" transform="rotate(-24 86 58)"/>
     <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__num">2</span></div>
         <div class="opt__body">
-          <h4 class="opt__label">Satin nickel</h4>
-          <p class="opt__sub">Cool, neutral, already installed</p>
-          <p class="opt__why">Zero swap cost on the levers, vanity light, and showerhead. Never offends anyone. Also never excites anyone.</p>
+          <h4 class="opt__label">Champagne bronze</h4>
+          <p class="opt__sub">Side with the quartz</p>
+          <p class="opt__why">Matches the gold in the veining and keeps one metal through the whole house. Costs the most: new trim, a new showerhead, and it only works at all if the valve in the wall turns out to be a Delta.</p>
           
         </div>
       </article>
@@ -488,8 +584,8 @@
     <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Matte black</h4>
-          <p class="opt__sub">High contrast, graphic</p>
-          <p class="opt__why">Picks up the black front door and reads current. Highest contrast against white quartz, which cuts both ways.</p>
+          <p class="opt__sub">Side with neither</p>
+          <p class="opt__why">Reads current against both the white quartz and the greige tile and does not have to agree with either undertone. Also the loudest thing in a small room.</p>
           
         </div>
       </article>
@@ -501,20 +597,20 @@
     <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Aged brass</h4>
-          <p class="opt__sub">Warmest, most editorial</p>
-          <p class="opt__why">The strongest match to the gold veining and the only option with real personality. Also the one that dates fastest if it goes shiny.</p>
+          <p class="opt__sub">Warmest</p>
+          <p class="opt__why">Warmer than champagne bronze and further from the pebble. On the board for completeness, not because it solves the conflict.</p>
           
         </div>
       </article></div>
-      <p class="cat__ask"><span>The question on the poll</span> Champagne bronze. Locked.</p>
+      <p class="cat__ask"><span>The question on the poll</span> What metal runs the two bathrooms?</p>
     </div>
   </section>
   <section class="block" id="cat-foyer">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">01</span>
+        <span class="cat__n">02</span>
         <div>
-          <div class="eyebrow">The first thing they look up at</div>
+          <div class="eyebrow">The first thing they look up at<span class="zbadge zbadge--dry">Champagne bronze</span></div>
           <h2 class="section__title">Foyer light</h2>
         </div>
       </div>
@@ -655,9 +751,9 @@
   <section class="block" id="cat-chandelier">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">02</span>
+        <span class="cat__n">03</span>
         <div>
-          <div class="eyebrow">The one fixture that gets photographed</div>
+          <div class="eyebrow">The one fixture that gets photographed<span class="zbadge zbadge--dry">Champagne bronze</span></div>
           <h2 class="section__title">Dining chandelier</h2>
         </div>
       </div>
@@ -816,9 +912,9 @@
   <section class="block" id="cat-frontdoor">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">03</span>
+        <span class="cat__n">04</span>
         <div>
-          <div class="eyebrow">The first thing they touch</div>
+          <div class="eyebrow">The first thing they touch<span class="zbadge zbadge--special">Accent metal</span></div>
           <h2 class="section__title">Front door hardware</h2>
         </div>
       </div>
@@ -942,9 +1038,9 @@
   <section class="block" id="cat-levers">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">04</span>
+        <span class="cat__n">05</span>
         <div>
-          <div class="eyebrow">The volume decision</div>
+          <div class="eyebrow">The volume decision<span class="zbadge zbadge--dry">Champagne bronze</span></div>
           <h2 class="section__title">Interior door hardware</h2>
         </div>
       </div>
@@ -1082,9 +1178,9 @@
   <section class="block" id="cat-faucet">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">05</span>
+        <span class="cat__n">06</span>
         <div>
-          <div class="eyebrow">Three holes, four ways to fill them</div>
+          <div class="eyebrow">Three holes, four ways to fill them<span class="zbadge zbadge--wet">Bathrooms</span></div>
           <h2 class="section__title">Vanity faucets</h2>
         </div>
       </div>
@@ -1144,7 +1240,7 @@
         <div class="opt__body">
           <h4 class="opt__label">Widespread, cross handles</h4>
           <p class="opt__sub">Classic, a little dressy</p>
-          <p class="opt__why">Cross handles in a warm metal against Calacatta quartz is a hotel bathroom for under $130.</p>
+          <p class="opt__why">Cross handles against Calacatta quartz is a hotel bathroom for under $130, and they read dressier than levers in either metal.</p>
           
         <div class="sku">
           <div class="sku__row">
@@ -1230,9 +1326,9 @@
   <section class="block" id="cat-shower">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">06</span>
+        <span class="cat__n">07</span>
         <div>
-          <div class="eyebrow">Gated on the valve</div>
+          <div class="eyebrow">Gated on the valve<span class="zbadge zbadge--wet">Bathrooms</span></div>
           <h2 class="section__title">Shower fixtures</h2>
         </div>
       </div>
@@ -1240,11 +1336,11 @@
       <div class="cat__meta"><span class="meta__pill">$120 to $180 each</span><span class="meta__pill meta__pill--gate">Hold this poll</span><a class="meta__link" href="https://www.lowes.com/search?searchTerm=shower+faucet+trim+kit" target="_blank" rel="noopener noreferrer">Browse at Lowe's</a></div>
       
       <div class="warn">
-        <div class="warn__head">This category is not ready to vote on</div>
-        <p>The research came back 2 of 16. Pfister and Kohler were never researched at all, and only one of four Moen archetypes was reached. Worse, the single Delta trim that did get verified is the wrong product for this bathroom.</p>
-        <p class="warn__fix"><span>The correction</span>PC returned Delta Ashlyn T14464, which is the TUB and shower trim and includes a tub spout. The photos show a walk-in shower with a pebble floor and no tub. The shower-only equivalent is T14264. Buying the T14464 puts a tub spout on a wall with no tub.</p>
-        <p>The deeper finding is that at $120 to $180, credible brand trim is chrome only. Delta Ashlyn in matte black, nickel, or gold runs $240 to $260. So this category needs the band raised to about $220 or it gets decided by what is cheap rather than by the vote.</p>
-        <p class="warn__do"><span>Do this</span>Find the brand stamped on the valve in the wall, then re-run this one category with the band at $220. Hold the shower poll until then.</p>
+        <div class="warn__head">Nickel makes this category easy. Champagne bronze makes it hard.</div>
+        <p>The research came back 2 of 16 here. Pfister and Kohler were never researched, only one of four Moen archetypes was reached, and the single Delta trim that did get verified is the wrong product for this bathroom.</p>
+        <p class="warn__fix"><span>The correction</span>The verified pick was Delta Ashlyn T14464, which is the TUB and shower trim and includes a tub spout. The primary is a walk-in shower with a pebble floor and no tub. Shower-only is T14264. Buying the T14464 puts a tub spout on a wall with no tub.</p>
+        <p>The deeper problem only exists on one side of the zone vote. At $120 to $180, credible brand trim in champagne bronze does not exist, Delta Ashlyn in a warm finish runs $240 to $260, and it only fits at all if the valve in the wall happens to be a Delta. In satin nickel, trim is available from every brand at every price and the showerhead already in there stays. This category is the single strongest practical argument for putting the two bathrooms on nickel.</p>
+        <p class="warn__do"><span>Do this</span>If the zone vote lands nickel, buy shower-only trim in brushed nickel to match the existing head and move on. If it lands champagne bronze, stop and go find the brand stamped on the valve first, then budget $240 to $260 per bath.</p>
       </div>
       <div class="opts">
       <article class="opt">
@@ -1331,9 +1427,9 @@
   <section class="block" id="cat-switches">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">07</span>
+        <span class="cat__n">08</span>
         <div>
-          <div class="eyebrow">Nobody notices until they do</div>
+          <div class="eyebrow">Nobody notices until they do<span class="zbadge zbadge--neutral">No metal</span></div>
           <h2 class="section__title">Switches and plates</h2>
         </div>
       </div>
@@ -1451,9 +1547,9 @@
   <section class="block" id="cat-fans">
     <div class="container">
       <div class="cat__head">
-        <span class="cat__n">08</span>
+        <span class="cat__n">09</span>
         <div>
-          <div class="eyebrow">The dated thing in every bedroom photo</div>
+          <div class="eyebrow">The dated thing in every bedroom photo<span class="zbadge zbadge--dry">Champagne bronze</span></div>
           <h2 class="section__title">Ceiling fans</h2>
         </div>
       </div>
@@ -1702,7 +1798,7 @@
         </a>
         <div class="asset__meta">
           <span class="asset__n">01</span>
-          <span class="asset__title">The metal</span>
+          <span class="asset__title">The two bathrooms</span>
           <span class="asset__links">
             <a href="vote-cedar-grove-cards/story-01-metal.png" target="_blank" rel="noopener">Story</a>
             <a href="vote-cedar-grove-cards/reel-01-metal.png" target="_blank" rel="noopener">Reel</a>
@@ -1834,27 +1930,32 @@
   var root = document.documentElement;
   var chips = Array.prototype.slice.call(document.querySelectorAll('.mchip'));
 
-  function setMetal(key) {
-    var m = METALS[key];
+  /* one shared SVG gradient reads these three properties, so switching a zone
+     recolors every metal-aware illustration on the page at once */
+  function setZone(zone) {
+    var chip = chips.filter(function (c) { return c.getAttribute('data-zone') === zone; })[0];
+    if (!chip) return;
+    var m = METALS[chip.getAttribute('data-metal')];
     if (!m) return;
     root.style.setProperty('--m-a', m.a);
     root.style.setProperty('--m-b', m.b);
     root.style.setProperty('--m-c', m.c);
+    root.setAttribute('data-zone', zone);
     chips.forEach(function (c) {
-      var on = c.getAttribute('data-metal') === key;
+      var on = c.getAttribute('data-zone') === zone;
       c.classList.toggle('is-on', on);
       c.setAttribute('aria-pressed', String(on));
     });
-    try { localStorage.setItem('cg-metal', key); } catch (e) {}
+    try { localStorage.setItem('cg-zone', zone); } catch (e) {}
   }
 
   chips.forEach(function (c) {
-    c.addEventListener('click', function () { setMetal(c.getAttribute('data-metal')); });
+    c.addEventListener('click', function () { setZone(c.getAttribute('data-zone')); });
   });
 
   var saved;
-  try { saved = localStorage.getItem('cg-metal'); } catch (e) {}
-  if (saved && METALS[saved]) setMetal(saved);
+  try { saved = localStorage.getItem('cg-zone'); } catch (e) {}
+  setZone(saved === 'dry' || saved === 'wet' ? saved : 'wet');
 })();
 </script>
 </body>
