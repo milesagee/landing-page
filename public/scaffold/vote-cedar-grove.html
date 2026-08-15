@@ -88,6 +88,8 @@
   .opt:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
   .opt__art { position: relative; aspect-ratio: 4 / 3; border-bottom: 1px solid var(--line); overflow: hidden; background: var(--paper-soft); }
   .opt__art .art { display: block; width: 100%; height: 100%; }
+  .opt__art .art--photo { object-fit: cover; background: #fff; }
+  .opt__sketch { position: absolute; bottom: 8px; right: 8px; font-size: 8.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--deep-teal); background: rgba(250,247,241,0.88); padding: 3px 8px; border-radius: 100px; opacity: 0.75; }
   .opt__num { position: absolute; top: 9px; left: 9px; width: 23px; height: 23px; border-radius: 50%; background: var(--deep-teal); color: var(--paper); font-size: 11.5px; font-weight: 800; display: grid; place-items: center; box-shadow: 0 2px 7px rgba(0,0,0,0.24); }
   .opt__body { padding: 14px 15px 16px; display: flex; flex-direction: column; gap: 5px; }
   .opt__label { font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.16; letter-spacing: -0.015em; }
@@ -562,7 +564,7 @@
     <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
     <circle cx="100" cy="75" r="46" fill="url(#cg-m-nickel)" stroke="rgba(0,0,0,0.10)"/>
     <ellipse cx="86" cy="58" rx="17" ry="11" fill="rgba(255,255,255,0.38)" transform="rotate(-24 86 58)"/>
-    <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__num">1</span></div>
+    <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">1</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Satin nickel</h4>
           <p class="opt__sub">Side with the pebble</p>
@@ -575,7 +577,7 @@
     <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
     <circle cx="100" cy="75" r="46" fill="url(#cg-m-champagne)" stroke="rgba(0,0,0,0.10)"/>
     <ellipse cx="86" cy="58" rx="17" ry="11" fill="rgba(255,255,255,0.38)" transform="rotate(-24 86 58)"/>
-    <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__num">2</span></div>
+    <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">2</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Champagne bronze</h4>
           <p class="opt__sub">Side with the quartz</p>
@@ -588,7 +590,7 @@
     <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
     <circle cx="100" cy="75" r="46" fill="url(#cg-m-black)" stroke="rgba(0,0,0,0.10)"/>
     <ellipse cx="86" cy="58" rx="17" ry="11" fill="rgba(255,255,255,0.38)" transform="rotate(-24 86 58)"/>
-    <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__num">3</span></div>
+    <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Matte black</h4>
           <p class="opt__sub">Side with neither</p>
@@ -601,7 +603,7 @@
     <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
     <circle cx="100" cy="75" r="46" fill="url(#cg-m-brass)" stroke="rgba(0,0,0,0.10)"/>
     <ellipse cx="86" cy="58" rx="17" ry="11" fill="rgba(255,255,255,0.38)" transform="rotate(-24 86 58)"/>
-    <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__num">4</span></div>
+    <circle cx="100" cy="75" r="46" fill="none" stroke="rgba(0,0,0,0.14)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Aged brass</h4>
           <p class="opt__sub">Warmest</p>
@@ -627,17 +629,7 @@
       
       <div class="opts">
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="26" rx="26" ry="6" fill="url(#cg-m-dyn)"/>
-    <rect x="97" y="26" width="6" height="20" fill="url(#cg-m-dyn)" opacity="0.9"/>
-    <path d="M70 52 L130 52 L124 108 L76 108 Z" fill="rgba(255,252,244,0.72)" stroke="url(#cg-m-dyn)" stroke-width="3.5"/>
-    <path d="M70 52 L130 52" stroke="url(#cg-m-dyn)" stroke-width="5" stroke-linecap="round"/>
-    <path d="M76 108 L124 108" stroke="url(#cg-m-dyn)" stroke-width="5" stroke-linecap="round"/>
-    <path d="M85 52 L82 108 M100 52 L100 108 M115 52 L118 108" stroke="url(#cg-m-dyn)" stroke-width="1.6" opacity="0.7"/>
-    <circle cx="82" cy="64" r="1.4" fill="rgba(255,255,255,0.72)"/><circle cx="96" cy="58" r="1.9" fill="rgba(255,255,255,0.72)"/><circle cx="112" cy="70" r="2.4" fill="rgba(255,255,255,0.72)"/><circle cx="88" cy="82" r="1.4" fill="rgba(255,255,255,0.72)"/><circle cx="104" cy="90" r="1.9" fill="rgba(255,255,255,0.72)"/><circle cx="118" cy="84" r="2.4" fill="rgba(255,255,255,0.72)"/><circle cx="78" cy="96" r="1.4" fill="rgba(255,255,255,0.72)"/><circle cx="100" cy="74" r="1.9" fill="rgba(255,255,255,0.72)"/><circle cx="92" cy="100" r="2.4" fill="rgba(255,255,255,0.72)"/><circle cx="114" cy="98" r="1.4" fill="rgba(255,255,255,0.72)"/><circle cx="84" cy="72" r="1.9" fill="rgba(255,255,255,0.72)"/><circle cx="108" cy="62" r="2.4" fill="rgba(255,255,255,0.72)"/>
-    <circle cx="100" cy="118" r="4" fill="url(#cg-m-dyn)"/></svg><span class="opt__num">1</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/foyer-1.jpg" alt="" loading="lazy"/><span class="opt__num">1</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Seeded glass lantern</h4>
           <p class="opt__sub">Transitional, a little Richmond</p>
@@ -660,14 +652,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="26" rx="26" ry="6" fill="url(#cg-m-dyn)"/>
-    <rect x="97" y="26" width="6" height="20" fill="url(#cg-m-dyn)" opacity="0.9"/>
-    <path d="M62 58 L138 58 L134 104 L66 104 Z" fill="rgba(255,252,244,0.72)" stroke="url(#cg-m-dyn)" stroke-width="3"/>
-    <ellipse cx="100" cy="58" rx="38" ry="7" fill="url(#cg-m-dyn)" opacity="0.9"/>
-    <ellipse cx="100" cy="104" rx="34" ry="7" fill="rgba(255,252,244,0.92)" stroke="url(#cg-m-dyn)" stroke-width="2.5"/></svg><span class="opt__num">2</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/foyer-2.jpg" alt="" loading="lazy"/><span class="opt__num">2</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Opal drum</h4>
           <p class="opt__sub">Clean, quiet, modern</p>
@@ -690,15 +675,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="26" rx="26" ry="6" fill="url(#cg-m-dyn)"/>
-    <rect x="97" y="26" width="6" height="20" fill="url(#cg-m-dyn)" opacity="0.9"/>
-    <path d="M92 44 L108 44 L108 56 L92 56 Z" fill="url(#cg-m-dyn)"/>
-    <path d="M66 74 A34 30 0 0 1 134 74 L134 78 A34 34 0 0 1 66 78 Z" fill="rgba(255,252,244,0.72)" stroke="url(#cg-m-dyn)" stroke-width="3"/>
-    <ellipse cx="100" cy="60" rx="17" ry="6" fill="url(#cg-m-dyn)"/>
-    <path d="M74 96 A30 26 0 0 0 126 96" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="4"/></svg><span class="opt__num">3</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/foyer-3.jpg" alt="" loading="lazy"/><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Schoolhouse globe</h4>
           <p class="opt__sub">Period-correct for a 1967 house</p>
@@ -721,17 +698,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="26" rx="26" ry="6" fill="url(#cg-m-dyn)"/>
-    <rect x="97" y="26" width="6" height="20" fill="url(#cg-m-dyn)" opacity="0.9"/>
-    <circle cx="100" cy="80" r="30" fill="rgba(255,252,244,0.72)" stroke="rgba(0,63,63,0.16)"/>
-    <circle cx="100" cy="80" r="32" fill="none" stroke="url(#cg-m-dyn)" stroke-width="3"/>
-    <path d="M100 48 L100 112 M68 80 L132 80" stroke="url(#cg-m-dyn)" stroke-width="2.6"/>
-    <ellipse cx="100" cy="80" rx="32" ry="12" fill="none" stroke="url(#cg-m-dyn)" stroke-width="2.2"/>
-    <ellipse cx="100" cy="80" rx="14" ry="32" fill="none" stroke="url(#cg-m-dyn)" stroke-width="2.2"/>
-    <circle cx="100" cy="80" r="8" fill="rgba(255,248,222,0.95)"/></svg><span class="opt__num">4</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/foyer-4.jpg" alt="" loading="lazy"/><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Open cage globe</h4>
           <p class="opt__sub">Modern farmhouse</p>
@@ -771,15 +738,7 @@
       
       <div class="opts">
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="26" rx="26" ry="6" fill="url(#cg-m-dyn)"/>
-    <rect x="97" y="26" width="6" height="20" fill="url(#cg-m-dyn)" opacity="0.9"/>
-    <path d="M52 66 L148 66 L142 92 L58 92 Z" fill="rgba(250,247,241,0.95)" stroke="url(#cg-m-dyn)" stroke-width="2.6"/>
-    <path d="M70 92 L130 92 L125 114 L75 114 Z" fill="rgba(250,247,241,0.95)" stroke="url(#cg-m-dyn)" stroke-width="2.6"/>
-    <ellipse cx="100" cy="66" rx="48" ry="6" fill="url(#cg-m-dyn)" opacity="0.85"/>
-    <ellipse cx="100" cy="114" rx="25" ry="5" fill="rgba(255,248,222,0.9)"/></svg><span class="opt__num">1</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/chandelier-1.jpg" alt="" loading="lazy"/><span class="opt__num">1</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Tiered drum</h4>
           <p class="opt__sub">Soft, classic, forgiving</p>
@@ -802,17 +761,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="26" rx="26" ry="6" fill="url(#cg-m-dyn)"/>
-    <rect x="97" y="26" width="6" height="20" fill="url(#cg-m-dyn)" opacity="0.9"/>
-    <path d="M46 62 L154 62 L154 104 L46 104 Z" fill="none" stroke="url(#cg-m-dyn)" stroke-width="3.2"/>
-    <path d="M46 62 L58 54 L166 54 L154 62 M154 104 L166 96 L166 54" fill="none" stroke="url(#cg-m-dyn)" stroke-width="2.2" opacity="0.55"/>
-    <circle cx="70" cy="86" r="7" fill="rgba(255,248,222,0.95)"/>
-    <circle cx="100" cy="86" r="7" fill="rgba(255,248,222,0.95)"/>
-    <circle cx="130" cy="86" r="7" fill="rgba(255,248,222,0.95)"/>
-    <path d="M70 62 L70 79 M100 62 L100 79 M130 62 L130 79" stroke="url(#cg-m-dyn)" stroke-width="2"/></svg><span class="opt__num">2</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/chandelier-2.jpg" alt="" loading="lazy"/><span class="opt__num">2</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Open cage lantern</h4>
           <p class="opt__sub">Rectangular, architectural</p>
@@ -835,10 +784,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="26" rx="26" ry="6" fill="url(#cg-m-dyn)"/>
-    <rect x="97" y="26" width="6" height="20" fill="url(#cg-m-dyn)" opacity="0.9"/><line x1="100" y1="82" x2="100.0" y2="38.0" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="100.0" cy="38.0" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="128.0" y2="43.6" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="128.0" cy="43.6" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="148.5" y2="59.0" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="148.5" cy="59.0" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="156.0" y2="80.0" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="156.0" cy="80.0" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="148.5" y2="101.0" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="148.5" cy="101.0" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="128.0" y2="116.4" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="128.0" cy="116.4" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="100.0" y2="122.0" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="100.0" cy="122.0" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="72.0" y2="116.4" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="72.0" cy="116.4" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="51.5" y2="101.0" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="51.5" cy="101.0" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="44.0" y2="80.0" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="44.0" cy="80.0" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="51.5" y2="59.0" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="51.5" cy="59.0" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><line x1="100" y1="82" x2="72.0" y2="43.6" stroke="url(#cg-m-dyn)" stroke-width="2.4"/><circle cx="72.0" cy="43.6" r="5.5" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="1.4"/><circle cx="100" cy="82" r="9" fill="url(#cg-m-dyn)"/></svg><span class="opt__num">3</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/chandelier-3.jpg" alt="" loading="lazy"/><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Sputnik radial</h4>
           <p class="opt__sub">Mid-century, true to 1967</p>
@@ -861,39 +807,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="26" rx="26" ry="6" fill="url(#cg-m-dyn)"/>
-    <rect x="97" y="26" width="6" height="20" fill="url(#cg-m-dyn)" opacity="0.9"/><circle cx="23.5" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="21.4" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="38.8" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="36.7" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="54.1" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="52.0" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="69.4" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="67.3" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="84.7" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="82.6" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="100.0" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="97.9" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="115.3" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="113.2" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="130.6" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="128.5" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="145.9" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="143.8" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="161.2" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="159.1" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="176.5" cy="58" r="6.8" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="174.4" cy="55.96" r="2.2" fill="rgba(255,255,255,0.45)"/><circle cx="41.5" cy="74" r="6.5" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="39.5" cy="72.05" r="2.1" fill="rgba(255,255,255,0.45)"/><circle cx="56.1" cy="74" r="6.5" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="54.1" cy="72.05" r="2.1" fill="rgba(255,255,255,0.45)"/><circle cx="70.7" cy="74" r="6.5" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="68.8" cy="72.05" r="2.1" fill="rgba(255,255,255,0.45)"/><circle cx="85.3" cy="74" r="6.5" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="83.4" cy="72.05" r="2.1" fill="rgba(255,255,255,0.45)"/><circle cx="100.0" cy="74" r="6.5" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="98.0" cy="72.05" r="2.1" fill="rgba(255,255,255,0.45)"/><circle cx="114.6" cy="74" r="6.5" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="112.6" cy="72.05" r="2.1" fill="rgba(255,255,255,0.45)"/><circle cx="129.2" cy="74" r="6.5" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="127.3" cy="72.05" r="2.1" fill="rgba(255,255,255,0.45)"/><circle cx="143.8" cy="74" r="6.5" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="141.9" cy="72.05" r="2.1" fill="rgba(255,255,255,0.45)"/><circle cx="158.5" cy="74" r="6.5" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="156.5" cy="72.05" r="2.1" fill="rgba(255,255,255,0.45)"/><circle cx="66.2" cy="89" r="6" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="64.4" cy="87.2" r="1.9" fill="rgba(255,255,255,0.45)"/><circle cx="79.7" cy="89" r="6" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="77.9" cy="87.2" r="1.9" fill="rgba(255,255,255,0.45)"/><circle cx="93.2" cy="89" r="6" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="91.4" cy="87.2" r="1.9" fill="rgba(255,255,255,0.45)"/><circle cx="106.7" cy="89" r="6" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="104.9" cy="87.2" r="1.9" fill="rgba(255,255,255,0.45)"/><circle cx="120.2" cy="89" r="6" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="118.4" cy="87.2" r="1.9" fill="rgba(255,255,255,0.45)"/><circle cx="133.7" cy="89" r="6" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="131.9" cy="87.2" r="1.9" fill="rgba(255,255,255,0.45)"/><circle cx="87.8" cy="103" r="5.4" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="86.2" cy="101.38" r="1.7" fill="rgba(255,255,255,0.45)"/><circle cx="100.0" cy="103" r="5.4" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="98.4" cy="101.38" r="1.7" fill="rgba(255,255,255,0.45)"/><circle cx="112.1" cy="103" r="5.4" fill="#C9A97E" stroke="rgba(90,60,25,0.28)" stroke-width="1"/>
-                  <circle cx="110.5" cy="101.38" r="1.7" fill="rgba(255,255,255,0.45)"/><circle cx="100" cy="120" r="6" fill="rgba(255,248,222,0.95)"/></svg><span class="opt__num">4</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/chandelier-4.jpg" alt="" loading="lazy"/><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Wood bead</h4>
           <p class="opt__sub">Warm, textural, organic</p>
@@ -933,15 +847,7 @@
       
       <div class="opts">
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#232326"/>
-    <rect x="8" y="8" width="184" height="134" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
-    <rect x="26" y="26" width="66" height="42" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="2"/>
-    <rect x="26" y="82" width="66" height="42" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="2"/>
-    <rect x="118" y="30" width="26" height="90" rx="13" fill="url(#cg-m-black)"/>
-    <circle cx="131" cy="48" r="9" fill="rgba(0,0,0,0.25)" stroke="rgba(255,255,255,0.20)"/>
-    <path d="M131 76 q22 6 22 20 q0 10 -12 12" fill="none" stroke="url(#cg-m-black)" stroke-width="8" stroke-linecap="round"/>
-    <ellipse cx="127" cy="38" rx="5" ry="14" fill="rgba(255,255,255,0.22)"/></svg><span class="opt__num">1</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/frontdoor-1.jpg" alt="" loading="lazy"/><span class="opt__num">1</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Matte black</h4>
           <p class="opt__sub">Tonal, disappears into the door</p>
@@ -964,15 +870,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#232326"/>
-    <rect x="8" y="8" width="184" height="134" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
-    <rect x="26" y="26" width="66" height="42" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="2"/>
-    <rect x="26" y="82" width="66" height="42" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="2"/>
-    <rect x="118" y="30" width="26" height="90" rx="13" fill="url(#cg-m-nickel)"/>
-    <circle cx="131" cy="48" r="9" fill="rgba(0,0,0,0.25)" stroke="rgba(255,255,255,0.20)"/>
-    <path d="M131 76 q22 6 22 20 q0 10 -12 12" fill="none" stroke="url(#cg-m-nickel)" stroke-width="8" stroke-linecap="round"/>
-    <ellipse cx="127" cy="38" rx="5" ry="14" fill="rgba(255,255,255,0.22)"/></svg><span class="opt__num">2</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/frontdoor-2.jpg" alt="" loading="lazy"/><span class="opt__num">2</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Satin nickel</h4>
           <p class="opt__sub">Crisp contrast</p>
@@ -1003,7 +901,7 @@
     <rect x="118" y="30" width="26" height="90" rx="13" fill="url(#cg-m-brass)"/>
     <circle cx="131" cy="48" r="9" fill="rgba(0,0,0,0.25)" stroke="rgba(255,255,255,0.20)"/>
     <path d="M131 76 q22 6 22 20 q0 10 -12 12" fill="none" stroke="url(#cg-m-brass)" stroke-width="8" stroke-linecap="round"/>
-    <ellipse cx="127" cy="38" rx="5" ry="14" fill="rgba(255,255,255,0.22)"/></svg><span class="opt__num">3</span></div>
+    <ellipse cx="127" cy="38" rx="5" ry="14" fill="rgba(255,255,255,0.22)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Aged brass</h4>
           <p class="opt__sub">Warm, expensive-looking</p>
@@ -1034,7 +932,7 @@
     <rect x="118" y="30" width="26" height="90" rx="13" fill="url(#cg-m-twotone)"/>
     <circle cx="131" cy="48" r="9" fill="url(#cg-m-brass)" stroke="rgba(255,255,255,0.20)"/>
     <path d="M131 76 q22 6 22 20 q0 10 -12 12" fill="none" stroke="url(#cg-m-brass)" stroke-width="8" stroke-linecap="round"/>
-    <ellipse cx="127" cy="38" rx="5" ry="14" fill="rgba(255,255,255,0.22)"/></svg><span class="opt__num">4</span></div>
+    <ellipse cx="127" cy="38" rx="5" ry="14" fill="rgba(255,255,255,0.22)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Black with brass accent</h4>
           <p class="opt__sub">Two-tone, deliberate</p>
@@ -1060,15 +958,7 @@
       
       <div class="opts">
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#F5F2EC"/>
-    <rect x="18" y="14" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <rect x="18" y="86" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <rect x="112" y="14" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <rect x="112" y="86" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <circle cx="86" cy="75" r="17" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.15)"/>
-    <path d="M86 75 q34 2 40 20 q3 9 -6 12" fill="none" stroke="url(#cg-m-dyn)" stroke-width="11" stroke-linecap="round"/>
-    <ellipse cx="80" cy="68" rx="6" ry="4" fill="rgba(255,255,255,0.4)" transform="rotate(-25 80 68)"/></svg><span class="opt__num">1</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/levers-1.jpg" alt="" loading="lazy"/><span class="opt__num">1</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Curved lever</h4>
           <p class="opt__sub">What is installed now</p>
@@ -1091,15 +981,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#F5F2EC"/>
-    <rect x="18" y="14" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <rect x="18" y="86" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <rect x="112" y="14" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <rect x="112" y="86" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <circle cx="100" cy="75" r="13" fill="url(#cg-m-dyn)" opacity="0.85"/>
-    <circle cx="100" cy="75" r="24" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.16)"/>
-    <ellipse cx="91" cy="65" rx="9" ry="6" fill="rgba(255,255,255,0.42)" transform="rotate(-28 91 65)"/></svg><span class="opt__num">2</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/levers-2.jpg" alt="" loading="lazy"/><span class="opt__num">2</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Round knob</h4>
           <p class="opt__sub">Traditional</p>
@@ -1130,7 +1012,7 @@
     <rect x="112" y="86" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
     <rect x="70" y="59" width="32" height="32" rx="3" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.15)"/>
     <path d="M92 75 L136 75 L136 96" fill="none" stroke="url(#cg-m-dyn)" stroke-width="11" stroke-linejoin="miter" stroke-linecap="butt"/>
-    <rect x="74" y="63" width="12" height="7" fill="rgba(255,255,255,0.34)"/></svg><span class="opt__num">3</span></div>
+    <rect x="74" y="63" width="12" height="7" fill="rgba(255,255,255,0.34)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Squared lever</h4>
           <p class="opt__sub">Angular, modern</p>
@@ -1153,15 +1035,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#F5F2EC"/>
-    <rect x="18" y="14" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <rect x="18" y="86" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <rect x="112" y="14" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <rect x="112" y="86" width="70" height="50" fill="none" stroke="rgba(0,63,63,0.13)" stroke-width="2.5"/>
-    <rect x="72" y="47" width="56" height="56" rx="3" fill="url(#cg-m-dyn)" opacity="0.55" stroke="rgba(0,0,0,0.15)"/>
-    <circle cx="100" cy="75" r="20" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.16)"/>
-    <ellipse cx="93" cy="67" rx="7" ry="5" fill="rgba(255,255,255,0.42)" transform="rotate(-28 93 67)"/></svg><span class="opt__num">4</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/levers-4.jpg" alt="" loading="lazy"/><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Knob on square rosette</h4>
           <p class="opt__sub">Transitional detail</p>
@@ -1215,7 +1089,7 @@
     <rect x="60" y="26" width="80" height="7" rx="3.5" fill="url(#cg-m-dyn)"/>
     <rect x="65" y="33" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="129" y="33" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/>
     <rect x="96" y="82" width="7" height="46" rx="3.5" fill="url(#cg-m-dyn)"/>
-    <rect x="90.5" y="79" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="90.5" y="125" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/></svg><span class="opt__num">1</span></div>
+    <rect x="90.5" y="79" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="90.5" y="125" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">1</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Bar pulls throughout</h4>
           <p class="opt__sub">One shape everywhere</p>
@@ -1247,7 +1121,7 @@
     <rect x="66" y="26" width="68" height="7" rx="3.5" fill="url(#cg-m-dyn)"/>
     <rect x="70" y="33" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="124" y="33" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/>
     <circle cx="100" cy="104" r="11" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.16)"/>
-    <ellipse cx="96" cy="100" rx="4" ry="3" fill="rgba(255,255,255,0.45)" transform="rotate(-28 96 100)"/></svg><span class="opt__num">2</span></div>
+    <ellipse cx="96" cy="100" rx="4" ry="3" fill="rgba(255,255,255,0.45)" transform="rotate(-28 96 100)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">2</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Knobs on doors, pulls on drawers</h4>
           <p class="opt__sub">The designer convention</p>
@@ -1279,7 +1153,7 @@
     <path d="M68 22 L132 22 L132 30 q0 12 -16 12 L84 34 q-16 0 -16 -12 Z" fill="url(#cg-m-dyn)"/>
     <path d="M74 24 L126 24" stroke="rgba(255,255,255,0.30)" stroke-width="2.5"/>
     <circle cx="100" cy="104" r="11" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.16)"/>
-    <ellipse cx="96" cy="100" rx="4" ry="3" fill="rgba(255,255,255,0.45)" transform="rotate(-28 96 100)"/></svg><span class="opt__num">3</span></div>
+    <ellipse cx="96" cy="100" rx="4" ry="3" fill="rgba(255,255,255,0.45)" transform="rotate(-28 96 100)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Cup pulls on drawers, knobs on doors</h4>
           <p class="opt__sub">Traditional, most character</p>
@@ -1311,7 +1185,7 @@
     <rect x="40" y="26" width="120" height="8" rx="4" fill="url(#cg-m-dyn)"/>
     <rect x="47" y="34" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="147" y="34" width="6" height="8" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/>
     <rect x="96" y="66" width="8" height="78" rx="4" fill="url(#cg-m-dyn)"/>
-    <rect x="91" y="63" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="91" y="141" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/></svg><span class="opt__num">4</span></div>
+    <rect x="91" y="63" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/><rect x="91" y="141" width="9" height="6" rx="2" fill="url(#cg-m-dyn)" opacity="0.85"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Long pulls</h4>
           <p class="opt__sub">Modern, statement</p>
@@ -1351,19 +1225,7 @@
       
       <div class="opts">
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#EDE6DA"/>
-    <rect x="0" y="96" width="200" height="54" fill="#FBFAF6"/>
-    <path d="M0 112 q34 -9 62 4 q30 13 62 -3 q28 -13 76 2" fill="none" stroke="#D8CBB4" stroke-width="2.4" opacity="0.85"/>
-    <path d="M0 130 q46 8 84 -4 q36 -12 116 3" fill="none" stroke="#E0D4BE" stroke-width="1.8" opacity="0.75"/>
-    <ellipse cx="100" cy="126" rx="40" ry="14" fill="#FFFFFF" stroke="#DED2BC" stroke-width="1.6"/>
-    <path d="M100 104 L100 62 q0 -12 14 -12 q13 0 13 12" fill="none" stroke="url(#cg-m-dyn)" stroke-width="9" stroke-linecap="round"/>
-    <rect x="94" y="100" width="13" height="8" rx="2" fill="url(#cg-m-dyn)"/>
-    <ellipse cx="58" cy="100" rx="11" ry="5" fill="url(#cg-m-dyn)"/>
-    <path d="M58 98 L58 70" stroke="url(#cg-m-dyn)" stroke-width="8" stroke-linecap="round"/>
-    <path d="M58 70 q11 1 12 9" fill="none" stroke="url(#cg-m-dyn)" stroke-width="7" stroke-linecap="round"/><ellipse cx="152" cy="100" rx="11" ry="5" fill="url(#cg-m-dyn)"/>
-    <path d="M152 98 L152 70" stroke="url(#cg-m-dyn)" stroke-width="8" stroke-linecap="round"/>
-    <path d="M152 70 q11 1 12 9" fill="none" stroke="url(#cg-m-dyn)" stroke-width="7" stroke-linecap="round"/></svg><span class="opt__num">1</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/faucet-1.jpg" alt="" loading="lazy"/><span class="opt__num">1</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Widespread, lever handles</h4>
           <p class="opt__sub">Transitional, the default</p>
@@ -1386,19 +1248,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#EDE6DA"/>
-    <rect x="0" y="96" width="200" height="54" fill="#FBFAF6"/>
-    <path d="M0 112 q34 -9 62 4 q30 13 62 -3 q28 -13 76 2" fill="none" stroke="#D8CBB4" stroke-width="2.4" opacity="0.85"/>
-    <path d="M0 130 q46 8 84 -4 q36 -12 116 3" fill="none" stroke="#E0D4BE" stroke-width="1.8" opacity="0.75"/>
-    <ellipse cx="100" cy="126" rx="40" ry="14" fill="#FFFFFF" stroke="#DED2BC" stroke-width="1.6"/>
-    <path d="M100 104 L100 58 q0 -13 15 -13 q14 0 14 13" fill="none" stroke="url(#cg-m-dyn)" stroke-width="9" stroke-linecap="round"/>
-    <rect x="94" y="100" width="13" height="8" rx="2" fill="url(#cg-m-dyn)"/>
-    <ellipse cx="58" cy="100" rx="11" ry="5" fill="url(#cg-m-dyn)"/>
-    <path d="M58 98 L58 72" stroke="url(#cg-m-dyn)" stroke-width="8" stroke-linecap="round"/>
-    <path d="M45 68 L71 68 M58 55 L58 81" stroke="url(#cg-m-dyn)" stroke-width="6" stroke-linecap="round"/><ellipse cx="152" cy="100" rx="11" ry="5" fill="url(#cg-m-dyn)"/>
-    <path d="M152 98 L152 72" stroke="url(#cg-m-dyn)" stroke-width="8" stroke-linecap="round"/>
-    <path d="M139 68 L165 68 M152 55 L152 81" stroke="url(#cg-m-dyn)" stroke-width="6" stroke-linecap="round"/></svg><span class="opt__num">2</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/faucet-2.jpg" alt="" loading="lazy"/><span class="opt__num">2</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Widespread, cross handles</h4>
           <p class="opt__sub">Classic, a little dressy</p>
@@ -1421,15 +1271,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#EDE6DA"/>
-    <rect x="0" y="96" width="200" height="54" fill="#FBFAF6"/>
-    <path d="M0 112 q34 -9 62 4 q30 13 62 -3 q28 -13 76 2" fill="none" stroke="#D8CBB4" stroke-width="2.4" opacity="0.85"/>
-    <path d="M0 130 q46 8 84 -4 q36 -12 116 3" fill="none" stroke="#E0D4BE" stroke-width="1.8" opacity="0.75"/>
-    <ellipse cx="100" cy="126" rx="40" ry="14" fill="#FFFFFF" stroke="#DED2BC" stroke-width="1.6"/>
-    <rect x="66" y="98" width="68" height="9" rx="4" fill="url(#cg-m-dyn)" opacity="0.85"/>
-    <path d="M100 100 L100 58 q0 -11 13 -11 q12 0 12 11 L125 66" fill="none" stroke="url(#cg-m-dyn)" stroke-width="9" stroke-linecap="round"/>
-    <path d="M100 68 q-16 -3 -17 -12" fill="none" stroke="url(#cg-m-dyn)" stroke-width="7" stroke-linecap="round"/></svg><span class="opt__num">3</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/faucet-3.jpg" alt="" loading="lazy"/><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Single hole with deck plate</h4>
           <p class="opt__sub">Modern, and it hides the drilling</p>
@@ -1452,15 +1294,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#EDE6DA"/>
-    <rect x="0" y="96" width="200" height="54" fill="#FBFAF6"/>
-    <path d="M0 112 q34 -9 62 4 q30 13 62 -3 q28 -13 76 2" fill="none" stroke="#D8CBB4" stroke-width="2.4" opacity="0.85"/>
-    <path d="M0 130 q46 8 84 -4 q36 -12 116 3" fill="none" stroke="#E0D4BE" stroke-width="1.8" opacity="0.75"/>
-    <ellipse cx="100" cy="126" rx="40" ry="14" fill="#FFFFFF" stroke="#DED2BC" stroke-width="1.6"/>
-    <rect x="72" y="94" width="56" height="12" rx="6" fill="url(#cg-m-dyn)"/>
-    <path d="M100 94 L100 70 q0 -9 10 -9 q9 0 9 9" fill="none" stroke="url(#cg-m-dyn)" stroke-width="8" stroke-linecap="round"/>
-    <path d="M80 94 L80 80 q0 -5 8 -5" fill="none" stroke="url(#cg-m-dyn)" stroke-width="7" stroke-linecap="round"/><path d="M120 94 L120 80 q0 -5 8 -5" fill="none" stroke="url(#cg-m-dyn)" stroke-width="7" stroke-linecap="round"/></svg><span class="opt__num">4</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/faucet-4.jpg" alt="" loading="lazy"/><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Centerset two-handle</h4>
           <p class="opt__sub">Compact, budget</p>
@@ -1518,7 +1352,7 @@
               <path d="M96 118 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/><path d="M106 64 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
               <path d="M110 90 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/><path d="M120 78 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
               <path d="M124 104 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/><path d="M134 92 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
-              <path d="M138 118 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/></svg><span class="opt__num">1</span></div>
+              <path d="M138 118 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">1</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Rain head</h4>
           <p class="opt__sub">Ceiling or high wall mount</p>
@@ -1538,7 +1372,7 @@
     <path d="M66 76 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
               <path d="M70 102 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/><path d="M80 90 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
               <path d="M84 116 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/><path d="M94 104 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
-              <path d="M98 130 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/></svg><span class="opt__num">2</span></div>
+              <path d="M98 130 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">2</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Head plus handheld</h4>
           <p class="opt__sub">The practical one</p>
@@ -1558,7 +1392,7 @@
     <path d="M115 66 q22 4 15 16" fill="none" stroke="url(#cg-m-dyn)" stroke-width="5" opacity="0.8"/>
     <path d="M120 94 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
               <path d="M124 120 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/><path d="M134 108 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
-              <path d="M138 134 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/></svg><span class="opt__num">3</span></div>
+              <path d="M138 134 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/></svg><span class="opt__sketch">illustration</span><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Handheld on a slide bar</h4>
           <p class="opt__sub">Flexible, ages well</p>
@@ -1567,16 +1401,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <rect x="0" y="0" width="200" height="150" fill="#D7CDBC"/><line x1="0" y1="18" x2="200" y2="18" stroke="#C9BEAC" stroke-width="1.6"/><line x1="0" y1="51" x2="200" y2="51" stroke="#C9BEAC" stroke-width="1.6"/><line x1="0" y1="84" x2="200" y2="84" stroke="#C9BEAC" stroke-width="1.6"/><line x1="0" y1="117" x2="200" y2="117" stroke="#C9BEAC" stroke-width="1.6"/><line x1="0" y1="0" x2="0" y2="150" stroke="#C9BEAC" stroke-width="1.6"/><line x1="50" y1="0" x2="50" y2="150" stroke="#C9BEAC" stroke-width="1.6"/><line x1="100" y1="0" x2="100" y2="150" stroke="#C9BEAC" stroke-width="1.6"/><line x1="150" y1="0" x2="150" y2="150" stroke="#C9BEAC" stroke-width="1.6"/><line x1="200" y1="0" x2="200" y2="150" stroke="#C9BEAC" stroke-width="1.6"/>
-    <rect x="0" y="120" width="200" height="30" fill="#C4B79F"/><ellipse cx="6" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="21" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="36" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="51" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="66" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="81" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="96" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="111" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="126" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="141" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="156" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="171" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="186" cy="128" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="13" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="28" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="43" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="58" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="73" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="88" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="103" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="118" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="133" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="148" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="163" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="178" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/><ellipse cx="193" cy="139" rx="7" ry="5" fill="#B7A992" stroke="#A2947C" stroke-width="0.8"/>
-    <path d="M56 46 q0 18 20 22" fill="none" stroke="url(#cg-m-dyn)" stroke-width="8" stroke-linecap="round"/>
-    <ellipse cx="90" cy="70" rx="24" ry="11" fill="url(#cg-m-dyn)" transform="rotate(24 90 70)"/>
-    <circle cx="56" cy="46" r="9" fill="url(#cg-m-dyn)" opacity="0.9"/>
-    <path d="M80 88 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
-              <path d="M84 114 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/><path d="M96 102 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
-              <path d="M100 128 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/><path d="M112 116 q3 8 0 12 q-3 -4 0 -12" fill="rgba(255,255,255,0.55)"/>
-              <path d="M116 142 q2 6 0 9 q-2 -3 0 -9" fill="rgba(255,255,255,0.36)"/></svg><span class="opt__num">4</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/shower-4.jpg" alt="" loading="lazy"/><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Single large wall head</h4>
           <p class="opt__sub">Simple, matched trim</p>
@@ -1602,9 +1427,7 @@
       
       <div class="opts">
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#E5DFCE"/><rect x="60" y="26" width="80" height="100" rx="5" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="2"/><rect x="66" y="32" width="68" height="88" rx="3" fill="none" stroke="rgba(0,63,63,0.08)" stroke-width="1.6"/><rect x="76" y="48" width="48" height="56" rx="4" fill="#FFFFFF" stroke="rgba(0,63,63,0.20)" stroke-width="1.8"/>
-       <path d="M76 76 L124 76" stroke="rgba(0,63,63,0.10)" stroke-width="1.4"/>
-       <rect x="76" y="48" width="48" height="28" rx="4" fill="rgba(0,63,63,0.035)"/></svg><span class="opt__num">1</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/switches-1.jpg" alt="" loading="lazy"/><span class="opt__num">1</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Flat, screwless plate</h4>
           <p class="opt__sub">New-construction standard</p>
@@ -1627,12 +1450,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#E5DFCE"/><rect x="60" y="26" width="80" height="100" rx="5" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="2"/><rect x="76" y="48" width="48" height="56" rx="4" fill="#FFFFFF" stroke="rgba(0,63,63,0.20)" stroke-width="1.8"/>
-       <path d="M76 76 L124 76" stroke="rgba(0,63,63,0.10)" stroke-width="1.4"/>
-       <rect x="76" y="48" width="48" height="28" rx="4" fill="rgba(0,63,63,0.035)"/><circle cx="100" cy="38" r="4" fill="#EDE9E0" stroke="rgba(0,63,63,0.30)" stroke-width="1.4"/>
-       <line x1="96.5" y1="38" x2="103.5" y2="38" stroke="rgba(0,63,63,0.42)" stroke-width="1.4"/>
-       <circle cx="100" cy="114" r="4" fill="#EDE9E0" stroke="rgba(0,63,63,0.30)" stroke-width="1.4"/>
-       <line x1="96.5" y1="114" x2="103.5" y2="114" stroke="rgba(0,63,63,0.42)" stroke-width="1.4"/></svg><span class="opt__num">2</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/switches-2.jpg" alt="" loading="lazy"/><span class="opt__num">2</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Flat, standard plate</h4>
           <p class="opt__sub">Modern, cheapest version</p>
@@ -1655,8 +1473,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#E5DFCE"/><rect x="60" y="26" width="80" height="100" rx="5" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="2"/><rect x="66" y="32" width="68" height="88" rx="3" fill="none" stroke="rgba(0,63,63,0.08)" stroke-width="1.6"/><rect x="88" y="52" width="24" height="48" rx="3" fill="rgba(0,63,63,0.06)" stroke="rgba(0,63,63,0.16)" stroke-width="1.4"/>
-       <path d="M92 92 L108 92 L110 66 q0 -6 -10 -6 q-10 0 -10 6 Z" fill="#FFFFFF" stroke="rgba(0,63,63,0.24)" stroke-width="1.6"/></svg><span class="opt__num">3</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/switches-3.jpg" alt="" loading="lazy"/><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Toggle, screwless plate</h4>
           <p class="opt__sub">Period-correct, dressed up</p>
@@ -1679,11 +1496,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#E5DFCE"/><rect x="60" y="26" width="80" height="100" rx="5" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="2"/><rect x="88" y="52" width="24" height="48" rx="3" fill="rgba(0,63,63,0.06)" stroke="rgba(0,63,63,0.16)" stroke-width="1.4"/>
-       <path d="M92 92 L108 92 L110 66 q0 -6 -10 -6 q-10 0 -10 6 Z" fill="#FFFFFF" stroke="rgba(0,63,63,0.24)" stroke-width="1.6"/><circle cx="100" cy="38" r="4" fill="#EDE9E0" stroke="rgba(0,63,63,0.30)" stroke-width="1.4"/>
-       <line x1="96.5" y1="38" x2="103.5" y2="38" stroke="rgba(0,63,63,0.42)" stroke-width="1.4"/>
-       <circle cx="100" cy="114" r="4" fill="#EDE9E0" stroke="rgba(0,63,63,0.30)" stroke-width="1.4"/>
-       <line x1="96.5" y1="114" x2="103.5" y2="114" stroke="rgba(0,63,63,0.42)" stroke-width="1.4"/></svg><span class="opt__num">4</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/switches-4.jpg" alt="" loading="lazy"/><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Toggle, standard plate</h4>
           <p class="opt__sub">What is there now</p>
@@ -1723,12 +1536,7 @@
       
       <div class="opts">
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="20" rx="20" ry="5" fill="url(#cg-m-dyn)"/><rect x="97" y="20" width="6" height="20" fill="url(#cg-m-dyn)"/>
-    <g transform="rotate(-90 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="12" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="1"/></g><g transform="rotate(30 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="12" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="1"/></g><g transform="rotate(150 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="12" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="1"/></g>
-    <circle cx="100" cy="74" r="17" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.14)"/>
-    <circle cx="100" cy="80" r="13" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="2.2"/></svg><span class="opt__num">1</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/fans-1.jpg" alt="" loading="lazy"/><span class="opt__num">1</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Three-blade modern</h4>
           <p class="opt__sub">Flush, integrated light</p>
@@ -1751,12 +1559,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="20" rx="20" ry="5" fill="url(#cg-m-dyn)"/><rect x="97" y="20" width="6" height="24" fill="url(#cg-m-dyn)"/>
-    <g transform="rotate(-90 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="15" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="1"/></g><g transform="rotate(-18 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="15" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="1"/></g><g transform="rotate(54 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="15" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="1"/></g><g transform="rotate(126 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="15" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="1"/></g><g transform="rotate(198 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="15" fill="#FBFAF7" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="1"/></g>
-    <circle cx="100" cy="74" r="17" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.14)"/>
-    <path d="M78 84 q22 26 44 0 Z" fill="rgba(255,252,244,0.92)" stroke="url(#cg-m-dyn)" stroke-width="2.4"/></svg><span class="opt__num">2</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/fans-2.jpg" alt="" loading="lazy"/><span class="opt__num">2</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Five-blade traditional</h4>
           <p class="opt__sub">Familiar, moves the most air</p>
@@ -1779,12 +1582,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="20" rx="20" ry="5" fill="url(#cg-m-dyn)"/><rect x="97" y="20" width="6" height="20" fill="url(#cg-m-dyn)"/>
-    <g transform="rotate(-90 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="15" fill="#C09A6B" stroke="rgba(90,60,25,0.32)" stroke-width="1.6" opacity="1"/></g><g transform="rotate(30 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="15" fill="#C09A6B" stroke="rgba(90,60,25,0.32)" stroke-width="1.6" opacity="1"/></g><g transform="rotate(150 100 74)"><ellipse cx="132.48000000000002" cy="74" rx="32.480000000000004" ry="15" fill="#C09A6B" stroke="rgba(90,60,25,0.32)" stroke-width="1.6" opacity="1"/></g>
-    <circle cx="100" cy="74" r="17" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.14)"/>
-    <circle cx="100" cy="80" r="13" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="2.2"/></svg><span class="opt__num">3</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/fans-3.jpg" alt="" loading="lazy"/><span class="opt__num">3</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Wood blade transitional</h4>
           <p class="opt__sub">Warm, textural</p>
@@ -1807,12 +1605,7 @@
         </div>
       </article>
       <article class="opt">
-        <div class="opt__art"><svg class="art" viewBox="0 0 200 150" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect x="0" y="0" width="200" height="150" fill="#F6F4EE"/>
-    <rect x="0" y="0" width="200" height="150" fill="url(#cg-glow)"/>
-    <ellipse cx="100" cy="20" rx="20" ry="5" fill="url(#cg-m-dyn)"/>
-    <g transform="rotate(-90 100 74)"><ellipse cx="129.12" cy="74" rx="29.120000000000005" ry="22" fill="url(#cg-m-dyn)" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="0.9"/></g><g transform="rotate(0 100 74)"><ellipse cx="129.12" cy="74" rx="29.120000000000005" ry="22" fill="url(#cg-m-dyn)" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="0.9"/></g><g transform="rotate(90 100 74)"><ellipse cx="129.12" cy="74" rx="29.120000000000005" ry="22" fill="url(#cg-m-dyn)" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="0.9"/></g><g transform="rotate(180 100 74)"><ellipse cx="129.12" cy="74" rx="29.120000000000005" ry="22" fill="url(#cg-m-dyn)" stroke="rgba(0,63,63,0.16)" stroke-width="1.6" opacity="0.9"/></g>
-    <circle cx="100" cy="74" r="17" fill="url(#cg-m-dyn)" stroke="rgba(0,0,0,0.14)"/>
-    <circle cx="100" cy="74" r="15" fill="rgba(255,248,222,0.95)" stroke="url(#cg-m-dyn)" stroke-width="2"/></svg><span class="opt__num">4</span></div>
+        <div class="opt__art"><img class="art art--photo" src="vote-cedar-grove-pics/fans-4.jpg" alt="" loading="lazy"/><span class="opt__num">4</span></div>
         <div class="opt__body">
           <h4 class="opt__label">Low profile disc</h4>
           <p class="opt__sub">Minimal, nearly hidden</p>
@@ -1829,7 +1622,7 @@
           
           <div class="sku__stock">Ships to 23235, arrives Tue 25 Aug</div>
           
-          <div class="sku__flag">Only 24 inches. That is a small-bedroom fan. Measure the room before this one goes on the ballot as a real option.</div>
+          <div class="sku__flag">Two problems. It is only 24 inches, which is a small-bedroom fan, and the product photo shows an RGB colour-changing backlight ring. Neither reads right in a house listing in the upper fives. Weakest option on this card.</div>
           <a class="sku__link" href="https://www.lowes.com/pd/Humhold-24-Inch-Ceiling-Fan-with-Light-and-Remote-Low-Profile-Ceiling-Fan-with-APP-and-Voice-Control-Enclosed-Flush-Mount-Ceiling-Fan-for-Bedroom-Living-Room-White/8950849" target="_blank" rel="noopener noreferrer">Open at Lowe's</a>
         </div>
         </div>
