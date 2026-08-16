@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Roselawn | The Revenue Machine</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-teal: #003F3F;
+    --teal: #005F5F;
+    --teal-light: #80AFAF;
+    --gold: #D4AF37;
+    --gold-soft: #E2CA7A;
+    --gold-dark: #B1922E;
+    --paper: #FAF7F1;
+    --paper-soft: #f3ede1;
+    --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16);
+    --line-strong: rgba(0, 63, 63, 0.32);
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  html, body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--deep-teal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0, 95, 95, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  /* ---- Hero ---- */
+  .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--line); }
+  .hero__brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .hero__brand img { height: 72px; width: auto; mix-blend-mode: multiply; margin-left: -10px; }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+  .hero__greeting { font-family: var(--serif); font-size: 13px; color: var(--teal); font-style: italic; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(38px, 6vw, 54px); line-height: 1.02; letter-spacing: -0.025em; color: var(--deep-teal); margin-bottom: 18px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 16px; color: var(--deep-teal); opacity: 0.74; max-width: 56ch; line-height: 1.55; }
+
+  .hero__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+  .stat { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 6px; padding: 16px 14px; box-shadow: var(--shadow-sm); }
+  .stat:nth-child(2) { border-top-color: var(--gold); }
+  .stat:nth-child(3) { border-top-color: var(--deep-teal); }
+  .stat:nth-child(4) { border-top-color: var(--gold); }
+  .stat__num { font-family: var(--serif); font-size: 26px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; color: var(--deep-teal); }
+  .stat__label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.13em; font-weight: 700; color: var(--teal); margin-top: 7px; line-height: 1.35; }
+
+  /* ---- Section anatomy ---- */
+  section.block { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.section__title { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34px); line-height: 1.1; letter-spacing: -0.02em; color: var(--deep-teal); margin-bottom: 8px; }
+  h2.section__title em { color: var(--gold-dark); font-style: italic; }
+  .section__lede { font-size: 15px; color: var(--deep-teal); opacity: 0.78; max-width: 60ch; line-height: 1.6; margin-bottom: 28px; }
+
+  /* ---- Opportunity / thesis block ---- */
+  .opportunity { background: var(--deep-teal); color: var(--ivory); padding: 30px 36px; border-radius: 6px; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+  .opportunity::after { content: ''; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .opportunity::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border: 1px solid var(--teal-light); border-radius: 50%; opacity: 0.22; }
+  .opportunity .eyebrow { color: var(--gold); margin-bottom: 6px; }
+  .opportunity p { font-family: var(--serif); font-size: 22px; line-height: 1.32; font-weight: 300; letter-spacing: -0.005em; position: relative; z-index: 1; }
+  .opportunity p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  /* ---- Quote ---- */
+  .quote { border-left: 3px solid var(--gold); padding: 4px 0 4px 20px; margin: 26px 0; font-family: var(--serif); font-style: italic; font-size: 17px; line-height: 1.5; color: var(--deep-teal); }
+  .quote cite { display: block; font-family: var(--sans); font-style: normal; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: var(--teal); margin-top: 10px; }
+
+  /* ---- Inflation split ---- */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 26px; }
+  .split__side { border-radius: 6px; padding: 22px 22px; border: 1px solid var(--line); background: var(--ivory); box-shadow: var(--shadow-sm); }
+  .split__side--bad { border-top: 3px solid #9B4A2F; }
+  .split__side--good { border-top: 3px solid var(--gold); }
+  .split__tag { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
+  .split__side--bad .split__tag { color: #9B4A2F; }
+  .split__side--good .split__tag { color: var(--gold-dark); }
+  .split__head { font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.2; letter-spacing: -0.012em; margin-bottom: 10px; }
+  .split__body { font-size: 13.5px; line-height: 1.55; opacity: 0.82; }
+  .split__verdict { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); font-family: var(--serif); font-style: italic; font-size: 14.5px; }
+  .split__side--bad .split__verdict { color: #9B4A2F; }
+  .split__side--good .split__verdict { color: var(--gold-dark); }
+
+  /* ---- Calculator ---- */
+  .calc { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 28px 30px; box-shadow: var(--shadow-md); }
+  .calc__note { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--teal); margin-bottom: 20px; line-height: 1.5; }
+  .calc__inputs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 20px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.13em; font-weight: 700; color: var(--teal); }
+  .field input { font-family: var(--serif); font-size: 19px; font-weight: 500; color: var(--deep-teal); background: var(--paper); border: 1px solid var(--line); border-radius: 5px; padding: 11px 13px; width: 100%; transition: border-color 0.18s, box-shadow 0.18s; }
+  .field input:hover { border-color: var(--line-strong); }
+  .field input:focus-visible { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18); }
+  .field .hint { font-size: 11px; opacity: 0.55; line-height: 1.4; }
+
+  .calc__out { margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .calc__row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
+  .calc__row:last-of-type { border-bottom: none; }
+  .calc__row span:last-child { font-family: var(--serif); font-size: 17px; font-weight: 500; letter-spacing: -0.01em; white-space: nowrap; }
+  .calc__row--muted { opacity: 0.62; }
+  .calc__big { margin-top: 20px; background: var(--deep-teal); border-radius: 6px; padding: 22px 24px; text-align: center; position: relative; overflow: hidden; }
+  .calc__big::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.14), transparent 70%); pointer-events: none; }
+  .calc__big-label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 700; color: var(--gold-soft); position: relative; z-index: 1; }
+  .calc__big-num { font-family: var(--serif); font-size: clamp(34px, 7vw, 46px); font-weight: 400; color: var(--gold); letter-spacing: -0.025em; line-height: 1.05; margin-top: 8px; position: relative; z-index: 1; }
+  .calc__big-sub { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--teal-light); margin-top: 10px; position: relative; z-index: 1; line-height: 1.5; }
+
+  .checkline { margin-top: 18px; padding: 13px 16px; background: rgba(212, 175, 55, 0.09); border-radius: 4px; font-family: var(--serif); font-size: 13px; font-style: italic; line-height: 1.55; }
+  .checkline strong { color: var(--gold-dark); font-style: normal; font-weight: 600; }
+
+  /* ---- Levers ---- */
+  .levers { display: flex; flex-direction: column; gap: 12px; }
+  .lever { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--teal); border-radius: 6px; padding: 20px 22px; cursor: pointer; box-shadow: var(--shadow-sm); transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s, border-color 0.22s; }
+  .lever:nth-child(2), .lever:nth-child(4), .lever:nth-child(6) { border-left-color: var(--gold); }
+  .lever:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .lever:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3); }
+  .lever.open { box-shadow: var(--shadow-md); border-color: var(--gold); }
+  .lever__top { display: flex; align-items: baseline; gap: 14px; }
+  .lever__num { font-family: var(--serif); font-size: 13px; font-weight: 600; color: var(--gold-dark); letter-spacing: 0.04em; flex-shrink: 0; }
+  .lever__name { font-family: var(--serif); font-size: 20px; font-weight: 500; line-height: 1.15; letter-spacing: -0.015em; flex: 1; }
+  .lever__tag { font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--ivory); background: var(--teal); padding: 4px 9px; border-radius: 999px; flex-shrink: 0; white-space: nowrap; }
+  .lever__tag--free { background: var(--gold-dark); }
+  .lever__hook { font-size: 13.5px; opacity: 0.78; margin-top: 9px; line-height: 1.5; }
+  .lever__body { display: none; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line); font-size: 13.5px; line-height: 1.6; }
+  .lever.open .lever__body { display: block; }
+  .lever__body strong { display: block; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.13em; color: var(--gold-dark); margin: 14px 0 5px; font-weight: 700; }
+  .lever__body strong:first-child { margin-top: 0; }
+  .lever__body ul { margin: 0; padding-left: 18px; }
+  .lever__body li { margin-bottom: 6px; }
+  .lever__toggle { font-size: 11px; color: var(--teal); margin-top: 10px; font-weight: 600; letter-spacing: 0.04em; }
+
+  /* ---- Pending research chip ---- */
+  .pending { display: inline-block; font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--gold-dark); background: rgba(212, 175, 55, 0.15); border: 1px dashed var(--gold-dark); padding: 3px 8px; border-radius: 3px; margin-left: 8px; vertical-align: middle; }
+
+  /* ---- Land table ---- */
+  .landgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+  .landcard { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 6px; padding: 20px; box-shadow: var(--shadow-sm); }
+  .landcard--best { border-top-color: var(--gold); background: linear-gradient(180deg, rgba(212,175,55,0.06), var(--ivory) 60%); }
+  .landcard__tag { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
+  .landcard--best .landcard__tag { color: var(--gold-dark); }
+  .landcard__head { font-family: var(--serif); font-size: 18px; font-weight: 500; line-height: 1.2; letter-spacing: -0.012em; margin-bottom: 9px; }
+  .landcard__body { font-size: 13px; line-height: 1.55; opacity: 0.8; }
+
+  /* ---- Input request ---- */
+  .asks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
+  .ask { background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; box-shadow: var(--shadow-sm); }
+  .ask__q { font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.3; margin-bottom: 6px; }
+  .ask__why { font-size: 12px; opacity: 0.68; line-height: 1.5; }
+
+  /* ---- CTA ---- */
+  .cta { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 36px 38px; text-align: center; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%); pointer-events: none; }
+  .cta__title { font-family: var(--serif); font-size: 28px; font-weight: 300; margin-bottom: 8px; letter-spacing: -0.02em; position: relative; z-index: 1; }
+  .cta__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .cta__sub { font-size: 14px; opacity: 0.78; margin-bottom: 24px; max-width: 46ch; margin-left: auto; margin-right: auto; line-height: 1.6; position: relative; z-index: 1; }
+  .cta__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+  .cta__btn { background: var(--gold); color: var(--deep-teal); border: 0; padding: 14px 26px; font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; }
+  .cta__btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4); background: var(--gold-soft); }
+  .cta__btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.45); }
+  .cta__btn--ghost { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+  .cta__btn--ghost:hover { background: rgba(212, 175, 55, 0.1); }
+
+  /* ---- Footer ---- */
+  footer.foot { padding: 38px 0 60px; text-align: center; font-size: 11px; color: var(--deep-teal); opacity: 0.55; letter-spacing: 0.06em; line-height: 1.6; }
+  footer.foot .why { font-family: var(--serif); font-size: 13px; font-style: italic; opacity: 0.8; margin-bottom: 8px; letter-spacing: 0; }
+  footer.foot .why em { color: var(--gold-dark); }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 32px 0 24px; }
+    .hero__brand img { height: 56px; }
+    .hero__title { font-size: 34px; }
+    .hero__stats { grid-template-columns: repeat(2, 1fr); }
+    section.block { padding: 32px 0; }
+    .opportunity { padding: 22px 24px; }
+    .opportunity p { font-size: 18px; }
+    .split { grid-template-columns: 1fr; }
+    .calc { padding: 22px 20px; }
+    .calc__inputs { grid-template-columns: 1fr; }
+    .landgrid { grid-template-columns: 1fr; }
+    .asks { grid-template-columns: 1fr; }
+    .lever__top { flex-wrap: wrap; gap: 8px; }
+    .lever__name { flex-basis: 100%; order: 3; }
+    .cta { padding: 28px 24px; }
+    .cta__title { font-size: 22px; }
+    .cta__buttons { flex-direction: column; }
+    .cta__btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__brand">
+      <img src="mams-logo.png" alt="MAMS"/>
+    </div>
+    <div class="hero__eyebrow">Prepared for Scott Morgan &middot; Roselawn Memory Gardens</div>
+    <div class="hero__greeting">Scott,</div>
+    <h1 class="hero__title">You built a 68-year machine. <em>It is running at half throttle.</em></h1>
+    <p class="hero__sub">Not because of anything you did wrong. Because you have 4,000 approved plots sitting in the ground unsold, a crematorium approved and not yet built, and a crew with 17 pieces of equipment waiting between calls. The inventory problem is solved. The demand side has never been touched.</p>
+
+    <div class="hero__stats">
+      <div class="stat"><div class="stat__num">68</div><div class="stat__label">Years in operation</div></div>
+      <div class="stat"><div class="stat__num">4,000+</div><div class="stat__label">Approved plots unsold</div></div>
+      <div class="stat"><div class="stat__num">$0</div><div class="stat__label">Spent on advertising</div></div>
+      <div class="stat"><div class="stat__num">$3,000</div><div class="stat__label">Minimum per call</div></div>
+    </div>
+  </header>
+
+  <!-- THE THESIS -->
+  <section class="block">
+    <div class="eyebrow">The one idea everything else hangs on</div>
+    <h2 class="section__title">The plot is not the product. <em>The plot is the customer.</em></h2>
+    <p class="section__lede">You already run this way. You told me the reasoning yourself, and you were right. What follows is the arithmetic nobody has ever put underneath it.</p>
+
+    <div class="opportunity">
+      <div class="eyebrow">The position</div>
+      <p>Every plot you sell to a living person is a <em>signed commitment</em> to come back and spend three to five times more, at whatever your prices are on the day they need you.</p>
+    </div>
+
+    <div class="quote">
+      "Pre-selling merchandise is a lose-lose for the cemetery. These people could live 40 to 50 more years. I'm doing funerals now where they prepaid for this stuff 40 years ago, and it cost the cemetery money. I will sell the plots, but I will not sell the opening and closing. However, I will sell plots, which means they are locked in to come to me eventually, and they're going to pay me everything else also eventually."
+      <cite>Scott Morgan</cite>
+    </div>
+
+    <p class="section__lede" style="margin-bottom:0">Most operators in your industry do the opposite, and most of them do not understand why it hurts. Here is the difference in one frame.</p>
+
+    <div class="split">
+      <div class="split__side split__side--bad">
+        <div class="split__tag">What the industry sells</div>
+        <div class="split__head">Prepaid services and merchandise</div>
+        <div class="split__body">You collect 1986 dollars. You deliver the vault, the marker, the opening and closing at 2026 costs. The gap between the two is yours to eat, and you have been eating it.</div>
+        <div class="split__verdict">Inflation is working against you.</div>
+      </div>
+      <div class="split__side split__side--good">
+        <div class="split__tag">What you sell</div>
+        <div class="split__head">The plot, and only the plot</div>
+        <div class="split__body">You collect today's dollars for the ground. Everything after it, the interment, the memorial, the vault, the rest of the family, gets billed at whatever your price sheet says on the day it happens.</div>
+        <div class="split__verdict">Inflation is working for you.</div>
+      </div>
+    </div>
+
+    <div class="checkline"><strong>Why this matters more than it sounds:</strong> your refusal to pre-sell services is not caution. It is the correct capital structure for a business that gets paid decades after it signs. Every recommendation on this page is built to protect it. Nothing here asks you to pre-sell a service.</div>
+  </section>
+
+  <!-- THE MATH -->
+  <section class="block">
+    <div class="eyebrow">Run your own numbers</div>
+    <h2 class="section__title">What one plot is <em>actually</em> worth</h2>
+    <p class="section__lede">I do not have your price sheet, so the numbers below are starting estimates. Change them to your real ones and the whole model moves. This is the single most useful thing you can send back.</p>
+
+    <div class="calc">
+      <div class="calc__note">Every field is editable. Tap a number and type over it.</div>
+      <div class="calc__inputs">
+        <div class="field">
+          <label for="f-plot">Plot price</label>
+          <input id="f-plot" type="number" value="1500" min="0" step="50"/>
+          <div class="hint">What a single space sells for today</div>
+        </div>
+        <div class="field">
+          <label for="f-oc">Opening and closing</label>
+          <input id="f-oc" type="number" value="1400" min="0" step="50"/>
+          <div class="hint">Billed at future prices, not today's</div>
+        </div>
+        <div class="field">
+          <label for="f-mem">Memorial or monument</label>
+          <input id="f-mem" type="number" value="2200" min="0" step="50"/>
+          <div class="hint">Average across your product ladder</div>
+        </div>
+        <div class="field">
+          <label for="f-vault">Vault and other services</label>
+          <input id="f-vault" type="number" value="1400" min="0" step="50"/>
+          <div class="hint">Anything else on a typical interment</div>
+        </div>
+        <div class="field">
+          <label for="f-spaces">Spaces available to sell</label>
+          <input id="f-spaces" type="number" value="4000" min="0" step="100"/>
+          <div class="hint">Your 4 approved acres</div>
+        </div>
+        <div class="field">
+          <label for="f-family">Additional spaces per family</label>
+          <input id="f-family" type="number" value="0" min="0" step="0.5"/>
+          <div class="hint">Set to 0 for now. We come back to this.</div>
+        </div>
+      </div>
+
+      <div class="calc__out">
+        <div class="calc__row"><span>Collected at the plot sale, today</span><span id="o-today">$1,500</span></div>
+        <div class="calc__row calc__row--muted"><span>Collected later, at future prices</span><span id="o-later">$5,000</span></div>
+        <div class="calc__row"><span>True lifetime value of one plot sold</span><span id="o-ltv">$6,500</span></div>
+        <div class="calc__row calc__row--muted"><span>Share of it that arrives after the sale</span><span id="o-share">77%</span></div>
+
+        <div class="calc__big">
+          <div class="calc__big-label">Your 4 approved acres, fully sold</div>
+          <div class="calc__big-num" id="o-total">$26,000,000</div>
+          <div class="calc__big-sub" id="o-vs">You projected $25M to $30M over 30 years. The model agrees with you.</div>
+        </div>
+
+        <div class="checkline"><strong>Read the second line again.</strong> <span id="o-narr">Only 23% of a plot's value shows up when you sell it. The other 77% is a receivable you cannot collect until someone dies, and the only way to secure it is to own the ground they are standing on.</span></div>
+      </div>
+    </div>
+
+    <div class="checkline" style="margin-top:20px"><strong>The part that should change what you do Monday:</strong> if a plot is worth several times its own price, then the plot price is not really revenue. It is the cost of acquiring a customer who is contractually unable to shop anywhere else. Cemeteries price plots like a product. You can price them like an entry point, and win every one of them.</div>
+  </section>
+
+  <!-- CAPITAL -->
+  <section class="block">
+    <div class="eyebrow">Return on capital</div>
+    <h2 class="section__title">$60,000 clears two acres. <em>Look at what two acres holds.</em></h2>
+    <p class="section__lede">You told me the clearing cost and the plot count. Those two numbers together produce a return that beats every outside investment available to you, including any building you could buy on that corridor.</p>
+
+    <div class="calc">
+      <div class="calc__inputs">
+        <div class="field">
+          <label for="f-clear">Cost to clear 2 acres</label>
+          <input id="f-clear" type="number" value="60000" min="0" step="1000"/>
+          <div class="hint">Your number, all cash, no financing</div>
+        </div>
+        <div class="field">
+          <label for="f-density">Spaces per acre</label>
+          <input id="f-density" type="number" value="1000" min="0" step="50"/>
+          <div class="hint">Derived from your 4 acres to 4,000 plots</div>
+        </div>
+      </div>
+      <div class="calc__out">
+        <div class="calc__row"><span>Spaces created</span><span id="c-spaces">2,000</span></div>
+        <div class="calc__row calc__row--muted"><span>Development cost per space</span><span id="c-per">$30</span></div>
+        <div class="calc__row"><span>Plot revenue those spaces hold</span><span id="c-plotrev">$3,000,000</span></div>
+        <div class="calc__row"><span>Full lifetime value those spaces hold</span><span id="c-ltvrev">$13,000,000</span></div>
+        <div class="calc__big">
+          <div class="calc__big-label">Return on the clearing cost</div>
+          <div class="calc__big-num" id="c-roi">217x</div>
+          <div class="calc__big-sub">Measured against lifetime value. Against plot revenue alone it is still <span id="c-roi2">50x</span>.</div>
+        </div>
+        <div class="checkline"><strong>The conclusion nobody will say out loud:</strong> selling developable acreage is the worst available use of it. Raw land on that corridor trades in the tens of thousands per acre. The same acre, cleared and platted by your own crew with your own equipment, holds seven figures. You are not a landowner who happens to run a cemetery. You are a manufacturer whose raw material is dirt.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LEVERS -->
+  <section class="block">
+    <div class="eyebrow">Ranked by what I would do first</div>
+    <h2 class="section__title">Seven levers, <em>none of which cost you an ad budget</em></h2>
+    <p class="section__lede">Ordered by return per hour of your attention, not by size. Tap any one to open it.</p>
+
+    <div class="levers">
+
+      <div class="lever" tabindex="0">
+        <div class="lever__top">
+          <div class="lever__num">01</div>
+          <div class="lever__name">The graveside is the highest intent room you will ever have</div>
+          <div class="lever__tag lever__tag--free">Zero cost</div>
+        </div>
+        <div class="lever__hook">Every interment puts 20 to 100 relatives physically on your ground, with a permanent reason to come back. Nobody is offered the space next to it.</div>
+        <div class="lever__body">
+          <strong>What is happening now</strong>
+          A family buries someone. They leave. Some fraction of them will eventually buy somewhere, and you find out only if they call you.
+          <strong>What to do instead</strong>
+          <ul>
+            <li>Ask at the memorial setting appointment, never at the funeral. The funeral is not a sales environment and treating it like one would cost you the reputation that built this business.</li>
+            <li>The offer is simple and it is not a pitch: the adjoining spaces in that section are available, here is what they hold, here is what they cost today.</li>
+            <li>Log every family member who attended. That list is the most valuable list you own and right now it does not exist on paper.</li>
+          </ul>
+          <strong>Why it is first</strong>
+          It costs nothing, it requires no new staff, and it converts at rates no advertising channel can approach, because the emotional decision has already been made. Every additional space sold to a family that already buried someone there is nearly pure margin on ground you have already cleared.
+        </div>
+        <div class="lever__toggle">Tap to open</div>
+      </div>
+
+      <div class="lever" tabindex="0">
+        <div class="lever__top">
+          <div class="lever__num">02</div>
+          <div class="lever__name">The funeral directors are a channel you have never formalized</div>
+          <div class="lever__tag">B2B</div>
+        </div>
+        <div class="lever__hook">You work with a lot of them and you have a five-star name. That relationship is currently running on goodwill and memory.</div>
+        <div class="lever__body">
+          <strong>The gap</strong>
+          Funeral directors route families. When a director has a family choosing a cemetery, whoever is easiest to reach and easiest to quote wins. Today that is decided by whoever the director happens to think of.
+          <strong>What to build</strong>
+          <ul>
+            <li>A current one page price and availability sheet in the hands of every director in the metro, refreshed whenever prices move.</li>
+            <li>A named person and a same day response standard. Directors are working against a family sitting in their office right now.</li>
+            <li>A quarterly in person visit. Not a sales call. A face.</li>
+            <li>A simple scoreboard of which house sent how many families this year. You cannot grow a channel you are not counting.</li>
+          </ul>
+          <strong>Why it ranks this high</strong>
+          It is the cheapest growth available to you and it compounds, because a director who has a good experience routes the next one too. It also becomes the distribution arm for the crematorium in lever 03.
+        </div>
+        <div class="lever__toggle">Tap to open</div>
+      </div>
+
+      <div class="lever" tabindex="0">
+        <div class="lever__top">
+          <div class="lever__num">03</div>
+          <div class="lever__name">The crematorium is approved, so this is an execution question</div>
+          <div class="lever__tag">Capex</div>
+        </div>
+        <div class="lever__hook">Cremation is only a threat when it takes the family off your property. Own the retort and the niche wall and it inverts.</div>
+        <div class="lever__body">
+          <strong>The strategic frame</strong>
+          Cremation rates have been climbing for decades and are not coming back down. Operators who fought it lost. Operators who owned it found it carries better margin per square foot than in ground burial, because a columbarium stacks vertically on land you already own and already maintain.
+          <strong>Three separate revenue lines, not one</strong>
+          <ul>
+            <li><em>Retail cremation</em> to your own families, capturing what you currently refer away.</li>
+            <li><em>Wholesale cremation to funeral homes that do not own a retort.</em> This is the line most operators never build. Every funeral home in the metro without its own machine is paying somebody. Lever 02 is how you reach them. <span class="pending">Market sizing in research</span></li>
+            <li><em>The product ladder that keeps cremation families on your land:</em> columbarium niches, a cremation garden, a scattering garden, an ossuary, and cremation burial plots. Without this, cremation families take the urn home and you never see them again.</li>
+          </ul>
+          <strong>What is still open</strong>
+          Retort capital cost, the Virginia DEQ air permit path, wholesale pricing in this market, and columbarium revenue per square foot are all being pulled from primary sources now. I am not putting a number in front of you until it is sourced. <span class="pending">Pro forma pending</span>
+        </div>
+        <div class="lever__toggle">Tap to open</div>
+      </div>
+
+      <div class="lever" tabindex="0">
+        <div class="lever__top">
+          <div class="lever__num">04</div>
+          <div class="lever__name">Sixty-eight years of deed records is a list you already own</div>
+          <div class="lever__tag lever__tag--free">Zero cost</div>
+        </div>
+        <div class="lever__hook">Every family that has ever bought ground from you since 1958 has living descendants, and many of them own spaces they will never use.</div>
+        <div class="lever__body">
+          <strong>Two motions out of one file</strong>
+          <ul>
+            <li><em>Reactivation.</em> Families who bought a section decades ago and never filled it. A letter that simply states what they own and what adjoins it produces sales, because most of them genuinely do not remember the details.</li>
+            <li><em>Inventory recovery.</em> Abandoned and unused spaces in old sections are real inventory sitting on your books. Virginia has a process for this and it is worth knowing exactly where you stand on it.</li>
+          </ul>
+          <strong>Why it matters</strong>
+          This is a buyer list with a proven purchase history and an existing emotional tie to your ground, and it costs postage. There is no acquisition channel in any industry that beats that.
+        </div>
+        <div class="lever__toggle">Tap to open</div>
+      </div>
+
+      <div class="lever" tabindex="0">
+        <div class="lever__top">
+          <div class="lever__num">05</div>
+          <div class="lever__name">Sell sections, not spaces</div>
+          <div class="lever__tag">Volume</div>
+        </div>
+        <div class="lever__hook">One relationship can move 50 to 200 spaces at a time. This is historically how cemeteries filled ground fast.</div>
+        <div class="lever__body">
+          <strong>Who buys sections</strong>
+          <ul>
+            <li>Churches, particularly congregations without their own burial ground.</li>
+            <li>Fraternal organizations, lodges, and civic groups.</li>
+            <li>Cultural and national associations whose members want to be buried together.</li>
+            <li>Veterans posts, though see the caution below.</li>
+          </ul>
+          <strong>The veterans caution</strong>
+          Richmond has national cemetery capacity and Virginia has state veterans cemeteries, which means a qualifying veteran can be buried at no cost. That is real competition and it is worth understanding precisely where the eligibility gaps are, particularly around spouses and around veterans who want to be near family rather than in a national cemetery. <span class="pending">Capacity and eligibility in research</span>
+          <strong>Why it works</strong>
+          A group section creates its own gravity. Once twenty members of a congregation are buried in one place, the rest of that congregation follows without anyone selling anything.
+        </div>
+        <div class="lever__toggle">Tap to open</div>
+      </div>
+
+      <div class="lever" tabindex="0">
+        <div class="lever__top">
+          <div class="lever__num">06</div>
+          <div class="lever__name">Your crew and 17 machines are idle between calls</div>
+          <div class="lever__tag">Overlooked</div>
+        </div>
+        <div class="lever__hook">You said it yourself. Ready for more work, nothing you cannot handle. That capacity is currently a fixed cost.</div>
+        <div class="lever__body">
+          <strong>The observation</strong>
+          You have assembled a development and grounds operation that most cemeteries your size could never justify. It is sized for the four acres you are about to clear. Between interments and between projects, it is carrying cost.
+          <strong>Where the demand is</strong>
+          <ul>
+            <li>Church cemeteries and small municipal burial grounds across the region are chronically under-resourced. They have ground and no equipment. Grounds maintenance, section development, and opening and closing are all contractable.</li>
+            <li>Doing that work puts you inside their operations, which is where you learn which of them are struggling and which might eventually want to sell.</li>
+          </ul>
+          <strong>Why nobody would have told you this</strong>
+          Deathcare consultants sell you marketing. Nobody looks at your equipment line and sees a services business hiding inside a cemetery. It converts a cost center into a revenue line and it builds the relationship map for anything you might want to acquire later.
+        </div>
+        <div class="lever__toggle">Tap to open</div>
+      </div>
+
+      <div class="lever" tabindex="0">
+        <div class="lever__top">
+          <div class="lever__num">07</div>
+          <div class="lever__name">You do not need to buy demand. You need to stop losing it.</div>
+          <div class="lever__tag lever__tag--free">Near zero cost</div>
+        </div>
+        <div class="lever__hook">Zero advertising is a strength, not a gap. The gap is that people searching for exactly what you sell cannot always find you.</div>
+        <div class="lever__body">
+          <strong>The distinction</strong>
+          Advertising buys attention from people who were not looking. You do not need that. Cemetery searches are among the highest intent searches that exist, and the person making them is going to buy from somebody this week.
+          <strong>What actually moves it</strong>
+          <ul>
+            <li>A complete Google Business Profile with current photos, hours, and every service listed. Yours is the first thing a family sees and it is free.</li>
+            <li>Being present in obituaries and on the funeral home pages that families read. This overlaps directly with lever 02.</li>
+            <li>Being answerable by AI search. Families increasingly ask an assistant rather than open ten tabs, and the assistant can only recommend what it can read. Most cemeteries are invisible to it.</li>
+            <li>A page that simply states what is available and what it costs. Price opacity is the industry default and it sends people to whoever answers the question.</li>
+          </ul>
+          <strong>The fit with who you are</strong>
+          You have a five-star reputation and the best value in the city. Both of those are assets that only pay when a stranger can find them. This lever is not marketing. It is removing the friction between your reputation and the person looking for it.
+        </div>
+        <div class="lever__toggle">Tap to open</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LAND -->
+  <section class="block">
+    <div class="eyebrow">The twelve acres</div>
+    <h2 class="section__title">Wetlands are the <em>one exception</em> to everything above</h2>
+    <p class="section__lede">Every other acre you own is worth more platted than sold. Wetlands cannot be platted, which means they are the only ground on the property where selling is genuinely on the table. There are three paths and they are not equal.</p>
+
+    <div class="landgrid">
+      <div class="landcard">
+        <div class="landcard__tag">Path 01</div>
+        <div class="landcard__head">Wetland mitigation credits</div>
+        <div class="landcard__body">Virginia runs a market where developers who destroy wetlands must buy credits from landowners who preserve or restore them. A 12-acre parcel may or may not clear the minimum viable size. Approval runs through the Army Corps Norfolk District and Virginia DEQ, and the timeline is measured in years. <span class="pending">Viability and credit pricing in research</span></div>
+      </div>
+      <div class="landcard">
+        <div class="landcard__tag">Path 02</div>
+        <div class="landcard__head">Conservation easement</div>
+        <div class="landcard__body">Virginia's Land Preservation Tax Credit gives you a transferable state credit for donating development rights you cannot exercise anyway. The credits sell on a secondary market at a discount. Since wetlands have no plot value to give up, the donation costs you nothing you could otherwise use. <span class="pending">Net value math in research</span></div>
+      </div>
+      <div class="landcard landcard--best">
+        <div class="landcard__tag">Path 03</div>
+        <div class="landcard__head">Outright sale</div>
+        <div class="landcard__body">The simplest and usually the lowest number, because a buyer is purchasing land they also cannot develop. Worth pricing so you know what you are turning down, but it should be measured against paths 01 and 02 rather than assumed to be the answer.</div>
+      </div>
+    </div>
+
+    <div class="checkline"><strong>Hold the recommendation until the research lands.</strong> These three paths differ by a wide margin in net dollars and by years in timeline, and picking wrong is not reversible. I would rather hand you a sourced answer next week than a confident guess tonight.</div>
+  </section>
+
+  <!-- WHAT I NEED -->
+  <section class="block">
+    <div class="eyebrow">To replace every estimate with your real numbers</div>
+    <h2 class="section__title">Six things <em>only you</em> can tell me</h2>
+    <p class="section__lede">The model on this page runs on assumptions. Each answer below swaps one out for the truth and sharpens everything downstream.</p>
+
+    <div class="asks">
+      <div class="ask"><div class="ask__q">Your current price sheet</div><div class="ask__why">Plot, opening and closing, memorial, vault. This single input rewrites every number on this page.</div></div>
+      <div class="ask"><div class="ask__q">Interments last year</div><div class="ask__why">Tells us your share of the metro death rate and how much room is above you.</div></div>
+      <div class="ask"><div class="ask__q">Plots sold last year, and how many were pre-need</div><div class="ask__why">Separates your at-need volume from your forward book. Lever 01 is measured against this.</div></div>
+      <div class="ask"><div class="ask__q">Which funeral homes sent you families, and roughly how many each</div><div class="ask__why">Turns lever 02 from a concept into a named account list ranked by value.</div></div>
+      <div class="ask"><div class="ask__q">What you do with cremation families today</div><div class="ask__why">Where you refer them, what you charge, and what you keep. Sets the baseline the crematorium gets measured against.</div></div>
+      <div class="ask"><div class="ask__q">Where the crematorium approval actually stands</div><div class="ask__why">Which county issued it, what it covers, and whether it has an expiration. This one is time-sensitive.</div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block">
+    <div class="cta">
+      <div class="cta__title">This is yours, Scott. <em>No strings on it.</em></div>
+      <p class="cta__sub">You asked how to make more money and I went and figured it out. Send back whatever numbers you have and I will replace every estimate on this page with the real thing, plus the crematorium pro forma once the sourcing lands.</p>
+      <div class="cta__buttons">
+        <a href="#" id="emailBtn" class="cta__btn">Send Miles the numbers</a>
+        <a href="roselawn-playbook.html" class="cta__btn cta__btn--ghost">Open the operating playbook</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="why">Built for <em>Scott Morgan</em> and Roselawn Memory Gardens. Please do not share.</div>
+    Miles Agee &middot; miles@milesagee.com<br/>
+    Estimates are labeled as estimates. Nothing here is legal, tax, or financial advice.
+  </footer>
+
+</div>
+
+<script>
+  // Expandable levers
+  document.querySelectorAll('.lever').forEach(function (card) {
+    var toggle = function () {
+      var wasOpen = card.classList.contains('open');
+      card.classList.toggle('open');
+      var t = card.querySelector('.lever__toggle');
+      if (t) t.textContent = wasOpen ? 'Tap to open' : 'Tap to close';
+    };
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+
+  var usd = function (n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  };
+  var usdShort = function (n) {
+    if (n >= 1000000) {
+      var m = n / 1000000;
+      return '$' + (m >= 100 ? Math.round(m) : m.toFixed(1).replace(/\.0$/, '')) + 'M';
+    }
+    return usd(n);
+  };
+  var val = function (id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) ? 0 : v;
+  };
+
+  function recalcLTV() {
+    var plot = val('f-plot');
+    var later = val('f-oc') + val('f-mem') + val('f-vault');
+    var extra = val('f-family');
+    var spaces = val('f-spaces');
+
+    var ltv = plot + later;
+    var share = ltv > 0 ? (later / ltv) * 100 : 0;
+    // Each sold space may pull additional family spaces, each carrying full LTV
+    var effective = ltv * (1 + extra);
+    var total = effective * spaces;
+
+    document.getElementById('o-today').textContent = usd(plot);
+    document.getElementById('o-later').textContent = usd(later);
+    document.getElementById('o-ltv').textContent = usd(ltv);
+    document.getElementById('o-share').textContent = Math.round(share) + '%';
+    document.getElementById('o-total').textContent = usd(total);
+
+    var vs = document.getElementById('o-vs');
+    if (total >= 25000000 && total <= 30000000) {
+      vs.textContent = 'You projected $25M to $30M over 30 years. The model agrees with you.';
+    } else if (total < 25000000) {
+      vs.textContent = 'You projected $25M to $30M. This lands at ' + usdShort(total) + ', so either a price is low or there are more spaces than we counted.';
+    } else {
+      vs.textContent = 'You projected $25M to $30M. This lands at ' + usdShort(total) + ', which means you were being conservative.';
+    }
+
+    document.getElementById('o-narr').textContent =
+      'Only ' + Math.round(100 - share) + '% of a plot’s value shows up when you sell it. The other ' +
+      Math.round(share) + '% is a receivable you cannot collect until someone dies, and the only way to secure it is to own the ground they are standing on.';
+  }
+
+  function recalcCapital() {
+    var clear = val('f-clear');
+    var density = val('f-density');
+    var spaces = density * 2;
+    var plot = val('f-plot');
+    var ltv = plot + val('f-oc') + val('f-mem') + val('f-vault');
+
+    var plotRev = spaces * plot;
+    var ltvRev = spaces * ltv;
+    var perSpace = spaces > 0 ? clear / spaces : 0;
+
+    document.getElementById('c-spaces').textContent = Math.round(spaces).toLocaleString('en-US');
+    document.getElementById('c-per').textContent = usd(perSpace);
+    document.getElementById('c-plotrev').textContent = usd(plotRev);
+    document.getElementById('c-ltvrev').textContent = usd(ltvRev);
+    document.getElementById('c-roi').textContent = clear > 0 ? Math.round(ltvRev / clear) + 'x' : 'n/a';
+    document.getElementById('c-roi2').textContent = clear > 0 ? Math.round(plotRev / clear) + 'x' : 'n/a';
+  }
+
+  function recalcAll() { recalcLTV(); recalcCapital(); }
+
+  ['f-plot', 'f-oc', 'f-mem', 'f-vault', 'f-spaces', 'f-family', 'f-clear', 'f-density'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', recalcAll);
+  });
+  recalcAll();
+
+  // Prefilled reply
+  var subject = encodeURIComponent('Roselawn numbers');
+  var body = encodeURIComponent(
+    'Miles,\n\nHere are the numbers off the page.\n\n' +
+    'Plot price: \n' +
+    'Opening and closing: \n' +
+    'Memorial / monument: \n' +
+    'Vault and other: \n\n' +
+    'Interments last year: \n' +
+    'Plots sold last year (and how many pre-need): \n\n' +
+    'Funeral homes that sent us families, and roughly how many each:\n- \n\n' +
+    'What we do with cremation families today: \n\n' +
+    'Crematorium approval, which county and what it covers: \n\n' +
+    'Scott'
+  );
+  document.getElementById('emailBtn').href = 'mailto:miles@milesagee.com?subject=' + subject + '&body=' + body;
+</script>
+
+</body>
+</html>
