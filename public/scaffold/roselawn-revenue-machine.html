@@ -126,6 +126,31 @@
 
   .checkline { margin-top: 18px; padding: 13px 16px; background: rgba(212, 175, 55, 0.09); border-radius: 4px; font-family: var(--serif); font-size: 13px; font-style: italic; line-height: 1.55; }
   .checkline strong { color: var(--gold-dark); font-style: normal; font-weight: 600; }
+  .checkline a { color: var(--teal); }
+
+  /* ---- Alarm ---- */
+  .alarm { background: var(--ivory); border: 1px solid rgba(155, 74, 47, 0.35); border-left: 4px solid #9B4A2F; border-radius: 0 6px 6px 0; padding: 24px 26px; box-shadow: var(--shadow-md); margin-bottom: 24px; }
+  .alarm__tag { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: #9B4A2F; margin-bottom: 12px; }
+  .alarm__quote { font-family: var(--serif); font-size: clamp(20px, 3.6vw, 25px); font-weight: 400; font-style: italic; line-height: 1.28; letter-spacing: -0.018em; color: var(--deep-teal); margin-bottom: 14px; }
+  .alarm__body { font-size: 14px; line-height: 1.6; opacity: 0.85; }
+  .alarm__body em { color: #9B4A2F; font-style: normal; font-weight: 600; }
+  .alarm__src { margin-top: 14px; padding-top: 11px; border-top: 1px dashed var(--line); font-size: 11px; opacity: 0.62; }
+  .alarm__src a { color: var(--teal); }
+
+  /* ---- Sourced figure ---- */
+  .figs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0; }
+  .fig { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 6px; padding: 18px 16px; box-shadow: var(--shadow-sm); }
+  .fig__num { font-family: var(--serif); font-size: 27px; font-weight: 500; letter-spacing: -0.025em; line-height: 1; color: var(--deep-teal); }
+  .fig__label { font-size: 11.5px; line-height: 1.45; margin-top: 8px; opacity: 0.8; }
+  .fig__src { font-size: 9.5px; margin-top: 8px; opacity: 0.55; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 700; }
+
+  /* ---- Sources ---- */
+  .srcgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .src { background: var(--ivory); border: 1px solid var(--line); border-radius: 5px; padding: 13px 15px; box-shadow: var(--shadow-sm); }
+  .src span { display: block; font-size: 12.5px; line-height: 1.45; margin-bottom: 6px; }
+  .src a { font-size: 11.5px; color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--line-strong); transition: color 0.18s, border-color 0.18s; }
+  .src a:hover { color: var(--gold-dark); border-color: var(--gold); }
+  .src a:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3); }
 
   /* ---- Levers ---- */
   .levers { display: flex; flex-direction: column; gap: 12px; }
@@ -199,6 +224,9 @@
     .calc__inputs { grid-template-columns: 1fr; }
     .landgrid { grid-template-columns: 1fr; }
     .asks { grid-template-columns: 1fr; }
+    .figs { grid-template-columns: 1fr; }
+    .srcgrid { grid-template-columns: 1fr; }
+    .alarm { padding: 20px 20px; }
     .lever__top { flex-wrap: wrap; gap: 8px; }
     .lever__name { flex-basis: 100%; order: 3; }
     .cta { padding: 28px 24px; }
@@ -266,6 +294,26 @@
     <div class="checkline"><strong>Why this matters more than it sounds:</strong> your refusal to pre-sell services is not caution. It is the correct capital structure for a business that gets paid decades after it signs. Every recommendation on this page is built to protect it. Nothing here asks you to pre-sell a service.</div>
   </section>
 
+  <!-- THE URGENT ONE -->
+  <section class="block">
+    <div class="eyebrow">Found while researching this, and it will not wait</div>
+    <h2 class="section__title">Your own website is selling <em>the exact thing you refuse to sell</em></h2>
+    <p class="section__lede">This is the most important paragraph on this page. Everything else here makes you money over years. This one stops a loss that is accruing right now.</p>
+
+    <div class="alarm">
+      <div class="alarm__tag">Live on roselawnmemorygardens.com right now</div>
+      <div class="alarm__quote">"All burial products and services may be prearranged and prepaid."</div>
+      <div class="alarm__body">The same page tells families that prepaying <em>guarantees the future cost</em>. That is a price lock on merchandise and services, offered in writing, on your own site, to anyone who reads it.</div>
+      <div class="alarm__src">Source: <a href="https://roselawnmemorygardens.com/common-questions/" target="_blank" rel="noopener">roselawnmemorygardens.com/common-questions</a></div>
+    </div>
+
+    <p class="section__lede">You told me you will not sell the opening and closing and you will not sell products for the future, because you are burying people right now who prepaid 40 years ago and it cost the cemetery money. Your website is quietly writing more of those contracts.</p>
+
+    <div class="checkline"><strong>Every one of these signed today is a loss you will personally absorb in 2050.</strong> The page costs nothing to change and the fix is one afternoon: keep the prearrangement language for plots, where locking today's price works in your favor, and remove the guarantee on merchandise, opening and closing, and services. If any of those contracts have already been signed, they need to be pulled and counted before anything else on this page matters.</div>
+
+    <div class="checkline" style="background:rgba(0,95,95,0.07)"><strong>One more thing worth a look while you are in there:</strong> the site also states that Roselawn does not accept cash and takes checks, Visa, MasterCard and Discover. I read that as a payment-acceptance policy rather than anything about how you finance the business, but it is worth confirming it still reflects how you actually operate. <span style="opacity:0.7">Source: <a href="https://roselawnmemorygardens.com/contact/" target="_blank" rel="noopener">roselawnmemorygardens.com/contact</a></span></div>
+  </section>
+
   <!-- THE MATH -->
   <section class="block">
     <div class="eyebrow">Run your own numbers</div>
@@ -277,23 +325,23 @@
       <div class="calc__inputs">
         <div class="field">
           <label for="f-plot">Plot price</label>
-          <input id="f-plot" type="number" value="1500" min="0" step="50"/>
-          <div class="hint">What a single space sells for today</div>
+          <input id="f-plot" type="number" value="2150" min="0" step="50"/>
+          <div class="hint">Low end of the $2,150 to $3,900 range a third party estimates for Roselawn. They modeled it, you never published it.</div>
         </div>
         <div class="field">
           <label for="f-oc">Opening and closing</label>
           <input id="f-oc" type="number" value="1400" min="0" step="50"/>
-          <div class="hint">Billed at future prices, not today's</div>
+          <div class="hint">Billed at future prices, not today's. Area estimate $1,400 to $1,800.</div>
         </div>
         <div class="field">
           <label for="f-mem">Memorial or monument</label>
           <input id="f-mem" type="number" value="2200" min="0" step="50"/>
-          <div class="hint">Average across your product ladder</div>
+          <div class="hint">Average across your product ladder. Not sourced, pure placeholder.</div>
         </div>
         <div class="field">
           <label for="f-vault">Vault and other services</label>
-          <input id="f-vault" type="number" value="1400" min="0" step="50"/>
-          <div class="hint">Anything else on a typical interment</div>
+          <input id="f-vault" type="number" value="950" min="0" step="50"/>
+          <div class="hint">Mount Olivet publishes a concrete vault at $950. They are the only cemetery in the metro that publishes anything.</div>
         </div>
         <div class="field">
           <label for="f-spaces">Spaces available to sell</label>
@@ -308,18 +356,18 @@
       </div>
 
       <div class="calc__out">
-        <div class="calc__row"><span>Collected at the plot sale, today</span><span id="o-today">$1,500</span></div>
-        <div class="calc__row calc__row--muted"><span>Collected later, at future prices</span><span id="o-later">$5,000</span></div>
-        <div class="calc__row"><span>True lifetime value of one plot sold</span><span id="o-ltv">$6,500</span></div>
-        <div class="calc__row calc__row--muted"><span>Share of it that arrives after the sale</span><span id="o-share">77%</span></div>
+        <div class="calc__row"><span>Collected at the plot sale, today</span><span id="o-today">$2,150</span></div>
+        <div class="calc__row calc__row--muted"><span>Collected later, at future prices</span><span id="o-later">$4,550</span></div>
+        <div class="calc__row"><span>True lifetime value of one plot sold</span><span id="o-ltv">$6,700</span></div>
+        <div class="calc__row calc__row--muted"><span>Share of it that arrives after the sale</span><span id="o-share">68%</span></div>
 
         <div class="calc__big">
           <div class="calc__big-label">Your 4 approved acres, fully sold</div>
-          <div class="calc__big-num" id="o-total">$26,000,000</div>
+          <div class="calc__big-num" id="o-total">$26,800,000</div>
           <div class="calc__big-sub" id="o-vs">You projected $25M to $30M over 30 years. The model agrees with you.</div>
         </div>
 
-        <div class="checkline"><strong>Read the second line again.</strong> <span id="o-narr">Only 23% of a plot's value shows up when you sell it. The other 77% is a receivable you cannot collect until someone dies, and the only way to secure it is to own the ground they are standing on.</span></div>
+        <div class="checkline"><strong>Read the second line again.</strong> <span id="o-narr">Only 32% of a plot's value shows up when you sell it. The other 68% is a receivable you cannot collect until someone dies, and the only way to secure it is to own the ground they are standing on.</span></div>
       </div>
     </div>
 
@@ -421,16 +469,24 @@
         </div>
         <div class="lever__hook">Cremation is only a threat when it takes the family off your property. Own the retort and the niche wall and it inverts.</div>
         <div class="lever__body">
-          <strong>The strategic frame</strong>
-          Cremation rates have been climbing for decades and are not coming back down. Operators who fought it lost. Operators who owned it found it carries better margin per square foot than in ground burial, because a columbarium stacks vertically on land you already own and already maintain.
-          <strong>Three separate revenue lines, not one</strong>
+          <strong>Your approval, from the county record</strong>
+          Hanover case <em>SPR2025-00035, "Roselawn Memory Gardens Expansion"</em>, site plan on GPIN 7758-50-7248, applied 2025-10-29, approved 2026-04-15. Applicant Bonnie Beavers, planner Thomas Incorvaia. That is 5.5 months start to finish, against a national benchmark of 6 to 12 months for zoning and environmental alone. You are ahead of the curve and most operators would not know it.
+          <strong>Where the market is going</strong>
+          Virginia was 55.6% cremation in 2024 and is projected at 63.6% by 2030, with burial falling from 34.0% to 26.0%. But the number that actually matters is this one: <em>roughly 38% of cremated remains are still interred at a cemetery.</em> Cremation does not remove you from the transaction. It removes you only if the family walks off your property with the urn, and that is a product problem, not a market problem.
+          <strong>Three revenue lines, not one</strong>
           <ul>
             <li><em>Retail cremation</em> to your own families, capturing what you currently refer away.</li>
-            <li><em>Wholesale cremation to funeral homes that do not own a retort.</em> This is the line most operators never build. Every funeral home in the metro without its own machine is paying somebody. Lever 02 is how you reach them. <span class="pending">Market sizing in research</span></li>
-            <li><em>The product ladder that keeps cremation families on your land:</em> columbarium niches, a cremation garden, a scattering garden, an ossuary, and cremation burial plots. Without this, cremation families take the urn home and you never see them again.</li>
+            <li><em>Wholesale cremation to funeral homes with no retort of their own.</em> Sized below. This is the line most operators never build.</li>
+            <li><em>The ladder that keeps cremation families on your land:</em> columbarium niches, cremation garden, scattering garden, ossuary, cremation burial plots. Without it, the 62% who do not inter are gone.</li>
           </ul>
+          <strong>The geography nobody else is covering</strong>
+          Ten crematories are currently registered across Richmond city, Henrico, Hanover and Chesterfield. <em>Only two are in Hanover, both in Mechanicsville, on the opposite side of the county from you.</em> Nothing serves the Glen Allen, Ashland and western Hanover corridor. You would not be the eleventh crematory in a crowded market. You would be the only one in your own.
+          <strong>The licensing move that matters most</strong>
+          The Virginia crematory registration application makes you elect a business model. One option is <em>"crematory not owned by a funeral establishment, offering cremation to funeral establishments only."</em> Electing that keeps you out of funeral service establishment licensure entirely, and it means you are never competing with the funeral directors who would be your customers. If you serve families directly, you must also be licensed as a funeral service establishment. That single checkbox decides the whole shape of the business.
+          <strong>The one real risk, and you should hear it plainly</strong>
+          Virginia DEQ's crematory permit boilerplate says a crematory unit "must be located at a funeral home, veterinarian office, and/or county facilities." <em>A cemetery is not named in that list.</em> It is a guidance document rather than a regulation, and it may well be a drafting gap rather than a prohibition, but it needs to be raised with the Piedmont regional air permit manager before you spend money on design. Do not let anyone tell you this is nothing until that call happens.
           <strong>What is still open</strong>
-          Retort capital cost, the Virginia DEQ air permit path, wholesale pricing in this market, and columbarium revenue per square foot are all being pulled from primary sources now. I am not putting a number in front of you until it is sourced. <span class="pending">Pro forma pending</span>
+          Three quotes from named manufacturers would replace the national capex range with a real number. And the true wholesale trade rate is genuinely unknowable from public sources, because trade price lists are not covered by the FTC Funeral Rule. It can only be closed by asking. <span class="pending">Trade rate needs a phone call</span>
         </div>
         <div class="lever__toggle">Tap to open</div>
       </div>
@@ -469,8 +525,8 @@
             <li>Cultural and national associations whose members want to be buried together.</li>
             <li>Veterans posts, though see the caution below.</li>
           </ul>
-          <strong>The veterans caution</strong>
-          Richmond has national cemetery capacity and Virginia has state veterans cemeteries, which means a qualifying veteran can be buried at no cost. That is real competition and it is worth understanding precisely where the eligibility gaps are, particularly around spouses and around veterans who want to be near family rather than in a national cemetery. <span class="pending">Capacity and eligibility in research</span>
+          <strong>The veterans picture, which is better than I expected</strong>
+          I went looking for the free-burial competition and mostly did not find it. <em>Richmond National Cemetery is closed to new interments</em>, taking only subsequent interments in existing gravesites plus the occasional reopening. The nearest open state veterans cemetery is at Amelia Court House, well outside the metro. So for a Hanover or northern Henrico family, choosing free means a long drive for every visit for the rest of their lives, and the spouse still pays $300. That is a much weaker competitor than the phrase "free veterans burial" suggests. Veterans posts are worth approaching, and you should know these facts cold before you walk in.
           <strong>Why it works</strong>
           A group section creates its own gravity. Once twenty members of a congregation are buried in one place, the rest of that congregation follows without anyone selling anything.
         </div>
@@ -513,15 +569,53 @@
             <li>A complete Google Business Profile with current photos, hours, and every service listed. Yours is the first thing a family sees and it is free.</li>
             <li>Being present in obituaries and on the funeral home pages that families read. This overlaps directly with lever 02.</li>
             <li>Being answerable by AI search. Families increasingly ask an assistant rather than open ten tabs, and the assistant can only recommend what it can read. Most cemeteries are invisible to it.</li>
-            <li>A page that simply states what is available and what it costs. Price opacity is the industry default and it sends people to whoever answers the question.</li>
+            <li>A page that simply states what is available and what it costs. See the next paragraph, because this one is bigger than it looks.</li>
           </ul>
-          <strong>The fit with who you are</strong>
-          You have a five-star reputation and the best value in the city. Both of those are assets that only pay when a stranger can find them. This lever is not marketing. It is removing the friction between your reputation and the person looking for it.
+          <strong>The opening that surprised me</strong>
+          I went through every cemetery in this market looking for published prices. <em>Exactly one publishes a real list.</em> Mount Olivet, a nonprofit in the city. Not Forest Lawn, not Westhampton, not Washington Memorial, not Signal Hill, none of the corporate parks. The plot figures that show up online for all of them, including yours, are a third-party site's own modeled estimates with a disclaimer saying the business did not publish them.
+          <strong>Why that matters for you specifically</strong>
+          You already compete on being the best value in the city. Right now a family cannot verify that without calling you, which means your single strongest claim is invisible at the exact moment they are choosing. Publishing a straight price list would make you the only memorial park in the metro that does, and it would turn "best value" from something you say into something they can see. The corporate parks cannot follow you there easily, because opacity is how their sales model works.
         </div>
         <div class="lever__toggle">Tap to open</div>
       </div>
 
     </div>
+  </section>
+
+  <!-- CREMATORIUM NUMBERS -->
+  <section class="block">
+    <div class="eyebrow">The building you already have approved</div>
+    <h2 class="section__title">What the retort actually costs, <em>and who is waiting to buy from it</em></h2>
+    <p class="section__lede">Every figure below traces to a primary source. Where a number could not be sourced, it says so instead of guessing. National ranges are labeled national.</p>
+
+    <div class="figs">
+      <div class="fig">
+        <div class="fig__num">$270K</div>
+        <div class="fig__label">Turnkey, one human retort plus a 1,200 sq ft building. $150K for the chamber delivered, installed, fired and with operator training, plus $120K for the building at $100 per sq ft.</div>
+        <div class="fig__src">Cremation Systems, national</div>
+      </div>
+      <div class="fig">
+        <div class="fig__num">14</div>
+        <div class="fig__label">Independent funeral homes across Richmond city, Henrico, Hanover and Chesterfield that hold a current license and have <strong>no crematory of their own</strong>. They are all buying cremation from somebody today.</div>
+        <div class="fig__src">Virginia DHP license register</div>
+      </div>
+      <div class="fig">
+        <div class="fig__num">$0</div>
+        <div class="fig__label">DEQ air permit application fee <strong>if the unit qualifies as a true minor source</strong>. A minor NSR permit is $7,066 for 2026. Which one applies depends on a potential-to-emit review.</div>
+        <div class="fig__src">Virginia DEQ 2026 fee schedule</div>
+      </div>
+    </div>
+
+    <div class="opportunity">
+      <div class="eyebrow">The columbarium argument</div>
+      <p>A granite niche costs roughly <em>$460 to $650</em> to build and sells in a <em>$2,200 to $4,250</em> band, on a footprint of a few square feet instead of twenty-seven.</p>
+    </div>
+
+    <div class="checkline" style="margin-top:22px"><strong>Put that next to a grave.</strong> Mount Olivet, the only cemetery in this market that publishes real prices, sells a 3ft by 9ft casket grave for $1,600, which is about $59 per square foot, and a 3ft by 3ft ash grave for $800, about $89 per square foot. A columbarium niche beats both by a wide margin on the same ground you already own, already cleared, and already mow. <span style="opacity:0.72">That per-square-foot comparison is arithmetic on the sourced prices, not a published industry statistic. No ICCFA or CANA revenue-per-square-foot figure was locatable.</span></div>
+
+    <div class="checkline"><strong>What the wholesale rate is not:</strong> two Richmond price lists show a crematory charge of $425 (Morrissett, 2022) and $650 (Cremation Society of Virginia, 2026). Those are <em>pass-through retail line items</em>, almost certainly above the real trade rate. The national benchmark for what a funeral home pays a third-party crematory is $150 to $350 per case. Nobody publishes trade pricing, because the FTC Funeral Rule does not require it. Before you set a price, call two of those 14 houses and ask what they pay now. That one conversation is worth more than any further research.</div>
+
+    <div class="checkline" style="background:rgba(0,95,95,0.07)"><strong>Your unfair advantage on the build:</strong> the published capex ranges assume you are hiring out site work, pad prep, and grading. You have 17 pieces of equipment and a crew. That line comes off your budget and stays on everyone else's, which is exactly why a project that prices at $270K nationally should price lower for you.</div>
   </section>
 
   <!-- LAND -->
@@ -532,23 +626,29 @@
 
     <div class="landgrid">
       <div class="landcard">
-        <div class="landcard__tag">Path 01</div>
-        <div class="landcard__head">Wetland mitigation credits</div>
-        <div class="landcard__body">Virginia runs a market where developers who destroy wetlands must buy credits from landowners who preserve or restore them. A 12-acre parcel may or may not clear the minimum viable size. Approval runs through the Army Corps Norfolk District and Virginia DEQ, and the timeline is measured in years. <span class="pending">Viability and credit pricing in research</span></div>
-      </div>
-      <div class="landcard">
-        <div class="landcard__tag">Path 02</div>
-        <div class="landcard__head">Conservation easement</div>
-        <div class="landcard__body">Virginia's Land Preservation Tax Credit gives you a transferable state credit for donating development rights you cannot exercise anyway. The credits sell on a secondary market at a discount. Since wetlands have no plot value to give up, the donation costs you nothing you could otherwise use. <span class="pending">Net value math in research</span></div>
+        <div class="landcard__tag">Path 01 &middot; Do not do this</div>
+        <div class="landcard__head">Sponsor your own mitigation bank</div>
+        <div class="landcard__body">I expected this to be the clever answer. It is not, and the reason is specific: <strong>land that is already wetland cannot be restored into credits.</strong> Preservation gets discounted hard, at 10 acres to 1 credit in the most recent Norfolk District bank. Your 12 acres yields about 1.2 credits, worth roughly $108,000 at the James basin reference price of $90,000. Sponsoring the bank costs $80,000 to $1.2M plus construction, plus perpetual maintenance security, and averages over three years to approval. <strong>The cost floor is above the revenue ceiling.</strong></div>
       </div>
       <div class="landcard landcard--best">
-        <div class="landcard__tag">Path 03</div>
-        <div class="landcard__head">Outright sale</div>
-        <div class="landcard__body">The simplest and usually the lowest number, because a buyer is purchasing land they also cannot develop. Worth pricing so you know what you are turning down, but it should be measured against paths 01 and 02 rather than assumed to be the answer.</div>
+        <div class="landcard__tag">Path 02 &middot; The likely answer</div>
+        <div class="landcard__head">Donated conservation easement</div>
+        <div class="landcard__body">Virginia's Land Preservation Tax Credit is <strong>40% of the appraised value of the donation</strong>, and the credits are transferable, so you can sell them even if you cannot use them. The secondary market nets donors roughly 80 to 85 cents on the dollar after a 5% transfer fee. You are donating development rights on ground you can never plat anyway. On an illustrative $150K to $420K easement value, that is roughly <strong>$46,000 to $136,000 in cash</strong>, in the year of conveyance rather than in a decade.</div>
+      </div>
+      <div class="landcard">
+        <div class="landcard__tag">Path 03 &middot; The floor</div>
+        <div class="landcard__head">Sell it, or simply keep it</div>
+        <div class="landcard__body">Hanover assesses raw A-1 acreage on this corridor around $7,600 per acre, and non-developable wetland sits below that, so an arm's length sale is plausibly tens of thousands. The exception is a neighboring project that needs it for stormwater, buffer, or Chesapeake Bay Act compliance, where the price is set by their need instead of the land. <strong>And doing nothing is cheap:</strong> the 10-acre parcel at your address carries $723.74 a year in tax. Wetland buffer costs almost nothing to hold.</div>
       </div>
     </div>
 
-    <div class="checkline"><strong>Hold the recommendation until the research lands.</strong> These three paths differ by a wide margin in net dollars and by years in timeline, and picking wrong is not reversible. I would rather hand you a sourced answer next week than a confident guess tonight.</div>
+    <div class="checkline"><strong>The one thing to spend money on first, and it is small:</strong> order a wetland delineation and an Army Corps jurisdictional determination. Every path above depends on how many acres are truly jurisdictional, and on one specific question. In March 2025 Virginia DEQ and the Corps clarified that <em>actively managed loblolly pine plantation</em> is now eligible as a restoration site rather than being stuck at preservation ratios. If any part of those 12 acres is pine plantation or ditched or prior-converted ground rather than mature forested wetland, the credit math changes materially in your favor. Nobody can tell you that without walking it.</div>
+
+    <div class="checkline" style="background:rgba(0,95,95,0.07)"><strong>Then make two phone calls, not a project.</strong> One to an active James basin bank sponsor about optioning the acreage as preservation or buffer inventory on top of their restoration core, which moves all the cost and all the years onto them. One to a Virginia easement holder about whether they would accept a wetland-only easement. Whichever comes back with a real number wins. <em>If neither produces something you like inside 90 days, keep it as cemetery buffer and stop thinking about it.</em> Against $60,000 that turns two acres into two thousand plots, every wetland path here is a rounding error on your attention.</div>
+
+    <div class="checkline" style="background:rgba(0,95,95,0.07)"><strong>What the county record does and does not show.</strong> Hanover's floodplain layer returns no records for either cemetery parcel. That is not the same as a wetlands finding, because jurisdictional wetlands are delineated by DEQ and the Army Corps rather than mapped by the county, so it neither confirms nor rules out the 12 acres. The thing that would settle it is a jurisdictional determination letter or the sheet set from your approved site plan. If you have either one, that closes the question immediately.</div>
+
+    <div class="checkline"><strong>Two record discrepancies worth a minute of your time.</strong> Your website says 75 acres with 45 cleared, while Hanover's tax roll shows 41.386 acres across the two parcels titled to Greenlawn Memory Gardens, Inc. The gap is roughly the 20 acres that moved to Mountain Rd Properties LLC at deed book 3377. Separately, no public record anywhere states the 4,000 plot count, so that figure should be tied to your approved plat or your own interment map before either of us repeats it. Neither is a problem. Both are just worth knowing before a number gets quoted to someone.</div>
   </section>
 
   <!-- WHAT I NEED -->
@@ -563,15 +663,39 @@
       <div class="ask"><div class="ask__q">Plots sold last year, and how many were pre-need</div><div class="ask__why">Separates your at-need volume from your forward book. Lever 01 is measured against this.</div></div>
       <div class="ask"><div class="ask__q">Which funeral homes sent you families, and roughly how many each</div><div class="ask__why">Turns lever 02 from a concept into a named account list ranked by value.</div></div>
       <div class="ask"><div class="ask__q">What you do with cremation families today</div><div class="ask__why">Where you refer them, what you charge, and what you keep. Sets the baseline the crematorium gets measured against.</div></div>
-      <div class="ask"><div class="ask__q">Where the crematorium approval actually stands</div><div class="ask__why">Which county issued it, what it covers, and whether it has an expiration. This one is time-sensitive.</div></div>
+      <div class="ask"><div class="ask__q">The sheet set from your approved site plan</div><div class="ask__why">Hanover case SPR2025-00035. It should settle the 4 approved acres, the wetlands question, and exactly what the crematorium approval covers, all at once.</div></div>
     </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section class="block">
+    <div class="eyebrow">Where every number came from</div>
+    <h2 class="section__title">You should be able to <em>check my work</em></h2>
+    <p class="section__lede">Nothing on this page is an industry rumor. If a figure is an estimate, it says estimate. If it could not be sourced, it says so instead of filling the gap.</p>
+    <div class="srcgrid">
+      <div class="src"><span>Parcels, zoning, deeds, site plan SPR2025-00035</span><a href="https://www.hanovercounty.gov/322/Deeds-Plats---Self-Service" target="_blank" rel="noopener">Hanover County GIS and land records</a></div>
+      <div class="src"><span>Cremation and burial share, Virginia and national, through 2045</span><a href="https://content.nfda.org/Portals/0/2024_NFDA_Cremation%20and%20Burial%20Report.pdf" target="_blank" rel="noopener">NFDA 2024 Cremation and Burial Report</a></div>
+      <div class="src"><span>Crematory, funeral establishment and branch licenses</span><a href="https://dhp.virginiainteractive.org/Lookup/Index" target="_blank" rel="noopener">Virginia Dept of Health Professions register</a></div>
+      <div class="src"><span>Air permit fees and the crematory siting boilerplate</span><a href="https://www.deq.virginia.gov/news-info/shortcuts/laws-regulations/air/fees-under-the-air-pollution-control-law" target="_blank" rel="noopener">Virginia DEQ</a></div>
+      <div class="src"><span>Crematory registration, manager and operator certification</span><a href="https://law.lis.virginia.gov/admincode/title18/agency65/chapter20/section435/" target="_blank" rel="noopener">18VAC65-20-435</a></div>
+      <div class="src"><span>Deaths by locality, 2015 through 2024</span><a href="https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/counties/totals/co-est2024-alldata.csv" target="_blank" rel="noopener">US Census Bureau population estimates</a></div>
+      <div class="src"><span>The only published cemetery price list in this market</span><a href="https://www.mountolivetcemetery.org/pricing-services" target="_blank" rel="noopener">Mount Olivet Cemetery 2026 pricing</a></div>
+      <div class="src"><span>Retort and building capex, national</span><a href="https://www.cremsys.com/wp-content/uploads/2021/09/Metal-Turnkey-data_9-2021_WEB.pdf" target="_blank" rel="noopener">Cremation Systems turnkey data sheet</a></div>
+      <div class="src"><span>Columbarium construction cost per niche</span><a href="https://www.columbariumusa.com/columbarium-prices/" target="_blank" rel="noopener">Columbarium USA</a></div>
+      <div class="src"><span>Richmond crematory charges and retail cremation spread</span><a href="https://www.localcremationguide.com/va/richmond" target="_blank" rel="noopener">Local Cremation Guide plus published GPLs</a></div>
+      <div class="src"><span>Richmond National Cemetery closed to new interments</span><a href="https://www.cem.va.gov/cems/nchp/richmond.asp" target="_blank" rel="noopener">VA National Cemetery Administration</a></div>
+      <div class="src"><span>The prearrangement language on your own site</span><a href="https://roselawnmemorygardens.com/common-questions/" target="_blank" rel="noopener">roselawnmemorygardens.com</a></div>
+      <div class="src"><span>Wetland credit ratios and Norfolk District bank instruments</span><a href="https://www.deq.virginia.gov/permits/water/compensatory-mitigation" target="_blank" rel="noopener">Virginia DEQ and USACE Norfolk</a></div>
+      <div class="src"><span>Land Preservation Tax Credit, 40%, transfer rules, caps</span><a href="https://www.tax.virginia.gov/land-preservation-tax-credit" target="_blank" rel="noopener">Virginia Department of Taxation</a></div>
+    </div>
+    <div class="checkline"><strong>Still genuinely unknown, and I am not going to pretend otherwise:</strong> the real wholesale trade rate in this market, a Virginia-specific installed retort quote, niche pricing at any competitor, the sale price on the 20 acres at deed book 3377, and how many of your 12 acres are actually jurisdictional wetland. Five open items, each with a named way to close it.</div>
   </section>
 
   <!-- CTA -->
   <section class="block">
     <div class="cta">
       <div class="cta__title">This is yours, Scott. <em>No strings on it.</em></div>
-      <p class="cta__sub">You asked how to make more money and I went and figured it out. Send back whatever numbers you have and I will replace every estimate on this page with the real thing, plus the crematorium pro forma once the sourcing lands.</p>
+      <p class="cta__sub">You asked how to make more money and I went and figured it out. Send back whatever numbers you have and I will replace every estimate on this page with the real thing. Start with the website fix, though. That one is costing you now.</p>
       <div class="cta__buttons">
         <a href="#" id="emailBtn" class="cta__btn">Send Miles the numbers</a>
         <a href="roselawn-playbook.html" class="cta__btn cta__btn--ghost">Open the operating playbook</a>
