@@ -107,6 +107,44 @@
   .repeat__v { font-family: var(--serif); font-size: 16px; line-height: 1.4; font-style: italic; }
   .corr { background: var(--paper-soft); border-radius: 8px; padding: 15px 17px; margin-top: 14px; font-size: 13px; line-height: 1.5; }
   .corr b { font-weight: 700; }
+
+  /* quota */
+  .qgrid { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 14px; }
+  .qrow { display: grid; grid-template-columns: 1.5fr 0.7fr 0.7fr 1fr; gap: 8px; padding: 12px 14px; background: var(--ivory); border-bottom: 1px solid var(--line); align-items: center; font-size: 12.5px; }
+  .qrow:last-child { border-bottom: none; }
+  .qrow.head { background: var(--paper-soft); font-size: 9px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--teal); }
+  .qrow .qn { font-weight: 600; }
+  .qrow .qrole { display: block; font-size: 10.5px; opacity: 0.6; font-weight: 400; margin-top: 2px; }
+  .qbig { font-family: var(--serif); font-size: 19px; line-height: 1; }
+  .qgap { font-weight: 700; }
+  .qgap.up { color: var(--red); }
+  .qgap.ok { color: var(--green); }
+  .qwhy { font-size: 11.5px; line-height: 1.45; opacity: 0.78; grid-column: 1 / -1; padding-top: 2px; }
+  .qthin { display: inline-block; white-space: nowrap; font-size: 8.5px; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; color: var(--amber); border: 1px solid rgba(154,107,24,0.4); border-radius: 3px; padding: 1px 5px; margin-left: 6px; vertical-align: 2px; }
+  .residue { background: rgba(177,70,46,0.06); border-left: 3px solid var(--red); border-radius: 0 6px 6px 0; padding: 13px 15px; font-size: 13px; line-height: 1.5; color: #7d3121; }
+
+  /* proof library */
+  .proof { display: flex; flex-direction: column; gap: 8px; }
+  .pf { display: grid; grid-template-columns: auto 1fr; gap: 12px; background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 8px; padding: 13px 15px; box-shadow: var(--shadow-sm); align-items: start; }
+  .pf__n { font-family: var(--serif); font-size: 21px; line-height: 1; color: var(--gold-dark); white-space: nowrap; }
+  .pf__n span { display: block; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; margin-top: 3px; color: var(--teal); }
+  .pf__c { font-size: 13px; line-height: 1.45; }
+  .pf__m { font-size: 10.5px; opacity: 0.65; margin-top: 4px; letter-spacing: 0.03em; }
+  .anc { background: rgba(212,175,55,0.10); border: 1px solid rgba(212,175,55,0.5); border-radius: 7px; padding: 11px 13px; font-size: 12.5px; line-height: 1.45; margin-top: 4px; }
+  .anc b { font-weight: 800; }
+  .anc .q { font-family: var(--serif); font-style: italic; display: block; margin-top: 4px; }
+
+  /* labeling */
+  .lab { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 20px 22px; box-shadow: var(--shadow-md); }
+  .lab code { display: block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; background: rgba(255,255,255,0.09); border: 1px solid rgba(212,175,55,0.35); border-radius: 6px; padding: 11px 13px; margin: 10px 0; color: var(--gold-soft); word-break: break-word; }
+  .lab p { font-size: 13.5px; line-height: 1.55; opacity: 0.92; }
+  .lab p + p { margin-top: 9px; }
+  .lab .bad { color: #f0a58f; }
+  .lab .good { color: var(--gold-soft); }
+  .labsteps { display: flex; flex-direction: column; gap: 9px; margin-top: 14px; }
+  .labstep { display: grid; grid-template-columns: auto 1fr; gap: 11px; align-items: start; }
+  .labstep b { font-family: var(--serif); font-size: 17px; color: var(--gold); line-height: 1.1; }
+  .labstep div { font-size: 13px; line-height: 1.5; opacity: 0.92; }
   .corr ul { margin: 8px 0 0 18px; }
   .corr li { margin-bottom: 5px; }
   .hookbox { background: var(--paper-soft); border-radius: 7px; padding: 14px 15px; margin-bottom: 14px; }
@@ -227,7 +265,7 @@
       </div>
       <p>Successful and excellent at what they do. Down to earth, vibey, likes a good time. Both halves at once. Someone who earned it and still wants this to be fun.</p>
       <p><em>Fun is on brand. Fun alone is not. Energy is the vehicle, authority is the cargo.</em></p>
-      <p>The receipt: cuts built on lifestyle alone median 2,765 reach. Cuts built on an insider read median 16,578, 6 times as far. The easy cut is also the weaker one.</p>
+      <p>The receipt: cuts built on lifestyle alone median 1,602 reach. Cuts built on an insider read median 1,232, 0.8 times as far. The easy cut is also the weaker one.</p>
       <div class="bar-line"><span class="k">The test every cut has to pass</span><p>After watching, can someone repeat one specific thing about Richmond to a friend? If they only felt a vibe, it recruited the wrong buyer.</p></div>
     </div>
   </section>
@@ -256,6 +294,52 @@
   </section>
   
   <section class="block">
+    <div class="eyebrow">Build Toward This</div>
+    <h2 class="title">Fourteen a week is <em>already happening.</em></h2>
+    <p class="lede">You are shipping 14 a week against a bar of 14. Volume is solved. What is left is what those fourteen are. Right now 9 of them a week land in a bucket that takes 101.5 posts to produce one breakout. Below is the same fourteen, spent differently.</p>
+    <div class="qgrid">
+      <div class="qrow head"><span>Shape</span><span>Target</span><span>Now</span><span>Gap</span></div>
+      <div class="qrow">
+        <span class="qn">Authority / Comparison<span class="qrole">The swing</span></span>
+        <span class="qbig">3</span>
+        <span class="qbig" style="opacity:0.55">1.3</span>
+        <span class="qgap up">+1.7</span>
+        <span class="qwhy">Highest ceiling on the account. Take it often enough that the tail can show up. <b>1 breakout per 6.8 tries.</b> 1,232 typical, 117,616 best.</span>
+      </div>
+      <div class="qrow">
+        <span class="qn">Polarity / Pattern-Interrupt<span class="qrole">The workhorse</span></span>
+        <span class="qbig">3</span>
+        <span class="qbig" style="opacity:0.55">2.3</span>
+        <span class="qgap up">+0.7</span>
+        <span class="qwhy">Best floor here and it holds the single biggest post ever made on this account. <b>1 breakout per 16 tries.</b> 3,139 typical, 128,456 best.</span>
+      </div>
+      <div class="qrow">
+        <span class="qn">Numbered Series<span class="qrole">The base load</span></span>
+        <span class="qbig">5</span>
+        <span class="qbig" style="opacity:0.55">0.8</span>
+        <span class="qgap up">+4.2</span>
+        <span class="qwhy">Reliable, known format, rarely fails. This is what makes 14 a week possible. <b>1 breakout per 49.5 tries.</b> 1,806 typical, 91,263 best.</span>
+      </div>
+      <div class="qrow">
+        <span class="qn">Audience Question<span class="qthin">thin sample</span><span class="qrole">The cheap swing</span></span>
+        <span class="qbig">2</span>
+        <span class="qbig" style="opacity:0.55">0.3</span>
+        <span class="qgap up">+1.7</span>
+        <span class="qwhy">A question over b-roll. Capped at 2 because the sample is five posts and needs to grow before anyone trusts the rate. <b>1 breakout per 2.5 tries.</b> 1,969 typical, 35,361 best.</span>
+      </div>
+      <div class="qrow">
+        <span class="qn">Open<span class="qrole">Free slot</span></span>
+        <span class="qbig">1</span>
+        <span class="qbig" style="opacity:0.55">0</span>
+        <span class="qgap up">+1</span>
+        <span class="qwhy">Client moments, community, whatever the week actually hands over. </span>
+      </div>
+    </div>
+    <p class="lede" style="margin-bottom:12px;">A breakout means 10,000 reach or better, which 9 times the typical post on this account. At the current mix the record says to expect <b>0.7 to 2.5 a month</b>. At the target mix, <b>1.9 to 6.1</b>. Same fourteen videos either way. The low end of each range is what the sample size can actually defend, the high end is what the record literally shows.</p>
+    <div class="residue"><b>About the biggest bucket.</b> Not a style. This is every post the classifier could not read a shape in, and it is the worst performer on the account. A cut lands here when the shape was never decided before the edit started. It is 203 posts, a typical one does 920 reach, and it takes 101.5 of them to produce one breakout. It is not on the target list because nobody should be aiming at it.</div>
+  </section>
+  
+  <section class="block">
     <div class="eyebrow">Today</div>
     <h2 class="title">What to cut, <em>and why.</em></h2>
     <p class="lede">Each card carries the hook, the reason it exists, the clips to pull, and the easy cut to avoid. Timely cards are pegged to something that just happened. Evergreen cards are not pegged to anything and will still be true in three months. Work them top down.</p>
@@ -264,7 +348,7 @@
       <div class="cue__top">
         <span class="cue__n">Cue 1</span>
         <span class="pill">Timely &middot; Business</span>
-        <span class="pill gold">Authority / Comparison</span>
+        <span class="pill gold">Polarity / Pattern-Interrupt</span>
         
       </div>
       <div class="hookbox">
@@ -272,7 +356,8 @@
           <div class="hookbox__v" id="hook-1">A franchise just bet real money on Stratford Hills before your comps caught up.</div>
         </div>
       <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>Bella Ballerina opening at the Shops at Stratford Hills</b><br/>Kids' dance studio franchise expanding into Forest Hill in late August, a demand signal on the Southside.<br/><span style="font-size:11.5px;"><a href="https://richmondbizsense.com/2026/08/03/dance-studio-franchise-bella-ballerina-expanding-local-presence-with-spot-in-forest-hill/" target="_blank" rel="noopener">Richmond BizSense</a></span></div></div>
-      <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 14.9x the median reel. Small sample, 4 posts.</div></div>
+      <div class="fld"><div class="fld__k">What this shape does, honestly</div><div class="fld__v">The best floor on the account. It travels more reliably than anything else and it also holds the single biggest post ever made here. A take with no evidence is an opinion. The position needs a Richmond specific under it.</div></div>
+      <div class="anc"><b>Watch this first.</b> The best piece this account has made in this exact shape, 128,456 reach, 115.4x typical.<span class="q">People are really going to be upset about this but there’s no way you can tell me that in terms of a place to live full time that Spain has a better quality of</span></div>
       
       <div class="fld"><div class="fld__k">What this lane is for</div><div class="fld__v">Payroll moves before prices do.</div></div>
       <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The buyer priced out of the near West End who suspects the Southside is undervalued and wants evidence beyond a hunch.</div></div>
@@ -302,7 +387,8 @@
           <div class="hookbox__v" id="hook-2">Your Saturday downtown tells you more about Richmond than any listing photo ever will.</div>
         </div>
       <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>Virginia Black Expo and Crabs, Beer and Spirits by the James headline Saturday downtown</b><br/>Main Street Station and Kanawha Plaza, both Saturday.<br/><span style="font-size:11.5px;"><a href="https://www.visitrichmondva.com/events/this-weekend/" target="_blank" rel="noopener">Visit Richmond VA</a> &middot; <a href="https://www.eventbrite.com/e/6th-annual-virginia-black-expo-tickets-1991779438919" target="_blank" rel="noopener">Eventbrite</a></span></div></div>
-      <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Polarity / Pattern-Interrupt medians 3,019 reach, 2.7x the median reel.</div></div>
+      <div class="fld"><div class="fld__k">What this shape does, honestly</div><div class="fld__v">The best floor on the account. It travels more reliably than anything else and it also holds the single biggest post ever made here. A take with no evidence is an opinion. The position needs a Richmond specific under it.</div></div>
+      <div class="anc"><b>Watch this first.</b> The best piece this account has made in this exact shape, 128,456 reach, 115.4x typical.<span class="q">People are really going to be upset about this but there’s no way you can tell me that in terms of a place to live full time that Spain has a better quality of</span></div>
       
       <div class="fld"><div class="fld__k">What this lane is for</div><div class="fld__v">The city a buyer is actually buying into, not the listing photos.</div></div>
       <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The out-of-state buyer deciding between cities who wants proof of what living here actually feels like on a weekend, not staged interior shots.</div></div>
@@ -332,7 +418,8 @@
           <div class="hookbox__v" id="hook-3">You live in Chesterfield and you are not selling. Watch this one number anyway.</div>
         </div>
       <div class="fld"><div class="fld__k">Why this, any day</div><div class="fld__v"><b>A real lead asked this 23 days ago and it still has no answer on camera.</b><br/>&quot;informative content. I live in chesterfield. No interest in selling right n&quot; Instagram DM, 2026-07-26. Signal: named where. They named chesterfield.</div></div>
-      <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 14.9x the median reel. Small sample, 4 posts.</div></div>
+      <div class="fld"><div class="fld__k">What this shape does, honestly</div><div class="fld__v">Highest ceiling on the account and the lowest floor of the shapes worth making. Most land near the median. The ones that land, land enormous. The comparison has to be earned with a number. Without one it is just a claim about a city.</div></div>
+      <div class="anc"><b>Watch this first.</b> The best piece this account has made in this exact shape, 117,616 reach, 105.7x typical.<span class="q">Richmond 2025 = Austin 1995. The people who understood Austin’s trajectory in the ‘90s changed their families’ wealth forever.</span></div>
       
       
       <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The Chesterfield homeowner sitting on equity with no plan to move, exactly the person who becomes a listing in two years if the trust is built now.</div></div>
@@ -354,31 +441,130 @@
       <div class="cue__top">
         <span class="cue__n">Cue 4</span>
         <span class="pill ever">Evergreen &middot; Remix</span>
-        <span class="pill gold">Authority / Comparison</span>
+        <span class="pill gold">Numbered Series</span>
         
       </div>
-      <div class="hookbox">
-          <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-4')">Copy</button></div>
-          <div class="hookbox__v" id="hook-4">You shared the Austin comparison 8,608 times. Time to check if it still holds.</div>
-        </div>
-      <div class="fld"><div class="fld__k">Why this, any day</div><div class="fld__v"><b>Your authority post from 2025-10-21 pulled 117,616 reach and never got a part two.</b><br/>&quot;Richmond 2025 = Austin 1995. The people who understood Austin’s trajectory in the ‘90s change...&quot; 8,608 shares, 1,762 saves, 105.7x the median reel. The idea worked. It has been sitting alone since.</div></div>
-      <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 14.9x the median reel. Small sample, 4 posts.</div></div>
-      <div class="fld"><div class="fld__k">The receipt on this idea</div><div class="fld__v">Posted 2025-10-21. 117,616 reach, 8,608 shares, 1,762 saves.</div></div>
+      <div class="hookbox pending"><div class="hookbox__k"><span>No finished hook yet, this is a starting position</span></div><div class="hookbox__v">Pull the single strongest item out of that list and give it its own 40 seconds. The list already proved people want it, the item never got room.</div></div>
+      <div class="fld"><div class="fld__k">Why this, any day</div><div class="fld__v"><b>Your numbered series post from 2025-07-08 pulled 60,519 reach and never got a part two.</b><br/>&quot;Things you should know before moving to Richmond, VA. People here love To give energy. You’ll...&quot; 1,420 shares, 459 saves, 54.4x the median reel. The idea worked. It has been sitting alone since.</div></div>
+      <div class="fld"><div class="fld__k">What this shape does, honestly</div><div class="fld__v">The dependable base load. Rarely breaks out, almost never fails, and it is what keeps volume honest. Volume here is not a substitute for swings. Ninety nine of these produced two breakouts.</div></div>
+      <div class="anc"><b>Watch this first.</b> The best piece this account has made in this exact shape, 91,263 reach, 82x typical.<span class="q">Things you should know before moving to Richmond, VA. People here are the right kind of judgy. What does that mean? You can’t get by being superficial here. Peo</span></div>
+      <div class="fld"><div class="fld__k">The receipt on this idea</div><div class="fld__v">Posted 2025-07-08. 60,519 reach, 1,420 shares, 459 saves.</div></div>
       
-      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The investor-minded buyer who saw the original Richmond-as-Austin-1995 thesis and has been waiting, consciously or not, for the follow-up audit.</div></div>
-      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">One current, verifiable 2026 Richmond growth figure, population, price appreciation, or inventory, chosen and confirmed by Miles before ship, placed on screen against the original claim. The episode must render a verdict, holding or breaking, not just restate the comparison.</div></div>
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The same audience that shared this the first time, plus everyone who has followed since and never saw it.</div></div>
+      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">One current, verifiable Richmond number. The original carried one, the remix has to carry a newer one.</div></div>
       
       <div class="fld"><div class="fld__k">Pull these clips</div><div class="nomatchbox"><b>Nothing matched.</b> No logged clip matches this angle. Log the newest shoot folders, or flag Miles to shoot it.</div></div>
-      <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
-        <div><div class="lk">Hook</div><div class="lv">The biggest claim this account ever made goes under review</div></div>
-        <div><div class="lk">Retention</div><div class="lv">Holding or breaking, one figure decides it</div></div>
-        <div><div class="lk">Payoff</div><div class="lv">The 2026 number laid directly against the original thesis, verdict stated out loud</div></div>
-        <div><div class="lk">Close</div><div class="lv">If it holds, name which blocks are the 1996 move, save this one</div></div>
-      </div></div>
+      
       <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
       
       
     </article>
+  </section>
+  
+  <section class="block">
+    <div class="eyebrow">The Proof Library</div>
+    <h2 class="title">Fourteen pieces that <em>already did it.</em></h2>
+    <p class="lede">Every post on this account that cleared 10,000 reach, biggest first. Between them they carry 638,113 reach. You have never been to Richmond, so this is the reference: when a cue names a shape, come here and watch the one that already proved it. Every cue card names its closest ancestor.</p>
+    <div class="proof">
+      <div class="pf">
+        <div class="pf__n">128,456<span>115.4x typical</span></div>
+        <div>
+          <div class="pf__c">People are really going to be upset about this but there’s no way you can tell me that in terms of a place to live full time that Spain has a better quality of</div>
+          <div class="pf__m">Polarity / Pattern-Interrupt &middot; 2025-09-11 &middot; 4,660 shares &middot; 1,076 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">117,616<span>105.7x typical</span></div>
+        <div>
+          <div class="pf__c">Richmond 2025 = Austin 1995. The people who understood Austin’s trajectory in the ‘90s changed their families’ wealth forever.</div>
+          <div class="pf__m">Authority / Comparison &middot; 2025-10-21 &middot; 8,608 shares &middot; 1,762 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">91,263<span>82x typical</span></div>
+        <div>
+          <div class="pf__c">Things you should know before moving to Richmond, VA. People here are the right kind of judgy. What does that mean? You can’t get by being superficial here. Peo</div>
+          <div class="pf__m">Numbered Series &middot; 2025-07-29 &middot; 1,603 shares &middot; 853 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">60,519<span>54.4x typical</span></div>
+        <div>
+          <div class="pf__c">Things you should know before moving to Richmond, VA. People here love To give energy. You’ll find that if you’re cool. They’re cool! So it’s easy be cool! If y</div>
+          <div class="pf__m">Numbered Series &middot; 2025-07-08 &middot; 1,420 shares &middot; 459 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">38,842<span>34.9x typical</span></div>
+        <div>
+          <div class="pf__c">Let it commence 😈🍿</div>
+          <div class="pf__m">Direct / Other &middot; 2026-01-27 &middot; 180 shares &middot; 137 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">38,406<span>34.5x typical</span></div>
+        <div>
+          <div class="pf__c">This is actually a walk in the park lol IYKYK</div>
+          <div class="pf__m">Direct / Other &middot; 2026-03-29 &middot; 48 shares &middot; 30 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">35,361<span>31.8x typical</span></div>
+        <div>
+          <div class="pf__c">I’m always curious what people think are dead give aways or things that people only in RVA say. What do you have for me!? Also for those who see this that don’t</div>
+          <div class="pf__m">Audience Question &middot; 2025-10-14 &middot; 235 shares &middot; 75 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">28,221<span>25.4x typical</span></div>
+        <div>
+          <div class="pf__c">What does Richmond, Va do better than any other city our size?? 🤔</div>
+          <div class="pf__m">Authority / Comparison &middot; 2026-02-25 &middot; 268 shares &middot; 95 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">22,354<span>20.1x typical</span></div>
+        <div>
+          <div class="pf__c">Found this hidden gem the other day that’s in the heart of Richmond, Va and it’s close to the river. This is my favorite place to recenter #iykyk #rva #richmond</div>
+          <div class="pf__m">Lifestyle / Aspirational &middot; 2025-09-05 &middot; 635 shares &middot; 126 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">21,594<span>19.4x typical</span></div>
+        <div>
+          <div class="pf__c">Explaining Richmond, Va but through anime. Welcome to This new series where I explain Richmond, Va but through anime. If you’re moving to Richmond, Va and love</div>
+          <div class="pf__m">Format Gimmick &middot; 2025-07-17 &middot; 704 shares &middot; 197 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">20,039<span>18x typical</span></div>
+        <div>
+          <div class="pf__c">Safe to say we have some of the highest quality and abundance of drugs(caffeine) in the country per capita lol 😂 but seriously our coffee scene is incredible!</div>
+          <div class="pf__m">Authority / Comparison &middot; 2026-04-21 &middot; 705 shares &middot; 362 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">14,246<span>12.8x typical</span></div>
+        <div>
+          <div class="pf__c">Richmond isn’t for all that hate push to divide what we know is strong. This is a character based community. That’s what you’re judged on. No one cares what col</div>
+          <div class="pf__m">Lifestyle / Aspirational &middot; 2025-09-24 &middot; 158 shares &middot; 62 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">11,190<span>10.1x typical</span></div>
+        <div>
+          <div class="pf__c">I’m alway curious how people describe RVA to friends and family who have never been but are coming into town. What do you have for me!? Also for those who see t</div>
+          <div class="pf__m">Audience Question &middot; 2025-09-22 &middot; 66 shares &middot; 36 saves</div>
+        </div>
+      </div>
+      <div class="pf">
+        <div class="pf__n">10,006<span>9x typical</span></div>
+        <div>
+          <div class="pf__c">The 2nd fastest growing city in the country is a WHOLE VIBEEEEE. Vibes at Sunset is a prime example of how this city is something so special. We have some of th</div>
+          <div class="pf__m">Authority / Comparison &middot; 2026-08-14 &middot; 143 shares &middot; 57 saves</div>
+        </div>
+      </div>
+    </div>
   </section>
   
   <section class="block">
@@ -402,6 +588,24 @@
   </section>
   
   <section class="block">
+    <div class="eyebrow">Make The Library Findable</div>
+    <h2 class="title">How to name a folder so <em>a cue can reach it.</em></h2>
+    <p class="lede">2,371 of 2,522 clips are invisible to this board. Not missing, invisible: nothing in the path tells the matcher where it was shot or what is in it. It scores a named neighborhood higher than anything else, so a folder called <span style="opacity:0.7">7 27 26??? lol</span> can hold the best shot on the drive and no cue will ever surface it.</p>
+    <div class="lab">
+      <p>One rename at the folder level fixes every clip inside it. Three parts, in this order:</p>
+      <code>2026-07-09 Scott's Addition Listing Site Visit</code>
+      <p><span class="bad">Not this:</span> <span style="opacity:0.75">7:9:26/clips</span>, <span style="opacity:0.75">Meta Glasses</span>, <span style="opacity:0.75">6:30:26</span>, <span style="opacity:0.75">Blank Richmond Content</span></p>
+      <p><span class="good">This:</span> date, then the neighborhood, then what is happening in it. Plain words. The matcher reads the folder name as text, so a real sentence beats a code every time.</p>
+      <div class="labsteps">
+        <div class="labstep"><b>1</b><div><b>Date first, as 2026-07-09.</b> Sortable, and it lets the board prefer a fresh clip over an old one.</div></div>
+        <div class="labstep"><b>2</b><div><b>Neighborhood, spelled out.</b> Scott's Addition, Church Hill, Manchester, The Fan, Forest Hill. This is the highest scoring signal there is. If the shoot moved around, name the main one.</div></div>
+        <div class="labstep"><b>3</b><div><b>What is happening.</b> Listing Site Visit, Sold Diary, Cedar Grove Reno, Client Call, Working Outdoor. Use the category names you two already built, so the cue cards and the drive speak the same language.</div></div>
+      </div>
+      <p style="margin-top:14px;">Then keep tagging clips into your existing categories. Right now 6% are tagged and <b>zero clips have both a neighborhood and a category</b>. A clip with both is the only kind a cue can find on purpose. Everything else it finds by luck.</p>
+    </div>
+  </section>
+  
+  <section class="block">
     <div class="eyebrow">The Scoreboard</div>
     <h2 class="title">What actually <em>performs here.</em></h2>
     <p class="lede">Median reach by hook shape across 372 posts. Overall median reel reach is 1,113. This is the whole argument for the harder cut, and it is computed live on this page every time it builds.</p>
@@ -415,13 +619,14 @@
     </div>
     <div class="bar-rows">
       <div class="bar-row head"><span>Hook shape</span><span>Posts</span><span>Median reach, vs median</span></div>
-      <div class="bar-row top"><span class="nm">Authority / Comparison</span><span>4 <span style="opacity:0.55">(1%)</span></span><span>16,578 <span style="opacity:0.55">14.9x</span></span></div>
-      <div class="bar-row "><span class="nm">Polarity / Pattern-Interrupt</span><span>7 <span style="opacity:0.55">(2%)</span></span><span>3,019 <span style="opacity:0.55">2.7x</span></span></div>
-      <div class="bar-row soft"><span class="nm">Lifestyle / Aspirational</span><span>7 <span style="opacity:0.55">(2%)</span></span><span>2,765 <span style="opacity:0.55">2.5x</span></span></div>
+      <div class="bar-row top"><span class="nm">Polarity / Pattern-Interrupt</span><span>16 <span style="opacity:0.55">(4%)</span></span><span>3,139 <span style="opacity:0.55">2.8x</span></span></div>
       <div class="bar-row soft"><span class="nm">Format Gimmick</span><span>8 <span style="opacity:0.55">(2%)</span></span><span>2,054 <span style="opacity:0.55">1.8x</span></span></div>
+      <div class="bar-row "><span class="nm">Audience Question</span><span>5 <span style="opacity:0.55">(1%)</span></span><span>1,969 <span style="opacity:0.55">1.8x</span></span></div>
       <div class="bar-row "><span class="nm">Numbered Series</span><span>99 <span style="opacity:0.55">(27%)</span></span><span>1,806 <span style="opacity:0.55">1.6x</span></span></div>
-      <div class="bar-row "><span class="nm">Personal / Vulnerability</span><span>5 <span style="opacity:0.55">(1%)</span></span><span>940 <span style="opacity:0.55">0.8x</span></span></div>
-      <div class="bar-row "><span class="nm">Direct / Other</span><span>242 <span style="opacity:0.55">(65%)</span></span><span>928 <span style="opacity:0.55">0.8x</span></span></div>
+      <div class="bar-row "><span class="nm">Personal / Vulnerability</span><span>4 <span style="opacity:0.55">(1%)</span></span><span>1,714 <span style="opacity:0.55">1.5x</span></span></div>
+      <div class="bar-row soft"><span class="nm">Lifestyle / Aspirational</span><span>10 <span style="opacity:0.55">(3%)</span></span><span>1,602 <span style="opacity:0.55">1.4x</span></span></div>
+      <div class="bar-row "><span class="nm">Authority / Comparison</span><span>27 <span style="opacity:0.55">(7%)</span></span><span>1,232 <span style="opacity:0.55">1.1x</span></span></div>
+      <div class="bar-row "><span class="nm">Direct / Other</span><span>203 <span style="opacity:0.55">(55%)</span></span><span>920 <span style="opacity:0.55">0.8x</span></span></div>
     </div>
   </section>
   
