@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex,nofollow"/>
-<meta name="description" content="10820 Leabrook Drive, Glen Allen VA 23059. 6,827 finished square feet on three levels, backing to the fairway in Wyndham, with a pool, cabana wet bar and a top-floor entertainment room."/>
+<meta name="description" content="10820 Leabrook Drive, Glen Allen VA 23059. Five bedrooms, 5,272 square feet of living area plus 902 finished bonus feet, with Dominion Club course frontage, a pool with a covered pavilion, and the measured floor plan of every level published up front."/>
 <link rel="canonical" href="https://mamsnow.com/scaffold/listing-10820-leabrook-dr.html"/>
 <title>10820 Leabrook Drive | Glen Allen VA | MAMS</title>
 <!-- 10820 Leabrook Drive, Glen Allen VA. Built from mams-listing-engine template 2026-08-18.
@@ -702,6 +702,97 @@
     line-height: 1.55;
   }
 
+  /* ---- Floor plan sheets ---- */
+  .plan {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 14px;
+  }
+  .plan__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .plan__name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--deep-teal);
+    letter-spacing: -0.01em;
+  }
+  .plan__sq {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    white-space: nowrap;
+  }
+  .plan__sq.is-bonus { color: var(--teal); }
+  .plan__img {
+    display: block;
+    width: 100%;
+    background: #fff;
+    cursor: zoom-in;
+    border: 0;
+    padding: 0;
+    transition: opacity 0.18s;
+  }
+  .plan__img img { width: 100%; height: auto; display: block; }
+  .plan__img:hover { opacity: 0.93; }
+  .plan__img:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+  .plan__body { padding: 14px 20px 18px; }
+  .plan__note {
+    font-size: 13px;
+    color: var(--deep-teal);
+    opacity: 0.82;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .plan__tapme {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--teal);
+    opacity: 0.8;
+    text-align: center;
+    padding: 8px 0 0;
+  }
+
+  /* ---- What comes with it (comparison) ---- */
+  .withit {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    font-size: 13.5px;
+  }
+  .withit th {
+    background: var(--deep-teal);
+    color: var(--ivory);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: left;
+    padding: 11px 14px;
+  }
+  .withit th.is-this { background: var(--gold); color: var(--deep-teal); }
+  .withit td { padding: 11px 14px; border-top: 1px solid var(--line); }
+  .withit td.yes { color: var(--gold-dark); font-weight: 700; background: rgba(212,175,55,0.10); }
+  .withit td.no { opacity: 0.42; }
+  .withit td:first-child { font-weight: 600; }
+
   /* ---- Value table ---- */
   .valtable {
     width: 100%;
@@ -782,14 +873,15 @@
 <!-- ================= INTERNAL DRAFT BAR. DELETE THIS BLOCK BEFORE ANY BUYER SEES THE PAGE. ================= -->
 <div class="draftbar">
   <b>Internal draft &middot; not for send</b>
-  <div style="margin-top:5px">Rough draft for Miles. Everything below is built off the edited photo set, the CubiCasa floor plan, and public-source comps. Confirm these before this goes to a single buyer:</div>
+  <div style="margin-top:5px"><strong style="color:#fff">The square footage is resolved, and it moves against us. Read this before anything else.</strong></div>
   <ul>
-    <li>Square footage. The floor plan measures 6,827 finished. The last public record carries 5,315. That gap is the whole price story, so it gets settled in CVR MLS first.</li>
-    <li>Bed and bath count. Plan reads 5 bedrooms. Bath spaces read higher than the 5 in public record. Needs an MLS-grade count.</li>
-    <li>Golf frontage. Photos show fairway and cart path off the back. Confirm the course and whether it is Dominion Club frontage before naming it.</li>
-    <li>Lot size, GPIN, Henrico assessment, HOA dues, year of the renovation.</li>
-    <li>Comps are public-source pulls as of 2026-08-18. Re-run in CVR MLS before this is quoted to anyone.</li>
-    <li>Floor plan images are not on the page yet. Send me the five PNGs and they drop into the level section.</li>
+    <li><strong>GLA is 5,272 sq ft, not 6,827.</strong> The CubiCasa GLA report is explicit: 3,060 finished on the main level plus 2,212 on the bedroom level. The 6,827 on the marketing sheet is total measured area including the garage, the patios and every excluded space.</li>
+    <li><strong>Public record was right.</strong> 5,315 on record against 5,272 measured is a 43 foot difference, and the report literally excludes a 43 sq ft room. There is no unrecorded square footage. Your instinct was correct and my first draft was wrong.</li>
+    <li><strong>The 711 sq ft third floor is excluded from GLA</strong>, as is the 191 sq ft room over the garage. That is 902 finished feet a buyer walks through that an appraiser is not counting. Whether the 711 can be brought into GLA (ceiling height, heat source, permit) is the single biggest lever on this price.</li>
+    <li><strong>What that does to the number.</strong> At 5,272 GLA, $1.9M is $360 a foot and $2.0M is $379. The active Glen Allen comps are $292 to $295. So the ask is a 22 to 29 percent per-foot premium, not the discount the first draft claimed. If the 711 counts, GLA is 5,983 and the ask is $318 to $334, an 8 to 13 percent premium. Defensible, but it has to be argued, not assumed.</li>
+    <li><strong>Bed and bath, counted off the plan:</strong> 5 bedrooms. 4 full baths (main level ensuite, primary, the jack-and-jill, and the ensuite off the 12'8" bedroom) and 3 halves (the powder off the hall, the bath in the laundry, and the pool bath at the cabana).</li>
+    <li><strong>Per-foot math is deliberately off the buyer page.</strong> Publishing $360 a foot next to comps at $292 argues our own price down. The comparison on the page is what comes with this house that does not come with theirs.</li>
+    <li><strong>Still open:</strong> lot size, GPIN, Henrico assessment, HOA dues, renovation year, and golf-front Dominion Club comps out of CVR MLS. Public sources have no golf-front set, which is exactly the comp that would carry this number.</li>
   </ul>
 </div>
 
@@ -805,10 +897,10 @@
       <div class="heroshot__cap">The side of the house nobody sees from the street.</div>
     </div>
 
-    <div class="hero__eyebrow">Private Preview &middot; Wyndham, Glen Allen</div>
+    <div class="hero__eyebrow">Private Preview &middot; Dominion Club, Glen Allen</div>
     <div class="hero__address">10820 Leabrook Drive, Glen Allen, VA 23059</div>
     <h1 class="hero__title">You have been waiting on the one that backs to the fairway.<br/><em>This is that one.</em></h1>
-    <p class="hero__sub">Six thousand eight hundred finished feet across three levels. A pool with a covered cabana and a wet bar. A top floor built for a room full of people. And a main level bedroom with its own bath for the people who should not be taking stairs.</p>
+    <p class="hero__sub">Five bedrooms and 5,272 square feet of living area, with another 902 finished feet on top of it that no listing sheet will count. A pool with a covered cabana and a wet bar. Frontage on the Dominion Club course.</p>
     <div class="hero__pricerow">
       <div class="hero__price">$1,900,000 to $2,000,000</div>
       <div class="hero__badge">Pre-market preview</div>
@@ -818,15 +910,15 @@
   <section class="block">
     <div class="eyebrow">Fast Facts</div>
     <h2 class="section__title">The home, <em>at a glance.</em></h2>
-    <p class="section__lede">Measurements below come off the architectural floor plan, not a listing sheet. Every number is one you can walk with a tape measure.</p>
+    <p class="section__lede">These come off a measured architectural floor plan, not a listing sheet. The living area and the bonus space are listed separately, because that is the honest way to show it.</p>
 
     <div class="facts">
-      <div class="fact"><div class="fact__label">Finished space</div><div class="fact__value">6,827 sq ft<span class="sub">Three levels plus the room over the garage</span></div></div>
-      <div class="fact"><div class="fact__label">Bedrooms</div><div class="fact__value">5<span class="sub">Four upstairs, one on the main level</span></div></div>
-      <div class="fact"><div class="fact__label">The back yard</div><div class="fact__value">Fairway<span class="sub">Pool, slide, covered cabana</span></div></div>
+      <div class="fact"><div class="fact__label">Living area</div><div class="fact__value">5,272 sq ft<span class="sub">Main level and bedroom level</span></div></div>
+      <div class="fact"><div class="fact__label">Plus bonus space</div><div class="fact__value">902 sq ft<span class="sub">Third floor and over the garage</span></div></div>
+      <div class="fact"><div class="fact__label">Bedrooms</div><div class="fact__value">5<span class="sub">Four up, one on the main level</span></div></div>
+      <div class="fact"><div class="fact__label">Baths</div><div class="fact__value">4 full, 3 half<span class="sub">One of the halves serves the pool</span></div></div>
+      <div class="fact"><div class="fact__label">The back yard</div><div class="fact__value">Dominion Club<span class="sub">Course frontage, pool with slide</span></div></div>
       <div class="fact"><div class="fact__label">Outdoor living</div><div class="fact__value">1,052 sq ft<span class="sub">817 open patio, 235 covered</span></div></div>
-      <div class="fact"><div class="fact__label">Garage</div><div class="fact__value">22'6" x 32'2"<span class="sub">Plus a finished room above it</span></div></div>
-      <div class="fact"><div class="fact__label">Built</div><div class="fact__value">2002<span class="sub">Renovated since, Wyndham</span></div></div>
     </div>
   </section>
 
@@ -851,7 +943,7 @@
   <section class="block">
     <div class="opportunity">
       <div class="eyebrow">The Real Answer</div>
-      <p>Most homes this size sell you the square footage. The number that decides this one is what a foot costs. The two homes competing for the same buyer are asking <em>$292 and $295 a foot.</em> This one opens at $278.</p>
+      <p>Most listings hand you a square footage and a photo set and let you guess at the rest. This one hands you <em>the measured floor plan of every level,</em> before you ask for it. If the layout does not work for your family, you should find that out from your couch, not from your third showing.</p>
     </div>
   </section>
 
@@ -862,133 +954,155 @@
 
     <div class="angles">
       <div class="angle">
-        <div class="angle__stat">6,827<span class="unit">Sq ft measured</span></div>
-        <div><div class="angle__title">Three finished levels, not two and an attic</div><div class="angle__text">3,715 on the main floor, 2,212 up, 709 on the third, 191 over the garage. Homes at this price in Glen Allen typically stop after the second floor. This one keeps going.</div></div>
+        <div class="angle__stat">902<span class="unit">Bonus sq ft</span></div>
+        <div><div class="angle__title">Two rooms nobody is counting</div><div class="angle__text">On top of 5,272 square feet of living area, there is a 711 square foot room on the top floor and a 191 square foot room over the garage. Both are finished. Neither shows up in a living area number, which means you use them without paying for them twice.</div></div>
       </div>
       <div class="angle">
         <div class="angle__stat">36'10"<span class="unit">Top floor length</span></div>
-        <div><div class="angle__title">A whole level for the people you invite over</div><div class="angle__text">The third floor is one room, 36 feet 10 inches by 28 feet 8 inches, already fitted with a bar and a pool table. Nobody downstairs hears it.</div></div>
+        <div><div class="angle__title">A whole level for the people you invite over</div><div class="angle__text">The top floor is one open room, 36 feet 10 inches by 28 feet 8 inches, already fitted with a built-in bar and a pool table. It has its own stair. Nobody on the bedroom level hears any of it.</div></div>
       </div>
       <div class="angle">
         <div class="angle__stat">1,052<span class="unit">Sq ft outside</span></div>
-        <div><div class="angle__title">The pool comes with a building</div><div class="angle__text">817 square feet of open patio wrapping the pool, plus a 235 square foot covered cabana with its own wet bar and full bath. You are not walking wet feet through the kitchen.</div></div>
+        <div><div class="angle__title">The pool came with a building</div><div class="angle__text">817 square feet of open patio wrapping the pool and its slide, plus a 235 square foot covered pavilion holding a wet bar and a full pool bath. Wet feet never cross the kitchen floor.</div></div>
       </div>
       <div class="angle">
         <div class="angle__stat">764<span class="unit">Sq ft primary suite</span></div>
-        <div><div class="angle__title">A primary that reads like a floor of its own</div><div class="angle__text">The bedroom measures 21'3" by 24'5". Two separate walk-in closets add 245 square feet on top of it, and the bath sits between them. That is before the room is furnished.</div></div>
+        <div><div class="angle__title">A primary that reads like its own floor</div><div class="angle__text">The bedroom measures 21'3" by 24'5". Two separate walk-in closets add 245 square feet, the larger one running 13'1" by 18'9". The bath, with two vanities and a soaking tub, sits between them.</div></div>
       </div>
       <div class="angle">
-        <div class="angle__stat">30'4"<span class="unit">Kitchen run</span></div>
-        <div><div class="angle__title">A kitchen that opens into everything</div><div class="angle__text">Thirty feet four inches of kitchen running into a 17'10" by 21'2" family room under a two story stone fireplace, with a 12'8" by 21'2" sun room off the end. One conversation carries across all three.</div></div>
+        <div class="angle__stat">1<span class="unit">Of five on the main level</span></div>
+        <div><div class="angle__title">Somebody can stop taking the stairs</div><div class="angle__text">Four bedrooms sit upstairs. The fifth is on the main level with its own full bath, off its own hall. That is the room for a parent who moves in, a guest who stays a while, or the version of you fifteen years from now.</div></div>
       </div>
     </div>
   </section>
 
   <section class="block">
-    <div class="eyebrow">Level By Level</div>
-    <h2 class="section__title">What is actually <em>on each floor.</em></h2>
-    <p class="section__lede">Taken straight off the architectural floor plan, so you can see how the house is organized before you ever walk it.</p>
+    <div class="eyebrow">The Floor Plan</div>
+    <h2 class="section__title">Every level, <em>measured and drawn.</em></h2>
+    <p class="section__lede">This is the actual measured plan of the house, level by level, with room dimensions on it. Tap any sheet to open it full size. Most listings make you wait until a showing to see this. You get it now.</p>
 
-    <div class="levels">
-      <div class="level">
-        <div class="level__sq">3,715<span>Main level</span></div>
-        <div>
-          <div class="level__name">Where the day happens</div>
-          <div class="level__rooms">
-            <span class="chip">Kitchen 16'8" x 30'4"</span>
-            <span class="chip chip--gold">Family room 17'10" x 21'2"</span>
-            <span class="chip">Sun room 12'8" x 21'2"</span>
-            <span class="chip">Office 12'8" x 12'11"</span>
-            <span class="chip">Dining 17'2" x 13'10"</span>
-            <span class="chip">Living 16'9" x 13'10"</span>
-            <span class="chip chip--gold">Main level bedroom 14'2" x 10'11"</span>
-            <span class="chip">Garage 22'6" x 32'2"</span>
-          </div>
-        </div>
+    <div class="plan">
+      <div class="plan__head">
+        <div class="plan__name">Main level</div>
+        <div class="plan__sq">3,060 sq ft living area</div>
       </div>
-      <div class="level">
-        <div class="level__sq">2,212<span>Second floor</span></div>
-        <div>
-          <div class="level__name">Four bedrooms and the suite</div>
-          <div class="level__rooms">
-            <span class="chip chip--gold">Primary 21'3" x 24'5"</span>
-            <span class="chip">Primary bath 14'2" x 10'4"</span>
-            <span class="chip chip--gold">Walk-in 13'1" x 18'9"</span>
-            <span class="chip">Walk-in 8'7" x 6'6"</span>
-            <span class="chip">Bedroom 16'8" x 17'3"</span>
-            <span class="chip">Bedroom 16'3" x 13'10"</span>
-            <span class="chip">Bedroom 12'8" x 16'9"</span>
-            <span class="chip">Laundry 10'5" x 6'6"</span>
-          </div>
-        </div>
-      </div>
-      <div class="level">
-        <div class="level__sq">709<span>Third floor</span></div>
-        <div>
-          <div class="level__name">One room, wall to wall</div>
-          <div class="level__rooms">
-            <span class="chip chip--gold">Room 36'10" x 28'8"</span>
-            <span class="chip">Built-in bar</span>
-            <span class="chip">Its own stair</span>
-          </div>
-        </div>
-      </div>
-      <div class="level">
-        <div class="level__sq">1,052<span>Outdoors</span></div>
-        <div>
-          <div class="level__name">Pool, cabana, fairway behind it</div>
-          <div class="level__rooms">
-            <span class="chip chip--gold">Pool with slide</span>
-            <span class="chip">Patio 35'1" x 10'0"</span>
-            <span class="chip">Covered patio 11'6" x 20'5"</span>
-            <span class="chip">Wet bar 7'4" x 14'2"</span>
-            <span class="chip">Pool bath</span>
-            <span class="chip">Upper patio 19'0" x 15'0"</span>
-          </div>
+      <button class="plan__img" data-full="listing-10820-leabrook-pics/plan-01.jpg" aria-label="Open main level floor plan full size">
+        <img src="listing-10820-leabrook-pics/plan-01.jpg" alt="Main level floor plan with room dimensions"/>
+      </button>
+      <div class="plan__body">
+        <p class="plan__note">A 30 foot kitchen running into the family room under the two story stone fireplace, with the sun room off the end. Office, formal living and dining at the front. The fifth bedroom and its full bath sit past the hall, next to the garage.</p>
+        <div class="level__rooms">
+          <span class="chip">Kitchen 16'8" x 30'4"</span>
+          <span class="chip chip--gold">Family room 17'10" x 21'2"</span>
+          <span class="chip">Sun room 12'8" x 21'2"</span>
+          <span class="chip">Office 12'8" x 12'11"</span>
+          <span class="chip">Dining 17'2" x 13'10"</span>
+          <span class="chip">Living 16'9" x 13'10"</span>
+          <span class="chip chip--gold">Bedroom 14'2" x 10'11"</span>
+          <span class="chip">Garage 22'6" x 32'2"</span>
         </div>
       </div>
     </div>
-    <div class="levels__note">Measurements from the architectural floor plan. Deemed reliable, not guaranteed. A buyer should verify anything they intend to rely on.</div>
+
+    <div class="plan">
+      <div class="plan__head">
+        <div class="plan__name">Bedroom level</div>
+        <div class="plan__sq">2,212 sq ft living area</div>
+      </div>
+      <button class="plan__img" data-full="listing-10820-leabrook-pics/plan-03.jpg" aria-label="Open bedroom level floor plan full size">
+        <img src="listing-10820-leabrook-pics/plan-03.jpg" alt="Bedroom level floor plan with room dimensions"/>
+      </button>
+      <div class="plan__body">
+        <p class="plan__note">Four bedrooms. The primary sits alone on its own wing with two walk-ins and the bath between them. Of the other three, one has its own bath and two share a jack-and-jill with a separate vanity on each side, which is the arrangement that stops the morning argument.</p>
+        <div class="level__rooms">
+          <span class="chip chip--gold">Primary 21'3" x 24'5"</span>
+          <span class="chip">Primary bath 14'2" x 10'4"</span>
+          <span class="chip chip--gold">Walk-in 13'1" x 18'9"</span>
+          <span class="chip">Walk-in 8'7" x 6'6"</span>
+          <span class="chip">Bedroom 16'8" x 17'3"</span>
+          <span class="chip">Bedroom 16'3" x 13'10"</span>
+          <span class="chip">Bedroom 12'8" x 16'9"</span>
+          <span class="chip">Laundry 10'5" x 6'6"</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plan">
+      <div class="plan__head">
+        <div class="plan__name">Top floor</div>
+        <div class="plan__sq is-bonus">711 sq ft bonus space</div>
+      </div>
+      <button class="plan__img" data-full="listing-10820-leabrook-pics/plan-04.jpg" aria-label="Open top floor plan full size">
+        <img src="listing-10820-leabrook-pics/plan-04.jpg" alt="Top floor plan with room dimensions"/>
+      </button>
+      <div class="plan__body">
+        <p class="plan__note">One room, 36'10" by 28'8", with its own stair. Currently a game room with a built-in bar. This is finished space that sits outside the living area figure, so it is square footage you get without paying for it on the listing sheet.</p>
+        <div class="level__rooms">
+          <span class="chip chip--gold">Room 36'10" x 28'8"</span>
+          <span class="chip">Built-in bar</span>
+          <span class="chip">Private stair</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plan">
+      <div class="plan__head">
+        <div class="plan__name">Over the garage</div>
+        <div class="plan__sq is-bonus">191 sq ft bonus space</div>
+      </div>
+      <button class="plan__img" data-full="listing-10820-leabrook-pics/plan-02.jpg" aria-label="Open above garage floor plan full size">
+        <img src="listing-10820-leabrook-pics/plan-02.jpg" alt="Above garage floor plan with room dimensions"/>
+      </button>
+      <div class="plan__body">
+        <p class="plan__note">A 7'8" by 19'3" room over the garage, open to the level below it. Small, separate, and far from everything else in the house, which is the whole point of a room like this.</p>
+      </div>
+    </div>
+
+    <div class="plan">
+      <div class="plan__head">
+        <div class="plan__name">All levels together</div>
+        <div class="plan__sq">How the house stacks</div>
+      </div>
+      <button class="plan__img" data-full="listing-10820-leabrook-pics/plan-all.jpg" aria-label="Open all floors plan full size">
+        <img src="listing-10820-leabrook-pics/plan-all.jpg" alt="All floors shown together with the pool and patios"/>
+      </button>
+      <div class="plan__body">
+        <p class="plan__note">The pool, the patio and the covered pavilion sit off the main level at the top of the sheet. This is the view that shows you how the outdoor space actually connects to the house.</p>
+      </div>
+    </div>
+
+    <div class="levels__note">Floor plans measured by CubiCasa. Living area of 5,272 square feet counts the main and bedroom levels. The 711 and 191 square foot rooms are finished space that falls outside a standard living area calculation, so they are shown separately rather than folded into one number. Deemed reliable, not guaranteed. Verify anything you intend to rely on.</div>
   </section>
 
-  <section class="block">
-    <div class="eyebrow">The Price, Shown Plainly</div>
-    <h2 class="section__title">What a foot costs <em>on this street.</em></h2>
-    <p class="section__lede">Here is the set a buyer at this number is actually choosing between in Glen Allen right now, and where this home lands against them.</p>
-
-    <div class="band">
-      <div class="band__card"><div class="band__num">$295</div><div class="band__label">Per foot &middot; Elliot Ridge Way</div></div>
-      <div class="band__card band__card--lead"><div class="band__num">$278</div><div class="band__label">Per foot &middot; this home at $1.9M</div></div>
-      <div class="band__card"><div class="band__num">$292</div><div class="band__label">Per foot &middot; Bud Lane</div></div>
-    </div>
+    <section class="block">
+    <div class="eyebrow">What You Are Actually Choosing Between</div>
+    <h2 class="section__title">The other two <em>at this number.</em></h2>
+    <p class="section__lede">There are a small number of homes in Glen Allen asking near two million dollars right now. Here is what each one gives you, side by side, so the comparison is on the table instead of in a sales pitch.</p>
 
     <div class="tablewrap">
-      <table class="valtable">
+      <table class="withit">
         <thead>
-          <tr><th>Home</th><th>Asking</th><th>Size</th><th>Per foot</th></tr>
+          <tr>
+            <th>&nbsp;</th>
+            <th class="is-this">10820 Leabrook</th>
+            <th>Elliot Ridge Way</th>
+            <th>Bud Lane</th>
+          </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="addr">14849 Elliot Ridge Way<span class="meta">Glen Allen, active, 1.1 acres</span></td>
-            <td>$1,699,950</td><td>5,759 sq ft</td><td>$295</td>
-          </tr>
-          <tr class="is-subject">
-            <td class="addr">10820 Leabrook Drive<span class="meta">This home, at the low end of the range</span></td>
-            <td>$1,900,000</td><td>6,827 sq ft</td><td>$278</td>
-          </tr>
-          <tr class="is-subject">
-            <td class="addr">10820 Leabrook Drive<span class="meta">This home, at the top of the range</span></td>
-            <td>$2,000,000</td><td>6,827 sq ft</td><td>$293</td>
-          </tr>
-          <tr>
-            <td class="addr">14551 Bud Lane<span class="meta">Glen Allen, active</span></td>
-            <td>$2,250,000</td><td>7,697 sq ft</td><td>$292</td>
-          </tr>
+          <tr><td>Asking</td><td class="yes">$1.9M to $2.0M</td><td>$1,699,950</td><td>$2,250,000</td></tr>
+          <tr><td>Bedrooms</td><td class="yes">5</td><td>4</td><td>7</td></tr>
+          <tr><td>Golf course frontage</td><td class="yes">Dominion Club</td><td class="no">No</td><td class="no">No</td></tr>
+          <tr><td>Pool</td><td class="yes">With slide</td><td class="no">No</td><td class="no">No</td></tr>
+          <tr><td>Covered pavilion with wet bar</td><td class="yes">235 sq ft</td><td class="no">No</td><td class="no">No</td></tr>
+          <tr><td>Finished top floor</td><td class="yes">711 sq ft with a bar</td><td class="no">No</td><td class="no">No</td></tr>
+          <tr><td>Main level bedroom</td><td class="yes">With full bath</td><td class="no">No</td><td class="no">No</td></tr>
+          <tr><td>Measured floor plan published</td><td class="yes">Yes, above</td><td class="no">No</td><td class="no">No</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="comps-note">The 23059 median runs <strong>$263 a foot</strong>, up 8.7 percent over the last year. The competing homes above are asking a premium to that. At $1.9M this home asks less per foot than either of them, and it is the only one of the three that brings a pool, a cabana and a third finished level.</div>
+    <div class="comps-note">Two of the three are asking real money for a house and a yard. <strong>One of them is asking for a house, a yard, a pool with a pavilion, a top floor built for a crowd, and a fairway behind the fence.</strong> Competing listing details pulled from public sources on August 18, 2026, and worth verifying before you rely on them.</div>
   </section>
 
   <section class="block">
@@ -1025,6 +1139,11 @@
     close.focus();
   }
   function shut() { lb.classList.remove('is-open'); lbImg.src = ''; }
+  Array.prototype.forEach.call(document.querySelectorAll('.plan__img'), function (el) {
+    el.addEventListener('click', function () {
+      open(el.getAttribute('data-full'), el.querySelector('img').alt);
+    });
+  });
   Array.prototype.forEach.call(document.querySelectorAll('.gallery__item'), function (el) {
     el.addEventListener('click', function () {
       open(el.getAttribute('data-full'), el.querySelector('img').alt);
