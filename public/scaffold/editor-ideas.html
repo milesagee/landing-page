@@ -97,6 +97,11 @@
   .mix-card__v .of { font-size: 17px; opacity: 0.45; }
   .mix-card__note { font-size: 12px; opacity: 0.75; margin-top: 7px; line-height: 1.4; }
   .lanes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .lanecov { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .lanechip { font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--teal); background: var(--ivory); }
+  .lanechip.on { border-color: var(--gold); background: rgba(212,175,55,0.14); color: var(--gold-dark); }
+  .lanechip.off { opacity: 0.4; }
+  .lanechip b { font-weight: 800; }
   .repeat { background: rgba(212,175,55,0.10); border: 1px solid var(--gold); border-radius: 8px; padding: 14px 16px; margin-top: 14px; }
   .repeat__k { font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 5px; }
   .repeat__v { font-family: var(--serif); font-size: 16px; line-height: 1.4; font-style: italic; }
@@ -230,12 +235,12 @@
   <section class="block">
     <div class="eyebrow">The Mix</div>
     <h2 class="title">Half of this board is <em>not news.</em></h2>
-    <p class="lede">You were right that the cues leaned informative. The reason was mechanical: the only Richmond input this engine had was a daily headline feed, so every card came out pegged to yesterday. News is not authority. The best performing post on this account was a take that used a fact as ammunition, not a headline read out loud. Timely is now capped at 2 cards, and the rest comes from three sources that are already on disk.</p>
+    <p class="lede">You were right that the cues leaned informative. Two things were wrong, and both were mine. The Richmond input was a headline feed, so every card came out pegged to yesterday, and news is not authority. The best post this account ever had was a take that used a fact as ammunition, not a headline read out loud. On top of that the engine sorted development first and then took the top two, so food, events, outdoor and fitness were in the brief and could never reach a card. Timely is now capped at 2 cards, it draws from a different pair of lanes every day, and the rest comes from three sources already sitting on disk.</p>
     <div class="mix">
       <div class="mix-card">
         <div class="mix-card__k">Timely today</div>
         <div class="mix-card__v">2<span class="of"> / 2</span></div>
-        <div class="mix-card__note">Pegged to a Richmond signal from this week. Capped on purpose, because a board that is all headlines is a news account.</div>
+        <div class="mix-card__note">Pegged to a Richmond signal from this week, one hard lane plus one texture lane. Capped on purpose, because a board that is all headlines is a news account.</div>
       </div>
       <div class="mix-card ever">
         <div class="mix-card__k">Evergreen today</div>
@@ -244,6 +249,9 @@
         <div class="lanes"><span class="pill ever">Asked</span><span class="pill ever">Remix</span></div>
       </div>
     </div>
+    
+    <p class="lede" style="margin:16px 0 0;">Richmond lanes in today's brief. Gold is on a card right now, plain has items waiting, faded means the brief carried nothing in that lane. Two lanes a day, never the same one twice, so across a week you get all of it.</p>
+    <div class="lanecov"><span class="lanechip ">Development <b>3</b></span><span class="lanechip off">Neighborhoods</span><span class="lanechip off">Food</span><span class="lanechip on">Events <b>1</b></span><span class="lanechip ">Outdoor <b>3</b></span><span class="lanechip ">Wellness <b>3</b></span><span class="lanechip on">Business <b>1</b></span></div>
     <div class="repeat"><div class="repeat__k">The standing bar, both halves</div><div class="repeat__v">After watching, can someone repeat one specific thing about Richmond to a friend? If they only felt a vibe, it recruited the wrong buyer.</div></div>
   </section>
   
@@ -252,108 +260,64 @@
     <h2 class="title">What to cut, <em>and why.</em></h2>
     <p class="lede">Each card carries the hook, the reason it exists, the clips to pull, and the easy cut to avoid. Timely cards are pegged to something that just happened. Evergreen cards are not pegged to anything and will still be true in three months. Work them top down.</p>
     
-    <article class="cue">
+    <article class="cue nomatch">
       <div class="cue__top">
         <span class="cue__n">Cue 1</span>
-        <span class="pill">Timely &middot; Richmond signal</span>
+        <span class="pill">Timely &middot; Business</span>
         <span class="pill gold">Authority / Comparison</span>
-        <span class="pill">Development</span>
+        
       </div>
       <div class="hookbox">
           <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-1')">Copy</button></div>
-          <div class="hookbox__v" id="hook-1">Your Scott's Addition equity just got a 276 unit neighbor next to the ballpark.</div>
+          <div class="hookbox__v" id="hook-1">A franchise just bet real money on Stratford Hills before your comps caught up.</div>
         </div>
-      <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>Diamond District broke ground on Doma, 276 units beside CarMax Park</b><br/>Six stories, first of four Phase 1 buildings in the city's mixed-use baseball district.<br/><span style="font-size:11.5px;"><a href="https://richmondbizsense.com/2026/07/30/diamond-district-developer-breaks-ground-on-apartments-beside-carmax-park/" target="_blank" rel="noopener">Richmond BizSense</a></span></div></div>
+      <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>Bella Ballerina opening at the Shops at Stratford Hills</b><br/>Kids' dance studio franchise expanding into Forest Hill in late August, a demand signal on the Southside.<br/><span style="font-size:11.5px;"><a href="https://richmondbizsense.com/2026/08/03/dance-studio-franchise-bella-ballerina-expanding-local-presence-with-spot-in-forest-hill/" target="_blank" rel="noopener">Richmond BizSense</a></span></div></div>
       <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 14.9x the median reel. Small sample, 4 posts.</div></div>
       
-      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">A current or would-be owner near Scott's Addition or Northside who thinks in equity terms and wants to know what large-scale development does to their position, not just that it exists.</div></div>
-      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">Doma broke ground: six stories, 276 units, the first of four Phase 1 buildings in the Diamond District beside CarMax Park.</div></div>
+      <div class="fld"><div class="fld__k">What this lane is for</div><div class="fld__v">Payroll moves before prices do.</div></div>
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The buyer priced out of the near West End who suspects the Southside is undervalued and wants evidence beyond a hunch.</div></div>
+      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">Bella Ballerina, a national franchise, opens at the Shops at Stratford Hills in late August. Frame strictly as a retail demand signal on the Southside corridor. Editor must confirm the opening date and, if available, the square footage before ship. Do not frame the area around who lives there.</div></div>
       
-      <div class="fld"><div class="fld__k">Pull these clips</div><div class="clips"><div class="clip">
-            <div class="clip__meta">
-              <div class="clip__f">DJI_0267.MP4</div>
-              <div class="clip__d">Scott's Addition Pros n Cons/Clips/Drone Shots</div>
-            </div>
-            <span class="grade RAW">RAW</span>
-            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Scott's Addition Pros n Cons/Clips/Drone Shots/DJI_0267.MP4" onclick="copyChip(this)">Path</button>
-          </div>
-          <div class="clip">
-            <div class="clip__meta">
-              <div class="clip__f">DJI_0268.MP4</div>
-              <div class="clip__d">Scott's Addition Pros n Cons/Clips/Drone Shots</div>
-            </div>
-            <span class="grade RAW">RAW</span>
-            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Scott's Addition Pros n Cons/Clips/Drone Shots/DJI_0268.MP4" onclick="copyChip(this)">Path</button>
-          </div>
-          <div class="clip">
-            <div class="clip__meta">
-              <div class="clip__f">DJI_0269.MP4</div>
-              <div class="clip__d">Scott's Addition Pros n Cons/Clips/Drone Shots</div>
-            </div>
-            <span class="grade RAW">RAW</span>
-            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Scott's Addition Pros n Cons/Clips/Drone Shots/DJI_0269.MP4" onclick="copyChip(this)">Path</button>
-          </div></div></div>
+      <div class="fld"><div class="fld__k">Pull these clips</div><div class="nomatchbox"><b>Nothing matched.</b> No logged clip matches stratford hills or forest hill or southside. Log the newest shoot folders, or flag Miles to shoot it.</div></div>
       <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
-        <div><div class="lk">Hook</div><div class="lv">New supply next door sounds like a threat to your value</div></div>
-        <div><div class="lk">Retention</div><div class="lv">Miles says whether 276 units helps or hurts nearby owners, and why</div></div>
-        <div><div class="lk">Payoff</div><div class="lv">Doma is building one of four Phase 1 buildings. Density beside a ballpark historically pulls values up, not down, because it anchors demand</div></div>
-        <div><div class="lk">Close</div><div class="lv">Follow for the read on the next three buildings before they break ground</div></div>
+        <div><div class="lk">Hook</div><div class="lv">Franchises run demand math before they sign a lease</div></div>
+        <div><div class="lk">Retention</div><div class="lv">What a corporate site-selection team saw in this corridor</div></div>
+        <div><div class="lk">Payoff</div><div class="lv">Bella Ballerina opens late August at the Shops at Stratford Hills, a paid bet on Forest Hill corridor spending power</div></div>
+        <div><div class="lk">Close</div><div class="lv">Retail leases move before residential prices, watch the corridors where they land</div></div>
       </div></div>
       <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
       
-      
+      <div class="trap"><b>Not shippable yet.</b> No verifiable number or named specific in this cue. Add one before it ships.</div>
     </article>
 
-    <article class="cue">
+    <article class="cue nomatch">
       <div class="cue__top">
         <span class="cue__n">Cue 2</span>
-        <span class="pill">Timely &middot; Richmond signal</span>
-        <span class="pill gold">Authority / Comparison</span>
-        <span class="pill">Development</span>
+        <span class="pill">Timely &middot; Events</span>
+        <span class="pill gold">Polarity / Pattern-Interrupt</span>
+        
       </div>
       <div class="hookbox">
           <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-2')">Copy</button></div>
-          <div class="hookbox__v" id="hook-2">The rulebook for what you can build on your Richmond lot just got rewritten.</div>
+          <div class="hookbox__v" id="hook-2">Your Saturday downtown tells you more about Richmond than any listing photo ever will.</div>
         </div>
-      <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>Code Refresh Draft 3 drops, the zoning rewrite behind Richmond 300</b><br/>The rulebook deciding what infill, ADUs, and missing-middle housing are allowed to look like citywide.<br/><span style="font-size:11.5px;"><a href="http://www.rva.gov/planning-development-review/code-refresh" target="_blank" rel="noopener">City of Richmond Planning and Development Review</a></span></div></div>
-      <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 14.9x the median reel. Small sample, 4 posts.</div></div>
+      <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>Virginia Black Expo and Crabs, Beer and Spirits by the James headline Saturday downtown</b><br/>Main Street Station and Kanawha Plaza, both Saturday.<br/><span style="font-size:11.5px;"><a href="https://www.visitrichmondva.com/events/this-weekend/" target="_blank" rel="noopener">Visit Richmond VA</a> &middot; <a href="https://www.eventbrite.com/e/6th-annual-virginia-black-expo-tickets-1991779438919" target="_blank" rel="noopener">Eventbrite</a></span></div></div>
+      <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Polarity / Pattern-Interrupt medians 3,019 reach, 2.7x the median reel.</div></div>
       
-      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">An owner or investor who holds Richmond property and wants to know what an ADU or infill unit could do for their lot value. They already know what zoning is.</div></div>
-      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">Code Refresh Draft 3 is the zoning rewrite implementing Richmond 300. It sets the citywide rules for infill, ADUs, and missing-middle housing. Editor must confirm one specific Draft 3 provision, such as where ADUs become by-right, before this ships.</div></div>
+      <div class="fld"><div class="fld__k">What this lane is for</div><div class="fld__v">The city a buyer is actually buying into, not the listing photos.</div></div>
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The out-of-state buyer deciding between cities who wants proof of what living here actually feels like on a weekend, not staged interior shots.</div></div>
+      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">Two named events, two named venues, same Saturday: Virginia Black Expo at Main Street Station and Crabs, Beer and Spirits by the James at Kanawha Plaza. The read: downtown Richmond hosts citywide draws within walking distance of each other, which is a location argument, not a vibe.</div></div>
       
-      <div class="fld"><div class="fld__k">Pull these clips</div><div class="clips"><div class="clip">
-            <div class="clip__meta">
-              <div class="clip__f">DJI_20260612151821_0045_D.MP4</div>
-              <div class="clip__d">6:9:26 We Backkk RE /Clips &middot; Working (Outdoor) &middot; 2026-06-12 &middot; midday</div>
-            </div>
-            <span class="grade CURATED">CURATED</span>
-            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /6:9:26 We Backkk RE /Clips/DJI_20260612151821_0045_D.MP4" onclick="copyChip(this)">Path</button>
-          </div>
-          <div class="clip">
-            <div class="clip__meta">
-              <div class="clip__f">DJI_20260612152039_0046_D.MP4</div>
-              <div class="clip__d">6:9:26 We Backkk RE /Clips &middot; Working (Outdoor) &middot; 2026-06-12 &middot; midday</div>
-            </div>
-            <span class="grade CURATED">CURATED</span>
-            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /6:9:26 We Backkk RE /Clips/DJI_20260612152039_0046_D.MP4" onclick="copyChip(this)">Path</button>
-          </div>
-          <div class="clip">
-            <div class="clip__meta">
-              <div class="clip__f">DJI_20260612152105_0047_D.MP4</div>
-              <div class="clip__d">6:9:26 We Backkk RE /Clips &middot; Working (Outdoor) &middot; 2026-06-12 &middot; midday</div>
-            </div>
-            <span class="grade CURATED">CURATED</span>
-            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /6:9:26 We Backkk RE /Clips/DJI_20260612152105_0047_D.MP4" onclick="copyChip(this)">Path</button>
-          </div></div></div>
+      <div class="fld"><div class="fld__k">Pull these clips</div><div class="nomatchbox"><b>Nothing matched.</b> No logged clip matches this angle. Log the newest shoot folders, or flag Miles to shoot it.</div></div>
       <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
-        <div><div class="lk">Hook</div><div class="lv">Your lot's ceiling is set by a document most owners never read</div></div>
-        <div><div class="lk">Retention</div><div class="lv">Draft 3 is out and it decides ADUs and missing middle citywide</div></div>
-        <div><div class="lk">Payoff</div><div class="lv">What Code Refresh Draft 3 actually permits, in plain words: what you could add to a lot you already own</div></div>
-        <div><div class="lk">Close</div><div class="lv">Save this. When Draft 3 gets adopted, the owners who read it early win</div></div>
+        <div><div class="lk">Hook</div><div class="lv">Listing photos show the house, Saturdays show the city</div></div>
+        <div><div class="lk">Retention</div><div class="lv">Two citywide events, two downtown venues, one day</div></div>
+        <div><div class="lk">Payoff</div><div class="lv">Virginia Black Expo at Main Street Station, Crabs Beer and Spirits at Kanawha Plaza, both this Saturday</div></div>
+        <div><div class="lk">Close</div><div class="lv">Buy the city first, the house second, follow for the city half</div></div>
       </div></div>
       <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
       
-      
+      <div class="trap"><b>Not shippable yet.</b> No verifiable number or named specific in this cue. Add one before it ships.</div>
     </article>
 
     <article class="cue evergreen nomatch">
@@ -365,20 +329,21 @@
       </div>
       <div class="hookbox">
           <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-3')">Copy</button></div>
-          <div class="hookbox__v" id="hook-3">You live in Chesterfield and you're not selling. Watch this one number anyway.</div>
+          <div class="hookbox__v" id="hook-3">You live in Chesterfield and you are not selling. Watch this one number anyway.</div>
         </div>
       <div class="fld"><div class="fld__k">Why this, any day</div><div class="fld__v"><b>A real lead asked this 23 days ago and it still has no answer on camera.</b><br/>&quot;informative content. I live in chesterfield. No interest in selling right n&quot; Instagram DM, 2026-07-26. Signal: named where. They named chesterfield.</div></div>
       <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 14.9x the median reel. Small sample, 4 posts.</div></div>
       
-      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The Chesterfield homeowner who follows for the content with no plans to transact. Serving them specifically is how they become the client three years from now, and how their friends become clients sooner.</div></div>
-      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">Editor must confirm the current Chesterfield County median sale price and average days on market before this ships. Those two figures are the payoff. A general answer to this specific question is the failure mode.</div></div>
+      
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The Chesterfield homeowner sitting on equity with no plan to move, exactly the person who becomes a listing in two years if the trust is built now.</div></div>
+      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">The answer is the number. Editor must confirm Chesterfield County's current median sale price and year-over-year change before ship, and that figure goes on screen. Restating the question is not a payoff, a general market answer to a named county is the failure mode.</div></div>
       
       <div class="fld"><div class="fld__k">Pull these clips</div><div class="nomatchbox"><b>Nothing matched.</b> No logged clip matches chesterfield. Log the newest shoot folders, or flag Miles to shoot it.</div></div>
       <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
-        <div><div class="lk">Hook</div><div class="lv">A follower said they live in Chesterfield with no plans to sell, so this is for them</div></div>
-        <div><div class="lk">Retention</div><div class="lv">There is still one number every non-seller should track, and it is not price</div></div>
-        <div><div class="lk">Payoff</div><div class="lv">The Chesterfield number: current county median and days on market, stated plainly, plus what direction it moved this year. Days on market tells you your leverage before you ever need it</div></div>
-        <div><div class="lk">Close</div><div class="lv">Not selling is a position too. Comment your county and I will pull your number next</div></div>
+        <div><div class="lk">Hook</div><div class="lv">Answering a real DM from a Chesterfield owner on camera</div></div>
+        <div><div class="lk">Retention</div><div class="lv">The one number a non-seller should still track</div></div>
+        <div><div class="lk">Payoff</div><div class="lv">Chesterfield's current median sale price and its year-over-year move, stated plainly</div></div>
+        <div><div class="lk">Close</div><div class="lv">Not selling is a position too, know what your position is worth</div></div>
       </div></div>
       <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
       
@@ -394,20 +359,21 @@
       </div>
       <div class="hookbox">
           <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-4')">Copy</button></div>
-          <div class="hookbox__v" id="hook-4">You made Richmond equals Austin 1995 my biggest post ever. Time to check the math.</div>
+          <div class="hookbox__v" id="hook-4">You shared the Austin comparison 8,608 times. Time to check if it still holds.</div>
         </div>
       <div class="fld"><div class="fld__k">Why this, any day</div><div class="fld__v"><b>Your authority post from 2025-10-21 pulled 117,616 reach and never got a part two.</b><br/>&quot;Richmond 2025 = Austin 1995. The people who understood Austin’s trajectory in the ‘90s change...&quot; 8,608 shares, 1,762 saves, 105.7x the median reel. The idea worked. It has been sitting alone since.</div></div>
       <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 14.9x the median reel. Small sample, 4 posts.</div></div>
       <div class="fld"><div class="fld__k">The receipt on this idea</div><div class="fld__v">Posted 2025-10-21. 117,616 reach, 8,608 shares, 1,762 saves.</div></div>
-      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The investor-minded viewer and relocator who shared the original 8,608 times. They bought the trajectory argument and want to know if the trade is still on.</div></div>
-      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">The deciding 2026 figure: Richmond median $392,500, up 4.8% year over year, 2.1 months of supply. Editor confirms these are current at cut time and optionally pulls Austin's mid-1990s appreciation rate for the on-screen comparison. The remix must carry a newer number than the October original.</div></div>
+      
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The investor-minded buyer who saw the original Richmond-as-Austin-1995 thesis and has been waiting, consciously or not, for the follow-up audit.</div></div>
+      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">One current, verifiable 2026 Richmond growth figure, population, price appreciation, or inventory, chosen and confirmed by Miles before ship, placed on screen against the original claim. The episode must render a verdict, holding or breaking, not just restate the comparison.</div></div>
       
       <div class="fld"><div class="fld__k">Pull these clips</div><div class="nomatchbox"><b>Nothing matched.</b> No logged clip matches this angle. Log the newest shoot folders, or flag Miles to shoot it.</div></div>
       <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
-        <div><div class="lk">Hook</div><div class="lv">The Austin 1995 call went out a year ago and 8,608 people shared it</div></div>
-        <div><div class="lk">Retention</div><div class="lv">Miles grades his own thesis on camera, hold or fold</div></div>
-        <div><div class="lk">Payoff</div><div class="lv">The verdict with the deciding figure: Richmond median at $392,500, up 4.8% on 2.1 months of supply, still tight, still climbing, still early on the Austin curve</div></div>
-        <div><div class="lk">Close</div><div class="lv">The people who understood Austin in the 90s did not wait for permission. Follow for the next checkpoint</div></div>
+        <div><div class="lk">Hook</div><div class="lv">The biggest claim this account ever made goes under review</div></div>
+        <div><div class="lk">Retention</div><div class="lv">Holding or breaking, one figure decides it</div></div>
+        <div><div class="lk">Payoff</div><div class="lv">The 2026 number laid directly against the original thesis, verdict stated out loud</div></div>
+        <div><div class="lk">Close</div><div class="lv">If it holds, name which blocks are the 1996 move, save this one</div></div>
       </div></div>
       <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
       
@@ -417,9 +383,9 @@
   
   <section class="block">
     <div class="eyebrow">The Thread</div>
-    <h2 class="title">Richmond Receipts</h2>
-    <p class="lede">Every episode opens a tension and closes with one number or fact the viewer can repeat to a friend. The thread across all eleven cuts: Miles is not reporting Richmond, he is reading it, and each read ends with a receipt. Timely episodes translate this week's signals into positions. Evergreen episodes pay off debts the account already owes: a sequel, an unanswered DM, a bin of footage that was built and never cut.</p>
-    <p class="lede" style="opacity:0.62;font-size:12.5px;">5 episodes concepted 0 days ago. The cues above are drawn from this spine, which is what makes the week feel like one series instead of five unrelated posts.</p>
+    <h2 class="title">Signals Before the Comps</h2>
+    <p class="lede">Every episode this week is the same argument told six ways: something in Richmond moves before the price data does. Concrete gets poured, a franchise signs a lease, a zoning draft drops, gyms cluster, a bridge gets decked, and the comps catch up eighteen months later. The evergreen half runs the same thread backward, returning to claims this account already proved and questions real people already asked. The viewer this recruits is the one who wants to see the signal before their agent does.</p>
+    <p class="lede" style="opacity:0.62;font-size:12.5px;">6 episodes concepted 0 days ago. The cues above are drawn from this spine, which is what makes the week feel like one series instead of five unrelated posts.</p>
   </section>
   
   <section class="block">
