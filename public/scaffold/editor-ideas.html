@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>MAMS Idea Board</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --deep-teal: #003F3F; --teal: #005F5F; --teal-light: #80AFAF;
+    --gold: #D4AF37; --gold-soft: #E2CA7A; --gold-dark: #B1922E;
+    --paper: #FAF7F1; --paper-soft: #f3ede1; --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16); --line-strong: rgba(0, 63, 63, 0.30);
+    --green: #2f7d52; --red: #b1462e; --amber: #9a6b18;
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212,175,55,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,95,95,0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+  header.hero { padding: 40px 0 22px; border-bottom: 1px solid var(--line); }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(28px, 5vw, 44px); line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 12px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 15px; opacity: 0.8; max-width: 60ch; }
+  .stamp { display: inline-block; margin-top: 14px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); border: 1px solid var(--line-strong); border-radius: 999px; padding: 5px 12px; }
+
+  section.block { padding: 30px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 9px; }
+  h2.title { font-family: var(--serif); font-weight: 400; font-size: clamp(21px, 3.4vw, 29px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 6px; }
+  h2.title em { color: var(--gold-dark); font-style: italic; }
+  .lede { font-size: 14.5px; opacity: 0.82; max-width: 64ch; margin-bottom: 20px; }
+
+  /* alerts */
+  .alerts { display: flex; flex-direction: column; gap: 8px; margin-bottom: 4px; }
+  .alert { display: flex; gap: 10px; align-items: flex-start; border-radius: 7px; padding: 11px 14px; font-size: 13px; line-height: 1.45; border: 1px solid; }
+  .alert.red { background: rgba(177,70,46,0.07); border-color: rgba(177,70,46,0.32); color: #7d3121; }
+  .alert.amber { background: rgba(154,107,24,0.07); border-color: rgba(154,107,24,0.30); color: #6f4d11; }
+  .alert__k { font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 3px; white-space: nowrap; }
+
+  /* cadence */
+  .cad { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cad-card { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 8px; padding: 16px 18px; box-shadow: var(--shadow-sm); }
+  .cad-card:nth-child(2) { border-top-color: var(--gold); }
+  .cad-card__k { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 7px; }
+  .cad-card__v { font-family: var(--serif); font-size: 30px; font-weight: 400; line-height: 1; letter-spacing: -0.02em; }
+  .cad-card__v .of { font-size: 17px; opacity: 0.45; }
+  .cad-card__note { font-size: 12px; opacity: 0.75; margin-top: 7px; line-height: 1.4; }
+  .cad-card.unknown .cad-card__v { color: var(--line-strong); }
+  .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 12px; }
+  .week div { text-align: center; font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 0; border-radius: 4px; background: var(--paper-soft); color: rgba(0,63,63,0.5); }
+  .week div.hit { background: var(--teal); color: var(--ivory); }
+  .week div.miss { background: rgba(177,70,46,0.13); color: #7d3121; }
+
+  /* audience */
+  .aud { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 22px 24px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .aud::after { content: ''; position: absolute; top: -70px; right: -70px; width: 190px; height: 190px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .aud__nums { display: flex; gap: 26px; align-items: baseline; margin-bottom: 14px; position: relative; z-index: 1; flex-wrap: wrap; }
+  .aud__num { font-family: var(--serif); font-size: 30px; font-weight: 400; letter-spacing: -0.02em; }
+  .aud__num .k { display: block; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 2px; }
+  .aud__num.target { color: var(--gold); }
+  .aud__arrow { font-size: 20px; opacity: 0.4; }
+  .aud p { font-size: 14px; line-height: 1.55; position: relative; z-index: 1; opacity: 0.92; }
+  .aud p + p { margin-top: 9px; }
+  .aud p em { color: var(--gold-soft); font-style: italic; }
+
+  /* cue cards */
+  .cue { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 8px; padding: 20px 20px 18px; box-shadow: var(--shadow-sm); margin-bottom: 16px; }
+  .cue.nomatch { border-left-color: var(--red); }
+  .cue__top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .cue__n { font-family: var(--serif); font-size: 15px; font-weight: 600; }
+  .pill { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--teal); }
+  .pill.gold { border-color: var(--gold); color: var(--gold-dark); background: rgba(212,175,55,0.09); }
+  .hookbox { background: var(--paper-soft); border-radius: 7px; padding: 14px 15px; margin-bottom: 14px; }
+  .hookbox__k { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .hookbox__v { font-family: var(--serif); font-size: 19px; font-weight: 400; line-height: 1.3; letter-spacing: -0.01em; }
+  .hookbox.pending .hookbox__v { font-family: var(--sans); font-size: 13.5px; opacity: 0.6; font-style: italic; }
+  .copybtn { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: transparent; border: 1px solid var(--line-strong); color: var(--teal); border-radius: 999px; padding: 4px 10px; cursor: pointer; transition: transform 0.16s cubic-bezier(0.16,1,0.3,1), background-color 0.16s cubic-bezier(0.16,1,0.3,1); }
+  .copybtn:hover { background: var(--deep-teal); color: var(--ivory); }
+  .copybtn:active { transform: scale(0.96); }
+  .copybtn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .copybtn.ok { background: var(--green); border-color: var(--green); color: var(--ivory); }
+
+  .fld { margin-bottom: 12px; }
+  .fld__k { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 4px; }
+  .fld__v { font-size: 13.5px; line-height: 1.5; }
+  .fld__v a { color: var(--gold-dark); text-decoration: none; border-bottom: 1px solid rgba(177,146,46,0.4); }
+  .fld__v a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+  .fld__v a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .quote { font-family: var(--serif); font-size: 14.5px; font-style: italic; line-height: 1.45; padding-left: 12px; border-left: 2px solid var(--gold); }
+  .quote .attrib { display: block; font-family: var(--sans); font-style: normal; font-size: 10.5px; opacity: 0.6; margin-top: 5px; letter-spacing: 0.04em; }
+
+  .clips { display: flex; flex-direction: column; gap: 6px; }
+  .clip { display: flex; align-items: center; gap: 9px; background: var(--paper-soft); border-radius: 6px; padding: 9px 11px; font-size: 12px; }
+  .clip__meta { flex: 1; min-width: 0; }
+  .clip__f { font-weight: 600; font-size: 12px; word-break: break-all; }
+  .clip__d { font-size: 10.5px; opacity: 0.68; margin-top: 2px; }
+  .grade { font-size: 8.5px; font-weight: 800; letter-spacing: 0.1em; padding: 2px 6px; border-radius: 3px; white-space: nowrap; }
+  .grade.CURATED { background: var(--teal); color: var(--ivory); }
+  .grade.RAW { background: rgba(0,63,63,0.10); color: var(--teal); }
+  .nomatchbox { background: rgba(177,70,46,0.06); border: 1px solid rgba(177,70,46,0.26); border-radius: 7px; padding: 12px 14px; font-size: 13px; line-height: 1.45; color: #7d3121; }
+
+  .loop { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+  .loop div { background: var(--paper-soft); border-radius: 6px; padding: 10px 11px; align-self: start; }
+  .loop .lk { font-size: 8.5px; font-weight: 800; letter-spacing: 0.12em; line-height: 1.2; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 6px; }
+  .loop .lv { font-size: 11.5px; line-height: 1.45; }
+
+  .trap { background: rgba(177,70,46,0.06); border-left: 3px solid var(--red); border-radius: 0 6px 6px 0; padding: 11px 14px; font-size: 13px; line-height: 1.45; color: #7d3121; margin-top: 4px; }
+  .trap b { font-weight: 800; letter-spacing: 0.04em; }
+
+  /* bar + footage */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+  .stat { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; box-shadow: var(--shadow-sm); }
+  .stat__k { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 5px; }
+  .stat__v { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: -0.02em; line-height: 1; }
+  .stat__n { font-size: 11px; opacity: 0.68; margin-top: 5px; }
+  .bar-rows { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .bar-row { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 10px; padding: 11px 14px; font-size: 12.5px; background: var(--ivory); border-bottom: 1px solid var(--line); align-items: center; }
+  .bar-row:last-child { border-bottom: none; }
+  .bar-row.head { background: var(--paper-soft); font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); }
+  .bar-row .nm { font-weight: 600; }
+  .bar-row.top .nm { color: var(--gold-dark); }
+  .bar-row.soft { opacity: 0.62; }
+
+  .prog { height: 8px; background: var(--paper-soft); border-radius: 999px; overflow: hidden; margin: 12px 0 8px; }
+  .prog span { display: block; height: 100%; background: var(--teal); border-radius: 999px; }
+  .catgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; margin-top: 12px; }
+  .cat { display: flex; justify-content: space-between; gap: 8px; background: var(--paper-soft); border-radius: 5px; padding: 7px 10px; font-size: 11.5px; }
+  .cat b { font-weight: 700; }
+
+  .linkbtn { display: inline-block; margin-top: 16px; background: var(--gold); color: var(--deep-teal); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 999px; padding: 11px 22px; box-shadow: 0 6px 18px rgba(212,175,55,0.28); transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s cubic-bezier(0.16,1,0.3,1); }
+  .linkbtn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(212,175,55,0.36); }
+  .linkbtn:active { transform: translateY(0); }
+  .linkbtn:focus-visible { outline: 2px solid var(--deep-teal); outline-offset: 3px; }
+
+  footer.foot { padding: 26px 0 44px; font-size: 11.5px; opacity: 0.62; text-align: center; }
+  footer.foot em { font-style: italic; }
+
+  #toast { position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(14px); background: var(--deep-teal); color: var(--ivory); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; padding: 9px 18px; border-radius: 999px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1); z-index: 99; }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 640px) {
+    .cad, .stats { grid-template-columns: 1fr; }
+    .loop { grid-template-columns: repeat(2, 1fr); }
+    .bar-row { grid-template-columns: 1.4fr 1fr 1fr; font-size: 11.5px; padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <div class="hero__eyebrow">MAMS Editor Room &middot; Idea Board</div>
+    <h1 class="hero__title">Orders for <em>Monday, August 17</em></h1>
+    <p class="hero__sub">Dated and disposable. The Editor Room holds the rules that never change. This page holds today's work and gets replaced tomorrow.</p>
+    <div class="stamp">Generated 2026-08-17</div>
+  </header>
+
+  
+  
+  <section class="block">
+    <div class="eyebrow">The Bar</div>
+    <h2 class="title">Two a day. <em>Seven days.</em> One YouTube.</h2>
+    <p class="lede">Fourteen short-form pieces a week plus one long-form. Week of Monday, August 17, 6 days left.</p>
+    <div class="cad">
+      <div class="cad-card unknown">
+        <div class="cad-card__k">Short-form this week</div>
+        <div class="cad-card__v">Not visible</div>
+        <div class="cad-card__note">Post data is not connected yet, so this board cannot confirm what shipped. Nobody is being marked down for it.</div>
+        
+      </div>
+      <div class="cad-card unknown">
+        <div class="cad-card__k">YouTube this week</div>
+        <div class="cad-card__v">Not visible</div>
+        <div class="cad-card__note">Same reason. Connect the analytics feed and this fills in automatically.</div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="block">
+    <div class="eyebrow">Who Every Cut Is For</div>
+    <h2 class="title">You are recruiting <em>a specific person.</em></h2>
+    <p class="lede">Every video pulls in whoever it entertains. That is why this sits above the cues instead of below them.</p>
+    <div class="aud">
+      <div class="aud__nums">
+        <div class="aud__num"><span class="k">Average sale today</span>$380,000</div>
+        <div class="aud__arrow">&rarr;</div>
+        <div class="aud__num target"><span class="k">Where we are going</span>$500,000</div>
+      </div>
+      <p>Successful and excellent at what they do. Down to earth, vibey, likes a good time. Both halves at once. Someone who earned it and still wants this to be fun.</p>
+      <p><em>Fun is on brand. Fun alone is not. Energy is the vehicle, authority is the cargo.</em></p>
+      <p>The receipt: cuts built on lifestyle alone median 2,752 reach. Cuts built on an insider read median 16,578. The easy cut is also the weaker one.</p>
+    </div>
+  </section>
+  
+  <section class="block">
+    <div class="eyebrow">Today</div>
+    <h2 class="title">What to cut, <em>and why.</em></h2>
+    <p class="lede">Each card carries the hook, the reason it exists right now, the clips to pull, and the easy cut to avoid. Work them top down.</p>
+    
+    <article class="cue nomatch">
+      <div class="cue__top">
+        <span class="cue__n">Cue 1</span>
+        <span class="pill">Short-form</span>
+        <span class="pill gold">Authority / Comparison</span>
+        <span class="pill">Development</span>
+      </div>
+      <div class="hookbox">
+          <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-1')">Copy</button></div>
+          <div class="hookbox__v" id="hook-1">Your view of downtown Richmond is about to be 410 feet taller.</div>
+        </div>
+      <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>NYC developer eyeing 35-40 story high-rise downtown</b><br/>703 E. Main St., 1.25 acres, state-owned. Three concepts up to 252 units / 410 feet. LaBella involved. Would be tallest in Richmond.<br/><span style="font-size:11.5px;"><a href="https://rvamag.com/news-headlines/richmond-news/new-york-developer-eyes-massive-high-rise-project-in-richmond.html" target="_blank" rel="noopener">RVA Mag</a></span></div></div>
+      <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 6.3x the median reel. Small sample, 4 posts.</div></div>
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">A relocating professional or move-up buyer in the $450K to $550K range who is comparing downtown condos and wants to know what the pipeline does to values before committing.</div></div>
+      
+      <div class="fld"><div class="fld__k">Pull these clips</div><div class="nomatchbox"><b>Nothing matched.</b> No logged clip matches this angle. Log the newest shoot folders, or flag Miles to shoot it.</div></div>
+      <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
+        <div><div class="lk">Hook</div><div class="lv">the skyline you know right now is the old version</div></div>
+        <div><div class="lk">Retention</div><div class="lv">the specific address and the 410 foot number land by second three</div></div>
+        <div><div class="lk">Payoff</div><div class="lv">what a tallest-ever tower and 252 units do to downtown condo pricing and rent comps</div></div>
+        <div><div class="lk">Close</div><div class="lv">save the address, follow to hear when the site moves</div></div>
+      </div></div>
+      <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
+      
+    </article>
+
+    <article class="cue">
+      <div class="cue__top">
+        <span class="cue__n">Cue 2</span>
+        <span class="pill">Short-form</span>
+        <span class="pill gold">Authority / Comparison</span>
+        <span class="pill">Development</span>
+      </div>
+      <div class="hookbox">
+          <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-2')">Copy</button></div>
+          <div class="hookbox__v" id="hook-2">1,000 VCU beds are coming, and they change your math in the Fan.</div>
+        </div>
+      <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>VCU's $205M West Grace dorm moving fast, 1,000 beds coming</b><br/>Financing approved, BookHolders demo done. Major demand driver for the Fan/VCU corridor.<br/><span style="font-size:11.5px;"><a href="https://richmondbizsense.com/2026/06/05/vcu-board-approves-financing-additional-sitework-funds-for-1000-bed-west-grace-dorm/" target="_blank" rel="noopener">Richmond BizSense</a></span></div></div>
+      <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 6.3x the median reel. Small sample, 4 posts.</div></div>
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The small investor or house-hacking buyer who owns or is eyeing a Fan rental near VCU and thinks about tenant pools, not just curb appeal.</div></div>
+      
+      <div class="fld"><div class="fld__k">Pull these clips</div><div class="clips"><div class="clip">
+            <div class="clip__meta">
+              <div class="clip__f">DJI_20250602111915_0776_D.MP4</div>
+              <div class="clip__d">The Fan Pros n Cons/Clips &middot; 2025-06-02 &middot; midday</div>
+            </div>
+            <span class="grade RAW">RAW</span>
+            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /The Fan Pros n Cons/Clips/DJI_20250602111915_0776_D.MP4" onclick="copyChip(this)">Path</button>
+          </div>
+          <div class="clip">
+            <div class="clip__meta">
+              <div class="clip__f">DJI_20250531001555_0763_D.MP4</div>
+              <div class="clip__d">The Fan Pros n Cons/Audio/Voiceover &middot; 2025-05-31 &middot; morning</div>
+            </div>
+            <span class="grade RAW">RAW</span>
+            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /The Fan Pros n Cons/Audio/Voiceover/DJI_20250531001555_0763_D.MP4" onclick="copyChip(this)">Path</button>
+          </div>
+          <div class="clip">
+            <div class="clip__meta">
+              <div class="clip__f">DJI_20250531001637_0764_D.MP4</div>
+              <div class="clip__d">The Fan Pros n Cons/Audio/Voiceover &middot; 2025-05-31 &middot; morning</div>
+            </div>
+            <span class="grade RAW">RAW</span>
+            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /The Fan Pros n Cons/Audio/Voiceover/DJI_20250531001637_0764_D.MP4" onclick="copyChip(this)">Path</button>
+          </div></div></div>
+      <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
+        <div><div class="lk">Hook</div><div class="lv">a $205M dorm is a demand event, not campus news</div></div>
+        <div><div class="lk">Retention</div><div class="lv">the two-way read: does this soften Fan rents or upgrade the tenant pool</div></div>
+        <div><div class="lk">Payoff</div><div class="lv">1,000 on-campus beds pull undergrads out of scattered rentals, shifting Fan units toward young professionals</div></div>
+        <div><div class="lk">Close</div><div class="lv">if you hold or want a Fan rental, this is the variable to price in now</div></div>
+      </div></div>
+      <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
+      
+    </article>
+
+    <article class="cue nomatch">
+      <div class="cue__top">
+        <span class="cue__n">Cue 3</span>
+        <span class="pill">Short-form</span>
+        <span class="pill gold">Authority / Comparison</span>
+        <span class="pill">Development</span>
+      </div>
+      <div class="hookbox">
+          <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-3')">Copy</button></div>
+          <div class="hookbox__v" id="hook-3">You have until Fall 2026 to buy Manchester before the island park opens.</div>
+        </div>
+      <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>Mayo Island park opens Fall 2026, 15 acres in the river between downtown + Manchester.</b><br/>City bought it for $15M in 2024. Conceptual plan approved May 2025. $16M renovation replaces parking lots with meadows, wildflowers, gravel paths joining the James River Park System. Major future buyer-lifestyle anchor for both sides of the river.<br/><span style="font-size:11.5px;"><a href="https://rvamag.com/community/mayo-island-to-become-richmonds-next-great-public-park-by-2026.html" target="_blank" rel="noopener">RVA Magazine</a> &middot; <a href="https://www.richmonder.org/new-mayo-island-park-on-track-to-open-in-fall-of-2026/" target="_blank" rel="noopener">The Richmonder</a></span></div></div>
+      <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 6.3x the median reel. Small sample, 4 posts.</div></div>
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">A buyer around $400K to $500K weighing Manchester against pricier river-adjacent options, who values trail and river access and understands buying ahead of an amenity.</div></div>
+      
+      <div class="fld"><div class="fld__k">Pull these clips</div><div class="nomatchbox"><b>Nothing matched.</b> No logged clip matches manchester. Log the newest shoot folders, or flag Miles to shoot it.</div></div>
+      <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
+        <div><div class="lk">Hook</div><div class="lv">a hard deadline, not a vibe: Fall 2026</div></div>
+        <div><div class="lk">Retention</div><div class="lv">a 15 acre island in the middle of the James, city already spent $31M on it</div></div>
+        <div><div class="lk">Payoff</div><div class="lv">parks announce before they price in; the premium arrives when the gates open, not when the plan is approved</div></div>
+        <div><div class="lk">Close</div><div class="lv">the amenity is funded and dated, the entry price is not, follow for the Manchester read</div></div>
+      </div></div>
+      <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
+      
+    </article>
+
+    <article class="cue nomatch">
+      <div class="cue__top">
+        <span class="cue__n">Cue 4</span>
+        <span class="pill">Short-form</span>
+        <span class="pill gold">Authority / Comparison</span>
+        
+      </div>
+      <div class="hookbox">
+          <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-4')">Copy</button></div>
+          <div class="hookbox__v" id="hook-4">Your best downtown Richmond signal is not a listing. It is where chefs sign leases.</div>
+        </div>
+      <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>Lillie Pearl reopened in new downtown space</b><br/>Chef Mike Lindsey's modern Southern (fried chicken + short ribs), fresh room downtown. Griffin Lounge + Capriccios Italian also new.<br/><span style="font-size:11.5px;"><a href="https://30isthenew20.com/general/new-richmond-restaurants-in-2026-openings-closings-coming-soon/" target="_blank" rel="noopener">30 is the New 20</a></span></div></div>
+      <div class="fld"><div class="fld__k">Why this shape works</div><div class="fld__v">Authority / Comparison medians 16,578 reach, 6.3x the median reel. Small sample, 4 posts.</div></div>
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The relocator who reads a city through its food scene, has money to spend on dinner and a down payment, and is deciding whether downtown Richmond is actually livable or just office towers.</div></div>
+      
+      <div class="fld"><div class="fld__k">Pull these clips</div><div class="nomatchbox"><b>Nothing matched.</b> No logged clip matches this angle. Log the newest shoot folders, or flag Miles to shoot it.</div></div>
+      <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
+        <div><div class="lk">Hook</div><div class="lv">chefs read foot traffic before appraisers do</div></div>
+        <div><div class="lk">Retention</div><div class="lv">three named rooms in one downtown stretch, not a vague 'food scene is growing'</div></div>
+        <div><div class="lk">Payoff</div><div class="lv">an established chef reopening downtown is a bet on residential foot traffic, and it lines up with the 410 foot tower proposal two episodes ago</div></div>
+        <div><div class="lk">Close</div><div class="lv">watch the leases, not the listings, follow for the next signal</div></div>
+      </div></div>
+      <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
+      <div class="trap"><b>Not shippable yet.</b> No verifiable number or named specific in this cue. Add one before it ships.</div>
+    </article>
+  </section>
+  
+  <section class="block">
+    <div class="eyebrow">The Thread</div>
+    <h2 class="title">Before The Comps Catch Up: Reading Richmond's Next Move</h2>
+    <p class="lede">A five-part series teaching one skill: how to read a city signal before it shows up in prices. Each episode takes one thing Richmond is building, opening, or approving and translates it into a buyer's timing decision. The skyline, the campus, the river, and the kitchens all move before the comps do. Every episode ends on the same turn: the people who read the signal early are the ones who look smart in three years.</p>
+    <p class="lede" style="opacity:0.62;font-size:12.5px;">5 episodes concepted 0 days ago. The cues above are drawn from this spine, which is what makes the week feel like one series instead of five unrelated posts.</p>
+  </section>
+  
+  <section class="block">
+    <div class="eyebrow">The Library</div>
+    <h2 class="title">What we can <em>actually find.</em></h2>
+    <p class="lede">A cue can only point at a clip somebody has labelled. Everything unlabelled is invisible to this board, which is why the easy clip keeps winning.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat__k">Clips in the library</div><div class="stat__v">2,522</div><div class="stat__n">Across every shoot folder</div></div>
+      <div class="stat"><div class="stat__k">Logged and findable</div><div class="stat__v">151</div><div class="stat__n">6% of the library</div></div>
+      <div class="stat"><div class="stat__k">Invisible</div><div class="stat__v">2,371</div><div class="stat__n">Real footage no cue can reach</div></div>
+    </div>
+    <div class="prog"><span style="width:6%"></span></div>
+    <div class="catgrid"><div class="cat"><span>Working (Indoor)</span><b>44</b></div><div class="cat"><span>Cedar Grove (Renovation Project)</span><b>25</b></div><div class="cat"><span>Random Montage, B Rolls</span><b>15</b></div><div class="cat"><span>Self-care (gym, ice bath, meditate)</span><b>14</b></div><div class="cat"><span>Day long vlogs</span><b>14</b></div><div class="cat"><span>Listing Site Visit</span><b>10</b></div><div class="cat"><span>Motivational, inspirational, realtor exp (talking heads)</span><b>6</b></div><div class="cat"><span>Working (Outdoor)</span><b>6</b></div><div class="cat"><span>Out with friends</span><b>5</b></div><div class="cat"><span>Listing appointment (inside car TH - before &amp; after)</span><b>4</b></div><div class="cat"><span>Potential for shorts</span><b>3</b></div><div class="cat"><span>Miles inside car talks montage</span><b>3</b></div><div class="cat"><span>Sold Diaries</span><b>1</b></div><div class="cat"><span>Client calls</span><b>1</b></div></div>
+  </section>
+  
+  <section class="block">
+    <div class="eyebrow">The Scoreboard</div>
+    <h2 class="title">What actually <em>performs here.</em></h2>
+    <p class="lede">Median reach by hook shape across 100 posts. Overall median reel reach is 2,639. This is the whole argument for the harder cut.</p>
+    <div class="bar-rows">
+      <div class="bar-row head"><span>Hook shape</span><span>Median reach</span><span>vs median</span></div>
+      <div class="bar-row top"><span class="nm">Authority / Comparison</span><span>16,578</span><span>6.3x</span></div>
+      <div class="bar-row "><span class="nm">Polarity / Pattern-Interrupt</span><span>3,019</span><span>1.1x</span></div>
+      <div class="bar-row soft"><span class="nm">Lifestyle / Aspirational</span><span>2,752</span><span>1x</span></div>
+      <div class="bar-row "><span class="nm">Numbered Series</span><span>2,730</span><span>1x</span></div>
+      <div class="bar-row "><span class="nm">Personal / Vulnerability</span><span>2,511</span><span>1x</span></div>
+      <div class="bar-row "><span class="nm">Direct / Other</span><span>2,274</span><span>0.9x</span></div>
+      <div class="bar-row soft"><span class="nm">Format Gimmick</span><span>2,113</span><span>0.8x</span></div>
+    </div>
+  </section>
+  
+  <section class="block">
+    <div class="eyebrow">Where This Came From</div>
+    <h2 class="title">How fresh <em>the inputs are.</em></h2>
+    <p class="lede">Nothing on this page is a guess. Here is the age of everything it was built from, so you know how hard to lean on it.</p>
+    <div class="catgrid">
+      <div class="cat"><span>Richmond signal</span><b>June 7, 2026 (71d old)</b></div>
+      <div class="cat"><span>Post performance</span><b>economics.json</b></div>
+      <div class="cat"><span>DM questions</span><b>2026-07-26 (23d old)</b></div>
+      <div class="cat"><span>Footage index</span><b>crawl 2026-08-18</b></div>
+      <div class="cat"><span>Weekly concept</span><b>2026-08-18 (0d old)</b></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Back To The Rules</div>
+    <h2 class="title">The Editor Room holds <em>everything else.</em></h2>
+    <p class="lede">Voice, the open loop, how a piece gets handed down, how the pay works. That page does not change. This one does.</p>
+    <a class="linkbtn" href="editor-hub.html">Open the Editor Room</a>
+  </section>
+
+  <footer class="foot">
+    Built for the MAMS editor room &middot; <em>Miles Agee</em> &middot; MAMS LLC
+  </footer>
+
+</div>
+
+<div id="toast">Copied</div>
+<script>
+  function toast() {
+    var t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); }, 1100);
+  }
+  function doCopy(text) {
+    if (window.isSecureContext && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  }
+  function copyField(btn, id) {
+    var el = document.getElementById(id);
+    doCopy(el.innerText);
+    btn.classList.add('ok'); btn.textContent = 'Copied';
+    toast();
+    setTimeout(function () { btn.classList.remove('ok'); btn.textContent = 'Copy'; }, 1200);
+  }
+  function copyChip(btn) {
+    doCopy(btn.getAttribute('data-copy') || btn.innerText);
+    btn.classList.add('ok');
+    toast();
+    setTimeout(function () { btn.classList.remove('ok'); }, 1000);
+  }
+</script>
+</body>
+</html>
