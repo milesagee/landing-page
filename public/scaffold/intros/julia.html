@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Monique · For Julia</title>
+<meta name="description" content="You are not writing 85 pages. You are running a collection and doing an edit pass. The playbook.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamsnow.com/scaffold/intros/julia.html">
+<meta property="og:title" content="For Julia. The 85-page playbook.">
+<meta property="og:description" content="You are not writing 85 pages. Here is what you are actually doing.">
+<meta property="og:image" content="https://mamsnow.com/images/monique-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="MAMS">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="For Julia. The 85-page playbook.">
+<meta name="twitter:description" content="You are not writing 85 pages. Here is what you are actually doing.">
+<meta name="twitter:image" content="https://mamsnow.com/images/monique-og.png">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #003F3F; text-decoration: none; }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Header */
+  .header {
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(0,63,63,0.06);
+  }
+  .logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.08);
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+  .role-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; margin-top: 6px; font-weight: 700;
+  }
+
+  /* Container */
+  .container { max-width: 640px; margin: 0 auto; padding: 0 28px; }
+
+  /* Hero */
+  .hero { padding: 84px 0 60px; }
+  .hero-kicker {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 44px; line-height: 1.05; color: #003F3F;
+    margin: 0 0 28px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: #B1922E; }
+  .hero p {
+    font-size: 19px; color: rgba(0,63,63,0.78);
+    margin: 0 0 14px; line-height: 1.55;
+    font-weight: 400;
+  }
+  .hero p:last-child { margin-bottom: 0; }
+  .hero p strong { color: #003F3F; font-weight: 600; }
+
+  .personal-note {
+    margin: 36px 0 0;
+    padding: 20px 22px;
+    background: rgba(212, 175, 55, 0.06);
+    border-left: 2px solid #D4AF37;
+    border-radius: 2px;
+  }
+  .personal-note p {
+    font-size: 16px; color: rgba(0,63,63,0.82);
+    margin: 0 0 10px; line-height: 1.6;
+    font-style: italic;
+  }
+  .personal-note p:last-child { margin-bottom: 0; }
+
+  /* Sections */
+  .section { padding: 72px 0 24px; border-top: 1px solid rgba(0,63,63,0.06); }
+  .section-header { margin-bottom: 40px; }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 16px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 31px; line-height: 1.16; color: #003F3F;
+    margin: 0 0 16px;
+    letter-spacing: -0.014em;
+  }
+  .section h2 em { font-style: italic; color: #B1922E; }
+  .section-lede {
+    font-size: 17px; color: rgba(0,63,63,0.78);
+    margin: 0; line-height: 1.6;
+    max-width: 540px;
+  }
+  .section > p {
+    font-size: 17px; color: rgba(0,63,63,0.82);
+    line-height: 1.6; margin: 0 0 16px;
+  }
+  .section > p:last-child { margin-bottom: 0; }
+  .section > p strong { color: #003F3F; font-weight: 600; }
+
+  h3.sub {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 21px; line-height: 1.26; color: #003F3F;
+    margin: 40px 0 12px; letter-spacing: -0.008em;
+  }
+  h3.sub em { font-style: italic; color: #B1922E; }
+  h3.sub:first-of-type { margin-top: 0; }
+
+  /* The safety card, deliberately the most solid object on the page */
+  .safety {
+    background: #003F3F; color: #FAF7F1;
+    border-radius: 3px;
+    padding: 30px 26px;
+    margin: 0 0 8px;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.10), 0 8px 28px rgba(0,63,63,0.13);
+  }
+  .safety .eyebrow { color: #D4AF37; }
+  .safety h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 27px; line-height: 1.18; color: #FAF7F1;
+    margin: 0 0 18px; letter-spacing: -0.012em;
+  }
+  .safety h2 em { font-style: italic; color: #D4AF37; }
+  .safety p { font-size: 16px; color: rgba(250,247,241,0.86); margin: 0 0 14px; line-height: 1.62; }
+  .safety p:last-child { margin-bottom: 0; }
+  .safety strong { color: #FAF7F1; font-weight: 600; }
+  .valve {
+    display: grid; gap: 10px;
+    margin: 20px 0;
+    padding: 18px 0;
+    border-top: 1px solid rgba(250,247,241,0.16);
+    border-bottom: 1px solid rgba(250,247,241,0.16);
+  }
+  .valve div { font-size: 15px; color: rgba(250,247,241,0.9); line-height: 1.5; }
+  .valve span {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #D4AF37; display: block; margin-bottom: 4px;
+  }
+
+  /* Retype blocks: sized to be transcribed by eye from a phone */
+  .retype-label {
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(0,63,63,0.5); font-weight: 700; margin: 26px 0 8px;
+  }
+  .retype {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 15px; font-weight: 500; line-height: 1.75;
+    letter-spacing: 0.01em;
+    color: #003F3F;
+    background: rgba(0,63,63,0.045);
+    border: 1px solid rgba(0,63,63,0.10);
+    border-left: 3px solid #D4AF37;
+    border-radius: 2px;
+    padding: 16px 18px;
+    margin: 0 0 10px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    cursor: pointer;
+    transition: background 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    -webkit-user-select: all; user-select: all;
+  }
+  .retype:hover { background: rgba(212,175,55,0.10); }
+  .retype:active { transform: translateY(1px); }
+  .retype:focus-visible { outline: 3px solid #D4AF37; outline-offset: 3px; }
+  .retype.copied { background: rgba(212,175,55,0.20); }
+  .retype-note {
+    font-size: 13px; color: rgba(0,63,63,0.55); margin: 0 0 22px; line-height: 1.5;
+  }
+
+  /* Numbered steps */
+  .steps { list-style: none; padding: 0; margin: 0 0 8px; counter-reset: s; }
+  .steps li {
+    position: relative;
+    padding: 0 0 18px 38px;
+    font-size: 16px; color: rgba(0,63,63,0.82); line-height: 1.58;
+    counter-increment: s;
+  }
+  .steps li::before {
+    content: counter(s, decimal-leading-zero);
+    position: absolute; left: 0; top: 1px;
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 13px; color: #D4AF37; letter-spacing: 0.04em;
+  }
+  .steps li strong { color: #003F3F; font-weight: 600; }
+  .steps li:last-child { padding-bottom: 0; }
+
+  /* Budget ledger */
+  .ledger { margin: 0 0 24px; }
+  .ledger-row {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 18px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0,63,63,0.08);
+  }
+  .ledger-row:first-child { border-top: 1px solid rgba(0,63,63,0.08); }
+  .ledger-label { font-size: 16px; color: rgba(0,63,63,0.82); line-height: 1.45; }
+  .ledger-label small { display: block; font-size: 13px; color: rgba(0,63,63,0.52); margin-top: 3px; }
+  .ledger-val {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 15px; font-weight: 700; color: #003F3F; white-space: nowrap;
+    font-feature-settings: "lnum";
+  }
+  .ledger-total { border-bottom: none; padding-top: 18px; }
+  .ledger-total .ledger-label { font-weight: 600; color: #003F3F; }
+  .ledger-total .ledger-val { color: #B1922E; }
+
+  /* Skeleton list */
+  .skeleton { list-style: none; padding: 0; margin: 0; }
+  .skeleton li {
+    padding: 13px 0 13px 20px;
+    border-left: 2px solid rgba(212,175,55,0.35);
+    margin-bottom: 2px;
+    font-size: 16px; color: rgba(0,63,63,0.82); line-height: 1.5;
+  }
+  .skeleton li strong { color: #003F3F; font-weight: 600; }
+
+  /* Callout */
+  .callout {
+    margin: 30px 0 8px;
+    padding: 22px 24px;
+    background: rgba(212,175,55,0.07);
+    border-left: 2px solid #D4AF37;
+    border-radius: 2px;
+  }
+  .callout p { font-size: 16px; color: rgba(0,63,63,0.84); margin: 0 0 12px; line-height: 1.6; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout strong { color: #003F3F; font-weight: 600; }
+
+  /* Never list */
+  .never { list-style: none; padding: 0; margin: 18px 0 0; }
+  .never li {
+    position: relative; padding: 0 0 12px 26px;
+    font-size: 16px; color: rgba(0,63,63,0.8); line-height: 1.55;
+  }
+  .never li::before {
+    content: '×';
+    position: absolute; left: 4px; top: -1px;
+    color: #B1922E; font-weight: 700; font-size: 18px;
+  }
+  .never li:last-child { padding-bottom: 0; }
+
+  .single-ask { font-size: 17px; color: rgba(0,63,63,0.85); margin: 0; line-height: 1.6; }
+  .single-ask strong { color: #003F3F; font-weight: 600; }
+
+  /* Footer */
+  .footer {
+    padding: 72px 28px 64px;
+    text-align: center;
+    border-top: 1px solid rgba(0,63,63,0.06);
+    margin-top: 60px;
+  }
+  .signature {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: 19px; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+  .footer .fine { font-size: 11px; color: rgba(0,63,63,0.4); margin-top: 14px; letter-spacing: 0.02em; line-height: 1.7; }
+
+  @media (min-width: 700px) {
+    .hero { padding: 116px 0 76px; }
+    .hero h1 { font-size: 60px; }
+    .hero p { font-size: 21px; }
+    .personal-note p { font-size: 17px; }
+    .section { padding: 96px 0 32px; }
+    .section h2 { font-size: 38px; }
+    .section-lede { font-size: 18px; }
+    .section > p { font-size: 18px; }
+    .safety { padding: 40px 38px; }
+    .safety h2 { font-size: 32px; }
+    h3.sub { font-size: 24px; }
+    .retype { font-size: 16px; padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">M</div>
+  <div>
+    <div class="brand">Monique</div>
+    <div class="role-label">For Julia · The direct line</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-kicker">Built for you. Yours to keep.</div>
+    <h1>Julia.<br>You're not writing <em>85 pages</em>.</h1>
+    <p>You're running a collection and doing an edit pass. Those are different jobs, and only one of them is impossible.</p>
+    <p><strong>Nothing of yours ever leaves your building.</strong> Not to me, not to Miles, not to anything. Everything below is reading material. All the actual work happens on your laptop, in Outlook and Teams, the way it already does.</p>
+
+    <div class="personal-note">
+      <p>Julia. Miles told me you matter to him, then you told me the problem, and the problem turned out to be a good one. Not because it's easy. Because it's the kind that looks like 85 pages and is actually four moves.</p>
+      <p>Read this on your phone. Work on your laptop. Nothing crosses.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="safety">
+      <div class="eyebrow">Before anything else</div>
+      <h2>Why this is <em>safe</em>.</h2>
+      <p>Your material is FOUO and DHS-use-only. That means it can't be on a personal phone, a personal laptop, a personal cloud account, or any AI service. Including me. That isn't caution. It's the rule, and it doesn't bend.</p>
+      <p>So this is built as a one-way valve. There is no path out, by design.</p>
+
+      <div class="valve">
+        <div><span>Flows in</span>Structure, outlines, click paths, search strings, email scripts, checklists. Things you read and retype yourself.</div>
+        <div><span>Flows out</span>Nothing. There is no form on this page, no box to type in, no submit button, no address to send anything to.</div>
+      </div>
+
+      <p><strong>You could hand this page to your security officer and it would be fine.</strong> That was the design requirement, not an afterthought. It's a page that gives you instructions and cannot receive anything back.</p>
+      <p>One thing I need from you, and it's the only rule here: never tell me what's in it. Not the names, not the projects, not a redacted version, not "just generally." There's no version of your content that becomes okay to share. The boundary holds because nothing tests it.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The reframe</div>
+      <h2>Eight people should be writing this. <em>Not you.</em></h2>
+      <p class="section-lede">Eight subteams times about eight pages is sixty-four of your eighty-five. Your name goes on it. Your hands don't have to write all of it.</p>
+    </div>
+
+    <p>You already know this, which is why you tasked them. And they didn't do it. So the fix isn't a firmer email or a better template, because you've already sent the firm email. <strong>The ask itself has to change.</strong></p>
+
+    <p>Here's the whole thesis, and it's the most useful thing on this page:</p>
+
+    <div class="callout">
+      <p><strong>Nobody writes ten pages about themselves. Almost everybody fixes a page that's wrong about them.</strong></p>
+      <p>So stop asking them to write. Write a rough, incomplete, partly-wrong draft of their section yourself, send it to them, and ask them to correct it. You just changed the job from three hours of composition to twenty minutes of being annoyed that you got something wrong.</p>
+    </div>
+
+    <p>Being wrong about someone's work is the most reliable way to get them to tell you about their work. Use that on purpose.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The move</div>
+      <h2>The email that <em>flips them</em>.</h2>
+      <p class="section-lede">Send this with the draft attached. One per subteam lead. Fill in the two blanks yourself, on your machine.</p>
+    </div>
+
+    <div class="retype-label">Subject line</div>
+    <div class="retype" tabindex="0">Draft of your section, please correct by [DATE]</div>
+
+    <div class="retype-label">Body</div>
+    <div class="retype" tabindex="0">[NAME], attached is the draft of your team's section of the history. I built it from calendar, files, and email, so it has gaps and some of it is probably wrong. I'd rather be corrected than guess. Mark it up however is easiest, track changes or just reply with notes. If I don't hear back by [DATE], this version goes in as written. Thanks, Julia</div>
+    <p class="retype-note">Short on purpose so you can retype it accurately off your screen. Tap it to select the whole thing if you're on a personal device.</p>
+
+    <h3 class="sub">Why each piece is doing work</h3>
+    <ul class="steps">
+      <li><strong>"Some of it is probably wrong."</strong> Removes their fear of being graded and hands them the easier role, the corrector. You've pre-absorbed the blame.</li>
+      <li><strong>"However is easiest."</strong> Kills the excuse about not having time to do it properly. Notes in a reply counts.</li>
+      <li><strong>"This version goes in as written."</strong> The lever. Silence used to be free for them. Now silence has a result with their name on it. This is standard practice and it's fair, because you gave them the draft and the date.</li>
+      <li><strong>No apology, no "sorry to bug you," no "when you get a chance."</strong> Every softener you add gives back the deadline you just created.</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Give them two weeks, not three days.</strong> A tight date reads as panic and invites negotiation. A calm date reads as a schedule that already exists and they're inside it.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The retrieval</div>
+      <h2>You already have <em>two years of evidence</em>.</h2>
+      <p class="section-lede">It's sitting in your calendar and your files. Nothing here installs anything, plugs anything in, or automates anything.</p>
+    </div>
+
+    <h3 class="sub">Move one. Export your calendar. <em>Do this first.</em></h3>
+    <p>This is the highest-leverage hour in the whole project. Your calendar from January 2025 to December 2026 is a literal dated record of every meeting, review, offsite, and milestone your team ran. Outlook exports it to a spreadsheet natively, and the file lands on your machine and stays there.</p>
+
+    <ul class="steps">
+      <li>In Outlook, go to <strong>File</strong>, then <strong>Open &amp; Export</strong>, then <strong>Import/Export</strong>.</li>
+      <li>Choose <strong>Export to a file</strong>, then <strong>Comma Separated Values</strong>.</li>
+      <li>Pick your <strong>Calendar</strong> folder. It will ask for a date range. Give it 1/1/2025 through 12/31/2026.</li>
+      <li>Save it somewhere on your government machine and open it in Excel.</li>
+      <li>Add one column: <strong>Subteam</strong>. Sort by date. Tag as you scroll.</li>
+    </ul>
+
+    <p class="retype-note">This click path is for classic Outlook desktop. If you're on new Outlook for Windows the export may sit somewhere else or be missing, and if so tell Miles and I'll find you the current path.</p>
+
+    <div class="callout">
+      <p>When you're done you have a dated, sorted, subteam-tagged skeleton of twenty-four months. <strong>Every chapter in the document hangs off that one spreadsheet.</strong> It's also the thing that would take longest to reconstruct if you never did it, which is exactly why it goes first.</p>
+    </div>
+
+    <h3 class="sub">Move two. Sort SharePoint by <em>Modified date</em>.</h3>
+    <p>Every deck, report, and deliverable in your document libraries is a dated piece of proof that work happened. Sort the whole library by Modified, oldest first, and walk it. Version history tells you who was actually driving a document, not just who owns the folder.</p>
+    <p>Second sheet in the same workbook: <strong>date, subteam, artifact, what it proves.</strong> That becomes an appendix on its own, and appendices count toward your page total.</p>
+
+    <h3 class="sub">Move three. Search Outlook on a <em>grid</em>, not a hunch.</h3>
+    <p>Eight subteams by eight quarters is sixty-four small searches. That's a task you can finish. "Find everything about the last two years" is not.</p>
+
+    <div class="retype-label">One quarter, one person</div>
+    <div class="retype" tabindex="0">from:"NAME" received:1/1/2025..3/31/2025</div>
+
+    <div class="retype-label">Deliverables, anything with a file attached</div>
+    <div class="retype" tabindex="0">from:"NAME" hasattachments:yes received:1/1/2025..3/31/2025</div>
+
+    <div class="retype-label">What you sent them, which is often the better record</div>
+    <div class="retype" tabindex="0">to:"NAME" sent:1/1/2025..3/31/2025</div>
+    <p class="retype-note">Change the name and roll the quarter. Save the ones that work as Search Folders so you never retype them twice.</p>
+
+    <h3 class="sub">Move four. Draft from the evidence, not from memory.</h3>
+    <p>With the calendar spine, the artifact ledger, and the email grid, you can write a rough eight pages for a subteam you weren't inside of. It'll have holes. <strong>That's the point.</strong> The holes are what the lead is going to fill when they redline it, and they'll fill them faster than they'd ever have written from scratch.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The architecture</div>
+      <h2>Where the <em>85 pages</em> actually go.</h2>
+      <p class="section-lede">Eighty-five is only frightening while it's one undifferentiated number.</p>
+    </div>
+
+    <div class="ledger">
+      <div class="ledger-row">
+        <div class="ledger-label">Front matter, executive summary, methodology<small>Written last, when you know what it says</small></div>
+        <div class="ledger-val">5</div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-label">Cross-cutting two-year timeline<small>Comes straight off the calendar export</small></div>
+        <div class="ledger-val">8</div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-label">Eight subteam chapters<small>About 8 pages each, and they redline them</small></div>
+        <div class="ledger-val">64</div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-label">Appendices<small>Artifact ledger, roster, metrics</small></div>
+        <div class="ledger-val">8</div>
+      </div>
+      <div class="ledger-row ledger-total">
+        <div class="ledger-label">Total</div>
+        <div class="ledger-val">85</div>
+      </div>
+    </div>
+
+    <h3 class="sub">Every chapter runs the <em>same six beats</em>.</h3>
+    <p>Same skeleton, eight times. That's not lazy, it's what makes the draft mechanical for you and the redline fast for them.</p>
+
+    <ul class="skeleton">
+      <li><strong>Charter and people.</strong> What this subteam exists to do, and who was on it.</li>
+      <li><strong>What changed over two years.</strong> Reorgs, scope shifts, people in and out.</li>
+      <li><strong>Major efforts, by quarter.</strong> Straight off your calendar spine.</li>
+      <li><strong>What shipped.</strong> Straight off your artifact ledger.</li>
+      <li><strong>What got in the way, and what they did about it.</strong> The only beat that needs them. Leave it thin and let them fill it.</li>
+      <li><strong>What carries forward.</strong> The part leadership actually reads.</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Write chapter one all the way through before you touch chapter two.</strong> Once one is done you have a shape to point at, and the other seven get faster every time. Eight parallel half-finished chapters is how this stalls out at page thirty.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The chase</div>
+      <h2>Following up without <em>a single bot</em>.</h2>
+    </div>
+
+    <p>You can't automate messaging, so don't try. Make it repeating instead, which is a different thing and completely allowed.</p>
+
+    <ul class="steps">
+      <li><strong>A recurring calendar appointment to yourself</strong>, every Tuesday, with your chase text sitting in the body. When it fires, you copy and send. It repeats. You didn't automate anything.</li>
+      <li><strong>Quick Steps in Outlook</strong> for the follow-up you send most. One click instead of retyping. It's a built-in button, not an add-in and not an automation.</li>
+      <li><strong>One pinned post</strong> in the Teams channel with the draft status and the dates. Standing and visible, so you're not chasing eight people in eight separate threads.</li>
+      <li><strong>Track it in the same workbook.</strong> Subteam, draft sent, deadline, redline back. Three of eight coming back is a fact you can show someone. "They're not responding" isn't.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">Worth raising</div>
+      <h2>The question that could <em>halve this</em>.</h2>
+    </div>
+
+    <p>You told me it's unclear what the document is even for, and there's no deadline. I'd be doing you a disservice not to say plainly: <strong>that combination is a risk to you, not just an annoyance.</strong> Undated work stays vague right up until it's suddenly urgent, and then the vagueness becomes your problem.</p>
+
+    <p>One question up the chain, asked once, in writing:</p>
+
+    <div class="retype" tabindex="0">Who's the audience for this, and what decision does it support? It shapes how I scope it.</div>
+
+    <p>Three things can happen and all three are good for you. They tell you the real audience and you cut scope to fit it. Or they point you at a template that already exists and you stop inventing an architecture. Or they don't answer, and now you have it in writing that you asked, which is worth something later.</p>
+
+    <p>Your call entirely. You know your chain and I don't.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">Using me</div>
+      <h2>What you can bring me, and <em>the line</em>.</h2>
+    </div>
+
+    <p>Miles can put anything in front of me for you, any time, and I'll turn it around fast. The lane is <strong>craft, never content</strong>.</p>
+
+    <h3 class="sub">Fair game</h3>
+    <ul class="skeleton">
+      <li>How do I structure a chapter that covers a reorg in the middle of it.</li>
+      <li>Two leads remember the same thing differently. How do I write that without picking a side.</li>
+      <li>Give me a cleaner version of the paragraph that opens every chapter.</li>
+      <li>How do I make eight people's writing sound like one voice without rewriting all of it.</li>
+      <li>My executive summary is flat. What's the shape of a good one.</li>
+      <li>I need a version of the chase email with more teeth.</li>
+    </ul>
+
+    <h3 class="sub">Never, and I'll say no if it comes</h3>
+    <ul class="never">
+      <li>Your actual text, in any amount.</li>
+      <li>Names, project names, org structure, meeting titles.</li>
+      <li>A redacted version, a sanitized version, a "generic example." <strong>Redaction isn't a permission.</strong></li>
+      <li>A screenshot, or a photo of your screen.</li>
+      <li>Anything that installs on, plugs into, or connects to your laptop.</li>
+    </ul>
+
+    <p style="margin-top:26px;">If you ever offer, I'll turn it down and keep helping. Notice that everything in the fair-game list is answerable without me knowing a single thing about your work. That's not a limitation I'm working around. It's the proof the design is right.</p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">If you only do one thing</div>
+    <p class="single-ask">Export the calendar. One hour, this week, before you write a single sentence. Twenty-four months in a spreadsheet turns this from a memory problem into a sorting problem, and <strong>you are very good at sorting problems.</strong> Everything else on this page gets easier the moment that file exists.</p>
+  </section>
+
+  <div class="footer">
+    <div class="signature">Glad to be in your corner. - Miles</div>
+    <div class="fine">For Julia · A private page, not indexed<br>No form, no input, no submit. Nothing on this page can receive anything.</div>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.retype').forEach(function (el) {
+    function copy() {
+      var t = el.textContent.trim();
+      if (navigator.clipboard) { navigator.clipboard.writeText(t).catch(function () {}); }
+      el.classList.add('copied');
+      setTimeout(function () { el.classList.remove('copied'); }, 900);
+    }
+    el.addEventListener('click', copy);
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copy(); }
+    });
+  });
+</script>
+
+</body>
+</html>
