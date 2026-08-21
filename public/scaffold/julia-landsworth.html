@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>7529 Landsworth · For Julia</title>
+<meta name="description" content="Your house is about to go live. Here is everything already in motion, and the thing running underneath it.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamsnow.com/scaffold/julia-landsworth.html">
+<meta property="og:title" content="7529 Landsworth. For Julia.">
+<meta property="og:description" content="Your house is about to go live. Here is everything already in motion.">
+<meta property="og:image" content="https://mamsnow.com/images/monique-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="MAMS">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="7529 Landsworth. For Julia.">
+<meta name="twitter:description" content="Your house is about to go live. Here is everything already in motion.">
+<meta name="twitter:image" content="https://mamsnow.com/images/monique-og.png">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #003F3F; text-decoration: none; }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  body::after {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: -1;
+    background:
+      radial-gradient(900px 600px at 12% -8%, rgba(212,175,55,0.10), transparent 62%),
+      radial-gradient(760px 520px at 96% 4%, rgba(0,63,63,0.07), transparent 58%),
+      radial-gradient(1100px 700px at 50% 108%, rgba(212,175,55,0.06), transparent 64%);
+  }
+
+  .header {
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(0,63,63,0.06);
+  }
+  .logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.08), 0 6px 18px rgba(0,63,63,0.10);
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+  .role-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; margin-top: 6px; font-weight: 700;
+  }
+
+  .container { max-width: 660px; margin: 0 auto; padding: 0 28px; }
+
+  .hero { padding: 80px 0 56px; }
+  .hero-kicker {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 48px; line-height: 1.02; color: #003F3F;
+    margin: 0 0 28px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: #B1922E; }
+  .hero p {
+    font-size: 19px; color: rgba(0,63,63,0.78);
+    margin: 0 0 14px; line-height: 1.55;
+    font-weight: 400;
+  }
+  .hero p:last-child { margin-bottom: 0; }
+  .hero p strong { color: #003F3F; font-weight: 600; }
+
+  .personal-note {
+    margin: 36px 0 0;
+    padding: 20px 22px;
+    background: rgba(212, 175, 55, 0.06);
+    border-left: 2px solid #D4AF37;
+    border-radius: 2px;
+  }
+  .personal-note p {
+    font-size: 16px; color: rgba(0,63,63,0.82);
+    margin: 0 0 10px; line-height: 1.6;
+    font-style: italic;
+  }
+  .personal-note p:last-child { margin-bottom: 0; }
+
+  .section { padding: 72px 0 24px; border-top: 1px solid rgba(0,63,63,0.06); }
+  .section-header { margin-bottom: 40px; }
+  .section-index {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 13px; letter-spacing: 0.05em;
+    color: #D4AF37; margin-bottom: 16px;
+  }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 14px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 32px; line-height: 1.14; color: #003F3F;
+    margin: 0 0 16px;
+    letter-spacing: -0.015em;
+  }
+  .section h2 em { font-style: italic; color: #B1922E; }
+  .section-lede {
+    font-size: 17px; color: rgba(0,63,63,0.78);
+    margin: 0; line-height: 1.6;
+    max-width: 560px;
+  }
+  .section > p {
+    font-size: 17px; color: rgba(0,63,63,0.82);
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+  .section > p:last-child { margin-bottom: 0; }
+  .section > p strong { color: #003F3F; font-weight: 600; }
+
+  /* Status board */
+  .board { margin: 8px 0 0; }
+  .row {
+    display: grid; grid-template-columns: 26px 1fr; gap: 14px;
+    padding: 20px 0; border-top: 1px solid rgba(0,63,63,0.06);
+    align-items: start;
+  }
+  .row:first-child { border-top: none; padding-top: 4px; }
+  .mark {
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+    background: #003F3F; color: #D4AF37;
+    box-shadow: 0 3px 10px rgba(0,63,63,0.16);
+  }
+  .row.live .mark { background: #D4AF37; color: #003F3F; box-shadow: 0 3px 12px rgba(212,175,55,0.35); }
+  .row.next .mark {
+    background: transparent; color: rgba(0,63,63,0.35);
+    border: 1px dashed rgba(0,63,63,0.28); box-shadow: none;
+  }
+  .row h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 19px; color: #003F3F; margin: 0 0 6px; letter-spacing: -0.005em;
+  }
+  .row.next h4 { color: rgba(0,63,63,0.55); }
+  .row p { font-size: 15.5px; color: rgba(0,63,63,0.76); margin: 0; line-height: 1.55; }
+  .stamp {
+    display: inline-block; margin-top: 9px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #B1922E; font-weight: 600;
+    padding: 4px 9px; border-radius: 4px;
+    background: rgba(212,175,55,0.10);
+  }
+  .row.next .stamp { color: rgba(0,63,63,0.45); background: rgba(0,63,63,0.05); }
+
+  /* Polarity flip */
+  .flip { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 32px 0 8px; }
+  .flip-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border: 1px solid rgba(0,63,63,0.10);
+    border-radius: 8px; overflow: hidden;
+  }
+  .flip-from, .flip-to { padding: 18px 18px; }
+  .flip-from {
+    background: rgba(0,63,63,0.03); color: rgba(0,63,63,0.55);
+    border-right: 1px solid rgba(0,63,63,0.08);
+  }
+  .flip-to { background: rgba(212,175,55,0.07); color: #003F3F; }
+  .flip-label {
+    font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 8px;
+  }
+  .flip-from .flip-label { color: rgba(0,63,63,0.4); }
+  .flip-to .flip-label { color: #B1922E; }
+  .flip-text { font-size: 15px; line-height: 1.45; font-weight: 500; }
+  .flip-from .flip-text { text-decoration: line-through; text-decoration-color: rgba(0,63,63,0.3); }
+
+  .value-list { list-style: none; padding: 0; margin: 0; }
+  .value-item { padding: 22px 0; border-top: 1px solid rgba(0,63,63,0.06); }
+  .value-item:first-child { border-top: none; padding-top: 8px; }
+  .value-item h4 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 19px; color: #003F3F; margin: 0 0 8px; letter-spacing: -0.005em;
+  }
+  .value-item h4 em { font-style: italic; color: #B1922E; }
+  .value-item p { font-size: 16px; color: rgba(0,63,63,0.78); margin: 0; line-height: 1.55; }
+
+  .ask-list { list-style: none; padding: 0; margin: 24px 0 0; counter-reset: ask; }
+  .ask-item {
+    padding: 18px 0; border-top: 1px solid rgba(0,63,63,0.06);
+    display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: baseline;
+  }
+  .ask-item:first-child { border-top: none; padding-top: 4px; }
+  .ask-item::before {
+    counter-increment: ask;
+    content: counter(ask, decimal-leading-zero);
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 14px; color: #D4AF37; letter-spacing: 0.04em;
+  }
+  .ask-item p { font-size: 16px; color: rgba(0,63,63,0.85); margin: 0; line-height: 1.55; }
+  .ask-item p strong { color: #003F3F; font-weight: 600; }
+
+  .code-panel {
+    margin: 28px 0 0;
+    background: #002E2E; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 63, 63, 0.18);
+  }
+  .code-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 11px 16px; background: #001E1E;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .code-header .dot { width: 10px; height: 10px; border-radius: 50%; background: #FF5F57; flex-shrink: 0; }
+  .code-header .dot.y { background: #FEBC2E; }
+  .code-header .dot.g { background: #28C840; }
+  .code-path { margin-left: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.02em; }
+  .code-panel pre {
+    margin: 0; padding: 18px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px; line-height: 1.7; color: #E8E1D0;
+    overflow-x: auto; white-space: pre-wrap; word-break: break-word;
+  }
+  .code-panel .h1 { color: #D4AF37; font-weight: 600; }
+  .code-panel .com { color: rgba(232,225,208,0.45); font-style: italic; }
+  .code-panel .li { color: #7DD3CF; }
+  .code-caption { font-size: 13px; color: rgba(0,63,63,0.55); margin: 14px 0 0; text-align: center; font-style: italic; }
+
+  .wall {
+    margin: 28px 0 0; padding: 24px 24px;
+    border-left: 2px solid #003F3F;
+    background: rgba(0,63,63,0.04);
+    border-radius: 2px;
+  }
+  .wall p { font-size: 16px; color: rgba(0,63,63,0.85); margin: 0; line-height: 1.6; }
+  .wall p strong { color: #003F3F; font-weight: 700; }
+
+  .cta-wrap { padding: 68px 0 96px; text-align: center; }
+  .cta {
+    display: inline-block; background: #003F3F; color: #FAF7F1;
+    padding: 17px 36px; border-radius: 999px;
+    font-size: 15px; font-weight: 600; text-decoration: none; letter-spacing: 0.02em;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease;
+    box-shadow: 0 2px 12px rgba(0,63,63,0.12), 0 12px 32px rgba(0,63,63,0.10);
+  }
+  .cta:hover { background: #0a5050; transform: translateY(-1px); }
+  .cta:active { transform: translateY(0); }
+  .cta:focus-visible { outline: 3px solid #D4AF37; outline-offset: 3px; }
+  .cta-note { font-size: 13px; color: rgba(0,63,63,0.5); margin-top: 20px; letter-spacing: 0.01em; }
+
+  .footer { padding: 48px 28px 64px; text-align: center; border-top: 1px solid rgba(0,63,63,0.06); }
+  .signature { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 19px; color: #003F3F; letter-spacing: -0.005em; }
+  .footer .fine { font-size: 11px; color: rgba(0,63,63,0.4); margin-top: 14px; letter-spacing: 0.02em; }
+
+  @media (min-width: 700px) {
+    .hero { padding: 116px 0 72px; }
+    .hero h1 { font-size: 68px; }
+    .hero p { font-size: 21px; }
+    .personal-note p { font-size: 17px; }
+    .section { padding: 96px 0 32px; }
+    .section h2 { font-size: 40px; }
+    .section-lede { font-size: 18px; }
+    .section > p { font-size: 18px; }
+    .ask-item { grid-template-columns: 48px 1fr; gap: 18px; }
+    .code-panel pre { font-size: 13.5px; padding: 22px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">M</div>
+  <div>
+    <div class="brand">Monique</div>
+    <div class="role-label">For Julia · 7529 Landsworth Ave</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-kicker">Private page · Yours to keep</div>
+    <h1>Your house is about to <em>go live</em>.<br>Here is what is already <em>in motion</em>.</h1>
+    <p>You tidied. I shot it. The photos are already cut, the video is already being built, and the signs came off the shelf this morning.</p>
+    <p><strong>None of that required you to ask.</strong> This page is so you never have to wonder where it stands.</p>
+
+    <div class="personal-note">
+      <p>Julia. You have been on the buying side of this with me before, so you already know how I work. What you have not seen is the machinery behind it.</p>
+      <p>You asked what I have been building. Rather than tell you over coffee, I built you your own page. Scroll it. It is real, it is only about your house, and nobody else can see it.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">01</div>
+      <div class="eyebrow">Where it stands</div>
+      <h2>Four things are already <em>done</em>.</h2>
+      <p class="section-lede">Not planned. Not scheduled. Done, with a date on each one. This is the honest board, which means the unfinished items are on it too.</p>
+    </div>
+
+    <div class="board">
+      <div class="row">
+        <div class="mark">&#10003;</div>
+        <div>
+          <h4>Photos and drone, shot on site</h4>
+          <p>I came out Wednesday and shot the interiors plus aerials. And yes, the third bedroom door stayed closed. Your secret is safe.</p>
+          <div class="stamp">Wednesday, Aug 19</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mark">&#10003;</div>
+        <div>
+          <h4>Photos delivered and into the edit</h4>
+          <p>The full set landed with my edit team Thursday morning. They are not sitting in a folder waiting on me to remember them.</p>
+          <div class="stamp">Thursday, Aug 20</div>
+        </div>
+      </div>
+
+      <div class="row live">
+        <div class="mark">&#9679;</div>
+        <div>
+          <h4>Story video in production right now</h4>
+          <p>Your house is being cut into a walkthrough piece for social, with a new call to action built in. That is where most of the buyer attention actually comes from.</p>
+          <div class="stamp">In progress</div>
+        </div>
+      </div>
+
+      <div class="row live">
+        <div class="mark">&#9679;</div>
+        <div>
+          <h4>Signs picked up</h4>
+          <p>This morning, before coffee. Physical presence on the street still moves buyers who never opened an app.</p>
+          <div class="stamp">Today</div>
+        </div>
+      </div>
+
+      <div class="row next">
+        <div class="mark">&#8226;</div>
+        <div>
+          <h4>Closing attorney, being verified</h4>
+          <p>I am confirming the settlement side before it becomes urgent rather than after. You will hear the name from me, not from a form.</p>
+          <div class="stamp">Open</div>
+        </div>
+      </div>
+
+      <div class="row next">
+        <div class="mark">&#8226;</div>
+        <div>
+          <h4>Price, positioning, and go-live date</h4>
+          <p>Deliberately not on this page. Those are decisions you and I make out loud together, not numbers you find out by reading a website.</p>
+          <div class="stamp">Yours to decide</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">02</div>
+      <div class="eyebrow">The difference</div>
+      <h2>Most listings get a photographer <em>and a prayer</em>.</h2>
+      <p class="section-lede">There is a standard version of what happens after a seller signs. I want you to see it side by side with what is happening to yours, because the gap is the whole point.</p>
+    </div>
+
+    <div class="flip">
+      <div class="flip-row">
+        <div class="flip-from">
+          <div class="flip-label">The usual</div>
+          <div class="flip-text">A photographer is hired. Photos arrive whenever they arrive.</div>
+        </div>
+        <div class="flip-to">
+          <div class="flip-label">Yours</div>
+          <div class="flip-text">I shot it myself Wednesday. It was with the editors Thursday morning.</div>
+        </div>
+      </div>
+      <div class="flip-row">
+        <div class="flip-from">
+          <div class="flip-label">The usual</div>
+          <div class="flip-text">Photos go on the MLS. That is the marketing.</div>
+        </div>
+        <div class="flip-to">
+          <div class="flip-label">Yours</div>
+          <div class="flip-text">A story video, a content cut, and an audience that already follows me.</div>
+        </div>
+      </div>
+      <div class="flip-row">
+        <div class="flip-from">
+          <div class="flip-label">The usual</div>
+          <div class="flip-text">You text your agent to ask what is happening.</div>
+        </div>
+        <div class="flip-to">
+          <div class="flip-label">Yours</div>
+          <div class="flip-text">You open this page. It is the same information I am looking at.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">03</div>
+      <div class="eyebrow">What happens next</div>
+      <h2>In order, so nothing <em>surprises you</em>.</h2>
+      <p class="section-lede">No dates on these yet, on purpose. The sequence is fixed. The timing is a conversation you and I have, not something I decide for you.</p>
+    </div>
+
+    <ol class="ask-list">
+      <li class="ask-item"><p><strong>Photo selection and sequencing.</strong> Which shot leads matters more than how many there are. The first image decides whether anyone sees the second.</p></li>
+      <li class="ask-item"><p><strong>Listing copy written.</strong> Written to be read by a person, not stuffed with adjectives that every listing already uses.</p></li>
+      <li class="ask-item"><p><strong>Story video finished and scheduled.</strong> Cut, captioned, and slotted so it lands when the listing does, not a week behind it.</p></li>
+      <li class="ask-item"><p><strong>You and I set price and go-live together.</strong> One conversation, real numbers, and my honest read even where it is not the fun answer.</p></li>
+      <li class="ask-item"><p><strong>Live, everywhere at once.</strong> MLS, the syndication sites, and the social push on the same day rather than staggered.</p></li>
+      <li class="ask-item"><p><strong>Showing feedback comes back to you.</strong> What people actually said, including the criticism. That is the part that tells us whether to hold or adjust.</p></li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">04</div>
+      <div class="eyebrow">The part you asked about</div>
+      <h2>There is a system running <em>underneath all of it</em>.</h2>
+      <p class="section-lede">This is what I have been building. It is called Monique. It is not a chatbot and it is not an app I bought. It is a machine that reads everything and makes sure nothing falls.</p>
+    </div>
+
+    <ul class="value-list">
+      <li class="value-item">
+        <h4>Every morning it reads <em>every channel</em></h4>
+        <p>Texts, email, calendar, the CRM, and the local market. It sorts what is urgent from what is noise before I have had coffee, and it tells me who is waiting on me.</p>
+      </li>
+      <li class="value-item">
+        <h4>It cues my editors with <em>real direction</em></h4>
+        <p>My video team does not guess what to cut. Every morning they get a board that names the piece, the reason it matters this week, and the exact footage to pull. Your house is in that queue.</p>
+      </li>
+      <li class="value-item">
+        <h4>It will not let a person <em>go quiet</em></h4>
+        <p>It tracks how long it has been since I actually showed up for someone and tells me when I am slipping. That is the part I am least willing to leave to memory.</p>
+      </li>
+      <li class="value-item">
+        <h4>It builds pages like <em>this one</em></h4>
+        <p>This page did not exist an hour ago. That is the point. When something deserves its own surface, it gets one, instead of being flattened into a text message.</p>
+      </li>
+    </ul>
+
+    <div class="code-panel">
+      <div class="code-header">
+        <span class="dot"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="code-path">morning-brief · 2026-08-21</span>
+      </div>
+<pre><span class="com"># Your week, as the system saw it</span>
+
+<span class="h1">MAMS · Listing prep · Julia Matthews</span>
+  <span class="li">Wed 8/19</span>   interiors + drone captured
+  <span class="li">Thu 8/20</span>   photos to the edit team
+  <span class="li">Thu 8/20</span>   story video in production
+  <span class="li">Fri 8/21</span>   signs collected
+
+<span class="com"># Still open, so it cannot get lost</span>
+  <span class="li">OPEN</span>   closing attorney unverified
+  <span class="li">OPEN</span>   no seller record in the CRM
+
+<span class="com"># The honest part</span>
+That second one is my gap, not yours.
+It is on today's list because this
+thing does not let me skip the
+unglamorous step.</pre>
+    </div>
+    <p class="code-caption">That is a real excerpt from this morning, trimmed to only the lines about you.</p>
+
+    <div class="wall">
+      <p><strong>Why show you the flaw.</strong> Because a system that only reports good news is a marketing brochure. The reason I trust this one is that it tells me what I have not done yet, out loud, every single morning. You are getting the same view I get.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-index">05</div>
+      <div class="eyebrow">Why you have this</div>
+      <h2>You bought with me. Now you are <em>selling with me</em>.</h2>
+      <p class="section-lede">That is not nothing. Most people use an agent once and then go looking for a different one.</p>
+    </div>
+
+    <p>You came back. So the version of this you get is not the version in a listing presentation, it is the actual working file with the unfinished parts still showing.</p>
+
+    <p>Keep the link. It updates in place. When showings start, activity shows up here. When something changes, this page changes with it, and you will not have to text me to find out.</p>
+  </section>
+
+  <div class="cta-wrap">
+    <a class="cta" href="mailto:miles@milesagee.com?subject=Julia%20%E2%86%92%20Monique%3A%20">Send this straight to Monique</a>
+    <div class="cta-note">Hits my inbox, tagged as yours. Or just text me like you already do.</div>
+  </div>
+
+  <div class="footer">
+    <div class="signature">Built for you. - Miles</div>
+    <div class="fine">7529 Landsworth Ave · A MAMS build · Private page, not indexed</div>
+  </div>
+
+</div>
+
+</body>
+</html>
