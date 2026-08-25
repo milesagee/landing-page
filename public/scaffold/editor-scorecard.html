@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Ownership Scorecard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --deep-teal: #003F3F; --teal: #005F5F; --teal-light: #80AFAF;
+    --gold: #D4AF37; --gold-soft: #E2CA7A; --gold-dark: #B1922E;
+    --paper: #FAF7F1; --paper-soft: #f3ede1; --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16); --line-strong: rgba(0, 63, 63, 0.30);
+    --green: #2f7d52; --red: #b1462e; --amber: #9a6b18;
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212,175,55,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,95,95,0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+  header.hero { padding: 40px 0 22px; border-bottom: 1px solid var(--line); }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(28px, 5vw, 44px); line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 12px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 15px; opacity: 0.82; max-width: 62ch; }
+  .stamp { display: inline-block; margin-top: 14px; margin-right: 6px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); border: 1px solid var(--line-strong); border-radius: 999px; padding: 5px 12px; }
+
+  section.block { padding: 30px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 9px; }
+  h2.title { font-family: var(--serif); font-weight: 400; font-size: clamp(21px, 3.4vw, 29px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 6px; }
+  h2.title em { color: var(--gold-dark); font-style: italic; }
+  .lede { font-size: 14.5px; opacity: 0.82; max-width: 64ch; margin-bottom: 20px; }
+
+  /* the gap banner. deliberately the loudest thing on the page. */
+  .gapbox { background: var(--deep-teal); color: var(--ivory); border-radius: 10px; padding: 24px 26px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .gapbox::after { content: ''; position: absolute; top: -80px; right: -80px; width: 210px; height: 210px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .gapbox__k { font-size: 9px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; position: relative; z-index: 1; }
+  .gapbox__nums { display: flex; gap: 30px; align-items: baseline; flex-wrap: wrap; margin-bottom: 15px; position: relative; z-index: 1; }
+  .gapbox__n { font-family: var(--serif); font-size: 34px; font-weight: 400; letter-spacing: -0.02em; line-height: 1; }
+  .gapbox__n .k { display: block; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.62; margin-bottom: 5px; }
+  .gapbox__n.gold { color: var(--gold); }
+  .gapbox p { font-size: 14px; line-height: 1.6; position: relative; z-index: 1; opacity: 0.93; max-width: 62ch; }
+  .gapbox p + p { margin-top: 9px; }
+  .gapbox p em { color: var(--gold-soft); font-style: italic; }
+
+  /* measures */
+  .m { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--line-strong); border-radius: 8px; padding: 18px 20px; box-shadow: var(--shadow-sm); margin-bottom: 13px; }
+  .m.pass { border-left-color: var(--green); }
+  .m.miss { border-left-color: var(--red); }
+  .m.blocked { border-left-color: var(--amber); }
+  .m.unknown { border-left-color: var(--line-strong); }
+  .m__top { display: flex; align-items: baseline; gap: 11px; flex-wrap: wrap; margin-bottom: 9px; }
+  .m__n { font-family: var(--serif); font-size: 17px; font-weight: 600; }
+  .m__v { font-family: var(--serif); font-size: 25px; font-weight: 400; line-height: 1; letter-spacing: -0.02em; margin-left: auto; }
+  .verd { font-size: 8.5px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+  .verd.pass { background: rgba(47,125,82,0.12); color: var(--green); border: 1px solid rgba(47,125,82,0.34); }
+  .verd.miss { background: rgba(177,70,46,0.10); color: var(--red); border: 1px solid rgba(177,70,46,0.34); }
+  .verd.blocked { background: rgba(154,107,24,0.10); color: var(--amber); border: 1px solid rgba(154,107,24,0.34); }
+  .verd.unknown { background: var(--paper-soft); color: rgba(0,63,63,0.55); border: 1px solid var(--line); }
+  .verd.dir { background: rgba(0,95,95,0.08); color: var(--teal); border: 1px solid rgba(0,95,95,0.28); }
+  .m__target { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.55; }
+  .m__note { font-size: 13.5px; line-height: 1.55; opacity: 0.88; }
+  .m__caveat { font-size: 12px; line-height: 1.5; margin-top: 9px; padding: 9px 12px; border-radius: 6px; background: var(--paper-soft); border: 1px solid var(--line); opacity: 0.9; }
+  .m__caveat b { color: var(--gold-dark); }
+
+  /* trend table */
+  .tw { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: 8px; background: var(--ivory); box-shadow: var(--shadow-sm); }
+  table.trend { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 560px; }
+  table.trend th { text-align: left; font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); padding: 11px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  table.trend td { padding: 11px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  table.trend tr:last-child td { border-bottom: none; }
+  table.trend tr.live td { background: rgba(212,175,55,0.09); }
+  table.trend td.n { font-family: var(--serif); font-size: 15px; }
+  table.trend td.good { color: var(--green); }
+  table.trend td.bad { color: var(--red); }
+
+  .alert { display: flex; gap: 10px; align-items: flex-start; border-radius: 7px; padding: 12px 15px; font-size: 13px; line-height: 1.5; border: 1px solid; margin-bottom: 8px; }
+  .alert.amber { background: rgba(154,107,24,0.07); border-color: rgba(154,107,24,0.30); color: #6f4d11; }
+  .alert__k { font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 3px; white-space: nowrap; }
+
+  .note { font-size: 12.5px; line-height: 1.55; background: var(--paper-soft); border: 1px solid var(--line); border-radius: 7px; padding: 13px 15px; margin-top: 14px; }
+  .note b { color: var(--gold-dark); }
+  .linkbtn { display: inline-block; margin-top: 14px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--gold-dark); text-decoration: none; border-bottom: 1px solid rgba(177,146,46,0.45); padding-bottom: 2px; transition: color 160ms cubic-bezier(0.2,0.9,0.3,1.2); }
+  .linkbtn:hover, .linkbtn:focus-visible { color: var(--teal); }
+  .foot { padding: 28px 0 46px; font-size: 11.5px; opacity: 0.6; }
+  .foot em { font-style: italic; }
+
+  @media (max-width: 560px) {
+    .gapbox__nums { gap: 16px 14px; }
+    .gapbox__n { font-size: 28px; flex: 1 1 45%; min-width: 140px; }
+    .m__v { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <div class="hero__eyebrow">MAMS Editor Room &middot; Bea Dela Cruz and Cess</div>
+    <h1 class="hero__title">What the week <em>actually shows.</em></h1>
+    <p class="hero__sub">Five measures, rebuilt so they measure the right thing. Everything here is counted when a piece is <b>handed over</b>, not when it gets posted, because those are two different jobs and only one of them is yours. Every measure names its own source and its own blind spot.</p>
+    <span class="stamp">Grading Week 6</span>
+    <span class="stamp">August 16 to August 21</span>
+    <span class="stamp">Pieces 73 to 84</span>
+  </header>
+
+  <section class="block">
+    <div class="eyebrow">Read This First</div>
+    <h2 class="title">Delivered and posted are <em>not the same number.</em></h2>
+    <p class="lede">Every metric on this account used to be inferred from publish dates, which measured the posting and then billed it to the edit. That produced a board reading "1 of 14" for a week with twelve pieces handed over. This page fixes that by counting the handoff.</p>
+    <div class="gapbox">
+      <div class="gapbox__k">The gap</div>
+      <div class="gapbox__nums">
+        <span class="gapbox__n gold">14<span class="k">Delivered per week</span></span>
+        <span class="gapbox__n">3<span class="k">Posted, Week 6</span></span>
+        <span class="gapbox__n">35<span class="k">Delivered, never posted</span></span>
+      </div>
+      <p>Across every completed week, <b>35 finished pieces were handed over and never went live.</b> That is not an editing number and it is not held against anyone here. It is the single line that separates <em>it did not get made</em> from <em>it did not go up</em>.</p>
+      <p>Only the first of those is a question for this room. The bar below is set on the first one.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">The Five</div>
+    <h2 class="title">1 of 4 clear, 2 missed, 1 blocked. A mixed week, and the parts are not interchangeable.</h2>
+    <p class="lede">Four of these are table stakes and they set the verdict. The fifth is initiative, and it is reported beside the verdict rather than inside it, on purpose. It is the measure that answers whether this room owns the output or waits for the ask, and it is also the one parsed from a chat thread, so it never moves pay on its own.</p>
+    
+      <div class="m blocked">
+        <div class="m__top">
+          <span class="m__n">1. Delivered</span>
+          <span class="verd blocked">Blocked</span>
+          
+          <span class="m__v">12 / 14</span>
+        </div>
+        <div class="m__target">Bar: 14 handed over</div>
+        <p class="m__note" style="margin-top:7px;">Pieces 73 to 84. 2 short of the bar. There is a blocked state on record inside this week, so this is not a clean miss.</p>
+        
+      </div>
+
+      <div class="m miss">
+        <div class="m__top">
+          <span class="m__n">2. Long-form</span>
+          <span class="verd miss">Missed</span>
+          
+          <span class="m__v">0 / 1</span>
+        </div>
+        <div class="m__target">Bar: 1 a week</div>
+        <p class="m__note" style="margin-top:7px;">No long-form in the week folder and no blocker on record. This one is theirs.</p>
+        
+      </div>
+
+      <div class="m miss">
+        <div class="m__top">
+          <span class="m__n">3. Mix</span>
+          <span class="verd miss">Missed</span>
+          
+          <span class="m__v">7.3 / 14</span>
+        </div>
+        <div class="m__target">Bar: at most 5 of 14 unshaped</div>
+        <p class="m__note" style="margin-top:7px;">7.3 pieces a week land in Direct / Other, the bucket for cuts the classifier cannot read a shape in. It takes 101.5 of those to produce one breakout. A cut lands there when the shape was never decided before the edit started.</p>
+        <div class="m__caveat"><b>What this number cannot see.</b> Measured on posted work over the last 4 completed weeks, because the shape is read from the caption. This is the one line on the card that is not counted at handoff, so it lags the others.</div>
+      </div>
+
+      <div class="m pass">
+        <div class="m__top">
+          <span class="m__n">4. Redo rate</span>
+          <span class="verd pass">Clear</span>
+          
+          <span class="m__v">8%</span>
+        </div>
+        <div class="m__target">Bar: falling week over week</div>
+        <p class="m__note" style="margin-top:7px;">1 of 12 pieces came back for a revision in Week 6, against 44% in Week 5. That is down 36 points. The direction is the ask, not the level.</p>
+        
+      </div>
+
+      <div class="m pass">
+        <div class="m__top">
+          <span class="m__n">5. Initiative</span>
+          <span class="verd pass">Clear</span>
+          <span class="verd dir">Directional</span>
+          <span class="m__v">8 / 3</span>
+        </div>
+        <div class="m__target">Bar: 3 of 14 nobody asked for</div>
+        <p class="m__note" style="margin-top:7px;">6 pieces delivered outside any window where a request had just gone out, plus 2 deliverables made outside the fourteen slots entirely (revised revised bonus.mp4, FINAL bonus video.mp4). Three a week is the difference between a room that executes and a room that owns.</p>
+        <div class="m__caveat"><b>What this number cannot see.</b> Directional only, and it never moves pay on its own. It is parsed from the WhatsApp thread, so anything asked for on a Loom or a call reads here as initiative, and a week where Miles messaged every day reads as a week with none. Treat a low number as a question to ask, not a finding.</div>
+      </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Blocked States</div>
+    <h2 class="title">A week with a blocker in it <em>is not graded as if there was not one.</em></h2>
+    <p class="lede">These came off the thread, in your words, on the day. A measure that cannot say "this was blocked" would have charged the July long-form to this room when the script had not been written yet. That is why every measure above can return Blocked.</p>
+    <div class="alert amber"><span class="alert__k">2026-07-20</span><span>Happy Monday, Miles! 🌙 Noted on this! We also will start editing out some potential tiktok short-forms while waiting for your instructions for the long-form! Thankssss</span></div>
+    <div class="alert amber"><span class="alert__k">2026-07-21</span><span>Good morning, Miles! Just a quick one, there seems to be an ongoing issue with our CapCut Teams access. Cess and I can't get into it or use the features, so we're unable to export our edits. It suddenly says we're not pa</span></div>
+    <div class="alert amber"><span class="alert__k">2026-07-23</span><span>also, miles! yesterday, cess and i were talking about the long-form youtube video. we already organized all the files so everything's ready once you finish the script and add the extra footage you mentioned in your sunda</span></div>
+    <div class="alert amber"><span class="alert__k">2026-08-20</span><span>hi miles, actually been refreshing the upload for about an hour now. this has been an ongoing issue for cess and me for a while whether we use a vpn or not, the same problem keeps recurring and we can't pinpoint what's c</span></div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Every Week On Record</div>
+    <h2 class="title">The whole run, <em>not just the bad one.</em></h2>
+    <p class="lede">Delivered is counted at handoff. Posted is what went live. Unposted is the difference. Nobody gets judged off one week in isolation, so here is all of them.</p>
+    
+    <div class="tw">
+      <table class="trend">
+        <tr>
+          <th>Week</th><th>Span</th><th>Delivered</th><th>Posted</th><th>Unposted</th><th>Redo</th><th>Long-form</th><th>Blocked</th>
+        </tr>
+        
+        <tr class="">
+          <td><b>Week 1</b></td>
+          <td>July 14 to July 18</td>
+          <td class="n good">14 / 14</td>
+          <td class="n">9</td>
+          <td class="n ">5</td>
+          <td class="n">57%</td>
+          <td class="n bad">0</td>
+          <td></td>
+        </tr>
+        <tr class="">
+          <td><b>Week 2</b></td>
+          <td>July 20 to July 24</td>
+          <td class="n ">13 / 14</td>
+          <td class="n">11</td>
+          <td class="n ">2</td>
+          <td class="n">38%</td>
+          <td class="n bad">0</td>
+          <td>3</td>
+        </tr>
+        <tr class="">
+          <td><b>Week 3</b></td>
+          <td>July 27 to July 31</td>
+          <td class="n good">15 / 14</td>
+          <td class="n">11</td>
+          <td class="n ">4</td>
+          <td class="n">47%</td>
+          <td class="n bad">0</td>
+          <td></td>
+        </tr>
+        <tr class="">
+          <td><b>Week 4</b></td>
+          <td>August 3 to August 7</td>
+          <td class="n ">11 / 14</td>
+          <td class="n">8</td>
+          <td class="n ">3</td>
+          <td class="n">18%</td>
+          <td class="n bad">0</td>
+          <td></td>
+        </tr>
+        <tr class="">
+          <td><b>Week 5</b></td>
+          <td>August 11 to August 16</td>
+          <td class="n good">18 / 14</td>
+          <td class="n">6</td>
+          <td class="n bad">12</td>
+          <td class="n">44%</td>
+          <td class="n bad">0</td>
+          <td></td>
+        </tr>
+        <tr class="">
+          <td><b>Week 6</b></td>
+          <td>August 16 to August 21</td>
+          <td class="n ">12 / 14</td>
+          <td class="n">3</td>
+          <td class="n bad">9</td>
+          <td class="n">8%</td>
+          <td class="n bad">0</td>
+          <td>1</td>
+        </tr>
+        <tr class="live">
+          <td><b>Week 7</b> <span class="m__target">in flight</span></td>
+          <td>August 24 to August 25</td>
+          <td class="n ">3 / 14</td>
+          <td class="n">0</td>
+          <td class="n ">3</td>
+          <td class="n">0%</td>
+          <td class="n bad">0</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <div class="note"><b>How to read the redo column.</b> The level barely matters on its own. A room that never gets a note back might just not be getting reviewed. The direction across weeks is the signal, and that is what the measure above grades.</div>
+    <a class="linkbtn" href="editor-hub.html">Back to the Content Machine Hub &rarr;</a>
+    <a class="linkbtn" href="editor-ideas.html" style="margin-left:18px;">Today's Idea Board &rarr;</a>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Where These Numbers Come From</div>
+    <h2 class="title">Nothing here is <em>a judgement call.</em></h2>
+    <div class="note" style="margin-top:0;">
+      <b>Delivery.</b> drive-handoff (7 week folders), read straight off the shared Drive week folders you name yourselves.<br/>
+      <b>Announcements.</b> 51 delivery announcements, read from the group thread. Used to date things and to catch blocked states, never to set a count.<br/>
+      <b>Mix.</b> economics.json, 4 completed weeks of posted work. This is the one line measured on posted work, because the shape is read from the caption.<br/>
+      <b>Attribution.</b> Team level, never per person. Two editors on a shared Drive with no per-person handoff signal means a per-person number would be invented rather than measured.
+    </div>
+  </section>
+
+  <footer class="foot">
+    Built for the MAMS editor room &middot; <em>Miles Agee</em> &middot; MAMS LLC &middot; generated 2026-08-25
+  </footer>
+
+</div>
+</body>
+</html>
