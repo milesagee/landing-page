@@ -80,6 +80,28 @@
   table.trend td.good { color: var(--green); }
   table.trend td.bad { color: var(--red); }
 
+  /* the standard + benchmarks */
+  .bm { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; box-shadow: var(--shadow-sm); margin-bottom: 11px; border-left: 3px solid var(--gold); }
+  .bm.craft { border-left-color: var(--deep-teal); }
+  .bm__top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+  .bm__r { font-family: var(--serif); font-size: 20px; color: var(--gold-dark); line-height: 1; }
+  .bm__l { font-family: var(--serif); font-size: 16px; font-weight: 600; }
+  .bm__d { font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.5; }
+  .bm__nums { font-size: 11.5px; font-weight: 700; letter-spacing: 0.05em; color: var(--teal); margin: 7px 0 8px; }
+  .bm__nums b { font-family: var(--serif); font-size: 15px; font-weight: 400; }
+  .bm__cap { font-size: 12.5px; font-style: italic; opacity: 0.7; margin-bottom: 8px; line-height: 1.45; }
+  .bm__why { font-size: 13.5px; line-height: 1.55; opacity: 0.9; }
+  .bm__miles { font-size: 12.5px; line-height: 1.5; margin-top: 9px; padding: 9px 12px; border-radius: 6px; background: var(--paper-soft); border: 1px solid var(--line); }
+  .bm__miles b { color: var(--gold-dark); }
+
+  /* change log */
+  .cl { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--teal); border-radius: 8px; padding: 16px 18px; box-shadow: var(--shadow-sm); margin-bottom: 11px; }
+  .cl__h { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 9px; }
+  .cl__p { font-family: var(--serif); font-size: 16px; font-weight: 600; }
+  .cl__row { font-size: 13.5px; line-height: 1.55; margin-bottom: 5px; }
+  .cl__k { font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: inline-block; min-width: 62px; }
+  .cl__rule { margin-top: 9px; padding: 9px 12px; border-radius: 6px; background: rgba(212,175,55,0.10); border: 1px solid rgba(212,175,55,0.35); font-size: 13px; font-weight: 600; line-height: 1.45; }
+
   .alert { display: flex; gap: 10px; align-items: flex-start; border-radius: 7px; padding: 12px 15px; font-size: 13px; line-height: 1.5; border: 1px solid; margin-bottom: 8px; }
   .alert.amber { background: rgba(154,107,24,0.07); border-color: rgba(154,107,24,0.30); color: #6f4d11; }
   .alert__k { font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 3px; white-space: nowrap; }
@@ -118,17 +140,17 @@
       <div class="gapbox__k">The clear rate</div>
       <div class="gapbox__nums">
         <span class="gapbox__n gold">14<span class="k">Delivered per week</span></span>
-        <span class="gapbox__n">91%<span class="k">Of that went live</span></span>
-        <span class="gapbox__n">8<span class="k">Never went up</span></span>
+        <span class="gapbox__n">70%<span class="k">Of that went live</span></span>
+        <span class="gapbox__n">26<span class="k">Never went up</span></span>
       </div>
-      <p><b>79 of the 87 pieces handed over since July 14 went live.</b> 8 did not, and 4 of those landed this week and have not been looked at yet.</p>
+      <p><b>61 of the 87 pieces handed over since July 14 went live.</b> 26 did not, and 4 of those landed this week and have not been looked at yet.</p>
       <p>Be clear about what that means, because it is the most useful sentence on this page. A cut that does not go up is <em>not sitting in a queue</em>. It got looked at and it did not clear the bar. Volume is not the question here and has not been for a while. <em>What those fourteen are</em> is the whole question.</p>
     </div>
   </section>
 
   <section class="block">
     <div class="eyebrow">The Six</div>
-    <h2 class="title">2 of 5 clear, 2 missed, 1 blocked. A mixed week, and the parts are not interchangeable.</h2>
+    <h2 class="title">3 of 5 table-stakes measures missed. That is a failed week, and it is a number rather than a mood.</h2>
     <p class="lede">Five of these are table stakes and they set the verdict. The sixth is initiative, and it is reported beside the verdict rather than inside it, on purpose. It is the measure that answers whether this room owns the output or waits for the ask, and it is also the one parsed from a chat thread, so it never moves pay on its own.</p>
     
       <div class="m blocked">
@@ -143,16 +165,16 @@
         
       </div>
 
-      <div class="m pass">
+      <div class="m miss">
         <div class="m__top">
           <span class="m__n">2. Clear rate</span>
-          <span class="verd pass">Clear</span>
+          <span class="verd miss">Missed</span>
           
-          <span class="m__v">95%</span>
+          <span class="m__v">73%</span>
         </div>
-        <div class="m__target">Bar: 90% of delivered goes live</div>
-        <p class="m__note" style="margin-top:7px;">79 of 83 judged pieces went live since 2026-07-14. 4 did not. A cut that does not go up is not sitting in a queue, it did not clear the bar, so this is the closest thing on the card to a direct read on quality.</p>
-        <div class="m__caveat"><b>What this number cannot see.</b> Excludes 4 pieces delivered this week that have not been judged yet. Counted cumulatively rather than per week, because a Friday handoff routinely goes up the following Tuesday and a week-span diff would measure that lag instead of taste. Publish record is Metricool, never the Drive POSTED folder.</div>
+        <div class="m__target">Bar: 90% of what is delivered is postable</div>
+        <p class="m__note" style="margin-top:7px;">61 of 83 judged pieces went live since 2026-07-14. 22 did not, which is more than one in four. A cut that does not go up is not sitting in a queue, it got looked at and it did not clear the bar. That makes this the most direct read on quality on the card, and at 73% it means roughly 4 of every fourteen delivered are being paid for and not used.</p>
+        <div class="m__caveat"><b>What this number cannot see.</b> Excludes 4 pieces delivered this week that have not been judged yet. Counted cumulatively, never per week, because a Friday handoff routinely goes up the following Tuesday. The posted figure is Miles's hand count of 61 on 2026-08-27, which is authoritative: nothing on disk separates an editor's cut from a post Miles made himself, and the auto-count of 79 included both.</div>
       </div>
 
       <div class="m miss">
@@ -188,7 +210,7 @@
         </div>
         <div class="m__target">Bar: falling week over week</div>
         <p class="m__note" style="margin-top:7px;">1 of 12 pieces came back for a revision in Week 6, against 44% in Week 5. That is down 36 points. The direction is the ask, not the level.</p>
-        
+        <div class="m__caveat"><b>What this number cannot see.</b> This is a FLOOR, not the real number. It is read from revision folders and written feedback, and a large share of notes go out as WhatsApp voice notes (20 from Miles since July 14) that no script here can read. The best piece on the board went through several rounds that leave almost no trace in this measure. Read the direction, never the level.</div>
       </div>
 
       <div class="m pass">
@@ -212,6 +234,79 @@
     <div class="alert amber"><span class="alert__k">2026-07-21</span><span>Good morning, Miles! Just a quick one, there seems to be an ongoing issue with our CapCut Teams access. Cess and I can't get into it or use the features, so we're unable to export our edits. It suddenly says we're not pa</span></div>
     <div class="alert amber"><span class="alert__k">2026-07-23</span><span>also, miles! yesterday, cess and i were talking about the long-form youtube video. we already organized all the files so everything's ready once you finish the script and add the extra footage you mentioned in your sunda</span></div>
     <div class="alert amber"><span class="alert__k">2026-08-20</span><span>hi miles, actually been refreshing the upload for about an hour now. this has been an ongoing issue for cess and me for a while whether we use a vpn or not, the same problem keeps recurring and we can't pinpoint what's c</span></div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">The Standard</div>
+    <h2 class="title">"No revisions, and I am hyped."</h2>
+    <p class="lede">The bar is not reach. Reach is the outcome and it is partly the algorithm's call. The bar is a cut that goes up untouched and that Miles is actually excited to post.</p>
+    <div class="note" style="margin-top:0;margin-bottom:18px;"><b>Said on 2026-08-16:</b> "A bonus is on the table if I'm impressed and HYPED to a video I can post tomorrow to this sound. No revisions just hyped and hyping yall for the level of work delivered." Then, the next day: "Great start gang great start. No revisions and pleasantly surprised."</div>
+    <div class="note" style="margin-top:0;"><b>Read this part carefully.</b> This is the ASPIRATION, not a description of how the benchmark pieces were made. Miles, 2026-08-27: the best piece on this list went through multiple rounds of revisions, and after the final was delivered he still went into the shared CapCut space and made his own tweaks. Nothing here has cleared the bar untouched yet. Presenting the standard as already-met would be flattery; presenting it as unreachable would be false. It is the target.</div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Your Own Best Work</div>
+    <h2 class="title">Four pieces, <em>named by Miles.</em></h2>
+    <p class="lede">These are yours, not his older posts. When a cue names a shape, this is the reference: you already hit it, so the question is never whether you can, it is why the other ten in the week did not. Ranked the way he ranks them, which is not the same as ranked by reach.</p>
+    
+      <div class="bm craft">
+        <div class="bm__top">
+          <span class="bm__r">1</span>
+          <span class="bm__l">$140K+ a year</span>
+          <span class="bm__d">August 8 &middot; craft</span>
+        </div>
+        <div class="bm__nums"><b>2,104</b> reach &middot; <b>8</b> shares &middot; <b>4</b> saves</div>
+        <div class="bm__cap">"Around $140K+ a year. That's the salary that puts you in a $550K+ home by the river..."</div>
+        <div class="bm__why">A hard number in the first line, aimed at exactly one person: the funded relocator deciding whether Richmond is reachable. It does not ask the viewer to feel something about the city, it tells them what it costs to live in a specific part of it. That is the whole difference between a piece with cargo and a piece with only a vehicle.</div>
+        <div class="bm__miles"><b>Miles:</b> The single best piece they have made. This is the level everything needs to be at. It also took multiple rounds of revisions, and after the final was handed over Miles still went into the shared CapCut space and made his own tweaks, so it was not clean on arrival.</div>
+      </div>
+      <div class="bm ">
+        <div class="bm__top">
+          <span class="bm__r">2</span>
+          <span class="bm__l">2nd fastest growing city</span>
+          <span class="bm__d">August 14 &middot; distribution</span>
+        </div>
+        <div class="bm__nums"><b>11,058</b> reach &middot; <b>266</b> shares &middot; <b>65</b> saves</div>
+        <div class="bm__cap">"The 2nd fastest growing city in the country is a WHOLE VIBEEEEE. Vibes at Sunset is a..."</div>
+        <div class="bm__why">Same move as the first one. A claim with a number, then the vibe as the delivery vehicle rather than the payload. This is the proof that the two are not in tension.</div>
+        <div class="bm__miles"><b>Miles:</b> The second best, and the one that travelled furthest by a wide margin.</div>
+      </div>
+      <div class="bm ">
+        <div class="bm__top">
+          <span class="bm__r">3</span>
+          <span class="bm__l">Vibes at Sunset, calling RVA boring</span>
+          <span class="bm__d">August 14 &middot; distribution</span>
+        </div>
+        <div class="bm__nums"><b>8,190</b> reach &middot; <b>63</b> shares &middot; <b>33</b> saves</div>
+        <div class="bm__cap">"Vibes as Sunset and you're calling RVA boring!? The amount of times I've heard people..."</div>
+        <div class="bm__why">Polarity. Names the objection out loud and then answers it with footage.</div>
+        <div class="bm__miles"><b>Miles:</b> Posted right after the second-fastest-growing piece, same night.</div>
+      </div>
+      <div class="bm ">
+        <div class="bm__top">
+          <span class="bm__r">4</span>
+          <span class="bm__l">Vibes at Sunset, second run</span>
+          <span class="bm__d">August 15 &middot; distribution</span>
+        </div>
+        <div class="bm__nums"><b>4,046</b> reach &middot; <b>28</b> shares &middot; <b>10</b> saves</div>
+        <div class="bm__cap">"Vibes as Sunset and you're calling RVA boring!? The amount of times I've heard people..."</div>
+        <div class="bm__why">Evidence the material had more than one night in it.</div>
+        <div class="bm__miles"><b>Miles:</b> The next day, same material.</div>
+      </div>
+    <div class="alert amber" style="margin-top:14px;"><span class="alert__k">Open</span><span><b>Vibes at Sunset long-form, never delivered.</b> The editors took this on themselves in writing on 2026-08-13: 'top priority right now is to do the 2 max shareable vibes at sunset video.' They then executed it as short-form on 8/14 and 8/15 and those are three of the four benchmark pieces on this list. The long-form cut of the same material is the piece that was asked for and never made. The material is already proven, which is what makes the miss expensive rather than academic.</span></div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Study The Diff</div>
+    <h2 class="title">What got changed <em>after you handed it over.</em></h2>
+    <p class="lede">Every other note you get arrives before a piece goes up. This is the one that arrives after, and it is the more useful one: the difference between the cut you delivered and the cut that actually went live, with the reason attached. Notes teach a correction. The diff teaches the taste.</p>
+    
+      <div class="cl">
+        <div class="cl__h"><span class="cl__p">$140K+ a year (Aug 8)</span><span class="bm__d">August 8</span></div>
+        <div class="cl__row"><span class="cl__k">Changed</span>Went into the shared CapCut space after the final was delivered and made my own tweaks on top of it.</div>
+        <div class="cl__row"><span class="cl__k">Why</span>It came back through multiple rounds of revisions and still was not there. This is the best piece we have made and it still needed my hands on it at the end, which means the gap is not effort, it is knowing where I would land before I get there.</div>
+        <div class="cl__rule">The last 5 percent is the whole job. Deliver it finished, not close.</div>
+      </div>
   </section>
 
   <section class="block">
@@ -308,7 +403,7 @@
   </section>
 
   <footer class="foot">
-    Built for the MAMS editor room &middot; <em>Miles Agee</em> &middot; MAMS LLC &middot; generated 2026-08-26
+    Built for the MAMS editor room &middot; <em>Miles Agee</em> &middot; MAMS LLC &middot; generated 2026-08-27
   </footer>
 
 </div>
