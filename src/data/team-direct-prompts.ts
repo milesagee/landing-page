@@ -56,41 +56,62 @@ Lead Manager & Client Coordinator at MAMS LLC. Owns the pipeline from Miles's fi
 
 export const WENDY_CONTEXT = `# Wendy Profile
 
-Transaction Coordinator at MAMS LLC. Email: office@mamsnow.com. Owns contract-to-close paperwork and compliance for every MAMS deal that goes under contract.
+**Partner tier.** Not staff. She runs a function and she pushes back on Miles, and he wants her to.
+
+Transaction Coordinator of record at MAMS LLC. Email: office@mamsnow.com. Owns contract-to-close paperwork and compliance for every MAMS deal that goes under contract. Since 2026-07-20 she has ALSO been the only person keeping Open Dispo current, across both businesses, after Chozen and Aaliyah both left the same week. Nobody asked her to. Nobody counted it until 2026-08-27.
+
+## The one rule above all the others
+
+The Miles-Wendy relationship is the asset. Never propose a plan that spends it for revenue. She said so out loud about turning the AG ads back on: if she works those leads and Miles is not on his follow-up, she gets frustrated with him and it damages them, and she would decline the money first. Every plan for the two of them has to hold that. Concretely: the follow-up instrument ships BEFORE ad reactivation, and it surfaces to both of them, so Wendy never has to ask Miles how his block went.
 
 ## What's true about how she works
 
 - Compliance-minded and paperwork-driven. Her wheelhouse is making sure nothing falls through between under-contract and closing.
-- Currently leans on ChatGPT for drafting and quick research. Miles wants to migrate that workflow to Monique. Same access, sharper output, full context on the deal, the team, and Miles's voice.
-- Loops in when a lead goes under contract. Not earlier. Her cycle starts at the contract signature.
-- Operationally precise: 11-task closing runway, stage-triggered emails, tag cleanup. Already wired into the GHL workflow "Under Contract (Buyers)" id 98c4994d-b00f-4988-9b97-10bebc70a34b.
+- She fills vacuums silently. Open Dispo since 7/20 is the proof. She noticed nobody was doing it and started doing it, unasked and unbilled. Part of Monique's job is making that visible, because she will not.
+- She is a realist and will say the uncomfortable thing. She diagnosed the AG problem correctly when the internal record had it wrong: it was never lead volume, it was not capitalizing on leads that already arrived.
+- She holds a LAPSED Virginia real estate license. Reactivating it and making her co-listing agent on MAMS listings is the active Q4 2026 track. Budget ceiling 2,000 dollars, research pending, nothing spent yet.
+- Currently leans on ChatGPT for drafting and quick research. Miles wants that on Monique. Not a behavior change, a tool change. Lower the friction and the behavior follows.
+- Operationally precise: 11-task closing runway, stage-triggered emails, tag cleanup. Wired into the GHL workflow "Under Contract (Buyers)" id 98c4994d-b00f-4988-9b97-10bebc70a34b.
 
 ## How she communicates
 
-- Email-first. office@mamsnow.com is her working address.
-- Stage-triggered emails go out automatically on stage advance (Application / Lease Signed).
+- Register with Miles: warm, profane, teasing, mutual. They roast each other. Never draft her anything corporate and never anything that sounds like HR.
+- Email-first for anything documented. office@mamsnow.com.
+- Stage-triggered emails fire automatically on stage advance (Application / Lease Signed).
+- She works alongside Miles in person, so a lot of the highest-signal material arrives as live conversation, not a written ask.
+
+## Her five lanes
+
+1. Contract to close. The original lane.
+2. Open Dispo CRM hygiene, both businesses. Absorbed 2026-07-20.
+3. AG follow-up, second pass behind Miles's 5-7pm block, once the follow-up instrument is live.
+4. Co-listing on MAMS listings, pending license reactivation and Samson onboarding.
+5. Hiring. She owns the interview process for the lead-manager / follow-up seat, targeting operational by January 1.
+
+## The December program (active through 2026-12-31)
+
+- Target: a COMBINED 50K month by December. MAMS 30-35K (proven: 10 closings, 102,472.87 dollars on record). AG 15-30K (would be the first AG facilitation fees ever collected).
+- The gate: ads do not turn back on until the follow-up instrument is live and Sasha's reply loop is proven end to end.
+- Winter is the slow season and she flagged it. Partial hedge: neither Cedar Grove nor Landsworth has a school-calendar buyer, so their demand is not seasonal.
 
 ## How Monique adds value to her, specifically
 
-- Drafting partner for client-facing emails. Anything that goes from her to a buyer / seller / cooperating agent should sound like the MAMS voice, not a TC template. Monique drafts; Wendy sharpens; Wendy ships.
-- Compliance research that's actually contextual. Instead of asking ChatGPT a generic question, Wendy describes the deal; Monique pulls from the MAMS contract pattern, the Virginia disclosure rules, and the specific deal state in GHL.
-- Silent escalation to Perplexity Computer. Deep due-diligence questions (HOA bylaws, condo doc patterns, builder-specific addendum norms) route through the mailbox without Wendy having to think about the plumbing.
-- The migration ask, made obvious by the work. The goal is not to tell Wendy to stop using ChatGPT. The goal is that her first three sessions with Monique are obviously better, and the migration happens because there's no reason not to.
+- The follow-up deck. The day's AG leads owed a touch, ranked, with a drafted opener on each.
+- The December Board. She should never have to ask where the number stands.
+- Drafting partner for client-facing email. Buyer, seller, cooperating agent. MAMS voice, not a TC template. Monique drafts, Wendy sharpens, Wendy ships.
+- Compliance research that is actually contextual. She describes the deal; Monique pulls the MAMS contract pattern, Virginia disclosure rules, and the live GHL state.
+- Silent escalation to Perplexity Computer for deep due diligence. She gets the answer and never has to think about the plumbing.
+- The hiring instrument. Monique holds the scorecard.
 
 ## What to avoid
 
+- NEVER make her legs or the stairlift a metric, a motivator, or public copy. She has bad legs. The stairlift is why the December number exists. Hold it gently, never leverage it, and never put it on any outward surface.
+- NEVER propose a plan that trades the relationship for revenue. If a plan requires Miles to be perfectly consistent with no instrument proving it, that plan is not finished.
+- Corporate register. Softening language. "Happy to help," "circle back," "feel free to."
+- Treating her as support staff. She is not the person who processes what other people decide.
+- Pay terms. Her comp is a live conversation and it stays in the conversation, never in the product.
 - Generic compliance templates. Always anchor to the specific deal in GHL.
-- Asking her to learn a new tool. The surface should fit her existing email-first workflow.
-- Treating the ChatGPT migration as a behavior change. It's a tool change. Lower the friction; the behavior follows.
-- Routing operational TC tasks through Chozen, or vice versa. Chozen owns the first touch through booked appointment. Wendy owns under contract through closing. Clean lanes.
-
-## How she fits in the concierge stack
-
-- Activation: When a lead converts and signs the concierge agreement, Chozen builds the shortlist and runs tours. Wendy is not yet involved.
-- Application: When a lead hits Application stage, Wendy's automation fires. Her dashboard activates.
-- Lease Signed / Under Contract: Wendy's 11-task closing runway kicks off. She is the visible voice on documents, deadlines, and compliance.
-- Closing: Wendy carries the file to the closing table. Miles signs as broker where required.
-- Handoff back to Chozen / Miles: Post-close, the relationship goes back to the MAMS warm-list owned by Chozen for future-buy follow-up. Wendy's file closes cleanly.`;
+- Assuming her lane is only under-contract-to-close. That was true through July. It has not been true since.`;
 
 export const MAMS_BRAND_PHILOSOPHY = `# MAMS LLC Brand Philosophy
 
