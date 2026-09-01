@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Lakeside Field Deck · 7529 Landsworth</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep-teal:#003F3F; --teal:#005F5F; --gold:#D4AF37; --gold-soft:#F1E4BC;
+    --paper:#FAF7F1; --line:rgba(0,63,63,0.14); --ok:#1f7a4d; --warn:#8a3b12;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{
+    font-family:'Inter',system-ui,sans-serif; color:var(--deep-teal);
+    background:radial-gradient(900px 500px at 90% -8%,rgba(212,175,55,0.12),transparent 60%),
+               radial-gradient(700px 420px at -10% 30%,rgba(0,95,95,0.07),transparent 60%),
+               var(--paper);
+    line-height:1.5; padding-bottom:80px;
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 16px;}
+
+  header{padding:22px 4px 10px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:18px;letter-spacing:0.2px;white-space:nowrap;flex-shrink:0;padding-top:2px;}
+  .brand span{color:var(--gold);}
+  .hint{font-size:10.5px;color:var(--teal);font-weight:600;text-align:right;line-height:1.35;}
+
+  .batch-head{
+    background:linear-gradient(150deg,var(--deep-teal),#01302F);color:var(--paper);
+    border-radius:18px;padding:18px;margin-bottom:16px;position:relative;overflow:hidden;
+    box-shadow:0 20px 40px -28px rgba(0,63,63,0.75);
+  }
+  .batch-head::before{content:"";position:absolute;inset:0;background:radial-gradient(280px 170px at 100% 0,rgba(212,175,55,0.24),transparent 62%);}
+  .batch-head .chip{display:inline-block;background:var(--gold);color:var(--deep-teal);font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 9px;border-radius:5px;position:relative;}
+  .batch-head h1{font-family:'Fraunces',serif;font-weight:400;font-size:25px;margin-top:10px;position:relative;line-height:1.22;letter-spacing:-0.02em;}
+  .batch-head h1 em{font-style:italic;color:var(--gold-soft);}
+  .batch-head .meta{font-size:12.5px;color:rgba(250,247,241,0.78);margin-top:8px;position:relative;line-height:1.5;}
+
+  .sec{font-family:'Fraunces',serif;font-size:13px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--teal);margin:26px 2px 10px;display:flex;align-items:center;gap:9px;}
+  .sec::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  .post{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 15px;margin-bottom:16px;box-shadow:0 14px 30px -24px rgba(0,63,63,0.5);}
+  .post-top{display:flex;align-items:flex-start;gap:9px;margin-bottom:6px;}
+  .num{font-family:'Fraunces',serif;font-size:22px;color:var(--gold);line-height:1.05;min-width:24px;}
+  .post-top h2{font-family:'Fraunces',serif;font-weight:600;font-size:17px;flex:1;min-width:0;line-height:1.3;}
+  .tags-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+  .pill{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--teal);background:rgba(0,95,95,0.08);padding:3px 8px;border-radius:20px;}
+  .pill.gold{color:#6b5310;background:rgba(212,175,55,0.2);}
+  .pill.warn{color:var(--warn);background:rgba(138,59,18,0.1);}
+
+  .field{border:1px solid var(--line);border-radius:12px;margin-bottom:11px;overflow:hidden;background:var(--paper);}
+  .field-head{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:rgba(0,95,95,0.05);border-bottom:1px solid var(--line);}
+  .field-head .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);}
+  .copytext{padding:12px;font-size:15.5px;color:var(--deep-teal);white-space:pre-wrap;word-wrap:break-word;}
+  .copytext.small{font-size:13.5px;line-height:1.6;}
+  .copytext.beats{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.6;white-space:normal;}
+  .copytext.beats .bl{white-space:pre-wrap;padding-left:6ch;text-indent:-6ch;}
+  .copybtn{
+    font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.4px;
+    background:var(--deep-teal);color:var(--paper);border:0;border-radius:7px;padding:6px 11px;
+    transition:transform 180ms cubic-bezier(.34,1.56,.64,1),background 180ms ease;
+  }
+  .copybtn:active{transform:scale(0.94);}
+  .copybtn.ok{background:var(--ok);}
+  .copybtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+
+  .chips{display:flex;gap:7px;flex-wrap:wrap;padding:2px 0 4px;}
+  .chip-copy{
+    font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;color:var(--deep-teal);
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:7px 12px;
+    transition:transform 180ms cubic-bezier(.34,1.56,.64,1),background 180ms ease,border-color 180ms ease;
+  }
+  .chip-copy:active{transform:scale(0.95);}
+  .chip-copy.ok{background:var(--gold-soft);border-color:var(--gold);}
+  .chip-copy:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+
+  .note{font-size:13px;color:var(--teal);line-height:1.6;padding:2px 2px 8px;}
+  .note strong{color:var(--deep-teal);}
+
+  .guard{background:#fff;border:1px solid rgba(138,59,18,0.28);border-left:4px solid var(--warn);border-radius:14px;padding:14px 15px;margin-bottom:16px;box-shadow:0 14px 30px -26px rgba(138,59,18,0.6);}
+  .guard h3{font-family:'Fraunces',serif;font-size:15px;font-weight:600;margin-bottom:9px;color:var(--warn);}
+  .guard ul{list-style:none;}
+  .guard li{font-size:13.5px;line-height:1.55;padding:7px 0 7px 18px;position:relative;border-top:1px solid rgba(0,63,63,0.08);}
+  .guard li:first-child{border-top:0;}
+  .guard li::before{content:"";position:absolute;left:2px;top:15px;width:6px;height:6px;border-radius:50%;background:var(--warn);}
+
+  .stop{background:#fff;border:1px solid var(--line);border-radius:18px;padding:0;margin-bottom:16px;overflow:hidden;box-shadow:0 14px 30px -24px rgba(0,63,63,0.5);}
+  .stop-head{display:flex;align-items:center;gap:11px;padding:14px 15px;background:linear-gradient(160deg,rgba(0,95,95,0.07),rgba(212,175,55,0.07));border-bottom:1px solid var(--line);}
+  .clock{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;font-weight:600;color:var(--paper);background:var(--deep-teal);border-radius:7px;padding:6px 8px;line-height:1.2;text-align:center;white-space:nowrap;}
+  .stop-head .t{flex:1;min-width:0;}
+  .stop-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:16.5px;line-height:1.28;}
+  .stop-head .addr{font-size:12px;color:var(--teal);font-weight:600;margin-top:2px;}
+  .tick{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);background:#fff;flex-shrink:0;font-size:15px;color:transparent;transition:transform 200ms cubic-bezier(.34,1.56,.64,1),background 200ms ease,border-color 200ms ease;}
+  .tick:active{transform:scale(0.9);}
+  .tick.done{background:var(--ok);border-color:var(--ok);color:#fff;}
+  .tick:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  .stop-body{padding:14px 15px 4px;}
+  .stop.done{opacity:0.5;}
+
+  .cut{background:linear-gradient(150deg,#01302F,var(--deep-teal));color:var(--paper);border-radius:18px;padding:16px;margin-bottom:16px;position:relative;overflow:hidden;}
+  .cut::before{content:"";position:absolute;inset:0;background:radial-gradient(240px 150px at 0 100%,rgba(212,175,55,0.2),transparent 62%);}
+  .cut h3{font-family:'Fraunces',serif;font-size:17px;font-weight:600;position:relative;}
+  .cut .sub{font-size:12px;color:rgba(250,247,241,0.7);margin-top:3px;position:relative;font-weight:600;letter-spacing:0.4px;}
+  .cut ol{margin:11px 0 0 17px;position:relative;}
+  .cut li{font-size:13.5px;line-height:1.6;margin-bottom:5px;color:rgba(250,247,241,0.92);}
+  .cut li b{color:var(--gold-soft);}
+
+  footer{text-align:center;font-size:11.5px;color:var(--teal);padding:26px 10px 10px;line-height:1.6;}
+
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(14px);background:var(--deep-teal);color:var(--paper);font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:20px;opacity:0;pointer-events:none;transition:opacity 200ms ease,transform 200ms cubic-bezier(.34,1.56,.64,1);z-index:50;}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand">MAMS <span>·</span> Field Deck</div>
+  <div class="hint">Tap any block to copy.<br>Tap the circle when a stop is shot.</div>
+</header>
+
+<div class="batch-head">
+  <span class="chip">Lakeside run of show</span>
+  <h1>Ten openers, eight stops,<br><em>ninety minutes</em>.</h1>
+  <div class="meta">Tuesday, September 1. Lakeside Avenue, Henrico 23228, ending at 7529 Landsworth. Every line below has an open loop, a close that pays it off, and a fact you can defend if somebody screenshots it.<br><br>Lewis Ginter is already banked. Do not reshoot it.</div>
+</div>
+
+<div class="guard">
+  <h3>Six things that will get you caught</h3>
+  <ul>
+    <li><strong>Look at the door before you call a business open.</strong> Only SB's Love Shack and Lewis Ginter are operator verified inside 90 days. Roy's, Lakeside Tavern, Final Gravity, Revel and the Farmers' Market are all eyes on before you name them.</li>
+    <li><strong>Drive times are modeled, not live.</strong> Say "about nine minutes." Never say "Google says."</li>
+    <li><strong>Redfin publishes different windows for different geographies.</strong> If you compare 23228 to the county, say the windows out loud, or just stay inside the 23228 numbers.</li>
+    <li><strong>Schools: assignment only, never quality.</strong> Holladay Elementary, Moody Middle, Hermitage High. Point people to the HCPS assignment locator and stop talking.</li>
+    <li><strong>5404 Lakeside is off limits.</strong> A fire and an arson charge a named private person was acquitted of. That is not content.</li>
+    <li><strong>The "thirty years of karaoke" number is unverified.</strong> If you ask the Segers on camera, get the year on tape.</li>
+  </ul>
+</div>
+
+<div class="sec">01 · The openers, ranked</div>
+<div class="note">Film these first, in this order. They are selfie takes, front facing, no location dependency past what is named. If the ninety minutes falls apart you still walk away with a video. Shoot each one twice: once static, once walking. Leave three silent seconds at the tail of every take so the editors have a handle.</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">1</div><h2>The contradiction</h2></div>
+  <div class="tags-row"><span class="pill gold">Strongest hook</span><span class="pill">Anywhere on Lakeside Ave</span></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Say it</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext">Henrico County spent two years planning a redesign of this street. In July they voted it out of the plan. And they are still spending five point seven million dollars on it. All three of those are true, and only one of them made the news.</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">The close</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">What died on July 28 was the Lakeside corridor redesign inside the HenricoNext 2045 comp plan. The density piece. Townhomes, mixed use, connected sidewalks. What did not die is a separately funded five point seven million dollar capital project called Lakeside Avenue Bike and Pedestrian Improvements. Brook Road to Fairway Avenue. Ten foot shared use path on the north side, five foot sidewalk on the south, traffic calming, a proposed roundabout. Design is underway now, utilities in 2027, construction starts 2028. Board Chair Roscoe Cooper, whose district covers Lakeside, says he is holding town halls to rework the part that got cut. So the street is getting rebuilt either way. The only open question is what gets to be built next to it.</div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">2</div><h2>Up and coming</h2></div>
+  <div class="tags-row"><span class="pill gold">Polarity move</span><span class="pill">Roy's, 5200 Lakeside</span></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Say it</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext">People keep telling me Lakeside is up and coming. There is a burger stand on this street that opened in 1961 and has never closed. Up and coming is just what you call a place the week you found out about it.</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">The close</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">Roy's Big Burger, 5200 Lakeside. Opened 1961 by Roy Horne, who had run a What-A-Burger over by the Diamond. Thirty five cent burgers on the opening menu. The Nunnally family bought it when Horne sold and it has stayed in that family since. David Nunnally runs it now. About three hundred burgers a day, seven days a week, off a gas flat top, vegetables cut daily, bread delivered every three days. His line: "We have three generations coming here to eat. I have no plans to retire."</div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">3</div><h2>I shot the street first</h2></div>
+  <div class="tags-row"><span class="pill gold">The thesis</span><span class="pill">Landsworth, in front of the house</span></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Say it</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext">Most agents shoot the house. I shot the street first. If you are moving to this part of Richmond you are not buying the house, you are buying the twelve minutes around it. So let me show you the twelve minutes.</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">The close</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">Modeled from the front door of 7529 Landsworth. Scott's Addition about nine and a half minutes. VCU Health about eleven. Downtown about eleven and a half. Short Pump about eighteen. Say "about" every time.</div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">4</div><h2>Guess which one sells fastest</h2></div>
+  <div class="tags-row"><span class="pill gold">The number</span><span class="pill">Anywhere</span><span class="pill warn">Say the window</span></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Say it</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext">Median sale price in this zip code is about three hundred fifty thousand. Henrico County as a whole is four hundred. The city of Richmond is about four thirty. Now guess which one of those three sells the fastest.</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">The close</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">23228 went pending in about eight days on Redfin's three month window ending May 2026, against ten days a year earlier. Compete score 91. Sale to list 101.7 percent in May. Henrico County sat at twenty eight days on its December 2025 window. The cheapest of the three is the fastest of the three. Precision line to say on camera: "on the most recent windows Redfin publishes, and they are not all the same month."</div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">5</div><h2>The one that lasted</h2></div>
+  <div class="tags-row"><span class="pill">SB's, 6935 Lakeside</span><span class="pill gold">Verified open</span></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Say it</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext">This restaurant opened here in 2017. Opened a second one in the Fan in 2022. Closed the Fan one in 2024. Kept this one. That is not a restaurant story. That is a real estate story, and I will tell you what it says about this street.</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">The close</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">SB's Lakeside Love Shack, 6935 Lakeside. Opened November 2017. Sarabeth Hagen owns it, cooks it, writes the specials board, and lives in Lakeside. The whole thing is B-52's themed. Her site opens with "Well, it's set way back in the middle of Lakeside." The Shack Stacks and the TJ Shimmie are named after her son TJ. The Main Street location ran February 2022 to March 2024. Why the Lakeside one lasted is your read, not a statistic. Say "that is my read" out loud when you give it.</div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">6</div><h2>Not named after a lake</h2></div>
+  <div class="tags-row"><span class="pill">Anywhere</span><span class="pill gold">Best comment bait</span></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Say it</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext">Lakeside is not named after a lake. It is named after a bicycle club. And the clubhouse is still standing about a mile from where I am right now.</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">The close</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">In 1895 Lewis Ginter named his bicycle club the Lakeside Wheel Club. That clubhouse is Bloemendaal House, the one at the botanical garden. He built Lakeside Park on the grounds that are now Jefferson Lakeside Country Club, and people took a streetcar out to it when it had a zoo, a bowling alley and a dance pavilion. The whole neighborhood is named after a rich man's weekend hobby.</div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">7</div><h2>Two hundred sixty two acres</h2></div>
+  <div class="tags-row"><span class="pill">Bryan Park</span></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Say it</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext">There are two hundred sixty two acres of park at the end of this street, and most of Richmond drives past the entrance at seventy miles an hour without ever knowing it is there.</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">The close</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">Joseph Bryan Park. I-95, I-64 and 195 all converge at the Bryan Park interchange, which is exactly why nobody stops. The azalea garden inside it is seventeen acres, established 1952 out of five thousand donated azaleas, peaked above fifty thousand plants, and pulled as many as four hundred thousand visitors a spring in the sixties and seventies. The city stopped maintaining it in the eighties. Volunteers from Friends of Bryan Park brought it back, and the city is now doing dam removal and stream restoration on Upham Brook, approved by Planning Commission in April.</div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">8</div><h2>Nobody spends that on a neighborhood they are leaving</h2></div>
+  <div class="tags-row"><span class="pill">Uses banked Ginter footage</span><span class="pill gold">Buyer case</span></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Say it</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext">The botanical garden at the end of this road just finished a thirty one million dollar expansion. Then it turned around and bought six more acres from the church next door. Nobody spends that on a neighborhood they are planning to leave.</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">The close</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">Lewis Ginter's THRIVE campaign, thirty one million dollar goal, twenty six million raised as of the garden's own October 2025 page. The expansion opened to the public on May 23 of this year. Seven and a half acres of new gardens, Wick Lake brought inside the grounds, a bigger conservatory with four climate zones, and a permanent year round butterfly house. The 6.2 acres came from Lakeside Baptist Church and ownership transferred in July.</div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">9</div><h2>The dive bar</h2></div>
+  <div class="tags-row"><span class="pill">Lakeside Tavern, 5406</span><span class="pill warn">Status not verified, look at the door</span></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Say it</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext">There is a dive bar on this street with a sign so faded you can barely read it, and the owner's mother cooks Korean food in the back. I did not believe it either.</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">The close</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">Lakeside Tavern, 5406 Lakeside. James Seger bartended there before he and his mother Kye bought it from the previous owners. He runs the front, she runs the kitchen. Bulgogi, bibimbap, and kkanpunggi style wings. His line: "She loves to cook, and she wanted to incorporate some of her style into Lakeside. We serve whatever my mother feels like." Karaoke is documented. The number of years it has been running is not, so do not put a number on it unless they say it to your camera.</div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">10</div><h2>Somebody's wife said it would make a good market</h2></div>
+  <div class="tags-row"><span class="pill">Farmers' Market, 6110</span><span class="pill gold">The heart line</span></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Say it</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext">In 2005 this was an asphalt parking lot with a business picnic on it, and somebody's wife said it would make a good farmers market. Six years later the owners sank twenty foot posts six feet into concrete and said this thing will be here in a hundred years. I am telling you that on a real estate page for a reason.</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">The close</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">Lakeside Farmers' Market, 6110 Lakeside. Opened 2007 as Henrico County's first farmers market. Peter and Sharon Francisco own it and their own site calls them Northsiders since birth. It was Betty Thornton, an extension agent and the wife of the Fairfield supervisor at the time, who told Sharon the lot would make a wonderful market. The 2011 pavilion cost almost half a million dollars. Peter's line: "This market will be here in a hundred years." Day one vendors are still selling there. That is what a neighborhood with a floor under it looks like, and a floor is the whole reason I am comfortable putting a buyer here.</div>
+  </div>
+</div>
+
+<div class="sec">02 · The route, eight stops</div>
+<div class="note">North up Lakeside Avenue, ending at the house. Clock is cumulative. If you are behind at the forty minute mark, cut stops 5 and 3 and keep everything else.</div>
+
+<div class="stop" data-id="s1">
+  <div class="stop-head">
+    <div class="clock">0:00<br>0:10</div>
+    <div class="t"><h2>Bryan Park, Lakeside Ave entrance</h2><div class="addr">Joseph Bryan Park · 262 acres</div></div>
+    <button class="tick" onclick="toggle(this)" aria-label="Mark stop shot">&#10003;</button>
+  </div>
+  <div class="stop-body">
+    <div class="field">
+      <div class="field-head"><span class="lbl">Fire opener</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext small">Opener 7, two hundred sixty two acres. Then opener 6, not named after a lake, standing where the traffic noise is loudest.</div>
+    </div>
+    <div class="field">
+      <div class="field-head"><span class="lbl">Shot beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext beats">
+<div class="bl">SAY   Opener 7 static, then walking into the tree line.</div>
+<div class="bl">FRAME Interchange noise behind you, park green in front. That contrast IS the story.</div>
+<div class="bl">GET   Azalea garden gate. Tree canopy looking up. One long push down a path with nobody in it.</div>
+<div class="bl">GET   Six seconds of the highway sign so the edit can cut noise to quiet.</div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="stop" data-id="s2">
+  <div class="stop-head">
+    <div class="clock">0:10<br>0:20</div>
+    <div class="t"><h2>Roy's Big Burger</h2><div class="addr">5200 Lakeside Ave · since 1961</div></div>
+    <button class="tick" onclick="toggle(this)" aria-label="Mark stop shot">&#10003;</button>
+  </div>
+  <div class="stop-body">
+    <div class="field">
+      <div class="field-head"><span class="lbl">Fire opener</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext small">Opener 2, up and coming. This is the anchor of cut A. Shoot it three times, it is the most important take of the day.</div>
+    </div>
+    <div class="field">
+      <div class="field-head"><span class="lbl">Shot beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext beats">
+<div class="bl">SAY   Opener 2 with the walk up window over your shoulder.</div>
+<div class="bl">FRAME Low angle on the stand. It should look older than you.</div>
+<div class="bl">GET   Picnic tables. The menu board. Hands taking a bag. Never a stranger's face without a yes.</div>
+<div class="bl">ASK   If David is there: what year did your family buy it, and what has not changed. Get the answer on tape.</div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="stop" data-id="s3">
+  <div class="stop-head">
+    <div class="clock">0:20<br>0:26</div>
+    <div class="t"><h2>Lakeside Tavern</h2><div class="addr">5406 Lakeside Ave · exterior only</div></div>
+    <button class="tick" onclick="toggle(this)" aria-label="Mark stop shot">&#10003;</button>
+  </div>
+  <div class="stop-body">
+    <div class="field">
+      <div class="field-head"><span class="lbl">Fire opener</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext small">Opener 9, the dive bar. Cuttable if you are behind. Do not say open unless the hours are on the door in front of you.</div>
+    </div>
+    <div class="field">
+      <div class="field-head"><span class="lbl">Shot beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext beats">
+<div class="bl">SAY   Opener 9 with the faded sign in frame. The sign is the whole visual.</div>
+<div class="bl">GET   Tight on the sign. Wide of the block. Door hours if posted.</div>
+<div class="bl">SKIP  Do not shoot 5404 next door. Nothing from that building goes in the cut.</div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="stop" data-id="s4">
+  <div class="stop-head">
+    <div class="clock">0:26<br>0:42</div>
+    <div class="t"><h2>Farmers' Market and the Towne Center</h2><div class="addr">6110 to 6118 Lakeside Ave</div></div>
+    <button class="tick" onclick="toggle(this)" aria-label="Mark stop shot">&#10003;</button>
+  </div>
+  <div class="stop-body">
+    <div class="field">
+      <div class="field-head"><span class="lbl">Fire opener</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext small">Opener 10, somebody's wife said it would make a good market. This is the emotional center of the long form. Give it the most time.</div>
+    </div>
+    <div class="field">
+      <div class="field-head"><span class="lbl">Shot beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext beats">
+<div class="bl">SAY   Opener 10 standing under the pavilion, hand on a post when you say twenty foot posts.</div>
+<div class="bl">GET   The pavilion structure from below. The asphalt lot wide. Vendor stalls if any are up.</div>
+<div class="bl">GET   Final Gravity storefront at 6118 and the Towne Center strip at 6114 as pure b roll.</div>
+<div class="bl">NOTE  New this month: Lakeside Collaborative Sunday Market, Sundays 11 to 3, started September. Fall Fest Sunday 9/13.</div>
+<div class="bl">HOLD  Final Gravity ownership changed hands in January. Do not name it open on camera without eyes on the door.</div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="stop" data-id="s5">
+  <div class="stop-head">
+    <div class="clock">0:42<br>0:50</div>
+    <div class="t"><h2>Revel Market and Bar</h2><div class="addr">6223 Lakeside Ave · b roll pass</div></div>
+    <button class="tick" onclick="toggle(this)" aria-label="Mark stop shot">&#10003;</button>
+  </div>
+  <div class="stop-body">
+    <div class="field">
+      <div class="field-head"><span class="lbl">Shot beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext beats">
+<div class="bl">GET   Storefront, signage, the block in both directions. No spoken take needed.</div>
+<div class="bl">WHY   This is the newer end of the corridor. It is the visual proof of the money arriving.</div>
+<div class="bl">CUT   First stop to drop if the clock slips.</div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="stop" data-id="s6">
+  <div class="stop-head">
+    <div class="clock">0:50<br>1:06</div>
+    <div class="t"><h2>SB's Lakeside Love Shack</h2><div class="addr">6935 Lakeside Ave · plus 6920 next door</div></div>
+    <button class="tick" onclick="toggle(this)" aria-label="Mark stop shot">&#10003;</button>
+  </div>
+  <div class="stop-body">
+    <div class="field">
+      <div class="field-head"><span class="lbl">Fire opener</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext small">Opener 5, the one that lasted. Only operator verified open business on the run besides the garden, so this is where you are safest being specific.</div>
+    </div>
+    <div class="field">
+      <div class="field-head"><span class="lbl">Shot beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext beats">
+<div class="bl">SAY   Opener 5 with the storefront over your shoulder, then a second take walking up to the door.</div>
+<div class="bl">GET   The specials chalkboard. SB writes it herself, so it is a real detail, not decoration.</div>
+<div class="bl">ASK   If SB is in: what made you keep this one. Ask, then be quiet. That answer is the long form.</div>
+<div class="bl">GET   6920 next door, Lakeside Barbeque, and check whether suite D ever became Sweet Spot Creamery.</div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="stop" data-id="s7">
+  <div class="stop-head">
+    <div class="clock">1:06<br>1:16</div>
+    <div class="t"><h2>The sidewalk that ends</h2><div class="addr">Anywhere between Brook Rd and Fairway Ave</div></div>
+    <button class="tick" onclick="toggle(this)" aria-label="Mark stop shot">&#10003;</button>
+  </div>
+  <div class="stop-body">
+    <div class="field">
+      <div class="field-head"><span class="lbl">Fire opener</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext small">Opener 1, the contradiction. Find an actual spot where the sidewalk stops mid block and stand at the end of it. A twenty year Lakeside resident is on the record complaining about exactly this, so the shot is the argument.</div>
+    </div>
+    <div class="field">
+      <div class="field-head"><span class="lbl">Shot beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext beats">
+<div class="bl">SAY   Opener 1 standing on the last square of concrete before it turns to grass.</div>
+<div class="bl">FRAME Point down at your feet on the words "five point seven million dollars."</div>
+<div class="bl">GET   Traffic passing. The gap in the sidewalk. A wide of the corridor with no people in it.</div>
+<div class="bl">NOTE  Ten foot shared use path north side, five foot sidewalk south side, construction 2028 to 2029.</div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="stop" data-id="s8">
+  <div class="stop-head">
+    <div class="clock">1:16<br>1:30</div>
+    <div class="t"><h2>7529 Landsworth Ave</h2><div class="addr">The listing · exterior and street</div></div>
+    <button class="tick" onclick="toggle(this)" aria-label="Mark stop shot">&#10003;</button>
+  </div>
+  <div class="stop-body">
+    <div class="field">
+      <div class="field-head"><span class="lbl">Fire opener</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext small">Opener 3, I shot the street first. Then opener 4, the number. Then the close below.</div>
+    </div>
+    <div class="field">
+      <div class="field-head"><span class="lbl">The close, spoken</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext">Everything I just showed you is inside four minutes of this front door. That is what you are actually buying. The house is coming soon and I am not putting a number on it in a video before I put it in front of the person who owns it. If you want to see it first, the link is in my bio.</div>
+    </div>
+    <div class="field">
+      <div class="field-head"><span class="lbl">Shot beats</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+      <div class="copytext beats">
+<div class="bl">SAY   Openers 3 and 4 from the sidewalk in front, house soft behind you.</div>
+<div class="bl">GET   Street both directions. Tree canopy. The walk from the car to the door.</div>
+<div class="bl">HOLD  No price, no go live date, no interior. Those are Julia's calls and she has not made them.</div>
+<div class="bl">HOLD  No school talk beyond assignment. Holladay, Moody, Hermitage, and point at the HCPS locator.</div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">03 · How today becomes two videos</div>
+
+<div class="cut">
+  <h3>Cut A · "Up and coming"</h3>
+  <div class="sub">45 to 60 seconds · post first · the polarity piece</div>
+  <ol>
+    <li><b>Hook</b> opener 2 at Roy's</li>
+    <li><b>Proof</b> the 1961 close, then the market pavilion from opener 10</li>
+    <li><b>Turn</b> opener 5 at SB's, the one that lasted</li>
+    <li><b>Land</b> opener 4, the number, ending on "guess which one sells fastest"</li>
+    <li><b>CTA</b> guide in bio, coming soon on Landsworth</li>
+  </ol>
+</div>
+
+<div class="cut">
+  <h3>Cut B · "They killed the plan and kept the money"</h3>
+  <div class="sub">60 to 75 seconds · post second · the authority piece</div>
+  <ol>
+    <li><b>Hook</b> opener 1 standing where the sidewalk ends</li>
+    <li><b>Explain</b> what died on July 28 versus what is still funded</li>
+    <li><b>Illustrate</b> opener 8, the garden money and the 6.2 acres</li>
+    <li><b>Apply</b> opener 3, I shot the street first, into the Landsworth close</li>
+    <li><b>CTA</b> same</li>
+  </ol>
+</div>
+
+<div class="sec">04 · The long form spine</div>
+<div class="note">Back of your head, not today's job. But shoot with it in mind, because everything above is already an act. Working title: <strong>The street Henrico gave up on</strong>. Rule that makes it work: every act ends on a loop the next act opens with.</div>
+
+<div class="post">
+  <div class="post-top"><div class="num">&#9656;</div><h2>Five acts, twelve to sixteen minutes</h2></div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Structure</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext beats">
+<div class="bl">COLD  Opener 1. Three true things, one of them made the news. Do not resolve it.</div>
+<div class="bl">ACT 1 What Lakeside actually is. The bicycle club, the streetcar park, the zoo. Opener 6.</div>
+<div class="bl">ACT 2 The operators. Roy's 1961. The asphalt lot in 2005. SB keeping the Lakeside one.</div>
+<div class="bl">ACT 3 The money. The 23228 numbers, the drive times, thirty one million at the garden, 6.2 acres.</div>
+<div class="bl">ACT 4 The fight. HenricoNext, the corridor redesign cut, the five point seven million still funded, the town halls coming.</div>
+<div class="bl">ACT 5 The house. Landsworth as the case study, then the honest close about what nobody can promise you.</div>
+</div>
+  </div>
+  <div class="field">
+    <div class="field-head"><span class="lbl">Still owed before it can be cut</span><button class="copybtn" onclick="copyField(this)">Copy</button></div>
+    <div class="copytext small">One sit down with an operator on camera. SB or David Nunnally or Peter Francisco. Without one human voice that is not yours, this is a well researched slideshow. With one, it is a documentary. Ask today even if you shoot it in three weeks.</div>
+  </div>
+</div>
+
+<div class="sec">05 · Ask these out loud today</div>
+<div class="chips">
+  <button class="chip-copy" onclick="copyChip(this)">What year did your family buy this</button>
+  <button class="chip-copy" onclick="copyChip(this)">What made you keep the Lakeside one</button>
+  <button class="chip-copy" onclick="copyChip(this)">How long has karaoke been running here</button>
+  <button class="chip-copy" onclick="copyChip(this)">What has not changed since you started</button>
+  <button class="chip-copy" onclick="copyChip(this)">What do people get wrong about this street</button>
+  <button class="chip-copy" onclick="copyChip(this)">Did the county ever ask you what you wanted</button>
+</div>
+
+<footer>
+  7529 Landsworth Ave &middot; Lakeside, Henrico 23228<br>
+  A MAMS build &middot; Private page, not indexed
+</footer>
+
+</div>
+<div id="toast">Copied</div>
+
+<script>
+  var toastT;
+  function toast(){
+    var t=document.getElementById('toast');
+    t.classList.add('show'); clearTimeout(toastT);
+    toastT=setTimeout(function(){t.classList.remove('show');},1100);
+  }
+  function flash(btn){
+    btn.classList.add('ok');
+    var isChip=btn.classList.contains('chip-copy');
+    var orig=btn.textContent;
+    if(!isChip){btn.textContent='Copied';}
+    setTimeout(function(){btn.classList.remove('ok'); if(!isChip){btn.textContent=orig;}},1200);
+  }
+  function doCopy(text,btn){
+    var ok=function(){flash(btn);toast();};
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(ok).catch(function(){fallback(text,ok);});
+    } else { fallback(text,ok); }
+  }
+  function fallback(text,ok){
+    var ta=document.createElement('textarea');
+    ta.value=text; ta.setAttribute('readonly','');
+    ta.style.position='fixed'; ta.style.top='0'; ta.style.left='0'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    ta.setSelectionRange(0,ta.value.length);
+    try{ document.execCommand('copy'); ok(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  function copyField(btn){
+    var text=btn.closest('.field').querySelector('.copytext').innerText;
+    doCopy(text,btn);
+  }
+  function copyChip(btn){ doCopy(btn.innerText,btn); }
+
+  var KEY='landsworth-field-deck-v1';
+  function load(){
+    var done={};
+    try{ done=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+    document.querySelectorAll('.stop').forEach(function(s){
+      if(done[s.dataset.id]){ s.classList.add('done'); s.querySelector('.tick').classList.add('done'); }
+    });
+  }
+  function toggle(btn){
+    var stop=btn.closest('.stop');
+    stop.classList.toggle('done'); btn.classList.toggle('done');
+    var done={};
+    try{ done=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+    done[stop.dataset.id]=stop.classList.contains('done');
+    try{ localStorage.setItem(KEY,JSON.stringify(done)); }catch(e){}
+  }
+  load();
+</script>
+</body>
+</html>
