@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Long-Form Board</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --deep-teal: #003F3F; --teal: #005F5F; --teal-light: #80AFAF;
+    --gold: #D4AF37; --gold-soft: #E2CA7A; --gold-dark: #B1922E;
+    --paper: #FAF7F1; --paper-soft: #f3ede1; --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16); --line-strong: rgba(0, 63, 63, 0.30);
+    --green: #2f7d52; --red: #b1462e; --amber: #9a6b18;
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212,175,55,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,95,95,0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+  header.hero { padding: 40px 0 22px; border-bottom: 1px solid var(--line); }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(28px, 5vw, 44px); line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 12px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 15px; opacity: 0.82; max-width: 62ch; }
+  .stamp { display: inline-block; margin-top: 14px; margin-right: 6px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); border: 1px solid var(--line-strong); border-radius: 999px; padding: 5px 12px; }
+  .stamp.hot { background: var(--gold); border-color: var(--gold); color: var(--deep-teal); }
+
+  section.block { padding: 30px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 9px; }
+  h2.title { font-family: var(--serif); font-weight: 400; font-size: clamp(21px, 3.4vw, 29px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 6px; }
+  h2.title em { color: var(--gold-dark); font-style: italic; }
+  .lede { font-size: 14.5px; opacity: 0.82; max-width: 64ch; margin-bottom: 20px; }
+
+  .hookbox { background: var(--deep-teal); color: var(--ivory); border-radius: 9px; padding: 18px 20px; box-shadow: var(--shadow-md); margin-bottom: 16px; }
+  .hookbox__k { font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .hookbox p { font-family: var(--serif); font-size: 20px; line-height: 1.34; }
+  .copy { background: rgba(212,175,55,0.18); border: 1px solid rgba(212,175,55,0.5); color: var(--gold-soft); font-family: var(--sans); font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 9px; border-radius: 4px; cursor: pointer; transition: transform 140ms cubic-bezier(0.34,1.56,0.64,1), background 140ms ease; }
+  .copy:hover { background: rgba(212,175,55,0.3); }
+  .copy:active { transform: scale(0.95); }
+  .copy:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .copy.dark { background: var(--paper-soft); border-color: var(--line-strong); color: var(--teal); }
+  .copy.dark:hover { background: #e9e0cd; }
+
+  .argue { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: 8px; background: var(--ivory); box-shadow: var(--shadow-sm); }
+  table.arg { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 520px; }
+  table.arg th { text-align: left; font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); padding: 11px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  table.arg td { padding: 11px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  table.arg tr:last-child td { border-bottom: none; }
+  table.arg tr.best td { background: rgba(212,175,55,0.12); font-weight: 600; }
+  table.arg td.n { font-family: var(--serif); font-size: 15px; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .pane { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 15px 17px; box-shadow: var(--shadow-sm); }
+  .pane.gold { border-left: 3px solid var(--gold); }
+  .pane.teal { border-left: 3px solid var(--deep-teal); }
+  .pane.red { border-left: 3px solid var(--red); }
+  .pane__k { font-size: 9px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; color: var(--teal); margin-bottom: 7px; }
+  .pane p { font-size: 13.5px; line-height: 1.55; }
+
+  .ch { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 8px; padding: 20px; box-shadow: var(--shadow-sm); margin-bottom: 16px; }
+  .ch.blocked { border-left-color: var(--red); }
+  .ch__top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .ch__n { font-family: var(--serif); font-size: 22px; color: var(--gold-dark); line-height: 1; }
+  .ch__t { font-family: var(--serif); font-size: 18px; font-weight: 600; }
+  .pill { font-size: 9px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--teal); white-space: nowrap; }
+  .pill.warn { border-color: rgba(177,70,46,0.4); color: var(--red); background: rgba(177,70,46,0.07); }
+  .lab { font-size: 9px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; color: var(--teal); margin: 13px 0 5px; }
+  .ch p { font-size: 13.5px; line-height: 1.55; }
+  .loopgrid { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 6px; }
+  .loopcell { background: var(--paper-soft); border: 1px solid var(--line); border-radius: 6px; padding: 9px 12px; font-size: 12.5px; line-height: 1.45; }
+  .loopcell b { color: var(--gold-dark); font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .clip { display: flex; align-items: center; gap: 9px; background: var(--paper-soft); border: 1px solid var(--line); border-radius: 6px; padding: 8px 11px; font-size: 12px; margin-bottom: 6px; flex-wrap: wrap; }
+  .clip code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; word-break: break-all; flex: 1 1 200px; }
+  .clip .lead { font-size: 8.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dark); border: 1px solid rgba(212,175,55,0.5); border-radius: 3px; padding: 2px 6px; white-space: nowrap; }
+
+  .ins { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--deep-teal); border-radius: 8px; padding: 18px 20px; box-shadow: var(--shadow-sm); margin-bottom: 13px; }
+  .ins__top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+  .ins__n { font-family: var(--serif); font-size: 19px; color: var(--gold-dark); }
+  .ins__h { font-size: 12px; font-weight: 700; opacity: 0.72; }
+  .say { background: var(--paper-soft); border: 1px solid rgba(212,175,55,0.4); border-radius: 6px; padding: 12px 14px; font-family: var(--serif); font-size: 15.5px; line-height: 1.5; margin: 9px 0; }
+  .meta { display: grid; grid-template-columns: 78px 1fr; gap: 4px 10px; font-size: 12.5px; line-height: 1.5; margin-top: 8px; }
+  .meta dt { font-size: 8.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); padding-top: 3px; }
+
+  .alert { display: flex; gap: 10px; align-items: flex-start; border-radius: 7px; padding: 12px 15px; font-size: 13px; line-height: 1.5; border: 1px solid; margin-bottom: 9px; }
+  .alert.red { background: rgba(177,70,46,0.07); border-color: rgba(177,70,46,0.32); color: #7d3121; }
+  .alert.amber { background: rgba(154,107,24,0.07); border-color: rgba(154,107,24,0.30); color: #6f4d11; }
+  .alert.green { background: rgba(47,125,82,0.07); border-color: rgba(47,125,82,0.30); color: #235c3c; }
+  .alert__k { font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 3px; white-space: nowrap; }
+
+  ul.ticks { list-style: none; margin-top: 6px; }
+  ul.ticks li { font-size: 13.5px; line-height: 1.55; padding-left: 20px; position: relative; margin-bottom: 7px; }
+  ul.ticks li::before { content: ''; position: absolute; left: 3px; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+  .q { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; box-shadow: var(--shadow-sm); margin-bottom: 11px; }
+  .q__top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 5px; }
+  .q__r { font-family: var(--serif); font-size: 19px; color: var(--gold-dark); }
+  .q__t { font-family: var(--serif); font-size: 16px; font-weight: 600; }
+  .q__m { font-size: 11.5px; font-weight: 700; color: var(--teal); margin-bottom: 7px; }
+  .q p { font-size: 13px; line-height: 1.55; }
+
+  .note { font-size: 12.5px; line-height: 1.55; background: var(--paper-soft); border: 1px solid var(--line); border-radius: 7px; padding: 13px 15px; margin-top: 14px; }
+  .note b { color: var(--gold-dark); }
+  .linkbtn { display: inline-block; margin-top: 14px; margin-right: 18px; font-size: 12.5px; font-weight: 700; color: var(--gold-dark); text-decoration: none; border-bottom: 1px solid rgba(177,146,46,0.45); padding-bottom: 2px; transition: color 160ms cubic-bezier(0.2,0.9,0.3,1.2); }
+  .linkbtn:hover, .linkbtn:focus-visible { color: var(--teal); }
+  .foot { padding: 28px 0 46px; font-size: 11.5px; opacity: 0.6; }
+  .foot em { font-style: italic; }
+
+  #toast { position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(14px); background: var(--deep-teal); color: var(--ivory); font-size: 12.5px; font-weight: 600; padding: 9px 18px; border-radius: 999px; opacity: 0; pointer-events: none; transition: opacity 180ms ease, transform 180ms cubic-bezier(0.34,1.56,0.64,1); z-index: 50; }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 560px) {
+    .grid2 { grid-template-columns: 1fr; }
+    .meta { grid-template-columns: 1fr; gap: 2px; }
+    .meta dt { padding-top: 7px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <div class="hero__eyebrow">MAMS Editor Room &middot; Bea Dela Cruz and Cess</div>
+    <h1 class="hero__title">The long-form board. <em>Start here.</em></h1>
+    <p class="hero__sub">One YouTube video, fully briefed, built entirely from footage that is already on the Drive. Nothing below waits on a shoot day. Behind it is a queue of 4 more that are also already shot, so the question of what to make next has an answer without anybody having to ask.</p>
+    <span class="stamp hot">1 live</span>
+    <span class="stamp">4 queued</span>
+    <span class="stamp">Briefed 2026-09-01</span>
+  </header>
+
+  
+  <section class="block">
+    <div class="eyebrow">The Assignment</div>
+    <h2 class="title">The Hill That Named Richmond</h2>
+    <p class="lede">6 to 7 minutes, CINEMATIC mode, Contrast shape. <b>New footage needed: none. every frame already exists on the drive.</b> Every clip is named below, with a copy button for the path.</p>
+
+    <div class="hookbox">
+      <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copy" data-copy="Everybody who tells you Richmond is boring has never stood on this hill at eight o'clock.">Copy</button></div>
+      <p>Everybody who tells you Richmond is boring has never stood on this hill at eight o'clock.</p>
+    </div>
+    <p style="font-size:12.5px;opacity:0.78;margin-bottom:18px;"><b>Open or closed:</b> Open. It stakes a claim the viewer has to test and withholds both the hill and what happens on it. Topic is clear in two seconds.</p>
+
+    <div class="grid2">
+      <div class="pane teal"><div class="pane__k">The feeling to protect</div><p>Effortless belonging. The feeling that this is a normal weeknight for people who live here and you are the only one who did not know about it. Not spectacle, not an event ad, not FOMO. The moment it starts performing how special it is, the viewer stops believing it. Cut it like you are already a regular and you are just showing a friend where to park.</p></div>
+      <div class="pane red"><div class="pane__k">The trap</div><p>The party cut. Crowd, drone push, sun down, music, done. It will look gorgeous, it will get a nice comment section, and it recruits exactly the wrong buyer. The same footage with the cargo attached does both jobs at once. If a chapter has no cargo, it is B-roll, not a chapter.</p></div>
+    </div>
+    <div class="pane gold"><div class="pane__k">The one thing the whole video has to carry</div><p>Libby Hill is the overlook Richmond was named for, it sits in Church Hill, and standing on that side of the view has a price attached that has moved more than most of the city. The video is a place-and-price argument wearing a sunset.</p></div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Why This Video Exists</div>
+    <h2 class="title">The account's own numbers asked for this video.</h2>
+    <p class="lede">Four posts came out of the 8/13 shoot. Sorted by duration, every retention metric improved as the cut got longer: reach climbed, skip rate fell, average watch time nearly tripled. That is not a general claim about video. It is a specific finding about this footage, and it is why this material deserves six minutes instead of another sixty-second cut.</p>
+    <div class="argue">
+      <table class="arg">
+        <tr><th>Posted</th><th>Cut</th><th>Length</th><th>Reach</th><th>Shares</th><th>Skip</th><th>Avg watch</th></tr>
+        <tr class="">
+          <td>2026-08-13</td><td>teaser</td>
+          <td class="n">21s</td><td class="n">524</td>
+          <td class="n">1</td><td class="n">62.5%</td><td class="n">6s</td>
+        </tr><tr class="">
+          <td>2026-08-14</td><td>calling RVA boring</td>
+          <td class="n">57s</td><td class="n">8,190</td>
+          <td class="n">63</td><td class="n">48.8%</td><td class="n">10.9s</td>
+        </tr><tr class="best">
+          <td>2026-08-14</td><td>2nd fastest growing city</td>
+          <td class="n">91s</td><td class="n">11,058</td>
+          <td class="n">266</td><td class="n">46.7%</td><td class="n">16.2s</td>
+        </tr><tr class="">
+          <td>2026-08-15</td><td>re-run of the 8/14 cut</td>
+          <td class="n">61s</td><td class="n">4,046</td>
+          <td class="n">28</td><td class="n">60.1%</td><td class="n">9.9s</td>
+        </tr>
+      </table>
+    </div>
+    <div class="note">The 91-second cut is roughly ten times the account's median reach and 266 shares against a median of two. It is also the longest. Those two facts are the whole brief.</div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Hard Gate</div>
+    <h2 class="title">The cargo is <em>price, not people.</em></h2>
+    <p class="lede">The cargo is price, inventory, and days on market. Never who lives there and never who is arriving.</p>
+    <div class="alert red"><span class="alert__k">Why</span><span>The event note in the footage library describes the crowd as a live picture of who is moving into the East End. That is a fine internal observation and it is an unusable on-camera line. Church Hill is a historically Black neighborhood in fast price change, and characterizing who lives in or moves to a neighborhood is the exact pattern the audience gate drops on sight. It is also the kind of line that ends a license.</span></div>
+    <div class="grid2" style="margin-top:14px;">
+      <div class="pane red"><div class="pane__k">Never say</div><ul class="ticks"><li>Any description of who lives in Church Hill or the East End, or who is moving there.</li><li>Any 'the neighborhood is changing' framing that means people rather than prices.</li><li>Safe, sketchy, up-and-coming, transitional, good schools, family-friendly. All of them.</li><li>Any shot held long enough to make an individual in the crowd the subject.</li></ul></div>
+      <div class="pane teal"><div class="pane__k">Say instead</div><ul class="ticks"><li>Median price, price per square foot, days on market, active inventory, permits, what is under construction.</li><li>The history of the overlook and the naming of the city.</li><li>Wide crowd texture where no one person is the subject.</li></ul></div>
+    </div>
+    <div class="note">Bea and Cess have never been to Richmond and cannot be expected to feel where this line sits. That is why it is a gate on the brief and not a footnote.</div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">The Cut</div>
+    <h2 class="title">Six chapters. <em>One loop each.</em></h2>
+    <p class="lede">One question is held across the whole video and closes at the sunset. Underneath it, exactly one chapter question is open at a time, and each one gets paid before the next opens. Nothing here is decoration: if a chapter has no cargo, it is B-roll, not a chapter.</p>
+    
+      <div class="ch">
+        <div class="ch__top">
+          <span class="ch__n">1</span>
+          <span class="ch__t">Cold open</span>
+          <span class="pill">0:00 to 0:25</span>
+          <span class="pill">Block A</span>
+          
+        </div>
+        <p>Put the viewer on the hill before they know where they are or why it matters. Ambient sound, no music yet.</p>
+
+        <div class="lab">The one thing it has to carry</div>
+        <p>None yet, and that is deliberate. This is the only chapter allowed to run on atmosphere alone, because it is buying the next twenty seconds.</p>
+
+        <div class="lab">Loop ledger</div>
+        <div class="loopgrid">
+          
+          <div class="loopcell"><b>Opens L1, paid in chapter 2</b>Why do this many people climb a hill on an ordinary weeknight?</div>
+          
+          
+        </div>
+
+        
+        
+
+        <div class="lab">Pull these clips</div>
+        <p style="font-size:12.5px;opacity:0.75;margin-bottom:8px;">Arrival, 19:13 to 19:16. Crowd forming, light still flat. These ten carry no embedded timestamp so the crawler reads them as undated, but the Drive mtimes put them first in the night.</p>
+        
+        <div class="clip">
+          <code>DJI_0527.MP4</code>
+          <span class="lead">Lead</span>
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_0527.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_0522.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_0522.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_0523.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_0523.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_0525.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_0525.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_0529.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_0529.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_0521.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_0521.MP4">Copy path</button>
+        </div>
+        <p style="font-size:12.5px;opacity:0.78;margin-top:8px;"><b>Why the lead:</b> Largest of the arrival block at 320 MB, which usually means the longest continuous take. Best odds of a usable unbroken open.</p>
+      </div>
+      <div class="ch">
+        <div class="ch__top">
+          <span class="ch__n">2</span>
+          <span class="ch__t">The view the city was named for</span>
+          <span class="pill">0:25 to 1:30</span>
+          <span class="pill">Block B</span>
+          
+        </div>
+        <p>Pay the first loop with a fact the viewer did not have, then immediately make it about money.</p>
+
+        <div class="lab">The one thing it has to carry</div>
+        <p>Libby Hill is the overlook that gave Richmond its name. That is the reason the hill matters, and it turns a nice view into a piece of the city's origin.</p>
+
+        <div class="lab">Loop ledger</div>
+        <div class="loopgrid">
+          <div class="loopcell"><b>Closes L1</b>They are not here for a sunset. They are standing on the reason the city has its name.</div>
+          <div class="loopcell"><b>Opens L2, paid in chapter 3</b>So what does it cost to be on this side of that view?</div>
+          
+          
+        </div>
+
+        <div class="alert amber" style="margin-top:13px;"><span class="alert__k">Verify</span><span><b>William Byrd II named Richmond because the view of the James from this overlook reminded him of the view of the Thames from Richmond Hill in London.</b> Status: WIDELY DOCUMENTED LOCAL HISTORY, STILL UNVERIFIED IN THIS REPO. Miles confirms this against a primary or archival source before it is said on camera, or the line comes out. It is the single best fact in the video, which is exactly why it cannot be the one that is wrong. The account already has a piece calling other people out for repeating unsourced claims.</span></div>
+        
+
+        <div class="lab">Pull these clips</div>
+        <p style="font-size:12.5px;opacity:0.75;margin-bottom:8px;">Golden hour, 19:31 to 19:58. The two long takes are the best odds of a clean uninterrupted drone push over the overlook.</p>
+        
+        <div class="clip">
+          <code>DJI_20260813194021_0965_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813194021_0965_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813194743_0971_D.MP4</code>
+          <span class="lead">Lead</span>
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813194743_0971_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813193233_0960_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193233_0960_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813193347_0957_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193347_0957_D.MP4">Copy path</button>
+        </div>
+        <p style="font-size:12.5px;opacity:0.78;margin-top:8px;"><b>Why the lead:</b> 1.67 GB, the second longest take of the night. If a single clean push over the river exists, it is in here or in 0965.</p>
+      </div>
+      <div class="ch blocked">
+        <div class="ch__top">
+          <span class="ch__n">3</span>
+          <span class="ch__t">The number</span>
+          <span class="pill">1:30 to 3:00</span>
+          <span class="pill">Block B</span>
+          <span class="pill warn">Blocked</span>
+        </div>
+        <p>Answer the price question with real figures on screen, sourced and dated. This is the chapter that turns the video from a vibe piece into an authority piece.</p>
+
+        <div class="lab">The one thing it has to carry</div>
+        <p>Median price now, median price three years ago, and the gap between them. On-screen, with the month and the source visible.</p>
+
+        <div class="lab">Loop ledger</div>
+        <div class="loopgrid">
+          <div class="loopcell"><b>Closes L2</b>Here is the number, and here is what it was three years ago.</div>
+          <div class="loopcell"><b>Opens L3, paid in chapter 4</b>Why is that moving faster here than most of the city?</div>
+          
+          
+        </div>
+
+        
+        <div class="alert red" style="margin-top:13px;"><span class="alert__k">Blocked</span><span>The four CVR MLS numbers. This chapter does not get cut until they exist.</span></div>
+
+        <div class="lab">Pull these clips</div>
+        <p style="font-size:12.5px;opacity:0.75;margin-bottom:8px;">Crowd texture, 19:31 to 19:39. Wide only. Nobody in the crowd becomes the subject of a shot.</p>
+        
+        <div class="clip">
+          <code>DJI_20260813193154_0955_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193154_0955_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813193300_0956_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193300_0956_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813193441_0961_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193441_0961_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813193451_0958_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193451_0958_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813193615_0962_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193615_0962_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813193927_0964_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193927_0964_D.MP4">Copy path</button>
+        </div>
+        <p style="font-size:12.5px;opacity:0.78;margin-top:8px;"><b>Why the lead:</b> Early golden with the crowd already built. Best texture before the light goes.</p>
+      </div>
+      <div class="ch blocked">
+        <div class="ch__top">
+          <span class="ch__n">4</span>
+          <span class="ch__t">What is actually being built</span>
+          <span class="pill">3:00 to 4:30</span>
+          <span class="pill">Block B into C</span>
+          <span class="pill warn">Blocked</span>
+        </div>
+        <p>Answer why the number is moving, using supply rather than people. Inventory, days on market, and what is under construction.</p>
+
+        <div class="lab">The one thing it has to carry</div>
+        <p>Days on market and active inventory. Low inventory plus fast absorption is the whole explanation, and it is a supply story, which is the only version of this argument that is both true and sayable.</p>
+
+        <div class="lab">Loop ledger</div>
+        <div class="loopgrid">
+          <div class="loopcell"><b>Closes L3</b>It is not complicated. There is almost nothing for sale and it does not sit.</div>
+          <div class="loopcell"><b>Opens L4, paid in chapter 5</b>So is it already too late to get in?</div>
+          
+          
+        </div>
+
+        
+        <div class="alert red" style="margin-top:13px;"><span class="alert__k">Blocked</span><span>The four CVR MLS numbers.</span></div>
+
+        <div class="lab">Pull these clips</div>
+        <p style="font-size:12.5px;opacity:0.75;margin-bottom:8px;">Light dropping, 19:51 to 20:00. The visual turn from golden to sunset should land on this chapter's turn.</p>
+        
+        <div class="clip">
+          <code>DJI_20260813195329_0974_D.MP4</code>
+          <span class="lead">Lead</span>
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813195329_0974_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813195633_0975_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813195633_0975_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813195830_0976_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813195830_0976_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813194537_0969_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813194537_0969_D.MP4">Copy path</button>
+        </div>
+        <p style="font-size:12.5px;opacity:0.78;margin-top:8px;"><b>Why the lead:</b> 790 MB at 19:53, the light is turning here. Use the turn.</p>
+      </div>
+      <div class="ch">
+        <div class="ch__top">
+          <span class="ch__n">5</span>
+          <span class="ch__t">Sunset</span>
+          <span class="pill">4:30 to 5:45</span>
+          <span class="pill">Block C</span>
+          
+        </div>
+        <p>The payoff. Close the last chapter loop and the spine loop in the same breath, on the actual sunset. Let it breathe. This is the one place in the video where a long hold is correct.</p>
+
+        <div class="lab">The one thing it has to carry</div>
+        <p>The honest answer to whether it is too late, landed on the view rather than on a pitch.</p>
+
+        <div class="lab">Loop ledger</div>
+        <div class="loopgrid">
+          <div class="loopcell"><b>Closes L4</b>No. But the version of this you get in three years costs what the last three years cost.</div>
+          
+          <div class="loopcell"><b>Closes the spine</b>That is the argument. People who call it boring are describing a city they have never stood above at eight o'clock.</div>
+          
+        </div>
+
+        
+        
+
+        <div class="lab">Pull these clips</div>
+        <p style="font-size:12.5px;opacity:0.75;margin-bottom:8px;">20:00 to 20:29, sunset into blue hour. THE CRAWLER TAGS THIS BLOCK night BECAUSE IT BUCKETS ON hour &gt;= 20. Sunset on 8/13 was 20:12. A golden-only filter throws away the best shots of the night. Do not filter this block out.</p>
+        
+        <div class="clip">
+          <code>DJI_20260813200757_0984_D.MP4</code>
+          <span class="lead">Lead</span>
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813200757_0984_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813200019_0977_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813200019_0977_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813200328_0978_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813200328_0978_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813201541_0988_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813201541_0988_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813200712_0983_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813200712_0983_D.MP4">Copy path</button>
+        </div>
+        <p style="font-size:12.5px;opacity:0.78;margin-top:8px;"><b>Why the lead:</b> 2.56 GB at 20:07, the longest take of the entire night, shot five minutes before sunset. If one shot carries this chapter, it is this one.</p>
+      </div>
+      <div class="ch">
+        <div class="ch__top">
+          <span class="ch__n">6</span>
+          <span class="ch__t">Blue hour and the ask</span>
+          <span class="pill">5:45 to 6:30</span>
+          <span class="pill">Block C</span>
+          
+        </div>
+        <p>Leave on the walk-down, not on a hard sell. The CTA is a question pointed at the comments, then the guide.</p>
+
+        <div class="lab">The one thing it has to carry</div>
+        <p>The relocation guide and quiz, same thread as every short-form. One line, not a pitch.</p>
+
+        <div class="lab">Loop ledger</div>
+        <div class="loopgrid">
+          <div class="loopcell"><b>Closes In the comments, by design. This one is pointed at the comment section rather than the video.</b></div>
+          <div class="loopcell"><b>Opens CTA</b>What did you believe about Richmond before you watched this?</div>
+          
+          <div class="loopcell"><b>Where it closes</b>In the comments, by design. This one is pointed at the comment section rather than the video.</div>
+        </div>
+
+        
+        
+
+        <div class="lab">Pull these clips</div>
+        <p style="font-size:12.5px;opacity:0.75;margin-bottom:8px;">Last light, 20:27 to 20:29. People leaving. End on the walk-down.</p>
+        
+        <div class="clip">
+          <code>DJI_20260813202711_0990_D.MP4</code>
+          <span class="lead">Lead</span>
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813202711_0990_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813202900_0991_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813202900_0991_D.MP4">Copy path</button>
+        </div>
+        <div class="clip">
+          <code>DJI_20260813201809_0989_D.MP4</code>
+          
+          <button class="copy dark" data-copy="~/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813201809_0989_D.MP4">Copy path</button>
+        </div>
+        <p style="font-size:12.5px;opacity:0.78;margin-top:8px;"><b>Why the lead:</b> The crowd thinning at 20:27 is the natural outro. Do not end on the peak; end on the leaving.</p>
+      </div>
+    <div class="note"><b>The day-into-night version.</b> If the six-chapter cut lands and there is appetite for a bigger one, the same day has a daytime front half already shot: 28 clips in the 8:13:26 folder running 09:38 to 15:26 on 2026-08-13. That turns the video into one full day in Richmond ending on the hill. Do not attempt this on the first pass. Ship the six chapters first.</div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">What Miles Owes</div>
+    <h2 class="title">Five inserts and <em>four numbers.</em></h2>
+    <p class="lede">These are not an intro. Each one sits on a chapter boundary and does structural work: it closes the loop just opened and opens the next one, then cuts back to footage. That is what makes them scene changes rather than decoration, and scene changes are what carry a viewer through six minutes. Shoot all five in one sitting, anywhere, same wardrobe.</p>
+    <div class="alert red"><span class="alert__k">Gate</span><span>Chapters 3 and 4 CANNOT be cut until these four numbers exist with a named source. Do not estimate them, do not pull them from a blog, and do not let the edit paper over a blank. A wrong number on camera costs more than a late video. Source: CVR MLS. Miles has access, the editors do not.</span></div>
+    <ul class="ticks" style="margin-bottom:20px;"><li>Church Hill / East End median sale price, most recent full month, with the month named.</li><li>The same figure three years ago, so the change is a comparison and not an adjective.</li><li>Median days on market right now for that area.</li><li>Active inventory count right now for that area.</li></ul>
+    
+      <div class="ins">
+        <div class="ins__top">
+          <span class="ins__n">Insert 1</span>
+          <span class="pill">0:00 to 0:12</span>
+          <span class="pill">HOOK</span>
+        </div>
+        <div class="ins__h">Opens the video, before chapter 1 breathes</div>
+        <div class="say">Everybody who tells you Richmond is boring has never stood on this hill at eight o'clock. I want to show you what actually happens up here, and then I want to show you what it costs.</div>
+        <dl class="meta">
+          <dt>Where</dt><dd>Anywhere. Car, desk, kitchen. Not the hill.</dd>
+          <dt>Frame</dt><dd>Selfie, arm's length, chest up. Plain background on purpose so the hill hits harder when we cut to it.</dd>
+          <dt>Move</dt><dd>Locked. Do not walk. Say the whole line before you move.</dd>
+          <dt>Intent</dt><dd>The viewer should feel told, not sold. Flat delivery of a real claim.</dd>
+          <dt>Note</dt><dd>This is the only insert that is allowed to feel like an intro. Every one after it is a hinge.</dd>
+        </dl>
+      </div>
+      <div class="ins">
+        <div class="ins__top">
+          <span class="ins__n">Insert 2</span>
+          <span class="pill">0:25 to 0:38</span>
+          <span class="pill">L1 CLOSE, L2 OPEN</span>
+        </div>
+        <div class="ins__h">Between chapter 1 and chapter 2</div>
+        <div class="say">They are not up here for a sunset. This is Libby Hill, and this is the view the city got its name from. Which means the question is not whether it is nice. The question is what it costs to be on this side of it.</div>
+        <dl class="meta">
+          <dt>Where</dt><dd>Same setup as insert 1.</dd>
+          <dt>Frame</dt><dd>Same. Consistency across the five is what makes them read as one thread and not five interruptions.</dd>
+          <dt>Move</dt><dd>Locked.</dd>
+          <dt>Intent</dt><dd>Deliver the naming fact like it is common knowledge you assumed they had. No reveal music, no lean-in.</dd>
+          <dt>Note</dt><dd>The naming claim is gated. Do not shoot this line until the source is confirmed.</dd>
+        </dl>
+      </div>
+      <div class="ins">
+        <div class="ins__top">
+          <span class="ins__n">Insert 3</span>
+          <span class="pill">1:30 to 1:45</span>
+          <span class="pill">L2 CLOSE, L3 OPEN</span>
+        </div>
+        <div class="ins__h">Between chapter 2 and chapter 3</div>
+        <div class="say">[MEDIAN NOW] today. [MEDIAN 3YR AGO] three years ago. Same neighborhood. And that is moving faster here than almost anywhere else in the city, which is the part people get wrong about why.</div>
+        <dl class="meta">
+          <dt>Where</dt><dd>Same setup.</dd>
+          <dt>Frame</dt><dd>Same.</dd>
+          <dt>Move</dt><dd>Locked.</dd>
+          <dt>Intent</dt><dd>State the number the way you would say the weather. The flatness is the flex.</dd>
+          <dt>Note</dt><dd>BLOCKED until the CVR MLS numbers exist. Do not shoot a placeholder.</dd>
+        </dl>
+      </div>
+      <div class="ins">
+        <div class="ins__top">
+          <span class="ins__n">Insert 4</span>
+          <span class="pill">3:00 to 3:15</span>
+          <span class="pill">L3 CLOSE, L4 OPEN</span>
+        </div>
+        <div class="ins__h">Between chapter 3 and chapter 4</div>
+        <div class="say">It is not complicated. There is almost nothing for sale up here and what does list does not sit. [DOM] days. [INVENTORY] active. So the real question, and the one I get asked most, is whether you already missed it.</div>
+        <dl class="meta">
+          <dt>Where</dt><dd>Same setup.</dd>
+          <dt>Frame</dt><dd>Same.</dd>
+          <dt>Move</dt><dd>Locked.</dd>
+          <dt>Intent</dt><dd>The supply answer, delivered as the obvious thing everyone missed.</dd>
+          <dt>Note</dt><dd>BLOCKED until the CVR MLS numbers exist.</dd>
+        </dl>
+      </div>
+      <div class="ins">
+        <div class="ins__top">
+          <span class="ins__n">Insert 5</span>
+          <span class="pill">4:30 to 4:48</span>
+          <span class="pill">L4 CLOSE, SPINE CLOSE</span>
+        </div>
+        <div class="ins__h">Into chapter 5, over the sunset</div>
+        <div class="say">No, you did not miss it. But the version of this you get in three years is going to cost what the last three years cost. That is the whole argument. The people calling it boring are describing a city they have never stood above at eight o'clock.</div>
+        <dl class="meta">
+          <dt>Where</dt><dd>Same setup, or voiceover over the sunset hold if the cut wants it.</dd>
+          <dt>Frame</dt><dd>Same. If it plays better as VO, the editors make that call and say so.</dd>
+          <dt>Move</dt><dd>Locked.</dd>
+          <dt>Intent</dt><dd>Land it and stop talking. Do not add a sentence after the last one.</dd>
+          <dt>Note</dt><dd>Nothing after this except the CTA. Resist adding a wrap-up.</dd>
+        </dl>
+      </div>
+    <div class="alert green"><span class="alert__k">If they never get shot</span><span>If these never get shot, the video still ships. The hinges run on the curated golden-hour talking head DJI_20260704185126_0301_D.MP4 plus on-screen text chips carrying the loop language. It is weaker and the brief says so plainly. It exists so this video is never blocked on Miles again, because two of the last seven weeks already were.</span></div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Harvest</div>
+    <h2 class="title">This one video pays down <em>five of the fourteen.</em></h2>
+    <p class="lede">One long-form should retire five of the fourteen weekly short-form slots, per the harvest model already specified in projects/parent-trip-content. These are not extra work, they are the same edit sliced again.</p>
+    <ul class="ticks"><li>The naming fact on its own. Chapter 2 cargo, 30 seconds, Authority shape.</li><li>The number, on screen, over the golden-hour push. Chapter 3, Authority shape.</li><li>The supply explanation. Chapter 4, Numbered Series shape.</li><li>The sunset hold with the spine close as the only line. Chapter 5, Polarity shape.</li><li>The CTA question over blue hour. Chapter 6, Audience Question shape.</li></ul>
+    <div class="alert amber" style="margin-top:14px;"><span class="alert__k">Careful</span><span>Cut these from the long-form timeline, not from the raw clips again. Recutting from raw is how the same three shots end up in nine different posts.</span></div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Done Means</div>
+    <h2 class="title">All five, <em>not four.</em></h2>
+    <ul class="ticks"><li>Every loop that opens is closed, in the order it opened, spine last.</li><li>No chapter runs on atmosphere alone except chapter 1.</li><li>Every number on screen carries its month and its source.</li><li>Nobody in the crowd is the subject of a shot.</li><li>It goes up without Miles opening CapCut.</li></ul>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Next Up</div>
+    <h2 class="title">Already shot. <em>Already yours.</em></h2>
+    <p class="lede">Every entry below is material that is already shot. Nothing here waits on a shoot day. The standing rule: one long-form a week, pulled off this queue, never waiting on Miles.</p>
+    
+      <div class="q">
+        <div class="q__top"><span class="q__r">1</span><span class="q__t">The Fan, pros and cons, 2026</span><span class="pill">Contrast. What the Fan was sold as versus what a year of numbers says.</span></div>
+        <div class="q__m">128 golden-hour clips, 25.5 GB, shot 2025-05-17 to 05-30</div>
+        <p>There is already a Fan long-form on the channel and it is the second best performer all time at 1,154 views. The 2025 footage was cut once and never revisited. A 2026 update against a year of price movement is the single most obvious video in the library.</p>
+        <p style="margin-top:7px;"><b>Needs from Miles:</b> Current Fan median and DOM, and whether the 2025 cut's take still holds.</p>
+      </div>
+      <div class="q">
+        <div class="q__top"><span class="q__r">2</span><span class="q__t">Scott's Addition, revisited</span><span class="pill">Contrast, same as the original, with a year of construction as the new evidence.</span></div>
+        <div class="q__m">22 golden plus 39 night clips, 5.1 GB, shot 2025-04-26 to 04-30</div>
+        <p>The existing Scott's Addition video is the account's best YouTube ever at 1,210 views. Beating your own best with footage you already own is the cheapest win available.</p>
+        <p style="margin-top:7px;"><b>Needs from Miles:</b> What actually got built there since April 2025. He knows; the footage does not.</p>
+      </div>
+      <div class="q">
+        <div class="q__top"><span class="q__r">3</span><span class="q__t">One Fourth of July in Richmond</span><span class="pill">Courage Arc or Origin. This one is allowed to be personal, because it is the only day on the list that is.</span></div>
+        <div class="q__m">12 curated golden-hour clips, 18:19 to 18:53 on 2026-07-04, plus a curated golden-hour talking head</div>
+        <p>The only fully curated golden-hour run in the entire 2,610-clip library. A human already went through and vouched for every one of these, which makes it the lowest-risk cut on the list. It also holds DJI_20260704185126_0301_D.MP4, the talking head that is the fallback narration anchor for every video here.</p>
+        <p style="margin-top:7px;"><b>Needs from Miles:</b> Nothing. This one is cuttable today.</p>
+      </div>
+      <div class="q">
+        <div class="q__top"><span class="q__r">4</span><span class="q__t">WellFit Wednesday</span><span class="pill">Contrast. The city people say has nothing going on, on a Wednesday.</span></div>
+        <div class="q__m">36 clips, one continuous 17:45 to 19:42 run on 2026-07-29</div>
+        <p>Structurally identical to Vibes at Sunset: one recurring Richmond event, one unbroken evening, golden hour throughout. If the Vibes brief works, this one is the same brief with different clips, which is the whole point of building the format once.</p>
+        <p style="margin-top:7px;"><b>Needs from Miles:</b> Whether WellFit is weekly, and who runs it, so it can go on the forward calendar as a recurring cue.</p>
+      </div>
+    <a class="linkbtn" href="editor-ideas.html">Today's Idea Board &rarr;</a>
+    <a class="linkbtn" href="editor-scorecard.html">The Scorecard &rarr;</a>
+    <a class="linkbtn" href="editor-hub.html">Back to the Editor Room &rarr;</a>
+  </section>
+
+  <footer class="foot">
+    Built for the MAMS editor room &middot; <em>Miles Agee</em> &middot; MAMS LLC &middot; generated 2026-09-01
+  </footer>
+
+</div>
+<div id="toast">Copied</div>
+<script>
+  function toast() {
+    var el = document.getElementById('toast');
+    el.classList.add('show');
+    setTimeout(function () { el.classList.remove('show'); }, 1100);
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-copy]');
+    if (!b) return;
+    var text = b.getAttribute('data-copy');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(toast, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', '');
+      ta.style.position = 'absolute'; ta.style.left = '-9999px';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); toast(); } catch (err) {}
+      document.body.removeChild(ta);
+    }
+  });
+</script>
+</body>
+</html>

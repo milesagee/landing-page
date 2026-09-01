@@ -64,6 +64,7 @@
   .verd.blocked { background: rgba(154,107,24,0.10); color: var(--amber); border: 1px solid rgba(154,107,24,0.34); }
   .verd.unknown { background: var(--paper-soft); color: rgba(0,63,63,0.55); border: 1px solid var(--line); }
   .verd.dir { background: rgba(0,95,95,0.08); color: var(--teal); border: 1px solid rgba(0,95,95,0.28); }
+  .verd.pay { background: var(--gold); color: var(--deep-teal); border: 1px solid var(--gold-dark); }
   .m__target { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.55; }
   .m__note { font-size: 13.5px; line-height: 1.55; opacity: 0.88; }
   .m__caveat { font-size: 12px; line-height: 1.5; margin-top: 9px; padding: 9px 12px; border-radius: 6px; background: var(--paper-soft); border: 1px solid var(--line); opacity: 0.9; }
@@ -149,6 +150,14 @@
   </section>
 
   <section class="block">
+    <div class="eyebrow">What This Counts For</div>
+    <h2 class="title">"A piece I would not post does not count toward the fourteen."</h2>
+    <p class="lede">The weekly bar is measured net of the clear rate, not gross of delivery. Fourteen handed over at a 73 percent clear rate counts as ten. On Week 6 that is <b>12 handed over, 9 counted</b>.</p>
+    <div class="alert amber"><span class="alert__k">Why</span><span>Paying for delivery rather than for usable work means paying for the quarter that never goes up. The clear rate is the only measure here that is Miles's actual judgement applied to every single piece rather than a proxy for it.</span></div>
+    <div class="note"><b>The tier.</b> The step to $1,000 holds for another four to five weeks, and it is gated on this page clearing, not on a date. Stated 2026-09-01. The gross delivery number stays on this page next to the counted one, so nothing about how it is calculated is hidden.</div>
+  </section>
+
+  <section class="block">
     <div class="eyebrow">The Six</div>
     <h2 class="title">3 of 5 table-stakes measures missed. That is a failed week, and it is a number rather than a mood.</h2>
     <p class="lede">Five of these are table stakes and they set the verdict. The sixth is initiative, and it is reported beside the verdict rather than inside it, on purpose. It is the measure that answers whether this room owns the output or waits for the ask, and it is also the one parsed from a chat thread, so it never moves pay on its own.</p>
@@ -158,10 +167,11 @@
           <span class="m__n">1. Delivered</span>
           <span class="verd blocked">Blocked</span>
           
+          
           <span class="m__v">12 / 14</span>
         </div>
         <div class="m__target">Bar: 14 handed over</div>
-        <p class="m__note" style="margin-top:7px;">Pieces 73 to 84. 2 short of the bar. There is a blocked state on record inside this week, so this is not a clean miss.</p>
+        <p class="m__note" style="margin-top:7px;">Pieces 73 to 84. 2 short of the bar, gross. What counts toward the bar is net of the clear rate below. There is a blocked state on record inside this week, so this is not a clean miss.</p>
         
       </div>
 
@@ -170,17 +180,19 @@
           <span class="m__n">2. Clear rate</span>
           <span class="verd miss">Missed</span>
           
+          <span class="verd pay">Counts toward pay</span>
           <span class="m__v">73%</span>
         </div>
         <div class="m__target">Bar: 90% of what is delivered is postable</div>
         <p class="m__note" style="margin-top:7px;">61 of 83 judged pieces went live since 2026-07-14. 22 did not, which is more than one in four. A cut that does not go up is not sitting in a queue, it got looked at and it did not clear the bar. That makes this the most direct read on quality on the card, and at 73% it means roughly 4 of every fourteen delivered are being paid for and not used.</p>
-        <div class="m__caveat"><b>What this number cannot see.</b> Excludes 4 pieces delivered this week that have not been judged yet. Counted cumulatively, never per week, because a Friday handoff routinely goes up the following Tuesday. The posted figure is Miles's hand count of 61 on 2026-08-27, which is authoritative: nothing on disk separates an editor's cut from a post Miles made himself, and the auto-count of 79 included both.</div>
+        <div class="m__caveat"><b>What this number cannot see.</b> Excludes 4 pieces delivered this week that have not been judged yet. Counted cumulatively, never per week, because a Friday handoff routinely goes up the following Tuesday. The posted figure is Miles's hand count of 61 on 2026-08-27, which is authoritative: nothing on disk separates an editor's cut from a post Miles made himself, and the auto-count of 80 included both.</div>
       </div>
 
       <div class="m miss">
         <div class="m__top">
           <span class="m__n">3. Long-form</span>
           <span class="verd miss">Missed</span>
+          
           
           <span class="m__v">0 / 1</span>
         </div>
@@ -194,10 +206,11 @@
           <span class="m__n">4. Mix</span>
           <span class="verd miss">Missed</span>
           
-          <span class="m__v">8.8 / 14</span>
+          
+          <span class="m__v">7 / 14</span>
         </div>
         <div class="m__target">Bar: at most 5 of 14 unshaped</div>
-        <p class="m__note" style="margin-top:7px;">8.8 pieces a week land in Direct / Other, the bucket for cuts the classifier cannot read a shape in. It takes 106 of those to produce one breakout. A cut lands there when the shape was never decided before the edit started.</p>
+        <p class="m__note" style="margin-top:7px;">7 pieces a week land in Direct / Other, the bucket for cuts the classifier cannot read a shape in. It takes 106 of those to produce one breakout. A cut lands there when the shape was never decided before the edit started.</p>
         <div class="m__caveat"><b>What this number cannot see.</b> Measured on posted work over the last 4 completed weeks, because the shape is read from the caption. This is the one line on the card that is not counted at handoff, so it lags the others.</div>
       </div>
 
@@ -205,6 +218,7 @@
         <div class="m__top">
           <span class="m__n">5. Redo rate</span>
           <span class="verd pass">Clear</span>
+          
           
           <span class="m__v">8%</span>
         </div>
@@ -218,6 +232,7 @@
           <span class="m__n">6. Initiative</span>
           <span class="verd pass">Clear</span>
           <span class="verd dir">Directional</span>
+          
           <span class="m__v">8 / 3</span>
         </div>
         <div class="m__target">Bar: 3 of 14 nobody asked for</div>
@@ -255,7 +270,7 @@
           <span class="bm__l">$140K+ a year</span>
           <span class="bm__d">August 8 &middot; craft</span>
         </div>
-        <div class="bm__nums"><b>2,104</b> reach &middot; <b>8</b> shares &middot; <b>4</b> saves</div>
+        <div class="bm__nums"><b>2,124</b> reach &middot; <b>8</b> shares &middot; <b>4</b> saves</div>
         <div class="bm__cap">"Around $140K+ a year. That's the salary that puts you in a $550K+ home by the river..."</div>
         <div class="bm__why">A hard number in the first line, aimed at exactly one person: the funded relocator deciding whether Richmond is reachable. It does not ask the viewer to feel something about the city, it tells them what it costs to live in a specific part of it. That is the whole difference between a piece with cargo and a piece with only a vehicle.</div>
         <div class="bm__miles"><b>Miles:</b> The single best piece they have made. This is the level everything needs to be at. It also took multiple rounds of revisions, and after the final was handed over Miles still went into the shared CapCut space and made his own tweaks, so it was not clean on arrival.</div>
@@ -266,7 +281,7 @@
           <span class="bm__l">2nd fastest growing city</span>
           <span class="bm__d">August 14 &middot; distribution</span>
         </div>
-        <div class="bm__nums"><b>11,058</b> reach &middot; <b>266</b> shares &middot; <b>65</b> saves</div>
+        <div class="bm__nums"><b>11,131</b> reach &middot; <b>267</b> shares &middot; <b>65</b> saves</div>
         <div class="bm__cap">"The 2nd fastest growing city in the country is a WHOLE VIBEEEEE. Vibes at Sunset is a..."</div>
         <div class="bm__why">Same move as the first one. A claim with a number, then the vibe as the delivery vehicle rather than the payload. This is the proof that the two are not in tension.</div>
         <div class="bm__miles"><b>Miles:</b> The second best, and the one that travelled furthest by a wide margin.</div>
@@ -277,7 +292,7 @@
           <span class="bm__l">Vibes at Sunset, calling RVA boring</span>
           <span class="bm__d">August 14 &middot; distribution</span>
         </div>
-        <div class="bm__nums"><b>8,190</b> reach &middot; <b>63</b> shares &middot; <b>33</b> saves</div>
+        <div class="bm__nums"><b>8,276</b> reach &middot; <b>63</b> shares &middot; <b>32</b> saves</div>
         <div class="bm__cap">"Vibes as Sunset and you're calling RVA boring!? The amount of times I've heard people..."</div>
         <div class="bm__why">Polarity. Names the objection out loud and then answers it with footage.</div>
         <div class="bm__miles"><b>Miles:</b> Posted right after the second-fastest-growing piece, same night.</div>
@@ -288,7 +303,7 @@
           <span class="bm__l">Vibes at Sunset, second run</span>
           <span class="bm__d">August 15 &middot; distribution</span>
         </div>
-        <div class="bm__nums"><b>4,046</b> reach &middot; <b>28</b> shares &middot; <b>10</b> saves</div>
+        <div class="bm__nums"><b>4,188</b> reach &middot; <b>29</b> shares &middot; <b>10</b> saves</div>
         <div class="bm__cap">"Vibes as Sunset and you're calling RVA boring!? The amount of times I've heard people..."</div>
         <div class="bm__why">Evidence the material had more than one night in it.</div>
         <div class="bm__miles"><b>Miles:</b> The next day, same material.</div>
@@ -378,7 +393,7 @@
           <td><b>Week 7</b> <span class="m__target">in flight</span></td>
           <td>August 24 to August 26</td>
           <td class="n ">4 / 14</td>
-          <td class="n">4</td>
+          <td class="n">5</td>
           <td class="n">0%</td>
           <td class="n bad">0</td>
           <td></td>
@@ -397,13 +412,13 @@
       <b>Delivery.</b> drive-handoff (7 week folders), read straight off the shared Drive week folders you name yourselves.<br/>
       <b>Announcements.</b> 51 delivery announcements, read from the group thread. Used to date things and to catch blocked states, never to set a count.<br/>
       <b>Mix.</b> economics.json, 4 completed weeks of posted work. Measured on posted work, because the shape is read from the caption.<br/>
-      <b>Publish record.</b> Metricool through 2026-08-25. Never the Drive POSTED folder, which is filing and holds only part of what is actually live.<br/>
+      <b>Publish record.</b> Metricool through 2026-08-26. Never the Drive POSTED folder, which is filing and holds only part of what is actually live.<br/>
       <b>Attribution.</b> Team level, never per person. Two editors on a shared Drive with no per-person handoff signal means a per-person number would be invented rather than measured.
     </div>
   </section>
 
   <footer class="foot">
-    Built for the MAMS editor room &middot; <em>Miles Agee</em> &middot; MAMS LLC &middot; generated 2026-08-27
+    Built for the MAMS editor room &middot; <em>Miles Agee</em> &middot; MAMS LLC &middot; generated 2026-09-01
   </footer>
 
 </div>
