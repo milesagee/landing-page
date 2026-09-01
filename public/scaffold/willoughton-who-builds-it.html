@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>2705 Willoughton | Who Actually Builds It</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+:root{
+  --deep-teal:#003F3F; --teal:#005F5F; --teal-light:#80AFAF;
+  --gold:#D4AF37; --gold-soft:#E2CA7A; --gold-dark:#B1922E;
+  --paper:#FAF7F1; --paper-soft:#f3ede1; --ivory:#fff;
+  --line:rgba(0,63,63,.16); --line-strong:rgba(0,63,63,.32);
+  --shadow-sm:0 2px 12px rgba(0,63,63,.06); --shadow-md:0 12px 32px rgba(0,63,63,.10);
+  --serif:'Fraunces','Times New Roman',serif; --sans:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+  --ease:cubic-bezier(.2,.9,.3,1.2);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--paper);color:var(--deep-teal);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.14;color:var(--deep-teal)}
+em.g{font-style:italic;color:var(--gold-dark)}
+.section{padding:36px 0;border-top:1px solid var(--line)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.kicker .n{font-family:var(--serif);font-size:13px;color:var(--gold-dark);border:1px solid var(--line-strong);border-radius:999px;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+p{font-size:16.5px;margin-top:14px;max-width:64ch}
+p.lead{font-size:18.5px}
+a{color:var(--teal);text-decoration:underline;text-decoration-color:rgba(0,95,95,.32);text-underline-offset:3px;transition:color .18s var(--ease),text-decoration-color .18s var(--ease)}
+a:hover{color:var(--gold-dark);text-decoration-color:var(--gold)}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
+.hero{position:relative;overflow:hidden;background:
+   radial-gradient(120% 90% at 12% 0%, rgba(0,95,95,.10), transparent 60%),
+   radial-gradient(90% 80% at 100% 8%, rgba(212,175,55,.14), transparent 55%),
+   var(--paper);padding:34px 0 32px}
+.logo{height:38px;mix-blend-mode:multiply;margin-bottom:24px;opacity:.95}
+.hero h1{font-size:clamp(29px,7vw,44px);margin-top:8px}
+.tag{display:inline-block;font-size:12.5px;font-weight:600;color:var(--teal);background:rgba(0,95,95,.08);border:1px solid var(--line);border-radius:999px;padding:5px 13px;margin-right:6px;margin-bottom:6px}
+.band{border-radius:18px;padding:22px;box-shadow:var(--shadow-md);margin-top:24px;background:linear-gradient(160deg,#0a4f4f,#003a3a);color:#eafaf6}
+.band .lbl{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft)}
+.band h2{font-size:22px;margin-top:8px;color:#fff}
+.band p{color:rgba(234,250,246,.88);font-size:16px}
+.band a{color:var(--gold-soft);text-decoration-color:rgba(226,202,122,.45)}
+.band a:hover{color:#fff}
+/* the two-company diagram */
+.jv{display:grid;grid-template-columns:1fr;gap:12px;margin-top:22px}
+@media(min-width:620px){.jv{grid-template-columns:1fr 1fr}}
+.co{background:var(--ivory);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow-sm);position:relative}
+.co .role{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dark)}
+.co h3{font-size:19px;margin-top:6px}
+.co .sub{font-size:13px;color:var(--teal);margin-top:3px}
+.co ul{list-style:none;margin-top:13px}
+.co li{font-size:14.5px;color:var(--teal);padding-left:17px;position:relative;margin-top:8px;line-height:1.5}
+.co li:before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.co.builder{background:linear-gradient(165deg,#fbf3da,#f5e9cc);border-color:rgba(177,146,46,.42)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.stat{background:var(--ivory);border:1px solid var(--line);border-radius:14px;padding:15px 16px;box-shadow:var(--shadow-sm)}
+.stat .v{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1}
+.stat .v small{font-size:14px;color:var(--gold-dark);font-weight:600}
+.stat .k{font-size:12.5px;color:var(--teal);margin-top:7px;line-height:1.4}
+.stat.warn{background:linear-gradient(160deg,#fbf3da,#f6ead0);border-color:rgba(177,146,46,.4)}
+.stat.warn .v{color:var(--gold-dark)}
+.ask{background:var(--ivory);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 14px 14px 0;padding:16px 18px;margin-top:14px;box-shadow:var(--shadow-sm)}
+.ask h3{font-size:17px}
+.ask p{font-size:15px;margin-top:8px;color:var(--teal)}
+.quote{background:var(--paper-soft);border:1px solid var(--line);border-radius:14px;padding:17px 19px;margin-top:18px}
+.quote q{font-family:var(--serif);font-size:17.5px;font-style:italic;color:var(--deep-teal);line-height:1.5;display:block}
+.quote cite{display:block;font-style:normal;font-size:12.5px;color:var(--teal);margin-top:11px}
+.gapbox{background:rgba(0,63,63,.045);border:1px dashed var(--line-strong);border-radius:14px;padding:16px 18px;margin-top:16px}
+.gapbox li{font-size:14.5px;color:var(--teal);margin-top:7px;margin-left:17px;line-height:1.5}
+.src{font-size:13px;color:var(--teal);margin-top:9px;line-height:1.55}
+footer{padding:30px 0 44px;border-top:1px solid var(--line);margin-top:34px}
+footer p{font-size:13px;color:var(--teal);max-width:60ch}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="mams-logo-mark.png" alt="MAMS"/>
+    <span class="eyebrow">2705 Willoughton Lane &middot; The Enclave at Willow Oaks</span>
+    <h1>You asked who is <em class="g">actually</em> building this house.</h1>
+    <p class="lead">It is a fair question, and the answer is not the name on the sign. Two companies are involved, they say so themselves, and the one holding the license has been building in Richmond since 1988.</p>
+    <div style="margin-top:18px">
+      <span class="tag">5 bed &middot; 4 bath &middot; 3,372 sq ft</span>
+      <span class="tag">Listed $1,195,000</span>
+      <span class="tag">CVRMLS 2622633</span>
+    </div>
+    <div class="band">
+      <span class="lbl">The short version</span>
+      <h2>Richmond Hill designs and develops it. LifeStyle builds it.</h2>
+      <p>On 19 of the 20 new construction permits pulled for their homes, including the permit for this one, the contractor of record is <strong>LifeStyle Builders and Developers Inc</strong>. Richmond Hill Design + Build is listed as the owner or applicant. This is disclosed, not hidden. It is written on <a href="https://www.richmondhillbuilds.com/about-us/">their own About page</a>.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section">
+    <div class="kicker"><span class="n">1</span> Why two names</div>
+    <h2>A joint venture, stated in their own words</h2>
+    <div class="quote">
+      <q>Kevin McNulty is owner of LifeStyle Home Builders and is the joint venture partner with Richmond Hill Design + Build. LifeStyle handles all of the vertical construction and warranty for the joint venture.</q>
+      <cite>Richmond Hill Design + Build, <a href="https://www.richmondhillbuilds.com/about-us/">richmondhillbuilds.com/about-us</a>, read September 1, 2026</cite>
+    </div>
+    <p>The city permit file matches that statement. On the building permit for 2705 Willoughton, <a href="https://energov.richmondgov.com/energov_prod/selfservice#/permit/6fb02c22-9d24-4d0e-9e57-8fa77a2c4b98">BLDR-156979-2025</a>, the contractor of record reads LIFESTYLE BUILDERS AND DEVELOPERS INC and the owner reads Lloyd M Poe Investments Inc.</p>
+    <p>There is one more piece that explains the whole arrangement. Lloyd Poe founded LifeStyle, ran it for decades, and <a href="https://www.richmondhillbuilds.com/about-us/">sold it in 2016</a>. He started Richmond Hill in 2018 with his daughter Vanessa, an architect. So the design company and the construction company are not strangers who found each other. They share a founder.</p>
+    <div class="jv">
+      <div class="co">
+        <span class="role">Design and development</span>
+        <h3>Richmond Hill Design Build LLC</h3>
+        <div class="sub">Formed April 4, 2018 &middot; Active &middot; SCC ID S7441910</div>
+        <ul>
+          <li>Buys the land and creates the neighborhood</li>
+          <li>Designs the homes. Vanessa Poe is the architect</li>
+          <li>Owner or applicant on the permits</li>
+          <li>Listed as <strong>license not required</strong> on BuildZoom, which is consistent with a developer rather than a contractor</li>
+        </ul>
+      </div>
+      <div class="co builder">
+        <span class="role">The licensed builder</span>
+        <h3>LifeStyle Builders and Developers Inc</h3>
+        <div class="sub">In business since 1988 &middot; Founded by Lloyd Poe</div>
+        <ul>
+          <li>Contractor of record on the permit for this house</li>
+          <li>Holds the Virginia contractor licenses, 2701032729 and 2705034632</li>
+          <li>Better Business Bureau file open since January 1993, rated A+, with no complaints listed</li>
+          <li>Carries the warranty for the joint venture, per Richmond Hill</li>
+        </ul>
+      </div>
+    </div>
+    <p class="src">Sources: <a href="https://data.virginia.gov/dataset/state-corporation-commission-business-entity-data">Virginia State Corporation Commission entity data</a>, <a href="https://www.buildzoom.com/contractor/richmond-hill-design-build">BuildZoom, Richmond Hill</a>, <a href="https://www.buildzoom.com/contractor/lifestyle-builders-developers-inc">BuildZoom, LifeStyle</a>, <a href="https://www.bbb.org/us/va/midlothian/profile/home-builders/lifestyle-builders-developers-inc-0603-9001312">BBB profile for LifeStyle</a>. All read September 1, 2026.</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker"><span class="n">2</span> The build record</div>
+    <h2>What the permit file shows</h2>
+    <p>Twenty new construction permits in the City of Richmond between May 2021 and February 2026, pulled under Richmond Hill or a Poe entity. This is the part that substitutes for reviews, because permits are filed with the city and cannot be curated.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">20</div><div class="k">New construction permits, May 2021 to February 2026</div></div>
+      <div class="stat"><div class="v">13 <small>finaled</small></div><div class="k">Passed final inspection. 6 still open, 1 expired</div></div>
+      <div class="stat"><div class="v">$4.66<small>M</small></div><div class="k">Total declared construction valuation across the 20</div></div>
+      <div class="stat"><div class="v">369 <small>days</small></div><div class="k">Median time from permit issued to final inspection</div></div>
+      <div class="stat"><div class="v">0</div><div class="k">Federal court cases in either Virginia district, against the company or its principals</div></div>
+      <div class="stat"><div class="v">0</div><div class="k">Complaints on file at the Better Business Bureau for the building company</div></div>
+    </div>
+    <p class="src">Permit data read September 1, 2026 from the City of Richmond Energov permit records. Court check run against the <a href="https://www.courtlistener.com/">CourtListener federal docket database</a> for the Eastern and Western Districts of Virginia, including bankruptcy.</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker"><span class="n">3</span> Homes already finished</div>
+    <h2>What their completed houses have sold for</h2>
+    <p>Their largest finished project is the Enclave at Westview in the near West End. Those homes run about 3,400 to 3,500 square feet and have sold in the $1.5M to $1.6M range. This house is 3,372 square feet at $1,195,000, which works out to roughly $354 per square foot, below what their Westview homes have brought.</p>
+    <p>South of the river, the two most recent finished homes are <strong>4209 and 4217 Echo Ho Lane</strong> in Stony Point. Both permits reached final inspection. 4209 sold at $1,250,000 in July 2025. 4217 has been listed between $1,275,000 and $1,299,990.</p>
+    <div class="ask">
+      <h3>On the Cherokee Road homes you mentioned</h3>
+      <p>Twenty four streets were searched in the city permit system and no Cherokee Road permit came back under this builder. That does not mean it did not happen, it means it is not in what was pulled. Send me the house number and I will pull that specific permit file and tell you who was listed as contractor on it.</p>
+    </div>
+    <p class="src">Sale figures come from MLS derived listing sites, not from recorded deeds, because the city moved its deed records behind a portal that is not publicly queryable. Sources: <a href="https://www.homes.com/property/4217-echo-ho-ln-richmond-va/hr5gmsg53jw63/">homes.com, 4217 Echo Ho Ln</a>, <a href="https://enclaveatwestview.com/">enclaveatwestview.com</a>, <a href="https://richmondbizsense.com/2024/05/15/infills-adding-11-million-dollar-homes-near-patterson-and-libbie/">Richmond BizSense, May 2024</a>.</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker"><span class="n">4</span> Before you act</div>
+    <h2>Three things I want in writing first</h2>
+    <div class="ask">
+      <h3>The warranty document, and whose name is on it</h3>
+      <p>No written warranty is published anywhere. Not on Richmond Hill's site, not on the Enclave at Westview site, and not on LifeStyle's site, which has a warranty request portal but states no coverages, exclusions, or durations. Without a document, what you have is the Virginia statutory implied warranty under <a href="https://law.lis.virginia.gov/vacode/title55.1/chapter3/section55.1-357/">Code section 55.1-357</a>, and that statute allows a contract to waive it if the waiver is written conspicuously. The seller on the deed will be Lloyd M Poe Investments Inc. The company promising the warranty is LifeStyle. Two different companies, so we get the document and confirm which one honors it.</p>
+    </div>
+    <div class="ask">
+      <h3>The certificate of occupancy</h3>
+      <p>As of September 1 the plumbing, electrical, mechanical and gas permits at this address were all finaled between June and August, but the main building permit still read <strong>Issued</strong> rather than Finaled. That is likely just sequencing on a house going live September 3, and I will confirm it with the city.</p>
+    </div>
+    <div class="ask">
+      <h3>One neighboring permit that expired</h3>
+      <p>The building permit at 2716 Willoughton Lane, three lots away, expired June 16, 2026 without a final inspection. The record does not say why. It is a question worth asking, not a conclusion.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker"><span class="n">5</span> Honest limits</div>
+    <h2>What could not be checked, and why</h2>
+    <div class="gapbox">
+      <ul>
+        <li><strong>Virginia state court records.</strong> Richmond City and Chesterfield civil filings were not searched. The state court portal's terms prohibit automated searching. These have to be run by hand and I am doing that.</li>
+        <li><strong>Recorded mechanic's liens.</strong> Same reason, plus the city's land records moved to a portal that blocks outside requests.</li>
+        <li><strong>Contractor board disciplinary history.</strong> The Virginia DPOR lookup sits behind a security challenge that cannot be queried directly. Also being run by hand.</li>
+        <li><strong>Any homeowner review, good or bad.</strong> Zero first hand accounts exist on twelve platforms checked, including Houzz, BuildZoom, the BBB, Yelp, Angi, Nextdoor and Reddit. Houzz literally says you could be the first review. That is an absence of published opinions, and it is not evidence about the work in either direction.</li>
+      </ul>
+    </div>
+    <p>I would rather tell you what is missing than hand you a page that reads clean because nobody looked.</p>
+  </section>
+
+  <footer class="wrap" style="padding-left:0;padding-right:0">
+    <p>Prepared for you by Miles Agee, MAMS &middot; OneSouth Realty, Samson Properties. Every figure on this page carries a link to where it came from, so you can check any of it yourself. Facts read September 1, 2026. Nothing here is a rating of the builder or their work. It is the public record and their own published statements.</p>
+  </footer>
+</main>
+</body>
+</html>
