@@ -753,10 +753,10 @@ export default function QuizPage() {
                   <p className="text-teal-light text-xs mt-4">
                     Or skip straight to a conversation:{" "}
                     <a
-                      href="https://mamsrealestate.com/consult"
+                      href="/connect"
                       className="text-gold hover:text-gold-dark underline"
                     >
-                      Book a free consultation with Miles
+                      Start a conversation with Miles
                     </a>
                   </p>
                 </div>
@@ -846,10 +846,10 @@ export default function QuizPage() {
                 Reply to her quick question and your full top 6 report plus the Richmond Relocation Guide land in your inbox right after.
               </p>
               <a
-                href="https://mamsrealestate.com/consult"
+                href="/connect"
                 className="inline-block bg-gold text-deep-teal px-8 py-3 rounded-sm font-semibold text-sm uppercase tracking-wide hover:bg-gold-dark transition-colors"
               >
-                Book a Free Consultation
+                Talk to Miles
               </a>
             </div>
           )}

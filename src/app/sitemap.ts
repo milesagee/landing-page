@@ -1,15 +1,14 @@
 import type { MetadataRoute } from "next";
 import { neighborhoodSlugs } from "./neighborhoods/content";
-import { zones } from "./quiz/neighborhoods";
 import { activeListings } from "@/lib/listings";
 
 const BASE = "https://mamsnow.com";
 
-const FLAGSHIP_GUIDES = [
-  "richmond-relocation",
-  "first-time-buyers-richmond-va",
-  "selling-in-richmond-va",
-];
+// Only list a URL here once its route actually returns 200. A sitemap entry for
+// an unbuilt route is a 404 served straight to an answer engine. The /guides/*
+// and /quiz/results/* blocks were removed 2026-09-06 for exactly that reason:
+// they advertised ~20 dead URLs out of 36. Re-add each one in the same commit
+// that ships its route, never ahead of it.
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -39,6 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${BASE}/connect`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 
   const listingEntries: MetadataRoute.Sitemap = activeListings()
@@ -59,25 +64,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  const guideEntries: MetadataRoute.Sitemap = FLAGSHIP_GUIDES.map((slug) => ({
-    url: `${BASE}/guides/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.85,
-  }));
-
-  const quizResultEntries: MetadataRoute.Sitemap = zones.map((z) => ({
-    url: `${BASE}/quiz/results/${z.id}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
-  return [
-    ...core,
-    ...listingEntries,
-    ...neighborhoodEntries,
-    ...guideEntries,
-    ...quizResultEntries,
-  ];
+  return [...core, ...listingEntries, ...neighborhoodEntries];
 }
