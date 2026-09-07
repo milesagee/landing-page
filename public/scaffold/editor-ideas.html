@@ -203,6 +203,10 @@
   .catgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; margin-top: 12px; }
   .cat { display: flex; justify-content: space-between; gap: 8px; background: var(--paper-soft); border-radius: 5px; padding: 7px 10px; font-size: 11.5px; }
   .cat b { font-weight: 700; }
+  /* A stale input must not look like a fresh one. The concept age sat in this
+     grid as a neutral row for eleven days while the board shipped empty. */
+  .cat.is-stale { background: rgba(177,70,46,0.09); box-shadow: inset 2px 0 0 rgba(177,70,46,0.55); }
+  .cat.is-stale b { color: #7d3121; }
 
   .linkbtn { display: inline-block; margin-top: 16px; background: var(--gold); color: var(--deep-teal); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 999px; padding: 11px 22px; box-shadow: 0 6px 18px rgba(212,175,55,0.28); transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s cubic-bezier(0.16,1,0.3,1); }
   .linkbtn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(212,175,55,0.36); }
@@ -227,9 +231,9 @@
 
   <header class="hero">
     <div class="hero__eyebrow">MAMS Editor Room &middot; Idea Board</div>
-    <h1 class="hero__title">Orders for <em>Tuesday, September 1</em></h1>
+    <h1 class="hero__title">Orders for <em>Monday, September 7</em></h1>
     <p class="hero__sub">Dated and disposable. The Editor Room holds the rules that never change. This page holds today's work and gets replaced tomorrow.</p>
-    <div class="stamp">Generated 2026-09-01</div>
+    <div class="stamp">Generated 2026-09-07</div>
   </header>
 
   
@@ -237,32 +241,32 @@
   <section class="block">
     <div class="eyebrow">The Bar</div>
     <h2 class="title">Two a day. <em>Seven days.</em> One long-form.</h2>
-    <p class="lede">Fourteen short-form pieces a week plus one long-form. Week 7 on the Drive, Monday, August 24 onward, pieces 85 to 88. Delivered is what came off your desk. Posted is what went live. They are different numbers and this board keeps them apart.</p>
+    <p class="lede">Fourteen short-form pieces a week plus one long-form. Week 6 on the Drive, Sunday, August 16 onward, pieces 73 to 84. Delivered is what came off your desk. Posted is what went live. They are different numbers and this board keeps them apart.</p>
     <div class="cad">
       <div class="cad-card">
         <div class="cad-card__k">Delivered this week &middot; your number</div>
-        <div class="cad-card__v">4<span class="of"> / 14</span></div>
-        <div class="cad-card__note">12 expected by now. Pace 33%. Counted off the handoff to the Drive, not off when it got posted.</div>
+        <div class="cad-card__v">12<span class="of"> / 14</span></div>
+        <div class="cad-card__note">12 expected by now. Pace 100%. Counted off the handoff to the Drive, not off when it got posted.</div>
       </div>
       <div class="cad-card unknown">
         <div class="cad-card__k">Posted this week &middot; Miles's number</div>
         <div class="cad-card__v">Not visible</div>
-        <div class="cad-card__note">Post data is 6 days stale, so this board cannot confirm what went live. That is a gap in the feed, not a gap in the work. Nobody is marked down for it.</div>
+        <div class="cad-card__note">Post data is 11 days stale, so this board cannot confirm what went live. That is a gap in the feed, not a gap in the work. Nobody is marked down for it.</div>
         
       </div>
       <div class="cad-card">
         <div class="cad-card__k">Long-form this week</div>
         <div class="cad-card__v">0<span class="of"> / 1</span></div>
-        <div class="cad-card__note">5 days left in the week. Counted on delivery, same as the short-form. Nothing has gone up on YouTube since Wednesday, January 28, which is before either of you started.</div>
+        <div class="cad-card__note">6 days left in the week. Counted on delivery, same as the short-form. Nothing has gone up on YouTube since Wednesday, January 28, which is before either of you started.</div>
       </div>
       <div class="cad-card">
         <div class="cad-card__k">Redo rate this week</div>
-        <div class="cad-card__v">0<span class="of">%</span></div>
+        <div class="cad-card__v">25<span class="of">%</span></div>
         <div class="cad-card__note">Share of pieces that came back for a revision. The direction matters more than the level: falling week over week is the whole ask.</div>
       </div>
     </div>
-    <div class="alert red" style="margin-top:14px;"><span class="alert__k">Clear rate</span><span><b>61 of 87 pieces you have handed over went live, 70%.</b> 26 did not, and 4 of those are this week's and have not been looked at yet. A cut that does not go up is not sitting in a queue. It did not clear the bar. This is the quality number, and it is the one worth moving.</span></div>
-    
+    <div class="alert red" style="margin-top:14px;"><span class="alert__k">Clear rate</span><span><b>61 of 78 judged pieces went live, 78%.</b> 17 did not clear the bar, and 12 more are this week's and have not been looked at yet, so they are not counted either way. A cut that does not go up is not sitting in a queue. It did not clear the bar. This is the quality number, and it is the one worth moving.</span></div>
+    <div class="alert amber" style="margin-top:8px;"><span class="alert__k">Blocked</span><span>1 blocked state on record this week, most recently 2026-08-20. A week with a blocker in it is not graded as if there was not one.</span></div>
   </section>
   
   <section class="block">
@@ -296,19 +300,19 @@
         <div class="mix-card__k">Evergreen today</div>
         <div class="mix-card__v">2<span class="of"> / 6 in the pool</span></div>
         <div class="mix-card__note">Remix is a post that already worked and never got a sequel. Vault is a footage category you two built and have never cut from. Asked is a question a real lead typed into the DMs.</div>
-        <div class="lanes"><span class="pill ever">Asked</span><span class="pill ever">Remix</span></div>
+        <div class="lanes"><span class="pill ever">Remix</span><span class="pill ever">Vault</span></div>
       </div>
     </div>
     
     <p class="lede" style="margin:16px 0 0;">Richmond lanes in today's brief. Gold is on a card right now, plain has items waiting, faded means the brief carried nothing in that lane. Two lanes a day, never the same one twice, so across a week you get all of it.</p>
-    <div class="lanecov"><span class="lanechip on">Development <b>2</b></span><span class="lanechip ">Neighborhoods <b>1</b></span><span class="lanechip ">Food <b>1</b></span><span class="lanechip off">Events</span><span class="lanechip on">Outdoor <b>1</b></span><span class="lanechip ">Wellness <b>1</b></span><span class="lanechip ">Business <b>1</b></span></div>
+    <div class="lanecov"><span class="lanechip ">Development <b>2</b></span><span class="lanechip ">Neighborhoods <b>1</b></span><span class="lanechip ">Food <b>1</b></span><span class="lanechip off">Events</span><span class="lanechip on">Outdoor <b>1</b></span><span class="lanechip ">Wellness <b>1</b></span><span class="lanechip on">Business <b>1</b></span></div>
     <div class="repeat"><div class="repeat__k">The standing bar, both halves</div><div class="repeat__v">After watching, can someone repeat one specific thing about Richmond to a friend? If they only felt a vibe, it recruited the wrong buyer.</div></div>
   </section>
   
   <section class="block">
     <div class="eyebrow">Build Toward This</div>
     <h2 class="title">Volume is not the <em>open question.</em></h2>
-    <p class="lede">You delivered an average of <b>14 a week</b> across the last 6 completed weeks against a bar of 14, counted at handoff. What is left is what those fourteen <b>are</b>. Across the trailing 4 completed weeks of posted work, 7 a week land in a bucket that takes 106 posts to produce one breakout. Below is the same fourteen, spent differently.</p>
+    <p class="lede">You delivered an average of <b>9 a week</b> across the last 7 completed weeks against a bar of 14, counted at handoff. What is left is what those fourteen <b>are</b>. Across the trailing 4 completed weeks of posted work, 7 a week land in a bucket that takes 106 posts to produce one breakout. Below is the same fourteen, spent differently.</p>
     <div class="qgrid">
       <div class="qrow head"><span>Shape</span><span>Target</span><span>Now</span><span>Gap</span></div>
       <div class="qrow">
@@ -359,53 +363,53 @@
     <article class="cue">
       <div class="cue__top">
         <span class="cue__n">Cue 1</span>
-        <span class="pill">Timely &middot; Development</span>
+        <span class="pill">Timely &middot; Business</span>
         <span class="pill gold">Polarity / Pattern-Interrupt</span>
-        <span class="pill">Development</span>
+        
       </div>
       <div class="hookbox">
           <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-1')">Copy</button></div>
-          <div class="hookbox__v" id="hook-1">You could build two homes on one Richmond lot. Draft 3 changed that math.</div>
+          <div class="hookbox__v" id="hook-1">You want the next Church Hill? Follow the street money into Shockoe Valley.</div>
         </div>
-      <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>Code Refresh Draft 3 pulls duplex-by-right back to a &quot;1+1&quot; model citywide</b><br/>Released Aug 17, the third and likely final draft. Instead of duplexes by right in residential-attached zones, the draft now allows one primary home plus one additional unit per lot, citywide. Planning Commission and Council still ahead of it this fall.<br/><span style="font-size:11.5px;"><a href="https://www.12onyourside.com/2026/08/17/richmond-releases-third-draft-zoning-code-overhaul/" target="_blank" rel="noopener">WWBT</a> &middot; <a href="https://www.rva.gov/planning-development-review/code-refresh" target="_blank" rel="noopener">City Code Refresh</a></span></div></div>
+      <div class="fld"><div class="fld__k">Why now</div><div class="fld__v"><b>City approved Shockoe Valley street and transportation improvements</b><br/>Oliver Hill Way, N 18th St, Venable, Mosby, and Leigh St. Public infrastructure money going in ahead of private development on Church Hill's edge.<br/><span style="font-size:11.5px;"><a href="https://app.thecommonnews.com/summary/richmond-va-2026-08-04-planning-commission-approves-shockoe-valley-improvements" target="_blank" rel="noopener">The Common News</a></span></div></div>
       <div class="fld"><div class="fld__k">What this shape does, honestly</div><div class="fld__v">The best floor on the account. It travels more reliably than anything else and it also holds the single biggest post ever made here. A take with no evidence is an opinion. The position needs a Richmond specific under it.</div></div>
       <div class="anc"><b>Watch this first.</b> The best piece this account has made in this exact shape, 128,456 reach, 116x typical.<span class="q">People are really going to be upset about this but there’s no way you can tell me that in terms of a place to live full time that Spain has a better quality of</span></div>
       
-      <div class="fld"><div class="fld__k">What this lane is for</div><div class="fld__v">What it does to value, and for whom, over the next three to five years.</div></div>
-      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The house-hack or small-portfolio buyer who already understands ADUs and was pricing Northside and Fan lots on duplex-by-right upside.</div></div>
-      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">Code Refresh Draft 3, released Aug 17, replaces duplex-by-right in residential-attached zones with one primary home plus one additional unit per lot, citywide. Planning Commission and Council still ahead this fall. Editor must confirm the draft has not advanced or changed before this ships.</div></div>
+      <div class="fld"><div class="fld__k">What this lane is for</div><div class="fld__v">Payroll moves before prices do.</div></div>
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The equity-building buyer who missed Church Hill's run and is disciplined enough to buy where infrastructure lands instead of where the crowd already is.</div></div>
+      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">City approved street and transportation improvements for Oliver Hill Way, N 18th St, Venable, Mosby, and Leigh St in Shockoe Valley. Editor must confirm the approved dollar amount of the package before any figure goes on screen. Streets can be named without the dollar figure.</div></div>
       
       <div class="fld"><div class="fld__k">Pull these clips</div><div class="clips"><div class="clip">
             <div class="clip__meta">
-              <div class="clip__f">9a659fc5-7a83-4e48-b22d-ceaca030115b.mov</div>
-              <div class="clip__d">The Fan Pros n Cons/Final</div>
+              <div class="clip__f">DJI_20260813193154_0955_D.MP4</div>
+              <div class="clip__d">Vibes At Sunset &middot; Vibes At Sunset &middot; 2026-08-13 &middot; golden</div>
             </div>
             <span class="grade RAW">RAW</span>
-            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /The Fan Pros n Cons/Final/9a659fc5-7a83-4e48-b22d-ceaca030115b.mov" onclick="copyChip(this)">Path</button>
+            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193154_0955_D.MP4" onclick="copyChip(this)">Path</button>
           </div>
           <div class="clip">
             <div class="clip__meta">
-              <div class="clip__f">ddbb9bd9-80ab-43f8-a759-e454024a5da0_0.mov</div>
-              <div class="clip__d">The Fan Pros n Cons/Final</div>
+              <div class="clip__f">DJI_20260813193233_0960_D.MP4</div>
+              <div class="clip__d">Vibes At Sunset &middot; Vibes At Sunset &middot; 2026-08-13 &middot; golden</div>
             </div>
             <span class="grade RAW">RAW</span>
-            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /The Fan Pros n Cons/Final/ddbb9bd9-80ab-43f8-a759-e454024a5da0_0.mov" onclick="copyChip(this)">Path</button>
+            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193233_0960_D.MP4" onclick="copyChip(this)">Path</button>
           </div>
           <div class="clip">
             <div class="clip__meta">
-              <div class="clip__f">IG Fan Pros n Cons.mov</div>
-              <div class="clip__d">The Fan Pros n Cons/Final</div>
+              <div class="clip__f">DJI_20260813193300_0956_D.MP4</div>
+              <div class="clip__d">Vibes At Sunset &middot; Vibes At Sunset &middot; 2026-08-13 &middot; golden</div>
             </div>
             <span class="grade RAW">RAW</span>
-            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /The Fan Pros n Cons/Final/IG Fan Pros n Cons.mov" onclick="copyChip(this)">Path</button>
+            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /Vibes At Sunset/DJI_20260813193300_0956_D.MP4" onclick="copyChip(this)">Path</button>
           </div></div></div>
       <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
-        <div><div class="lk">Hook</div><div class="lv">a right you assumed you had is being rewritten</div></div>
-        <div><div class="lk">Retention</div><div class="lv">what 1 plus 1 actually means on a real lot</div></div>
-        <div><div class="lk">Payoff</div><div class="lv">how the change moves lot value in residential-attached zones over 3 to 5 years</div></div>
-        <div><div class="lk">Close</div><div class="lv">Council votes this fall, follow for the outcome the day it lands</div></div>
+        <div><div class="lk">Hook</div><div class="lv">the city spends before developers do</div></div>
+        <div><div class="lk">Retention</div><div class="lv">naming the actual streets, Oliver Hill Way, North 18th, Venable, Mosby, Leigh</div></div>
+        <div><div class="lk">Payoff</div><div class="lv">public infrastructure approved on Church Hill's edge before the private money shows up, the sequence that repeats in every corridor</div></div>
+        <div><div class="lk">Close</div><div class="lv">print the street names, drive them once, then watch what gets permitted</div></div>
       </div></div>
-      <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
+      <div class="trap"><b>The trap.</b> Do not open on DJI_20260813193154_0955_D.MP4 or anything else from Vibes At Sunset. It is the easy cut and it recruits the $380K browser instead of the $500K buyer.</div>
       
       <div class="trap"><b>Not shippable yet.</b> No verifiable number or named specific in this cue. Add one before it ships.</div>
     </article>
@@ -467,44 +471,13 @@
     <article class="cue evergreen nomatch">
       <div class="cue__top">
         <span class="cue__n">Cue 3</span>
-        <span class="pill ever">Evergreen &middot; Asked</span>
-        <span class="pill gold">Authority / Comparison</span>
-        
-      </div>
-      <div class="hookbox">
-          <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-3')">Copy</button></div>
-          <div class="hookbox__v" id="hook-3">You DMed asking where to start buying in RVA. Here is the straight answer.</div>
-        </div>
-      <div class="fld"><div class="fld__k">Why this, any day</div><div class="fld__v"><b>A real lead asked this 5 days ago and it still has no answer on camera.</b><br/>&quot;Of course. Looking to buy in the RVA area and would love&quot; Instagram DM, 2026-08-27. Signal: said what they want.</div></div>
-      <div class="fld"><div class="fld__k">What this shape does, honestly</div><div class="fld__v">Highest ceiling on the account and the lowest floor of the shapes worth making. Most land near the median. The ones that land, land enormous. The comparison has to be earned with a number. Without one it is just a claim about a city.</div></div>
-      <div class="anc"><b>Watch this first.</b> The best piece this account has made in this exact shape, 117,616 reach, 106.2x typical.<span class="q">Richmond 2025 = Austin 1995. The people who understood Austin’s trajectory in the ‘90s changed their families’ wealth forever.</span></div>
-      
-      
-      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The DM-stage relocating buyer, already earning well, who wants a starting point with a street name attached instead of a link to a search portal.</div></div>
-      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">The answer itself must be a number. Editor confirms with Miles the current typical sale price for the one neighborhood he names, sourced from recent MLS closings, before this ships. Restating the question is not a payoff. The hook carries no figure by design.</div></div>
-      
-      <div class="fld"><div class="fld__k">Pull these clips</div><div class="nomatchbox"><b>Nothing matched.</b> No logged clip matches this angle. Log the newest shoot folders, or flag Miles to shoot it.</div></div>
-      <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
-        <div><div class="lk">Hook</div><div class="lv">answering a real person's message, not announcing a topic</div></div>
-        <div><div class="lk">Retention</div><div class="lv">the promise of an actual place and an actual figure in under 40 seconds</div></div>
-        <div><div class="lk">Payoff</div><div class="lv">one named neighborhood, its current typical sale price, and why that specific spot first</div></div>
-        <div><div class="lk">Close</div><div class="lv">your budget changes the answer, send it in the DMs and get the version for your number</div></div>
-      </div></div>
-      <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
-      
-      <div class="trap"><b>Not shippable yet.</b> No verifiable number or named specific in this cue. Add one before it ships.</div>
-    </article>
-
-    <article class="cue evergreen nomatch">
-      <div class="cue__top">
-        <span class="cue__n">Cue 4</span>
         <span class="pill ever">Evergreen &middot; Remix</span>
         <span class="pill gold">Authority / Comparison</span>
         
       </div>
       <div class="hookbox">
-          <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-4')">Copy</button></div>
-          <div class="hookbox__v" id="hook-4">Your favorite Richmond brag is due for a rematch against this year's numbers.</div>
+          <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-3')">Copy</button></div>
+          <div class="hookbox__v" id="hook-3">Your favorite Richmond brag is due for a rematch against this year's numbers.</div>
         </div>
       <div class="fld"><div class="fld__k">Why this, any day</div><div class="fld__v"><b>Your authority post from 2026-02-25 pulled 28,221 reach and never got a part two.</b><br/>&quot;What does Richmond, Va do better than any other city our size?? 🤔&quot; 268 shares, 95 saves, 25.5x the median reel. The idea worked. It has been sitting alone since.</div></div>
       <div class="fld"><div class="fld__k">What this shape does, honestly</div><div class="fld__v">Highest ceiling on the account and the lowest floor of the shapes worth making. Most land near the median. The ones that land, land enormous. The comparison has to be earned with a number. Without one it is just a claim about a city.</div></div>
@@ -520,6 +493,60 @@
         <div><div class="lk">Retention</div><div class="lv">the original answer restated, then the tension of whether 2026 broke it</div></div>
         <div><div class="lk">Payoff</div><div class="lv">one current figure on screen that proves the thesis is holding or shows where it cracked</div></div>
         <div><div class="lk">Close</div><div class="lv">cities lose their edge quietly, following the numbers is how you buy before everyone notices</div></div>
+      </div></div>
+      <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
+      
+      
+    </article>
+
+    <article class="cue evergreen">
+      <div class="cue__top">
+        <span class="cue__n">Cue 4</span>
+        <span class="pill ever">Evergreen &middot; Vault</span>
+        <span class="pill gold">Authority / Comparison</span>
+        
+      </div>
+      <div class="hookbox">
+          <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copybtn" onclick="copyField(this,'hook-4')">Copy</button></div>
+          <div class="hookbox__v" id="hook-4">You cannot price a lot from the listing photos. You have to stand on it.</div>
+        </div>
+      <div class="fld"><div class="fld__k">Why this, any day</div><div class="fld__v"><b>&quot;Working (Outdoor)&quot; has 6 logged clips and has never been cut into a post.</b><br/>This is a category you two built. It is sitting in the library unused while the easy bins get reached for.</div></div>
+      <div class="fld"><div class="fld__k">What this shape does, honestly</div><div class="fld__v">Highest ceiling on the account and the lowest floor of the shapes worth making. Most land near the median. The ones that land, land enormous. The comparison has to be earned with a number. Without one it is just a claim about a city.</div></div>
+      <div class="anc"><b>Watch this first.</b> The best piece this account has made in this exact shape, 117,616 reach, 106.2x typical.<span class="q">Richmond 2025 = Austin 1995. The people who understood Austin’s trajectory in the ‘90s changed their families’ wealth forever.</span></div>
+      
+      
+      <div class="fld"><div class="fld__k">Who this recruits</div><div class="fld__v">The buyer who is diligent in their own profession and suspects, correctly, that photos hide grade, easements, and what the block actually sounds like at noon.</div></div>
+      <div class="fld"><div class="fld__k">The one thing it has to carry</div><div class="fld__v">Editor must confirm one specific parcel Miles has walked, its assessed value from the Richmond city assessor's public records, and its list or sale price. The gap between assessment and asking is the on-screen number. Name the block, not just the neighborhood.</div></div>
+      
+      <div class="fld"><div class="fld__k">Pull these clips</div><div class="clips"><div class="clip">
+            <div class="clip__meta">
+              <div class="clip__f">DJI_20260617162359_0083_D.MP4</div>
+              <div class="clip__d">AZ + past life/Clips &middot; Working (Outdoor) &middot; 2026-06-17 &middot; midday</div>
+            </div>
+            <span class="grade CURATED">CURATED</span>
+            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /AZ + past life/Clips/DJI_20260617162359_0083_D.MP4" onclick="copyChip(this)">Path</button>
+          </div>
+          <div class="clip">
+            <div class="clip__meta">
+              <div class="clip__f">DJI_20260617163100_0084_D.MP4</div>
+              <div class="clip__d">AZ + past life/Clips &middot; Working (Outdoor) &middot; 2026-06-17 &middot; midday</div>
+            </div>
+            <span class="grade CURATED">CURATED</span>
+            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /AZ + past life/Clips/DJI_20260617163100_0084_D.MP4" onclick="copyChip(this)">Path</button>
+          </div>
+          <div class="clip">
+            <div class="clip__meta">
+              <div class="clip__f">DJI_20260617163327_0085_D.MP4</div>
+              <div class="clip__d">AZ + past life/Clips &middot; Working (Outdoor) &middot; 2026-06-17 &middot; midday</div>
+            </div>
+            <span class="grade CURATED">CURATED</span>
+            <button class="copybtn" data-copy="/Users/milesagee/Library/CloudStorage/GoogleDrive-miles@milesagee.com/My Drive/MAMS Editor Schmoney Team /AZ + past life/Clips/DJI_20260617163327_0085_D.MP4" onclick="copyChip(this)">Path</button>
+          </div></div></div>
+      <div class="fld"><div class="fld__k">Loop map</div><div class="loop">
+        <div><div class="lk">Hook</div><div class="lv">the ground knows things the listing does not</div></div>
+        <div><div class="lk">Retention</div><div class="lv">Miles physically on a block, pointing at what the photos cropped out</div></div>
+        <div><div class="lk">Payoff</div><div class="lv">one real parcel, its city assessed value versus its asking price, and what standing there explains about the gap</div></div>
+        <div><div class="lk">Close</div><div class="lv">the assessor's site is public, here is how to pull any parcel yourself before you offer</div></div>
       </div></div>
       <div class="trap"><b>The trap.</b> Do not open on the crowd or the drone push alone. Energy first is fine, energy only is the wrong buyer.</div>
       
@@ -637,7 +664,7 @@
     <div class="eyebrow">The Thread</div>
     <h2 class="title">Before the Price Data Catches Up</h2>
     <p class="lede">Every episode this week shows one thing moving in Richmond before the comps do. A zoning draft, a hearing date, two restaurant leases, trail access, studio clusters, street money. The through line Miles says once per episode in his own words: the price data is the last thing to move. Watch what moves first.</p>
-    <p class="lede" style="opacity:0.62;font-size:12.5px;">6 episodes concepted 0 days ago. The cues above are drawn from this spine, which is what makes the week feel like one series instead of five unrelated posts.</p>
+    <p class="lede" style="opacity:0.62;font-size:12.5px;">6 episodes concepted 5 days ago. The cues above are drawn from this spine, which is what makes the week feel like one series instead of five unrelated posts.</p>
   </section>
   
   <section class="block">
@@ -645,9 +672,9 @@
     <h2 class="title">What we can <em>actually find.</em></h2>
     <p class="lede">A cue can only point at a clip somebody has labelled. Everything unlabelled is invisible to this board, which is why the easy clip keeps winning.</p>
     <div class="stats">
-      <div class="stat"><div class="stat__k">Clips in the library</div><div class="stat__v">2,610</div><div class="stat__n">Across every shoot folder</div></div>
+      <div class="stat"><div class="stat__k">Clips in the library</div><div class="stat__v">2,625</div><div class="stat__n">Across every shoot folder</div></div>
       <div class="stat"><div class="stat__k">Logged and findable</div><div class="stat__v">151</div><div class="stat__n">5.8% of the library</div></div>
-      <div class="stat"><div class="stat__k">Invisible</div><div class="stat__v">2,459</div><div class="stat__n">Real footage no cue can reach</div></div>
+      <div class="stat"><div class="stat__k">Invisible</div><div class="stat__v">2,474</div><div class="stat__n">Real footage no cue can reach</div></div>
     </div>
     <div class="prog"><span style="width:5.8%"></span></div>
     <div class="catgrid"><div class="cat"><span>Working (Indoor)</span><b>44</b></div><div class="cat"><span>Cedar Grove (Renovation Project)</span><b>25</b></div><div class="cat"><span>Random Montage, B Rolls</span><b>15</b></div><div class="cat"><span>Self-care (gym, ice bath, meditate)</span><b>14</b></div><div class="cat"><span>Day long vlogs</span><b>14</b></div><div class="cat"><span>Listing Site Visit</span><b>10</b></div><div class="cat"><span>Motivational, inspirational, realtor exp (talking heads)</span><b>6</b></div><div class="cat"><span>Working (Outdoor)</span><b>6</b></div><div class="cat"><span>Out with friends</span><b>5</b></div><div class="cat"><span>Listing appointment (inside car TH - before &amp; after)</span><b>4</b></div><div class="cat"><span>Potential for shorts</span><b>3</b></div><div class="cat"><span>Miles inside car talks montage</span><b>3</b></div><div class="cat"><span>Sold Diaries</span><b>1</b></div><div class="cat"><span>Client calls</span><b>1</b></div></div>
@@ -656,7 +683,7 @@
   <section class="block">
     <div class="eyebrow">Make The Library Findable</div>
     <h2 class="title">How to name a folder so <em>a cue can reach it.</em></h2>
-    <p class="lede">2,459 of 2,610 clips are invisible to this board. Not missing, invisible: nothing in the path tells the matcher where it was shot or what is in it. It scores a named neighborhood higher than anything else, so a folder called <span style="opacity:0.7">7 27 26??? lol</span> can hold the best shot on the drive and no cue will ever surface it.</p>
+    <p class="lede">2,474 of 2,625 clips are invisible to this board. Not missing, invisible: nothing in the path tells the matcher where it was shot or what is in it. It scores a named neighborhood higher than anything else, so a folder called <span style="opacity:0.7">7 27 26??? lol</span> can hold the best shot on the drive and no cue will ever surface it.</p>
     <div class="lab">
       <p>One rename at the folder level fixes every clip inside it. Three parts, in this order:</p>
       <code>2026-07-09 Scott's Addition Listing Site Visit</code>
@@ -701,11 +728,11 @@
     <h2 class="title">How fresh <em>the inputs are.</em></h2>
     <p class="lede">Nothing on this page is a guess. Here is the age of everything it was built from, so you know how hard to lean on it.</p>
     <div class="catgrid">
-      <div class="cat"><span>Richmond signal</span><b>2026-08-21T09:45:00-04:00 (11d old)</b></div>
+      <div class="cat is-stale"><span>Richmond signal</span><b>2026-08-21T09:45:00-04:00 (16d old) &middot; stale</b></div>
       <div class="cat"><span>Post performance</span><b>economics.json</b></div>
-      <div class="cat"><span>DM questions</span><b>2026-08-27 (5d old)</b></div>
+      <div class="cat is-stale"><span>DM questions</span><b>2026-08-27 (11d old) &middot; stale</b></div>
       <div class="cat"><span>Footage index</span><b>crawl 2026-09-01</b></div>
-      <div class="cat"><span>Weekly concept</span><b>2026-09-01 (0d old)</b></div>
+      <div class="cat"><span>Weekly concept</span><b>2026-09-01 (5d old)</b></div>
     </div>
   </section>
 
