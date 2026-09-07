@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { neighborhoodSlugs } from "./neighborhoods/content";
+import { guideSlugs } from "./guides/content";
+import { zoneSlugs } from "./quiz/neighborhoods";
 import { activeListings } from "@/lib/listings";
 
 const BASE = "https://mamsnow.com";
@@ -39,6 +41,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE}/guides`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE}/quiz/results`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${BASE}/connect`,
       lastModified: now,
       changeFrequency: "monthly",
@@ -64,5 +78,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [...core, ...listingEntries, ...neighborhoodEntries];
+  // Shipped 2026-09-06 alongside src/app/guides/[slug] and
+  // src/app/quiz/results/[zone]. Both routes are statically generated from the
+  // same slug arrays listed here, so a slug cannot appear in the sitemap without
+  // a page existing for it.
+  const guideEntries: MetadataRoute.Sitemap = guideSlugs.map((slug) => ({
+    url: `${BASE}/guides/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  const zoneEntries: MetadataRoute.Sitemap = zoneSlugs.map((slug) => ({
+    url: `${BASE}/quiz/results/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [
+    ...core,
+    ...guideEntries,
+    ...listingEntries,
+    ...neighborhoodEntries,
+    ...zoneEntries,
+  ];
 }

@@ -128,12 +128,79 @@ const jsonLd = {
         "https://www.youtube.com/@RVALifewithMiles",
         "https://www.zillow.com/profile/milesRVA",
       ],
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "5.0",
-        reviewCount: "26",
-        bestRating: "5",
+    },
+    {
+      // Brand is not a LocalBusiness subtype, so without this node there was no
+      // local business entity on the site for an answer engine to rank. The entity
+      // is Miles the licensed agent, not MAMS: MAMS is a personal brand and is not
+      // a brokerage. All services transact through Samson Properties.
+      "@type": "RealEstateAgent",
+      "@id": "https://mamsnow.com/#agent",
+      name: "Miles Agee, Realtor",
+      url: "https://mamsnow.com",
+      image: "https://mamsnow.com/images/miles-hero.jpg",
+      logo: "https://mamsnow.com/images/mams-logo.png",
+      telephone: "+1-804-809-8340",
+      email: "miles@mamssolutions.com",
+      description:
+        "Buyer and seller representation across Greater Richmond, Virginia. Miles Agee is a licensed Virginia Realtor on the OneSouth Realty team, with all real estate services transacted through Samson Properties, the brokerage of record.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Richmond",
+        addressRegion: "VA",
+        addressCountry: "US",
       },
+      areaServed: [
+        { "@type": "City", name: "Richmond, Virginia" },
+        { "@type": "AdministrativeArea", name: "Henrico County, Virginia" },
+        { "@type": "AdministrativeArea", name: "Chesterfield County, Virginia" },
+        { "@type": "AdministrativeArea", name: "Hanover County, Virginia" },
+        { "@type": "AdministrativeArea", name: "Goochland County, Virginia" },
+        { "@type": "AdministrativeArea", name: "Powhatan County, Virginia" },
+        { "@type": "AdministrativeArea", name: "New Kent County, Virginia" },
+      ],
+      employee: { "@id": "https://mamsnow.com/#miles" },
+      founder: { "@id": "https://mamsnow.com/#miles" },
+      brand: { "@id": "https://mamsnow.com/#brand" },
+      parentOrganization: {
+        "@id": "https://www.samsonproperties.net/#agency",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Richmond real estate services",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Buyer representation",
+              areaServed: "Greater Richmond, Virginia",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Seller representation and listing",
+              areaServed: "Greater Richmond, Virginia",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Relocation and neighborhood selection",
+              areaServed: "Greater Richmond, Virginia",
+            },
+          },
+        ],
+      },
+      sameAs: [
+        "https://www.instagram.com/milesaminutesolutions/",
+        "https://www.tiktok.com/@milesaminutemedia",
+        "https://www.youtube.com/@RVALifewithMiles",
+        "https://www.zillow.com/profile/milesRVA",
+      ],
     },
     {
       "@type": "Brand",
@@ -151,7 +218,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": "https://mamsnow.com/#website",
       url: "https://mamsnow.com",
-      name: "MAMS — Richmond Real Estate by Miles Agee",
+      name: "MAMS, Richmond Real Estate by Miles Agee",
       publisher: { "@id": "https://mamsnow.com/#miles" },
       about: { "@id": "https://mamsnow.com/#brand" },
       inLanguage: "en-US",

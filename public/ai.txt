@@ -1,4 +1,4 @@
-# ai.txt — MAMS LLC AI access policy
+# ai.txt, MAMS LLC AI access policy
 # Canonical: https://mamsnow.com/ai.txt
 # Last updated: 2026-05-04
 #
@@ -12,7 +12,7 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 
-# OpenAI: ChatGPT search visibility (OAI-SearchBot) and training (GPTBot) — both permitted
+# OpenAI: ChatGPT search visibility (OAI-SearchBot) and training (GPTBot), both permitted
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /api/

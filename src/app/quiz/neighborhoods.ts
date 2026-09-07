@@ -36,7 +36,7 @@ export const zones: Zone[] = [
   {
     id: "fan-museum",
     name: "The Fan & Museum District",
-    oneLiner: "Walkable, vibrant, historic -- Richmond's urban core",
+    oneLiner: "Walkable, historic, restaurant-dense -- Richmond's urban core",
     medianPrice: "$550K-$650K",
     priceLow: 550,
     priceHigh: 650,
@@ -56,7 +56,7 @@ export const zones: Zone[] = [
     whyFitsYou: {
       "single-pro": "You said walkability matters and nightlife is a priority. The Fan delivers both. Block after block of brick rowhouses, restaurants you walk to, and the best cocktail bars in Richmond.",
       "couple-no-kids": "Richmond's most walkable zone with the best dining scene in the city. Walk to Can Can Brasserie, catch a show at the VMFA, and be home without touching a car.",
-      "remote-relocator": "Working from home in the Fan means stepping out your door to world-class restaurants, coffee shops on every block, and the VMFA when you need a break.",
+      "remote-relocator": "Working from home in the Fan means stepping out your door to Can Can and Sub Rosa, coffee shops on every block, and the VMFA when you need a break.",
       "empty-nester": "Walkable, cultured, and full of life. The VMFA, Carytown, and Byrd Park are all within walking distance. Bungalows and Cape Cods offer single-level living options.",
       default: "Richmond's flagship walkable zone. 88+ walk score, the city's best restaurant row, and block after block of historic brick rowhouses with genuine character.",
     },
@@ -147,7 +147,7 @@ export const zones: Zone[] = [
     whyFitsYou: {
       "family-young": "Byrd Park puts 100 acres of Maymont Estate in your backyard. Arts in the Park, Dogwood Dell concerts, Jazz at Fountain Lake. City living with the green space your family needs.",
       "couple-no-kids": "Maymont, Carytown, and the James River are all accessible. Green space and cultural events of a suburb with city walkability. Forest Hill and Byrd Park offer the best of both.",
-      "empty-nester": "City walkability, world-class parks, and a quieter pace than the Fan. Diverse architecture from rowhouses to lake-view homes. Carytown is around the corner.",
+      "empty-nester": "City walkability, Maymont's 100 acres, and a quieter pace than the Fan. Diverse architecture from rowhouses to lake-view homes. Carytown is around the corner.",
       "remote-relocator": "Manchester gives you skyline views and waterfront access. Forest Hill gives you mature trees and trails. Both give you city living with room to breathe.",
       default: "Richmond's south-of-the-river zone where parks, river access, and emerging energy meet. Maymont Estate, James River trails, and Floodwall Park define daily life here.",
     },
@@ -158,7 +158,7 @@ export const zones: Zone[] = [
   {
     id: "northside-city",
     name: "Northside City",
-    oneLiner: "Affordable, character homes, quirky -- Richmond's best-kept secret",
+    oneLiner: "Character homes, tree canopy -- the city's lowest entry point",
     medianPrice: "$300K-$450K",
     priceLow: 300,
     priceHigh: 450,
@@ -253,7 +253,7 @@ export const zones: Zone[] = [
   {
     id: "short-pump",
     name: "Short Pump & West Henrico",
-    oneLiner: "Suburban retail hub -- shopping, dining, top schools",
+    oneLiner: "Suburban retail hub -- shopping, dining, newest housing stock",
     medianPrice: "$450K-$700K",
     priceLow: 450,
     priceHigh: 700,
@@ -271,11 +271,11 @@ export const zones: Zone[] = [
     vibeTags: ["soccer-costco-backyard"],
     tradeoff: "Cookie-cutter suburban development in some areas. Traffic on Broad Street and Route 288 during rush hour. Limited walkability -- you're driving everywhere. Higher price point than eastern Henrico.",
     whyFitsYou: {
-      "family-young": "Top-rated Henrico schools, Short Pump Town Center for shopping, and every errand you can think of within 10 minutes. The family infrastructure here is unmatched in the metro.",
+      "family-young": "Henrico County Public Schools, Short Pump Town Center, and every errand you can think of within 10 minutes. Check ratings on Niche and GreatSchools and verify zoning by address.",
       "family-teens": "Henrico County schools, every restaurant chain and local spot you need, and activities for teens. Short Pump gives families everything in one place.",
-      "couple-no-kids": "If dining out and easy errands matter more than walkability, Short Pump delivers. Henrico taxes ($0.83) save you $2,000-3,000/year vs. the city. Modern homes, low maintenance.",
+      "couple-no-kids": "If dining out and easy errands matter more than walkability, Short Pump delivers. Henrico's $0.83 rate against the city's $1.20 is about $1,665 a year on a $450,000 assessment. Modern homes, low maintenance.",
       "remote-relocator": "Every convenience within a 10-minute drive. Henrico taxes, strong resale, and modern homes. The practical choice for people who prioritize daily ease over urban energy.",
-      default: "Greater Richmond's suburban retail and family hub. Top Henrico schools, Short Pump Town Center, and every convenience imaginable. Low taxes, strong resale, and modern housing stock.",
+      default: "Greater Richmond's suburban retail and family hub. Henrico County Public Schools, Short Pump Town Center, and almost every errand inside ten minutes. Henrico's $0.83 rate, deep resale inventory, and the newest housing stock in the metro.",
     },
     tagSlug: "match-short-pump",
     notableCommunities: ["Short Pump", "Wellesley", "West Broad Village", "Innsbrook"],
@@ -284,7 +284,7 @@ export const zones: Zone[] = [
   {
     id: "glen-allen",
     name: "Glen Allen & North Henrico",
-    oneLiner: "Family suburban -- community, golf, and top schools",
+    oneLiner: "Master-planned -- pools, golf, and the Innsbrook commute",
     medianPrice: "$450K-$750K",
     priceLow: 450,
     priceHigh: 750,
@@ -302,8 +302,8 @@ export const zones: Zone[] = [
     vibeTags: ["soccer-costco-backyard", "quiet-porch-no-plans"],
     tradeoff: "Low walkability -- car-dependent for everything. Suburban sameness in some developments. Further from city restaurants and nightlife. Can feel disconnected from Richmond's urban culture.",
     whyFitsYou: {
-      "family-young": "Henrico County schools, community pools, soccer fields, and neighborhoods designed for families. Twin Hickory and Wyndham offer some of the best family infrastructure in the metro.",
-      "family-teens": "Top-rated high schools, community amenities, and neighborhoods where teens can bike to friends' houses. Wyndham's golf community and Twin Hickory's pools are a draw.",
+      "family-young": "Henrico County schools, community pools, soccer fields, and neighborhoods designed for families. Twin Hickory is built around pools and a community center, Wyndham around a golf course.",
+      "family-teens": "Henrico County Public Schools, community amenities, and neighborhoods where teens can bike to friends' houses. Check ratings on Niche and GreatSchools and verify zoning by address. Wyndham's golf community and Twin Hickory's pools are a draw.",
       "empty-nester": "Quiet, well-maintained communities with Henrico taxes. Wyndham's golf course, community amenities, and proximity to Short Pump shopping. Downsizing without sacrificing quality.",
       "remote-relocator": "Quiet neighborhoods with space for a home office. Community amenities, low taxes, and a 20-minute drive to downtown when you need it. Practical and comfortable.",
       default: "North Henrico's family-first zone. Master-planned communities, Henrico County schools, community pools, and golf. The suburban family experience done right, with low taxes.",
@@ -335,7 +335,7 @@ export const zones: Zone[] = [
     whyFitsYou: {
       "couple-no-kids": "Estate-level living 15 minutes from downtown with Henrico taxes. River Road is where old Richmond money lives. Privacy, mature trees, and the James River nearby.",
       "empty-nester": "If you want space, privacy, and prestige without city taxes, River Road delivers. Mature properties on large lots with easy access to downtown and the river.",
-      "family-teens": "Large lots, top Henrico schools, and the prestige of River Road. Your teens get space, privacy, and access to one of the best school districts in Virginia.",
+      "family-teens": "Large lots, Henrico County Public Schools, and the River Road address. Your teens get space and privacy. Check school ratings on Niche and GreatSchools and verify the assigned school by address.",
       default: "Richmond's most prestigious address. Estate-level homes on large lots along the James River with Henrico County taxes. Quiet, private, and 15 minutes from downtown.",
     },
     tagSlug: "match-river-road",
@@ -424,7 +424,7 @@ export const zones: Zone[] = [
     personas: ["family-young", "family-teens", "remote-relocator"],
     lifestyleTags: ["quiet-privacy", "shopping-convenience"],
     vibeTags: ["soccer-costco-backyard", "quiet-porch-no-plans"],
-    tradeoff: "30+ minute commute to downtown. Limited dining and entertainment options. Far from city culture. Some areas feel disconnected from the rest of the metro. School quality varies by zone.",
+    tradeoff: "30+ minute commute to downtown. Limited dining and entertainment options. Far from city culture. Some areas feel disconnected from the rest of the metro. School zoning changes by address here more than anywhere in the metro, so verify before you commit.",
     whyFitsYou: {
       "family-young": "The most house for your money in the metro. Newer construction, larger lots, and Chesterfield taxes. If budget is a priority and you don't need to be close to downtown, this is your zone.",
       "family-teens": "Space, affordability, and newer homes. Southern Chesterfield gives families room to grow without stretching the budget. Easy access to Route 288 and 95 corridors.",
@@ -440,7 +440,7 @@ export const zones: Zone[] = [
   {
     id: "mechanicsville",
     name: "Mechanicsville & Eastern Hanover",
-    oneLiner: "Growing suburban, family values -- north side of the metro",
+    oneLiner: "Growing suburban, lowest suburban tax rate -- north side of the metro",
     medianPrice: "$325K-$500K",
     priceLow: 325,
     priceHigh: 500,
@@ -458,10 +458,10 @@ export const zones: Zone[] = [
     vibeTags: ["soccer-costco-backyard", "quiet-porch-no-plans"],
     tradeoff: "25+ minute commute to downtown. Limited restaurant and nightlife scene. Very car-dependent. Can feel disconnected from Richmond's urban culture. North of the river limits options south.",
     whyFitsYou: {
-      "family-young": "Hanover County schools, the lowest suburban tax rate ($0.81), and family-oriented communities. Atlee is growing with newer developments. Strong value for families prioritizing schools and taxes.",
+      "family-young": "Hanover County Public Schools, the lowest suburban tax rate in the metro at $0.81, and family-oriented communities. Atlee is growing with newer developments. Check school ratings on Niche and GreatSchools and verify zoning by address.",
       "family-teens": "Hanover's schools are a draw. Lower taxes than Henrico or Chesterfield. Established communities in Mechanicsville with newer options in Atlee and Studley.",
       "remote-relocator": "Hanover's low taxes and affordable homes mean more money stays in your pocket. If commute doesn't matter, you get space, quiet, and strong community at the best tax rate in the suburbs.",
-      default: "Hanover County's accessible suburban zone. Lowest suburban tax rate, solid schools, and a mix of established and new-construction communities. The practical family choice north of the river.",
+      default: "Hanover County's accessible suburban zone. The lowest suburban tax rate in the metro at $0.81, Hanover County Public Schools, and a mix of established and new-construction communities. The practical family choice north of the river.",
     },
     tagSlug: "match-mechanicsville",
     notableCommunities: ["Mechanicsville", "Atlee", "Cold Harbor", "Studley"],
@@ -595,3 +595,9 @@ export const zones: Zone[] = [
 
 // Backward-compatible export
 export const neighborhoods = zones;
+
+export function getZone(id: string): Zone | undefined {
+  return zones.find((z) => z.id === id);
+}
+
+export const zoneSlugs: string[] = zones.map((z) => z.id);

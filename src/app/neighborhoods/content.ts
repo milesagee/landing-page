@@ -354,6 +354,182 @@ export const neighborhoods: NeighborhoodContent[] = [
     reviewedDate: TODAY,
     geo: { latitude: 37.515, longitude: -77.566 },
   },
+
+  {
+    slug: "short-pump",
+    name: "Short Pump",
+    county: "Henrico County",
+    parent: "Henrico County, Virginia",
+    oneLineFit:
+      "Henrico's western retail and employment hub, built around Short Pump Town Center and the I-64 and Route 288 interchange, where the metro's newest suburban inventory concentrates.",
+    housingStock:
+      "Late 1990s through current new construction, heavy on brick-front colonials, transitional two-story homes, and townhome and condo product inside West Broad Village. Lots are engineered rather than inherited, most homes carry an HOA, and the oldest stock here is younger than the newest stock in most of the city.",
+    buyingReality:
+      "Typical range runs $450K to $700K. You are usually choosing between a builder community and a resale from the first wave of that same community twenty years later, and the resale is frequently the better house on the better lot. The mistake is shopping by subdivision name. Drive the actual street at 5:30pm, because Broad Street and the 288 ramps behave very differently at rush hour than they do on a Saturday tour.",
+    sellingReality:
+      "You are competing against builder inventory that offers incentives you cannot match, so your edge is the thing the builder cannot sell: a finished yard, a lot that is not on the through street, and a school assignment that is already settled. Condition and updates matter here more than character, which is the opposite of how the city trades. Price against the actual builder incentive package, not against the builder's list price.",
+    lifestyle:
+      "Everything is close and almost none of it is walkable. Short Pump Town Center, the grocery, the pediatrician, and the practice field are all inside ten minutes by car. West Broad Village is the one pocket built to be walked. The trade you are making is drive time for convenience density, and for a lot of families that trade is obviously correct.",
+    fitChecklist: [
+      "You want newer construction and are fine with an HOA and a smaller engineered lot.",
+      "Errands, youth sports, and retail inside a ten minute drive matters more to you than walking to dinner.",
+      "You want the Henrico rate of $0.83 per $100 assessed rather than the city's $1.20.",
+    ],
+    faqs: [
+      {
+        question: "What is the typical price range in Short Pump?",
+        answer:
+          "Homes in the Short Pump and western Henrico area typically trade in the $450K to $700K range depending on age, lot, and community, with townhomes and condos below that and larger new construction above it. Pricing changes; verify with current MLS data before making decisions.",
+      },
+      {
+        question: "Is Short Pump walkable?",
+        answer:
+          "Mostly no. The area is built around car access to Broad Street, I-64, and Route 288, and the representative walk score for the zone is 32. West Broad Village is the exception, designed as a walkable mixed-use pocket. Everywhere else you are driving.",
+      },
+      {
+        question: "What is the property tax rate in Short Pump?",
+        answer:
+          "Short Pump is in Henrico County, which levies real estate tax at $0.83 per $100 of assessed value, against the City of Richmond's $1.20. On a $450,000 assessment that is roughly $139 a month less. Localities reset rates annually, so confirm the current year with the Henrico assessor.",
+      },
+      STANDARD_SCHOOLS_FAQ,
+    ],
+    milesTake:
+      "Short Pump gets dismissed by people who live inside the city as though convenience is a personality flaw. It is not. What I would push back on is buying the newest thing available. The twenty-year-old resale two streets over usually has the mature trees, the wider lot, and the finished basement, and it is often the cheaper house. New is a feature, not a strategy.",
+    reviewedDate: "2026-09-06",
+    geo: { latitude: 37.6556, longitude: -77.6169 },
+  },
+
+  {
+    slug: "glen-allen",
+    name: "Glen Allen",
+    county: "Henrico County",
+    parent: "Henrico County, Virginia",
+    oneLineFit:
+      "Northern Henrico's master-planned belt, anchored by the Innsbrook office park and the Twin Hickory and Wyndham communities, where a lot of the metro's white-collar commute distance collapses to almost nothing.",
+    housingStock:
+      "Master-planned communities from the late 1980s forward, with Wyndham built around a golf course and Twin Hickory built around pools and a community center. Mostly two-story colonials and transitional homes on planned lots, nearly all with an HOA, plus newer infill along the Nuckols Road corridor.",
+    buyingReality:
+      "Typical range runs $450K to $750K, the widest spread of any Henrico zone, because a Wyndham golf-course home and a Nuckols Road resale are two different markets sharing a mailing address. Read the HOA documents before you are under contract, since amenity packages here vary a lot and so do the assessments funding them. If someone in the household works at Innsbrook, the commute case here is close to unbeatable.",
+    sellingReality:
+      "This buyer is comparing your home to three others in the same community with the same floor plan, so your differentiators are lot position, updates, and how the home shows against its own comps rather than against the neighborhood. Pull the comps from your own community and floor plan, not from a Glen Allen average that includes Wyndham. Amenity access is part of what you are selling; say plainly what the HOA actually covers.",
+    lifestyle:
+      "Pools, golf, community centers, and a Broad Street commute that a lot of households never have to make because they work in Innsbrook. Restaurants skew toward the corridor rather than a walkable district. It is built for households that want their weeknights to be short, and it delivers that.",
+    fitChecklist: [
+      "You want amenity-driven community living, pools and courts and a clubhouse, and are fine paying an HOA for it.",
+      "Someone in the household works at Innsbrook or along the Broad Street corridor.",
+      "You are comfortable being car-dependent for everything outside the neighborhood.",
+    ],
+    faqs: [
+      {
+        question: "What is the typical price range in Glen Allen?",
+        answer:
+          "Glen Allen and northern Henrico typically trade in the $450K to $750K range, one of the widest spreads in the metro because Wyndham golf-course homes and Nuckols Road corridor resales sit in the same area. Verify with current MLS data before making decisions.",
+      },
+      {
+        question: "What is the difference between Glen Allen and Short Pump?",
+        answer:
+          "Both are Henrico County at $0.83 per $100 assessed. Short Pump is organized around retail and the I-64 and Route 288 interchange in western Henrico. Glen Allen sits north of it and is organized around the Innsbrook office park and amenity-driven master-planned communities like Twin Hickory and Wyndham. Short Pump is the shopping answer; Glen Allen is the commute-and-amenities answer.",
+      },
+      {
+        question: "Do Glen Allen homes have HOA fees?",
+        answer:
+          "Most do, and the amounts vary widely because the amenity packages do. Wyndham, Twin Hickory, and Foxhall each fund different things. Request the association documents and the current assessment schedule during your contingency period rather than relying on a listing summary.",
+      },
+      STANDARD_SCHOOLS_FAQ,
+    ],
+    milesTake:
+      "Glen Allen is where I send the household that is honest about how it actually spends a Tuesday. If your evening is practice, dinner, and bed, this zone gives you back forty minutes a day and that is a real thing to buy. Where I slow buyers down is the HOA. Two communities a mile apart can fund completely different amenity sets, and people find that out after closing more often than they should.",
+    reviewedDate: "2026-09-06",
+    geo: { latitude: 37.6654, longitude: -77.5083 },
+  },
+
+  {
+    slug: "midlothian",
+    name: "Midlothian",
+    county: "Chesterfield County",
+    parent: "Chesterfield County, Virginia",
+    oneLineFit:
+      "Chesterfield's established western suburb along Route 60, where 1970s and 1980s planned communities like Brandermill and Woodlake sit on mature lots at prices well under the comparable Henrico product.",
+    housingStock:
+      "Deep 1970s through 1990s inventory in Brandermill, Woodlake, and Salisbury, most of it on wooded lots with grown-in landscaping, plus newer construction pushing west toward Moseley. Brandermill was built as a planned community around Swift Creek Reservoir and still trades on that water and trail access.",
+    buyingReality:
+      "Typical range runs $350K to $500K, which is the value story of the western metro: comparable square footage to Short Pump at a materially lower entry point, with the Chesterfield rate of $0.89 per $100 assessed. The tradeoff is age. A 1985 home on a beautiful lot still has 1985 systems, so budget the HVAC, roof, and windows conversation into your number rather than discovering it at inspection.",
+    sellingReality:
+      "You are selling a mature lot and a community amenity set, and you are competing against newer construction further west that will beat you on finishes and lose to you on trees. Lead with the lot and the water or trail access if you have it. The updates that actually move this buyer are the boring ones, systems and roof and windows, because they know the age of the stock and they are pricing the risk.",
+    lifestyle:
+      "Swift Creek Reservoir, the Brandermill trail network, and a Route 60 corridor that carries most of the daily errand load. It is a car-dependent, lot-and-trees kind of suburb rather than a walkable one. People who love Midlothian love that their street has a canopy over it.",
+    fitChecklist: [
+      "You want mature lots and tree canopy more than you want new finishes.",
+      "You want more house per dollar than the comparable Henrico product and will accept the drive.",
+      "You are budgeting realistically for the systems on homes built in the 1970s through 1990s.",
+    ],
+    faqs: [
+      {
+        question: "What is the typical price range in Midlothian?",
+        answer:
+          "Midlothian typically trades in the $350K to $500K range, with Brandermill, Woodlake, and Salisbury making up much of the inventory and newer construction further west trading higher. Verify with current MLS data before making decisions.",
+      },
+      {
+        question: "What is the property tax rate in Midlothian?",
+        answer:
+          "Midlothian is in Chesterfield County, which levies real estate tax at $0.89 per $100 of assessed value, compared with $0.83 in Henrico and $1.20 in the City of Richmond. Localities reset rates annually, so confirm the current year with the Chesterfield assessor.",
+      },
+      {
+        question: "Is Brandermill a good place to buy in Midlothian?",
+        answer:
+          "Brandermill is a planned community built around Swift Creek Reservoir with an extensive trail network, and it carries the strengths and the weaknesses of stock from that era: mature lots and established landscaping alongside aging systems. Review the association documents and pay close attention to the age of the HVAC, roof, and windows on any specific home.",
+      },
+      STANDARD_SCHOOLS_FAQ,
+    ],
+    milesTake:
+      "Midlothian is the honest value answer in the western metro, and the thing that trips buyers up is that value here is stored in the lot rather than in the house. You are buying forty years of tree growth that nobody can build for you. What you are not buying is a new mechanical system. Price both of those into the offer and this zone works extremely well.",
+    reviewedDate: "2026-09-06",
+    geo: { latitude: 37.5060, longitude: -77.6497 },
+  },
+
+  {
+    slug: "mechanicsville",
+    name: "Mechanicsville",
+    county: "Hanover County",
+    parent: "Hanover County, Virginia",
+    oneLineFit:
+      "Hanover's largest community, north and east of the city along the Route 360 corridor, carrying the lowest suburban tax rate in the metro at $0.81 per $100 assessed.",
+    housingStock:
+      "A working mix of 1970s through 1990s ranch and colonial inventory closer to the Richmond line, newer construction in the Atlee and Pole Green corridors, and larger lots as you move east toward Cold Harbor and Studley. Fewer HOAs than the Henrico and Chesterfield equivalents, which is a real part of the appeal here.",
+    buyingReality:
+      "Typical range runs $325K to $500K at the lowest suburban rate in the metro, which is a meaningful monthly difference against a comparable Henrico or Chesterfield home. Inventory is genuinely varied, so the search discipline here is about the corridor rather than the town. Atlee, Pole Green, and the eastern stretch toward Cold Harbor behave like three different markets.",
+    sellingReality:
+      "The buyer coming here is usually doing tax and lot math, so lead with both. Acreage, no association, and the Hanover rate are the arguments. Where sellers lose is on condition, since much of the stock is old enough that a buyer walks in already pricing the systems. Handle what an inspector will find anyway before you list rather than negotiating it under a deadline.",
+    lifestyle:
+      "Route 360 carries the retail and the errands, the Richmond National Battlefield Park land around Cold Harbor carries the open space, and downtown is roughly a twenty-five minute drive. Restaurant density is low and nobody here is pretending otherwise. It is a quiet, low-tax, more-land-per-dollar part of the metro.",
+    fitChecklist: [
+      "You want the lowest suburban tax rate in the metro and more land per dollar.",
+      "You would rather have no association than have amenities.",
+      "A twenty-five minute drive to downtown and a thin restaurant scene are acceptable trades.",
+    ],
+    faqs: [
+      {
+        question: "What is the property tax rate in Mechanicsville?",
+        answer:
+          "Mechanicsville is in Hanover County, which levies real estate tax at $0.81 per $100 of assessed value, the lowest of the three core suburban counties and well under the City of Richmond's $1.20. Localities reset rates annually, so confirm the current year with the Hanover assessor.",
+      },
+      {
+        question: "What is the typical price range in Mechanicsville?",
+        answer:
+          "Mechanicsville and eastern Hanover typically trade in the $325K to $500K range, with newer construction in the Atlee and Pole Green corridors at the upper end and older inventory closer to the Richmond line below it. Verify with current MLS data before making decisions.",
+      },
+      {
+        question: "How long is the commute from Mechanicsville to downtown Richmond?",
+        answer:
+          "Roughly 25 minutes in normal conditions, generally via Route 360 or I-295 to I-64. That is a representative zone average rather than an address-level drive time, and afternoon peak runs longer.",
+      },
+      STANDARD_SCHOOLS_FAQ,
+    ],
+    milesTake:
+      "Mechanicsville is the quietest good deal in the metro and it is quiet on purpose. Nobody is making content about it. If your requirements are land, no HOA, and the lowest tax rate you can get while still being twenty-five minutes from downtown, this is the answer and it is not close. If you need to walk to dinner, it is the wrong zone and no amount of price will fix that.",
+    reviewedDate: "2026-09-06",
+    geo: { latitude: 37.6088, longitude: -77.3733 },
+  },
 ];
 
 export function getNeighborhood(slug: string): NeighborhoodContent | undefined {
