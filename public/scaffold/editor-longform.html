@@ -51,10 +51,17 @@
 
   .argue { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: 8px; background: var(--ivory); box-shadow: var(--shadow-sm); }
   table.arg { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 520px; }
+  table.arg.narrow { min-width: 0; }
+  table.arg.narrow td.n { vertical-align: top; padding-top: 13px; }
+  table.arg.narrow .pill { margin-top: 5px; display: inline-block; }
   table.arg th { text-align: left; font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); padding: 11px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
   table.arg td { padding: 11px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
   table.arg tr:last-child td { border-bottom: none; }
   table.arg tr.best td { background: rgba(212,175,55,0.12); font-weight: 600; }
+  /* The losing lane, marked so the argument reads at a glance and not only in prose. */
+  table.arg tr.worst td { background: rgba(177,70,46,0.07); color: #7d3121; }
+  table.arg td { white-space: normal; }
+  table.arg td.n { white-space: nowrap; }
   table.arg td.n { font-family: var(--serif); font-size: 15px; }
 
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
@@ -153,7 +160,7 @@
   <header class="hero">
     <div class="hero__eyebrow">MAMS Editor Room &middot; Bea Dela Cruz and Cess</div>
     <h1 class="hero__title">The long-form board. <em>Start here.</em></h1>
-    <p class="hero__sub">First the method: how a long-form gets assembled out of order, the five shapes every one of ours takes, and how the title gets made. Then one YouTube video, fully briefed, built entirely from footage already on the Drive. Nothing below waits on a shoot day. Behind it is a queue of 4 more that are also already shot, so the question of what to make next has an answer without anybody having to ask.</p>
+    <p class="hero__sub">First the method: the angle a video speaks from, how a long-form gets assembled out of order, the five shapes every one of ours takes, what the first thirty seconds are made of, and how the title and thumbnail get made. Then one YouTube video, fully briefed, built entirely from footage already on the Drive. Nothing below waits on a shoot day. Behind it is a queue of 4 more that are also already shot, so the question of what to make next has an answer without anybody having to ask.</p>
     <span class="stamp hot">1 live</span>
     <span class="stamp">4 queued</span>
     <span class="stamp">Briefed 2026-09-01</span>
@@ -161,6 +168,81 @@
   </header>
 
   
+  <section class="block">
+    <div class="eyebrow">The Angle</div>
+    <h2 class="title">Shape is what the footage is. <em>Angle is who is talking.</em></h2>
+    <p class="lede">The shape is decided by the footage and the cargo is decided by the argument. Neither of them says who is speaking, to whom, or what that person is allowed to claim. That is the angle, it is chosen before pass 1, and until 2026-09-08 this board never asked for it. Every video on this channel had one anyway. Nobody had written it down, so it moved between videos without anyone deciding it should.</p>
+
+    <div class="lab">What the channel already proved, ranked</div>
+    <p style="font-size:12.5px;opacity:0.78;margin-bottom:10px;">Nine videos on YouTube. Sorted by views, they sort almost perfectly by angle, and the split is not subtle. Place and experience does ten to thirty times what market data does on the same channel, to the same audience, from the same person.</p>
+    <div class="argue">
+      <table class="arg narrow">
+        <tr><th>Views</th><th>Title and angle</th></tr>
+        <tr class="best">
+        <td class="n">1,218</td>
+        <td>Scott's Addition Richmond VA (Things to Do In Richmond, Va)<br><span class="pill">place</span></td>
+      </tr><tr class="best">
+        <td class="n">1,170</td>
+        <td>The Fan District: Ultimate 2025 Neighborhood Tour (Pros &amp; Cons)<br><span class="pill">place</span></td>
+      </tr><tr class="">
+        <td class="n">423</td>
+        <td>Why Everyone is Moving to Richmond, VA (The REAL Reason)<br><span class="pill">polarity</span></td>
+      </tr><tr class="">
+        <td class="n">256</td>
+        <td>Moving to Richmond VA? Inside The Fan Neighborhood &amp; Home Tour<br><span class="pill">place</span></td>
+      </tr><tr class="">
+        <td class="n">235</td>
+        <td>Living in Northside Richmond VA: What NO ONE Tells You (Full Tour)<br><span class="pill">place</span></td>
+      </tr><tr class="worst">
+        <td class="n">76</td>
+        <td>Is It Too Late to Buy in Richmond, VA? (2026 Market Data Proves It's Not)<br><span class="pill">market</span></td>
+      </tr><tr class="worst">
+        <td class="n">70</td>
+        <td>3 Richmond Homes Under $400K That Will Change Your Life<br><span class="pill">market</span></td>
+      </tr><tr class="worst">
+        <td class="n">39</td>
+        <td>$600K Richmond VA Homes: Top School Districts vs Walkable City Living<br><span class="pill">market</span></td>
+      </tr>
+      </table>
+    </div>
+    <p style="font-size:11.5px;opacity:0.7;margin-top:7px;">Source: the Metricool publish record, pulled 2026-09-08. The ninth video is a 16-view duplicate upload and is left off.</p>
+
+    <div class="lab">And the demand agrees, from a completely separate source</div>
+    <p style="font-size:12.5px;opacity:0.78;margin-bottom:10px;">YouTube's own autocomplete was swept across fifteen Richmond stems, each probed with every letter a through z. Those completions are a primary source: not a modeled estimate, not a third-party volume number, just the strings YouTube itself offers because people type them. Sorted into lanes, the Richmond topic space looks like this.</p>
+    <div class="argue">
+      <table class="arg narrow">
+        <tr><th>Queries</th><th>Lane, and what is in it</th></tr>
+        <tr class="">
+        <td class="n">46</td>
+        <td><b>place / experience</b><br>The largest lane. Tour, vlog, food, downtown, nightlife, things to do.</td>
+      </tr><tr class="worst">
+        <td class="n">27</td>
+        <td><b>DO NOT CHASE</b><br>Crime and local news. Real demand, permanently off limits. See the gate below.</td>
+      </tr><tr class="">
+        <td class="n">15</td>
+        <td><b>neighborhood</b><br>Named neighborhoods and 'richmond va neighborhoods'.</td>
+      </tr><tr class="">
+        <td class="n">13</td>
+        <td><b>relocation</b><br>Moving to, living in, pros and cons, should I move.</td>
+      </tr><tr class="">
+        <td class="n">6</td>
+        <td><b>market / price</b><br>The smallest lane in the whole space. 'cost of living in richmond va' returns zero completions.</td>
+      </tr>
+      </table>
+    </div>
+    <div class="note">Two independent sources, one conclusion. The lane this channel's best videos live in is the biggest lane in the demand, and the lane its worst videos live in is the smallest. Refresh with `node scripts/youtube-demand/run.js`. It costs nothing and needs no key.</div>
+    <div class="alert amber" style="margin-top:9px;"><span class="alert__k">Read it right</span><span>The single highest-centrality phrase in the entire sweep is 'richmond virginia real estate', surfaced off four different stems. Read it correctly: real estate demand is narrow and it is deep. It is a lane to be found in, not a lane to lead with.</span></div>
+
+    <div class="pane gold" style="margin-top:16px;"><div class="pane__k">The rule this produces</div><p>The title, the thumbnail and the first thirty seconds sell the place. The cargo lands inside. Both jobs, one cut, and they do not compete for the same seconds. Selling the place is how the video gets watched. The cargo is how the watcher turns into the right buyer. A video that leads with the cargo gets 76 views and qualifies nobody, because qualifying nobody is what happens when nobody presses play.</p></div>
+    <div class="pane teal" style="margin-top:12px;"><div class="pane__k">The standing angle for this channel</div><p>A Richmond local showing you the city, who happens to know what it costs. In that order, always. Not a realtor doing a market update over B-roll, and not a tour guide who never mentions money. The knowing-what-it-costs is what separates it from every other Richmond vlog, and it earns its place by arriving second.</p></div>
+
+    <div class="hookbox" style="margin-top:16px;">
+      <div class="hookbox__k"><span>The test, run it before pass 1</span><button class="copy" data-copy="Say the angle out loud in one sentence: who is talking, to whom, and what they are allowed to claim. If the sentence is really a description of the topic, there is no angle yet and pass 1 has not started.">Copy</button></div>
+      <p>Say the angle out loud in one sentence: who is talking, to whom, and what they are allowed to claim. If the sentence is really a description of the topic, there is no angle yet and pass 1 has not started.</p>
+    </div>
+    <div class="alert red"><span class="alert__k">Gate</span><span>The fair housing gate binds the angle before it binds anything else, because the angle is what decides what the video is permitted to say about a neighborhood. The DO NOT CHASE lane above is 27 real queries with real demand behind them, and it is the fastest way to characterize a place by the people in it. It is surfaced here to be recognized and declined. It is never a title, a thumbnail, or an angle.</span></div>
+  </section>
+
   <section class="block">
     <div class="eyebrow">The Build Order</div>
     <h2 class="title">Nothing is shot in order. <em>Nothing is cut in order either.</em></h2>
@@ -275,6 +357,66 @@
   </section>
 
   <section class="block">
+    <div class="eyebrow">The Opener</div>
+    <h2 class="title">The intro is shot last. <em>It is still built first.</em></h2>
+    <p class="lede">The build order says the intro is the last thing shot, and that is right: it gets shot against a cut that already exists. But the shape of it gets decided in pass 1, alongside the spine, because the first thirty seconds are where a six-minute video is won or lost and you cannot improvise them at the end. Five beats. Nothing in front of them.</p>
+    
+      <div class="pass">
+        <div class="pass__top">
+          <span class="pass__n">1</span>
+          <span class="pass__t">Cold open</span>
+          <span class="pill">0:00 to 0:06</span>
+        </div>
+        <div class="pass__gets">The best frame of the shoot, ambient sound only.</div>
+        <p>No music, no talking, no logo. One shot that could not have been taken anywhere else. It buys six seconds and it is the only thing in the video allowed to run on pure atmosphere.</p>
+        <div class="pass__wrong"><b>Not this</b><span>A montage. Six seconds is one shot. If it takes three cuts to establish the place, the place was not established.</span></div>
+      </div>
+      <div class="pass">
+        <div class="pass__top">
+          <span class="pass__n">2</span>
+          <span class="pass__t">The hook</span>
+          <span class="pill">0:06 to 0:18</span>
+        </div>
+        <div class="pass__gets">The talking head. The spine loop opens here.</div>
+        <p>The claim the whole video holds, stated flat, withholding the payoff. Run the open-versus-closed test on it before it is ever shot. Topic crystal clear in two seconds, answer withheld for six minutes.</p>
+        <div class="pass__wrong"><b>Not this</b><span>Introducing yourself. Nobody who just clicked cares who you are yet. They care whether the claim is true.</span></div>
+      </div>
+      <div class="pass">
+        <div class="pass__top">
+          <span class="pass__n">3</span>
+          <span class="pass__t">Title card</span>
+          <span class="pill">0:18 to 0:20</span>
+        </div>
+        <div class="pass__gets">Two seconds, burned in.</div>
+        <p>The thumbnail's three or four words, not the full title. It confirms the viewer is in the right place and it makes the thumbnail feel like a promise that was kept.</p>
+        <div class="pass__wrong"><b>Not this</b><span>A branded animated intro. It is the highest-drop-off two seconds available and it is worth nothing.</span></div>
+      </div>
+      <div class="pass">
+        <div class="pass__top">
+          <span class="pass__n">4</span>
+          <span class="pass__t">The promise</span>
+          <span class="pill">0:20 to 0:30</span>
+        </div>
+        <div class="pass__gets">What they get by staying, as a question rather than a contents page.</div>
+        <p>Name the second thing they will find out, before the first one resolves. This is the retention loop from open-loop-mechanics.md doing its job at long-form scale. It is the difference between a viewer who is curious and a viewer who is committed.</p>
+        <div class="pass__wrong"><b>Not this</b><span>'In this video I'm going to show you three things.' That is a table of contents, and a table of contents closes every loop it names.</span></div>
+      </div>
+      <div class="pass">
+        <div class="pass__top">
+          <span class="pass__n">5</span>
+          <span class="pass__t">First payoff</span>
+          <span class="pill">before 1:00</span>
+        </div>
+        <div class="pass__gets">One concrete thing. A number, a name, a fact.</div>
+        <p>Something lands inside the first minute or nothing later recovers. It does not have to be the big one. It has to be real, and it has to prove the video pays what it opens.</p>
+        <div class="pass__wrong"><b>Not this</b><span>Holding everything for the back half. A viewer who has been promised twice and paid zero times at sixty seconds is already gone.</span></div>
+      </div>
+    <div class="pane red" style="margin-top:16px;"><div class="pane__k">The trap</div><p>The atmosphere open with no claim underneath it. Twenty five seconds of beautiful drone footage and a music bed feels like a real opener in the timeline and reads as a screensaver to somebody deciding whether to stay. Six seconds of that is a cold open. Twenty five is a bounce.</p></div>
+    <div class="pane teal" style="margin-top:12px;"><div class="pane__k">How you find out if it worked</div><p>The retention curve, and nothing else. `python3 scripts/youtube-analytics/pull.py --curves` returns audienceWatchRatio across elapsedVideoTimeRatio for every video on the channel, which is literally a graph of where people left. Read the first ten percent of the curve on the two videos that worked and copy the shape. Opinions about openers are free; the curve is the only thing that settles one.</p></div>
+    <div class="note">Watch order versus assembly order still holds. The opener is the last thing on the timeline to be finished and one of the first to be decided. Deciding it early is not the same as cutting it early, and the build order above is about cutting.</div>
+  </section>
+
+  <section class="block">
     <div class="eyebrow">The Title</div>
     <h2 class="title">The title is <em>the first loop.</em></h2>
     <p class="lede">On YouTube the title and the thumbnail are the entire hook, because they are the only thing that exists before anybody presses play. So the open versus closed test from the Editor Room runs on the title before it runs on anything else.</p>
@@ -312,9 +454,18 @@
         <div class="tf__tpl">The [thing] that [did the surprising thing]</div>
         <div class="tf__ex">The Hill That Named Richmond. It names the payoff without giving it up.</div>
       </div>
+    <p style="font-size:12.5px;opacity:0.78;margin-top:12px;">Thumbnail doctrine has its own section below. It was one paragraph here and it is half the hook, so it moved rather than being duplicated.</p>
 
-    <div class="pane red" style="margin-top:14px;"><div class="pane__k">The thumbnail rule</div><p>Three to four words maximum, and never the title repeated. The thumbnail says the thing the title withheld, or it says nothing at all. Subject fills the left third, text sits right, high contrast throughout. Check it at the size of a postage stamp, because that is the size it gets judged at.</p></div>
     <div class="alert red" style="margin-top:14px;"><span class="alert__k">Gate</span><span>The fair housing gate applies to the title and the thumbnail first, before it applies to the video, because those two travel to people who never press play. The cargo is price, never people. Same rule as the hard gate below, higher stakes.</span></div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">The Thumbnail</div>
+    <h2 class="title">It is half the hook <em>and it was getting one paragraph.</em></h2>
+    <p class="lede">The title and the thumbnail are the entire video to everyone who never presses play, and they are the only two things that compete against every other video on the page rather than against nothing. On this channel they have also been completely unmeasured until now: Metricool returns views for YouTube and nothing else, so no click-through rate has ever been read on any thumbnail here.</p>
+    <div class="loopgrid"><div class="loopcell"><b>Three to four words</b>Maximum. Counted, not estimated.</div><div class="loopcell"><b>Never the title repeated</b>The thumbnail says the thing the title withheld, or it says nothing at all and carries the image alone.</div><div class="loopcell"><b>Subject left, text right</b>Subject fills the left third. High contrast throughout.</div><div class="loopcell"><b>Judge it at postage-stamp size</b>That is the size it gets judged at. If it does not read at that size it does not read.</div><div class="loopcell"><b>Three candidates, always</b>Every brief ships three, each naming the source frame by filename. One candidate is a preference. Three is a decision.</div><div class="loopcell"><b>The gate first</b>Fair housing binds the thumbnail before it binds the video. Nobody in a crowd is ever the subject of a thumbnail.</div></div>
+    <div class="pane teal" style="margin-top:14px;"><div class="pane__k">The number it gets judged against</div><p>Channel median click-through rate, from `python3 scripts/youtube-analytics/pull.py`. Until that has been run there is no baseline and a thumbnail is being picked on taste. Run it once and the argument stops being an argument.</p></div>
+    <div class="note">The thumbnail is drawn last, from a frame the cut already contains. A thumbnail promising a shot that is not in the video is the same broken trust as an unpaid loop, and it costs the next video too.</div>
   </section>
 
   <span id="assignment"></span>
@@ -322,7 +473,7 @@
   <section class="block">
     <div class="eyebrow">The Assignment</div>
     <h2 class="title">The Hill That Named Richmond</h2>
-    <p class="lede">6 to 7 minutes, CINEMATIC mode, Contrast shape. <b>New footage needed: none. every frame already exists on the drive.</b> Every clip is named below, with a copy button for the path.</p>
+    <p class="lede">6 to 7 minutes, CINEMATIC mode. Shape: <b>The Tour</b>. Cargo argues a <b>Contrast</b>. Working title on the Drive is <b>Vibes at Sunset</b>. <b>New footage needed: none. every frame already exists on the drive.</b> Every clip is named below, with a copy button for the path.</p>
 
     <div class="hookbox">
       <div class="hookbox__k"><span>The hook, say it exactly</span><button class="copy" data-copy="Everybody who tells you Richmond is boring has never stood on this hill at eight o'clock.">Copy</button></div>
@@ -346,24 +497,24 @@
         <tr><th>Posted</th><th>Cut</th><th>Length</th><th>Reach</th><th>Shares</th><th>Skip</th><th>Avg watch</th></tr>
         <tr class="">
           <td>2026-08-13</td><td>teaser</td>
-          <td class="n">21s</td><td class="n">524</td>
-          <td class="n">1</td><td class="n">62.5%</td><td class="n">6s</td>
+          <td class="n">21s</td><td class="n">530</td>
+          <td class="n">1</td><td class="n">62.8%</td><td class="n">6s</td>
         </tr><tr class="">
           <td>2026-08-14</td><td>calling RVA boring</td>
-          <td class="n">57s</td><td class="n">8,190</td>
-          <td class="n">63</td><td class="n">48.8%</td><td class="n">10.9s</td>
+          <td class="n">57s</td><td class="n">8,375</td>
+          <td class="n">65</td><td class="n">48.9%</td><td class="n">10.9s</td>
         </tr><tr class="best">
           <td>2026-08-14</td><td>2nd fastest growing city</td>
-          <td class="n">91s</td><td class="n">11,058</td>
-          <td class="n">266</td><td class="n">46.7%</td><td class="n">16.2s</td>
+          <td class="n">91s</td><td class="n">11,296</td>
+          <td class="n">272</td><td class="n">46.8%</td><td class="n">16.2s</td>
         </tr><tr class="">
           <td>2026-08-15</td><td>re-run of the 8/14 cut</td>
-          <td class="n">61s</td><td class="n">4,046</td>
-          <td class="n">28</td><td class="n">60.1%</td><td class="n">9.9s</td>
+          <td class="n">61s</td><td class="n">4,469</td>
+          <td class="n">29</td><td class="n">59%</td><td class="n">9.9s</td>
         </tr>
       </table>
     </div>
-    <div class="note">The 91-second cut is roughly ten times the account's median reach and 266 shares against a median of two. It is also the longest. Those two facts are the whole brief.</div>
+    <div class="note">The 91-second cut is roughly ten times the account's median reach and 272 shares against a median of two. It is also the longest. Those two facts are the whole brief.</div>
   </section>
 
   <section class="block">
@@ -802,6 +953,249 @@
     <div class="eyebrow">Done Means</div>
     <h2 class="title">All five, <em>not four.</em></h2>
     <ul class="ticks"><li>Every loop that opens is closed, in the order it opened, spine last.</li><li>No chapter runs on atmosphere alone except chapter 1.</li><li>Every number on screen carries its month and its source.</li><li>Nobody in the crowd is the subject of a shot.</li><li>It goes up without Miles opening CapCut.</li></ul>
+  </section>
+  
+  <section class="block">
+    <div class="eyebrow">This Video's Angle</div>
+    <h2 class="title">Who is talking, <em>and what they may claim.</em></h2>
+    <div class="hookbox">
+      <div class="hookbox__k"><span>The angle, in one sentence</span><button class="copy" data-copy="A Richmond local showing you the city, who happens to know what it costs. Not a market update wearing a sunset, and not a drone reel that never mentions money.">Copy</button></div>
+      <p>A Richmond local showing you the city, who happens to know what it costs. Not a market update wearing a sunset, and not a drone reel that never mentions money.</p>
+    </div>
+    <div class="loopgrid">
+      <div class="loopcell"><b>Who is talking</b>Somebody who has stood on this hill enough times that it is not special to him, telling somebody who has never been there why it should be.</div>
+      <div class="loopcell"><b>To whom</b>The person deciding whether Richmond is worth their time, who has not yet decided whether it is worth their money. In that order. Nobody arrives at the second question first.</div>
+      <div class="loopcell"><b>Allowed to claim</b>What the place is, what it was named for, and what it costs. Never who is there.</div>
+    </div>
+    <div class="pane gold" style="margin-top:14px;"><div class="pane__k">The split</div><p>The title, the thumbnail and the first thirty seconds sell the place. The cargo lands inside, from chapter 3 on. They do not compete for the same seconds.</p></div>
+    <div class="alert green" style="margin-top:12px;"><span class="alert__k">Already right</span><span>Worth saying plainly, because it would be easy to read the channel evidence as an instruction to rebuild this brief. It is not. The shipped title is a place title. The hook is a polarity claim about the place, not about price. The first two chapters carry no price at all. This brief already runs the split correctly. What it was missing was anybody saying so, which meant the next brief off the queue had no way to inherit it.</span></div>
+    <div class="alert amber"><span class="alert__k">Watch this</span><span>The L4 close, 'so is it already too late to get in', is almost word for word a title already on this channel: 'Is It Too Late to Buy in Richmond, VA', which did 76 views. Inside the video at 3:00 it is a good question. As a title or a thumbnail it is the worst-performing shape this channel has ever published. Keep it where it is and never promote it to the front.</span></div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">This Video's First Thirty</div>
+    <h2 class="title">The opener, <em>beat by beat.</em></h2>
+    <p class="lede">The first thirty seconds, resolved against the five beats in the method above. This section also fixes a collision: insert 1 was written for 0:00 to 0:12 and chapter 1 was written for 0:00 to 0:25, so the brief specified two different things for the same seconds and never said which the viewer sees first. The viewer sees the footage first.</p>
+    
+      <div class="clip" style="align-items:flex-start;">
+        <span class="lead">COLD OPEN</span>
+        <span style="flex:1 1 220px;">
+          <b style="display:block;font-size:11px;color:var(--gold-dark);letter-spacing:0.06em;">0:00 to 0:06</b>
+          One shot, ambient sound only. No music, no talking, no title.
+          <br><code>DJI_20260813194255_0967_D.MP4</code>
+          <br><span style="opacity:0.75;">558 MB at 19:42, the largest take in the night that is not already a chapter lead. Deliberately not the sunset: opening on the sunset spends chapter 5's image before chapter 5 has earned it.</span>
+          <br><span style="opacity:0.75;"><b>Or</b> <code>DJI_20260813201350_0986_D.MP4</code>. 442 MB at 20:13, one minute after sunset, the best sky of the night. This is the flash-forward version: open on the destination, then rewind. Higher ceiling and a real cost, because chapter 5 then has to land on an image the viewer has already seen. Editors' call, but say which one you picked and why.</span>
+        </span>
+        <button class="copy dark" data-copy="DJI_20260813194255_0967_D.MP4">Copy</button>
+      </div>
+      <div class="clip" style="align-items:flex-start;">
+        <span class="lead">HOOK</span>
+        <span style="flex:1 1 220px;">
+          <b style="display:block;font-size:11px;color:var(--gold-dark);letter-spacing:0.06em;">0:06 to 0:18</b>
+          Insert 1. Opens SPINE and L1. This is where the talking head enters, not at 0:00.
+          <br><span style="opacity:0.75;">Miles insert 1, see What Miles Owes below.</span>
+          
+          
+        </span>
+        
+      </div>
+      <div class="clip" style="align-items:flex-start;">
+        <span class="lead">TITLE CARD</span>
+        <span style="flex:1 1 220px;">
+          <b style="display:block;font-size:11px;color:var(--gold-dark);letter-spacing:0.06em;">0:18 to 0:20</b>
+          Two seconds, burned in. The thumbnail's words, not the full title. Whichever thumbnail ships, its text is this card.
+          <br><span style="opacity:0.75;">Over the tail of the cold-open shot or the first frame of block A.</span>
+          
+          
+        </span>
+        
+      </div>
+      <div class="clip" style="align-items:flex-start;">
+        <span class="lead">THE PROMISE</span>
+        <span style="flex:1 1 220px;">
+          <b style="display:block;font-size:11px;color:var(--gold-dark);letter-spacing:0.06em;">0:20 to 0:30</b>
+          The second question, opened before the first one resolves. It is already written into insert 1's second sentence: 'and then I want to show you what it costs.' Let that line land over footage, not over the talking head.
+          <br><span style="opacity:0.75;">Block A arrival, DJI_0527.MP4 into DJI_0522.MP4.</span>
+          
+          
+        </span>
+        
+      </div>
+      <div class="clip" style="align-items:flex-start;">
+        <span class="lead">FIRST PAYOFF</span>
+        <span style="flex:1 1 220px;">
+          <b style="display:block;font-size:11px;color:var(--gold-dark);letter-spacing:0.06em;">before 1:00</b>
+          One concrete thing. Here it is the naming fact, which chapter 2 already delivers at 0:25 to 1:30. It qualifies as long as it is said inside the first minute and not held to 1:29.
+          <br><span style="opacity:0.75;">Chapter 2, insert 2.</span>
+          
+          
+        </span>
+        
+      </div>
+    <div class="grid2" style="margin-top:16px;">
+      <div class="pane red"><div class="pane__k">Chapter 1 was</div><p>0:00 to 0:25, twenty five seconds of arrival footage on atmosphere alone, explicitly allowed to carry no cargo.</p></div>
+      <div class="pane gold"><div class="pane__k">Chapter 1 is now</div><p>0:00 to 0:06 as the cold open, then 0:20 to 0:30 as the promise bed. The same block A footage, roughly the same total screen time, split around the hook instead of stacked in front of it.</p></div>
+    </div>
+    <div class="note">Twenty five unbroken seconds of drone footage before anybody says anything is the trap the method section names: it feels like an opener on the timeline and reads as a screensaver to somebody deciding whether to stay. Six seconds is a cold open. Twenty five is a bounce. This is the single change on this page most likely to move the retention curve, and it is also the one we can check afterwards.</div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">The Hook</div>
+    <h2 class="title">Three candidates. <em>One ships.</em></h2>
+    <p class="lede">Three hooks, each run through the open-versus-closed test. Candidate 1 ships unless somebody makes a better case. It is not here by default: it is the line that already produced the two biggest pieces on the account off this exact footage.</p>
+    
+      <div class="tf" style="border-color:rgba(212,175,55,0.55);background:rgba(212,175,55,0.07);">
+        <div class="tf__top">
+          <span class="tf__n">Candidate 1</span>
+          <span class="pill">Polarity, 3.1x median on the 384-post scoreboard</span>
+          <span class="pill" style="border-color:var(--gold);color:var(--gold-dark);">Ships</span>
+        </div>
+        <div class="say" style="margin:4px 0 8px;">Everybody who tells you Richmond is boring has never stood on this hill at eight o'clock.</div>
+        <div class="tf__ex"><b>Open or closed:</b> OPEN. Stakes a claim the viewer has to test, and withholds both which hill and what happens on it. Topic clear in two seconds.</div>
+        <div class="tf__ex"><b>Lane:</b> Place. The claim is about the city, not about the price, which is exactly what the angle asks for.</div>
+        <div class="tf__ex"><b>Proof:</b> This is the hook of the 8/14 cut that did 8,375 reach, and its sibling did 11,296 with 272 shares.</div>
+        
+        
+      </div>
+      <div class="tf" >
+        <div class="tf__top">
+          <span class="tf__n">Candidate 2</span>
+          <span class="pill">The withheld noun, wrapped in the demand vocabulary</span>
+          
+        </div>
+        <div class="say" style="margin:4px 0 8px;">You asked me what there is to do in Richmond. I am going to answer that with one Thursday night.</div>
+        <div class="tf__ex"><b>Open or closed:</b> OPEN. Names that an answer is coming and withholds all of it. 'One Thursday night' is the hook: they want to know what was on it.</div>
+        <div class="tf__ex"><b>Lane:</b> Place, and the most literal possible match to the demand. 'things to do in richmond va' is the largest single stem in the autocomplete sweep and this line is nearly that string spoken out loud.</div>
+        
+        <div class="tf__ex"><b>Tradeoff:</b> Softer than candidate 1. It invites rather than challenges, so it loses the polarity lift and gains searchability. Worth testing on a later video in the queue rather than swapping it in here.</div>
+        
+      </div>
+      <div class="tf" >
+        <div class="tf__top">
+          <span class="tf__n">Candidate 3</span>
+          <span class="pill">The withheld noun, matching the shipped title</span>
+          
+        </div>
+        <div class="say" style="margin:4px 0 8px;">The whole city is named after this hill, and almost nobody standing on it tonight knows that.</div>
+        <div class="tf__ex"><b>Open or closed:</b> OPEN, but weaker. It gives away the naming fact, which is chapter 2's payoff and the video's first concrete beat. Spending it at 0:06 leaves chapter 2 with nothing to pay.</div>
+        <div class="tf__ex"><b>Lane:</b> Place.</div>
+        
+        
+        <div class="tf__ex" style="color:#7d3121;"><b>Verdict:</b> Do not use as the hook. This is a good line and it is already where it belongs, in insert 2.</div>
+      </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Thumbnail Options</div>
+    <h2 class="title">Three candidates, <em>each naming its frame.</em></h2>
+    <p class="lede">Three, per the method. Each names its source frame by filename, because a thumbnail promising a shot the video does not contain is the same broken trust as an unpaid loop. All three are gate-checked first: no individual in the crowd is the subject of any of them.</p>
+    <div class="alert green"><span class="alert__k">Gate check</span><span>None of these characterize who is in Church Hill or who is arriving. Wide texture only, or no people at all.</span></div>
+    <div class="alert amber" style="margin-bottom:16px;"><span class="alert__k">No baseline yet</span><span>There is no channel click-through baseline on file yet. Run `python3 scripts/youtube-analytics/pull.py` once and these three stop being a preference and start being a comparison.</span></div>
+    
+      <div class="tf" style="border-color:rgba(212,175,55,0.55);background:rgba(212,175,55,0.07);">
+        <div class="tf__top">
+          <span class="tf__n">1</span>
+          <span class="pill">4 words</span>
+          <span class="pill" style="border-color:var(--gold);color:var(--gold-dark);">Ships</span>
+        </div>
+        <div class="tf__tpl" style="font-family:var(--serif);font-size:19px;letter-spacing:0.04em;text-align:center;padding:14px 10px;">8PM ON A THURSDAY</div>
+        <div class="clip"><code>DJI_20260813200757_0984_D.MP4</code><button class="copy dark" data-copy="DJI_20260813200757_0984_D.MP4">Copy</button></div>
+        <div class="tf__ex"><b>Frame:</b> 2.56 GB at 20:07, the longest take of the night, five minutes before sunset. Best odds of a clean wide frame with the lawn, the crowd texture and the skyline all in it.</div>
+        <div class="tf__ex"><b>Why:</b> Says the thing the title withholds. The title says a hill named the city; this says the night was ordinary. That contrast is the whole video and it fits in four words. It also reads at postage-stamp size because it is mostly numerals and short words.</div>
+        <div class="tf__ex"><b>Checked:</b> 2026-08-13 was a Thursday. Confirmed, not assumed.</div>
+        
+      </div>
+      <div class="tf" >
+        <div class="tf__top">
+          <span class="tf__n">2</span>
+          <span class="pill">3 words</span>
+          
+        </div>
+        <div class="tf__tpl" style="font-family:var(--serif);font-size:19px;letter-spacing:0.04em;text-align:center;padding:14px 10px;">LIBBY HILL, 8PM</div>
+        <div class="clip"><code>DJI_20260813194743_0971_D.MP4</code><button class="copy dark" data-copy="DJI_20260813194743_0971_D.MP4">Copy</button></div>
+        <div class="tf__ex"><b>Frame:</b> 1.67 GB at 19:47, the second longest take, the clean push over the overlook.</div>
+        <div class="tf__ex"><b>Why:</b> Names the withheld noun outright. Trades curiosity for searchability: 'libby hill richmond' is a live stem in the autocomplete sweep and returned 20 completions. Pick this one if the goal is to be found rather than to be clicked.</div>
+        
+        
+      </div>
+      <div class="tf" >
+        <div class="tf__top">
+          <span class="tf__n">3</span>
+          <span class="pill">3 words</span>
+          
+        </div>
+        <div class="tf__tpl" style="font-family:var(--serif);font-size:19px;letter-spacing:0.04em;text-align:center;padding:14px 10px;">THIS IS RICHMOND</div>
+        <div class="clip"><code>DJI_20260813201350_0986_D.MP4</code><button class="copy dark" data-copy="DJI_20260813201350_0986_D.MP4">Copy</button></div>
+        <div class="tf__ex"><b>Frame:</b> 442 MB at 20:13, one minute past sunset, the best sky of the night.</div>
+        <div class="tf__ex"><b>Why:</b> The flat confident version, carried entirely by the image. Only works if the frame is genuinely the best one we have, because the words do no work at all. Highest ceiling and highest floor risk of the three.</div>
+        
+        <div class="tf__ex" style="color:#7d3121;"><b>Risk:</b> Closest of the three to a closed statement. It hands over a conclusion. It survives only because the image is the loop.</div>
+      </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">What Gets Absorbed</div>
+    <h2 class="title">The three posted cuts do not get re-cut. They get absorbed.</h2>
+    <p class="lede">Miles's call, 2026-09-08. The long-form takes in the shorts that already came off this night rather than starting over from raw. Their in and out points are already approved selects, which is a shortcut straight through pass 2 for the blocks they cover. Audio is the exception and it is not optional.</p>
+    
+      <div class="ch blocked" style="padding:15px 17px;margin-bottom:11px;">
+        <div class="ch__top">
+          <span class="ch__t" style="font-size:16px;">2nd fastest growing city</span>
+          <span class="pill">91s</span>
+          <span class="pill">11,296 reach</span>
+          <span class="pill">272 shares</span>
+          <span class="pill ">to Chapters 3 and 4</span>
+        </div>
+        <p>This is the account's best recent piece and it makes the same argument chapters 3 and 4 make. Its structure is the rehearsal for them. Use its selects and its pacing; replace its claim with the sourced CVR MLS numbers.</p>
+        <div class="alert red" style="margin-top:10px;margin-bottom:0;"><span class="alert__k">Source it</span><span>Its central claim, 'the 2nd fastest growing city in the country', appears in eight places in this repo and carries a source in none of them. It ran on Instagram already. YouTube is permanent, searchable, and the account has a published piece calling other people out for repeating unsourced numbers. Source it to a primary or cut the line. Do not carry it over on the strength of it having already been posted.</span></div>
+      </div>
+      <div class="ch " style="padding:15px 17px;margin-bottom:11px;">
+        <div class="ch__top">
+          <span class="ch__t" style="font-size:16px;">calling RVA boring</span>
+          <span class="pill">57s</span>
+          <span class="pill">8,375 reach</span>
+          <span class="pill">65 shares</span>
+          <span class="pill ">to The opener and chapters 1 and 2</span>
+        </div>
+        <p>Its hook is already the spine line of this video, near word for word. Whatever the 57-second cut did in its first three seconds is the closest thing to a tested opener that exists for this footage. Start there rather than from a blank timeline.</p>
+        
+      </div>
+      <div class="ch " style="padding:15px 17px;margin-bottom:11px;">
+        <div class="ch__top">
+          <span class="ch__t" style="font-size:16px;">teaser</span>
+          <span class="pill">21s</span>
+          <span class="pill">530 reach</span>
+          <span class="pill">1 shares</span>
+          <span class="pill ">to Cold open only, or nothing</span>
+        </div>
+        <p>The weakest of the three by an order of magnitude, 62.8 percent skip. Worth opening once to see which frame it led on, then close it. Nothing else from it is likely to survive.</p>
+        
+      </div>
+      <div class="ch " style="padding:15px 17px;margin-bottom:11px;">
+        <div class="ch__top">
+          <span class="ch__t" style="font-size:16px;">re-run of the 8/14 cut</span>
+          <span class="pill">61s</span>
+          <span class="pill">4,469 reach</span>
+          <span class="pill">29 shares</span>
+          <span class="pill warn">to Nothing</span>
+        </div>
+        <p>Same cut as 8/14, posted again. There is no new material in it. Listed only so nobody spends an afternoon discovering that.</p>
+        
+      </div>
+    <div class="pane teal" style="margin-top:14px;"><div class="pane__k">The audio rule</div><p>Every absorbed cut loses its music. The long-form runs one bed across six minutes and four different track choices stitched together is the single most obvious tell of a video assembled out of posts. Keep the ambient, replace the music, re-level the whole timeline once at the end.</p></div>
+    <div class="note">This runs opposite to the Harvest section below and both are correct. Absorb pulls FROM the posted timelines INTO the long-form. Harvest cuts FROM the finished long-form OUT to new shorts. What neither of them does is go back to raw and re-select the same three shots a third time.</div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">What It Tees Up</div>
+    <h2 class="title">This is episode one of something, and the end screen has to act like it.</h2>
+    <div class="pane gold"><div class="pane__k">The end screen, The last 15 seconds, over block C walk-down footage</div><p>One card, pointing at the next long-form off the queue. Not a subscribe animation, not a grid of six thumbnails. Written once the next brief is live, so the card names an actual video rather than a category.</p></div>
+    <div class="pane teal" style="margin-top:12px;"><div class="pane__k">The queue is the series</div><p>Four more are already shot and sitting in the same Drive: The Fan 2026, Scott's Addition revisited, One Fourth of July, WellFit Wednesday. WellFit is structurally identical to this one, same shape, same light, different event. That is the argument for treating these as a run rather than as four unrelated uploads: the format is built once here and reused four times.</p></div>
+    <div class="pane" style="margin-top:12px;"><div class="pane__k">Short-form points here</div><p>The five derivative shorts in the Harvest section below are not just extra posts. They are the on-ramp: each one ends pointing at this video. That is the loop the channel has never run, where short-form feeds long-form instead of replacing it.</p></div>
+    <div class="alert amber" style="margin-top:14px;">
+      <span class="alert__k">Open</span>
+      <span><b>Does Electric Sun Society run Vibes At Sunset monthly, seasonally, or once?</b> STILL UNANSWERED. Open since references/footage/events/vibes-at-sunset.md was written and it is the highest-value unknown in that file. It is the difference between episode one of a recurring series and a one-off with a nice view. If it recurs, the end screen says so, the next shoot goes on the forward calendar, and every future night arrives with 46 clips of reference and four pieces of performance history already on file. Answered by: Miles. One question to the organizers.. Until then: The end screen points at the next queued long-form, which is correct either way.</span>
+    </div>
   </section>
 
   <section class="block">
