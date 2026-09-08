@@ -1,4 +1,5 @@
 import { isRateLimited } from "@/lib/rate-limit";
+import { guideDownloadUrl } from "@/lib/guide-token";
 
 const GHL_TOKEN = process.env.GHL_MAMS_TOKEN;
 const GHL_LOCATION_ID = process.env.GHL_MAMS_LOCATION_ID;
@@ -131,6 +132,17 @@ export async function POST(request: Request) {
       );
     }
 
+    // Mint the signed download link before touching GHL so it can ride along in
+    // the note. The PDF is no longer publicly reachable, so this link is the only
+    // way a lead gets the file. A missing secret is logged and the lead still
+    // saves: losing the contact would be worse than a manual send.
+    let downloadUrl = "";
+    try {
+      downloadUrl = guideDownloadUrl(new URL(request.url).origin);
+    } catch (err) {
+      console.error("Guide download link not minted:", (err as Error).message);
+    }
+
     // Step 1: Create contact in GHL
     const createRes = await fetch(`${GHL_BASE}/contacts/`, {
       method: "POST",
@@ -150,7 +162,7 @@ export async function POST(request: Request) {
     const contactId = createData?.contact?.id;
 
     if (!contactId) {
-      console.error("Failed to create GHL contact — status:", createRes.status);
+      console.error("Failed to create GHL contact, status:", createRes.status);
       return Response.json(
         { success: false, error: "Failed to create contact" },
         { status: 502 }
@@ -171,6 +183,10 @@ export async function POST(request: Request) {
           "",
           "Requested the Richmond Relocation Guide from the landing page.",
           "Pending verification before guide delivery.",
+          "",
+          downloadUrl
+            ? `Signed download link (14 days): ${downloadUrl}`
+            : "No download link minted: GUIDE_DOWNLOAD_SECRET is not configured.",
           "",
           `Source: landing-page`,
           `Date: ${new Date().toISOString()}`,
