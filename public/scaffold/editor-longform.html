@@ -32,6 +32,7 @@
   .stamp.hot { background: var(--gold); border-color: var(--gold); color: var(--deep-teal); }
 
   section.block { padding: 30px 0; border-bottom: 1px solid var(--line); }
+  #assignment { display: block; scroll-margin-top: 12px; }
   section.block:last-of-type { border-bottom: none; }
   .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 9px; }
   h2.title { font-family: var(--serif); font-weight: 400; font-size: clamp(21px, 3.4vw, 29px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 6px; }
@@ -79,6 +80,30 @@
   .clip { display: flex; align-items: center; gap: 9px; background: var(--paper-soft); border: 1px solid var(--line); border-radius: 6px; padding: 8px 11px; font-size: 12px; margin-bottom: 6px; flex-wrap: wrap; }
   .clip code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; word-break: break-all; flex: 1 1 200px; }
   .clip .lead { font-size: 8.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dark); border: 1px solid rgba(212,175,55,0.5); border-radius: 3px; padding: 2px 6px; white-space: nowrap; }
+
+  /* The method. Teal accents throughout, where the assignment runs gold, so the
+     doctrine reads as the wall it hangs on and never outranks the day's orders. */
+  .pass { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--deep-teal); border-radius: 8px; padding: 18px 20px; box-shadow: var(--shadow-sm); margin-bottom: 13px; }
+  .pass__top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+  .pass__n { font-family: var(--serif); font-size: 21px; color: var(--gold-dark); line-height: 1; }
+  .pass__t { font-family: var(--serif); font-size: 17px; font-weight: 600; }
+  .pass__gets { font-size: 11.5px; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
+  .pass p { font-size: 13.5px; line-height: 1.55; }
+  .pass__wrong { display: flex; gap: 8px; align-items: flex-start; background: rgba(177,70,46,0.06); border: 1px solid rgba(177,70,46,0.22); border-radius: 6px; padding: 9px 12px; margin-top: 11px; font-size: 12.5px; line-height: 1.5; color: #7d3121; }
+  .pass__wrong b { font-size: 8.5px; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; padding-top: 3px; white-space: nowrap; }
+
+  .shape { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--teal); border-radius: 8px; padding: 17px 19px; box-shadow: var(--shadow-sm); margin-bottom: 11px; }
+  .shape__top { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; margin-bottom: 4px; }
+  .shape__t { font-family: var(--serif); font-size: 17px; font-weight: 600; }
+  .shape__w { font-size: 13.5px; line-height: 1.5; margin-bottom: 9px; }
+  .shape dl { display: grid; grid-template-columns: 92px 1fr; gap: 4px 10px; font-size: 12.5px; line-height: 1.5; }
+  .shape dt { font-size: 8.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); padding-top: 3px; }
+
+  .tf { background: var(--paper-soft); border: 1px solid var(--line); border-radius: 7px; padding: 13px 15px; margin-bottom: 9px; }
+  .tf__top { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; margin-bottom: 6px; }
+  .tf__n { font-size: 12.5px; font-weight: 800; letter-spacing: 0.02em; }
+  .tf__tpl { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; background: var(--ivory); border: 1px solid var(--line); border-radius: 5px; padding: 7px 10px; margin-bottom: 6px; word-break: break-word; }
+  .tf__ex { font-size: 12.5px; line-height: 1.5; opacity: 0.82; }
 
   .ins { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--deep-teal); border-radius: 8px; padding: 18px 20px; box-shadow: var(--shadow-sm); margin-bottom: 13px; }
   .ins__top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
@@ -128,12 +153,171 @@
   <header class="hero">
     <div class="hero__eyebrow">MAMS Editor Room &middot; Bea Dela Cruz and Cess</div>
     <h1 class="hero__title">The long-form board. <em>Start here.</em></h1>
-    <p class="hero__sub">One YouTube video, fully briefed, built entirely from footage that is already on the Drive. Nothing below waits on a shoot day. Behind it is a queue of 4 more that are also already shot, so the question of what to make next has an answer without anybody having to ask.</p>
+    <p class="hero__sub">First the method: how a long-form gets assembled out of order, the five shapes every one of ours takes, and how the title gets made. Then one YouTube video, fully briefed, built entirely from footage already on the Drive. Nothing below waits on a shoot day. Behind it is a queue of 4 more that are also already shot, so the question of what to make next has an answer without anybody having to ask.</p>
     <span class="stamp hot">1 live</span>
     <span class="stamp">4 queued</span>
     <span class="stamp">Briefed 2026-09-01</span>
+    <div><a class="linkbtn" href="#assignment">Straight to this week's assignment &rarr;</a></div>
   </header>
 
+  
+  <section class="block">
+    <div class="eyebrow">The Build Order</div>
+    <h2 class="title">Nothing is shot in order. <em>Nothing is cut in order either.</em></h2>
+    <p class="lede">There are two lists on every long-form and they are not the same list. Watch order is what the viewer gets. Assembly order is how you get there. Confusing the two is the single reason a long-form stalls, because it makes every missing piece feel like a shoot day instead of a gap.</p>
+    
+      <div class="pass">
+        <div class="pass__top">
+          <span class="pass__n">1</span>
+          <span class="pass__t">Find the spine</span>
+        </div>
+        <div class="pass__gets">Two things on the timeline. Nothing else.</div>
+        <p>One question the whole video holds, and the one moment that pays it. Both are almost always already in the footage. Lay those two down and stop. If you cannot say the question in one sentence, the video does not have a spine yet, and you send it back rather than cutting around it.</p>
+        <div class="pass__wrong"><b>Not this</b><span>Starting at 0:00 and working forward. That is watch order, and it is the last pass, not the first.</span></div>
+      </div>
+      <div class="pass">
+        <div class="pass__top">
+          <span class="pass__n">2</span>
+          <span class="pass__t">Cut the blocks, blind</span>
+        </div>
+        <div class="pass__gets">Every block cut to its best 20 to 40 seconds, in no order.</div>
+        <p>Group every clip by location and light, never by story position. A block is a place at an hour. Cut each one down to its strongest stretch without deciding where it goes in the video. Label them A, B, C. The letters in every brief on this board are these blocks.</p>
+        <div class="pass__wrong"><b>Not this</b><span>Deciding a block is the opener while you are cutting it. You cannot know that yet and the decision will cost you the clip.</span></div>
+      </div>
+      <div class="pass">
+        <div class="pass__top">
+          <span class="pass__n">3</span>
+          <span class="pass__t">Order the blocks</span>
+        </div>
+        <div class="pass__gets">Chapters. This is the pass where they are born.</div>
+        <p>Now arrange the blocks by what question each one opens and what it closes. Story position gets decided here, on the timeline, not in the camera and not in the folder names. A block only becomes a chapter in this pass, and only if it carries something.</p>
+        <div class="pass__wrong"><b>Not this</b><span>Keeping the folder order. The Drive is sorted by timestamp, which is the order it happened, which is almost never the order it plays.</span></div>
+      </div>
+      <div class="pass">
+        <div class="pass__top">
+          <span class="pass__n">4</span>
+          <span class="pass__t">Name the holes</span>
+        </div>
+        <div class="pass__gets">A short list of pickups with runtimes attached.</div>
+        <p>Whatever is left is what Miles owes: the intro, the pickups, the numbers. Drop a labeled gap on the timeline with the exact runtime you need and the exact sentence it has to carry. He shoots against a cut that already exists. That is why the intro is shot last, every time.</p>
+        <div class="pass__wrong"><b>Not this</b><span>Waiting to start until the intro exists. The intro is the easiest thing to shoot and the worst thing to wait on.</span></div>
+      </div>
+    <div class="pane gold" style="margin-top:16px;"><div class="pane__k">The rule that makes it work</div><p>A block only earns a chapter if it carries something. If it has no cargo it is B-roll, not a chapter. This is the same line that governs the cut below, and it is repeated here on purpose, because pass 2 and pass 3 are exactly where it gets decided.</p></div>
+    <div class="note">Why we work this way. Seven weeks passed with zero long-form shipped, and the record shows the room was waiting on a script. Assembly-first means the cut exists before the missing pieces do, so a missing piece turns into a 90 second ask instead of a shoot day nobody schedules.</div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Five Shapes</div>
+    <h2 class="title">Every long-form we make is <em>one of five.</em></h2>
+    <p class="lede">The shape is picked in pass 1, at the same time as the spine, because it decides how many chapters there are and where the spine question is allowed to close. Every video queued on this board is already tagged with its shape. If you cannot say which of the five you are holding, pass 1 is not finished.</p>
+    
+      <div class="shape">
+        <div class="shape__top">
+          <span class="shape__t">The Tour</span>
+          <span class="pill">5 to 7 chapters</span>
+        </div>
+        <p class="shape__w">One place, one unbroken stretch of light.</p>
+        <dl>
+          <dt>Spine closes</dt><dd>On the last light of the day</dd>
+          <dt>The trap</dt><dd>Pretty with no cargo. A tour is not a montage. Every stop has to answer something.</dd>
+          <dt>Ours</dt><dd>Vibes at Sunset (live below), WellFit Wednesday (queued)</dd>
+        </dl>
+      </div>
+      <div class="shape">
+        <div class="shape__top">
+          <span class="shape__t">The Contrast</span>
+          <span class="pill">4 to 6 chapters</span>
+        </div>
+        <p class="shape__w">What a place was sold as, against what the numbers actually say.</p>
+        <dl>
+          <dt>Spine closes</dt><dd>On the number that settles it</dd>
+          <dt>The trap</dt><dd>Landing on an opinion instead of a figure. If the payoff is not a number or a named thing, the contrast never resolves.</dd>
+          <dt>Ours</dt><dd>The Fan pros and cons 2026, Scott's Addition revisited (queued, ranks 1 and 2)</dd>
+        </dl>
+      </div>
+      <div class="shape">
+        <div class="shape__top">
+          <span class="shape__t">The Ranked List</span>
+          <span class="pill">6 to 10 chapters</span>
+        </div>
+        <p class="shape__w">Numbered. Pros and cons, or the TYSK series at full length.</p>
+        <dl>
+          <dt>Spine closes</dt><dd>On the entry you held back</dd>
+          <dt>The trap</dt><dd>Front-loading the best one. The strongest item goes last or there is no reason to stay.</dd>
+          <dt>Ours</dt><dd>TYSK scaled up from short form</dd>
+        </dl>
+      </div>
+      <div class="shape">
+        <div class="shape__top">
+          <span class="shape__t">The Day</span>
+          <span class="pill">4 to 6 chapters</span>
+        </div>
+        <p class="shape__w">One day, one arc, and it is allowed to be personal.</p>
+        <dl>
+          <dt>Spine closes</dt><dd>On what changed by the end of it</dd>
+          <dt>The trap</dt><dd>Personal with nothing at stake. If nothing was at risk it is a vlog, and a vlog needs an audience we do not have yet.</dd>
+          <dt>Ours</dt><dd>One Fourth of July in Richmond (queued, rank 3)</dd>
+        </dl>
+      </div>
+      <div class="shape">
+        <div class="shape__top">
+          <span class="shape__t">The Deep Dive</span>
+          <span class="pill">5 to 8 chapters</span>
+        </div>
+        <p class="shape__w">One question, evidence that escalates.</p>
+        <dl>
+          <dt>Spine closes</dt><dd>On the answer, and only at the very end</dd>
+          <dt>The trap</dt><dd>Answering in chapter two. Once the question is closed there is nothing holding the back half.</dd>
+          <dt>Ours</dt><dd>The infill development pieces</dd>
+        </dl>
+      </div>
+    <div class="note">How to pick. The shape is chosen by what the footage already is, never by what would be nice. One unbroken evening in one place is a Tour whether or not you wanted an Argument. Forcing a shape the footage cannot carry is how a cut turns into a list of pretty clips.</div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">The Title</div>
+    <h2 class="title">The title is <em>the first loop.</em></h2>
+    <p class="lede">On YouTube the title and the thumbnail are the entire hook, because they are the only thing that exists before anybody presses play. So the open versus closed test from the Editor Room runs on the title before it runs on anything else.</p>
+
+    <div class="hookbox">
+      <div class="hookbox__k"><span>The test, run it on every title</span><button class="copy" data-copy="After reading the title alone, does the viewer have a complete takeaway, or an unanswered question? A complete takeaway means the title is closed. Rewrite it.">Copy</button></div>
+      <p>After reading the title alone, does the viewer have a complete takeaway, or an unanswered question? A complete takeaway means the title is closed. Rewrite it.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="pane teal"><div class="pane__k">Working title, during the cut</div><p>Names the footage so everybody in the room can find it. Vibes at Sunset, Libby Hill. It is a filing label, and it is what the folder on the Drive is called. It is never what goes on YouTube.</p></div>
+      <div class="pane gold"><div class="pane__k">Shipped title, written last</div><p>The headline at the top of the assignment below is the current title candidate, and it is the one that ships. The Hill That Named Richmond. It gets rewritten against the finished cut, never before it, because until the cut exists you do not know what the video actually turned out to be about.</p></div>
+    </div>
+
+    <div class="lab">Four formulas</div>
+    <p style="font-size:12.5px;opacity:0.78;margin-bottom:10px;">Ranked by what the record shows. 384 posts, median reach 1,107.5. The multiples below are median reach against that baseline, off the Scoreboard on the Idea Board.</p>
+    
+      <div class="tf">
+        <div class="tf__top"><span class="tf__n">Polarity</span><span class="pill">3.1x median</span></div>
+        <div class="tf__tpl">The most wrong thing people believe about [X]</div>
+        <div class="tf__ex">Nobody moves to Richmond for the reason they tell you</div>
+      </div>
+      <div class="tf">
+        <div class="tf__top"><span class="tf__n">Comparison, authority</span><span class="pill">strong, small sample</span></div>
+        <div class="tf__tpl">[Richmond thing] is [bigger thing] in [year]</div>
+        <div class="tf__ex">Richmond 2026 is Austin 1995. The Playbook runs this same shape as an on-screen card.</div>
+      </div>
+      <div class="tf">
+        <div class="tf__top"><span class="tf__n">Numbered</span><span class="pill">1.6x median</span></div>
+        <div class="tf__tpl">[N] things about [X]</div>
+        <div class="tf__ex">7 things nobody tells you about the Fan. The number in the title, the number in the thumbnail, and the number of items in the video are all the same number.</div>
+      </div>
+      <div class="tf">
+        <div class="tf__top"><span class="tf__n">The withheld noun</span><span class="pill">the shape our best long-form uses</span></div>
+        <div class="tf__tpl">The [thing] that [did the surprising thing]</div>
+        <div class="tf__ex">The Hill That Named Richmond. It names the payoff without giving it up.</div>
+      </div>
+
+    <div class="pane red" style="margin-top:14px;"><div class="pane__k">The thumbnail rule</div><p>Three to four words maximum, and never the title repeated. The thumbnail says the thing the title withheld, or it says nothing at all. Subject fills the left third, text sits right, high contrast throughout. Check it at the size of a postage stamp, because that is the size it gets judged at.</p></div>
+    <div class="alert red" style="margin-top:14px;"><span class="alert__k">Gate</span><span>The fair housing gate applies to the title and the thumbnail first, before it applies to the video, because those two travel to people who never press play. The cargo is price, never people. Same rule as the hard gate below, higher stakes.</span></div>
+  </section>
+
+  <span id="assignment"></span>
   
   <section class="block">
     <div class="eyebrow">The Assignment</div>
@@ -626,26 +810,30 @@
     <p class="lede">Every entry below is material that is already shot. Nothing here waits on a shoot day. The standing rule: one long-form a week, pulled off this queue, never waiting on Miles.</p>
     
       <div class="q">
-        <div class="q__top"><span class="q__r">1</span><span class="q__t">The Fan, pros and cons, 2026</span><span class="pill">Contrast. What the Fan was sold as versus what a year of numbers says.</span></div>
+        <div class="q__top"><span class="q__r">1</span><span class="q__t">The Fan, pros and cons, 2026</span><span class="pill">The Contrast</span></div>
         <div class="q__m">128 golden-hour clips, 25.5 GB, shot 2025-05-17 to 05-30</div>
+        <p style="font-size:12.5px;opacity:0.78;margin-bottom:7px;">What the Fan was sold as, against what a year of numbers says. Spine closes on the number.</p>
         <p>There is already a Fan long-form on the channel and it is the second best performer all time at 1,154 views. The 2025 footage was cut once and never revisited. A 2026 update against a year of price movement is the single most obvious video in the library.</p>
         <p style="margin-top:7px;"><b>Needs from Miles:</b> Current Fan median and DOM, and whether the 2025 cut's take still holds.</p>
       </div>
       <div class="q">
-        <div class="q__top"><span class="q__r">2</span><span class="q__t">Scott's Addition, revisited</span><span class="pill">Contrast, same as the original, with a year of construction as the new evidence.</span></div>
+        <div class="q__top"><span class="q__r">2</span><span class="q__t">Scott's Addition, revisited</span><span class="pill">The Contrast</span></div>
         <div class="q__m">22 golden plus 39 night clips, 5.1 GB, shot 2025-04-26 to 04-30</div>
+        <p style="font-size:12.5px;opacity:0.78;margin-bottom:7px;">Same shape as the original, with a year of construction as the new evidence.</p>
         <p>The existing Scott's Addition video is the account's best YouTube ever at 1,210 views. Beating your own best with footage you already own is the cheapest win available.</p>
         <p style="margin-top:7px;"><b>Needs from Miles:</b> What actually got built there since April 2025. He knows; the footage does not.</p>
       </div>
       <div class="q">
-        <div class="q__top"><span class="q__r">3</span><span class="q__t">One Fourth of July in Richmond</span><span class="pill">Courage Arc or Origin. This one is allowed to be personal, because it is the only day on the list that is.</span></div>
+        <div class="q__top"><span class="q__r">3</span><span class="q__t">One Fourth of July in Richmond</span><span class="pill">The Day</span></div>
         <div class="q__m">12 curated golden-hour clips, 18:19 to 18:53 on 2026-07-04, plus a curated golden-hour talking head</div>
+        <p style="font-size:12.5px;opacity:0.78;margin-bottom:7px;">Allowed to be personal, because it is the only day on the list that is. Spine closes on what changed.</p>
         <p>The only fully curated golden-hour run in the entire 2,610-clip library. A human already went through and vouched for every one of these, which makes it the lowest-risk cut on the list. It also holds DJI_20260704185126_0301_D.MP4, the talking head that is the fallback narration anchor for every video here.</p>
         <p style="margin-top:7px;"><b>Needs from Miles:</b> Nothing. This one is cuttable today.</p>
       </div>
       <div class="q">
-        <div class="q__top"><span class="q__r">4</span><span class="q__t">WellFit Wednesday</span><span class="pill">Contrast. The city people say has nothing going on, on a Wednesday.</span></div>
+        <div class="q__top"><span class="q__r">4</span><span class="q__t">WellFit Wednesday</span><span class="pill">The Tour</span></div>
         <div class="q__m">36 clips, one continuous 17:45 to 19:42 run on 2026-07-29</div>
+        <p style="font-size:12.5px;opacity:0.78;margin-bottom:7px;">One recurring event, one unbroken evening, golden hour throughout. Structurally identical to the live brief.</p>
         <p>Structurally identical to Vibes at Sunset: one recurring Richmond event, one unbroken evening, golden hour throughout. If the Vibes brief works, this one is the same brief with different clips, which is the whole point of building the format once.</p>
         <p style="margin-top:7px;"><b>Needs from Miles:</b> Whether WellFit is weekly, and who runs it, so it can go on the forward calendar as a recurring cue.</p>
       </div>
@@ -655,7 +843,7 @@
   </section>
 
   <footer class="foot">
-    Built for the MAMS editor room &middot; <em>Miles Agee</em> &middot; MAMS LLC &middot; generated 2026-09-01
+    Built for the MAMS editor room &middot; <em>Miles Agee</em> &middot; MAMS LLC &middot; generated 2026-09-08
   </footer>
 
 </div>
