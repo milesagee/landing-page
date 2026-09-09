@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>The Funnel Map</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --deep-teal: #003F3F; --teal: #005F5F; --teal-light: #80AFAF;
+    --gold: #D4AF37; --gold-soft: #E2CA7A; --gold-dark: #B1922E;
+    --paper: #FAF7F1; --paper-soft: #f3ede1; --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16); --line-strong: rgba(0, 63, 63, 0.30);
+    --green: #2f7d52; --red: #b1462e;
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212,175,55,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,95,95,0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  header.hero { padding: 44px 0 26px; border-bottom: 1px solid var(--line); }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(30px, 5vw, 46px); line-height: 1.04; letter-spacing: -0.025em; margin-bottom: 14px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 15.5px; opacity: 0.8; max-width: 60ch; }
+  .callout { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 20px 24px; margin-top: 22px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .callout::after { content: ''; position: absolute; top: -70px; right: -70px; width: 190px; height: 190px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .callout p { font-family: var(--serif); font-size: 18px; font-weight: 300; line-height: 1.4; position: relative; z-index: 1; }
+  .callout p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  section.block { padding: 34px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.title { font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 3.4vw, 30px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 6px; }
+  h2.title em { color: var(--gold-dark); font-style: italic; }
+  .lede { font-size: 14.5px; opacity: 0.8; max-width: 64ch; margin-bottom: 22px; }
+  .sub-h { font-family: var(--serif); font-size: 17px; font-weight: 500; margin: 22px 0 10px; }
+  .sub-h .k { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 3px; }
+
+  /* hub cards */
+  .hub { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .hub-card { display: flex; flex-direction: column; background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 8px; padding: 18px 18px 16px; box-shadow: var(--shadow-sm); text-decoration: none; color: var(--deep-teal); transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s cubic-bezier(0.16,1,0.3,1); }
+  .hub-card:nth-child(2) { border-top-color: var(--gold); }
+  .hub-card:nth-child(3) { border-top-color: var(--deep-teal); }
+  .hub-card:nth-child(4) { border-top-color: var(--gold-dark); }
+  .hub-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .hub-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .hub-card__tag { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  .hub-card__name { font-family: var(--serif); font-size: 20px; font-weight: 500; margin-bottom: 6px; }
+  .hub-card__desc { font-size: 12.5px; opacity: 0.78; line-height: 1.45; flex: 1; }
+  .hub-card__go { margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-dark); }
+  .hub-card:hover .hub-card__go { color: var(--teal); }
+
+  .doc { background: linear-gradient(180deg, var(--ivory) 0%, var(--paper-soft) 100%); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; box-shadow: var(--shadow-sm); font-size: 13.5px; }
+  .doc b { color: var(--deep-teal); }
+  .note { background: rgba(212,175,55,0.10); border: 1px dashed rgba(212,175,55,0.5); border-radius: 8px; padding: 14px 16px; font-size: 13px; margin-top: 14px; }
+  .note b { color: var(--gold-dark); }
+
+  .foot { padding: 30px 0 56px; text-align: center; font-size: 11px; opacity: 0.5; letter-spacing: 0.04em; }
+  .foot em { font-family: var(--serif); font-style: italic; color: var(--gold-dark); }
+
+  /* sticky section nav */
+  html { scroll-behavior: smooth; }
+  .nav { position: sticky; top: 0; z-index: 50; width: 100vw; margin-left: calc(50% - 50vw); background: rgba(0,63,63,0.97); box-shadow: 0 4px 18px rgba(0,63,63,0.18); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .nav__in { max-width: 860px; margin: 0 auto; display: flex; gap: 2px; padding: 0 12px; overflow-x: auto; scrollbar-width: none; }
+  .nav__in::-webkit-scrollbar { display: none; }
+  .nav a { flex: 0 0 auto; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper); text-decoration: none; padding: 13px 13px; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.16s ease, border-color 0.16s ease; }
+  .nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .nav a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+  section.block[id] { scroll-margin-top: 54px; }
+
+  /* metrics snapshot */
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+  .stat { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 14px 15px; box-shadow: var(--shadow-sm); text-align: center; }
+  .stat__v { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--deep-teal); line-height: 1; }
+  .stat__v em { color: var(--gold-dark); font-style: normal; }
+  .stat__l { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-dark); margin-top: 7px; }
+  .stat__s { font-size: 11px; opacity: 0.7; margin-top: 3px; line-height: 1.35; }
+
+  /* the seven links */
+  .chain { list-style: none; counter-reset: link; }
+  .step { position: relative; background: var(--ivory); border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 8px; padding: 16px 18px; margin-bottom: 10px; box-shadow: var(--shadow-sm); }
+  .step.built { border-left-color: var(--green); }
+  .step.leaking { border-left-color: var(--red); }
+  .step.notbuilt { border-left-color: var(--red); }
+  .step.notaudited { border-left-color: var(--gold-dark); }
+  .step__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  .step__name { display: flex; align-items: baseline; gap: 8px; }
+  .step__num { font-family: var(--serif); font-size: 12px; color: var(--gold-dark); font-weight: 600; }
+  .step__title { font-family: var(--serif); font-size: 18px; font-weight: 500; }
+  .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 11px; border-radius: 20px; white-space: nowrap; }
+  .badge.built { background: rgba(47,125,82,0.14); color: var(--green); }
+  .badge.leaking { background: rgba(177,70,46,0.12); color: var(--red); }
+  .badge.notbuilt { background: rgba(177,70,46,0.12); color: var(--red); }
+  .badge.notaudited { background: rgba(212,175,55,0.18); color: var(--gold-dark); }
+  .step__d { font-size: 13.5px; opacity: 0.85; line-height: 1.55; }
+  .step__d b { color: var(--deep-teal); }
+
+  /* link button */
+  .linkbtn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--deep-teal); font-weight: 700; font-size: 13px; text-decoration: none; padding: 11px 20px; border-radius: 24px; box-shadow: var(--shadow-md); transition: transform 0.16s cubic-bezier(0.34,1.56,0.64,1), background 0.16s ease; margin-top: 6px; }
+  .linkbtn:hover { background: var(--gold-soft); transform: translateY(-1px); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 18px; }
+    .hub { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: 1fr; }
+    .step__head { flex-direction: column; align-items: flex-start; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <div class="hero__eyebrow">MAMS &middot; Funnel Diagnostic</div>
+    <h1 class="hero__title">It's one machine. <em>Not six.</em></h1>
+    <p class="hero__sub">Here's the whole argument in one line: marketing isn't ads, or copy, or organic. It's a single flywheel, and every piece feeds the next one. Treat any one piece like its own department, an ads guy over here, a content person over there, and you get exactly what we've got right now. A killer top of funnel and a bottom that's basically empty.</p>
+    <div class="callout">
+      <p>1.8 million views. 44 tracked leads. The content isn't the problem. <em>The machine around it is.</em></p>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Jump to section">
+    <div class="nav__in">
+      <a href="#flywheel">Flywheel</a>
+      <a href="#links">The Seven Links</a>
+      <a href="#reviews">Reviews & AI</a>
+      <a href="#lever">The Lever</a>
+      <a href="#elsewhere">Elsewhere</a>
+    </div>
+  </nav>
+
+  <!-- WHY THIS PAGE EXISTS -->
+  <section class="block" id="flywheel">
+    <div class="eyebrow">Why This Page Exists</div>
+    <h2 class="title">One motion, <em>not six silos.</em></h2>
+    <p class="lede">A real prospect doesn't move through the funnel in a straight line. They see a reel, they check the profile, they click a link, they leave, they Google the name a week later, they come back through an ad they forgot they saw. Sometimes that whole loop closes in ten minutes. Sometimes it takes a month. The offer, the organic, the landing page, the reviews, the website, the retargeting, the follow-up, they're not six departments. They're one motion, and a prospect can enter or exit at any point in it.</p>
+    <p class="lede">This is the mistake most agencies and most in-house teams make, and it's an easy one to make. You hire "an ads person," they fix the ads. You hire "a content person," they fix the content. Nobody owns the seams between the pieces, so the seams are where everything leaks. Right now, that's exactly what's happening here. The organic link is elite. The seams after it are where 1.8 million views turn into 44 leads instead of thousands.</p>
+    <div class="doc">This page walks the seven links a real prospect passes through after they see one of Miles's reels, marks which ones actually hold, and names the single move that fixes the most money for the least effort.</div>
+  </section>
+
+  <!-- THE SEVEN LINKS -->
+  <section class="block" id="links">
+    <div class="eyebrow">The Chain, Link By Link</div>
+    <h2 class="title">Where it holds, <em>and where it snaps.</em></h2>
+    <p class="lede">Three links are solid. Four are leaking, missing, or unchecked. Here's the honest state of each one, in the order a real prospect actually walks through them.</p>
+
+    <div class="metrics">
+      <div class="stat"><div class="stat__v">1.8M</div><div class="stat__l">Views, this period</div><div class="stat__s">285 reels, +7,198 followers</div></div>
+      <div class="stat"><div class="stat__v"><em>44</em></div><div class="stat__l">Tracked leads</div><div class="stat__s">40 guide-lead, 4 quiz-lead</div></div>
+      <div class="stat"><div class="stat__v">875</div><div class="stat__l">New GHL contacts</div><div class="stat__s">Only a fraction tagged to content</div></div>
+    </div>
+
+    <ol class="chain">
+      <li class="step built">
+        <div class="step__head"><div class="step__name"><span class="step__num">01</span><span class="step__title">Offer</span></div><span class="badge built">Built</span></div>
+        <div class="step__d">The Richmond Relocation Guide is real and it's genuinely useful. It answers the questions people actually ask before they move. It's also a PDF, and a PDF is the weakest possible vehicle for a lead magnet. It gets about three minutes of attention, roughly the time someone's standing in a checkout line, and then it's closed and forgotten. Nobody has ever finished a PDF lead magnet and come back to look at it again. The offer isn't the problem. The format it's wrapped in is.</div>
+      </li>
+      <li class="step built">
+        <div class="step__head"><div class="step__name"><span class="step__num">02</span><span class="step__title">Organic</span></div><span class="badge built">Built</span></div>
+        <div class="step__d">9,405 followers, up 7,198 in this period alone. 285 reels. 1.8 million views. 98.87% of that audience is in the US, and Richmond metro leads the pack by a wide margin. This is the strongest link in the whole chain, and it isn't close. Nothing here needs fixing right now. It needs a downstream that can actually catch what it's sending.</div>
+      </li>
+      <li class="step leaking">
+        <div class="step__head"><div class="step__name"><span class="step__num">03</span><span class="step__title">Landing Page</span></div><span class="badge leaking">Leaking</span></div>
+        <div class="step__d"><b>/guides/richmond-relocation</b> is where all that attention is supposed to turn into a real contact. Over this same period, GHL logged 875 new MAMS contacts. Only 44 of them carry a tag that traces back to content: 40 guide-lead, 4 quiz-lead. Add every other tag that could plausibly connect to content or paid, source-landing-page (30) and ig-dm-lead (10), and the number still isn't close to matching 1.8 million views. <b>1.8 million views produced 44 tracked leads.</b> That's finding number one, and it's the reason this page exists.</div>
+      </li>
+      <li class="step notaudited">
+        <div class="step__head"><div class="step__name"><span class="step__num">04</span><span class="step__title">Reviews</span></div><span class="badge notaudited">Not Audited</span></div>
+        <div class="step__d">Nobody has sat down and actually checked what Google shows, what Reddit says, or what ChatGPT and Claude answer when someone asks about a realtor in Richmond. Not because it's bad. Because it's never been looked at. This link could be fine, or it could be quietly costing every other link its credibility. Right now, it's a question mark.</div>
+      </li>
+      <li class="step built">
+        <div class="step__head"><div class="step__name"><span class="step__num">05</span><span class="step__title">Website</span></div><span class="badge built">Built</span></div>
+        <div class="step__d">The site exists and it works. What it's missing is the social-proof pass: results, testimonials, the "here's who this has actually helped" layer that turns a browsing visit into a decision. Right now it's a brochure, not a closer.</div>
+      </li>
+      <li class="step notbuilt">
+        <div class="step__head"><div class="step__name"><span class="step__num">06</span><span class="step__title">Retarget</span></div><span class="badge notbuilt">Not Built</span></div>
+        <div class="step__d">Paid is live, and it's spending real money boosting the organic winners that already work. "Wake Up To James River" turned $1,397 into 6,827 profile visits, roughly 20 to 24 cents each. That's cheap, and it's optimized for the wrong outcome. A profile visit isn't a lead. There's no retargeting built to bring that visit back and actually capture it.</div>
+      </li>
+      <li class="step notbuilt">
+        <div class="step__head"><div class="step__name"><span class="step__num">07</span><span class="step__title">Convert / Nurture</span></div><span class="badge notbuilt">Not Built</span></div>
+        <div class="step__d">There's no email sequence and no newsletter. Someone can download the guide, read it once, and there's nothing built to stay in front of them until they're actually ready to move. GHL is live and heavily used, just not for this. The automation that exists runs a different business (AG Home Buyers). The MAMS side has a tag and not much else.</div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- REVIEWS AND AI -->
+  <section class="block" id="reviews">
+    <div class="eyebrow">Reviews & AI</div>
+    <h2 class="title">The review step doesn't stop <em>at Google anymore.</em></h2>
+    <p class="lede">A prospect deciding whether to trust an agent used to check Google and maybe Reddit. That's still happening. What's new is a growing share of the same question now gets typed straight into ChatGPT or Claude: who's a good realtor in Richmond, what's the deal with moving there, is this person legit. The model answers from whatever it can find and point to. Reviews, mentions, a consistent bio, an actual footprint. If there's nothing citable, the model either says nothing useful or surfaces whatever random forum thread happens to rank.</p>
+    <p class="lede">Nobody has checked what any of these actually say right now. Not Google, not Reddit, not ChatGPT, not Claude. That's the whole "Not Audited" badge above. Here's what to do about it, in order:</p>
+    <div class="doc">
+      <b>First, look.</b> Run the actual queries a prospect would type, into Google, into Reddit search, into ChatGPT and Claude directly. Write down exactly what comes back, good, bad, or nothing.<br><br>
+      <b>Then, build the citable layer.</b> Collect real reviews and publish them somewhere findable. Keep the bio and business details consistent everywhere they appear. Give the models something accurate to point to, so the answer to "is this legit" is a real one instead of silence or a stray comment thread.
+    </div>
+    <div class="note"><b>Stays about the market, not the people in it.</b> This audit is about what gets said about the business and the neighborhoods, cost, walkability, growth. It's never about who lives where.</div>
+  </section>
+
+  <!-- THE LEVER -->
+  <section class="block" id="lever">
+    <div class="eyebrow">Straight Talk</div>
+    <h2 class="title">The highest-dollar lever <em>isn't more videos.</em></h2>
+    <p class="lede">Here's the honest read. Organic is already elite. 1.8 million views and 9,405 followers with +7,198 in one period is real distribution for a market this size, and it isn't the thing that needs fixing. The highest-dollar lever right now is plugging the four links downstream of it: turning the landing page into something that actually captures, auditing and fixing the review layer, pointing paid at capture instead of profile visits, and building a nurture sequence that keeps a lead warm past the three minutes they'll give a PDF.</p>
+    <p class="lede">Every extra reel Miles shoots this month pours more water through a pipe that already has four holes in it. Fix the holes, and the exact same content output starts producing multiples of the 44 leads it's producing today, without shooting a single new frame.</p>
+    <div class="callout">
+      <p>The content isn't the leak. Everything after the content is the leak. <em>Fix the machine, not the volume.</em></p>
+    </div>
+  </section>
+
+  <!-- YOUTUBE POCKET -->
+  <section class="block" id="pocket">
+    <div class="eyebrow">The Empty Pocket</div>
+    <h2 class="title">Restart the channel. <em>Do not start a new one.</em></h2>
+    <p class="lede">Bo Burnham counter-positioned three ways, and the one everybody forgets is the third. While every other comedian was doing open mics and chasing deals, he went to YouTube, back in the PewDiePie and Jenna Marbles era, because nobody else was there. He did not out-compete the crowded room, he found the empty one. RVA Life with Miles has had nothing posted since January 28, 2026, and every other Richmond agent is fighting over the same short-form feed. That is the empty room, and we already own the keys to it.</p>
+    <div class="note"><b>On the worry about restarting it.</b> A gap does not put a channel in a penalty box. There is no decay clock that makes an old channel worse than an empty one, and the subscribers, the watch history, and whatever authority the channel already earned are exactly what a new account would be starting without. What does happen is that the first upload back goes out to a subscriber list that has moved on, so impressions open soft while the system re-learns who it is for. That resolves across the second and third upload. Starting fresh pays that same cost and throws away the asset on top of it.</div>
+    <div class="note"><b>The one reason to start over, and it does not apply here.</b> A new account is the right call when the back catalog is off-niche enough that the channel is trained on the wrong audience. Richmond lifestyle and Richmond relocation are the same niche wearing different clothes. Keep the promise fixed and rotate the material, which is the same rule that governs the Idea Board. The Long-Form Board already frames the next piece as episode one of something, and that is the right shape for a relaunch. Not an apology for the gap, just episode one.</div>
+  </section>
+
+  <!-- ELSEWHERE -->
+  <section class="block" id="elsewhere">
+    <div class="eyebrow">Elsewhere In The Room</div>
+    <h2 class="title">The rest of the <em>editor room.</em></h2>
+    <p class="lede">This page is one map among a few. If you're here for the funnel, these are the other rooms worth having open.</p>
+    <div class="hub">
+      <a class="hub-card" href="editor-hub.html">
+        <div class="hub-card__tag">Start here</div>
+        <div class="hub-card__name">Editor Hub</div>
+        <div class="hub-card__desc">The whole content machine in one place: the loop, the beats, the knowledge bank, the numbers, and what it pays.</div>
+        <div class="hub-card__go">Open the hub &rarr;</div>
+      </a>
+      <a class="hub-card" href="editor-ideas.html">
+        <div class="hub-card__tag">Today</div>
+        <div class="hub-card__name">Idea Board</div>
+        <div class="hub-card__desc">Dated cues for what to cut today. This is where the organic link above actually gets fed.</div>
+        <div class="hub-card__go">See today's orders &rarr;</div>
+      </a>
+      <a class="hub-card" href="editor-longform.html">
+        <div class="hub-card__tag">This week</div>
+        <div class="hub-card__name">Long-Form Board</div>
+        <div class="hub-card__desc">How a long-form gets built, chapter by chapter. The deeper trust-building companion to the short-form engine.</div>
+        <div class="hub-card__go">Open the board &rarr;</div>
+      </a>
+      <a class="hub-card" href="editor-playbook.html">
+        <div class="hub-card__tag">Reference</div>
+        <div class="hub-card__name">Playbook</div>
+        <div class="hub-card__desc">Voice and the hard rules. Keep it open while you're building anything downstream of the content, too.</div>
+        <div class="hub-card__go">Open the rules &rarr;</div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    Built for MAMS &middot; <em>Miles Agee</em> &middot; MAMS LLC
+  </footer>
+
+</div>
+</body>
+</html>
