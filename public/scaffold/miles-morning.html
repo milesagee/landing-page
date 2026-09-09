@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>MAMS Morning Room</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --deep-teal: #003F3F; --teal: #005F5F; --teal-light: #80AFAF;
+    --gold: #D4AF37; --gold-soft: #E2CA7A; --gold-dark: #B1922E;
+    --paper: #FAF7F1; --paper-soft: #f3ede1; --ivory: #FFFFFF;
+    --line: rgba(0, 63, 63, 0.16); --line-strong: rgba(0, 63, 63, 0.30);
+    --green: #2f7d52; --red: #b1462e;
+    --shadow-sm: 0 2px 12px rgba(0, 63, 63, 0.06);
+    --shadow-md: 0 12px 32px rgba(0, 63, 63, 0.10);
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+  html, body { font-family: var(--sans); background: var(--paper); color: var(--deep-teal); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212,175,55,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,95,95,0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  header.hero { padding: 44px 0 26px; border-bottom: 1px solid var(--line); }
+  .hero__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+  .hero__title { font-family: var(--serif); font-weight: 300; font-size: clamp(30px, 5vw, 46px); line-height: 1.04; letter-spacing: -0.025em; margin-bottom: 14px; }
+  .hero__title em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .hero__sub { font-size: 15.5px; opacity: 0.8; max-width: 60ch; }
+  .callout { background: var(--deep-teal); color: var(--ivory); border-radius: 8px; padding: 20px 24px; margin-top: 22px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .callout::after { content: ''; position: absolute; top: -70px; right: -70px; width: 190px; height: 190px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.18; }
+  .callout p { font-family: var(--serif); font-size: 18px; font-weight: 300; line-height: 1.4; position: relative; z-index: 1; }
+  .callout p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+  section.block { padding: 34px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; }
+  h2.title { font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 3.4vw, 30px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 6px; }
+  h2.title em { color: var(--gold-dark); font-style: italic; }
+  .lede { font-size: 14.5px; opacity: 0.8; max-width: 64ch; margin-bottom: 22px; }
+  .sub-h { font-family: var(--serif); font-size: 17px; font-weight: 500; margin: 22px 0 10px; }
+
+  .note { background: rgba(212,175,55,0.10); border: 1px dashed rgba(212,175,55,0.5); border-radius: 8px; padding: 14px 16px; font-size: 13px; margin-top: 14px; }
+  .note b { color: var(--gold-dark); }
+  .foot { padding: 30px 0 56px; text-align: center; font-size: 11px; opacity: 0.5; letter-spacing: 0.04em; }
+  .foot em { font-family: var(--serif); font-style: italic; color: var(--gold-dark); }
+  .foot a { color: var(--teal); }
+
+  html { scroll-behavior: smooth; }
+  .nav { position: sticky; top: 0; z-index: 50; width: 100vw; margin-left: calc(50% - 50vw); background: rgba(0,63,63,0.97); box-shadow: 0 4px 18px rgba(0,63,63,0.18); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .nav__in { max-width: 860px; margin: 0 auto; display: flex; gap: 2px; padding: 0 12px; overflow-x: auto; scrollbar-width: none; }
+  .nav__in::-webkit-scrollbar { display: none; }
+  .nav a { flex: 0 0 auto; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper); text-decoration: none; padding: 13px 13px; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.16s ease, border-color 0.16s ease; }
+  .nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .nav a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+  section.block[id] { scroll-margin-top: 54px; }
+
+  /* knowledge bank cards */
+  .brain-h { display: flex; align-items: baseline; gap: 10px; margin: 22px 0 4px; flex-wrap: wrap; }
+  .brain-h .n { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--deep-teal); }
+  .brain-h .c { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); }
+  .brain-sub { font-size: 13px; opacity: 0.78; margin-bottom: 12px; max-width: 64ch; }
+  .kb { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .kb-card { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 8px; padding: 14px 15px; box-shadow: var(--shadow-sm); }
+  .kb-card:nth-child(even) { border-top-color: var(--gold); }
+  .kb-card__t { font-family: var(--serif); font-size: 15.5px; font-weight: 500; line-height: 1.2; margin-bottom: 5px; }
+  .kb-card__th { font-size: 12.5px; opacity: 0.82; line-height: 1.5; margin-bottom: 8px; }
+  .kb-card__tac { list-style: none; margin-bottom: 8px; }
+  .kb-card__tac li { position: relative; padding-left: 15px; font-size: 12px; line-height: 1.45; margin-bottom: 4px; }
+  .kb-card__tac li::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+  .kb-card__src { font-size: 9.5px; letter-spacing: 0.03em; color: var(--teal); opacity: 0.8; font-style: italic; }
+  /* the real-estate application line, new to the negotiation bank */
+  .kb-card__use { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 12px; line-height: 1.45; }
+  .kb-card__use b { display: block; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 3px; }
+
+  /* hub cards */
+  .hub { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .hub-card { display: flex; flex-direction: column; background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 8px; padding: 18px 18px 16px; box-shadow: var(--shadow-sm); text-decoration: none; color: var(--deep-teal); transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s cubic-bezier(0.16,1,0.3,1); }
+  .hub-card:nth-child(2) { border-top-color: var(--gold); }
+  .hub-card:nth-child(3) { border-top-color: var(--deep-teal); }
+  .hub-card:nth-child(4) { border-top-color: var(--gold-dark); }
+  .hub-card:nth-child(5) { border-top-color: var(--teal); }
+  .hub-card:nth-child(6) { border-top-color: var(--gold); }
+  .hub-card:nth-child(7) { border-top-color: var(--deep-teal); }
+  .hub-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .hub-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .hub-card__tag { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  .hub-card__name { font-family: var(--serif); font-size: 20px; font-weight: 500; margin-bottom: 6px; }
+  .hub-card__desc { font-size: 12.5px; opacity: 0.78; line-height: 1.45; flex: 1; }
+  .hub-card__go { margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-dark); }
+  .hub-card:hover .hub-card__go { color: var(--teal); }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 18px; }
+    .kb { grid-template-columns: 1fr; }
+    .hub { grid-template-columns: 1fr; }
+  }
+
+  /* progress strip */
+  .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 22px; }
+  .stat { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 13px 14px; box-shadow: var(--shadow-sm); text-align: center; }
+  .stat__v { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--deep-teal); line-height: 1; }
+  .stat__v em { color: var(--gold-dark); font-style: normal; }
+  .stat__l { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-dark); margin-top: 7px; }
+
+  .meter { height: 7px; background: var(--paper-soft); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; margin: 4px 0 18px; }
+  .meter__f { height: 100%; background: linear-gradient(90deg, var(--teal), var(--gold)); border-radius: 20px; transition: width 0.4s cubic-bezier(0.16,1,0.3,1); }
+
+  /* drill blocks */
+  .blk-h { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 24px 0 4px; flex-wrap: wrap; }
+  .blk-h .n { font-family: var(--serif); font-size: 18px; font-weight: 600; }
+  .blk-h .c { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); }
+
+  .drill { display: flex; flex-direction: column; gap: 10px; }
+  .dcard { background: var(--ivory); border: 1px solid var(--line); border-left: 3px solid var(--teal); border-radius: 8px; padding: 16px 18px; box-shadow: var(--shadow-sm); transition: opacity 0.25s ease, border-color 0.2s ease; }
+  .dcard.neg { border-left-color: var(--gold); }
+  .dcard.done { opacity: 0.5; border-left-color: var(--green); }
+  .dcard__top { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; margin-bottom: 6px; }
+  .dcard__t { font-family: var(--serif); font-size: 18px; font-weight: 500; }
+  .dcard__pill { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); border: 1px solid var(--line); border-radius: 20px; padding: 2px 9px; }
+  .dcard__pill.new { color: var(--gold-dark); border-color: rgba(212,175,55,0.5); }
+  .dcard__pill.known { color: var(--green); border-color: rgba(47,125,82,0.4); }
+  .dcard__th { font-size: 13.5px; line-height: 1.55; opacity: 0.85; margin-bottom: 9px; }
+  .dcard__tac { list-style: none; margin-bottom: 9px; }
+  .dcard__tac li { position: relative; padding-left: 16px; font-size: 12.5px; line-height: 1.5; margin-bottom: 4px; }
+  .dcard__tac li::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+  .dcard__use { font-size: 12.5px; line-height: 1.5; padding: 9px 12px; background: var(--paper-soft); border-radius: 6px; }
+  .dcard__use b { display: block; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 3px; }
+  .dcard__src { font-size: 9.5px; color: var(--teal); opacity: 0.8; font-style: italic; margin-top: 8px; }
+  .dcard__btns { display: flex; gap: 8px; margin-top: 12px; }
+  .btn { font-family: var(--sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; border: 1px solid transparent; border-radius: 20px; padding: 8px 16px; cursor: pointer; transition: transform 0.14s cubic-bezier(0.34,1.56,0.64,1), background 0.14s ease; }
+  .btn:active { transform: scale(0.95); }
+  .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .btn-got { background: var(--deep-teal); color: var(--gold); }
+  .btn-got:hover { background: var(--teal); }
+  .btn-again { background: transparent; color: var(--deep-teal); border-color: var(--line-strong); }
+  .btn-again:hover { border-color: var(--red); color: var(--red); }
+  .btn-more { background: var(--gold); color: var(--deep-teal); margin-top: 12px; }
+  .btn-more:hover { background: var(--gold-soft); }
+
+  .empty { background: linear-gradient(180deg, var(--ivory), var(--paper-soft)); border: 1px solid var(--line); border-radius: 8px; padding: 22px; text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--teal); }
+
+  /* written reps */
+  .rep { background: var(--ivory); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 8px; padding: 16px 18px; box-shadow: var(--shadow-sm); margin-bottom: 12px; }
+  .rep__t { font-family: var(--serif); font-size: 16px; font-weight: 500; margin-bottom: 3px; }
+  .rep__d { font-size: 12.5px; opacity: 0.75; line-height: 1.45; margin-bottom: 10px; }
+  .rep label { display: block; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); margin: 10px 0 4px; }
+  .rep textarea { width: 100%; font-family: var(--sans); font-size: 13.5px; line-height: 1.5; color: var(--deep-teal); background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; resize: vertical; min-height: 62px; }
+  .rep textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,0.15); }
+  .rep__prev { margin-top: 10px; font-size: 12px; font-style: italic; opacity: 0.7; border-left: 2px solid var(--line); padding-left: 10px; line-height: 1.5; }
+
+  /* library */
+  .lib { display: flex; flex-direction: column; gap: 6px; }
+  .lib__row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; background: var(--ivory); border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; font-size: 13px; }
+  .lib__n b { font-weight: 600; }
+  .lib__n span { display: block; font-size: 11.5px; opacity: 0.68; line-height: 1.4; margin-top: 2px; }
+  .lib__s { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
+  .lib__s.new { color: var(--gold-dark); }
+  .lib__s.learning { color: var(--teal); }
+  .lib__s.known { color: var(--green); }
+
+  .reset { background: none; border: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; opacity: 0.8; }
+
+  @media (max-width: 720px) {
+    .strip { grid-template-columns: 1fr 1fr; }
+    .strip .stat:last-child { grid-column: 1 / -1; }
+    .drill { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <div class="hero__eyebrow">Private &middot; <span id="date">Today</span></div>
+    <h1 class="hero__title">Twenty minutes, <em>before anything else.</em></h1>
+    <p class="hero__sub">Two brains, one pass. The negotiation bank and the content bank, served on a schedule that does not let a card go until it has survived four spaced passes. Read the cards, write the reps, then go run the day.</p>
+    <div class="callout">
+      <p>A card is not finished when you have read it. It is finished when you can write the sentence you would actually say, <em>at a real deal, out loud.</em></p>
+    </div>
+    <div class="strip">
+      <div class="stat"><div class="stat__v" id="st-known">0<em>/30</em></div><div class="stat__l">Known</div></div>
+      <div class="stat"><div class="stat__v" id="st-learning">0</div><div class="stat__l">In progress</div></div>
+      <div class="stat"><div class="stat__v" id="st-streak">0</div><div class="stat__l">Day streak</div></div>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Jump to section">
+    <div class="nav__in">
+      <a href="#drill">Drill</a>
+      <a href="#reps">Reps</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#library">Library</a>
+    </div>
+  </nav>
+
+  <section class="block" id="drill">
+    <div class="eyebrow">Block One and Two &middot; about fifteen minutes</div>
+    <h2 class="title">Today's board, <em>weakest cards first.</em></h2>
+    <p class="lede">Nothing rotates on a calendar here. Every card sits in a box, and a card only moves up when you say you have it. Say "again" and it is back tomorrow. The bar across the top is how much of the thirty you actually own.</p>
+    <div class="meter"><div class="meter__f" id="meter" style="width:0%"></div></div>
+
+    <div class="note" id="done-banner" hidden><b>Board cleared.</b> Both blocks are done for today and the streak is counted. Anything below this is extra credit.</div>
+
+    <div class="blk-h"><span class="n">Negotiation</span><span class="c">Never Split the Difference</span></div>
+    <div class="drill" id="drill-neg"></div>
+
+    <div class="blk-h"><span class="n">Content and Ads</span><span class="c">The knowledge bank</span></div>
+    <div class="drill" id="drill-con"></div>
+
+    <button class="btn btn-more" id="more">Serve two more of each</button>
+  </section>
+
+  <section class="block" id="reps">
+    <div class="eyebrow">Block Three &middot; about ten minutes</div>
+    <h2 class="title">Write it, <em>or you do not have it.</em></h2>
+    <p class="lede">Reading is recognition. Writing is retrieval, and retrieval is the part that sticks. Everything here saves as you type and starts clean tomorrow.</p>
+
+    <div class="rep">
+      <div class="rep__t">The negotiation rep</div>
+      <div class="rep__d">Take one tactic off today's cards and write it at a live deal. Not the theory, the actual sentence you would say out loud. If you cannot write it, you do not have it yet.</div>
+      <label for="rep-neg">Write the label, the mirror, or the audit</label>
+      <textarea id="rep-neg" data-rep="neg" placeholder="It seems like..."></textarea>
+      <div class="rep__prev" id="prev-neg" hidden></div>
+    </div>
+    <div class="rep">
+      <div class="rep__t">The content gym</div>
+      <div class="rep__d">The four-part ritual, written every day whether or not anything gets shot. Hook is an open loop, not a thesis they can grab and leave.</div>
+      <label for="rep-hook">Hook &middot; open loop, raises a question</label>
+      <textarea id="rep-hook" data-rep="hook" placeholder="The bold, tension-creating line."></textarea>
+      <label for="rep-frame">Philosophy or framework &middot; the contrarian edge</label>
+      <textarea id="rep-frame" data-rep="frame" placeholder="What is my take? What does the insider know?"></textarea>
+      <label for="rep-proof">Proof &middot; the payoff that closes the loop</label>
+      <textarea id="rep-proof" data-rep="proof" placeholder="Real story, street observation, a number, a place."></textarea>
+      <label for="rep-cta">Challenge or CTA &middot; a small loop at the comments</label>
+      <textarea id="rep-cta" data-rep="cta" placeholder="Comment if you have seen this too."></textarea>
+    </div>
+    <div class="rep">
+      <div class="rep__t">Where it goes today</div>
+      <div class="rep__d">Two lines. One conversation the negotiation card is aimed at, one thing that gets shot. This is the part that turns study into a habit instead of a hobby.</div>
+      <label for="rep-apply-n">The conversation</label>
+      <textarea id="rep-apply-n" data-rep="applyn" placeholder="Who I am using it on, and when."></textarea>
+      <label for="rep-apply-c">The shot</label>
+      <textarea id="rep-apply-c" data-rep="applyc" placeholder="The angle, the location, the archetype."></textarea>
+    </div>
+
+  </section>
+
+  <section class="block" id="rooms">
+    <div class="eyebrow">The Rest Of It</div>
+    <h2 class="title">Every room, <em>one tap away.</em></h2>
+    <p class="lede">The drill above is the study. These are the rooms where the work actually happens. The worked examples on the editor hub are the ones to sit in when a content card will not stick.</p>
+    <div class="hub"><a class="hub-card" href="miles-negotiation-253b613c3d.html"><div class="hub-card__tag">Private</div><div class="hub-card__name">Negotiation, My Copy</div><div class="hub-card__desc">The eighteen cards with the last line rewritten as where I personally drop each one. Not linked anywhere else.</div><div class="hub-card__go">Read the indictment &rarr;</div></a><a class="hub-card" href="negotiation-playbook.html"><div class="hub-card__tag">Team</div><div class="hub-card__name">Negotiation Playbook</div><div class="hub-card__desc">The clean version of the same bank. Safe to hand to Monique or read off on a client call.</div><div class="hub-card__go">Open the playbook &rarr;</div></a><a class="hub-card" href="editor-hub.html"><div class="hub-card__tag">The machine</div><div class="hub-card__name">Editor Room</div><div class="hub-card__desc">The content brain in full: the knowledge bank, the four beats, the hand-down, the worked examples.</div><div class="hub-card__go">Open the hub &rarr;</div></a><a class="hub-card" href="editor-ideas.html"><div class="hub-card__tag">Today</div><div class="hub-card__name">Idea Board</div><div class="hub-card__desc">Dated cues. What gets cut today, which clips to pull, the easy cut to leave alone.</div><div class="hub-card__go">See today's orders &rarr;</div></a><a class="hub-card" href="content-deck.html"><div class="hub-card__tag">Scripts</div><div class="hub-card__name">Content Deck</div><div class="hub-card__desc">The live deck. Action beats and CUE trim handles for every piece in flight.</div><div class="hub-card__go">Open the deck &rarr;</div></a><a class="hub-card" href="editor-longform.html"><div class="hub-card__tag">This week</div><div class="hub-card__name">Long-Form Board</div><div class="hub-card__desc">How a long-form gets assembled out of order, and the current YouTube piece briefed chapter by chapter.</div><div class="hub-card__go">Open the board &rarr;</div></a><a class="hub-card" href="editor-scorecard.html"><div class="hub-card__tag">Numbers</div><div class="hub-card__name">Scorecard</div><div class="hub-card__desc">What the week actually produced against the targets. The scoreboard, not the mood.</div><div class="hub-card__go">Check the week &rarr;</div></a></div>
+    <div class="note"><b>On the open loops.</b> When a content card lands flat, go read the real thing rather than the summary: the worked examples and the four beats live in the <a href="editor-hub.html#action">Editor Room</a>. That page is the long version of every content card in this drill.</div>
+  </section>
+
+  <section class="block" id="library">
+    <div class="eyebrow">The Whole Deck</div>
+    <h2 class="title">All thirty, <em>and where each one stands.</em></h2>
+    <p class="lede">Eighteen negotiation cards and twelve from the content and advertising brain. Known means it has survived four passes. The finish line is real.</p>
+    <div class="lib" id="lib"></div>
+  </section>
+
+  <div class="foot">
+    MAMS LLC &middot; <em>the morning room.</em> Progress is stored in this browser only &middot;
+    <button class="reset" id="reset">reset progress</button>
+  </div>
+</div>
+<script>window.__DECK__ = [{"id":"n-tactical-empathy","kind":"neg","bank":"Tactical Empathy","title":"Tactical Empathy","thesis":"Empathy here is not sympathy and it is not agreement. It is the deliberate act of naming the other side's perspective and feelings out loud so accurately that they relax. You are not conceding anything by understanding them. You are getting the information nobody hands over to a person they are guarding against.","tactics":["Separate the person from the problem, then go hunting for what is driving the person.","Aim at the unspoken feeling under the stated position. The position is rarely the real thing.","Say what you hear before you say what you want. Order matters more than wording.","Never assume you know. Test the read out loud and let them correct you.","Your goal in the first five minutes is information, not persuasion."],"source":"Ch. 2, \"Be a Mirror\"","use":"A seller who says \"I need $400,000\" is almost never talking about $400,000. They are talking about the amount they told their brother-in-law, or the number that gets them into the next house. Nothing about that conversation moves until they hear you say the real thing back to them."},{"id":"n-the-three-voices","kind":"neg","bank":"Tactical Empathy","title":"The Three Voices","thesis":"Tone does more work than content. Voss runs three: the positive and playful voice as the default, the late-night FM DJ voice for anchoring a hard point, and the direct or assertive voice as a rare tool that usually costs more than it earns. Your voice is a lever you can pull consciously.","tactics":["Default to positive and playful. A relaxed voice makes the other person's mind relax, and relaxed minds solve problems.","Drop into the late-night FM DJ voice, downward inflection, calm and slow, when you deliver a fact you are not negotiating.","Use the direct voice almost never. It gets compliance in the room and resentment afterward.","Smile before you speak on the phone. It is audible.","Inflect up on a question, down on a statement. Never say a fact with a question's tone."],"source":"Ch. 2, \"Be a Mirror\"","use":"Price reduction conversations are DJ-voice conversations. The number is calm, slow, and downward. The rest of the call is playful."},{"id":"n-mirroring","kind":"neg","bank":"Tactical Empathy","title":"Mirroring","thesis":"Repeat the last one to three words the other person said, with an upward inflection, then be quiet. It is the closest thing to a magic trick in the book. Mirroring signals \"help me understand,\" triggers the other side to elaborate, and buys you thinking time while they do your work for you.","tactics":["Mirror the last three words, or the critical one to three words. Nothing more.","Inflect up so it lands as a question, not a parrot.","Then shut up. Let the silence do the asking. Four seconds minimum.","Use it when someone gives you an answer that is too short or too smooth.","Stack it: mirror, silence, they elaborate, mirror the new thing."],"source":"Ch. 2, \"Be a Mirror\"","use":"\"We just want to see what the market says.\" \"The market says?\" Silence. Now you find out whether they are testing a number or testing you."},{"id":"n-labeling","kind":"neg","bank":"Tactical Empathy","title":"Labeling","thesis":"Name the emotion you detect and give it back to them in a neutral frame: \"It seems like...\", \"It sounds like...\", \"It looks like...\". Labeling a negative defuses it. Labeling a positive reinforces it. Naming the fear out loud shrinks it, because the brain calms once the thing is identified.","tactics":["Start with \"it seems like,\" never \"I'm hearing that.\" Drop the \"I.\" The moment you say I, they brace.","Label the negative first and hardest. Fear named is fear reduced.","After the label, silence. Do not soften it, do not explain it, do not stack a question on it.","Wrong labels are fine and often better. They correct you, and the correction is the information.","Label the thing they have not said yet but obviously feel."],"source":"Ch. 3, \"Don't Feel Their Pain, Label It\"","use":"\"It seems like you have been burned by an agent before.\" Then nothing. Half the listing appointments in Richmond turn on that one sentence."},{"id":"n-the-accusation-audit","kind":"neg","bank":"Tactical Empathy","title":"The Accusation Audit","thesis":"List every bad thing the other side could say about you, and say it first, before they do. Going in with the worst accusations already on the table takes all the air out of them. It sounds like it should hurt you. It does the opposite, because it proves you see the situation clearly and are not hiding.","tactics":["Write the list before the meeting. Every accusation, including the unfair ones.","Overstate slightly. \"You are probably going to think this is the most arrogant thing you have heard all week.\"","Deliver it early, before you make any ask.","Do not defend after. State it, pause, move.","The harsher the honest audit, the more credibility you get for everything after it."],"source":"Ch. 3, \"Don't Feel Their Pain, Label It\"","use":"Opening a price reduction call with \"I am about to tell you your house is worth less than I told you it was worth, and you have every right to be furious with me\" ends the fight before it starts."},{"id":"n-dynamic-silence","kind":"neg","bank":"Tactical Empathy","title":"Dynamic Silence","thesis":"Silence is the tool that makes every other tool work. After a label, a mirror, or a calibrated question, the person who speaks first gives up information. Most people cannot tolerate four seconds of quiet and will fill it with something true.","tactics":["Count four seconds after every label and every mirror. Actually count.","Do not soften silence with \"does that make sense?\" That sentence is a gift you hand back.","On the phone, silence feels twice as long. Trust it anyway.","Let them fill the space even when you already know the answer. The way they fill it is the data.","If the silence gets awkward, that is the tool working."],"source":"Ch. 3, \"Don't Feel Their Pain, Label It\"","use":"Most agents talk themselves out of the listing in the four seconds after they name their commission. ---"},{"id":"n-no-is-the-start-not-the-end","kind":"neg","bank":"Control the Frame","title":"No Is the Start, Not the End","thesis":"Chasing yes puts people on guard, because yes is a commitment and everybody has been burned by one. No makes people feel safe and in control, and safety is what opens the actual conversation. Invite no on purpose and the real negotiation begins.","tactics":["Ask questions that make no the comfortable answer: \"Is now a bad time?\" \"Have you given up on selling?\"","Mislabel an emotion deliberately so they say \"no, it is not that, it is this.\" The correction is the truth.","Let them say no early. It costs nothing and buys you the whole rest of the call.","Never take the first no as final. It usually means \"not yet\" or \"I am not comfortable.\"","Protect their right to say no out loud. It makes them likelier to say yes later."],"source":"Ch. 4, \"Beware 'Yes'\"","use":"\"Would it be ridiculous to look at this again in thirty days?\" gets an answer. \"Can we revisit this in thirty days?\" gets a dodge."},{"id":"n-the-three-yeses","kind":"neg","bank":"Control the Frame","title":"The Three Yeses","thesis":"There are three kinds of yes: counterfeit, confirmation, and commitment. Counterfeit yes is the one where they plan to say no and want you off the phone. Most closes people celebrate are counterfeit. Only commitment yes moves anything, and it always follows a \"that's right.\"","tactics":["Assume any easy yes is counterfeit until it survives a test.","Test it with a calibrated question that requires them to do something: \"How will you get that approved?\"","Confirmation yes is a reflex answer to a simple factual question. It means nothing.","Commitment yes comes with a plan attached. If there is no plan, there is no commitment.","Stop hunting yes. Hunt \"that's right.\""],"source":"Ch. 4, \"Beware 'Yes'\"","use":"\"Sounds great, send me the paperwork\" with no discussion of timing is counterfeit almost every time. Ask how they want to handle the tenant, and you find out immediately."},{"id":"n-that-s-right-beats-you-re-right","kind":"neg","bank":"Control the Frame","title":"\"That's Right\" Beats \"You're Right\"","thesis":"\"You're right\" means \"please stop talking, I am not moving.\" \"That's right\" means you have summarized their own position back to them so accurately that they recognize themselves in it, and that recognition is the moment they become willing to move. You get there with a summary, not an argument.","tactics":["Build the summary: label plus paraphrase of their world, in their words, with nothing of yours added.","Deliver it, then stop. You are waiting for two specific words.","If you get \"you're right,\" you have lost the thread. Go back to labeling.","Never say \"I understand.\" It is empty and they know it.","The summary must include the thing they have not said out loud."],"source":"Ch. 5, \"Trigger the Two Words That Immediately Transform Any Negotiation\"","use":"The Lawrence relocation call. There was a summary available in that conversation about what moving a family to Savannah actually costs a person, and it never got said. That was the miss, and it was not a pricing miss."},{"id":"n-bend-their-reality","kind":"neg","bank":"Control the Frame","title":"Bend Their Reality","thesis":"Compromise is where both sides lose. Splitting the difference is how you end up with one black shoe and one brown shoe. Instead, work on how the other side sees the deal: what they stand to lose, what the deadline actually does, and what number they anchor to. Fairness, deadlines, and loss aversion are the three levers.","tactics":["Never split the difference. A bad deal is worse than no deal.","Use the F word early and once: \"I want you to feel fairly treated at every step. Tell me the moment you don't.\"","Anchor emotion first with the worst case, then let the real number feel like relief.","Frame around loss, not gain. People work harder to avoid losing than to win.","Deadlines are usually softer than they look, including yours. Never reveal you have one.","Anchor with a range when you can. \"Firms like ours usually see between X and Y.\""],"source":"Ch. 6, \"Forge Reality\"","use":"\"If we list at your number, here is what it costs you in ninety days\" beats \"here is what you could get if we price it right.\" Same math, different lever."},{"id":"n-calibrated-questions","kind":"neg","bank":"Control the Frame","title":"Calibrated Questions","thesis":"Open-ended \"how\" and \"what\" questions hand the other side the illusion that they are steering, while you set the direction. They cannot be answered yes or no, they force the other side to solve your problem, and they let you say no without ever saying the word.","tactics":["Start every one with \"how\" or \"what.\" Cut \"why\" entirely. Why sounds like an accusation in every language.","\"How am I supposed to do that?\" is the workhorse. It is a no that makes them find your solution.","\"What about this is important to you?\" \"What is the biggest challenge you face?\"","Ask, then shut up. The question is only half the tool.","Prepare three to five before any real conversation. You will not invent them under pressure."],"source":"Ch. 7, \"Create the Illusion of Control\"","use":"A buyer's agent asks for a $12,000 concession. \"How am I supposed to take that back to my seller?\" They will start building your argument for you."},{"id":"n-the-illusion-of-control","kind":"neg","bank":"Control the Frame","title":"The Illusion of Control","thesis":"People defend what they helped build. If the other side designs part of the solution, they are invested in it and will fight for it, sometimes harder than you would. Your job is to steer the design, not to hand over a finished blueprint.","tactics":["Let them name the next step. \"What do you think we should do here?\"","Give them a choice between two things you want, not a yes or no on one thing.","Ask them to explain the obstacle, then ask how they would get around it.","Never announce your solution before asking for theirs.","When they propose something close enough, take it and give them the credit."],"source":"Ch. 7, \"Create the Illusion of Control\"","use":"\"What would need to be true for you to be comfortable at that number?\" gets you a real path. Presenting a pre-built path gets you a counter."},{"id":"n-say-no-without-saying-no","kind":"neg","bank":"Control the Frame","title":"Say No Without Saying No","thesis":"There are four ways to decline that keep the relationship and the deal alive. All of them refuse without the word. Aggression triggers aggression, so the skill is holding your line while the other side stays comfortable enough to keep working.","tactics":["\"How am I supposed to do that?\" Said with respect, it is a refusal and a request for help.","\"Your offer is very generous, I'm sorry, that just doesn't work for me.\"","\"I'm sorry, but I'm afraid I just can't do that.\"","\"I'm sorry, no.\" Then the DJ voice and silence.","Escalate through them in order. Most negotiations end before the fourth."],"source":"Ch. 7, \"Create the Illusion of Control\"","use":"Four ways to hold a commission without ever sounding defensive about it. ---"},{"id":"n-the-ackerman-model","kind":"neg","bank":"Close and Read the Room","title":"The Ackerman Model","thesis":"A systematic haggling method built on decreasing increments and empathy. Set your target, open at 65% of it, then move to 85, 95, and 100, using calibrated questions and non-round numbers along the way. The shrinking steps convince the other side they have squeezed you to your limit.","tactics":["Set your target price first, and be honest with yourself about it.","Open at 65% of target. Use the DJ voice.","Calculate three raises in decreasing increments: 85%, 95%, 100%.","Use empathy and every form of no before you raise. Make them work for each move.","Final number is precise and odd, never round. $37,893 reads as calculated. $38,000 reads as arbitrary.","On the final number, throw in a non-monetary item to show you are at your limit."],"source":"Ch. 9, \"Bargain Hard\"","use":"Repair credits, closing cost negotiations, and vendor contracts. The odd number and the throw-in are the two pieces everyone skips."},{"id":"n-black-swans-and-the-three-leverages","kind":"neg","bank":"Close and Read the Room","title":"Black Swans and the Three Leverages","thesis":"Every negotiation contains three to five pieces of information that would change everything if you knew them, and the other side does not know they are hiding them. Finding one flips the deal. Leverage comes in three types: positive (what you can give), negative (what you can take away), and normative (their own stated values used to hold them).","tactics":["Assume the unknowns exist. Go looking rather than waiting.","The unguarded moments carry them: before the meeting starts, after it ends, in the parking lot.","Listen for anything that seems irrational to you. Irrational usually means you are missing a fact.","Positive leverage: know what they want. Negative: know what they fear losing. Normative: quote their own principles back.","Meet in person when the stakes are high. Black swans do not travel over email."],"source":"Ch. 10, \"Find the Black Swan\"","use":"The seller who will not budge on price because of one number is almost always carrying a second number nobody asked about, a payoff, a divorce split, a promise to a parent."},{"id":"n-7-38-55-and-the-rule-of-three","kind":"neg","bank":"Close and Read the Room","title":"7-38-55 and the Rule of Three","thesis":"Only 7% of a message is words, 38% is tone, and 55% is body language. When the words and the delivery disagree, believe the delivery. And get every important agreement said three different ways, because a commitment stated once is not a commitment.","tactics":["When words and tone conflict, name the conflict with a label: \"It sounds like you agree, but something about this still bothers you.\"","Rule of three: get agreement three times in the same conversation, using different forms.","One: the commitment. Two: a label or summary that makes them restate it. Three: a calibrated \"how\" question that makes them describe execution.","Watch for the Pinocchio effect. Liars use more words and more third-person pronouns.","Someone saying \"I\" a lot is not the decision maker. \"We\" often is."],"source":"Ch. 8, \"Guarantee Execution\"","use":"A seller agreeing to a staging budget once will forget by Thursday. Three times, one of them being \"how do you want to handle the deposit,\" and it holds."},{"id":"n-the-three-bargaining-types","kind":"neg","bank":"Close and Read the Room","title":"The Three Bargaining Types","thesis":"Analyst, Accommodator, Assertive. Each type reads the same behavior differently, and the mistake everyone makes is negotiating with everyone the way they themselves want to be negotiated with. Identify the type in the first few minutes and change your approach, not your position.","tactics":["Analyst: methodical, quiet, silence means thinking. Give data and time. Do not fill their pauses.","Accommodator: friendly, talkative, wants the relationship. Warm but often has not checked with the decision maker. Confirm execution.","Assertive: direct, wants to be heard above all. Mirror and label until they feel heard. They do not move until they do.","Silence means three different things by type. Read it correctly or you will misplay the moment.","You are probably one type and default to it. Know which."],"source":"Ch. 9, \"Bargain Hard\"","use":"An assertive seller who feels interrupted will not hear a single number you say. The whole call has to be labels until they stop pushing."},{"id":"n-getting-to-the-table","kind":"neg","bank":"Close and Read the Room","title":"Getting to the Table","thesis":"The most useful email in the book is one line long and works on people who have gone silent, because it invites a no in a way that is almost impossible to ignore. Non-response is not rejection. It is usually discomfort with saying no directly.","tactics":["The email: \"Have you given up on this project?\" Nothing else in the body.","It works because answering no is easier than answering yes, and no restarts the conversation.","Use it after two normal follow-ups have gone unanswered, not before.","Do not soften it, apologize inside it, or add a paragraph. The one line is the tool.","The same shape works out loud: \"Have you given up on selling this year?\""],"source":"Ch. 4, \"Beware 'Yes'\"","use":"Cold leads and stalled sellers. Two follow-ups, then the one-liner."},{"id":"c-content-is-science","kind":"content","bank":"Content and Storytelling Brain","title":"Content Is Science","thesis":"A video is a stack of interchangeable chapters (hook, story, stat, steps). Judge the chapter, not the whole video. Keep winners, cut losers, rebuild one strong piece from proven parts.","tactics":["Name each chapter, then read comments to see which one hit.","Kill outright flops. Find the commonality across your winners.","Collapse three okay videos into one great one from the working parts."],"source":"Briana Cochran, content is science","use":""},{"id":"c-the-view-ladder","kind":"content","bank":"Content and Storytelling Brain","title":"The View Ladder","thesis":"Each view tier is unlocked by a different skill, not more effort. The wall most creators die on is bad ideation, not bad hooks.","tactics":["Stuck under 2K: fix the idea first. It is the number one skill.","3K to 10K: find the exact subjects your audience wants from you.","Diagnose the real bottleneck before rewriting another hook."],"source":"How to climb the view ladder","use":""},{"id":"c-the-negative-hook","kind":"content","bank":"Content and Storytelling Brain","title":"The Negative Hook","thesis":"Open with a bold, slightly negative statement that challenges the viewer, from a place of love. A confident pattern interrupt makes ears perk up where a pleasant opener gets scrolled.","tactics":["Swap \"the easy way to X\" for \"you're not getting X because you skip this.\"","Lead with tension, not insults. No cursing needed.","Challenge a belief the viewer holds, then resolve it."],"source":"The negative hook","use":""},{"id":"c-three-hook-elements","kind":"content","bank":"Content and Storytelling Brain","title":"Three Hook Elements","thesis":"A hook underperforms if it lacks tension, specificity, or pattern disruption. Tension earns the lean-in, specificity makes them feel seen, disruption makes it look different from the last 25 in the feed.","tactics":["Be concrete in the first line. A named place signals \"this is for you.\"","Design a visual break: bold opening line, on-screen text, slow zoom.","Audit every hook against all three before you cut."],"source":"A great hook is non-negotiable","use":""},{"id":"c-cult-brand-the-common-enemy","kind":"content","bank":"Content and Storytelling Brain","title":"Cult Brand: The Common Enemy","thesis":"Every cult following forms around a common enemy. Tell people what to stand against, not just what you stand for. That polarity is the movement.","tactics":["The enemy here is mediocrity: agents who do not know Richmond.","Say the thing most believe but are afraid to voice.","Accept being disliked by some to be loved by the right ones."],"source":"Dark psychology for a cult following","use":""},{"id":"c-five-levels-of-counter-positioning","kind":"content","bank":"Content and Storytelling Brain","title":"Five Levels of Counter-Positioning","thesis":"Differentiation is survival. Counter-position across five independent levers, and stack them to dominate a niche instead of blending in.","tactics":["Pillars: real estate plus technology and the arts plus Richmond culture.","Format and delivery: do what the niche is not doing.","Credibility: lead with a unique angle, never a title."],"source":"5 levels of differentiation","use":""},{"id":"c-hooks-masterclass-four-horsemen","kind":"content","bank":"Content and Storytelling Brain","title":"Hooks Masterclass: Four Horsemen","thesis":"A hook needs topic clarity and on-target curiosity. It flops from four fixable mistakes: delay, confusion, irrelevance, and disinterest.","tactics":["Delay: lead with the topic in 1 to 2 seconds. Speed to value.","Irrelevance: frame with \"you/your,\" not \"I/me.\"","Disinterest: open a curiosity loop with contrast, A versus B."],"source":"Kallaway hooks masterclass","use":""},{"id":"c-elite-communicators-4-beats","kind":"content","bank":"Content and Storytelling Brain","title":"Elite Communicators: 4 Beats","thesis":"Hook, Explain, Illustrate, Apply. The backbone that turns rambling into content that lands. This is the exact rhythm the MAMS brand runs on.","tactics":["Hook (3s), Explain like a fifth grader (5 to 8s).","Illustrate (20 to 30s) with a story or stat. This is the sauce.","Apply: a step, an acronym, or a ratio they can use now."],"source":"Framework of elite communicators","use":""},{"id":"c-storytelling-first-person-spiral","kind":"content","bank":"Content and Storytelling Brain","title":"Storytelling: First-Person Spiral","thesis":"Viral story videos run a repeatable shape: mundane sensory open, a reckless yes, escalating complications, a snap twist. A self-aware everyman narrator keeps the loop open the whole way.","tactics":["Open in an ordinary moment with concrete sensory detail.","Use real dialogue and named details, not summary.","Plant a detail early, pay it off as the twist. This is the cinematic lane."],"source":"Storytelling masterclass","use":""},{"id":"c-death-of-the-multi-campaign-funnel","kind":"content","bank":"Advertising Brain","title":"Death of the Multi-Campaign Funnel","thesis":"The old top, middle, bottom funnel is obsolete. Collapse it into one campaign, one adset, cold plus warm together, loaded with diverse ads. Meta sequences the awareness stages itself.","tactics":["Stock one adset with problem, solution, and product-aware creatives.","Do not kill the low-ROAS ad Meta keeps funding. It is the top funnel.","Turn off ads Meta is NOT spending on, not the worst-ROAS ones."],"source":"A better way to advertise in 2026","use":""},{"id":"c-consolidate-into-one-adset","kind":"content","bank":"Advertising Brain","title":"Consolidate Into One Adset","thesis":"Custom audiences are only suggestions now, so warm and cold overlap. Consolidate to the fewest campaigns and adsets so conversion data concentrates and Meta exits learning fast.","tactics":["One campaign, one adset. 70 conversions beats 7 each across ten.","Test locations only. Never test interests or lookalikes.","Run 20-plus varied ads per adset. Meta handles it."],"source":"Best ad structure for 2026","use":""},{"id":"c-realtor-lead-machine","kind":"content","bank":"Advertising Brain","title":"Realtor Lead Machine","thesis":"Instant-form lead ads with conditional-logic qualification train Meta to deliver only qualified leads, backed by aggressive speed-to-lead and omnipresent retargeting. Most agents skip qualification and drown in junk.","tactics":["Optimize for Leads, Special Housing Category ON, 15-mile radius.","Qualify in the form. Mark \"just browsing\" as disqualify.","Speed to lead: text first, then double-dial within 5 minutes."],"source":"Facebook ads for real estate agents","use":""}];</script>
+<script>
+(function () {
+  'use strict';
+
+  var DECK = window.__DECK__;
+  var KEY = 'mams-morning-v1';
+  var NEG_PER_DAY = 4, CON_PER_DAY = 3, MORE = 2;
+  // Leitner intervals in days. Box 3 and up counts as known.
+  var STEP = [1, 2, 4, 8, 16];
+  var KNOWN_BOX = 3;
+  var HISTORY = 60; // days of per-day scratch kept before pruning
+
+  function today() {
+    var d = new Date();
+    d.setHours(0, 0, 0, 0);
+    return Math.round(d.getTime() / 86400000);
+  }
+  function stamp(dayNum) {
+    return new Date(dayNum * 86400000).toISOString().slice(0, 10);
+  }
+
+  function load() {
+    var s;
+    try { s = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (err) { s = {}; }
+    if (!s || typeof s !== 'object') s = {};
+    s.cards = s.cards || {};
+    s.reps = s.reps || {};
+    s.board = s.board || {};
+    s.acted = s.acted || {};
+    s.streak = s.streak || 0;
+    return s;
+  }
+  function save(s) {
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (err) { /* private mode */ }
+  }
+
+  var state = load();
+  var DAY = today();
+  var DATE = stamp(DAY);
+
+  // per-day scratch would grow forever otherwise
+  function prune() {
+    ['reps', 'board', 'acted'].forEach(function (k) {
+      Object.keys(state[k]).forEach(function (d) {
+        if (d < stamp(DAY - HISTORY)) delete state[k][d];
+      });
+    });
+  }
+
+  function card(id) {
+    for (var i = 0; i < DECK.length; i++) if (DECK[i].id === id) return DECK[i];
+    return null;
+  }
+  function cs(id) {
+    return state.cards[id] || { box: 0, due: 0 };
+  }
+
+  // A card you said "again" to has to come back before anything you have never
+  // seen, otherwise "again tomorrow" quietly means "some time next week".
+  function lapsed(id) {
+    var c = cs(id);
+    return c.lapsed && c.lapsed <= DAY ? 0 : 1;
+  }
+
+  // Due today: lapsed first, then weakest box, then longest overdue.
+  function pick(kind, limit, exclude) {
+    var out = DECK.filter(function (c) {
+      return c.kind === kind && cs(c.id).due <= DAY && exclude.indexOf(c.id) === -1;
+    });
+    out.sort(function (a, b) {
+      if (lapsed(a.id) !== lapsed(b.id)) return lapsed(a.id) - lapsed(b.id);
+      var A = cs(a.id), B = cs(b.id);
+      if (A.box !== B.box) return A.box - B.box;
+      return A.due - B.due;
+    });
+    return out.slice(0, limit).map(function (c) { return c.id; });
+  }
+
+  // The day's board is chosen once and then held. Clearing a card must not pull a
+  // fresh one in behind it, or the board never ends and the streak never lands.
+  function board() {
+    var b = state.board[DATE];
+    if (!b) {
+      b = { neg: pick('neg', NEG_PER_DAY, []), content: pick('content', CON_PER_DAY, []) };
+      state.board[DATE] = b;
+      prune();
+      save(state);
+    }
+    return b;
+  }
+
+  function serveMore() {
+    var b = board();
+    b.neg = b.neg.concat(pick('neg', MORE, b.neg));
+    b.content = b.content.concat(pick('content', MORE, b.content));
+    save(state);
+    render();
+  }
+
+  function actedToday(id) {
+    return (state.acted[DATE] || []).indexOf(id) !== -1;
+  }
+
+  function mark(id, got) {
+    var c = cs(id);
+    if (got) {
+      c.box = Math.min(c.box + 1, STEP.length - 1);
+      c.due = DAY + STEP[c.box];
+      delete c.lapsed;
+    } else {
+      c.box = 0;
+      c.due = DAY + 1;
+      c.lapsed = DAY + 1;
+    }
+    state.cards[id] = c;
+    var list = state.acted[DATE] || [];
+    if (list.indexOf(id) === -1) list.push(id);
+    state.acted[DATE] = list;
+    save(state);
+    render();
+  }
+
+  // Streak advances once, the moment every card on today's board has been actioned.
+  // A day with nothing due counts: being current is the point.
+  function checkComplete(b) {
+    var all = b.neg.concat(b.content);
+    for (var i = 0; i < all.length; i++) if (!actedToday(all[i])) return false;
+    if (state.lastDone !== DATE) {
+      state.streak = state.lastDone === stamp(DAY - 1) ? state.streak + 1 : 1;
+      state.lastDone = DATE;
+      save(state);
+    }
+    return true;
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>]/g, function (ch) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch];
+    });
+  }
+
+  function pill(id) {
+    var b = cs(id).box;
+    if (b === 0) return '<span class="dcard__pill new">New</span>';
+    if (b >= KNOWN_BOX) return '<span class="dcard__pill known">Known</span>';
+    return '<span class="dcard__pill">Learning</span>';
+  }
+
+  function cardHTML(id) {
+    var c = card(id);
+    if (!c) return '';
+    var done = actedToday(c.id);
+    var tac = c.tactics.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+    var use = c.use
+      ? '<div class="dcard__use"><b>In our world</b>' + esc(c.use) + '</div>'
+      : '';
+    var btns = done
+      ? '<div class="dcard__btns"><span class="dcard__pill known">Done today</span></div>'
+      : '<div class="dcard__btns">' +
+        '<button class="btn btn-got" data-got="' + c.id + '">Got it</button>' +
+        '<button class="btn btn-again" data-again="' + c.id + '">Again tomorrow</button></div>';
+    return '<div class="dcard ' + (c.kind === 'neg' ? 'neg' : '') + (done ? ' done' : '') + '">' +
+      '<div class="dcard__top"><div class="dcard__t">' + esc(c.title) + '</div>' + pill(c.id) + '</div>' +
+      '<div class="dcard__th">' + esc(c.thesis) + '</div>' +
+      '<ul class="dcard__tac">' + tac + '</ul>' + use +
+      '<div class="dcard__src">' + esc(c.source) + '</div>' + btns + '</div>';
+  }
+
+  function render() {
+    var b = board();
+    var complete = checkComplete(b);
+
+    document.getElementById('drill-neg').innerHTML =
+      b.neg.length ? b.neg.map(cardHTML).join('')
+                   : '<div class="empty">Nothing due out of the negotiation bank today. Everything is holding.</div>';
+    document.getElementById('drill-con').innerHTML =
+      b.content.length ? b.content.map(cardHTML).join('')
+                       : '<div class="empty">Nothing due out of the content brain today.</div>';
+
+    var known = 0, learning = 0;
+    DECK.forEach(function (c) {
+      var box = cs(c.id).box;
+      if (box >= KNOWN_BOX) known++;
+      else if (box > 0) learning++;
+    });
+    document.getElementById('st-known').innerHTML = known + '<em>/' + DECK.length + '</em>';
+    document.getElementById('st-learning').textContent = learning;
+    document.getElementById('st-streak').textContent = state.streak;
+    document.getElementById('meter').style.width =
+      Math.round((known / DECK.length) * 100) + '%';
+
+    document.getElementById('done-banner').hidden = !complete;
+
+    document.getElementById('lib').innerHTML = DECK.map(function (c) {
+      var box = cs(c.id).box;
+      var k = box >= KNOWN_BOX ? 'known' : (box > 0 ? 'learning' : 'new');
+      var label = k === 'known' ? 'Known' : (k === 'learning' ? 'Box ' + box : 'New');
+      return '<div class="lib__row"><div class="lib__n"><b>' + esc(c.title) + '</b>' +
+        '<span>' + esc(c.bank) + '</span></div>' +
+        '<div class="lib__s ' + k + '">' + label + '</div></div>';
+    }).join('');
+  }
+
+  document.addEventListener('click', function (ev) {
+    var got = ev.target.getAttribute && ev.target.getAttribute('data-got');
+    var again = ev.target.getAttribute && ev.target.getAttribute('data-again');
+    if (got) mark(got, true);
+    if (again) mark(again, false);
+  });
+
+  document.getElementById('more').addEventListener('click', serveMore);
+
+  document.getElementById('reset').addEventListener('click', function () {
+    if (!confirm('Wipe all drill progress, streak, and written reps on this device?')) return;
+    try { localStorage.removeItem(KEY); } catch (err) { /* ignore */ }
+    state = load();
+    render();
+    bindReps();
+  });
+
+  // Written reps: saved per day, with yesterday's negotiation rep shown for continuity.
+  function bindReps() {
+    var boxes = document.querySelectorAll('[data-rep]');
+    var todayReps = state.reps[DATE] || {};
+    for (var i = 0; i < boxes.length; i++) {
+      (function (el) {
+        var k = el.getAttribute('data-rep');
+        el.value = todayReps[k] || '';
+        el.addEventListener('input', function () {
+          state.reps[DATE] = state.reps[DATE] || {};
+          state.reps[DATE][k] = el.value;
+          save(state);
+        });
+      })(boxes[i]);
+    }
+    var y = state.reps[stamp(DAY - 1)];
+    var prev = document.getElementById('prev-neg');
+    if (y && y.neg) {
+      prev.textContent = 'Yesterday: ' + y.neg;
+      prev.hidden = false;
+    } else {
+      prev.hidden = true;
+    }
+  }
+
+  document.getElementById('date').textContent = new Date().toLocaleDateString('en-US', {
+    weekday: 'long', month: 'long', day: 'numeric'
+  });
+
+  render();
+  bindReps();
+})();
+</script>
+</body>
+</html>
