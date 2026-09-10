@@ -14,7 +14,7 @@
  */
 
 export type CherishRecipient = {
-  slug: "reid" | "darius";
+  slug: "reid" | "darius" | "dad";
   token: string;
   displayName: string;
   pageSlug: string;
@@ -32,6 +32,12 @@ export const CHERISH_RECIPIENTS: Record<string, CherishRecipient> = {
     token: "lXmUcUGD9fSI",
     displayName: "Darius",
     pageSlug: "d-aYdeanFCEMQ",
+  },
+  dad: {
+    slug: "dad",
+    token: "-9sMOwoRV_MM",
+    displayName: "Dad",
+    pageSlug: "g-guU1gn7r_n0",
   },
 };
 

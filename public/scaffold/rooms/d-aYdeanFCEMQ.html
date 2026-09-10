@@ -188,6 +188,41 @@
   .tag.on-miles { background: rgba(212,175,55,0.18); color: #8A6F1C; }
   .tag.dark { background: rgba(166,70,46,0.14); color: #A6462E; }
 
+  /* Ask first. On a parent's page this is the whole point, so it outranks everything. */
+  .askfirst {
+    margin: 38px 0 0; padding: 32px 26px;
+    background-color: #003F3F; border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,63,63,0.18), 0 16px 36px -14px rgba(0,63,63,0.42);
+  }
+  .askfirst-eyebrow {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #D4AF37; font-weight: 700; margin-bottom: 16px;
+  }
+  .askfirst ol { list-style: none; padding: 0; margin: 0; counter-reset: q; }
+  .askfirst li {
+    counter-increment: q;
+    display: grid; grid-template-columns: 30px 1fr; gap: 14px;
+    align-items: start;
+    padding: 16px 0; border-top: 1px solid rgba(250,247,241,0.13);
+  }
+  .askfirst li:first-child { border-top: none; padding-top: 4px; }
+  .askfirst li::before {
+    content: counter(q);
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 15px; color: #D4AF37; padding-top: 5px;
+  }
+  .askfirst q {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 22px; line-height: 1.28; color: #FAF7F1;
+    quotes: none; letter-spacing: -0.008em;
+  }
+  .askfirst-foot {
+    margin: 18px 0 0; padding-top: 16px;
+    border-top: 1px solid rgba(250,247,241,0.14);
+    font-size: 14.5px; line-height: 1.55; color: rgba(250,247,241,0.64);
+    font-style: italic;
+  }
+
   /* The invitation. The destination is a dinner, so it gets the weight. */
   .invite {
     margin-top: 34px; padding: 30px 26px;
@@ -343,6 +378,7 @@
     <p>Six things I am working on. What moved, what stopped, and which ones stopped because of me.</p>
     <div class="personal-note"><p>You are the only one close to me already building with this stuff. You have Copilot doing real work at two jobs and you went and took the class, so you know what it costs to keep something honest with itself. This is me pointing that same thing at my own week.</p></div>
   </section>
+
 
   <section class="section">
     <div class="eyebrow">Before the rest of it</div>
