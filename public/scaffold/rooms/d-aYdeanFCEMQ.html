@@ -181,6 +181,39 @@
   .tag.on-miles { background: rgba(212,175,55,0.18); color: #8A6F1C; }
   .tag.dark { background: rgba(166,70,46,0.14); color: #A6462E; }
 
+  /* The invitation. The destination is a dinner, so it gets the weight. */
+  .invite {
+    margin-top: 34px; padding: 30px 26px;
+    background-color: #003F3F; border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,63,63,0.18), 0 16px 36px -14px rgba(0,63,63,0.42);
+  }
+  .invite-eyebrow {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #D4AF37; font-weight: 700; margin-bottom: 14px;
+  }
+  .invite h3 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 27px; line-height: 1.2; color: #FAF7F1;
+    margin: 0 0 20px; letter-spacing: -0.012em;
+  }
+  .invite h3 em { font-style: italic; color: #D4AF37; }
+  .invite ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .invite li {
+    position: relative; padding: 0 0 0 20px; margin: 0 0 12px;
+    font-size: 16.5px; line-height: 1.55; color: rgba(250,247,241,0.88);
+  }
+  .invite li:last-child { margin-bottom: 0; }
+  .invite li::before {
+    content: ''; position: absolute; left: 0; top: 10px;
+    width: 6px; height: 6px; border-radius: 50%; background-color: #D4AF37;
+  }
+  .invite-foot {
+    margin: 20px 0 0; padding-top: 16px;
+    border-top: 1px solid rgba(250,247,241,0.14);
+    font-size: 14.5px; line-height: 1.55; color: rgba(250,247,241,0.62);
+    font-style: italic;
+  }
+
   /* The Table, sealed */
   .seal {
     margin-top: 30px; padding: 26px 24px;
@@ -400,6 +433,18 @@
     <h2>Where this is <em>going</em>.</h2>
       <p>I am not building this to have a job. I am building something the three of us end up sitting at. Right now that is a sentence and not a structure, and I am not going to dress it up as more than that. What I owe you both is a stretch of me winning plainly enough that the seat is obvious instead of something I have to sell you on.</p>
       <p>When the numbers go on this page, you will know it is because they are worth showing.</p>
+      <p>But the finish line was never a number. It is a table with food on it. Your people, my people, and his people in one room. Parents included. Something to eat, something to drink, nobody performing. That is the thing I have been annoying about for years and would not let go of. This page is me building the thing that earns it instead of bringing it up again.</p>
+      <p>I am not going to argue for why it matters. If it happens one time, it makes its own case.</p>
+      <div class="invite">
+        <div class="invite-eyebrow">The invitation</div>
+        <h3>You, me, and Reid. Three families, <em>one table</em>.</h3>
+        <ul>
+          <li>Would you actually come</li>
+          <li>Who from your family comes with you</li>
+          <li>What stretch of the year is realistic, not ideal</li>
+        </ul>
+        <p class="invite-foot">Answer these in the box at the bottom. No date is set and nothing is decided without you.</p>
+      </div>
       <div class="seal" data-numbers="sealed">
         <div class="seal-mark">Sealed, for now</div>
         <p>The real figures live behind this. They go on the page when the run behind them is long enough to mean something, not before.</p>
@@ -424,6 +469,12 @@
         <p class="hint">One thing. Next week this page reports whether I did it.</p>
         <textarea class="ta" id="f-hold" rows="4" data-key="cr-hold-darius" placeholder="Pick the one that matters."></textarea>
         <span class="save-ind" data-for="f-hold">Saved</span>
+      </div>
+      <div class="field">
+        <label for="f-dinner">The dinner</label>
+        <p class="hint">Would you come, who comes with you, and what stretch of the year is realistic.</p>
+        <textarea class="ta" id="f-dinner" rows="4" data-key="cr-dinner-darius" placeholder="Honest answer beats a polite one."></textarea>
+        <span class="save-ind" data-for="f-dinner">Saved</span>
       </div>
       <div class="field">
         <label for="f-note">Anything else</label>
@@ -487,9 +538,10 @@
     ev.preventDefault();
     var see = document.getElementById('f-see').value.trim();
     var hold = document.getElementById('f-hold').value.trim();
+    var dinner = document.getElementById('f-dinner').value.trim();
     var free = document.getElementById('f-note').value.trim();
 
-    if (!see && !hold && !free) {
+    if (!see && !hold && !dinner && !free) {
       note.textContent = 'Write something first.';
       note.classList.add('err');
       return;
@@ -502,7 +554,7 @@
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        see: see, hold: hold, note: free,
+        see: see, hold: hold, dinner: dinner, note: free,
         weekOf: "2026-09-10",
         submittedAt: new Date().toISOString(),
         userAgent: navigator.userAgent
