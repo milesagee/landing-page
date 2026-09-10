@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="apple-mobile-web-app-title" content="The Room">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="cherish-token" content="zNgjL9qECS8w">
+<title>The Room</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #003F3F; text-decoration: none; }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .draft-banner {
+    background-color: #A6462E; color: #FAF7F1;
+    padding: 12px 28px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.5;
+  }
+
+  .header {
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(0,63,63,0.06);
+  }
+  .logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px; flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.08);
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1; color: #003F3F; letter-spacing: -0.005em;
+  }
+  .role-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; margin-top: 6px; font-weight: 700;
+  }
+
+  .container { max-width: 640px; margin: 0 auto; padding: 0 28px; }
+
+  .hero { padding: 76px 0 58px; }
+  .hero-kicker {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 44px; line-height: 1.06; color: #003F3F;
+    margin: 0 0 26px; letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: #B1922E; }
+  .hero p {
+    font-size: 19px; color: rgba(0,63,63,0.78);
+    margin: 0 0 14px; line-height: 1.55;
+  }
+  .hero p:last-child { margin-bottom: 0; }
+
+  .personal-note {
+    margin: 34px 0 0; padding: 20px 22px;
+    background: rgba(212,175,55,0.06);
+    border-left: 2px solid #D4AF37; border-radius: 2px;
+  }
+  .personal-note p {
+    font-size: 16px; color: rgba(0,63,63,0.82);
+    margin: 0; line-height: 1.6; font-style: italic;
+  }
+
+  .section { padding: 68px 0 20px; border-top: 1px solid rgba(0,63,63,0.06); }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 16px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 31px; line-height: 1.16; color: #003F3F;
+    margin: 0 0 18px; letter-spacing: -0.014em;
+  }
+  .section h2 em { font-style: italic; color: #B1922E; }
+  .section > p {
+    font-size: 17px; color: rgba(0,63,63,0.82);
+    line-height: 1.66; margin: 0 0 16px;
+  }
+  .section > p:last-child { margin-bottom: 0; }
+
+  /* Cherish: the foundation beat, set apart */
+  .cherish { padding-top: 60px; }
+  .cherish p {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 21px; line-height: 1.52; color: rgba(0,63,63,0.86);
+    margin: 0 0 20px;
+  }
+  .cherish p:last-child { margin-bottom: 0; }
+
+  /* The Standard */
+  .std-block { margin-top: 30px; }
+  .std-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 14px;
+  }
+  .std-label.missed { color: #A6462E; }
+  .std-label.kept { color: #4C7A5B; }
+  .std-label.said { color: rgba(0,63,63,0.45); }
+  .std-list { list-style: none; padding: 0; margin: 0; }
+  .std-list li {
+    position: relative; padding: 0 0 0 22px; margin: 0 0 15px;
+    font-size: 16.5px; line-height: 1.6; color: rgba(0,63,63,0.82);
+  }
+  .std-list li:last-child { margin-bottom: 0; }
+  .std-list li::before {
+    content: ''; position: absolute; left: 0; top: 9px;
+    width: 7px; height: 7px; border-radius: 50%;
+  }
+  .std-list.missed li::before { background: #A6462E; }
+  .std-list.kept li::before { background: #4C7A5B; }
+  .std-list.said li { color: rgba(0,63,63,0.55); font-size: 15.5px; }
+  .std-list.said li::before {
+    background: transparent; border: 1.5px solid rgba(0,63,63,0.28);
+    width: 6px; height: 6px; top: 9px;
+  }
+
+  /* The Register */
+  .reg-headline {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: 19px; color: #B1922E; margin: 0 0 30px; line-height: 1.4;
+  }
+  .lanes { list-style: none; padding: 0; margin: 0; }
+  .lane {
+    display: grid; grid-template-columns: 26px 1fr; gap: 14px;
+    padding: 20px 18px 20px 16px; margin-bottom: 10px;
+    background: #FFFDF9; border-radius: 10px;
+    border: 1px solid rgba(0,63,63,0.07);
+    box-shadow: 0 1px 2px rgba(0,63,63,0.04), 0 4px 14px -6px rgba(0,63,63,0.10);
+  }
+  .lane.is-dark {
+    background: rgba(166,70,46,0.045);
+    border-color: rgba(166,70,46,0.20);
+    box-shadow: 0 1px 2px rgba(166,70,46,0.05), 0 4px 14px -6px rgba(166,70,46,0.16);
+  }
+  .lane-n {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 14px; color: #D4AF37; padding-top: 2px;
+    font-feature-settings: "lnum";
+  }
+  .lane.is-dark .lane-n { color: #A6462E; }
+  .lane-body { min-width: 0; }
+  .lane-plain {
+    font-size: 16px; line-height: 1.55; color: rgba(0,63,63,0.86);
+    margin: 0 0 10px;
+  }
+  .lane-meta {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+  }
+  .tag {
+    padding: 3px 9px; border-radius: 999px;
+    background: rgba(0,63,63,0.06); color: rgba(0,63,63,0.55);
+  }
+  .tag.on-miles { background: rgba(212,175,55,0.18); color: #8A6F1C; }
+  .tag.dark { background: rgba(166,70,46,0.14); color: #A6462E; }
+
+  /* The Table, sealed */
+  .seal {
+    margin-top: 30px; padding: 26px 24px;
+    border: 1px dashed rgba(0,63,63,0.22); border-radius: 10px;
+    background: rgba(0,63,63,0.025); text-align: center;
+  }
+  .seal-mark {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 15px; letter-spacing: 0.02em; color: #B1922E; margin-bottom: 8px;
+  }
+  .seal p {
+    font-size: 14.5px; line-height: 1.6; color: rgba(0,63,63,0.55);
+    margin: 0; font-style: italic;
+  }
+  .seat {
+    margin-top: 26px; padding: 20px 22px;
+    background: rgba(212,175,55,0.06);
+    border-left: 2px solid #D4AF37; border-radius: 2px;
+    font-size: 16.5px; line-height: 1.6; color: rgba(0,63,63,0.85);
+  }
+
+  /* Write-back */
+  .field { margin-bottom: 26px; }
+  .field label {
+    display: block; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #B1922E; font-weight: 700; margin-bottom: 10px;
+  }
+  .field .hint {
+    font-size: 14.5px; color: rgba(0,63,63,0.55);
+    margin: 0 0 11px; line-height: 1.5; text-transform: none; letter-spacing: 0;
+  }
+  .ta {
+    width: 100%; padding: 13px 14px;
+    border: 1px solid rgba(0,63,63,0.16); border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 15.5px; line-height: 1.55;
+    color: #003F3F; background: #FFFDF9; resize: vertical;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .ta::placeholder { color: rgba(0,63,63,0.35); }
+  .ta:focus {
+    outline: none; border-color: #D4AF37; background: #fff;
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.14);
+  }
+  .save-ind {
+    display: block; text-align: right; margin-top: 6px; min-height: 14px;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #4C7A5B; font-weight: 700; opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .save-ind.on { opacity: 1; }
+
+  .cta-wrap { padding: 12px 0 96px; text-align: center; }
+  .cta {
+    display: inline-block; background: #003F3F; color: #FAF7F1;
+    padding: 17px 36px; border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px; font-weight: 600; letter-spacing: 0.02em;
+    border: none; cursor: pointer;
+    transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, box-shadow 0.24s ease;
+    box-shadow: 0 2px 10px rgba(0,63,63,0.14), 0 8px 24px -10px rgba(0,63,63,0.28);
+  }
+  .cta:hover:not(:disabled) {
+    background: #0a5050; transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0,63,63,0.16), 0 12px 30px -10px rgba(0,63,63,0.32);
+  }
+  .cta:active:not(:disabled) { transform: translateY(0); }
+  .cta:focus-visible { outline: 3px solid #D4AF37; outline-offset: 3px; }
+  .cta:disabled { opacity: 0.5; cursor: default; }
+  .cta-note {
+    font-size: 13px; color: rgba(0,63,63,0.5);
+    margin-top: 18px; line-height: 1.55;
+  }
+  .cta-note.err { color: #A6462E; font-weight: 600; }
+  .sent {
+    margin-top: 20px; padding: 22px 24px;
+    background: rgba(76,122,91,0.07); border-left: 2px solid #4C7A5B;
+    border-radius: 2px; text-align: left;
+    font-size: 16px; line-height: 1.6; color: rgba(0,63,63,0.85);
+  }
+
+  .footer {
+    padding: 48px 28px 64px; text-align: center;
+    border-top: 1px solid rgba(0,63,63,0.06);
+  }
+  .signature {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: 19px; color: #003F3F; margin: 0;
+  }
+  .footer-note {
+    font-size: 12px; color: rgba(0,63,63,0.4);
+    margin-top: 14px; letter-spacing: 0.02em;
+  }
+
+  @media (min-width: 700px) {
+    .hero h1 { font-size: 54px; }
+    .hero p { font-size: 20px; }
+    .section h2 { font-size: 35px; }
+    .cherish p { font-size: 23px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+<div class="draft-banner">Draft build. Cherish, Carry this, The Table are still Monique's words, not Miles's. Not for sending.</div>
+<header class="header">
+  <div class="logo">M</div>
+  <div>
+    <div class="brand">Monique</div>
+    <div class="role-label">For Reid &middot; Week of September 10, 2026</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="hero-kicker">Yours. Not shared.</div>
+    <h1>Reid. Here's the whole thing, <em>out loud</em>.</h1>
+    <p>Every week I write down what I actually committed to, what I kept, and what I dropped. You get to read it before I get to explain it away.</p>
+    <div class="personal-note"><p>You told me once the hard part is being by yourself. I built a version of this for me first, because the quiet is where I either get built or drift, and I needed something that could tell the difference. Turns out the fix was letting somebody see the page. So you're the somebody.</p></div>
+  </section>
+
+  <section class="section cherish">
+    <div class="eyebrow">First, before anything else</div>
+    <h2>What was <em>already</em> in place.</h2>
+      <p>Three things were already in place before I did anything this week. The long-form angle finally landed after months of guessing, and it landed because I stopped arguing with what the numbers were telling me. Wendy has been keeping the CRM current since July without being asked and without being paid for it, and I only found that out because I went looking. And the machine I have been building for a year is sitting there working, waiting on me.</p>
+      <p>None of that is me being clever. The pieces were already set. I got to be in the room where they came together.</p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">The Standard</div>
+    <h2>What I said. What <em>actually</em> happened.</h2>
+    <div class="std-block">
+      <div class="std-label missed">Missed</div>
+        <ul class="std-list missed">
+          <li>The booking code cannot run. Both AG calendars are switched off, so every attempt returns &quot;calendar is inactive.&quot; I wrote the fix without checking whether the thing it plugs into was on. That is on me.</li>
+          <li>Five people wrote to me and never got an answer. The oldest has been waiting 92 days. Nothing about that is a systems problem.</li>
+          <li>Three of six lanes went dark this week. All three are dark because they are waiting on me, not on code, not on money, not on anybody else.</li>
+        </ul>
+    </div>
+    <div class="std-block">
+      <div class="std-label kept">Kept</div>
+        <ul class="std-list kept">
+          <li>Long-form front layer shipped 9/08. Place-led titles pulled 1,218, 1,170 and 423 views. Market-led titles on the same channel pulled 76, 70 and 39. Same content, different door.</li>
+          <li>Booking code written and wired 9/08.</li>
+        </ul>
+    </div>
+    <div class="std-block">
+      <div class="std-label said">What I had said I would do</div>
+        <ul class="std-list said">
+          <li>Ship the long-form front layer so YouTube stops being a coin flip</li>
+          <li>Fix the AG booking path so Sasha can actually put something on a calendar</li>
+        </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">The Register</div>
+    <h2>Six lanes. <em>All</em> of them.</h2>
+    <p class="reg-headline">3 of 6 lanes dark, 3 waiting on me</p>
+    <ul class="lanes">
+        <li class="lane is-dark">
+          <div class="lane-n">01</div>
+          <div class="lane-body">
+            <p class="lane-plain">Five people wrote to me about buying or selling and never heard back. Longest wait is 92 days.</p>
+            <div class="lane-meta"><span class="tag dark">gone quiet</span><span class="tag on-miles">waiting on me</span></div>
+          </div>
+        </li>
+        <li class="lane is-dark">
+          <div class="lane-n">02</div>
+          <div class="lane-body">
+            <p class="lane-plain">The follow-up system that handles new leads is built and running in manual-only mode. I have not turned the key.</p>
+            <div class="lane-meta"><span class="tag dark">gone quiet</span><span class="tag on-miles">waiting on me</span></div>
+          </div>
+        </li>
+        <li class="lane">
+          <div class="lane-n">03</div>
+          <div class="lane-body">
+            <p class="lane-plain">On the investor side the bot greets a lead and then goes quiet, because the calendar it books into is switched off.</p>
+            <div class="lane-meta"><span class="tag on-miles">waiting on me</span></div>
+          </div>
+        </li>
+        <li class="lane">
+          <div class="lane-n">04</div>
+          <div class="lane-body">
+            <p class="lane-plain">An instrument to measure whether AI search engines cite me at all. Designed, not built.</p>
+            <div class="lane-meta"><span class="tag">queued</span></div>
+          </div>
+        </li>
+        <li class="lane">
+          <div class="lane-n">05</div>
+          <div class="lane-body">
+            <p class="lane-plain">The free relocation guide people trade their email for is sitting on the open internet, ungated.</p>
+            <div class="lane-meta"><span class="tag on-miles">waiting on me</span></div>
+          </div>
+        </li>
+        <li class="lane is-dark">
+          <div class="lane-n">06</div>
+          <div class="lane-body">
+            <p class="lane-plain">The content operation is running but flying blind on its own footage library.</p>
+            <div class="lane-meta"><span class="tag dark">gone quiet</span></div>
+          </div>
+        </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Carry this</div>
+    <h2>The thing I'm <em>holding</em> this week.</h2>
+      <p>Grace does the work, but it does it through you, and it cannot move through somebody sitting on the couch waiting on a sign. Alignment is not a substitute for reps.</p>
+      <p>Everything I built this year is real and most of it is idling. The bottleneck was never the tooling and it was never the market. It was me not doing the two-minute thing that unlocks the ninety-day thing.</p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">The Table</div>
+    <h2>Where this is <em>going</em>.</h2>
+      <p>I am not building this to have a job. I am building something the three of us end up sitting at. Right now that is a sentence and not a structure, and I am not going to dress it up as more than that. What I owe you both is a stretch of me winning plainly enough that the seat is obvious instead of something I have to sell you on.</p>
+      <p>When the numbers go on this page, you will know it is because they are worth showing.</p>
+      <div class="seal" data-numbers="sealed">
+        <div class="seal-mark">Sealed, for now</div>
+        <p>The real figures live behind this. They go on the page when the run behind them is long enough to mean something, not before.</p>
+      </div>
+    <div class="seat">You read people faster than I do. When something on here sounds like I'm managing the truth instead of telling it, that's the thing I need you to say out loud.</div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Your turn</div>
+    <h2>Say the thing you'd <em>actually</em> say.</h2>
+    <p>This goes straight to me and nowhere else. Nobody else reads this page and nobody else reads what you write on it.</p>
+
+    <form id="wb" style="margin-top:34px">
+      <div class="field">
+        <label for="f-see">What you see</label>
+        <p class="hint">Reading the above, what stands out that I'm probably not seeing.</p>
+        <textarea class="ta" id="f-see" rows="5" data-key="cr-see-reid" placeholder="Straight, no cushion."></textarea>
+        <span class="save-ind" data-for="f-see">Saved</span>
+      </div>
+      <div class="field">
+        <label for="f-hold">What you'd hold me to</label>
+        <p class="hint">One thing. Next week this page reports whether I did it.</p>
+        <textarea class="ta" id="f-hold" rows="4" data-key="cr-hold-reid" placeholder="Pick the one that matters."></textarea>
+        <span class="save-ind" data-for="f-hold">Saved</span>
+      </div>
+      <div class="field">
+        <label for="f-note">Anything else</label>
+        <p class="hint">Nothing to do with any of this is a fine answer.</p>
+        <textarea class="ta" id="f-note" rows="4" data-key="cr-note-reid" placeholder="Optional."></textarea>
+        <span class="save-ind" data-for="f-note">Saved</span>
+      </div>
+      <div class="cta-wrap">
+        <button type="submit" class="cta" id="wb-btn">Send it to Miles</button>
+        <div class="cta-note" id="wb-note">He reads it himself. No system answers for him.</div>
+      </div>
+    </form>
+    <div id="wb-done" hidden></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p class="signature">- Miles</p>
+  <div class="footer-note">Week of September 10, 2026</div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var LS = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+
+  // Draft survives a phone lock. A note half-written on a Tuesday should still be
+  // there Wednesday, or it never gets finished.
+  var tas = document.querySelectorAll('.ta[data-key]');
+  Array.prototype.forEach.call(tas, function (el) {
+    var key = el.getAttribute('data-key');
+    var saved = LS.get(key);
+    if (saved) el.value = saved;
+    var ind = document.querySelector('.save-ind[data-for="' + el.id + '"]');
+    var t = null;
+    el.addEventListener('input', function () {
+      if (t) clearTimeout(t);
+      t = setTimeout(function () {
+        LS.set(key, el.value);
+        if (ind && el.value) {
+          ind.classList.add('on');
+          setTimeout(function () { ind.classList.remove('on'); }, 1400);
+        }
+      }, 400);
+    });
+  });
+
+  var tokenEl = document.querySelector('meta[name="cherish-token"]');
+  var token = tokenEl ? tokenEl.getAttribute('content') : '';
+  var form = document.getElementById('wb');
+  var btn = document.getElementById('wb-btn');
+  var note = document.getElementById('wb-note');
+  var done = document.getElementById('wb-done');
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var see = document.getElementById('f-see').value.trim();
+    var hold = document.getElementById('f-hold').value.trim();
+    var free = document.getElementById('f-note').value.trim();
+
+    if (!see && !hold && !free) {
+      note.textContent = 'Write something first.';
+      note.classList.add('err');
+      return;
+    }
+    note.classList.remove('err');
+    btn.disabled = true;
+    btn.textContent = 'Sending';
+
+    fetch('/api/cherish/submit?t=' + encodeURIComponent(token), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        see: see, hold: hold, note: free,
+        weekOf: "2026-09-10",
+        submittedAt: new Date().toISOString(),
+        userAgent: navigator.userAgent
+      })
+    }).then(function (res) {
+      return res.json().then(function (body) { return { ok: res.ok, body: body }; });
+    }).then(function (r) {
+      if (!r.ok || !r.body.ok) throw new Error((r.body && r.body.error) || 'failed');
+      form.hidden = true;
+      done.hidden = false;
+      done.innerHTML = '<div class="sent">Landed. He gets it directly, and he answers himself.</div>';
+      Array.prototype.forEach.call(tas, function (el) { LS.del(el.getAttribute('data-key')); });
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = 'Send it to Miles';
+      note.textContent = 'That did not go through. Try once more, or just text him.';
+      note.classList.add('err');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
