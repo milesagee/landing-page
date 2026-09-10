@@ -188,6 +188,61 @@
   .tag.on-miles { background: rgba(212,175,55,0.18); color: #8A6F1C; }
   .tag.dark { background: rgba(166,70,46,0.14); color: #A6462E; }
 
+  /* The money, for a parent. Stat tiles, then the honest part, then the coin. */
+  .stats { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 28px 0 0; }
+  .stat {
+    padding: 20px 22px; background-color: #FFFDF9; border-radius: 10px;
+    border: 1px solid rgba(0,63,63,0.07);
+    box-shadow: 0 1px 2px rgba(0,63,63,0.04), 0 4px 14px -6px rgba(0,63,63,0.10);
+  }
+  .stat-n {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 40px; line-height: 1; color: #003F3F; letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin: 10px 0 8px;
+  }
+  .stat-note { font-size: 15px; line-height: 1.55; color: rgba(0,63,63,0.72); }
+  .stat.is-zero .stat-n { color: #A6462E; }
+
+  .out-box {
+    margin-top: 26px; padding: 20px 22px;
+    border: 1px dashed rgba(0,63,63,0.20); border-radius: 10px;
+  }
+  .out-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(0,63,63,0.5); font-weight: 700; margin-bottom: 12px;
+  }
+  .out-box ul { list-style: none; padding: 0; margin: 0; }
+  .out-box li {
+    position: relative; padding-left: 18px; margin-bottom: 9px;
+    font-size: 15.5px; line-height: 1.55; color: rgba(0,63,63,0.78);
+  }
+  .out-box li:last-child { margin-bottom: 0; }
+  .out-box li::before {
+    content: ''; position: absolute; left: 0; top: 9px;
+    width: 6px; height: 6px; border-radius: 50%;
+    border: 1.5px solid rgba(0,63,63,0.3);
+  }
+
+  .coin {
+    margin-top: 32px; padding: 28px 26px;
+    background-color: #003F3F; border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,63,63,0.18), 0 16px 36px -14px rgba(0,63,63,0.42);
+  }
+  .coin-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #D4AF37; font-weight: 700; margin-bottom: 16px;
+  }
+  .coin p {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px; line-height: 1.5; color: #FAF7F1; margin: 0 0 16px;
+  }
+  .coin p:last-child { margin-bottom: 0; }
+
+  @media (min-width: 560px) { .stats { grid-template-columns: 1fr 1fr 1fr; } }
+
   /* Ask first. On a parent's page this is the whole point, so it outranks everything. */
   .askfirst {
     margin: 38px 0 0; padding: 32px 26px;
@@ -488,6 +543,52 @@
           </div>
         </li>
     </ul>
+  </section>
+
+
+  <section class="section">
+    <div class="eyebrow">The money, straight</div>
+    <h2>The good ones and the <em>bad</em> one.</h2>
+    <p>You are going to want the numbers, so here they are before you ask. The good ones and the bad one.</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-n">11</div>
+        <div class="stat-label">closings this year</div>
+        <div class="stat-note">Everything my system shows as closed and paid since January 1.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">2</div>
+        <div class="stat-label">under contract right now</div>
+        <div class="stat-note">Cedar Grove Road, and Milhorn Street over in Battery Park. Signed, not closed.</div>
+      </div>
+      <div class="stat is-zero">
+        <div class="stat-n">$0</div>
+        <div class="stat-label">AG Home Buyers has ever made</div>
+        <div class="stat-note">Not this year. Ever. More on that below.</div>
+      </div>
+    </div>
+    <div class="out-box">
+      <div class="out-label">Still out, no answer yet</div>
+      <ul>
+        <li>Lennar. The builder pitch is sitting with them.</li>
+        <li>Lead Mine. Same, still waiting.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">The part I am not going to hide</div>
+    <h2>The other business is <em>not</em> running.</h2>
+    <p>AG Home Buyers is not running, and I would rather you hear that from me than find it.</p>
+    <p>I put about $28,900 into it this year. Ads, hiring, software, and two lead managers. Neither one of them is still with me. I paid for all of it. It has never collected a single fee.</p>
+    <p>The people came in. I did not turn them into anything. That is the honest sentence and I am not going to dress it up. I blew the shot.</p>
+    <p>What I got for the money is not nothing. I know exactly what is broken now, and it is two settings and a habit, not a missing customer. But I paid tuition prices to find that out.</p>
+    <div class="coin">
+      <div class="coin-label">Two sides of the same coin</div>
+      <p>You and Mom did the hard side of this. You saved. You stayed safe. You made it work on what came in and you did it for a long time, and it built something real. I am not arguing with any of that. It is the reason I get to try this at all.</p>
+      <p>Here is the other side of the same coin. Saving decides how much of a dollar you keep. It does not decide how many dollars show up. If I build something that brings in $100,000 a month on average, that is a different game than saving harder on $150,000 a year. Not a better person. A different game.</p>
+      <p>I want both. You already taught me one of them. All of this is me going after the other one.</p>
+    </div>
   </section>
 
   <section class="section">
