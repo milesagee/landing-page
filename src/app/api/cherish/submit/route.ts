@@ -57,9 +57,10 @@ const esc = (s: string) =>
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 
-const FIELDS: Array<{ key: "see" | "hold" | "dinner" | "note"; label: string }> = [
+const FIELDS: Array<{ key: "see" | "hold" | "values" | "dinner" | "note"; label: string }> = [
   { key: "see", label: "What you see" },
   { key: "hold", label: "What you'd hold me to" },
+  { key: "values", label: "What matters to him" },
   { key: "dinner", label: "The dinner" },
   { key: "note", label: "Anything else" },
 ];
@@ -163,7 +164,7 @@ export async function POST(req: NextRequest) {
 
   // 3. Email to Miles. The durable channel in production.
   try {
-    const first = (p.see || p.hold || p.dinner || p.note || "").trim().replace(/\s+/g, " ").slice(0, 60);
+    const first = (p.see || p.hold || p.values || p.dinner || p.note || "").trim().replace(/\s+/g, " ").slice(0, 60);
     await ghlPost(`/conversations/messages`, {
       type: "Email",
       contactId: RELAY_CONTACT_ID,

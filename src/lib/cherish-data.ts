@@ -42,6 +42,7 @@ export const RELAY_EMAIL = "miles@milesagee.com";
 export type CherishPayload = {
   see?: string;
   hold?: string;
+  values?: string;
   dinner?: string;
   note?: string;
   weekOf: string;
@@ -61,7 +62,7 @@ export function getCherishRecipientByToken(token: string): CherishRecipient | nu
 }
 
 export function validateCherishPayload(p: Partial<CherishPayload>): ValidationError | null {
-  const fields: Array<keyof CherishPayload> = ["see", "hold", "dinner", "note"];
+  const fields: Array<keyof CherishPayload> = ["see", "hold", "values", "dinner", "note"];
   for (const f of fields) {
     const v = p[f];
     if (v != null && typeof v !== "string") {
