@@ -426,7 +426,7 @@ export default async function GuidePage({ params }: { params: Params }) {
               {g.primaryCta.label}
             </a>
             <a
-              href="sms:+18048098340"
+              href="sms:+18044098340"
               className="cta-secondary px-8 py-4 rounded-sm text-base font-medium tracking-wide inline-block"
               style={{ borderColor: "rgba(255,255,255,0.25)", color: "#FFFFFF" }}
             >

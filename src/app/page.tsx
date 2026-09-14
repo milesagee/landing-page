@@ -70,7 +70,7 @@ const jsonLd = {
       mainEntityOfPage: "https://mamsnow.com",
       image: "https://mamsnow.com/images/miles-hero.jpg",
       jobTitle: "Realtor",
-      telephone: "+1-804-809-8340",
+      telephone: "+1-804-409-8340",
       email: "miles@mamssolutions.com",
       description:
         "Miles Agee is a Richmond, Virginia Realtor on the OneSouth Realty team, licensed under Samson Properties. Neighborhood-level buyer and seller representation across 40+ neighborhoods in Greater Richmond.",
@@ -140,7 +140,7 @@ const jsonLd = {
       url: "https://mamsnow.com",
       image: "https://mamsnow.com/images/miles-hero.jpg",
       logo: "https://mamsnow.com/images/mams-logo.png",
-      telephone: "+1-804-809-8340",
+      telephone: "+1-804-409-8340",
       email: "miles@mamssolutions.com",
       description:
         "Buyer and seller representation across Greater Richmond, Virginia. Miles Agee is a licensed Virginia Realtor on the OneSouth Realty team, with all real estate services transacted through Samson Properties, the brokerage of record.",
@@ -1064,11 +1064,11 @@ export default function Home() {
           <p className="text-sm text-ivory/40">
             Or call directly:{' '}
             <a
-              href="tel:+18048098340"
+              href="tel:+18044098340"
               className="text-gold/70 font-medium hover:text-gold focus-visible:outline-1 focus-visible:outline-gold focus-visible:outline-offset-2"
               style={{ transition: 'color 0.2s ease' }}
             >
-              (804) 809-8340
+              (804) 409-8340
             </a>
           </p>
           <p className="text-sm text-ivory/40 mt-4">
@@ -1116,7 +1116,7 @@ export default function Home() {
             <div>
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gold/60 mb-3">Contact</p>
               <p className="text-sm text-ivory/50 mb-1">miles@mamssolutions.com</p>
-              <a href="tel:+18048098340" className="text-sm text-ivory/50 hover:text-gold" style={{ transition: 'color 0.2s ease' }}>(804) 809-8340</a>
+              <a href="tel:+18044098340" className="text-sm text-ivory/50 hover:text-gold" style={{ transition: 'color 0.2s ease' }}>(804) 409-8340</a>
             </div>
           </div>
           <div className="border-t border-ivory/8 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">

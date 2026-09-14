@@ -345,7 +345,7 @@ export default function ListingsPage() {
             <div>
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gold/60 mb-3">Contact</p>
               <p className="text-sm text-ivory/50 mb-1">miles@mamssolutions.com</p>
-              <a href="tel:+18048098340" className="text-sm text-ivory/50 hover:text-gold" style={{ transition: 'color 0.2s ease' }}>(804) 809-8340</a>
+              <a href="tel:+18044098340" className="text-sm text-ivory/50 hover:text-gold" style={{ transition: 'color 0.2s ease' }}>(804) 409-8340</a>
             </div>
           </div>
           <div className="border-t border-ivory/8 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
