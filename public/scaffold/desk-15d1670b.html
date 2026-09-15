@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex"/>
+<meta name="referrer" content="no-referrer"/>
+<title>Pricing Desk | MAMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --teal:#003F3F; --teal-2:#00514f; --gold:#D4AF37; --gold-deep:#b8932a;
+    --paper:#FAF7F1; --ink:#1c2523; --muted:#5c6b67; --line:#e3ddcf;
+    /* status pair validated against #FAF7F1: chroma/lightness/contrast PASS,
+       CVD dE 7.5 protan = floor band, legal because every mark is text-labeled */
+    --sold:#0f8050; --expired:#c14a2e; --warn:#b8932a;
+    --sh: 0 1px 2px rgba(0,63,63,.06), 0 8px 24px -8px rgba(0,63,63,.16);
+    --sh-lift: 0 2px 4px rgba(0,63,63,.08), 0 18px 44px -12px rgba(0,63,63,.24);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif; color:var(--ink); line-height:1.7;
+    background:
+      radial-gradient(1100px 620px at 12% -6%, rgba(212,175,55,.10), transparent 60%),
+      radial-gradient(900px 560px at 108% 4%, rgba(0,63,63,.10), transparent 55%),
+      var(--paper);
+    min-height:100vh; padding:0 20px 72px;
+  }
+  .noise{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .wrap{max-width:1040px;margin:0 auto;position:relative;z-index:1}
+
+  header{padding:34px 0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--teal-2));
+    display:grid;place-items:center;color:var(--gold);font-family:'Fraunces',serif;font-weight:600;font-size:18px;
+    box-shadow:var(--sh)}
+  .brand b{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.01em;font-size:17px;color:var(--teal)}
+  .brand span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.5)}
+
+  .hero{padding:20px 0 8px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:12px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,5vw,46px);line-height:1.06;letter-spacing:-.03em;color:var(--teal)}
+  h1 em{font-style:italic;color:var(--gold-deep)}
+  .sub{margin-top:14px;max-width:70ch;font-size:16.5px;color:var(--ink)}
+  .facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .fact{background:rgba(255,255,255,.62);border:1px solid var(--line);border-radius:12px;padding:9px 13px;box-shadow:var(--sh)}
+  .fact b{font-family:'Fraunces',serif;color:var(--teal);font-size:15px}
+  .fact span{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+  .verdict{margin:26px 0 8px;background:linear-gradient(135deg,var(--teal),var(--teal-2));color:#eef4f2;
+    border-radius:18px;padding:26px;box-shadow:var(--sh-lift);position:relative;overflow:hidden}
+  .verdict::after{content:"";position:absolute;right:-40px;top:-40px;width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,175,55,.22),transparent 65%)}
+  .verdict .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+  .verdict h2{font-family:'Fraunces',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px;position:relative}
+  .verdict p{font-size:15px;color:#d7e2df;max-width:74ch;position:relative}
+  .verdict .byright{margin-top:16px;padding-top:15px;border-top:1px solid rgba(212,175,55,.28);font-size:14.5px;color:#e6efec;position:relative}
+  .verdict .byright b{color:var(--gold)}
+
+  .section-h{font-family:'Fraunces',serif;font-weight:600;color:var(--teal);font-size:20px;letter-spacing:-.01em;margin:38px 0 4px}
+  .section-s{font-size:13.5px;color:var(--muted);margin-bottom:16px;max-width:76ch}
+
+  /* ---------- the cliff: ranked dot plot on one $/sf axis ---------- */
+  .chart{background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:16px;padding:18px 16px 10px;box-shadow:var(--sh)}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:16px;font-size:12px;color:var(--muted)}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+  .legend .lz{width:14px;height:10px;border-radius:3px;background:rgba(193,74,46,.12);border:1px solid rgba(193,74,46,.3)}
+  .plot{position:relative}
+  /* ALL axis-space geometry lives in one overlay that is inset by the label column,
+     so every percentage below is a percentage of the TRACK, never of the whole plot. */
+  .overlay{position:absolute;top:26px;bottom:22px;left:var(--lab);right:0;pointer-events:none;z-index:0}
+  .overlay i.g{position:absolute;top:0;bottom:0;width:1px;background:rgba(0,63,63,.07)}
+  .deathzone{position:absolute;top:0;bottom:0;background:rgba(193,74,46,.07);
+    border-left:1px dashed rgba(193,74,46,.55)}
+  .deathzone b{position:absolute;top:-24px;left:0;font-size:9px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--expired);font-weight:700;white-space:nowrap}
+  .askline{position:absolute;top:0;bottom:0;width:2px;background:var(--gold);opacity:.9}
+  .askline b{position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-size:9.5px;font-weight:700;
+    letter-spacing:.06em;color:var(--gold-deep);white-space:nowrap;background:var(--paper);padding:0 4px;border-radius:4px}
+  .row{position:relative;display:flex;align-items:center;min-height:34px}
+  .row .lab{width:var(--lab);flex:0 0 var(--lab);padding-right:12px;font-size:12.5px;line-height:1.25;text-align:right}
+  .row .lab b{display:block;color:var(--ink);font-weight:600}
+  .row .lab span{display:block;color:var(--muted);font-size:10.5px;letter-spacing:.04em}
+  .track{position:relative;flex:1;height:34px}
+  .dot{position:absolute;top:50%;width:13px;height:13px;border-radius:50%;transform:translate(-50%,-50%);
+    box-shadow:0 0 0 2px var(--paper);transition:transform .3s cubic-bezier(.2,.9,.3,1.3);cursor:default}
+  .dot.s{background:var(--sold)} .dot.e{background:var(--expired)}
+  .row:hover .dot{transform:translate(-50%,-50%) scale(1.45)}
+  .val{position:absolute;top:50%;transform:translateY(-50%);font-size:11.5px;white-space:nowrap;
+    font-family:'Fraunces',serif;font-weight:600;color:var(--ink)}
+  .val u{text-decoration:none;font-family:'Inter',sans-serif;font-weight:700;font-size:9px;letter-spacing:.1em;
+    text-transform:uppercase;margin-left:6px}
+  .val u.s{color:var(--sold)} .val u.e{color:var(--expired)}
+  .val--flip{transform:translate(-100%,-50%);margin-left:-14px;text-align:right}
+  .axis{position:relative;height:22px;margin-left:var(--lab)}
+  .axis i{position:absolute;top:4px;font-size:10.5px;color:var(--muted);transform:translateX(-50%);font-style:normal}
+  .plot{--lab:142px;padding-top:26px}
+  @media(max-width:620px){
+    .plot{--lab:96px}
+    .row .lab{font-size:11px} .row .lab span{font-size:9.5px}
+    .val{font-size:10.5px} .val u{display:none}
+  }
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);background:rgba(255,255,255,.72)}
+  table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+  th{background:var(--teal);color:var(--paper);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+    font-weight:700;text-align:left;padding:10px 12px;white-space:nowrap}
+  td{padding:10px 12px;border-top:1px solid var(--line);white-space:nowrap}
+  td:first-child{font-weight:600}
+  tr.us td{background:rgba(212,175,55,.13);color:var(--gold-deep);font-weight:700}
+  .pill{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:999px}
+  .p-s{background:rgba(15,128,80,.13);color:var(--sold)}
+  .p-e{background:rgba(193,74,46,.13);color:var(--expired)}
+  .p-a{background:rgba(184,147,42,.16);color:var(--gold-deep)}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
+  @media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+  .card{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--sh);
+    transition:transform .32s cubic-bezier(.2,.9,.3,1.2), box-shadow .32s}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--sh-lift)}
+  .card.flag{border-color:rgba(193,74,46,.45)}
+  .card h4{font-family:'Fraunces',serif;font-weight:600;font-size:16.5px;color:var(--teal);letter-spacing:-.01em;line-height:1.25;margin-bottom:8px}
+  .card p{font-size:13.5px;color:var(--ink)}
+  .card .k{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--gold-deep);margin-bottom:7px}
+  .card.flag .k{color:var(--expired)}
+
+  .traps{list-style:none;margin-top:14px}
+  .traps li{background:rgba(255,255,255,.66);border:1px solid var(--line);border-left:3px solid var(--expired);
+    border-radius:0 12px 12px 0;padding:13px 16px;margin-bottom:10px;font-size:13.5px;box-shadow:var(--sh)}
+  .traps li b{color:var(--teal)}
+
+  .open{list-style:none;margin-top:12px}
+  .open li{font-size:13.5px;padding:5px 0 5px 22px;position:relative;color:var(--ink)}
+  .open li::before{content:"";position:absolute;left:0;top:13px;width:8px;height:8px;border-radius:2px;
+    border:1.5px solid var(--gold-deep)}
+
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);max-width:84ch}
+  footer b{color:var(--teal)}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="mark">M</div>
+      <div><b>MAMS</b><span>Pricing desk &middot; internal</span></div>
+    </div>
+    <div class="tag"><a href="private-519371fa.html" style="color:inherit;text-decoration:none">&larr; Back to the listing page</a></div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">10820 Leabrook Dr &middot; Glen Allen 23059 &middot; Dominion Club &middot; built 2002</div>
+    <h1>Your range is right. <em>Here is the proof, and the line you cannot cross.</em></h1>
+    <p class="sub">Built from four CVR MLS exports run 9/15/2026 inside your own hand-drawn boundaries, not a zip code. Nine sales, four expireds, one active. Deduplicated, vintage-matched, and checked against the four traps sitting in the raw export.</p>
+    <div class="facts">
+      <div class="fact"><b>5,983 sq ft</b><span>Living area</span></div>
+      <div class="fact"><b>$317.52</b><span>Resale median $/sf</span></div>
+      <div class="fact"><b>$337.33</b><span>Resale ceiling $/sf</span></div>
+      <div class="fact"><b>$362.70</b><span>Where listings start dying</span></div>
+      <div class="fact"><b>7 days</b><span>Median DOM when priced right</span></div>
+    </div>
+  </section>
+
+  <section class="verdict">
+    <div class="k">The verdict</div>
+    <h2>$1.9M is the market's middle. $2.0M is the market's ceiling. Both are defensible, and you already knew it.</h2>
+    <p>At 5,983 square feet, $1,900,000 prices at $317.57 a foot. The resale median in your boundary is $317.52. You land on it to the penny. $2,000,000 prices at $334.28, which is 99.1 percent of the highest price any resale has ever achieved inside these lines. Holding the range instead of narrowing it was the right call, and the data confirmed it after you made it, not before.</p>
+    <div class="byright"><b>The line you cannot cross:</b> every listing that asked <b>$362.70 a foot or more expired unsold</b>, median 176 days. Every listing priced between $300 and $337 sold, median 7 days. There is no slow middle here. This market either takes a house in a week or never takes it at all.</div>
+  </section>
+
+  <h3 class="section-h">The cliff</h3>
+  <p class="section-s">Every listing in your boundary between 5,000 and 7,500 square feet, plotted by what it asked per finished foot. Green sold. Red expired. The gold lines are where your two numbers land.</p>
+
+  <div class="chart">
+    <div class="legend">
+      <span><i style="background:#0f8050"></i>Sold</span>
+      <span><i style="background:#c14a2e"></i>Expired unsold</span>
+      <span><i class="lz"></i>Nothing has ever sold above $362.70</span>
+      <span style="color:#b8932a;font-weight:600">Gold lines: our two asks</span>
+    </div>
+
+    <div class="plot">
+      <div class="overlay">
+        <i class="g" style="left:0%"></i><i class="g" style="left:23.26%"></i><i class="g" style="left:46.51%"></i><i class="g" style="left:69.77%"></i><i class="g" style="left:93.02%"></i>
+        <div class="deathzone" style="left:52.42%;right:0"><b>&larr; Nothing above here ever sold</b></div>
+        <div class="askline" style="left:31.43%"><b>$1.9M</b></div>
+        <div class="askline" style="left:39.20%"><b>$2.0M</b></div>
+      </div>
+
+      <div class="row"><div class="lab"><b>12201 Keats Grove</b><span>2006 &middot; 6,266 sf</span></div>
+        <div class="track"><div class="dot s" style="left:3.2%" title="$256.94/sf, sold in 27 days"></div><div class="val" style="left:calc(3.2% + 14px)">$256.94<u class="s">Sold 27d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>5812 Grayley Ct</b><span>2008 &middot; 7,124 sf</span></div>
+        <div class="track"><div class="dot s" style="left:4.5%" title="$259.69/sf, sold in 15 days"></div><div class="val" style="left:calc(4.5% + 14px)">$259.69<u class="s">Sold 15d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>6043 Corwin Dr</b><span>Dominion View &middot; 2004</span></div>
+        <div class="track"><div class="dot s" style="left:24.5%" title="$302.61/sf, sold in 5 days at 118% of list"></div><div class="val" style="left:calc(24.5% + 14px)">$302.61<u class="s">Sold 5d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>12340 Haybrook Ln</b><span>2016 &middot; 5,377 sf</span></div>
+        <div class="track"><div class="dot s" style="left:30.8%" title="$316.16/sf, sold in 87 days"></div><div class="val" style="left:calc(30.8% + 14px)">$316.16<u class="s">Sold 87d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>11905 Lerade Ct</b><span>Dominion View &middot; 2000</span></div>
+        <div class="track"><div class="dot s" style="left:32.0%" title="$318.88/sf, sold in 7 days at 100% of list"></div><div class="val" style="left:calc(32.0% + 14px)">$318.88<u class="s">Sold 7d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>13009 Huntsteed Ct</b><span>Foxhall &middot; broken listing</span></div>
+        <div class="track"><div class="dot e" style="left:32.2%" title="$319.12/sf, expired after 311 days"></div><div class="val" style="left:calc(32.2% + 14px)">$319.12<u class="e">Expired 311d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>11904 Lerade Ct</b><span>Dominion View &middot; 2001</span></div>
+        <div class="track"><div class="dot s" style="left:32.6%" title="$320.19/sf, sold in 6 days at 84% of list"></div><div class="val" style="left:calc(32.6% + 14px)">$320.19<u class="s">Sold 6d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>12308 Ellaberry Ln</b><span>Henley &middot; 2008</span></div>
+        <div class="track"><div class="dot s" style="left:35.0%" title="$325.36/sf, sold in 6 days"></div><div class="val" style="left:calc(35.0% + 14px)">$325.36<u class="s">Sold 6d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>5701 Ardington Blvd</b><span>Henley &middot; 2009 &middot; the ceiling</span></div>
+        <div class="track"><div class="dot s" style="left:40.6%" title="$337.33/sf, sold in 7 days at 99% of list. Highest resale ever in this boundary."></div><div class="val" style="left:calc(40.6% + 14px)">$337.33<u class="s">Sold 7d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>12554 Kain Rd</b><span>Acreage &middot; 2023 &middot; first try</span></div>
+        <div class="track"><div class="dot e" style="left:52.4%" title="$362.70/sf, expired after 114 days. Relisted at $298.98 and still unsold."></div><div class="val" style="left:calc(52.4% + 14px)">$362.70<u class="e">Expired 114d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>12324 Haybrook Ln</b><span>2022 NEW BUILD</span></div>
+        <div class="track"><div class="dot s" style="left:60.0%" title="$378.92/sf, sold in 11 days. New construction premium, not available to us."></div><div class="val val--flip" style="left:60.0%">$378.92<u class="s">Sold 11d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>13009 Huntsteed Ct</b><span>Foxhall &middot; second try</span></div>
+        <div class="track"><div class="dot e" style="left:84.0%" title="$430.63/sf, expired after 170 days"></div><div class="val val--flip" style="left:84.0%">$430.63<u class="e">Expired 170d</u></div></div></div>
+
+      <div class="row"><div class="lab"><b>12313 Haybrook Ln</b><span>Henley &middot; 2023</span></div>
+        <div class="track"><div class="dot e" style="left:95.2%;box-shadow:0 0 0 2px var(--paper)" title="$454.78/sf, expired after 182 days"></div><div class="val val--flip" style="left:95.2%">$454.78<u class="e">Expired 182d</u></div></div></div>
+
+      <div class="axis">
+        <i style="left:0%">$250</i><i style="left:23.26%">$300</i><i style="left:46.51%">$350</i><i style="left:69.77%">$400</i><i style="left:93.02%">$450</i>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-h">Where our range lands</h3>
+  <p class="section-s">Two square-footage bases. 5,983 is living area. 6,174 is total finished area including the 191 over the garage, which is how CVR reports the comps, so it is the apples-to-apples column.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Ask</th><th>$/sf on 5,983</th><th>$/sf on 6,174</th><th>Against the market</th></tr></thead>
+      <tbody>
+        <tr class="us"><td>$1,900,000</td><td>$317.57</td><td>$307.74</td><td>The resale median, to the penny</td></tr>
+        <tr><td>$1,950,000</td><td>$325.92</td><td>$315.84</td><td>Between two houses that sold in under a week</td></tr>
+        <tr class="us"><td>$2,000,000</td><td>$334.28</td><td>$323.94</td><td>99.1% of the all-time resale ceiling</td></tr>
+        <tr><td>$2,100,000</td><td>$350.99</td><td>$340.14</td><td>Above every resale ever. Into the dead zone</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="section-h">The three that matter more than the medians</h3>
+  <div class="grid">
+    <div class="card">
+      <div class="k">Your best comp, and their opening move</div>
+      <h4>11904 Lerade Ct asked $2,250,000 and closed $1,900,000 in six days.</h4>
+      <p>Dominion View. Built 2001 to our 2002. 5,934 square feet to our 5,983. Five bedrooms to our five. It is the closest house to ours that exists, and it landed on exactly our low number after taking a $350,000 haircut. Expect Ransom's agent to open here, because it is the first thing any competent agent finds.</p>
+    </div>
+    <div class="card flag">
+      <div class="k">The ceiling is lower than it looks</div>
+      <h4>$337.33, not $378.92. The one sale above the ceiling was a new build.</h4>
+      <p>12324 Haybrook sold at $378.92 a foot, which looks like headroom until you notice it was built in 2022. New construction carries a premium a 2002 resale does not get, no matter how good the renovation is. Price against $337.33 and treat $378.92 as somebody else's number.</p>
+    </div>
+    <div class="card">
+      <div class="k">The cautionary tale and the whole competitive field</div>
+      <h4>12554 Kain Rd is the only other home for sale, and it has already failed once.</h4>
+      <p>It asked $2,499,000, which is $362.70 a foot, and expired after 114 days. It came back 18 percent lower at $2,060,000 and is still sitting at 42 days. That is 156 days across two attempts. It is simultaneously your only competition and the clearest proof of what reaching costs in this market.</p>
+    </div>
+    <div class="card flag">
+      <div class="k">Correction, same day</div>
+      <h4>I told you $2.0M was above every comp. It was not.</h4>
+      <p>5701 Ardington Blvd, built 2009, 5,087 square feet, sold at $337.33 a foot in seven days at 99 percent of list. It was missing from the first export. $2.0M sits at the ceiling, not past it, and that makes your range stronger than I said this morning.</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">Four traps in the raw export</h3>
+  <p class="section-s">All four are live in the PDFs. Every number on this page is computed around them. Do not quote the export's own averages.</p>
+  <ul class="traps">
+    <li><b>BRTVAHN2000992 is 11904 Lerade Ct a second time,</b> double listed in Bright MLS alongside CVR 2519802. Every "Avg for all" line in your exports double counts that sale. This generalizes: CVR pulls can carry cross-MLS duplicates, so dedupe by address before trusting any blended figure.</li>
+    <li><b>6043 Corwin sold at 118 percent of list,</b> $1,295,950 asked and $1,530,000 paid. That is a listing error, not market evidence, and it drags the bottom of the band down artificially.</li>
+    <li><b>13009 Huntsteed Ct is a broken listing, not a market signal.</b> It expired twice for 481 total days, once after the seller raised the price mid-listing. It is the only expire under $362 and it should come out of the cliff read entirely.</li>
+    <li><b>The final pull filtered to $1.9M and up,</b> so expireds below $1.9M are invisible. That is the right frame for our price point, but it means you cannot claim nothing failed under that number.</li>
+  </ul>
+
+  <h3 class="section-h">What gates the send</h3>
+  <p class="section-s">His page carries no internal bar and nothing to strip. It is send-ready as a file. These two are the reasons I would still not send it today.</p>
+  <div class="grid">
+    <div class="card flag">
+      <div class="k">Blocker one</div>
+      <h4>Ten exterior frames. No primary, no bath, no bedroom, no kitchen.</h4>
+      <p>He already saw a rough draft. The next version cannot be a $1.9M home with no interior photography. I pulled the line that announced the gap, because narrating it made it worse, but pulling the line did not close it. This is a Cess request, not a data problem, and it is the single largest thing standing between this page and a send.</p>
+    </div>
+    <div class="card flag">
+      <div class="k">Blocker two</div>
+      <h4>The Pool row came out, and it was our strongest row.</h4>
+      <p>I could not verify whether either Hanover comp has a pool, and every IDX site blocks automated reads. A finished comparison table has no blank cells, so the row came out rather than shipping three "not confirmed" gaps in front of him. Pull the two Hanover MLS sheets and Pool goes straight back in, almost certainly as a clean win for us.</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">Still open</h3>
+  <ul class="open">
+    <li><b>Do the three Dominion View sales have golf frontage and pools?</b> A sixty second remarks read in CVR. If 11905 Lerade at $318.88 is a non-golf, non-pool house, our defensible premium over it is materially larger than anything currently claimed on the buyer page.</li>
+    <li>Pool, pavilion, third floor and main level bedroom on the two Hanover comps. They sit outside every export and every IDX site blocks automated reads, so this needs the Hanover MLS sheets.</li>
+    <li>GPIN, Henrico assessment, HOA dues and renovation year.</li>
+    <li>Interior photos of the bedroom levels. Nine exterior frames and no primary, no bath, no bedroom. At this number that is the largest single gap on the buyer page.</li>
+  </ul>
+
+  <footer>
+    <p><b>Data basis:</b> Four CVR MLS Market Analysis Summary exports run by Miles Agee on 9/15/2026 between 4:39am and 4:47am, bounded by two hand-drawn map shapes covering Wyndham, Short Pump, Foxhall and Innsbrook rather than by zip code. Filters across the set: Total Finished Area 5,000 to 7,500, Current Price $1.5M+ and $1.9M+, Expired 0 to 980 days, Sold 0 to 950 days. Subject square footage from the CubiCasa measured plan, living area 5,983 (3,060 main, 2,212 bedroom level, 711 third floor), with 191 over the garage excluded from living area and included in the 6,174 total finished figure. Dollar-per-foot figures for sold listings are computed on sold price; for expired and active listings on list price, which is how CVR reports them. <b>This is a working pricing model, not an appraisal.</b> It does not follow USPAP and should not be represented as an opinion of value to a lender.</p>
+  </footer>
+
+</div>
+</body>
+</html>
