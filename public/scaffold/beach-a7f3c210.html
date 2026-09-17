@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex"/>
+<meta name="referrer" content="no-referrer"/>
+<title>The Beach House, Honestly</title>
+<meta name="description" content="A private look at what is actually available."/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="A Private Brief"/>
+<meta property="og:description" content="Prepared for one family."/>
+<meta name="twitter:card" content="summary"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --teal:#003F3F; --teal-2:#00514f; --teal-deep:#002726;
+    --gold:#D4AF37; --gold-deep:#a8851f;
+    --paper:#FAF7F1; --ink:#1c2523; --muted:#5c6b67; --line:#e3ddcf;
+    --sh: 0 1px 2px rgba(0,63,63,.06), 0 10px 30px -10px rgba(0,63,63,.18);
+    --sh-lift: 0 2px 6px rgba(0,63,63,.10), 0 26px 60px -18px rgba(0,63,63,.28);
+    --spring: cubic-bezier(.2,.9,.3,1.2);
+    --pad: clamp(20px, 5vw, 44px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.65;
+    background:
+      radial-gradient(1200px 700px at 6% -10%, rgba(212,175,55,.13), transparent 60%),
+      radial-gradient(950px 600px at 108% 2%, rgba(0,63,63,.11), transparent 55%),
+      var(--paper);
+    overflow-x:hidden;
+  }
+  .noise{position:fixed;inset:0;pointer-events:none;z-index:3;opacity:.03;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  header{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    padding:26px var(--pad) 0;max-width:1060px;margin:0 auto}
+  header img{height:52px;width:auto;mix-blend-mode:multiply}
+  .tag{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:rgba(255,255,255,.6)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 var(--pad)}
+  .hero{padding:60px 0 8px}
+  @media(min-width:760px){.hero{padding:88px 0 12px}}
+  .eyebrow{font-size:11px;letter-spacing:.19em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);margin-bottom:20px}
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;letter-spacing:-.028em;color:var(--teal)}
+  h1{font-size:clamp(36px,7vw,66px);line-height:1.04}
+  h1 em{font-style:italic;color:var(--gold-deep);font-weight:600}
+  .say{margin-top:24px;max-width:54ch;font-size:clamp(16px,1.9vw,19px);color:var(--muted)}
+  .say + .say{margin-top:16px}
+  .say b{color:var(--ink);font-weight:600}
+  .filter{margin:38px 0 6px;position:sticky;top:0;z-index:4;
+    padding:14px 0 13px;background:linear-gradient(var(--paper) 90%, rgba(250,247,241,0));
+    backdrop-filter:blur(3px)}
+  .flab{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:11px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:.01em;
+    border:1px solid var(--line);background:rgba(255,255,255,.78);color:var(--muted);
+    border-radius:999px;padding:9px 17px;cursor:pointer;
+    transition:transform .3s var(--spring), background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease}
+  .chip:hover{transform:translateY(-2px);border-color:var(--gold);color:var(--teal);box-shadow:0 6px 16px -6px rgba(0,63,63,.28)}
+  .chip:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .chip:active{transform:translateY(0) scale(.97)}
+  .chip[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#fff;
+    box-shadow:0 3px 10px -3px rgba(0,63,63,.45), 0 12px 28px -12px rgba(0,63,63,.4)}
+  .chip[aria-pressed="true"]:hover{color:#fff;border-color:var(--gold)}
+  .count{margin-top:12px;font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+  .count b{color:var(--teal);font-weight:600}
+  .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:22px}
+  @media(min-width:660px){.grid{grid-template-columns:1fr 1fr;gap:20px}}
+  @media(min-width:1000px){.grid{grid-template-columns:1fr 1fr 1fr}}
+  .card{position:relative;background:rgba(255,255,255,.82);border:1px solid var(--line);
+    border-radius:18px;padding:22px 21px 19px;box-shadow:var(--sh);
+    transition:transform .4s var(--spring), box-shadow .35s ease, border-color .3s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-lift);border-color:rgba(212,175,55,.55)}
+  .card.hide{display:none}
+  .hood{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-deep)}
+  .card h3{font-size:22px;line-height:1.18;margin-top:9px}
+  .badge{display:inline-block;margin-top:11px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;padding:6px 11px;border-radius:999px}
+  .badge.y{background:rgba(0,63,63,.94);color:var(--gold)}
+  .badge.u{background:rgba(212,175,55,.18);color:#8a6d16;border:1px solid rgba(212,175,55,.5)}
+  .badge.n{background:rgba(168,85,31,.10);color:#a8551f;border:1px solid rgba(168,85,31,.28)}
+  .why{margin-top:12px;font-size:14.5px;color:var(--muted);line-height:1.62}
+  .why b{color:var(--ink);font-weight:600}
+  .meta{margin-top:15px;padding-top:13px;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:6px}
+  .m{display:flex;gap:9px;align-items:baseline;font-size:12.5px;color:var(--muted);line-height:1.5}
+  .m .k{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--teal);
+    min-width:62px;flex-shrink:0;padding-top:2px}
+  .flagline{margin-top:13px;font-size:12px;font-weight:600;letter-spacing:.02em;color:#a8551f;
+    background:rgba(212,175,55,.13);border-left:2.5px solid var(--gold);border-radius:0 8px 8px 0;padding:8px 12px;line-height:1.5}
+  .band{margin:76px 0 0;padding:56px var(--pad) 60px;
+    background:linear-gradient(150deg,var(--teal),var(--teal-2));color:#e9f1ef;position:relative;overflow:hidden}
+  .band::after{content:"";position:absolute;right:-140px;top:-120px;width:500px;height:500px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,175,55,.17),transparent 62%);pointer-events:none}
+  .band .in-w{max-width:1060px;margin:0 auto;position:relative;z-index:1}
+  .band h2{color:#fff;font-size:clamp(27px,4.6vw,44px);line-height:1.1}
+  .band h2 em{font-style:italic;color:var(--gold)}
+  .band .eyebrow{color:var(--gold)}
+  .band .say{color:#b8ccc8}
+  .band .say b{color:#fff}
+  .dated{margin-top:32px;border-top:1px solid rgba(255,255,255,.16)}
+  .dr{display:grid;grid-template-columns:1fr auto;gap:8px 18px;align-items:baseline;
+    padding:15px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+  .dr .who{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:17.5px;color:#fff;line-height:1.28}
+  .dr .who span{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:12.5px;color:#8fa9a5;margin-top:4px;letter-spacing:.02em}
+  .dr .what{font-size:11px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;color:var(--gold);white-space:nowrap}
+  .dr .what.out{color:#e0917c}
+  .cut{margin-top:34px;padding:20px 22px;border-left:3px solid var(--gold);background:rgba(212,175,55,.10);border-radius:0 14px 14px 0}
+  .cut p{font-size:13.5px;color:#b8ccc8;line-height:1.7}
+  .cut p b{color:#fff;font-weight:600}
+  .sec{padding:70px 0 0}
+  .sec h2{font-size:clamp(26px,4.4vw,40px);line-height:1.12}
+  .sec h2 em{font-style:italic;color:var(--gold-deep)}
+  footer{padding:52px var(--pad) 84px;max-width:1060px;margin:0 auto}
+  .rule{height:1px;background:var(--line);margin-bottom:24px}
+  footer p{font-size:11.5px;color:var(--muted);line-height:1.75;max-width:92ch}
+  footer p + p{margin-top:9px}
+  footer b{color:var(--teal);font-weight:600}
+  .r{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .75s var(--spring)}
+  .r.in{opacity:1;transform:none}
+  .r2{transition-delay:.09s} .r3{transition-delay:.18s} .r4{transition-delay:.28s}
+  @media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}
+    .card,.chip{transition:none}}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<header>
+  <img src="mams-logo.png" alt="MAMS"/>
+  <div class="tag">For Pops and Mom &middot; September 17, 2026</div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow r">Virginia Beach &middot; 21 houses, screened</div>
+    <h1 class="r r2">You said <em>toes in the sand</em>. Let us start there.</h1>
+    <p class="say r r3">You want four bedrooms and three baths so everybody has a room. You want water. You want it to earn its keep the weeks you are not in it. And you want to stay under $1,200,000 if you can.</p>
+    <p class="say r r3">So I pulled every house in your range that fits. <b>Twenty one of them.</b> Then I checked the one thing that decides whether the rental half of this plan is even legal. <b>2 of the 21 passed.</b></p>
+    <p class="say r r4">Here is all of it, the good and the bad, in one place.</p>
+  </section>
+</main>
+
+<section class="band">
+  <div class="in-w">
+    <div class="eyebrow r">The rule that decides everything</div>
+    <h2 class="r r2">Virginia Beach will not let <em>most</em> of these houses rent.</h2>
+    <p class="say r r3">Most agents would hand you twenty one listings and let you sort it out. Here is the part that eliminates almost all of them.</p>
+    <p class="say r r3">The city zoning code lists renting by the week as <b>prohibited in every residential district</b>. Not difficult. Not discretionary. Prohibited. There are exactly two exceptions: Sandbridge, and a narrow strip of the Oceanfront that stops at 42nd Street.</p>
+    <p class="say r r3">This is the part people get wrong. Outside those two areas <b>there is no permit to apply for</b>. A beautiful house in Bay Colony or Princess Anne Hills can be bought. It can never be rented out by the week, no matter who you ask or what you offer.</p>
+    <p class="say r r3">Which is why two listings here matter more than the other nineteen. <b>Both are already licensed and already renting.</b> You would be buying a business that is already running, not asking permission and hoping.</p>
+    <div class="cut r r4">
+      <p><b>The good news, and it is the most important sentence on this page.</b> Virginia Beach code section 241.2 says a grandfathered short term rental status <b>runs with the land</b>. It transfers to you when you buy. What does not transfer is the annual permit and the tax registration, which you re apply for in your own name.</p>
+      <p style="margin-top:12px"><b>So here is the one thing I will not let you skip.</b> Before a dollar is at risk, the seller produces the current zoning permit, the conditional use permit or the pre 2018 registration, and the lodging tax filings. In writing. A listing that says it is licensed is a claim, not proof.</p>
+      <p style="margin-top:12px"><b>One more thing worth knowing.</b> The city is right now considering shrinking the Oceanfront district. The planning commission recommended it eleven to nothing on August 12. City Council has not voted, and the next chances are October 6 and October 20. Neither of these two houses is in the piece being cut, but this is a moving target and I am watching it.</p>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="sec">
+    <div class="eyebrow r">All 21, sorted</div>
+    <h2 class="r r2">The houses.</h2>
+    <p class="say r r3">The two that can legally rent are first. Nothing is hidden, including the ones I would talk you out of. 4 of the 21 come in at or under $1,200,000.</p>
+    <div class="filter">
+      <div class="flab">Show me</div>
+      <div class="chips" id="chips">
+        <button class="chip" data-v="all" aria-pressed="true">Everything</button>
+        <button class="chip" data-v="rent" aria-pressed="false">Can legally rent</button>
+        <button class="chip" data-v="ocean" aria-pressed="false">On or walking to the ocean</button>
+        <button class="chip" data-v="under12" aria-pressed="false">Under $1,200,000</button>
+        <button class="chip" data-v="five" aria-pressed="false">Five bedrooms</button>
+      </div>
+      <div class="count" id="count"></div>
+    </div>
+    <div class="grid" id="grid">
+    <article class="card r" data-v="all rent ocean under12">
+      <div class="hood">Beach Borough</div>
+      <h3>965 Pacific Ave</h3>
+      <div class="badge y">Already licensed and renting</div>
+      <p class="why">Also already renting. The agent published the actual numbers: $500 to $650 a night in summer, $3,000 to $3,500 a month in winter. Ocean views off an 833 sq ft rooftop deck.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$975,000 &middot; $464 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full, 1 half baths &middot; 2,100 sq ft &middot; built 2023</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the ocean</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Above 75 dB, worst band</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$8,000 a year &middot; zoned A12</span></div>
+        <div class="m"><span class="k">Rental</span><span>Listing states this is an STR property, and it sits inside the Oceanfront Resort overlay, the one area with a permit path</span></div>
+      </div>
+      <p class="flagline">Jet noise above 75 decibels, the worst band. Non-warrantable condo, so 25 percent down and no DSCR loan. Four floors, no elevator.</p>
+    </article>
+    <article class="card r" data-v="all rent ocean">
+      <div class="hood">North End Va. Beach</div>
+      <h3>8502 Ocean Front Ave Unit B</h3>
+      <div class="badge y">Already licensed and renting</div>
+      <p class="why">The only one that already has the license. City approved and licensed short term rental, sold furnished down to the linens and artwork. Path to the sand at 85th Street. Three deeded parking spaces, which is rare here.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,245,000 &middot; $714 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full baths &middot; 1,744 sq ft &middot; built 1965</span></div>
+        <div class="m"><span class="k">Water</span><span>On the ocean block</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$10,900 a year &middot; zoned R5R</span></div>
+        <div class="m"><span class="k">Rental</span><span>Listing states city approved and licensed. At 85th St it sits outside the overlay, so this is grandfathered status, which the code says runs with the land</span></div>
+      </div>
+      <p class="flagline">1,744 sq ft. The smallest house on this list and $714 a foot, the priciest.</p>
+    </article>
+    <article class="card r" data-v="all ocean under12 five">
+      <div class="hood">Beach Borough</div>
+      <h3>705 16th St</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Cheapest on the list and the most house per dollar at $283 a foot. Five bedrooms, four baths, 3,357 sq ft, built 2019, with an elevator.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$950,000 &middot; $283 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>5 bedrooms, 4 full baths &middot; 3,357 sq ft &middot; built 2019</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the ocean</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Above 75 dB, worst band</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$8,635 a year &middot; zoned RESIDENT</span></div>
+        <div class="m"><span class="k">Rental</span><span>Just outside the overlay edge, and inside the block the city is proposing to remove</span></div>
+      </div>
+      <p class="flagline">Jet noise above 75 decibels, the worst band, and no water frontage.</p>
+    </article>
+    <article class="card r" data-v="all ocean under12">
+      <div class="hood">Rudee Heights</div>
+      <h3>408 Hobart Ave</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Taken to the studs and rebuilt in 2025. Primary suite balcony looks over Lake Wesley. Minutes to the boardwalk and Atlantic Park. Dropped to $975,000 today.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$975,000 &middot; $405 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full baths &middot; 2,410 sq ft &middot; built 1944</span></div>
+        <div class="m"><span class="k">Water</span><span>Near Rudee and the boardwalk</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>70 to 75 dB</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$8,300 a year &middot; zoned R75</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">Jet noise 70 to 75 decibels. Zoned R75, straight residential.</p>
+    </article>
+    <article class="card r" data-v="all ocean under12">
+      <div class="hood">North End Va. Beach</div>
+      <h3>206 66th St Unit B</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Under the $1.2M target. North End, 2,942 sq ft, four bedrooms, built 2017, elevator, quiet band under 65 decibels.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,195,000 &middot; $406 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full, 1 half baths &middot; 2,942 sq ft &middot; built 2017</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the ocean</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$11,371 a year &middot; zoned R5R</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">Half of a duplex. Everyone gets a bedroom but it is not a standalone house.</p>
+    </article>
+    <article class="card r" data-v="all ocean">
+      <div class="hood">Ocean Way Condominium</div>
+      <h3>500 Winston Salem Ave Unit 505</h3>
+      <div class="badge u">Permit possible, not in hand</div>
+      <p class="why">Penthouse over Lake Rudee with ocean views, two balconies, 2,798 sq ft. Zoned RT3, which is the resort tourist district.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,250,000 &middot; $447 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full, 1 half baths &middot; 2,798 sq ft &middot; built 1985</span></div>
+        <div class="m"><span class="k">Water</span><span>Lake Rudee and ocean views</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Above 75 dB, worst band</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$6,871 a year &middot; zoned RT3</span></div>
+        <div class="m"><span class="k">Rental</span><span>Inside the Oceanfront Resort overlay, so a permit is possible, but no existing license is stated</span></div>
+      </div>
+      <p class="flagline">Jet noise above 75 decibels. Appliances convey as-is.</p>
+    </article>
+    <article class="card r" data-v="all">
+      <div class="hood">Ocean Park</div>
+      <h3>2082 Tazewell Rd</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">True Chesapeake Bay frontage with a dock, updated, elevator, four bedrooms. Quiet band under 65 decibels.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,285,000 &middot; $514 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full, 1 half baths &middot; 2,500 sq ft &middot; built 1991</span></div>
+        <div class="m"><span class="k">Water</span><span>Chesapeake Bay frontage, dock</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$6,329 a year &middot; zoned R5D</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">Bay, not ocean. Calm water and no surf, and it faces the Bridge Tunnel approach.</p>
+    </article>
+    <article class="card r" data-v="all ocean">
+      <div class="hood">North End Va. Beach</div>
+      <h3>117 83rd St</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">North End near the quiet upper blocks, four bedrooms, elevator, under 65 decibels.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,295,000 &middot; $486 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full, 1 half baths &middot; 2,665 sq ft &middot; built 1986</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the ocean</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$11,710 a year &middot; zoned R5R</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">$486 a foot for 2,665 sq ft, and no water frontage.</p>
+    </article>
+    <article class="card r" data-v="all">
+      <div class="hood">Lynnhaven Shores</div>
+      <h3>2316 Red Tide Rd Unit A</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Brand new construction, 400 feet from a public beach access. First floor guest suite with its own entrance and kitchenette. Zoned B4, resort commercial.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,295,000 &middot; $496 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 4 full baths &middot; 2,613 sq ft &middot; built 2026</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the Bay</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$12,000 a year &middot; zoned B4</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">That beach is the Chesapeake Bay, not the ocean. Calm water, no surf.</p>
+    </article>
+    <article class="card r" data-v="all">
+      <div class="hood">Ocean Park</div>
+      <h3>3789 Jefferson Blvd</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">New 2025 build in Ocean Park on the Bay side, four bedrooms, quiet band under 65 decibels.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,299,000 &middot; $590 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full baths &middot; 2,200 sq ft &middot; built 2025</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the Bay</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$7,803 a year &middot; zoned R5R</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">$590 a foot for 2,200 sq ft, and no water frontage.</p>
+    </article>
+    <article class="card r" data-v="all ocean five">
+      <div class="hood">Shadowlawn</div>
+      <h3>631 Virginia Ave</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">New 2026 build, five bedrooms, 2,902 sq ft in Shadowlawn, a few blocks off the boardwalk.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,299,000 &middot; $448 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>5 bedrooms, 3 full baths &middot; 2,902 sq ft &middot; built 2026</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the ocean</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Above 75 dB, worst band</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$10,000 a year &middot; zoned R5S</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">Jet noise above 75 decibels. No water frontage.</p>
+    </article>
+    <article class="card r" data-v="all">
+      <div class="hood">Shadowlawn</div>
+      <h3>317 Caspian Ave</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Waterfront with a dock and water access off Rudee. Built 2001, four bedrooms, walkable to the boardwalk.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,390,000 &middot; $615 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full, 1 half baths &middot; 2,260 sq ft &middot; built 2001</span></div>
+        <div class="m"><span class="k">Water</span><span>Dock and water access, not beach</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Above 75 dB, worst band</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$3,100 a year &middot; zoned R5S</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">$615 a foot for 2,260 sq ft. Jet noise above 75 decibels.</p>
+    </article>
+    <article class="card r" data-v="all ocean">
+      <div class="hood">North End Va. Beach</div>
+      <h3>302 55th St Unit B</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">North End, 2,950 sq ft, four bedrooms, built 2008, elevator.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,393,000 &middot; $472 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full, 1 half baths &middot; 2,950 sq ft &middot; built 2008</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the ocean</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>70 to 75 dB</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$11,035 a year &middot; zoned not stated</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">Half of a duplex, jet noise 70 to 75 decibels, and zoning was left blank on the listing.</p>
+    </article>
+    <article class="card r" data-v="all five">
+      <div class="hood">Lynnhaven Colony</div>
+      <h3>2228 Starfish Rd</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Five bedrooms, four baths, 3,600 sq ft on the Lynnhaven with a dock. Quiet band under 65 decibels. Best price per foot of the waterfront group at $388.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,395,000 &middot; $388 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>5 bedrooms, 4 full baths &middot; 3,600 sq ft &middot; built 1960</span></div>
+        <div class="m"><span class="k">Water</span><span>Dock and water access, not beach</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$7,139 a year &middot; zoned R10</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">Lynnhaven River, so boating water rather than beach. Built 1960.</p>
+    </article>
+    <article class="card r" data-v="all">
+      <div class="hood">Bay Colony</div>
+      <h3>1125 Bay Colony Dr</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Five full baths, renovated, half acre in Bay Colony near the Cavalier. The Windsor Farms of Virginia Beach.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,399,000 &middot; $450 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 5 full baths &middot; 3,112 sq ft &middot; built 1983</span></div>
+        <div class="m"><span class="k">Water</span><span>No water frontage</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>70 to 75 dB</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$10,209 a year &middot; zoned R20</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">No water frontage and jet noise 70 to 75 decibels, at $450 a foot.</p>
+    </article>
+    <article class="card r" data-v="all five">
+      <div class="hood">Linlier</div>
+      <h3>700 Linbay Dr</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Biggest house here at 4,562 sq ft on 1.22 acres, five bedrooms, pool, gazebo, generator. Genuinely waterfront.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,400,000 &middot; $307 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>5 bedrooms, 4 full baths &middot; 4,562 sq ft &middot; built 2006</span></div>
+        <div class="m"><span class="k">Water</span><span>Lake frontage, not beach</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Above 75 dB, worst band</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$10,742 a year &middot; zoned R20</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">The water is a lake, not the beach. This is the cove problem Pops described. Jet noise above 75 decibels.</p>
+    </article>
+    <article class="card r" data-v="all">
+      <div class="hood">Princess Anne Hills</div>
+      <h3>424 Susan Constant Dr</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Princess Anne Hills, renovated, 3,449 sq ft on a large treed lot, quiet band under 65 decibels. Walkable to the ocean around 59th to 62nd.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,400,000 &middot; $406 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full, 1 half baths &middot; 3,449 sq ft &middot; built 1965</span></div>
+        <div class="m"><span class="k">Water</span><span>No water frontage</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$8,448 a year &middot; zoned R15</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">No water frontage on this lot, and flood language in the remarks.</p>
+    </article>
+    <article class="card r" data-v="all five">
+      <div class="hood">Princess Anne Hills</div>
+      <h3>428 Susan Constant Dr</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Five bedrooms, 3,625 sq ft, 1967, quiet band under 65 decibels, big lot on a dead end street.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,450,000 &middot; $400 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>5 bedrooms, 3 full baths &middot; 3,625 sq ft &middot; built 1967</span></div>
+        <div class="m"><span class="k">Water</span><span>No water frontage</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$10,091 a year &middot; zoned R15</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">No water frontage. $400 a foot for a house that has not been opened up.</p>
+    </article>
+    <article class="card r" data-v="all ocean">
+      <div class="hood">Shadowlawn</div>
+      <h3>528 Maryland Ave</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">Brand new 2026 build in Shadowlawn, four bedrooms, 3,250 sq ft, walkable to the boardwalk. Lowest tax bill here at $3,880.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,495,000 &middot; $460 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full, 1 half baths &middot; 3,250 sq ft &middot; built 2026</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the ocean</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Above 75 dB, worst band</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$3,880 a year &middot; zoned R5S</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">Ceiling price and jet noise above 75 decibels.</p>
+    </article>
+    <article class="card r" data-v="all ocean">
+      <div class="hood">North End Va. Beach</div>
+      <h3>116 64th St Unit B</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">North End, 3,600 sq ft, four bedrooms, elevator, quiet band under 65 decibels. A few blocks from the sand.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,495,000 &middot; $415 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full, 1 half baths &middot; 3,600 sq ft &middot; built 1986</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the ocean</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$11,993 a year &middot; zoned R5R</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">Ceiling price at $1,495,000, and it is half of a duplex, not a whole house.</p>
+    </article>
+    <article class="card r" data-v="all five">
+      <div class="hood">Cape Story By The Sea</div>
+      <h3>2245 Wake Forest St</h3>
+      <div class="badge n">Cannot be rented</div>
+      <p class="why">New construction 2025, five bedrooms, four and a half baths in Cape Story by the Sea. Quiet band under 65 decibels.</p>
+      <div class="meta">
+        <div class="m"><span class="k">Price</span><span>$1,495,000 &middot; $484 a foot</span></div>
+        <div class="m"><span class="k">Rooms</span><span>5 bedrooms, 4 full, 1 half baths &middot; 3,091 sq ft &middot; built 2025</span></div>
+        <div class="m"><span class="k">Water</span><span>Walk to the Bay</span></div>
+        <div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div>
+        <div class="m"><span class="k">Taxes</span><span>$12,000 a year &middot; zoned R75</span></div>
+        <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
+      </div>
+      <p class="flagline">At $1,495,000 it is the ceiling exactly, with no water frontage.</p>
+    </article>
+    </div>
+  </section>
+</main>
+
+<section class="band">
+  <div class="in-w">
+    <div class="eyebrow r">What it actually costs</div>
+    <h2 class="r r2">The rent does not make it free. It makes it <em>about half price</em>.</h2>
+    <p class="say r r3">This is the honest math on a thirty year loan with twenty five percent down. The rental income is real, and it is not enough to cover a note this size. What it does is cut the cost of owning by a lot.</p>
+    <div class="dated r r3">
+        <div class="dr"><div class="who">965 Pacific Ave<span>Gross $60,404, costs $35,371, keeps $25,033 before the loan</span></div><div class="what out">$-31,881 a year</div></div>
+        <div class="dr"><div class="who">8502 Ocean Front Ave B<span>Gross $62,994, costs $33,099, keeps $29,895 before the loan</span></div><div class="what out">$-42,780 a year</div></div>
+        <div class="dr"><div class="who">408 Hobart Ave, if it could not rent<span>Gross $0, costs $20,900, keeps $-20,900 before the loan</span></div><div class="what out">$-77,814 a year</div></div>
+    </div>
+    <div class="cut r r4">
+      <p><b>Read the third line.</b> That is what a house like this costs when it cannot be rented out. The difference between a licensed house and an unlicensed one is roughly <b>$45,933 a year</b>. That is the whole reason the rental rule matters more than the granite.</p>
+      <p style="margin-top:12px">If you paid cash instead of financing, 965 Pacific keeps about <b>$25,033</b> a year and 8502 Ocean Front about <b>$29,895</b>, after every expense.</p>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="sec">
+    <div class="eyebrow r">So you can picture it</div>
+    <h2 class="r r2">Virginia Beach, <em>in Richmond terms</em>.</h2>
+    <p class="say r r3">Think of the Oceanfront strip as Broad Street. Rudee Inlet to 89th Street is about five miles, so Oceanfront to North End is Shockoe Bottom to Willow Lawn. Bay Colony, Princess Anne Hills and Linkhorn Park sit one block inland the way Windsor Farms sits behind Cary Street. Chic&#x27;s Beach is Short Pump to the Fan, about 17 minutes. Sandbridge is the Fan to Chester, about 21 minutes from the Oceanfront on a two-lane road with nothing between.</p>
+    <p class="say r r3">One thing worth sitting with. <b>Almost every beach neighborhood here costs more per square foot than Windsor Farms</b>, on much smaller lots. That is the tax on being near the water.</p>
+  </section>
+</main>
+
+<section class="band">
+  <div class="in-w">
+    <div class="eyebrow r">The translation</div>
+    <h2 class="r r2">If you know the Richmond one, you know this one.</h2>
+    <div class="dated r r2">
+        <div class="dr"><div class="who">North End (42nd-89th)<span>Museum District lots at Windsor Farms-plus prices</span></div><div class="what">~$484</div></div>
+        <div class="dr"><div class="who">Oceanfront / Resort Area<span>Shockoe Bottom plus Rocketts Landing</span></div><div class="what">~$500</div></div>
+        <div class="dr"><div class="who">Shadowlawn Heights<span>Westover Hills</span></div><div class="what">median $305-360K</div></div>
+        <div class="dr"><div class="who">Croatan<span>Stratford Hills</span></div><div class="what">~$442</div></div>
+        <div class="dr"><div class="who">Bay Colony<span>Windsor Farms</span></div><div class="what">~$610 list</div></div>
+        <div class="dr"><div class="who">Princess Anne Hills<span>Mooreland Farms</span></div><div class="what">~$446-591</div></div>
+        <div class="dr"><div class="who">Linkhorn Park / Linlier<span>River Road corridor</span></div><div class="what">~$365-525</div></div>
+        <div class="dr"><div class="who">Chic&#x27;s Beach / Bayside<span>Forest Hill with a Scott&#x27;s Addition bar strip</span></div><div class="what">~$337-390</div></div>
+        <div class="dr"><div class="who">Sandbridge<span>Northern Neck or Lake Anna rental cottage</span></div><div class="what">~$328-503</div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="band">
+  <div class="in-w">
+    <div class="eyebrow r">The part your map left out</div>
+    <h2 class="r r2">There is one place in this city where the answer is <em>just yes</em>.</h2>
+    <p class="say r r3">The circle you drew runs from Chic's Beach down to Rudee Inlet. It stops right above the one neighborhood where renting by the week is allowed <b>by right</b>, with no permit to beg for and no council vote to survive. Sandbridge.</p>
+    <p class="say r r3">In Richmond terms, Sandbridge is the Fan to Chester. About twenty five minutes south of the Oceanfront on a single two lane road. And I am going to be straight with you about what that costs you.</p>
+    <div class="dated r r3">
+      <div class="dr"><div class="who">3537 Sandfiddler Rd<span>5 bedrooms, 3 baths, pool, a walk across the street to the sand. The listing states it earned $95,000 in 2025.</span></div><div class="what">$1,395,000</div></div>
+      <div class="dr"><div class="who">3361 Sandfiddler Rd<span>6 bedrooms, 4 baths, 3,040 sq ft, pool. The listing states it averages $100,000 a year.</span></div><div class="what">$1,475,000</div></div>
+      <div class="dr"><div class="who">What that actually nets you<span>After management, the Sandbridge tax rate, insurance and upkeep, before any loan payment</span></div><div class="what">$35,579 a year</div></div>
+    </div>
+    <div class="cut r r4">
+      <p><b>Now the part nobody puts in the brochure.</b> Sandbridge has no boardwalk. There is no walking to dinner. It is a handful of restaurants and a small market, and a real grocery run is about fifteen minutes back up the road. That road floods, and the civic league president says it closes about once a week even in winter.</p>
+      <p style="margin-top:12px"><b>And $1,500,000 does not buy oceanfront there.</b> Sand in the back yard starts around $2,100,000. At your number you are buying across the street from the ocean, not on it.</p>
+      <p style="margin-top:12px"><b>So here is the trade, plainly.</b> Sandbridge is the only place your income plan is legal without a fight. It is also the one place that does not give you the boardwalk walk you both described loving. That is a real choice and it is yours, not mine.</p>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="sec">
+    <div class="eyebrow r">Where I land</div>
+    <h2 class="r r2">If you asked me tonight, <em>here is what I would say</em>.</h2>
+    <p class="say r r3"><b>Nothing at this price pays for itself on a loan.</b> Not one house on this page. The rent covers somewhere between forty and fifty five percent of the payment. If the plan only works when the house pays for itself, the honest answer is that the plan needs a bigger down payment or a smaller number, and I would rather tell you that now than after you fall in love with a kitchen.</p>
+    <p class="say r r3"><b>If you are paying cash, this changes completely.</b> Sandbridge nets about $35,579 a year, 965 Pacific about $25,033, 8502 Ocean Front about $29,895. All three are a real return on a house your family also gets to use.</p>
+    <p class="say r r3"><b>For the life you described, walking the beach and then walking to dinner,</b> 8502 Ocean Front Ave is the closest thing on this list. Quiet noise band, path to the sand at 85th, already licensed, already furnished. It is small and it is expensive per foot, and I still think it is the one to go see first.</p>
+    <p class="say r r3"><b>For the income, it is Sandbridge and it is not close.</b> If you will let me widen the map, I will bring you the Sandbridge list next.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="rule"></div>
+  <p><b>Where these numbers come from.</b> All 21 houses, their prices, bedroom and bath counts, square footage, year built, zoning, tax bills and jet noise readings are pulled directly from the REIN multiple listing service sheets as of September 17, 2026. Nothing on this page is estimated where a real figure exists. The rental rates used for 965 Pacific Ave are the ones the listing agent published: $500 to $650 a night in summer and $3,000 to $3,500 a month in winter.</p>
+  <p><b>Where I am estimating, and I will say so.</b> Occupancy, management fees, insurance, utilities, maintenance and the mortgage rate are estimates. Insurance and flood are the biggest unknowns and can move the yearly cost by thousands on a house this close to the water. Those are being verified now and this page will be updated. Rental income for 8502 Ocean Front Ave is estimated from comparable properties because the listing does not publish its rates, though it does state it has a rental history.</p>
+  <p><b>The jet noise numbers are real and they matter.</b> Every one of these listings carries an official AICUZ noise reading from Naval Air Station Oceana. Anything above 75 decibels is the loudest band the Navy measures. That affects living there and it affects what guests say about the house afterward.</p>
+  <p><b>About the Sandbridge numbers.</b> The income figures for the two Sandbridge houses are quoted from the listings themselves, not verified. Before anyone relies on them they get checked against real rental statements and lodging tax filings. The Sandbridge tax rate of ninety eight cents per hundred is from the city assessor. Flood insurance there is the single biggest unknown on this page, and on an exposed lot it can run past $12,000 a year on its own.</p>
+  <p>Put together by <b>Miles Agee</b>, for Pops and Mom. Not a pitch. Just what is actually out there, and what I would want to know first.</p>
+</footer>
+
+<script>
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .1, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.r').forEach(function(el){ io.observe(el); });
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#grid .card'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('#chips .chip'));
+  var countEl = document.getElementById('count');
+
+  function apply(v){
+    var shown = 0;
+    cards.forEach(function(c){
+      var match = (v === 'all') || (' ' + c.getAttribute('data-v') + ' ').indexOf(' ' + v + ' ') > -1;
+      c.classList.toggle('hide', !match);
+      if (match) { shown++; c.classList.add('in'); }
+    });
+    chips.forEach(function(ch){ ch.setAttribute('aria-pressed', String(ch.getAttribute('data-v') === v)); });
+    countEl.innerHTML = '<b>' + shown + '</b> of ' + cards.length + ' houses showing';
+  }
+  chips.forEach(function(ch){ ch.addEventListener('click', function(){ apply(ch.getAttribute('data-v')); }); });
+  apply('all');
+</script>
+</body>
+</html>
