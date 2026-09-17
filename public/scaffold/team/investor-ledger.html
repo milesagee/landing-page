@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex, nofollow"/>
+<meta name="md-recipient-token" content="MFCWUG5x_8e_"/>
+<title>The Investor Ledger</title>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="The Investor Ledger"/>
+<meta property="og:description" content="Every investor-sourced deal, rebuilt from email. Mark what is right, flag what is wrong."/>
+<meta property="og:site_name" content="MAMS"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --teal:#003F3F; --teal-2:#00514f; --gold:#D4AF37; --gold-deep:#b8932a;
+    --paper:#FAF7F1; --ink:#1c2523; --muted:#5c6b67; --line:#e3ddcf;
+    --good:#2f7d5b; --warn:#b8932a; --bad:#b0503a;
+    --sh: 0 1px 2px rgba(0,63,63,.06), 0 8px 24px -8px rgba(0,63,63,.16);
+    --sh-lift: 0 2px 4px rgba(0,63,63,.08), 0 18px 44px -12px rgba(0,63,63,.24);
+    --spring: cubic-bezier(.34,1.56,.64,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif; color:var(--ink); line-height:1.7;
+    background:
+      radial-gradient(1100px 620px at 12% -6%, rgba(212,175,55,.10), transparent 60%),
+      radial-gradient(900px 560px at 108% 4%, rgba(0,63,63,.10), transparent 55%),
+      var(--paper);
+    min-height:100vh; padding:0 18px 150px;
+  }
+  .noise{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .wrap{max-width:1000px;margin:0 auto;position:relative;z-index:1}
+
+  header{padding:30px 0 12px}
+  .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:700}
+  h1{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;font-size:clamp(28px,5vw,40px);color:var(--teal);line-height:1.1;margin:8px 0 10px}
+  .sub{color:var(--muted);font-size:15px;max-width:66ch}
+  .asof{font-size:12px;color:var(--muted);margin-top:8px;max-width:78ch}
+
+  .howto{background:var(--teal);color:var(--paper);border-radius:14px;padding:18px 22px;margin:20px 0 0;box-shadow:var(--sh)}
+  .howto b{display:block;font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin-bottom:6px;color:#fff}
+  .howto p{font-size:14px;line-height:1.65;color:rgba(250,247,241,.88)}
+  .howto p+p{margin-top:7px}
+
+  .who{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:16px 0 0}
+  .who label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .who input{border:1px solid var(--line);border-radius:9px;padding:9px 13px;font-family:inherit;font-size:14px;background:#fff;color:var(--ink);min-width:200px}
+  .who input:focus{outline:none;border-color:var(--gold)}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:22px 0 8px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--sh)}
+  .stat b{display:block;font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--teal);line-height:1}
+  .stat span{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+  .stat.gold{border-top:3px solid var(--gold)}
+
+  .caveat{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:14px 18px;margin:14px 0 0;font-size:13.5px;color:var(--muted)}
+  .caveat+.caveat{margin-top:10px}
+
+  .bar{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 16px;align-items:center}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 15px;font-size:12.5px;font-weight:600;
+    color:var(--muted);cursor:pointer;transition:transform .18s var(--spring),box-shadow .18s ease,color .18s ease,border-color .18s ease;font-family:inherit}
+  .chip:hover{transform:translateY(-1px);box-shadow:var(--sh)}
+  .chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .chip[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:var(--paper)}
+  .chip.rev[aria-pressed="true"]{background:var(--gold-deep);border-color:var(--gold-deep)}
+
+  .secthead{font-family:'Fraunces',serif;font-size:19px;font-weight:600;color:var(--teal);margin:34px 0 4px}
+  .sectsub{font-size:13.5px;color:var(--muted);margin:0 0 14px;max-width:70ch}
+
+  .deal{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:0 0 14px;box-shadow:var(--sh);
+    transition:box-shadow .2s ease,border-color .2s ease}
+  .deal:hover{box-shadow:var(--sh-lift)}
+  .deal[data-verify="1"]{border-left:4px solid var(--gold)}
+  .deal[data-mark="ok"]{border-left:4px solid var(--good)}
+  .deal[data-mark="fix"]{border-left:4px solid var(--bad)}
+  .deal[data-mark="not"]{border-left:4px solid var(--muted);opacity:.62}
+
+  .dhead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}
+  .addr{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--teal);line-height:1.2}
+  .city{font-size:13px;color:var(--muted)}
+  .pills{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+  .pill{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:4px 11px;border-radius:999px;white-space:nowrap}
+  .pill.closed{background:rgba(47,125,91,.12);color:var(--good)}
+  .pill.active{background:rgba(212,175,55,.18);color:var(--gold-deep)}
+  .pill.released{background:rgba(176,80,58,.12);color:var(--bad)}
+  .pill.separated{background:rgba(92,107,103,.14);color:var(--muted)}
+  .pill.unver{background:var(--gold-deep);color:#fff}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px 20px;margin:15px 0 0;
+    border-top:1px solid var(--line);padding-top:14px}
+  .f{padding:5px 0}
+  .f dt{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .f dd{font-size:14px;color:var(--ink);margin-top:2px;word-break:break-word}
+  .f dd.none{color:#a8b0ad;font-style:italic}
+  .money{font-family:'Fraunces',serif;font-weight:600;color:var(--teal)}
+
+  .opens{margin:14px 0 0;padding:12px 15px;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+  .opens b{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:6px}
+  .opens li{font-size:13.5px;color:var(--ink);margin:0 0 5px 16px;line-height:1.55}
+  .opens li:last-child{margin-bottom:0}
+
+  .review{margin:15px 0 0;padding-top:14px;border-top:1px dashed var(--line);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .review .lbl{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-right:2px}
+  .mk{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 14px;font-size:12.5px;font-weight:600;color:var(--muted);
+    cursor:pointer;transition:transform .16s var(--spring),background .16s ease,color .16s ease,border-color .16s ease;font-family:inherit}
+  .mk:hover{transform:translateY(-1px)}
+  .mk:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .mk[aria-pressed="true"][data-v="ok"]{background:var(--good);border-color:var(--good);color:#fff}
+  .mk[aria-pressed="true"][data-v="fix"]{background:var(--bad);border-color:var(--bad);color:#fff}
+  .mk[aria-pressed="true"][data-v="not"]{background:var(--muted);border-color:var(--muted);color:#fff}
+  .note{width:100%;margin-top:9px;border:1px solid var(--line);border-radius:9px;padding:10px 13px;font-family:inherit;font-size:15px;
+    color:var(--ink);background:var(--paper);resize:vertical;height:44px;line-height:1.5;transition:height .2s ease,border-color .16s ease}
+  .note:focus{outline:none;border-color:var(--gold);height:100px;background:#fff}
+  .note::placeholder{color:#a8b0ad}
+  .note.filled{border-color:var(--gold);background:#fff}
+
+  .foot{position:fixed;left:0;right:0;bottom:0;z-index:5;background:rgba(250,247,241,.95);backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);padding:13px 18px;box-shadow:0 -8px 30px -14px rgba(0,63,63,.35)}
+  .foot .in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between}
+  .prog{font-size:13px;color:var(--muted)}
+  .prog b{color:var(--teal);font-weight:700}
+  .btns{display:flex;gap:9px;flex-wrap:wrap}
+  .btn{border:1px solid var(--teal);background:var(--teal);color:var(--paper);border-radius:10px;padding:11px 22px;font-size:13.5px;
+    font-weight:600;cursor:pointer;font-family:inherit;transition:transform .18s var(--spring),box-shadow .18s ease}
+  .btn:hover{transform:translateY(-1px);box-shadow:var(--sh-lift)}
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .btn.ghost{background:#fff;color:var(--teal)}
+  .btn.warnb{background:#fff;color:var(--bad);border-color:var(--line)}
+
+  .toast{position:fixed;bottom:92px;left:50%;transform:translateX(-50%) translateY(8px);background:var(--teal);color:var(--paper);
+    padding:12px 22px;border-radius:10px;font-size:13.5px;max-width:86vw;opacity:0;pointer-events:none;
+    transition:opacity .2s ease,transform .2s var(--spring);z-index:9}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  .dump{width:100%;margin:14px 0 0;border:1px solid var(--line);border-radius:10px;padding:14px;font-family:ui-monospace,Menlo,monospace;
+    font-size:12.5px;line-height:1.6;background:#fff;color:var(--ink);height:280px;display:none}
+  .dump.on{display:block}
+
+  @media (max-width:620px){
+    .dhead{flex-direction:column;gap:6px}
+    .pills{justify-content:flex-start}
+    .grid{grid-template-columns:1fr}
+    .btn{flex:1 1 auto}
+  }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">MAMS &middot; internal</div>
+  <h1>The Investor Ledger</h1>
+  <p class="sub">Every investor-sourced deal, rebuilt from email because no CRM ever held it.</p>
+  <p class="asof" id="asof"></p>
+</header>
+
+<div class="howto">
+  <b>Wendy, here is the whole job.</b>
+  <p>Go down the list. On each one hit <strong>Right</strong> if it matches what you remember, <strong>Needs a fix</strong> if something is off, or <strong>Not an investor deal</strong> if it does not belong here at all. Put the correction in the box underneath.</p>
+  <p>Anything marked <strong>not in email</strong> is a real gap, not an oversight. If you know the number or the name, that is the most valuable thing you can add. Your work saves as you go, so you can stop and come back. When you are done, hit Send.</p>
+</div>
+
+<div class="who">
+  <label for="who">Who is reviewing</label>
+  <input id="who" type="text" placeholder="Your name" autocomplete="name"/>
+</div>
+
+<section class="stats" id="stats"></section>
+<div class="caveat" id="caveat"></div>
+<div class="caveat" id="caveat2"></div>
+
+<div class="bar" id="filters"></div>
+<div id="list"></div>
+
+<div id="sepwrap"></div>
+
+<textarea class="dump" id="dump" readonly></textarea>
+
+</div>
+
+<div class="foot"><div class="in">
+  <div class="prog" id="prog">Nothing reviewed yet.</div>
+  <div class="btns">
+    <button class="btn ghost" id="copy">Copy my notes</button>
+    <button class="btn" id="send">Send to Miles</button>
+    <button class="btn warnb" id="reset">Clear</button>
+  </div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA = {"meta":{"asOf":"2026-09-17","source":"Reconstructed from Gmail plus Miles's dictated deal list. Not from any CRM.","note":"Eight of the twelve closings happened at Long & Foster before the May 2026 Samson move. That is why no single system held this record. Mountain Rd was separated out by Miles and is not counted."},"deals":[{"id":"old-tavern","address":"2389 Old Tavern Rd","city":"Powhatan, VA 23139","status":"closed","date":"2024-06-06","dateLabel":"Closed 6/6/2024","partner":"Kyle Winblad","partnerSlug":"winblad","contact":"bladboys2018@gmail.com","side":"Listing","commission":null,"gci":null,"price":257500,"title":"Closeline Settlements 81151VAF-HQ","seller":"Not recoverable. Winblad signed as attorney-in-fact","buyer":"Trek Properties LLC, cash, appraisal waived","brokerage":"Long & Foster","confirm":"Closeline deed on record 6/6, commission check FedEx 6/7","open":["MILES HAS NOT VERIFIED THIS ONE. Treat every field as provisional until he or Wendy confirms it.","No commission percentage anywhere in email.","Oldest deal on the ledger, June 2024, Long & Foster era. Seller name was never recoverable because Winblad signed as attorney-in-fact."],"verify":true},{"id":"ararat","address":"549 Ararat Hwy","city":"Ararat, VA 24053","status":"closed","date":"2025-07-07","dateLabel":"Closed 7/7/2025, disbursed 7/8","partner":"US Property Group","partnerSlug":"uspg","contact":"brenda@uspropertygrp.com","side":"Listing","commission":"5.5% total","gci":null,"price":null,"title":"Closeline Settlements 85084VAF-HQ","seller":"File caption reads Montgomery-Crabtree to Thompson","buyer":null,"brokerage":"Long & Foster","confirm":"Buyer wire $90,971.01 received 7/7, disbursed 7/8","open":["Seller and buyer assignment is genuinely ambiguous in email. Check the ALTA before publishing a name.","Title was clouded by a life tenant who died Dec 2024"]},{"id":"gobblers","address":"326 Gobblers Knob Dr","city":"Keokee, VA 24265","status":"closed","date":"2025-09-04","dateLabel":"Closed 9/4/2025, funded 9/8","partner":"LPI Home Buyers","partnerSlug":"lpi","contact":"mike@lpihomebuyers.com","side":"BOTH SIDES","commission":null,"gci":null,"price":null,"title":"Rocket Title","seller":"Kimberly Dawn Lee, via Davenport as attorney-in-fact","buyer":"Martha Anne Warren","brokerage":"Long & Foster","confirm":"Rocket confirmed recording and funding 9/8. L&F wire receipt 9/9","open":["No commission percentage in email"]},{"id":"duff","address":"299 Duff St","city":"Pennington Gap, VA 24277","status":"closed","date":"2025-10-16","dateLabel":"Closed 10/16/2025","partner":"Favored Home Buyers","partnerSlug":"favored","contact":"taylor@favoredhomebuyers.com","side":"Listing","commission":null,"gci":null,"price":80000,"title":"Rocket Title","seller":"Conswella Murphy-Middleton","buyer":null,"brokerage":"Long & Foster","confirm":"Funded ~10/20, wire confirmed 10/23, escrow released ~10/31","open":["No commission percentage in email","A novation. $20,000 escrowed until the seller fully vacated","CD showed $60,000 but L&F confirmed Miles was paid on $80,000"]},{"id":"davis","address":"236 Davis St","city":"Bluefield, VA 24605","status":"closed","date":"2025-11-14","dateLabel":"Closed 11/14/2025","partner":"Landmark Home Solutions","partnerSlug":"landmark","contact":"lrichardson.landmarkhs@gmail.com","side":"Listing, co-listed with Amanda Akbar","commission":"4% total","gci":3810,"price":null,"title":"Rocket Title (seller) and Ratliff Law (buyer)","seller":"Tammy Greenwood","buyer":null,"brokerage":"Long & Foster","confirm":"Reliance Law closing CD, checks mailed 11/17","open":[]},{"id":"battery","address":"656 Battery Pl","city":"Colonial Heights, VA 23834","status":"closed","date":"2026-04-02","dateLabel":"Closed 4/2/2026","partner":"Fast Home Cash Offers","partnerSlug":"fhco","contact":"amanda@fasthomecashoffers.com","side":"Listing","commission":null,"gci":4770,"price":null,"title":"Strong Title (seller), Hill & Rainey (buyer)","seller":"Shannon Terry","buyer":"Jose and Carol Hernandez","brokerage":"Long & Foster VA2506939","confirm":"Commission reconciliation 4/3. Came in $35 short on a wire fee","open":["No commission percentage or sale price in email","A novation with the seller authorizing title to disburse FHCO's fee at closing","Earlier docs were signed under POA by the wrong party. Addendum papered to put the real seller on the line.","NOT 1915 S Battery Dr, Richmond. Different property, different deal, not investor."]},{"id":"marlborough","address":"551 Marlborough Point Rd","city":"Stafford, VA 22554","status":"closed","date":"2026-04-09","dateLabel":"Closed 4/9/2026, disbursed 4/10","partner":"Favored Home Buyers","partnerSlug":"favored","contact":"mostafa@favoredhomebuyers.com","side":"Listing","commission":null,"gci":null,"price":null,"title":"Universal Title, order 19-2026-2369","seller":"Benjamin and Betty Cook","buyer":"Douglas Kawtoski and Heather Bellomy","brokerage":"Long & Foster","confirm":"Lender confirmed loan funded 4/13. Betty Cook left a 5-star review 4/18","open":["No commission percentage in email","FHB had it under contract at $600K and asked Miles for the exit price","UNRESOLVED: the 'Desvester' you named right after this deal. Closest match is US Landvestors, Stephen Kiser, who appears ONCE paying a septic inspector here and never as a deal source."]},{"id":"quest","address":"209 Quest Ct","city":"Yorktown, VA 23692","status":"closed","date":"2026-06-25","dateLabel":"Closed 6/25/2026","partner":"Extra Mile Home Solutions / DHN","partnerSlug":"dhn","contact":"daniel@dhnrealestate.com","side":"Listing","commission":"2.0%","gci":10500,"price":525000,"title":"Rocket Title, closing via Caplan Law Group","seller":"Madeline Alexander, via Daniel Nissim as attorney-in-fact","buyer":"Debra Snider","brokerage":"Samson, Payment ID 194781, MLS 2612464","confirm":"Samson congratulations on closing 6/25/2026","open":["The repo had this filed as a RETAIL deal. It is not.","Extra Mile's fee check went missing after closing and had to be reissued to the Samson office"]},{"id":"fishel","address":"450 Fishel Rd","city":"Winchester, VA 22602","status":"closed","date":"2026-08-11","dateLabel":"Closed 8/11/2026","partner":"BD Home Buyer","partnerSlug":"bd","contact":"daniel@bdhomebuyer.com","side":"Listing","commission":"2.5%","gci":12750,"price":510000,"title":"Rocket Title","seller":"Robert Hill","buyer":"James Martin","brokerage":"Samson, Payment ID 204734, MLS 2618235","confirm":"Samson congratulations 8/11. Funds received 8/10","open":["The repo had this filed as a RETAIL deal. It is not.","Sell side was Matthew Kilmer at 2.0%. Notary showed up an hour late and it still closed."]},{"id":"pimmit","address":"2119 Pimmit Dr","city":"Falls Church, VA 22043","status":"closed","date":"2026-08-24","dateLabel":"Closed 8/21/2026, Samson 8/24","partner":"MPD Home Buyers","partnerSlug":"mpd","contact":"dennis@mpdbuyshomes.com","side":"Listing only","commission":"2.5% (5% total on the ALTA)","gci":16000,"price":640000,"title":"Icon Title V26-1199, split with First National","seller":"Dennis Jenkins / MPD Home Buyers","buyer":"Ian Ying","brokerage":"Samson, Payment ID 207652, MLS 2619148","confirm":"Samson congratulations 8/24. Gross = net = $16,000","open":["CORRECTION: this was NOT both sides at 5%. Wendy's 8/17 email says listing 2.5%, buyer 2.5%. Samson paid listing side with the sell-side field blank.","The September SentriLock and Authentisign activity is a SkySlope broker-signature backfill, not a relist. Laura Waite signed the ORIGINAL listing agreement 9/9."]},{"id":"hilton","address":"2374 Hilton Rd","city":"Gate City, VA 24251","status":"closed","date":"2026-09-10","dateLabel":"Closed 9/4/2026, Samson 9/10","partner":"Favored Home Buyers","partnerSlug":"favored","contact":"taylor@favoredhomebuyers.com","side":"BOTH SIDES","commission":"4.0%","gci":4600,"price":115000,"title":"Rocket Title, mobile notary","seller":"Tyler Lumpkins","buyer":"Zane Gillenwater","brokerage":"Samson, Payment ID 210775, MLS 2615762","confirm":"Samson congratulations 9/10. Miles on BOTH listing and sell side","open":["This is your true both-sides deal, not Pimmit.","Funding was gated on the WDI termite report, cleared 9/8. FHB paid for pre-closing repairs via Zelle."]},{"id":"mccormick","address":"97 McCormick Dr","city":"Reedville, VA 22539","status":"closed","date":"2026-09-15","dateLabel":"Closed 9/9/2026, disbursed 9/11","partner":"Livlyte","partnerSlug":"livlyte","contact":"joy@livlyte.com","side":"Listing","commission":"1.5%","gci":3600,"price":240000,"title":"Harvey & Driggs. First National on the investor side.","seller":"Cody Belden (Samson) / Beldon (Wendy)","buyer":"L Paul Bosher","brokerage":"Samson, Payment ID 211182, MLS 2615638","confirm":"Recorded and disbursed 9/11. Samson congratulations 9/15","open":["Seller name spelling conflict: Samson says Belden, Wendy says Beldon. Verify before it goes partner-facing.","Rocket was originally the closer and came off the file in July. Moved to Harvey & Driggs without losing the date.","A 1031 exchange was in play."]},{"id":"leadmine","address":"499 Lead Mine Rd","city":"Austinville, VA 24312","status":"active","date":"2026-07-23","dateLabel":"Active, relisted 7/23/2026","partner":"Home Winning Offer","partnerSlug":"hwo","contact":"transactions@homewinningoffer.com","side":"Listing","commission":null,"gci":null,"price":null,"title":null,"seller":"Ashley Viars, via Domenic DePaoli as attorney-in-fact","buyer":null,"brokerage":"Samson, MLS 2620019","confirm":"No offers to date. Samson passed a Bonnie Rector inquiry 9/17","open":["NO COMMISSION PERCENTAGE WAS EVER AGREED. Zaichenko asked in Dec 2025 and the thread has no answer. Settle this before the next one.","The January 2026 cycle (MLS 2601262) did not sell. Relisted July.","A pricing read on Wythe County is owed and not yet delivered."]},{"id":"mountain","address":"13261 Mountain Rd","city":"Hanover, VA","status":"separated","date":"2025-12-03","dateLabel":"Separated from the ledger, not an investor deal","partner":"Bhadresh Patel (buy side)","partnerSlug":"patel","contact":"bpatel6793@gmail.com","side":"Listing","commission":null,"gci":null,"price":900000,"title":"Parker Title vs Strong Title, a title-selection fight","seller":"Scott Morgan","buyer":"Bhadresh Patel","brokerage":"Long & Foster","confirm":"Authentisign Mountain Rd Release complete 12/3/2025","open":["SEPARATED BY MILES 2026-09-17. This is not an investor deal and it is not counted in the ledger above.","Land, seller-financed. $900K, $350K down, $5,200/mo for 7 years at 5%, ~$222K balloon.","Listing released 12/3/2025, re-papered off-MLS, then title collapsed. Email stops 12/17/2025.","NEVER CONFIRMED CLOSED. Do not assume either way.","Scott Morgan carries a standing rule: no ask on his surfaces, never tell him to pre-sell."]},{"id":"deans","address":"3121 Deans Ct","city":"Chesapeake, VA 23321","status":"released","date":"2026-02-28","dateLabel":"Ratified 12/13/2025, released 12/30, MLS expired 2/28/2026","partner":"Extra Mile Home Solutions / DHN","partnerSlug":"dhn","contact":"daniel@dhnrealestate.com","side":"Listing","commission":null,"gci":null,"price":530000,"title":null,"seller":"Emmanuel and Laisha N. Booth","buyer":"Solomon Nasseri, PPRO LLC","brokerage":"Long & Foster, MLS 2532322","confirm":"Release signed 12/30/2025. CVR expiration notice 2/18, expired 2/28/2026","open":["THIS IS THE CHESAPEAKE DEAL YOU COULD NOT PLACE.","It fell off the list because it lived entirely at Long & Foster and TransactionDesk reassigned the file to Dana Robinson on 5/2/2026 during the brokerage move.","It never sold on MLS. A seller family health situation turned it into a rental under Limehouse PM.","Daniel Nissim is STILL ACTIVE. Same person brought you 209 Quest five months later. This thread is warm.","The sellers left a 5-star Google review the day after the release."]},{"id":"prospect","address":"194 Prospect Church Rd","city":"Gate City, VA 24251","status":"released","date":"2026-02-04","dateLabel":"Released 2/4/2026","partner":"JL Home Sale","partnerSlug":"jl","contact":"jonathan@jlhomesale.com","side":"Listing","commission":null,"gci":null,"price":null,"title":null,"seller":"William Bragg, by Michael Beardsley as attorney-in-fact","buyer":null,"brokerage":"Long & Foster, MLS 2601986","confirm":"Authentisign release complete 2/4/2026 4:07 PM","open":["Listed roughly 12 days, then released.","A Long & Foster release-fee dispute ran from 2/5 to 4/3/2026."]},{"id":"caney","address":"3645 DC Caney Ridge Rd","city":"Dickenson, VA 24228","status":"released","date":"2026-03-12","dateLabel":"Buyer terminated 3/10/2026, released 3/12","partner":"LPI Home Buyers","partnerSlug":"lpi","contact":"antoine@lpihomebuyers.com","side":"Listing","commission":null,"gci":null,"price":null,"title":"Rocket Title and Panorama Title 2026-2431-VA","seller":null,"buyer":"Daniel McGinnis","brokerage":"Long & Foster, MLS 2602042","confirm":"CVR 367 termination 3/10, cancellation 3/11, listing release 3/12","open":["'DC' is part of the actual county street name, not a transcription artifact.","Repair scope killed it: total roof on house AND trailer, no septic record with the county or VDH, ~20 electrical defects.","Terminated, not expired. Cancellation and release executed inside 48 hours."]},{"id":"grouse","address":"509 Grouse Ridge Rd","city":"Max Meadows, VA 24360","status":"released","date":"2026-04-05","dateLabel":"Released 4/5/2026","partner":"Landmark Home Solutions","partnerSlug":"landmark","contact":"tricia@landmarkhomesolutions.net","side":"Listing","commission":null,"gci":null,"price":169900,"title":null,"seller":"Gwendolyn Edwards / Honaker","buyer":null,"brokerage":"Long & Foster","confirm":"CVR 375 unconditional release dated 4/4, signed 4/5/2026","open":["The 'she was upside down' reason is NOT documented in email. No payoff, net sheet or prelim HUD exists.","Circumstantial only: a 3.09% assumable mortgage was being marketed on it."]},{"id":"malloy","address":"14772 Malloy Ct","city":"Woodbridge, VA 22191","status":"released","date":"2026-08-13","dateLabel":"Contract released 8/11/2026, listing 8/13","partner":"Favored Home Buyers","partnerSlug":"favored","contact":"taylor@favoredhomebuyers.com","side":"Listing","commission":null,"gci":null,"price":null,"title":"Rocket Title","seller":"Bertram W. and Rachel M. Harris","buyer":null,"brokerage":"Samson","confirm":"Both releases signed 8/12 and 8/13/2026","open":["Three mortgages totaling $366,258.55 plus SIX HOA liens, far above the purchase price.","Miles 8/11: 'I agree this is dead we need to do a release and cut ties so we don't waste any more time.'","STILL SHOWS AS PENDING in snapshot-61a0746a28-data.json and revenue-pulse-data.json. Both are wrong."]}]};
+const KEY = 'investor-ledger-review-v2';
+let review = {};
+let who = '';
+try { const s = JSON.parse(localStorage.getItem(KEY) || '{}'); review = s.review || {}; who = s.who || ''; } catch(e){}
+let filter = 'all';
+
+const fmt = n => n == null ? null : '$' + n.toLocaleString('en-US');
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const INV = DATA.deals.filter(d => d.status !== 'separated');
+const SEP = DATA.deals.filter(d => d.status === 'separated');
+
+function persist(){ try { localStorage.setItem(KEY, JSON.stringify({review, who})); } catch(e){} }
+function save(){ persist(); render(); }
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('on');
+  clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove('on'), 4200);
+}
+
+function field(label, val, cls){
+  const empty = val == null || val === '';
+  return '<div class="f"><dt>'+esc(label)+'</dt><dd class="'+(empty?'none':(cls||''))+'">'+(empty ? 'not in email' : esc(val))+'</dd></div>';
+}
+
+function card(d){
+  const r = review[d.id] || {};
+  return '<article class="deal" data-status="'+d.status+'" data-verify="'+(d.verify?1:0)+'" data-mark="'+(r.mark||'')+'" data-id="'+d.id+'">'
+  + '<div class="dhead"><div><div class="addr">'+esc(d.address)+'</div><div class="city">'+esc(d.city)+'</div></div>'
+  + '<div class="pills">'+(d.verify?'<span class="pill unver">Not yet verified</span>':'')
+  + '<span class="pill '+d.status+'">'+esc(d.dateLabel)+'</span></div></div>'
+  + '<dl class="grid">'
+  + field('Partner', d.partner) + field('Contact', d.contact) + field('Side', d.side)
+  + field('Commission', d.commission) + field('Paid to Miles', fmt(d.gci), 'money')
+  + field('Sale price', fmt(d.price), 'money') + field('Title / settlement', d.title)
+  + field('Seller', d.seller) + field('Buyer', d.buyer)
+  + field('Brokerage record', d.brokerage) + field('Confirmed by', d.confirm)
+  + '</dl>'
+  + (d.open && d.open.length ? '<div class="opens"><b>Open items and flags</b><ul>'+d.open.map(o=>'<li>'+esc(o)+'</li>').join('')+'</ul></div>' : '')
+  + '<div class="review"><span class="lbl">Your call</span>'
+  + '<button class="mk" data-v="ok" aria-pressed="'+(r.mark==='ok')+'">Right</button>'
+  + '<button class="mk" data-v="fix" aria-pressed="'+(r.mark==='fix')+'">Needs a fix</button>'
+  + '<button class="mk" data-v="not" aria-pressed="'+(r.mark==='not')+'">Not an investor deal</button>'
+  + '<textarea class="note'+(r.note?' filled':'')+'" placeholder="What is wrong, or what is missing? The real number or name goes here.">'+esc(r.note||'')+'</textarea>'
+  + '</div></article>';
+}
+
+function progress(){
+  const marked = Object.values(review).filter(x=>x.mark).length;
+  const flagged = Object.values(review).filter(x=>x.mark==='fix').length;
+  document.getElementById('prog').innerHTML = marked
+    ? '<b>'+marked+'</b> of '+DATA.deals.length+' reviewed'+(flagged?', <b>'+flagged+'</b> flagged for a fix':'')+'.'
+    : 'Nothing reviewed yet.';
+}
+
+function render(){
+  const shown = INV.filter(x => filter==='all' ? true
+    : filter==='flagged' ? (review[x.id]&&review[x.id].mark==='fix')
+    : filter==='todo' ? !(review[x.id]&&review[x.id].mark)
+    : x.status===filter);
+  document.getElementById('list').innerHTML = shown.map(card).join('') || '<div class="caveat">Nothing in this view.</div>';
+
+  document.getElementById('sepwrap').innerHTML = (filter==='all' && SEP.length)
+    ? '<h2 class="secthead">Separated, not counted</h2>'
+      + '<p class="sectsub">Miles pulled these out. They are not investor deals and they are not in the '+INV.length+' above. Left on the page so nobody re-adds them by accident.</p>'
+      + SEP.map(card).join('')
+    : '';
+
+  const counts = {closed:0, active:0, released:0};
+  INV.forEach(x=>counts[x.status]++);
+  const knownGci = INV.reduce((a,x)=>a+(x.gci||0),0);
+  const withGci = INV.filter(x=>x.status==='closed' && x.gci!=null).length;
+  const missingGci = counts.closed - withGci;
+
+  document.getElementById('stats').innerHTML =
+    '<div class="stat gold"><b>'+INV.length+'</b><span>Investor deals</span></div>'
+  + '<div class="stat"><b>'+counts.closed+'</b><span>Closed</span></div>'
+  + '<div class="stat"><b>'+counts.active+'</b><span>Active</span></div>'
+  + '<div class="stat"><b>'+counts.released+'</b><span>Released or expired</span></div>'
+  + '<div class="stat"><b>'+new Set(INV.map(x=>x.partnerSlug)).size+'</b><span>Partner companies</span></div>'
+  + '<div class="stat gold"><b>'+fmt(knownGci)+'</b><span>Paid, known so far</span></div>';
+
+  document.getElementById('caveat').innerHTML =
+    '<b>Read the money number carefully.</b> '+fmt(knownGci)+' covers only the '+withGci+' closings where a dollar figure exists in email. '
+  + missingGci+' closed deals have no commission figure anywhere, so the real total is higher and is not knowable from email. '
+  + 'Those '+missingGci+' sit in the Authentisign listing agreements. Nothing here gets quoted as a yearly total.';
+
+  document.getElementById('caveat2').innerHTML =
+    '<b>One count does not reconcile yet.</b> Miles remembered six released or expired deals. With Mountain Rd separated out, five are on this page. '
+  + 'Either the sixth is still buried in email, or the real number was five. Wendy, if a released deal is missing here, that is the single most useful thing to add.';
+
+  document.getElementById('filters').innerHTML =
+    [['all','All '+INV.length],['closed','Closed'],['active','Active'],['released','Released']]
+      .map(a=>'<button class="chip" data-f="'+a[0]+'" aria-pressed="'+(filter===a[0])+'">'+a[1]+'</button>').join('')
+    + '<button class="chip rev" data-f="todo" aria-pressed="'+(filter==='todo')+'">Not yet reviewed</button>'
+    + '<button class="chip rev" data-f="flagged" aria-pressed="'+(filter==='flagged')+'">Flagged</button>';
+
+  progress();
+}
+
+function payload(){
+  const lines = ['INVESTOR LEDGER REVIEW',
+    'Reviewed by: ' + (who || '(name not given)'),
+    'Ledger as of ' + DATA.meta.asOf, ''];
+  let any = false;
+  DATA.deals.forEach(d=>{
+    const r = review[d.id];
+    if(!r || (!r.mark && !r.note)) return;
+    any = true;
+    const label = r.mark==='ok'?'RIGHT':r.mark==='fix'?'NEEDS A FIX':r.mark==='not'?'NOT AN INVESTOR DEAL':'NOTE';
+    lines.push('['+label+'] '+d.address+', '+d.city+'  ('+d.id+')');
+    if(r.note) lines.push('   ' + r.note.replace(/\n/g,'\n   '));
+    lines.push('');
+  });
+  if(!any) lines.push('(nothing marked yet)');
+  return lines.join('\n');
+}
+
+document.addEventListener('click', e=>{
+  const chip = e.target.closest('.chip');
+  if(chip){ filter = chip.dataset.f; render(); window.scrollTo({top:0,behavior:'smooth'}); return; }
+  const mk = e.target.closest('.mk');
+  if(mk){
+    const id = mk.closest('.deal').dataset.id;
+    const r = review[id] || (review[id] = {});
+    r.mark = (r.mark === mk.dataset.v) ? '' : mk.dataset.v;
+    const card = mk.closest('.deal');
+    card.dataset.mark = r.mark;
+    card.querySelectorAll('.mk').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.v === r.mark)));
+    persist(); progress(); return;
+  }
+});
+
+document.addEventListener('input', e=>{
+  if(e.target.id === 'who'){ who = e.target.value; persist(); return; }
+  if(!e.target.classList.contains('note')) return;
+  const id = e.target.closest('.deal').dataset.id;
+  const r = review[id] || (review[id] = {});
+  r.note = e.target.value;
+  e.target.classList.toggle('filled', !!r.note);
+  persist();
+});
+
+document.getElementById('copy').addEventListener('click', ()=>{
+  const text = payload();
+  const dump = document.getElementById('dump');
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(
+      ()=>toast('Copied. Paste it into a message to Miles.'),
+      ()=>{ dump.value = text; dump.classList.add('on'); dump.select(); toast('Copy blocked. Select the box and copy it by hand.'); });
+  } else {
+    dump.value = text; dump.classList.add('on'); dump.select();
+    toast('Select the box above and copy it by hand.');
+  }
+});
+
+document.getElementById('send').addEventListener('click', ()=>{
+  const text = payload();
+  const url = 'mailto:miles@milesagee.com?subject=' + encodeURIComponent('Investor ledger review' + (who?' from '+who:'')) + '&body=' + encodeURIComponent(text);
+  if(url.length > 1900){
+    const dump = document.getElementById('dump');
+    dump.value = text; dump.classList.add('on'); dump.scrollIntoView({behavior:'smooth',block:'center'}); dump.select();
+    toast('Too long to open in mail. Copy the box that just opened and send it to Miles.');
+    return;
+  }
+  window.location.href = url;
+});
+
+document.getElementById('reset').addEventListener('click', ()=>{
+  if(!confirm('Clear every mark and note on this page? This cannot be undone.')) return;
+  review = {}; save(); toast('Cleared.');
+});
+
+document.getElementById('asof').textContent =
+  'Ledger as of ' + DATA.meta.asOf + '. ' + DATA.meta.source + ' ' + DATA.meta.note;
+document.getElementById('who').value = who;
+render();
+</script>
+</body>
+</html>
