@@ -90,6 +90,47 @@
   .m{display:flex;gap:9px;align-items:baseline;font-size:12.5px;color:var(--muted);line-height:1.5}
   .m .k{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--teal);
     min-width:62px;flex-shrink:0;padding-top:2px}
+  .card a.src{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:600;letter-spacing:.03em;
+    color:var(--teal);text-decoration:none;border-bottom:1.5px solid rgba(212,175,55,.6);padding-bottom:2px;
+    transition:color .25s ease, border-color .25s ease, transform .3s var(--spring)}
+  .card a.src:hover{color:var(--gold-deep);border-color:var(--gold);transform:translateX(2px)}
+  .card a.src:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .card a.src:active{transform:translateX(0) scale(.98)}
+  .src .arw{transition:transform .3s var(--spring);display:inline-block}
+  .card a.src:hover .arw{transform:translateX(3px)}
+  .unver{display:block;margin-top:7px;font-size:10.5px;color:var(--muted);letter-spacing:.02em}
+
+  /* spotlight: the two that actually work */
+  .spot{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:22px;
+    box-shadow:var(--sh-lift);overflow:hidden;margin-top:24px}
+  .spot + .spot{margin-top:26px}
+  .spot .body{padding:26px 22px 24px}
+  @media(min-width:760px){.spot .body{padding:34px 34px 30px}}
+  .spot h3{font-size:clamp(24px,3.4vw,33px);line-height:1.12;margin-top:10px}
+  .spot .why{font-size:15.5px;margin-top:13px}
+  .shots{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:10px;overflow-x:auto;
+    scroll-snap-type:x mandatory;padding:12px 12px 4px;-webkit-overflow-scrolling:touch}
+  @media(min-width:760px){.shots{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible;padding:14px 14px 2px}}
+  .shots figure{position:relative;scroll-snap-align:center;border-radius:14px;overflow:hidden;
+    background:linear-gradient(150deg,rgba(0,63,63,.09),rgba(212,175,55,.09));aspect-ratio:4/3}
+  .shots img{width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform .5s var(--spring)}
+  .shots figure:hover img{transform:scale(1.04)}
+  .shots figure::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to top,rgba(0,39,38,.30),transparent 52%)}
+  .nopic{padding:26px 16px;text-align:center;font-size:12px;color:var(--muted);line-height:1.6}
+  .kv{display:grid;grid-template-columns:1fr;gap:9px;margin-top:20px;padding-top:17px;border-top:1px solid var(--line)}
+  @media(min-width:560px){.kv{grid-template-columns:1fr 1fr;gap:9px 26px}}
+  .kv .m .k{min-width:74px}
+  .cta{display:inline-flex;align-items:center;gap:9px;margin-top:20px;
+    background:var(--teal);color:#fff;font-weight:600;font-size:14px;letter-spacing:.01em;
+    padding:13px 22px;border-radius:999px;text-decoration:none;
+    box-shadow:0 3px 10px -3px rgba(0,63,63,.45), 0 14px 30px -14px rgba(0,63,63,.5);
+    transition:transform .3s var(--spring), box-shadow .3s ease, background-color .25s ease}
+  .cta:hover{transform:translateY(-2px);background:var(--teal-2);box-shadow:0 5px 14px -4px rgba(0,63,63,.5), 0 20px 42px -16px rgba(0,63,63,.55)}
+  .cta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .cta:active{transform:translateY(0) scale(.985)}
+
   .flagline{margin-top:13px;font-size:12px;font-weight:600;letter-spacing:.02em;color:#a8551f;
     background:rgba(212,175,55,.13);border-left:2.5px solid var(--gold);border-radius:0 8px 8px 0;padding:8px 12px;line-height:1.5}
   .band{margin:76px 0 0;padding:56px var(--pad) 60px;
@@ -163,6 +204,40 @@
 
 <main class="wrap">
   <section class="sec">
+    <div class="eyebrow r">Start here</div>
+    <h2 class="r r2">The two you can <em>actually do</em>.</h2>
+    <p class="say r r3">Everything else on this page is context. These two are the decision. Both are already licensed, both are already earning, and both come furnished enough to rent the week after closing. Tap either one to open the full listing with every photo.</p>
+    <article class="spot r">
+      <div class="nopic">Photos are in the MLS. Say the word and I will pull the full set and the floor plan.</div>
+      <div class="body">
+        <div class="hood">Beach Borough</div>
+        <h3>965 Pacific Ave</h3>
+        <div class="badge y">Already licensed and renting</div>
+        <p class="why">Also already renting. The agent published the actual numbers: $500 to $650 a night in summer, $3,000 to $3,500 a month in winter. Ocean views off an 833 sq ft rooftop deck.</p>
+        <div class="kv"><div class="m"><span class="k">Price</span><span>$975,000 · $464 a foot</span></div><div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full baths · 2,100 sq ft · built 2023</span></div><div class="m"><span class="k">Water</span><span>Ocean block, one street back from Atlantic. Ocean views from every floor and the roof deck</span></div><div class="m"><span class="k">Walk</span><span>4 minutes down 10th St to the boardwalk. Cross Atlantic at the signal</span></div><div class="m"><span class="k">Jet noise</span><span>Above 75 dB, worst band</span></div><div class="m"><span class="k">Taxes</span><span>$8,000 a year · zoned A12</span></div><div class="m"><span class="k">Rental</span><span>Listing states this is an STR property, and it sits inside the Oceanfront Resort overlay, the one area with a permit path</span></div><div class="m"><span class="k">MLS</span><span>REIN10634021</span></div></div>
+        <p class="flagline">Jet noise above 75 decibels, the worst band. Non-warrantable condo, so 25 percent down and no DSCR loan. Four floors, no elevator.</p>
+        <a class="cta" href="https://www.zillow.com/homes/965-Pacific-Ave-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">Open the listing <span class="arw">&rarr;</span></a>
+        <span class="unver">Opens a search for this address</span>
+      </div>
+    </article>
+    <article class="spot r">
+      <div class="nopic">Photos are in the MLS. Say the word and I will pull the full set and the floor plan.</div>
+      <div class="body">
+        <div class="hood">North End Va. Beach</div>
+        <h3>8502 Ocean Front Ave Unit B</h3>
+        <div class="badge y">Already licensed and renting</div>
+        <p class="why">The only true oceanfront house on this list, and the only one that already has the license. It sits east of Ocean Front Ave on the dune itself. The beach is over the dune, no street to cross. Sold furnished down to the linens and artwork, with three deeded parking spaces, which is rare here.</p>
+        <div class="kv"><div class="m"><span class="k">Price</span><span>$1,245,000 · $714 a foot</span></div><div class="m"><span class="k">Rooms</span><span>4 bedrooms, 3 full baths · 1,744 sq ft · built 1965</span></div><div class="m"><span class="k">Water</span><span>On the sand. East of Ocean Front Ave, sitting on the dune</span></div><div class="m"><span class="k">Walk</span><span>1 to 2 minutes over the dune. No road to cross</span></div><div class="m"><span class="k">Jet noise</span><span>Under 65 dB, quiet</span></div><div class="m"><span class="k">Taxes</span><span>$10,900 a year · zoned R5R</span></div><div class="m"><span class="k">Rental</span><span>Listing states city approved and licensed. At 85th St it sits outside the overlay, so this is grandfathered status, which the code says runs with the land</span></div><div class="m"><span class="k">MLS</span><span>REIN10637184</span></div></div>
+        <p class="flagline">1,744 sq ft. The smallest house on this list and $714 a foot, the priciest.</p>
+        <a class="cta" href="https://www.zillow.com/homes/8502-Ocean-Front-Ave-Unit-B-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">Open the listing <span class="arw">&rarr;</span></a>
+        <span class="unver">Opens a search for this address</span>
+      </div>
+    </article>
+  </section>
+</main>
+
+<main class="wrap">
+  <section class="sec">
     <div class="eyebrow r">All 21, sorted</div>
     <h2 class="r r2">The houses.</h2>
     <p class="say r r3">The two that can legally rent are first. Nothing is hidden, including the ones I would talk you out of. 4 of the 21 come in at or under $1,200,000.</p>
@@ -193,6 +268,8 @@
         <div class="m"><span class="k">Rental</span><span>Listing states this is an STR property, and it sits inside the Oceanfront Resort overlay, the one area with a permit path</span></div>
       </div>
       <p class="flagline">Jet noise above 75 decibels, the worst band. Non-warrantable condo, so 25 percent down and no DSCR loan. Four floors, no elevator.</p>
+      <a class="src" href="https://www.zillow.com/homes/965-Pacific-Ave-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all rent ocean">
       <div class="hood">North End Va. Beach</div>
@@ -209,6 +286,8 @@
         <div class="m"><span class="k">Rental</span><span>Listing states city approved and licensed. At 85th St it sits outside the overlay, so this is grandfathered status, which the code says runs with the land</span></div>
       </div>
       <p class="flagline">1,744 sq ft. The smallest house on this list and $714 a foot, the priciest.</p>
+      <a class="src" href="https://www.zillow.com/homes/8502-Ocean-Front-Ave-Unit-B-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all under12 five">
       <div class="hood">Beach Borough</div>
@@ -225,6 +304,8 @@
         <div class="m"><span class="k">Rental</span><span>Just outside the overlay edge, and inside the block the city is proposing to remove</span></div>
       </div>
       <p class="flagline">Jet noise above 75 decibels, the worst band, and no water frontage.</p>
+      <a class="src" href="https://www.zillow.com/homes/705-16th-St-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all under12">
       <div class="hood">Rudee Heights</div>
@@ -241,6 +322,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">Jet noise 70 to 75 decibels. Zoned R75, straight residential.</p>
+      <a class="src" href="https://www.zillow.com/homes/408-Hobart-Ave-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all ocean under12">
       <div class="hood">North End Va. Beach</div>
@@ -257,6 +340,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">Half of a duplex. Everyone gets a bedroom but it is not a standalone house.</p>
+      <a class="src" href="https://www.zillow.com/homes/206-66th-St-Unit-B-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all">
       <div class="hood">Ocean Way Condominium</div>
@@ -273,6 +358,8 @@
         <div class="m"><span class="k">Rental</span><span>Inside the Oceanfront Resort overlay, so a permit is possible, but no existing license is stated</span></div>
       </div>
       <p class="flagline">Jet noise above 75 decibels. Appliances convey as-is.</p>
+      <a class="src" href="https://www.zillow.com/homes/500-Winston-Salem-Ave-Unit-505-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all">
       <div class="hood">Ocean Park</div>
@@ -289,6 +376,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">Bay, not ocean. Calm water and no surf, and it faces the Bridge Tunnel approach.</p>
+      <a class="src" href="https://www.zillow.com/homes/2082-Tazewell-Rd-Virginia-Beach-VA-23455_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all ocean">
       <div class="hood">North End Va. Beach</div>
@@ -305,6 +394,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">$486 a foot for 2,665 sq ft, and no water frontage.</p>
+      <a class="src" href="https://www.zillow.com/homes/117-83rd-St-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all">
       <div class="hood">Lynnhaven Shores</div>
@@ -321,6 +412,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">That beach is the Chesapeake Bay, not the ocean. Calm water, no surf.</p>
+      <a class="src" href="https://www.zillow.com/homes/2316-Red-Tide-Rd-Unit-A-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all">
       <div class="hood">Ocean Park</div>
@@ -337,6 +430,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">$590 a foot for 2,200 sq ft, and no water frontage.</p>
+      <a class="src" href="https://www.zillow.com/homes/3789-Jefferson-Blvd-Virginia-Beach-VA-23455_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all five">
       <div class="hood">Shadowlawn</div>
@@ -353,6 +448,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">Jet noise above 75 decibels. No water frontage.</p>
+      <a class="src" href="https://www.zillow.com/homes/631-Virginia-Ave-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all">
       <div class="hood">Shadowlawn</div>
@@ -369,6 +466,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">$615 a foot for 2,260 sq ft. Jet noise above 75 decibels.</p>
+      <a class="src" href="https://www.zillow.com/homes/317-Caspian-Ave-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all ocean">
       <div class="hood">North End Va. Beach</div>
@@ -385,6 +484,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">Half of a duplex, jet noise 70 to 75 decibels, and zoning was left blank on the listing.</p>
+      <a class="src" href="https://www.zillow.com/homes/302-55th-St-Unit-B-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all five">
       <div class="hood">Lynnhaven Colony</div>
@@ -401,6 +502,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">Lynnhaven River, so boating water rather than beach. Built 1960.</p>
+      <a class="src" href="https://www.zillow.com/homes/2228-Starfish-Rd-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all">
       <div class="hood">Bay Colony</div>
@@ -417,6 +520,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">No water frontage and jet noise 70 to 75 decibels, at $450 a foot.</p>
+      <a class="src" href="https://www.zillow.com/homes/1125-Bay-Colony-Dr-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all five">
       <div class="hood">Linlier</div>
@@ -433,6 +538,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">The lake is a creek pond and the ocean is a 1.9 mile drive. This is the cove problem Pops described, exactly. Jet noise above 75 decibels.</p>
+      <a class="src" href="https://www.zillow.com/homes/700-Linbay-Dr-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all">
       <div class="hood">Princess Anne Hills</div>
@@ -449,6 +556,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">No water frontage on this lot, and flood language in the remarks.</p>
+      <a class="src" href="https://www.zillow.com/homes/424-Susan-Constant-Dr-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all five">
       <div class="hood">Princess Anne Hills</div>
@@ -465,6 +574,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">No water frontage. $400 a foot for a house that has not been opened up.</p>
+      <a class="src" href="https://www.zillow.com/homes/428-Susan-Constant-Dr-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all">
       <div class="hood">Shadowlawn</div>
@@ -481,6 +592,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">Ceiling price and jet noise above 75 decibels. Also worth a phone call first: this address does not yet come up in the city address file or the map services, which is normal for a brand new build but I want it confirmed before anyone drives out.</p>
+      <a class="src" href="https://www.zillow.com/homes/528-Maryland-Ave-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all ocean">
       <div class="hood">North End Va. Beach</div>
@@ -497,6 +610,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">Ceiling price at $1,495,000, and it is half of a duplex, not a whole house.</p>
+      <a class="src" href="https://www.zillow.com/homes/116-64th-St-Unit-B-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     <article class="card r" data-v="all five">
       <div class="hood">Cape Story By The Sea</div>
@@ -513,6 +628,8 @@
         <div class="m"><span class="k">Rental</span><span>Outside both overlay districts. Renting by the week is not a permitted use here</span></div>
       </div>
       <p class="flagline">At $1,495,000 it is the ceiling exactly, with no water frontage.</p>
+      <a class="src" href="https://www.zillow.com/homes/2245-Wake-Forest-St-Virginia-Beach-VA-23451_rb/" target="_blank" rel="noopener noreferrer">See the full listing <span class="arw">&rarr;</span></a>
+      <span class="unver">Opens a search for this address</span>
     </article>
     </div>
   </section>
