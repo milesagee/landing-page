@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;padding:0;background:transparent}
+svg{display:block}
+</style></head><body>
+<svg id="m" width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#005250"/><stop offset="55%" stop-color="#003F3F"/><stop offset="100%" stop-color="#002726"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="22%" cy="14%" r="70%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity=".22"/><stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="112" fill="url(#glow)"/>
+  <!-- gauge arc: heavy stroke so it survives downscaling -->
+  <path d="M 118 330 A 138 138 0 1 1 394 330" fill="none" stroke="#D4AF37" stroke-width="46" stroke-linecap="round"/>
+  <!-- needle -->
+  <path d="M 256 316 L 332 214" fill="none" stroke="#FAF7F1" stroke-width="30" stroke-linecap="round"/>
+  <circle cx="256" cy="320" r="26" fill="#FAF7F1"/>
+</svg></body></html>
