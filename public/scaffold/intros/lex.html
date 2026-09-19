@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Monique · For Lex</title>
+<meta name="description" content="Your practice, ready the day the license lands. The rate, the stack, the AI line, and the 60-day runway.">
+<link rel="icon" type="image/png" sizes="16x16" href="../icon-16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="../icon-32.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="../icon-180.png"/>
+<meta name="theme-color" content="#003F3F"/>
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamsnow.com/scaffold/intros/lex.html">
+<meta property="og:title" content="For Lex. Your door opens in about 60 days.">
+<meta property="og:description" content="The rate, the stack, the AI line, and the runway to license day.">
+<meta property="og:image" content="https://mamsnow.com/images/monique-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="MAMS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="For Lex. Your door opens in about 60 days.">
+<meta name="twitter:description" content="The rate, the stack, the AI line, and the runway to license day.">
+<meta name="twitter:image" content="https://mamsnow.com/images/monique-og.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #FAF7F1; color: #003F3F;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #003F3F; text-decoration: none; }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Header */
+  .header {
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(0,63,63,0.06);
+  }
+  .logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 19px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.08);
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+  .role-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #B1922E; margin-top: 6px; font-weight: 700;
+  }
+
+  /* Container */
+  .container { max-width: 640px; margin: 0 auto; padding: 0 28px; }
+
+  /* Hero */
+  .hero { padding: 84px 0 60px; }
+  .hero-kicker {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 44px; line-height: 1.05; color: #003F3F;
+    margin: 0 0 28px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: #B1922E; }
+  .hero p {
+    font-size: 19px; color: rgba(0,63,63,0.78);
+    margin: 0 0 14px; line-height: 1.55;
+    font-weight: 400;
+  }
+  .hero p:last-child { margin-bottom: 0; }
+  .hero p strong { color: #003F3F; font-weight: 600; }
+
+  .personal-note {
+    margin: 36px 0 0;
+    padding: 20px 22px;
+    background: rgba(212, 175, 55, 0.06);
+    border-left: 2px solid #D4AF37;
+    border-radius: 2px;
+  }
+  .personal-note p {
+    font-size: 16px; color: rgba(0,63,63,0.82);
+    margin: 0 0 10px; line-height: 1.6;
+    font-style: italic;
+  }
+  .personal-note p:last-child { margin-bottom: 0; }
+
+  /* Sections */
+  .section { padding: 72px 0 24px; border-top: 1px solid rgba(0,63,63,0.06); }
+  .section-header { margin-bottom: 40px; }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #B1922E; font-weight: 700; margin-bottom: 16px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 31px; line-height: 1.16; color: #003F3F;
+    margin: 0 0 16px;
+    letter-spacing: -0.014em;
+  }
+  .section h2 em { font-style: italic; color: #B1922E; }
+  .section-lede {
+    font-size: 17px; color: rgba(0,63,63,0.78);
+    margin: 0; line-height: 1.6;
+    max-width: 540px;
+  }
+  .section > p {
+    font-size: 17px; color: rgba(0,63,63,0.82);
+    line-height: 1.6; margin: 0 0 16px;
+  }
+  .section > p:last-child { margin-bottom: 0; }
+  .section > p strong { color: #003F3F; font-weight: 600; }
+
+  h3.sub {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 21px; line-height: 1.26; color: #003F3F;
+    margin: 40px 0 12px; letter-spacing: -0.008em;
+  }
+  h3.sub em { font-style: italic; color: #B1922E; }
+  h3.sub:first-of-type { margin-top: 0; }
+
+  /* The safety card, deliberately the most solid object on the page */
+  .safety {
+    background: #003F3F; color: #FAF7F1;
+    border-radius: 3px;
+    padding: 30px 26px;
+    margin: 0 0 8px;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.10), 0 8px 28px rgba(0,63,63,0.13);
+  }
+  .safety .eyebrow { color: #D4AF37; }
+  .safety h2 {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 27px; line-height: 1.18; color: #FAF7F1;
+    margin: 0 0 18px; letter-spacing: -0.012em;
+  }
+  .safety h2 em { font-style: italic; color: #D4AF37; }
+  .safety p { font-size: 16px; color: rgba(250,247,241,0.86); margin: 0 0 14px; line-height: 1.62; }
+  .safety p:last-child { margin-bottom: 0; }
+  .safety strong { color: #FAF7F1; font-weight: 600; }
+  .valve {
+    display: grid; gap: 10px;
+    margin: 20px 0;
+    padding: 18px 0;
+    border-top: 1px solid rgba(250,247,241,0.16);
+    border-bottom: 1px solid rgba(250,247,241,0.16);
+  }
+  .valve div { font-size: 15px; color: rgba(250,247,241,0.9); line-height: 1.5; }
+  .valve span {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #D4AF37; display: block; margin-bottom: 4px;
+  }
+
+  /* Retype blocks: sized to be transcribed by eye from a phone */
+  .retype-label {
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(0,63,63,0.5); font-weight: 700; margin: 26px 0 8px;
+  }
+  .retype {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 15px; font-weight: 500; line-height: 1.75;
+    letter-spacing: 0.01em;
+    color: #003F3F;
+    background: rgba(0,63,63,0.045);
+    border: 1px solid rgba(0,63,63,0.10);
+    border-left: 3px solid #D4AF37;
+    border-radius: 2px;
+    padding: 16px 18px;
+    margin: 0 0 10px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    cursor: pointer;
+    transition: background 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    -webkit-user-select: all; user-select: all;
+  }
+  .retype:hover { background: rgba(212,175,55,0.10); }
+  .retype:active { transform: translateY(1px); }
+  .retype:focus-visible { outline: 3px solid #D4AF37; outline-offset: 3px; }
+  .retype.copied { background: rgba(212,175,55,0.20); }
+  .retype-note {
+    font-size: 13px; color: rgba(0,63,63,0.55); margin: 0 0 22px; line-height: 1.5;
+  }
+
+  /* Numbered steps */
+  .steps { list-style: none; padding: 0; margin: 0 0 8px; counter-reset: s; }
+  .steps li {
+    position: relative;
+    padding: 0 0 18px 38px;
+    font-size: 16px; color: rgba(0,63,63,0.82); line-height: 1.58;
+    counter-increment: s;
+  }
+  .steps li::before {
+    content: counter(s, decimal-leading-zero);
+    position: absolute; left: 0; top: 1px;
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: 13px; color: #D4AF37; letter-spacing: 0.04em;
+  }
+  .steps li strong { color: #003F3F; font-weight: 600; }
+  .steps li:last-child { padding-bottom: 0; }
+
+  /* Budget ledger */
+  .ledger { margin: 0 0 24px; }
+  .ledger-row {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 18px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0,63,63,0.08);
+  }
+  .ledger-row:first-child { border-top: 1px solid rgba(0,63,63,0.08); }
+  .ledger-label { font-size: 16px; color: rgba(0,63,63,0.82); line-height: 1.45; }
+  .ledger-label small { display: block; font-size: 13px; color: rgba(0,63,63,0.52); margin-top: 3px; }
+  .ledger-val {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 15px; font-weight: 700; color: #003F3F; white-space: nowrap;
+    font-feature-settings: "lnum";
+  }
+  .ledger-total { border-bottom: none; padding-top: 18px; }
+  .ledger-total .ledger-label { font-weight: 600; color: #003F3F; }
+  .ledger-total .ledger-val { color: #B1922E; }
+
+  /* Skeleton list */
+  .skeleton { list-style: none; padding: 0; margin: 0; }
+  .skeleton li {
+    padding: 13px 0 13px 20px;
+    border-left: 2px solid rgba(212,175,55,0.35);
+    margin-bottom: 2px;
+    font-size: 16px; color: rgba(0,63,63,0.82); line-height: 1.5;
+  }
+  .skeleton li strong { color: #003F3F; font-weight: 600; }
+
+  /* Callout */
+  .callout {
+    margin: 30px 0 8px;
+    padding: 22px 24px;
+    background: rgba(212,175,55,0.07);
+    border-left: 2px solid #D4AF37;
+    border-radius: 2px;
+  }
+  .callout p { font-size: 16px; color: rgba(0,63,63,0.84); margin: 0 0 12px; line-height: 1.6; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout strong { color: #003F3F; font-weight: 600; }
+
+  /* Never list */
+  .never { list-style: none; padding: 0; margin: 18px 0 0; }
+  .never li {
+    position: relative; padding: 0 0 12px 26px;
+    font-size: 16px; color: rgba(0,63,63,0.8); line-height: 1.55;
+  }
+  .never li::before {
+    content: '×';
+    position: absolute; left: 4px; top: -1px;
+    color: #B1922E; font-weight: 700; font-size: 18px;
+  }
+  .never li:last-child { padding-bottom: 0; }
+
+  .single-ask { font-size: 17px; color: rgba(0,63,63,0.85); margin: 0; line-height: 1.6; }
+  .single-ask strong { color: #003F3F; font-weight: 600; }
+
+  /* Footer */
+  .footer {
+    padding: 72px 28px 64px;
+    text-align: center;
+    border-top: 1px solid rgba(0,63,63,0.06);
+    margin-top: 60px;
+  }
+  .signature {
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: 19px; color: #003F3F;
+    letter-spacing: -0.005em;
+  }
+  .footer .fine { font-size: 11px; color: rgba(0,63,63,0.4); margin-top: 14px; letter-spacing: 0.02em; line-height: 1.7; }
+
+  @media (min-width: 700px) {
+    .hero { padding: 116px 0 76px; }
+    .hero h1 { font-size: 60px; }
+    .hero p { font-size: 21px; }
+    .personal-note p { font-size: 17px; }
+    .section { padding: 96px 0 32px; }
+    .section h2 { font-size: 38px; }
+    .section-lede { font-size: 18px; }
+    .section > p { font-size: 18px; }
+    .safety { padding: 40px 38px; }
+    .safety h2 { font-size: 32px; }
+    h3.sub { font-size: 24px; }
+    .retype { font-size: 16px; padding: 18px 20px; }
+  }
+</style>
+<style>
+  /* Lex additions */
+  .rate-grid { display: grid; gap: 12px; margin: 8px 0 24px; }
+  .rate-card {
+    background: #fff; border: 1px solid rgba(0,63,63,0.08); border-radius: 3px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.05), 0 6px 20px rgba(0,63,63,0.06);
+  }
+  .rate-card .k {
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(0,63,63,0.55); font-weight: 700;
+  }
+  .rate-card .v {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-size: 34px; line-height: 1.1; color: #003F3F; margin: 6px 0 4px; letter-spacing: -0.02em;
+  }
+  .rate-card .v em { font-style: italic; color: #B1922E; font-size: 18px; font-weight: 700; letter-spacing: 0; }
+  .rate-card p { font-size: 14px; color: rgba(0,63,63,0.72); margin: 0; line-height: 1.5; }
+  .rate-card.hero-rate { background: #003F3F; border-color: #003F3F; }
+  .rate-card.hero-rate .k { color: #D4AF37; }
+  .rate-card.hero-rate .v { color: #FAF7F1; }
+  .rate-card.hero-rate p { color: rgba(250,247,241,0.82); }
+  .verdict {
+    display: inline-block; font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 4px 8px; border-radius: 2px; margin-bottom: 8px;
+  }
+  .verdict.yes { background: rgba(0,63,63,0.08); color: #003F3F; }
+  .verdict.no { background: rgba(212,175,55,0.16); color: #8a7020; }
+  .sources { list-style: none; padding: 0; margin: 0; }
+  .sources li { font-size: 13px; color: rgba(0,63,63,0.62); line-height: 1.5; padding: 7px 0; border-bottom: 1px solid rgba(0,63,63,0.06); overflow-wrap: anywhere; }
+  .sources a { color: #003F3F; text-decoration: underline; text-decoration-color: rgba(212,175,55,0.6); text-underline-offset: 2px; }
+  .sources a:hover { text-decoration-color: #D4AF37; }
+  .sources a:focus-visible { outline: 2px solid #D4AF37; outline-offset: 2px; }
+  @media (min-width: 700px) { .rate-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">M</div>
+  <div>
+    <div class="brand">Monique</div>
+    <div class="role-label">For Lex · Ready on day one</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-kicker">Built for you. Yours to keep.</div>
+    <h1>Lex.<br>Your door opens in <em>about 60 days</em>.</h1>
+    <p>You don't need clients yet. You need the practice fully built the day the license lands, so the first woman who finds you can book without a single back and forth.</p>
+    <p><strong>Four decisions get you there.</strong> The rate. The stack. Where AI helps and where it never goes. And the runway from today to license day.</p>
+
+    <div class="personal-note">
+      <p>Lex. Miles told me you're one of the good ones. The kind of person people heal around. That's exactly why this page starts with money.</p>
+      <p>A heart like yours only keeps showing up for women if the practice pays you what the work is worth. Pricing it right isn't taking from them. It's what lets you stay.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">01 · Who you're for</div>
+      <h2>Women healing what happened <em>when they were girls</em>.</h2>
+      <p class="section-lede">Most trauma therapists offer one approach. You bring three, and they fit together.</p>
+    </div>
+    <ul class="skeleton">
+      <li><strong>EMDR</strong> for the memories that still run the show.</li>
+      <li><strong>Somatic, body-based work</strong> from your yoga teaching, for a nervous system that learned to stay on guard.</li>
+      <li><strong>IFS parts work</strong> for the inner child and the shadow, the parts that took over to survive.</li>
+    </ul>
+    <div class="retype-label">Your positioning line · tap to copy</div>
+    <div class="retype" tabindex="0" role="button">Trauma therapy for women ready to heal what happened in childhood. EMDR, somatic, and parts work, in one room, with one person who sees all of you.</div>
+    <p class="retype-note">This line goes at the top of your homepage, your Psychology Today profile, and your Google Business Profile. Same words everywhere, so people remember them.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">02 · The rate</div>
+      <h2>$150 is the <em>floor</em> in Richmond. You're not a floor.</h2>
+      <p class="section-lede">We looked at eight Richmond-area practices that publish private-pay fees. They charge $150 to $250. The ones doing what you do, EMDR plus somatic plus IFS, charge $175 to $295.</p>
+    </div>
+
+    <div class="rate-grid">
+      <div class="rate-card hero-rate">
+        <div class="k">Individual · 55 to 60 min</div>
+        <div class="v">$175</div>
+        <p>The going rate for your exact mix. The closest Richmond match, an EMDR, somatic, and IFS practice, charges $175 for 60 minutes.</p>
+      </div>
+      <div class="rate-card">
+        <div class="k">Intake · first session</div>
+        <div class="v">$200</div>
+        <p>Three Richmond practices charge $200 for the first session. It takes more of your time than a regular session.</p>
+      </div>
+      <div class="rate-card">
+        <div class="k">Extended · 90 min</div>
+        <div class="v">$275</div>
+        <p>EMDR reprocessing often needs more than an hour. Richmond peers charge $275 to $295 for 90 minutes.</p>
+      </div>
+      <div class="rate-card">
+        <div class="k">Couples / family</div>
+        <div class="v">$175</div>
+        <p>This matches the one Richmond practice that publishes a couples rate. Offer it only if you want it. It isn't your niche.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">The same hours, <em>priced right</em></h3>
+    <div class="ledger">
+      <div class="ledger-row"><div class="ledger-label">20 sessions a week at $150<small>46 working weeks</small></div><div class="ledger-val">$138,000</div></div>
+      <div class="ledger-row"><div class="ledger-label">20 sessions a week at $175<small>Same 46 weeks, same caseload</small></div><div class="ledger-val">$161,000</div></div>
+      <div class="ledger-row ledger-total"><div class="ledger-label">The difference, for zero extra hours</div><div class="ledger-val">$23,000</div></div>
+    </div>
+    <p>This is gross revenue before costs and taxes, just to show the math. A $25 difference per session doesn't sound like much. Over a year it adds up to a car.</p>
+
+    <h3 class="sub">Your premium offer: <em>EMDR intensives</em></h3>
+    <p>This is where "more money for bigger problems" really applies. An intensive is 3 hours of focused reprocessing, instead of months of 50-minute sessions. For some women, it's the only way to do this work around a job and kids.</p>
+    <div class="ledger">
+      <div class="ledger-row"><div class="ledger-label">Richmond, 3-hour intensive<small>Two local practices publish prices</small></div><div class="ledger-val">$900 to $1,050</div></div>
+      <div class="ledger-row"><div class="ledger-label">Richmond, 4-day program<small>One local practice</small></div><div class="ledger-val">$4,050</div></div>
+      <div class="ledger-row"><div class="ledger-label">National, most common hourly rate<small>About 10 practices sampled, April 2026</small></div><div class="ledger-val">$275 to $285/hr</div></div>
+    </div>
+    <p><strong>Not on day one.</strong> Get a few months of EMDR experience under your own license, with consultation, then launch intensives at around $900. Put a "coming soon" line for them on the website now.</p>
+
+    <h3 class="sub">Your concierge month, <em>rebuilt</em></h3>
+    <p>Your instinct is right: up to 8 sessions a month for women who want to go deep. Researchers are testing twice-weekly EMDR for childhood-trauma PTSD, so the idea has real clinical backing. Two changes protect you:</p>
+    <ul class="steps">
+      <li><strong>Don't discount the hour.</strong> Present it as a twice-weekly track when it's clinically right for her, not as a bulk deal. 8 sessions at $175 is $1,400 a month.</li>
+      <li><strong>Refund unused sessions, prorated.</strong> If paid-for sessions just expire, it can start to look legally like you're selling insurance. A prorated refund keeps you clean and keeps her trust.</li>
+      <li><strong>Frame it as a phase, not forever.</strong> Stabilize first, then run a 6 to 8 week deep-work phase. That's a clear start and finish she can say yes to.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">03 · The stack</div>
+      <h2>Keep what you bought. <em>Add one thing.</em></h2>
+      <p class="section-lede">You don't need a fancier website. You need the booking button to work.</p>
+    </div>
+
+    <h3 class="sub">WordPress + Elementor</h3>
+    <div class="verdict yes">Keep it</div>
+    <p>Your template is fine. Six pages: Home, Trauma Therapy for Women, EMDR, Somatic and Parts Work, Fees, About. Put a "Book a free 15-minute consult" button on every one.</p>
+
+    <h3 class="sub">SimplePractice</h3>
+    <div class="verdict yes">Your engine</div>
+    <p>It handles booking, intake forms, consent forms, the client portal, card payments, and your notes. It signs a HIPAA agreement (a BAA) on paid plans. It also lists you free in its directory, Therapy Finder.</p>
+    <div class="ledger">
+      <div class="ledger-row"><div class="ledger-label">Plus plan<small>Needed for the booking widget on your own site</small></div><div class="ledger-val">$99/mo</div></div>
+      <div class="ledger-row"><div class="ledger-label">Essential plan<small>If linking out to SimplePractice's booking page works for you</small></div><div class="ledger-val">$79/mo</div></div>
+      <div class="ledger-row"><div class="ledger-label">Card processing<small>Charged per payment</small></div><div class="ledger-val">3.15% + $0.30</div></div>
+    </div>
+    <p>Confirm in the free trial which plan puts the booking widget on your own site. The widget is a snippet you paste into an Elementor HTML block. <strong>Don't enter a real client in the trial.</strong> The HIPAA agreement only covers paid plans.</p>
+
+    <h3 class="sub">GoHighLevel</h3>
+    <div class="verdict no">Not now</div>
+    <p>Miles swears by it for real estate, and for real estate he's right. For you, three problems. It isn't HIPAA compliant by default, and the HIPAA add-on costs $297 a month, three times the SimplePractice Plus plan. The automated text follow-ups it's built for can run into your code of ethics, which bars uninvited solicitation of vulnerable people. And SimplePractice already does the booking. Revisit it if you grow into a group practice.</p>
+
+    <h3 class="sub">Where clients find you</h3>
+    <ul class="steps">
+      <li><strong>Google Business Profile.</strong> Free. It's what shows up when someone searches "trauma therapist Richmond."</li>
+      <li><strong>Psychology Today.</strong> $29.95 a month, no contract. Still the listing most people expect you to have, though therapists report fewer inquiries from it than a few years ago.</li>
+      <li><strong>Therapy Finder and TherapyDen.</strong> Free listings. Takes one afternoon.</li>
+      <li><strong>Other therapists with full caseloads.</strong> The steadiest private-pay source there is. Every clinician you know who has a waitlist should know your name and your niche before license day.</li>
+      <li><strong>EMDRIA directory.</strong> Only Full Members get listed. Worth it once you're eligible.</li>
+      <li><strong>Skip Open Path.</strong> It's a reduced-fee network, $30 to $70 a session. It works against everything above.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">04 · Where AI fits</div>
+      <h2>AI does the marketing. <em>You</em> do the healing.</h2>
+      <p class="section-lede">There's a hard line, and it's simple. AI can write about your practice. It never sees a client.</p>
+    </div>
+
+    <h3 class="sub">Yes, all day</h3>
+    <ul class="steps">
+      <li>Drafting your website pages, directory profiles, and "what to expect" page.</li>
+      <li>Blog posts that answer real search questions, like "what does an EMDR session feel like."</li>
+      <li>Instagram captions and generic email templates with no client details.</li>
+      <li>You review every clinical claim before it goes live. AI gets things confidently wrong.</li>
+    </ul>
+
+    <h3 class="sub">Never</h3>
+    <ul class="never">
+      <li>A client's name, dates, diagnosis, or anything from a session in ChatGPT. The regular consumer version has no HIPAA agreement.</li>
+      <li>An AI chatbot as the first voice a trauma survivor meets. That first contact is you, or a form that goes straight to you.</li>
+      <li>Meta or Google ad tracking code on your booking or intake pages.</li>
+    </ul>
+
+    <div class="retype-label">Prompt 01 · your homepage · tap to copy</div>
+    <div class="retype" tabindex="0" role="button">Write a warm, plain-language homepage for a trauma therapist in Richmond, Virginia who works with adult women healing childhood trauma and PTSD, using EMDR, somatic body-based work, and IFS parts work. Private pay only. Open with the reader's experience, not my credentials. Short sentences. No clinical promises or guaranteed outcomes. End with an invitation to book a free 15-minute consultation.</div>
+    <div class="retype-label">Prompt 02 · your Psychology Today profile · tap to copy</div>
+    <div class="retype" tabindex="0" role="button">Write a Psychology Today profile in three short paragraphs for a Richmond, VA therapist serving women healing childhood trauma. Paragraph one speaks to what she's living with right now. Paragraph two explains how EMDR, somatic work, and parts work help, in everyday words. Paragraph three says what the first consultation is like. No jargon, no promises of results.</div>
+    <div class="retype-label">Prompt 03 · a blog post · tap to copy</div>
+    <div class="retype" tabindex="0" role="button">Write a 600-word blog post titled "What an EMDR session actually feels like" for women considering trauma therapy. Calm, honest, reassuring without overpromising. Explain the structure of a session, what's normal to feel afterward, and how a good therapist keeps you grounded. Mark any clinical claim I should double-check.</div>
+  </section>
+
+  <section class="section">
+    <div class="safety">
+      <div class="eyebrow">05 · Before the door opens</div>
+      <h2>Four rules that <em>protect the license</em> you just earned.</h2>
+      <div class="valve">
+        <div><span>Until the license issues</span>Virginia's title for you right now is "Supervisee in Social Work," and supervisees can't present themselves as independent practitioners. Build the whole site now, but keep it unpublished until you have your LCSW number. Call the Board of Social Work and confirm the timing.</div>
+        <div><span>Good Faith Estimate</span>Federal law requires you to give every self-pay client a written cost estimate, within 1 to 3 business days of booking depending on how far out the appointment is. Post the "Right to a Good Faith Estimate" notice on your Fees page.</div>
+        <div><span>Testimonials</span>Never ask a current client for a testimonial. The NASW Code prohibits it. Your credibility on the site comes from your training, your approach, and your words.</div>
+        <div><span>Prepaid sessions</span>Unused sessions get refunded, prorated. Always.</div>
+      </div>
+      <p>None of this is legal advice. It's the checklist to take to the Board, and to an attorney or NASW Virginia if anything feels unclear.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">06 · The runway</div>
+      <h2>Eight weeks. <em>One lane at a time.</em></h2>
+    </div>
+    <ul class="steps">
+      <li><strong>Weeks 1 and 2 · Words and numbers.</strong> Lock the rate. Lock the positioning line. Draft all six pages with the prompts above, then rewrite them in your own voice.</li>
+      <li><strong>Weeks 3 and 4 · The engine.</strong> Start the SimplePractice trial. Set up your services and fees, intake and consent forms, the Good Faith Estimate template, and a free 15-minute consult. No real clients in the trial.</li>
+      <li><strong>Weeks 5 and 6 · Being findable.</strong> Photos. Draft your Google Business Profile, Psychology Today, TherapyDen, and Therapy Finder listings, all unpublished. List every therapist you know with a waitlist. Call the Board about website timing.</li>
+      <li><strong>Weeks 7 and 8 · The dry run.</strong> Book yourself as a fake client, start to finish, on your phone. Find what breaks. Line up business setup, liability insurance, and your NPI with whoever's advising you.</li>
+      <li><strong>License day.</strong> Upgrade to a paid plan and sign the HIPAA agreement. Publish the site. Turn on the listings. Text your referral list. Your door is open.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">If you only do one thing</div>
+    <p class="single-ask">Say the number out loud this week: <strong>$175.</strong> Write it on the Fees page before you write anything else. Everything on this page gets easier once the price stops being a question.</p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Sources</div>
+    <p style="font-size:14px;color:rgba(0,63,63,0.6);margin:0 0 14px;">Every number above comes from one of these, pulled September 19, 2026. Fees change, so recheck any rate before quoting it.</p>
+    <ul class="sources">
+      <li>Richmond rates: <a href="https://www.seekingdepthtorecovery.com/faq-trauma-therapy-richmond-va">Seeking Depth to Recovery</a> · <a href="https://www.rivercitytherapy.com/about-therapy/services-fees">River City Therapy</a> · <a href="https://nidhitewarilcsw.com/faqs">Nidhi Tewari LCSW</a> · <a href="https://www.therapeuticcounseling.org/insurance">Therapeutic Counseling</a> · <a href="https://www.richmondcreativecounseling.com/rates-insurance">Richmond Creative Counseling</a> · <a href="https://seaglassrva.com/rates-insurance">Sea Glass</a> · <a href="https://www.melaniemstoudtlpc.com/emdr-intensives">Melanie Stoudt LPC</a></li>
+      <li>Intensives nationally: <a href="https://reframepractice.com/guides/emdr-intensives-pricing">Reframe Practice, April 2026</a></li>
+      <li>Twice-weekly EMDR trial: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8626728/">IREM-Freq protocol</a> · Package refunds: <a href="https://www.psychotherapynotes.com/package-pricing-comes-risks-therapists/">Psychotherapy Notes</a></li>
+      <li>Virginia supervisee rules: <a href="https://law.lis.virginia.gov/admincode/title18/agency140/chapter20/section50/">18VAC140-20-50</a> · <a href="https://law.lis.virginia.gov/admincode/title18/agency140/chapter20/section150/">18VAC140-20-150</a></li>
+      <li>Good Faith Estimate: <a href="https://www.cms.gov/files/document/gfe-and-ppdr-requirements-slides.pdf">CMS requirements</a> · <a href="https://www.cms.gov/files/document/nsa-gfe-required-notice.pdf">Required notice</a></li>
+      <li>NASW Code: <a href="https://www.socialworkers.org/About/Ethics/Code-of-Ethics/Code-of-Ethics-English/Social-Workers-Ethical-Responsibilities-as-Professionals">4.06 and 4.07</a> · <a href="https://www.socialworkers.org/About/Ethics/Code-of-Ethics/Code-of-Ethics-English/Social-Workers-Ethical-Responsibilities-to-Clients">1.13 fees</a></li>
+      <li>SimplePractice: <a href="https://www.simplepractice.com/pricing/">Pricing</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/115004734123-Adding-the-appointment-request-widget-to-your-website">Booking widget</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/360019822032-Getting-started-with-online-payments">Payments</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/37170656954765-Getting-started-with-Therapy-Finder">Therapy Finder</a></li>
+      <li>GoHighLevel HIPAA: <a href="https://www.gohighlevel.com/hipaa">gohighlevel.com/hipaa</a> · Psychology Today: <a href="https://join.psychologytoday.com/us/signup">pricing</a> · EMDRIA: <a href="https://www.emdria.org/find-an-emdr-therapist/">directory rules</a></li>
+      <li>AI and tracking: <a href="https://help.openai.com/en/articles/20001069-hipaa-eligible-products-and-functionality">OpenAI HIPAA products</a> · <a href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/hipaa-online-tracking/index.html">HHS online tracking guidance</a></li>
+    </ul>
+  </section>
+
+  <div class="footer">
+    <div class="signature">Glad to be in your corner. Miles</div>
+    <div class="fine">For Lex · A private page, not indexed<br>No form, no input. Nothing on this page can receive anything.</div>
+  </div>
+
+</div>
+<script>
+  document.querySelectorAll('.retype').forEach(function (el) {
+    function copy() {
+      var t = el.textContent.trim();
+      if (navigator.clipboard) { navigator.clipboard.writeText(t).catch(function () {}); }
+      el.classList.add('copied');
+      setTimeout(function () { el.classList.remove('copied'); }, 900);
+    }
+    el.addEventListener('click', copy);
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copy(); }
+    });
+  });
+</script>
+
+</body>
+</html>
