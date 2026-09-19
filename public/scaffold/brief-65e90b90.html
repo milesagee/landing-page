@@ -7,7 +7,9 @@
 <meta name="referrer" content="no-referrer"/>
 <meta name="description" content="A private brief, shared by invitation only."/>
 <link rel="canonical" href="https://mamsnow.com/scaffold/brief-65e90b90.html"/>
+<link rel="icon" type="image/png" sizes="16x16" href="icon-16.png"/>
 <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png"/>
 <meta name="theme-color" content="#003F3F"/>
 <meta property="og:type" content="website"/>
@@ -898,6 +900,8 @@
   .valtable .chip { margin-left: 6px; vertical-align: 1px; }
   .comps-note + .comps-note { margin-top: 12px; }
   .tablewrap + .tablewrap, .tablewrap + .swipehint { margin-top: 6px; }
+  .levels__note + .swipehint, .levels__note + .tablewrap { margin-top: 22px; }
+  .comps-note + .swipehint, .comps-note + .tablewrap { margin-top: 18px; }
 </style>
 </head>
 <body>
@@ -912,7 +916,7 @@
     <div class="hero__eyebrow">Private Brief &middot; Roselawn Memory Gardens, Glen Allen</div>
     <div class="hero__address">13389 Mountain Road &middot; Glen Allen, VA 23059</div>
     <h1 class="hero__title">You're buying a cemetery with a paper trail.<br/><em>Every number ties to a record.</em></h1>
-    <p class="hero__sub">Seven years of sales. 34 card statements. The land sale, the loan payoff and the trust. The seller stays on until the 2026 taxes are filed. The CPA financial statements for 2022 to 2024 are attached, along with every other record behind these numbers. Two items are still coming: the bank statements and the tax returns.</p>
+    <p class="hero__sub">Seven years of sales. 42 bank statements. 34 card statements. The land sale, the loan payoff and the trust. The bank ties to the CPA to the cent, and the cash-flow number you asked for is right below. Still coming: 2025 bank statements, one more card, and the tax returns.</p>
     <div class="hero__pricerow">
       <div class="hero__price">$3,200,000</div>
       <div class="hero__badge">Seller counter &middot; shared privately</div>
@@ -927,11 +931,75 @@
     <div class="facts">
       <div class="fact"><div class="fact__label">2025 gross sales</div><div class="fact__value">$620,853<span class="sub">Corrected from the workbooks</span></div></div>
       <div class="fact"><div class="fact__label">Jan to Aug 2026</div><div class="fact__value">+1.4%<span class="sub">$436,572 vs $430,730 in 2025</span></div></div>
-      <div class="fact"><div class="fact__label">Perpetual care trust</div><div class="fact__value">$1,075,888<span class="sub">Freed &amp; Shepherd, trustee</span></div></div>
+      <div class="fact"><div class="fact__label">Perpetual care trust</div><div class="fact__value">$1,075,888<span class="sub">Per the trust statement on file</span></div></div>
       <div class="fact"><div class="fact__label">Plots available</div><div class="fact__value">&asymp;5,931<span class="sub">5,531 approved + 400 ready (seller)</span></div></div>
       <div class="fact"><div class="fact__label">2025 burials</div><div class="fact__value">130<span class="sub">$313,498 on the registrations</span></div></div>
       <div class="fact"><div class="fact__label">Bank debt</div><div class="fact__value">$0<span class="sub">United Bank loan paid off</span></div></div>
     </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Bank-Reconciled Cash Flow</div>
+    <h2 class="section__title">You asked for a number from the bank. <em>Here it is.</em></h2>
+    <p class="section__lede">42 United Bank statements and 2,350 transactions. Every statement ties to its printed balances to the cent. The old checking account covers Dec 2021 to Dec 2024. The new checking account, opened in April 2026, covers April to August 2026. Payees on the large checks were read off the check images.</p>
+
+    <div class="band">
+      <div class="band__card band__card--lead">
+        <div class="band__num">&asymp;$195K</div>
+        <div class="band__label">Cash for owner and debt, 2023 and 2024</div>
+      </div>
+      <div class="band__card">
+        <div class="band__num">To the cent</div>
+        <div class="band__label">Bank cash = CPA year-end cash, 2022 and 2024</div>
+      </div>
+      <div class="band__card">
+        <div class="band__num">$702K</div>
+        <div class="band__label">2024 deposits vs CPA sales of $724,701</div>
+      </div>
+    </div>
+
+    <div class="comps-note"><strong>Most sellers hand you an add-back schedule. This one hands you the bank.</strong> Bank cash matches the CPA's balance sheet exactly: $58,759.19 at Dec 31, 2022 and $23,993.90 at Dec 31, 2024. 2024 deposits land within about 3% of the CPA's sales. The receivables workbook's $603,308 undercounted 2024, and the bank settles it.</div>
+
+    <div class="swipehint">Swipe the table to compare &rarr;</div>
+    <div class="tablewrap">
+      <table class="valtable">
+        <thead><tr><th>Your categories</th><th>2022</th><th>2023</th><th>2024</th><th>May to Aug 2026</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Customer collections</td><td>$982,960</td><td>$769,338</td><td>$702,010</td><td>$237,929</td><td><span class="chip chip--gold">Proven</span></td></tr>
+          <tr><td>Payroll and contractors</td><td>$85,298</td><td>$97,343</td><td>$52,266</td><td>$12,735</td><td><span class="chip chip--gold">Proven</span></td></tr>
+          <tr><td>Owner draws, by check and wire</td><td>$113,500</td><td>$88,800</td><td>$28,700</td><td>$29,057</td><td><span class="chip">Partial</span></td></tr>
+          <tr><td>Materials paid from the bank</td><td>$57,846</td><td>$10,515</td><td>$0</td><td>$0</td><td><span class="chip">Partial</span></td></tr>
+          <tr><td>Card payments, Amex, Barclays, Citi</td><td>$274,284</td><td>$334,007</td><td>$450,220</td><td>$171,262</td><td><span class="chip">Open</span></td></tr>
+          <tr><td>Taxes, IRS, Virginia, Hanover County</td><td>$135,502</td><td>$107,238</td><td>$65,998</td><td>$10,230</td><td><span class="chip chip--gold">Paid</span></td></tr>
+          <tr><td>Utilities</td><td>$4,512</td><td>$2,335</td><td>$1,930</td><td>$1,455</td><td><span class="chip chip--gold">Proven</span></td></tr>
+          <tr><td>Insurance paid from the bank</td><td>$7,183</td><td>$5,177</td><td>$7,122</td><td>$1,011</td><td><span class="chip">Partial</span></td></tr>
+          <tr><td>Deposits into the trust</td><td>$9,655</td><td>$7,870</td><td>$3,412</td><td>$3,510</td><td><span class="chip">Open</span></td></tr>
+          <tr><td>Equipment</td><td>$17,742</td><td>$0</td><td>$0</td><td>$0</td><td><span class="chip">Partial</span></td></tr>
+          <tr><td>Old bank loan and owner personal bills</td><td>$42,869</td><td>$43,260</td><td>$42,662</td><td>$0</td><td><span class="chip chip--gold">Proven</span></td></tr>
+          <tr><td>Checks, payee still to confirm</td><td>$170,520</td><td>$99,779</td><td>$73,593</td><td>$44,810</td><td><span class="chip">Open</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="levels__note">CPA sales for comparison: $924,861, $678,098 and $724,701. CPA officer salary: $261,550, $141,640 and $101,700, so the owner is paid partly through payroll and partly by draw; payroll registers will split owner from staff. Most materials are bought on the cards: CPA purchases run $241,682, $285,641 and $337,614. Insurance paid from the bank is mostly the owner's personal policies (health, life, auto), which the seller will confirm as add-backs. Business insurance is on the cards. The old loan was $3,500 a month and was paid off at the Dec 29, 2025 land sale. Checks still to confirm are mostly checks under $2,500; the check register will close them out.</div>
+
+    <div class="swipehint">Swipe the table to compare &rarr;</div>
+    <div class="tablewrap">
+      <table class="valtable">
+        <thead><tr><th>Cash for owner and debt</th><th>2022</th><th>2023</th><th>2024</th></tr></thead>
+        <tbody>
+          <tr><td>Net change in bank cash</td><td>$26,809</td><td>($35,953)</td><td>$1,187</td></tr>
+          <tr><td>+ Owner draws, by check and wire</td><td>$113,500</td><td>$88,800</td><td>$28,700</td></tr>
+          <tr><td>+ Old loan payments, now paid off</td><td>$42,000</td><td>$42,000</td><td>$42,000</td></tr>
+          <tr><td>+ Owner's personal insurance and bills</td><td>$8,052</td><td>$6,438</td><td>$7,784</td></tr>
+          <tr class="is-subject"><td>Floor: every card payment counted as a business cost</td><td>$190,361</td><td>$101,285</td><td>$79,671</td></tr>
+          <tr><td>+ Card spending beyond the CPA's purchases</td><td>$90,448</td><td>$58,881</td><td>$112,605</td></tr>
+          <tr><td>+ Large checks, payee unreadable on the image</td><td>$83,323</td><td>$34,806</td><td>$2,500</td></tr>
+          <tr class="is-subject"><td>Upper case: card spend beyond purchases counted as owner</td><td>$364,132</td><td>$194,972</td><td>$194,776</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="comps-note"><strong>What this means.</strong> The business produced about <strong>$195,000</strong> a year for its owner and its debt in 2023 and 2024, down from about $364,000 in 2022 as sales fell. That's the upper case. The floor assumes every dollar paid to the cards was a business cost. The year-end card summaries for 2022 to 2024 settle where the true figure lands, and they're requested.</div>
+    <div class="levels__note">Still coming from the bank: the old checking account from Jan 2025 until it closed, the new account for September 2026, and statements for one more Citi account the new account paid from May to August 2026. May to August 2026 isn't in the bridge above until that card is in hand. The bank statements carry full account numbers, so they go to your accountant directly on request rather than on this page.</div>
   </section>
 
   <section class="block">
@@ -1040,7 +1108,7 @@
   <section class="block">
     <div class="eyebrow">Owner Benefit</div>
     <h2 class="section__title">What the business <em>pays its owner.</em></h2>
-    <p class="section__lede">Owner pay plus the personal spending the company covers, for Sep 2025 to Aug 2026. Card figures are documented to the statement. Owner pay is the seller's estimate until the bank statements and returns land.</p>
+    <p class="section__lede">Owner pay plus the personal spending the company covers, for Sep 2025 to Aug 2026. Card figures are documented to the statement. Owner pay for this window is still the seller's estimate. For 2024, the CPA's officer salary ($101,700) plus bank draws ($28,700) come to $130,400, inside that range.</p>
 
     <div class="band">
       <div class="band__card band__card--lead">
@@ -1089,7 +1157,7 @@
       </table>
     </div>
 
-    <div class="comps-note"><strong>How the pieces fit.</strong> Roughly <strong>$316,000 to $356,000</strong> of the year sits outside payroll, card costs and owner benefit. The 2024 CPA statement accounts for most of it: purchases of <strong>$337,614</strong>, the granite, liners and vaults behind every sale. The rest is what the seller pays from United Bank: utilities, property tax, fuel, sales tax, trust fund deposits, payroll taxes and equipment, including a $42,000 tractor bought for cash in 2026. Memorial suppliers are paid by check and cash too, since cards carry a 3% fee. The bank statements tie the 12-month view to the account.</div>
+    <div class="comps-note"><strong>How the pieces fit.</strong> Roughly <strong>$316,000 to $356,000</strong> of the year sits outside payroll, card costs and owner benefit. The 2024 CPA statement accounts for most of it: purchases of <strong>$337,614</strong>, the granite, liners and vaults behind every sale. The rest is what the seller pays from United Bank: utilities, property tax, fuel, sales tax, trust fund deposits, payroll taxes and equipment, including a $42,000 tractor bought for cash in 2026. Memorial suppliers are paid by check and cash too, since cards carry a 3% fee. The 2022 to 2024 bank statements now show where that money went, category by category, in the cash-flow section above.</div>
     <div class="levels__note">Not in these figures: the $5,000 monthly payments on the 10 acres sold Dec 29, 2025. They deposit to United Bank but aren't cemetery income; they go to the seller.</div>
   </section>
 
@@ -1118,13 +1186,13 @@
     </div>
 
     <div class="comps-note"><strong>Read it with the add-backs.</strong> A cemetery run for its owner shows little profit on paper. Add officer salary, meals, depreciation, amortization and interest back to the 2024 loss and about <strong>$166,000</strong> returns, before travel and auto. That brackets the owner benefit above, and it comes off the accountant's own pages.</div>
-    <div class="levels__note">The 2024 balance sheet shows $23,994 of cash, a $264,388 note payable, which is the United Bank loan since paid off, and negative capital of $50,992 after a $354,000 stock entry. Sales on these statements run ahead of the receivables workbooks, which count differently. Both sets are attached so you can tie them out.</div>
+    <div class="levels__note">The 2024 balance sheet shows $23,994 of cash, a $264,388 note payable, which is the United Bank loan since paid off, and negative capital of $50,992 after a $354,000 stock entry. Sales on these statements run ahead of the receivables workbooks. The bank settles which is right: 2024 deposits of $702,010 back the CPA, and the workbook undercounted the year. Both sets are attached so you can tie them out.</div>
   </section>
 
   <section class="block">
     <div class="eyebrow">Card Statements</div>
     <h2 class="section__title">34 statements, <em>tied to the penny.</em></h2>
-    <p class="section__lede">Twelve months, Sep 2025 to Aug 2026, across 33 in-window statements: Amex (12), the AAdvantage Aviator card (8 Barclays, then 4 as Citi 2432 after it moved in April) and Citi 4488 (9). The seller confirms the company pays every card.</p>
+    <p class="section__lede">Twelve months, Sep 2025 to Aug 2026, across 33 in-window statements: Amex (12), the AAdvantage Aviator card (8 Barclays, then 4 as Citi 2432 after it moved in April) and Citi 4488 (9). These three cards are covered in full.</p>
 
     <div class="facts">
       <div class="fact"><div class="fact__label">Business costs</div><div class="fact__value">$43,244<span class="sub">Before a $2,105 Coldspring refund</span></div></div>
@@ -1134,7 +1202,8 @@
       <div class="fact"><div class="fact__label">Small unclear charges</div><div class="fact__value">$6,351<span class="sub">Personal, per seller</span></div></div>
       <div class="fact"><div class="fact__label">Card fees</div><div class="fact__value">$924<span class="sub">Annual fees</span></div></div>
     </div>
-    <div class="comps-note">Of <strong>$115,615</strong> charged, about 37% is cemetery cost. Advertising is minimal: $514 of Google Ads in a year. Amex and Aviator charges tie line by line to each statement; Citi 4488 ties to its printed totals.</div>
+    <div class="comps-note">Of <strong>$115,615</strong> charged on these three cards, about 37% is cemetery cost. Advertising is minimal: $514 of Google Ads in a year. Amex and Aviator charges tie line by line to each statement; Citi 4488 ties to its printed totals.</div>
+    <div class="levels__note">The bank statements show payments to one more Citi account from May to August 2026. Its statements are requested and will be added here with the same treatment.</div>
   </section>
 
   <section class="block">
@@ -1201,27 +1270,27 @@
     </div>
 
     <div class="comps-note"><strong>Expansion site plan, approved.</strong> RVA Engineering plan dated Oct 17, 2025: 4.0 acres of new burial area on the 41.4-acre parcel in Hanover County. The engineer confirmed approval; stamped plans are at Hanover Planning. Before work starts: Land Disturbance Permit and nutrient credit purchase.</div>
-    <div class="comps-note"><strong>Perpetual care trust.</strong> Ending balance $1,075,887.84, held by Freed &amp; Shepherd, Attorneys, Richmond. 10% of each plot price is deposited, and trust income funds maintenance under Va. Code &sect;54.1-2322. Cemetery License No. 4901000037. Good standing with DPOR, per the seller.</div>
+    <div class="comps-note"><strong>Perpetual care trust.</strong> Ending balance $1,075,887.84 on the statement in hand. The trustee of record is being confirmed with the seller, and five years of trustee statements are requested. 10% of each plot price is deposited, and trust income funds maintenance under Va. Code &sect;54.1-2322. Cemetery License No. 4901000037. Good standing with DPOR, per the seller.</div>
     <div class="comps-note"><strong>Company equipment, per the seller.</strong> New tractor bought for $42,000 cash in 2026. John Deere tractor with cab and front-end loader. Diesel tractor. Excavator. Two backhoes, fully serviced. Lawn mower. Titles, serial numbers and condition still to be listed. The Tesla is excluded.</div>
   </section>
 
   <section class="block">
     <div class="eyebrow">Due Diligence</div>
     <h2 class="section__title">Andrew's checklist, <em>item by item.</em></h2>
-    <p class="section__lede">Numbered to match your list of Sep 13, 2026. Two items are still coming: United Bank statements on Sep 16 and the tax returns from J&amp;R Tax Professional.</p>
+    <p class="section__lede">Numbered to match your list of Sep 13, 2026. Updated Sep 18 with the United Bank statements. Still coming: 2025 bank statements and the tax returns from J&amp;R Tax Professional.</p>
 
     <div class="tablewrap">
       <table class="valtable">
         <thead><tr><th>Item</th><th>Status</th><th>Where it stands</th></tr></thead>
         <tbody>
-          <tr><td>1. P&amp;L, 2022 to 2025 + 2026</td><td><span class="chip chip--gold">Partial</span></td><td>CPA financial statements for 2022, 2023 and 2024 are attached, prepared by MacAulay &amp; Jonson, PC. Still needed: 2025 and 2026 to date, in progress with J&amp;R Tax Professional (info@jstaxpro.com).</td></tr>
+          <tr><td>1. P&amp;L, 2022 to 2025 + 2026</td><td><span class="chip chip--gold">Partial</span></td><td>CPA financial statements for 2022, 2023 and 2024 are attached, prepared by MacAulay &amp; Jonson, PC. The bank ties to them: year-end cash matches to the cent. Still needed: 2025 and 2026 to date, in progress with J&amp;R Tax Professional (info@jstaxpro.com).</td></tr>
           <tr><td>2. Tax returns, 2022 to 2025</td><td><span class="chip">Pending</span></td><td>Being gathered by J&amp;R Tax Professional.</td></tr>
-          <tr><td>3. Bank statements</td><td><span class="chip">Pending</span></td><td>12 months of United Bank arriving Sep 16. All sales deposit there; payroll and bills pay from it. Balance normally above $50,000, per the seller.</td></tr>
+          <tr><td>3. Bank statements</td><td><span class="chip chip--gold">Partial</span></td><td>42 United Bank statements in hand: Dec 2021 to Dec 2024 on the old checking account, and Apr to Aug 2026 on the new one opened in April. All tie to the cent and are categorized above. Still needed: the old account from Jan 2025 until it closed, and September 2026.</td></tr>
           <tr><td>4. Balance sheets</td><td><span class="chip">Pending</span></td><td>United Bank loan at $0.00. Company holds the $350,000 note from the land sale, which goes to the seller.</td></tr>
           <tr><td>5. Receivables</td><td><span class="chip chip--gold">Partial</span></td><td>Workbooks 2020 to Sep 8, 2026 in hand, three errors corrected. Still needed: AR aging and contract schedule.</td></tr>
           <tr><td>6. Inventory schedule</td><td><span class="chip chip--gold">Partial</span></td><td>&asymp;5,931 plots and the 2026 price list. Still needed: plot sales per year, development costs.</td></tr>
           <tr><td>7. New-site approvals</td><td><span class="chip chip--gold">Partial</span></td><td>Site plan and engineer approval on file. Still needed: stamped plans, Land Disturbance Permit.</td></tr>
-          <tr><td>8. Trust funds</td><td><span class="chip chip--gold">Partial</span></td><td>Trust statement in hand. Still needed: 5 years of trustee statements and the required balance.</td></tr>
+          <tr><td>8. Trust funds</td><td><span class="chip chip--gold">Partial</span></td><td>Trust statement in hand. Still needed: 5 years of trustee statements, the required balance, and confirmation of the current trustee.</td></tr>
           <tr><td>9. Licenses</td><td><span class="chip chip--gold">Partial</span></td><td>SCC Certificate of Good Standing dated Dec 17, 2025 is attached: incorporated July 3, 1958, in good standing. Still needed: cemetery license copies and inspection history.</td></tr>
           <tr><td>10. Contracts</td><td><span class="chip">Pending</span></td><td>Customer installment, vendor and employee agreements.</td></tr>
           <tr><td>13. Environmental</td><td><span class="chip">Pending</span></td><td>Phase I assessment for the &asymp;40 acres.</td></tr>
@@ -1230,7 +1299,7 @@
     </div>
 
     <div class="comps-note"><strong>Corrected in this brief.</strong> 2025: February ($26,686.95) was left out of the year total; corrected to $620,852.91 gross and $631,394.50 received. 2026: May was counted twice; corrected to $446,369.60 gross and $460,538.40 received. 2024: the year totals show #VALUE! errors; gross rebuilt from 283 entries at $603,308.</div>
-    <div class="levels__note">Still open: 11 entries in Nov and Dec 2024 show more received than sold, mostly by $1,320 each. The separate invoice file totals $819,879.48 through 2025 and will be reconciled, not added. Documents on file: receivables 2020 to 2026, 131 interment registrations, 34 card statements, the site plan and approval, the trust statement, the United Bank payoff and $0.00 balance, the 10-acre settlement statement, note, deed of trust and resolution, and the 2026 price list.</div>
+    <div class="levels__note">Still open: 11 entries in Nov and Dec 2024 show more received than sold, mostly by $1,320 each. The separate invoice file totals $819,879.48 through 2025 and will be reconciled, not added. Documents on file: 42 United Bank statements, receivables 2020 to 2026, 131 interment registrations, 34 card statements, the site plan and approval, the trust statement, the United Bank payoff and $0.00 balance, the 10-acre settlement statement, note, deed of trust and resolution, and the 2026 price list.</div>
   </section>
 
   <section class="block">
@@ -1333,10 +1402,10 @@
 
   <section class="block">
     <div class="cta">
-      <div class="cta__title">Take it before it goes public. <em>Once it's listed, it's gone.</em></div>
-      <p class="cta__sub">This is shared privately while the last two items come in. Send a tentative offer now and we'll lock the numbers as the bank statements and returns land.</p>
+      <div class="cta__title">You asked for the bank's number. <em>It's on the page.</em></div>
+      <p class="cta__sub">2025, one more card and the returns are on the way. Tell us what your accountant needs next and it goes to the top of the list.</p>
       <div class="cta__buttons">
-        <a href="mailto:miles@milesagee.com?subject=Roselawn%20tentative%20offer" class="cta__btn">Send a tentative offer</a>
+        <a href="mailto:miles@milesagee.com?subject=Roselawn%20diligence%20questions" class="cta__btn">Send your questions</a>
         <a href="sms:+18044098340" class="cta__btn cta__btn--ghost">Text Miles a question</a>
       </div>
     </div>
@@ -1344,7 +1413,7 @@
 
   <footer class="foot">
     <div class="why">Prepared by <em>Miles Agee</em> &middot; MAMS &middot; OneSouth Realty team &middot; Samson Properties</div>
-    <div>miles@milesagee.com &middot; (804) 409-8340 &middot; Shared privately with Andrew Ozick and Rebecca Nardi. Seller-stated figures are labeled and await documentation.</div>
+    <div>miles@milesagee.com &middot; (804) 409-8340 &middot; Shared privately with Andrew Ozick and Rebecca Nardi. Seller-stated figures are labeled and await documentation. Updated Sep 18, 2026.</div>
   </footer>
 
 </div>
