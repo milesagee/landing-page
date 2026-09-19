@@ -342,6 +342,54 @@
   .sources a { color: #003F3F; text-decoration: underline; text-decoration-color: rgba(212,175,55,0.6); text-underline-offset: 2px; }
   .sources a:hover { text-decoration-color: #D4AF37; }
   .sources a:focus-visible { outline: 2px solid #D4AF37; outline-offset: 2px; }
+
+  .flow { list-style: none; padding: 0; margin: 8px 0 24px; counter-reset: f; }
+  .flow li {
+    position: relative; counter-increment: f;
+    padding: 16px 18px 16px 52px; margin-bottom: 10px;
+    background: #fff; border: 1px solid rgba(0,63,63,0.08); border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,63,63,0.05), 0 6px 20px rgba(0,63,63,0.05);
+    font-size: 15px; color: rgba(0,63,63,0.8); line-height: 1.55;
+  }
+  .flow li::before {
+    content: counter(f); position: absolute; left: 16px; top: 15px;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #003F3F; color: #D4AF37; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .flow li strong { color: #003F3F; font-weight: 600; display: block; margin-bottom: 2px; }
+  .tag {
+    display: inline-block; font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 2px; margin-left: 6px; vertical-align: 2px;
+  }
+  .tag.auto { background: rgba(0,63,63,0.09); color: #003F3F; }
+  .tag.you { background: rgba(212,175,55,0.2); color: #8a7020; }
+  .lane { margin: 0 0 26px; }
+  .lane-name {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 19px;
+    color: #003F3F; margin: 0 0 4px;
+  }
+  .lane-why { font-size: 14px; color: rgba(0,63,63,0.62); margin: 0 0 10px; line-height: 1.5; font-style: italic; }
+  .lane ul { list-style: none; padding: 0; margin: 0; }
+  .lane li { padding: 9px 0 9px 16px; border-left: 2px solid rgba(212,175,55,0.35); font-size: 15px; color: rgba(0,63,63,0.8); line-height: 1.5; margin-bottom: 2px; }
+  .lane li a { color: #003F3F; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(212,175,55,0.6); text-underline-offset: 2px; }
+  .lane li a:hover { text-decoration-color: #D4AF37; }
+  .lane li a:focus-visible { outline: 2px solid #D4AF37; outline-offset: 2px; }
+  .first { border-left-color: #D4AF37 !important; background: rgba(212,175,55,0.07); }
+  details.ref { margin: 60px 0 0; border-top: 1px solid rgba(0,63,63,0.08); }
+  details.ref > summary {
+    list-style: none; cursor: pointer; padding: 28px 0;
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 22px; color: #003F3F;
+    transition: opacity 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  details.ref > summary::-webkit-details-marker { display: none; }
+  details.ref > summary span { display: block; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; color: rgba(0,63,63,0.6); margin-top: 6px; }
+  details.ref > summary:hover { opacity: 0.8; }
+  details.ref > summary:focus-visible { outline: 3px solid #D4AF37; outline-offset: 4px; }
+  details.ref > summary::after { content: '+ Open'; display: inline-block; margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #B1922E; }
+  details.ref[open] > summary::after { content: 'Close'; }
+
   @media (min-width: 700px) { .rate-grid { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
@@ -358,17 +406,216 @@
 <div class="container">
 
   <section class="hero">
-    <div class="hero-kicker">Built for you. Yours to keep.</div>
-    <h1>Lex.<br>Your door opens in <em>about 60 days</em>.</h1>
-    <p>You don't need clients yet. You need the practice fully built the day the license lands, so the first woman who finds you can book without a single back and forth.</p>
-    <p><strong>Start with the client engine</strong>: how the right women find you and book without you chasing them. Then the rate, the stack, where AI fits, and the runway to license day.</p>
+    <div class="hero-kicker">Version two. Built from what you told us.</div>
+    <h1>Lex.<br>You already know <em>the what</em>.</h1>
+    <p>You're not stuck. You're working the list in order. So this page skips the research you've already done and goes straight to what nobody hands you.</p>
+    <p><strong>Four things:</strong> how to leave your current practice without getting burned, the machine that runs your intake while you're in session, the actual names to call in Richmond, and the messages to send them this week.</p>
 
     <div class="personal-note">
-      <p>Lex. Miles told me you're one of the good ones. The kind of person people heal around. That's exactly why this page starts with money.</p>
-      <p>A heart like yours only keeps showing up for women if the practice pays you what the work is worth. Pricing it right isn't taking from them. It's what lets you stay.</p>
+      <p>Your first two versions were answers to questions you'd already answered yourself. That's on us. This one starts from your words: "I want to make sure I'm building the right systems."</p>
     </div>
   </section>
 
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">01 · Leave clean</div>
+      <h2>Virginia changed the non-compete law <em>this summer</em>.</h2>
+      <p class="section-lede">Since July 1, 2026, an employer in Virginia can't enter into, enforce, or threaten to enforce a non-compete against a health care professional. The law's definition names anyone licensed, registered, or certified by the <strong>Board of Social Work</strong>.</p>
+    </div>
+
+    <h3 class="sub">The catch is <em>one date</em></h3>
+    <p>The new ban only covers non-competes <strong>entered into, amended, or renewed on or after July 1, 2026</strong>. Older contracts fall under the old rules. So the first thing to find is the date on your contract, and any renewal or amendment since.</p>
+    <div class="ledger">
+      <div class="ledger-row"><div class="ledger-label">Signed or renewed on or after July 1, 2026<small>You're likely covered by the ban. Confirm that it applies to you as a supervisee.</small></div><div class="ledger-val">Likely void</div></div>
+      <div class="ledger-row"><div class="ledger-label">Signed before July 1, 2026<small>The old rules apply. Courts read it strictly against the employer, and won't rewrite an overbroad clause into a valid one.</small></div><div class="ledger-val">Fact fight</div></div>
+      <div class="ledger-row"><div class="ledger-label">Earn under $1,507/week, or you're paid overtime<small>A separate "low-wage" ban. It applies no matter when you signed.</small></div><div class="ledger-val">Void</div></div>
+    </div>
+
+    <h3 class="sub">What still holds <em>either way</em></h3>
+    <ul class="never">
+      <li><strong>Client non-solicitation.</strong> The law still allows a clause that stops you from reaching out to her clients. It protects you when a client finds you on her own and you didn't initiate contact. It doesn't let you contact them.</li>
+      <li><strong>Training repayment.</strong> For health care workers there less than 5 years, the law allows prorated repayment of training, recruitment, or bonus costs. This is probably the "money I owe her" piece.</li>
+      <li><strong>The records.</strong> They stay with the practice. Clients can request their own records, and the practice has 30 days to respond.</li>
+    </ul>
+
+    <h3 class="sub">Her breaches: <em>real, but not automatic</em></h3>
+    <p>Under Virginia law (Horton v. Horton), the party who commits the first <em>material</em> breach can't enforce the contract. "Material" is a fact question, and we found no Virginia case using it to void a non-compete. That makes the breaches leverage, not a guarantee. The time to document them is now, while you're still there.</p>
+
+    <div class="safety">
+      <div class="eyebrow">Before you give notice</div>
+      <h2>Protect yourself <em>in this order</em>.</h2>
+      <div class="valve">
+        <div><span>1 · The date</span>Find when your contract was signed, and every renewal or amendment since, including pay changes and title changes.</div>
+        <div><span>2 · Your file</span>Keep copies of your own contract, pay stubs, and a dated record of each breach. Only your own records. Nothing about any client, ever.</div>
+        <div><span>3 · Silence</span>Say nothing to clients about your practice yet. No lists, no numbers, no "find me later."</div>
+        <div><span>4 · One hour with an attorney</span>A Virginia employment attorney, before notice. Bring the questions below.</div>
+        <div><span>5 · At notice</span>The NASW Code (1.17f) says to tell clients their options for continuing care, and the benefits and risks of each. Get the exact wording approved by your attorney first.</div>
+        <div><span>6 · After</span>When a former client finds you on her own, record in her intake how she found you. That note is your proof.</div>
+      </div>
+      <p>This is research to prep you for the attorney, not legal advice. We don't need to see your contract, and neither does anyone except your lawyer.</p>
+    </div>
+
+    <div class="retype-label">Your attorney questions · tap to copy</div>
+    <div class="retype" tabindex="0" role="button" style="white-space:pre-line">1. My non-compete was signed on [date] and renewed/amended on [dates]. Does the July 1, 2026 health care professional ban (Va. Code 40.1-28.7:8) apply?
+2. Am I a "health care professional" under the statute today as a Supervisee in Social Work? Does that change the day my LCSW issues?
+3. I earn about $[X]/week and I'm [exempt / non-exempt]. Am I a "low-wage employee" under the statute?
+4. If the old rules apply, is my covenant overbroad in function, geography, or duration (Home Paramount v. Shaffer)? What would defending an enforcement suit cost?
+5. Are these breaches material under Horton v. Horton: [list]? How do I preserve that argument while I keep working and getting paid?
+6. What exactly can I say to current clients to meet NASW 1.17(f) without breaching a client non-solicitation clause?
+7. If former clients find me on their own, how do I document that I didn't initiate contact?
+8. Is my repayment clause a lawful prorated repayment or an unenforceable penalty? Can she withhold my final paycheck against it?
+9. Should I negotiate a release or send a demand letter before I open? If she threatens to enforce a banned covenant, do I have a claim for the $10,000 penalty and attorney fees?</div>
+    <p class="retype-note">Paste this into the email booking your consult. The attorney will know within a minute which question matters most.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">02 · The machine</div>
+      <h2>Nine steps. <em>Five run themselves.</em></h2>
+      <p class="section-lede">This is the whole journey, from a stranger's search to a weekly client, built in SimplePractice. Each step is marked as automatic or yours. The steps marked yours total about 20 minutes per new client, plus the consult.</p>
+    </div>
+    <ol class="flow">
+      <li><strong>She finds you <span class="tag you">Build once</span></strong>Google Business Profile, your search pages, Therapy Finder, or a referral from the map below.</li>
+      <li><strong>She requests a free consult <span class="tag auto">Auto</span></strong>Set the free 15-minute consult as the <em>only</em> service new clients can book online. They can't book a full session until you've talked. Every request lands on your Inquiries page as a prospective client.</li>
+      <li><strong>You accept <span class="tag you">2 min</span></strong>SimplePractice makes you approve each request. Check twice a day, between sessions. Same-day replies are what win the client.</li>
+      <li><strong>Reminders go out <span class="tag auto">Auto</span></strong>Email, text, or voice, 24 to 72 hours before. Clients can confirm or cancel from the text. In-person reminders need Essential or higher, which is why Starter isn't enough.</li>
+      <li><strong>The consult <span class="tag you">15 min</span></strong>Four things: is it a fit, your rate said out loud, the commitment (weekly, for months), and "what makes now the right time."</li>
+      <li><strong>Intake, one click <span class="tag you">5 min</span></strong>Mark your intake forms as defaults so they're pre-selected. One click sends them with the portal invite. The Good Faith Estimate is a form you fill in and sign, so build a template and copy it. Her card goes on file.</li>
+      <li><strong>Weekly slot, set once <span class="tag auto">Auto</span></strong>Book her first session as a weekly recurring series, up to 100 appointments. You never schedule her again.</li>
+      <li><strong>Billing <span class="tag auto">Auto</span></strong>Turn on daily auto-invoicing plus AutoPay, and her card is charged overnight after each session. Late cancels and no-shows are billed the full fee automatically, based on the window you set. Put that policy in your consent forms.</li>
+      <li><strong>When you're full <span class="tag auto">Auto</span></strong>New inquiries go to the waitlist (Essential or higher). The day a slot opens, you already know who's next.</li>
+    </ol>
+
+    <h3 class="sub">Your 30-minute <em>owner hour</em>, Fridays</h3>
+    <p>Four numbers, one line in a notebook every week. They tell you which part of the machine is leaking before it costs you a month.</p>
+    <div class="ledger">
+      <div class="ledger-row"><div class="ledger-label">Inquiries<small>From your Inquiries page. Low means people can't find you, so fix step 1.</small></div><div class="ledger-val">#</div></div>
+      <div class="ledger-row"><div class="ledger-label">Consults held<small>Low compared to inquiries means slow replies, so fix step 3.</small></div><div class="ledger-val">#</div></div>
+      <div class="ledger-row"><div class="ledger-label">New clients<small>Low compared to consults means it's how you're naming the price, or the fit. Fix step 5.</small></div><div class="ledger-val">#</div></div>
+      <div class="ledger-row"><div class="ledger-label">Active clients<small>From the Attendance report. Dropping means a retention problem, not a marketing one.</small></div><div class="ledger-val">#</div></div>
+    </div>
+    <p>Then book one referral coffee for next week, from the map below. That's the whole hour.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">03 · Your referral map</div>
+      <h2>These are the people who meet <em>your client first</em>.</h2>
+      <p class="section-lede">Each of these businesses is real and has a live website. We checked every one. The highlighted names are where to start.</p>
+    </div>
+
+    <div class="lane">
+      <div class="lane-name">EMDR and therapist peers</div>
+      <p class="lane-why">Full caseloads overflow. Other clinicians are the steadiest private-pay source there is.</p>
+      <ul>
+        <li class="first"><a href="https://www.simplyrewireemdr.com/rva-emdr-community">RVA Regional EMDR Community</a> · free monthly peer consultation plus low-cost quarterly CEs. Join this one first.</li>
+        <li><a href="https://sites.google.com/view/rvatherapistconnections/home">RVA Therapist Connections</a> · a Google group where Richmond therapists share referrals.</li>
+        <li><a href="https://www.naswva.org/">NASW Virginia</a> · your home association once you're an LCSW. CEs and events.</li>
+        <li><a href="https://seaglassrva.com/consultation">Sea Glass</a> · offers EMDR consultation, and is also your closest competitor on intensives. Worth knowing both ways.</li>
+      </ul>
+    </div>
+
+    <div class="lane">
+      <div class="lane-name">Pelvic floor physical therapy</div>
+      <p class="lane-why">Trauma often shows up in the body before anyone names it. These PTs see it every week and need somewhere to send it.</p>
+      <ul>
+        <li class="first"><a href="https://www.fettleandfit.com/">Fettle &amp; Fit</a> · Forest Hill. Woman-owned, board-certified women's health PT.</li>
+        <li><a href="https://www.rvaholisticpt.com/">RVA Holistic PT</a> · the Fan and West End. Pelvic health plus massage, so their clients already value body-based care.</li>
+        <li><a href="https://www.rvaphysicaltherapy.com/pelvic-health/">RVA Physical Therapy</a> · a chronic pelvic pain program.</li>
+        <li><a href="https://uro.com/services/physical-therapy/">Virginia Urology</a> · two dedicated pelvic floor PTs, high volume.</li>
+      </ul>
+    </div>
+
+    <div class="lane">
+      <div class="lane-name">Integrative medicine and women's health</div>
+      <p class="lane-why">Membership practices mean their patients already pay out of pocket. That's your client.</p>
+      <ul>
+        <li class="first"><a href="https://richmondfunctionalmedicine.com/">Richmond Integrative &amp; Functional Medicine</a> · Midlothian. Membership model.</li>
+        <li><a href="https://www.inhealthrva.com/">InHealthRVA</a> · integrative primary care, membership model.</li>
+        <li><a href="https://www.vaintegrativehealth.com/">Dubovoy Integrative Health</a> · an integrative OB-GYN.</li>
+        <li><a href="https://embracebirthva.com/midwifery-care/">Embrace Birth Center</a> · Buford Rd. An independent birth center, where families choose the alternative path.</li>
+        <li><a href="https://www.westend-obgyn.com/">West End OB-GYN</a> · <a href="https://vpfw.com/">Virginia Physicians for Women</a> · <a href="https://virginiawomenscenter.com/">Virginia Women's Center</a> · larger practices, a slower door. Start once you have a referral in.</li>
+      </ul>
+    </div>
+
+    <div class="lane">
+      <div class="lane-name">Collaborative divorce</div>
+      <p class="lane-why">Divorce is when a lot of women finally look at what happened to them growing up. These professionals refer out constantly, and their clients can pay.</p>
+      <ul>
+        <li class="first"><a href="https://collaborativeprofessionalsofrichmond.com/">Collaborative Professionals of Richmond</a> · the whole network in one place. Start with Susan J. Buniva, LCSW, a divorce coach with 40+ years of practice. She's a peer.</li>
+        <li><a href="https://owenowens.com/attorneys/mary-burkey-owens/">Owen &amp; Owens</a> · Mary Burkey Owens, collaborative law.</li>
+        <li><a href="https://www.janetebrown.net/collaborative-practice">Janet E. Brown, PC</a> · a woman-led collaborative practice.</li>
+        <li><a href="https://donitakinglaw.com/">Donita King Law</a> · a woman-led firm, mediation and collaborative.</li>
+      </ul>
+    </div>
+
+    <div class="lane">
+      <div class="lane-name">Yoga, your home turf</div>
+      <p class="lane-why">You teach. Teach the teachers, and they send you students who need more than a mat. Your own students stay students, never clients.</p>
+      <ul>
+        <li class="first"><a href="https://www.theyogadojo.net/">The Yoga Dojo</a> · runs 200 and 300-hour teacher trainings, with several trauma-informed instructors on staff. Offer to guest-teach a trauma-informed module.</li>
+        <li><a href="https://www.reliantyogaservices.com/">Reliant Yoga Services</a> · Elise Cunningham, trauma-informed, partners with local treatment centers.</li>
+        <li><a href="https://www.humblehavenyoga.com/">Humble Haven Yoga</a> · Forest Ave, with a 2026 teacher training.</li>
+      </ul>
+    </div>
+
+    <div class="lane">
+      <div class="lane-name">Birth and postpartum</div>
+      <p class="lane-why">Birth brings up childhood trauma for a lot of women. Doulas are the ones in the room when it does.</p>
+      <ul>
+        <li><a href="https://mybirthrva.com/postpartum-doulas">MyBirth RVA</a> · <a href="https://www.richmondbirthandbaby.com/">Richmond Birth and Baby</a> · <a href="https://thediversedoula.com/the-diverse-birth/">The Diverse Birth Collective</a> · <a href="https://www.birthwithpeace.co/">Birth With Peace</a></li>
+        <li><a href="https://postpartumva.org/">Postpartum Support Virginia</a> · keeps provider referral lists. Ask to be added once you're licensed.</li>
+      </ul>
+    </div>
+
+    <div class="lane">
+      <div class="lane-name">Rooms full of women who can pay</div>
+      <p class="lane-why">You're not there to pitch. Just be the trauma therapist everyone in the room knows.</p>
+      <ul>
+        <li><a href="https://www.nawborichmond.org/">NAWBO Richmond</a> · <a href="https://wibrva.com/">Women in Business RVA</a> · <a href="https://femcity.com/richmond">FemCity Richmond</a> · <a href="https://www.ewomennetwork.com/chapters/richmond-580">eWomenNetwork</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">04 · Send this week</div>
+      <h2>Build relationships now. <em>Announce on license day.</em></h2>
+      <p class="section-lede">Until the license issues, don't present an independent practice. So these messages are about learning how they work and who they refer to. When your license lands, everyone you've met gets one announcement.</p>
+    </div>
+
+    <div class="retype-label">To a pelvic floor PT · tap to copy</div>
+    <div class="retype" tabindex="0" role="button">Hi [Name], I'm Lex, an EMDR-trained clinician in Richmond focused on women healing childhood trauma and PTSD. I also teach yoga, so my work leans somatic. I know trauma often shows up in pelvic health before anyone names it, and I'd love to learn how you handle that with your patients and who you trust to refer to. Could I buy you a coffee for 20 minutes in the next few weeks?</div>
+
+    <div class="retype-label">To integrative medicine or a birth center · tap to copy</div>
+    <div class="retype" tabindex="0" role="button">Hi [Name], I'm Lex, a Richmond clinician trained in EMDR, somatic work, and IFS, working with women carrying childhood trauma. Your patients choose a whole-person approach, which is how I think about trauma too. I'd love to understand what you see and where you send patients when the root is emotional. Would you have 20 minutes for a coffee or a call?</div>
+
+    <div class="retype-label">To Susan Buniva or a collaborative divorce pro · tap to copy</div>
+    <div class="retype" tabindex="0" role="button">Hi Susan, I'm Lex, a Richmond clinician who works with women healing childhood trauma, using EMDR, somatic work, and parts work. Divorce is often when those older wounds come to the surface, and your work sits right at that moment. I'd value 20 minutes to hear how you support clients through it and which therapists you rely on. Coffee on me?</div>
+
+    <div class="retype-label">To The Yoga Dojo · tap to copy</div>
+    <div class="retype" tabindex="0" role="button">Hi [Name], I'm Lex, a yoga teacher and an EMDR-trained clinician in Richmond who works with trauma. I love that your teacher trainings take a trauma-informed approach. I'd be glad to guest-teach a module for your trainees on what trauma looks like on the mat and how to hold it safely. Could we talk about whether that fits your 2027 program?</div>
+
+    <div class="retype-label">License-day announcement · save for later</div>
+    <div class="retype" tabindex="0" role="button">Hi [Name], thank you again for [the coffee / the conversation] in [month]. I'm now licensed as an LCSW and have opened [Practice name], a private practice for women healing childhood trauma through EMDR, somatic work, and IFS. Free 15-minute consults are open at [link]. If you ever meet a woman who's ready for this work, I'd be honored to be the name you give her.</div>
+
+    <h3 class="sub">The six-week <em>cadence</em></h3>
+    <ul class="steps">
+      <li><strong>Week 1.</strong> Join the RVA EMDR Community and RVA Therapist Connections. Book your attorney hour.</li>
+      <li><strong>Weeks 2 to 5.</strong> Two coffees a week, one from the highlighted names in each lane. That's eight real relationships by license day.</li>
+      <li><strong>Week 6.</strong> Pitch The Yoga Dojo module. Go to one NAWBO or Women in Business event.</li>
+      <li><strong>License day.</strong> Send the announcement to everyone you met. Say yes to Postpartum Support Virginia's list.</li>
+    </ul>
+    <p class="retype-note">Heads up: your current contract may restrict soliciting your employer's clients. It almost certainly doesn't cover a coffee with a physical therapist. If a clause mentions "referral sources," ask your attorney before week 2.</p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">05 · The inner work, briefly</div>
+    <p class="single-ask">You spend your days teaching women that their needs aren't too much. <strong>Your rate is the same lesson, applied to you.</strong> The women who are ready will hear $175 as a sign you take their healing seriously. The ones who flinch are telling you something true about where they are, and that's okay. It isn't a verdict on you.</p>
+  </section>
+
+  <details class="ref">
+    <summary>The research you already had<span>Rates, stack, ads, compliance, AI, the runway. Kept here for reference.</span></summary>
   <section class="section" id="engine">
     <div class="section-header">
       <div class="eyebrow">Start here · The client engine</div>
@@ -593,6 +840,7 @@
     <div class="eyebrow">If you only do one thing</div>
     <p class="single-ask">Say the number out loud this week: <strong>$175.</strong> Write it on the Fees page before you write anything else. Everything on this page gets easier once the price stops being a question.</p>
   </section>
+  </details>
 
   <section class="section">
     <div class="eyebrow">Sources</div>
@@ -607,6 +855,8 @@
       <li>SimplePractice: <a href="https://www.simplepractice.com/pricing/">Pricing</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/115004734123-Adding-the-appointment-request-widget-to-your-website">Booking widget</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/360019822032-Getting-started-with-online-payments">Payments</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/37170656954765-Getting-started-with-Therapy-Finder">Therapy Finder</a></li>
       <li>GoHighLevel HIPAA: <a href="https://www.gohighlevel.com/hipaa">gohighlevel.com/hipaa</a> · Psychology Today: <a href="https://join.psychologytoday.com/us/signup">pricing</a> · EMDRIA: <a href="https://www.emdria.org/find-an-emdr-therapist/">directory rules</a></li>
       <li>Ads: <a href="https://support.google.com/adspolicy/answer/143465">Google personalized ads policy</a> · <a href="https://support.google.com/adspolicy/answer/176031">Google healthcare ads policy</a> · <a href="https://localiq.com/blog/healthcare-search-advertising-benchmarks/">LocaliQ healthcare benchmarks</a> · <a href="https://www.facebook.com/government-nonprofits/blog/preparing-for-upcoming-removal-of-certain-ad-targeting-options">Meta 2022 targeting removal</a> · <a href="https://www.socialworkers.org/About/Ethics/Code-of-Ethics/Code-of-Ethics-English/Social-Workers-Ethical-Responsibilities-to-Clients">NASW 1.06(c) dual relationships</a></li>
+      <li>Leaving clean: <a href="https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-28.7:8/">Va. Code 40.1-28.7:8</a> · <a href="https://natlawreview.com/article/virginia-senate-bill-128-adds-health-care-professionals-to-virginias-noncompete">SB 128 health care professionals</a> · <a href="https://www.ebglaw.com/trade-secrets-employee-mobility/virginia-senate-bill-128-adds-health-care-professionals-to-virginias-noncompete-restrictions">EBG on SB 128</a> · <a href="https://doli.virginia.gov/2026/01/06/notice-of-the-average-weekly-wage-for-2026/">2026 wage threshold</a> · <a href="https://law.justia.com/cases/virginia/supreme-court/2011/101837.html">Home Paramount v. Shaffer</a> · <a href="https://www.casemine.com/judgement/us/591481d4add7b0493448b264">Horton v. Horton</a> · <a href="https://law.lis.virginia.gov/vacode/title32.1/chapter5/section32.1-127.1:03/">Records access 32.1-127.1:03</a></li>
+      <li>The machine: <a href="https://support.simplepractice.com/hc/en-us/articles/42052535058957-Setting-up-appointment-reminders">Reminders</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/41919706207757-Managing-services-for-online-appointment-requests">Online request services</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/41930568779021-Managing-recurring-appointments">Recurring</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/210215626-Getting-started-with-AutoPay">AutoPay</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/360046771271-Setting-up-your-practice-s-cancellation-policy">Cancellation policy</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/4418210427021-Adding-a-good-faith-estimate">Good Faith Estimate</a> · <a href="https://support.simplepractice.com/hc/en-us/articles/19385683508237-Managing-the-client-waitlist">Waitlist</a></li>
       <li>AI and tracking: <a href="https://help.openai.com/en/articles/20001069-hipaa-eligible-products-and-functionality">OpenAI HIPAA products</a> · <a href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/hipaa-online-tracking/index.html">HHS online tracking guidance</a></li>
     </ul>
   </section>
